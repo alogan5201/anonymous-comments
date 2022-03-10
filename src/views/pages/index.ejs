@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+    <header>
+      <nav></nav>
+    </header>
+
+    <!-- Main Content-->
+
+    <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-5">
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="address-to-latlon.html" class="stretched-link">
+                  <h5 class="card-title">
+                    Address to Latitude and Longitude
+                  </h5></a
+                >
+                <p class="card-text mt-1">
+                  Find latitude and logitude of a place
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="<%= PP %>lat-lon-to-address.html" class="stretched-link">
+                  <h5 class="card-title">
+                    Latitude and Longitude to Address
+                  </h5></a
+                >
+                <p class="card-text mt-1">
+                  Find the address from the lat and long
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="<%= PP %>latlon-to-dms.html" class="stretched-link">
+                  <h5 class="card-title">Latitude and Longitude to DMS</h5></a
+                >
+                <p class="card-text mt-1">
+                  Convert lat long to degrees min sec.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="dms-to-latlon.html" class="stretched-link">
+                  <h5 class="card-title">
+                     DMS to Latitude and Longitude
+                  </h5></a
+                >
+                <p class="card-text mt-1">
+                  Identify travel time from two sets of longitude and latitude
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="address-distance.html" class="stretched-link">
+                  <h5 class="card-title">
+                    Distance Calculator between Locations
+                  </h5></a
+                >
+                <p class="card-text mt-1">
+                  Find distance between two locations
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col shadow-sm rounded">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="lat-lon-distance.html" class="stretched-link">
+                  <h5 class="card-title">
+                    Distance Calculator between Latitude and Longitude
+                  </h5></a
+                >
+                <p class="card-text mt-1">
+                  Calculate the distance between coordinates.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </main>
+
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

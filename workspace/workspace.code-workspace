@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../src/js"
+    },
+    {
+      "path": "../src/views/pages"
+    },
+    {
+      "path": "../src/views/partials"
+    },
+    {
+      "path": "../src/css"
+    }
+  ],
+  "settings": {}
+}

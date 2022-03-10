@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <style>
+      .card2 {
+        display: block;
+        top: 0px;
+        position: relative;
+        max-width: 235px;
+        background-color: #f2f8f9;
+        border-radius: 4px;
+        padding: 32px 24px;
+        margin: 12px;
+        text-decoration: none;
+        z-index: 0;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        transition: all 200ms ease-in-out;
+      }
+      .card2:hover {
+        box-shadow: 0px 4px 8px rgb(38 38 38 / 16%);
+        top: -4px;
+        border: 1px solid #cccccc;
+        background-color: white;
+        transform: scale(1.02);
+      }
+      .card2:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -16px;
+        right: -16px;
+        background: #00838d;
+        height: 32px;
+        width: 32px;
+        border-radius: 32px;
+      }
+      .section_our_solution .row {
+        align-items: center;
+      }
+
+      .our_solution_category {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .our_solution_category .solution_cards_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .solution_cards_box .solution_card {
+        flex: 0 50%;
+        background: #fff;
+        box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+          0 5px 15px 0 rgba(37, 44, 97, 0.15);
+        border-radius: 15px;
+        margin: 8px;
+        padding: 10px 15px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        min-height: 265px;
+        transition: 0.7s;
+      }
+
+      .solution_cards_box .solution_card:hover {
+        background: #309df0;
+        color: #fff;
+        transform: scale(1.1);
+        z-index: 9;
+      }
+
+      .solution_cards_box .solution_card:hover::before {
+        background: rgb(85 108 214 / 10%);
+      }
+
+      .solution_cards_box .solution_card:hover .solu_title h3,
+      .solution_cards_box .solution_card:hover .solu_description p {
+        color: #fff;
+      }
+
+      .solution_cards_box .solution_card:before {
+        content: "";
+        position: absolute;
+        background: rgb(85 108 214 / 5%);
+        width: 170px;
+        height: 400px;
+        z-index: -1;
+        transform: rotate(42deg);
+        right: -56px;
+        top: -23px;
+        border-radius: 35px;
+      }
+
+      .solution_cards_box .solution_card:hover .solu_description button {
+        background: #fff !important;
+        color: #309df0;
+      }
+
+      .solution_card .so_top_icon {
+      }
+
+      .solution_card .solu_title h3 {
+        color: #212121;
+        font-size: 1.3rem;
+        margin-top: 13px;
+        margin-bottom: 13px;
+      }
+
+      .solution_card .solu_description p {
+        font-size: 15px;
+        margin-bottom: 15px;
+      }
+
+      .solution_card .solu_description button {
+        border: 0;
+        border-radius: 15px;
+        background: linear-gradient(
+          140deg,
+          #42c3ca 0%,
+          #42c3ca 50%,
+          #42c3cac7 75%
+        ) !important;
+        color: #fff;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 5px 16px;
+      }
+
+      .our_solution_content h1 {
+        text-transform: capitalize;
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+      }
+      .our_solution_content p {
+      }
+
+      .hover_color_bubble {
+        position: absolute;
+        background: rgb(54 81 207 / 15%);
+        width: 100rem;
+        height: 100rem;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        top: 16rem;
+        border-radius: 50%;
+        transform: rotate(-36deg);
+        left: -18rem;
+        transition: 0.7s;
+      }
+
+      .solution_cards_box .solution_card:hover .hover_color_bubble {
+        top: 0rem;
+      }
+
+      .solution_cards_box .solution_card .so_top_icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .solution_cards_box .solution_card .so_top_icon img {
+        width: 40px;
+        height: 50px;
+        object-fit: contain;
+      }
+
+      /*start media query*/
+      @media screen and (min-width: 320px) {
+        .sol_card_top_3 {
+          position: relative;
+          top: 0;
+        }
+
+        .our_solution_category {
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .our_solution_category .solution_cards_box {
+          flex: auto;
+        }
+      }
+      @media only screen and (min-width: 768px) {
+        .our_solution_category .solution_cards_box {
+          flex: 1;
+        }
+      }
+      @media only screen and (min-width: 1024px) {
+        .sol_card_top_3 {
+          position: relative;
+          top: -3rem;
+        }
+        .our_solution_category {
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+      /*
+      .pricing-page .card {
+        background: #fff;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+          0 5px 15px 0 rgba(37, 44, 97, 0.15);
+        transition: 0.2s ease-in;
+      }
+      .pricing-page .card:hover {
+        transform: scale(1.02);
+        z-index: 1;
+      }
+      .pricing-page .card:hover:hover::before {
+        background: rgb(85 108 214 / 10%);
+      }
+      .pricing-page .card:hover:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        transform: rotate(42deg);
+        right: -56px;
+        top: -23px;
+        background: rgb(85 108 214 / 5%);
+      }*/
+
+      .pricing-header {
+        padding: 2rem 6rem 1rem 6rem !important;
+      }
+    </style>
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+
+    <!-- Main Content-->
+
+
+      <header>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h2 class="fw-normal">Pricing</h2>
+        </div>
+      </header>
+
+      <main class="pricing-page mb-4 ">
+<div class="container px-4 px-lg-5">
+
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Free</h4>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">$0</h3>
+                <p class="card-text">50 daily Geocoding Requests <br> Forward Geocoding <br>Reverse Geocoding <br> Email Support</p>
+
+
+
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg  btn-outline-primary mt-1"
+                >
+                  Sign Up
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Solo</h4>
+              </div>
+              <div class="card-body">
+
+                <h3 class="card-title"> $1</h3>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>100 Geocoding Requests</li>
+                  <li>Batch Forward Geocoding</li>
+                  <li>Batch Reverse Geocoding</li>
+                  <li>Email support</li>
+                  <li>Add-free experience</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Basic</h4>
+              </div>
+              <div class="card-body">
+
+                <h3 class="card-title"> $4</h3>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>1,000 Geocoding Requests</li>
+                  <li>Batch Forward Geocoding</li>
+                  <li>Batch Reverse Geocoding</li>
+                  <li>Email support</li>
+                  <li>Add-free experience</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Starter</h4>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title"> $9</h3>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>2,000 Geocoding Requests</li>
+                  <li>Batch Forward Geocoding</li>
+                  <li>Batch Reverse Geocoding</li>
+                  <li>Email support</li>
+                  <li>Add-free experience</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Advanced</h4>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title"> $19</h3>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>4,000 Geocoding Requests</li>
+                  <li>Batch Forward Geocoding</li>
+                  <li>Batch Reverse Geocoding</li>
+                  <li>Email support</li>
+                  <li>Add-free experience</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div class="card rounded-3 shadow-sm w-100">
+              <div class="card-header py-2">
+                <h4 class="my-0 fw-normal">Pro</h4>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title"> $34</h3>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>8,000 Geocoding Requests</li>
+                  <li>Batch Forward Geocoding</li>
+                  <li>Batch Reverse Geocoding</li>
+                  <li>Email support</li>
+                  <li>Add-free experience</li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+<div class="row  my-5 text-center">
+
+  <h3 class="fw-normal text-center mt-3 p-3">Compare plans</h3>
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%;"></th>
+                <th style="width: 22%;">Free</th>
+                <th style="width: 22%;">Pro</th>
+                <th style="width: 22%;">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Public</th>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Private</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Permissions</th>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Sharing</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Unlimited members</th>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Extra security</th>
+                <td></td>
+                <td></td>
+                <td>
+                  <svg
+                    class="bi me-2"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                  >
+                    <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                    <path
+                      d="M438.6 105.4C451.1 117.9 451.1 138.1 438.6 150.6L182.6 406.6C170.1 419.1 149.9 419.1 137.4 406.6L9.372 278.6C-3.124 266.1-3.124 245.9 9.372 233.4C21.87 220.9 42.13 220.9 54.63 233.4L159.1 338.7L393.4 105.4C405.9 92.88 426.1 92.88 438.6 105.4H438.6z"
+                    />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+</div>
+
+      </main>
+
+      <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+          <div class="col-12 col-sm">
+            <img
+              class="mb-2"
+              src="/docs/5.0/assets/brand/bootstrap-logo.svg"
+              alt=""
+              width="24"
+              height="19"
+            />
+            <small class="d-block mb-3 text-muted">© 2017–2021</small>
+          </div>
+          <div class="col-6 col-sm">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Cool stuff</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Random feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Team feature</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Stuff for developers</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Another one</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Last time</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-sm">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Resource name</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Another resource</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Final resource</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-sm">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#">Team</a>
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Locations</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Privacy</a
+                >
+              </li>
+              <li class="mb-1">
+                <a class="link-secondary text-decoration-none" href="#"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

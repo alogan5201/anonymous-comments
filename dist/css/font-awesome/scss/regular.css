@@ -1,0 +1,17 @@
+/*!
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url("../webfonts/fa-regular-400.eot");
+  src: url("../webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.woff") format("woff"), url("../webfonts/fa-regular-400.ttf") format("truetype"), url("../webfonts/fa-regular-400.svg#fontawesome") format("svg"); }
+
+.far {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400; }
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiZGlzdC9jc3MvZm9udC1hd2Vzb21lL3Njc3MvcmVndWxhci5jc3MiLAoJInNvdXJjZXMiOiBbCgkJInNyYy9jc3MvZm9udC1hd2Vzb21lL3Njc3MvcmVndWxhci5zY3NzIiwKCQkic3JjL2Nzcy9mb250LWF3ZXNvbWUvc2Nzcy9fdmFyaWFibGVzLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiQUFBQTs7O0dBR0c7QUFHSCxVQUFVO0VBQ1IsV0FBVyxFQUFFLHFCQUFxQjtFQUNsQyxVQUFVLEVBQUUsTUFBTTtFQUNsQixXQUFXLEVBQUUsR0FBRztFQUNoQixZQUFZLEVDTFMsS0FBSztFRE0xQixHQUFHLEVBQUUscUNBQTBDO0VBQy9DLEdBQUcsRUFBRSw0Q0FBaUQsQ0FBQywyQkFBMkIsRUFDbEYsdUNBQTRDLENBQUMsZUFBZSxFQUM1RCxzQ0FBMkMsQ0FBQyxjQUFjLEVBQzFELHFDQUEwQyxDQUFDLGtCQUFrQixFQUM3RCxpREFBc0QsQ0FBQyxhQUFhOztBQUd0RSxBQUFBLElBQUksQ0FBQztFQUNILFdBQVcsRUFBRSxxQkFBcUI7RUFDbEMsV0FBVyxFQUFFLEdBQUcsR0FDakIiCn0= */

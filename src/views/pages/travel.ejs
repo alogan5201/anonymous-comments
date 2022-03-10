@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/head`, {pageTitle: 'page' }); -%>
+
+  <body>
+    <!--[if lt IE 8]>
+<p class="browserupgrade">
+  You are using an <strong>outdated</strong> browser. Please
+  <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+</p>
+<![endif]-->
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+      <!--   !! MAIN -------------------------->
+      <main class="mb-4 mt-5">
+        <div class="container px-4 px-lg-5">
+          <div class="row gx-5 align-items-center justify-content-center">
+
+            <div class="col-lg-6 align-self-start" style="position: relative">
+
+
+              <h5 class="text-start mb-4">Find Travel Time</h5>
+              <form class="row mb-3 justify-content-between align-items-center" autocomplete="off" id="getTravelForm">
+                <div class="row mb-3">
+                  <div class="col text-start">
+                    <label class="col-sm-2 col-form-label fs-5 text-start">Origin</label>
+                  </div>
+                  <div class="col-sm-8 position-relative" style="z-index: 2 !important">
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend ">
+                        <button id="searchButton" type="button"
+                          class="btn btn-outline-primary  text-info border border-end-0 ps-3 pe-1  disabled"><i
+                            class="fa fa-search"></i></button>
+                      </div>
+                      <input type="search" id="searchInput" class="form-control border border-start-0 target-address"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col text-start">
+                    <label class="col-sm-2 col-form-label fs-5 text-start">Destination</label>
+                  </div>
+                  <div class="col-sm-8 position-relative" style="z-index: 1 !important">
+
+
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend ">
+                        <button id="searchButton" type="button"
+                          class="btn btn-outline-primary  text-info border border-end-0 ps-3 pe-1  disabled"><i
+                            class="fa fa-search"></i></button>
+                      </div>
+                      <input type="search" id="searchInput" class="form-control border border-start-0 target-address"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <div class="row mb-3 justify-content-end">
+                  <div class="col-sm-8 position-relative text-end" style="z-index: 0 !important">
+                    <button class="btn btn-primary" id="getRoute" type="submit">
+                      Get Travel Time
+                    </button>
+
+                  </div>
+                </div>
+
+              </form>
+
+
+              <div class="row mb-3">
+                <div id="liveAlertPlaceholder">
+
+                </div>
+              </div>
+              <ul class="list-group" id="addressHistory"></ul>
+            </div>
+            <div class="col-lg-6 align-self-start">
+              <div class="row-mb-3 align-items-start">
+                <div class="col">
+                  <h4 class="travel-time"></h4>
+                  <div class="map-container">
+                    <div id="map"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <%- include(`${partials}/footer`); -%>
+        <%- include(`${partials}/page-scripts/travel-scripts`); -%>
+  </body>
+
+</html>
+<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

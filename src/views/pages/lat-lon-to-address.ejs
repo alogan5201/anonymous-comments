@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
+
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+    <!--   !! MAIN -------------------------->
+    <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5">
+        <div
+          class="row g-3 align-items-center justify-content-center pb-4 mb-4"
+        >
+          <div class="col-lg-6 align-self-start" style="position: relative;">
+            <h5 class="text-start mb-4">Latitude and Longitude</h5>
+            <form
+              class="row g-3 mb-3 justify-content-between align-items-center"
+              id="latlonForm"
+            >
+              <div>
+                <div class="row justify-content-between align-items-center">
+                  <label class="col-sm-2 col-form-label" for="latInputField"
+                    >Latitude</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      class="form-control"
+                      id="latInputField"
+                      type="number"
+                      step="any"
+                      aria-describedby="latInputFeedback"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="row justify-content-between align-items-center">
+                  <label class="col-sm-2 col-form-label" for="lonInputField"
+                    >Longitude</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      class="form-control"
+                      id="lonInputField"
+                      type="number"
+                      step="any"
+                      aria-describedby="lonInputFieldFeedback"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 text-end">
+                <button
+                  class="btn btn-primary"
+                  id="latlonGeocoderBtn"
+                  type="submit"
+                >
+                  Get Address
+                </button>
+              </div>
+            </form>
+            <hr class="mb-4" />
+
+            <div
+              class="row g-3 mb-3 justify-content-between align-items-center"
+            >
+              <div class="col">
+                <h5 class="text-start mb-4">Address</h5>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="addressInput"
+                  placeholder=""
+                />
+              </div>
+            </div>
+
+            <hr class="mb-4" />
+          </div>
+          <div class="col-lg-6 align-self-start">
+            <h4 class="travel-time"></h4>
+            <div class="map-container"><div id="map"></div></div>
+
+            <div class="row">
+              <div id="liveAlertPlaceholder">
+                <div class="alerts mt-2 alert-warning"></div>
+                <div class="history"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer-->
+
+    <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/page-scripts/lat-lon-to-address-scripts.ejs`); -%>
+  </body>
+</html>
+<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx
+/home/a/Desktop/ejs-sass-static-boilerplate/src/views/partials/page-scripts/lat-lon-to-address-scripts.ejs
+-->

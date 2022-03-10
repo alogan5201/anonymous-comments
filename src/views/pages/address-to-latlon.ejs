@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
+
+  <body class="address-to-latlon">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+    <!--   !! MAIN -------------------------->
+    <!-- Main Content-->
+    <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-5 align-items-center justify-content-center">
+          <div class="col-lg-5" style="position: relative;">
+            <h5 class="text-start mb-4">Address</h5>
+            <form
+              class="row justify-content-between align-items-center"
+              autocomplete="off"
+              id="getTravelForm"
+            >
+              <div class="row justify-content-between align-items-center pe-0">
+                <label class="col-sm-2 col-form-label mb-3" for="latInputField"
+                  >Address</label
+                >
+                <div class="col-sm-9">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button
+                        id="searchButton"
+                        type="button"
+                        class="btn btn-outline-primary text-info border border-end-0 ps-3 pe-1 disabled"
+                      >
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="search"
+                      id="searchInput"
+                      class="form-control border border-start-0 target-address"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-3 justify-content-end">
+                <div
+                  class="col-sm-8 position-relative text-end pe-0"
+                  style="z-index: 0 !important;"
+                >
+                  <button class="btn btn-primary" id="getRoute" type="submit">
+                    Find
+                  </button>
+                </div>
+              </div>
+            </form>
+            <form
+              class="row mb-3 justify-content-between align-items-center d-none"
+              action="post"
+              id="geocoderAddressForm"
+            >
+              <label class="col-sm-2 col-form-label">Address</label>
+              <div
+                class="col-sm-9 position-relative"
+                style="z-index: 2 !important;"
+              >
+                <div class="geocoder" id="geocoder"></div>
+              </div>
+
+              <div class="row mt-3 mb-3 px-0 justify-content-end">
+                <div
+                  class="col-12 px-0 position-relative text-end"
+                  style="z-index: 0 !important;"
+                >
+                  <button
+                    class="btn btn-primary"
+                    id="convertLocationData"
+                    type="submit"
+                  >
+                    Find
+                  </button>
+                </div>
+              </div>
+            </form>
+            <h5 class="text-start mb-4">Latitude and Longitude</h5>
+            <form
+              class="row g-3 mb-3 justify-content-between align-items-center"
+              id="latlonForm"
+            >
+              <div>
+                <div class="row justify-content-between align-items-center">
+                  <label class="col-sm-2 col-form-label" for="latInputField"
+                    >Latitude</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      class="form-control"
+                      id="latInputField"
+                      type="number"
+                      step="any"
+                      aria-describedby="latInputFeedback"
+                      required=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="row justify-content-between align-items-center">
+                  <label class="col-sm-2 col-form-label" for="lonInputField"
+                    >Longitude</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                      class="form-control"
+                      id="lonInputField"
+                      type="number"
+                      step="any"
+                      aria-describedby="lonInputFieldFeedback"
+                      required=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <hr class="mb-4" />
+
+            <div class="row mb-3">
+              <div id="liveAlertPlaceholder">
+                <div class="alerts"></div>
+                <div class="history"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7 align-self-start">
+            <h4 class="travel-time"></h4>
+            <div class="map-container"><div id="map"></div></div>
+          </div>
+        </div>
+        <%- include(`${partials}/comment-section.ejs`); -%>
+      </div>
+    </main>
+
+    <!-- Footer-->
+
+    <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/page-scripts/address-to-lat-lon-script.ejs`); -%>
+  </body>
+</html>
+<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->
