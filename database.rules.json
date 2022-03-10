@@ -1,7 +1,8 @@
 {
   "rules": {
-    ".read": true,  // Sat Dec 10 2022
-    ".write": true,  // Sat Dec 10 2022
-      "films": { ".indexOn": "id"}
+    "messages": {
+      ".read": true,
+      ".write": false
+    }
   }
 }

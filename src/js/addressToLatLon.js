@@ -25,7 +25,7 @@ async function convertLatLon(lat, lon) {
   return data;
 }
 
-/* 
+/*
 
 https://api.mapbox.com/geocoding/v5/mapbox.places/$Atlanta,GA.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA
 
@@ -333,4 +333,18 @@ $(document).ready(function () {
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle,
   }).addTo(map);
+
+
+
+  $("#comment-form").on("submit", function (e) {
+    e.preventDefault()
+      console.log((e.currentTarget[0].value))
+    let name = e.currentTarget[0].value
+    let message = e.currentTarget[1].value
+
+console.log(name)
+console.log(message)
+    $("#comment-btn").disabled = true
+
+  });
 });
