@@ -13,7 +13,7 @@
       "path": "../src/views/partials"
     },
     {
-      "path": "../src/css"
+      "path": "../../firebase/quickstart-js/database"
     }
   ],
   "settings": {}
