@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
  };
 
  $(document).ready(function () {
-  console.log('jquery works')
+
 });
  /**
   * Displays the UI for a signed in user.

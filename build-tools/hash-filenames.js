@@ -31,7 +31,7 @@ function transformer({
   const hash = crypto.createHash('md5').update(fileContents).digest('hex')
 
   if (filename.indexOf(hash) >= 0) {
-    console.log(`${filename} is unchanged.`)
+
 
     const str = filename.split('.')
     str.splice(str.indexOf(hash), 1)
@@ -51,7 +51,7 @@ function transformer({
 
   mapData[filename] = filenameHashed
 
-  console.log(`${filename} was renamed to ${filenameHashed}`)
+
 }
 
 function hashFilenames(directories) {
@@ -59,7 +59,7 @@ function hashFilenames(directories) {
     return
   }
 
-  console.log('Hashing filenames...\n')
+
 
   directories.forEach((dir) => {
     transformFiles({sourcePath: dir, fileTransformer: transformer})
@@ -67,7 +67,7 @@ function hashFilenames(directories) {
 
   fs.writeFileSync(resolve(Dir.dist, 'filename-map.json'), JSON.stringify(mapData), 'utf-8')
 
-  console.log('\nFilenames hashed! filename-map.json created.\n')
+
 }
 
 hashFilenames(dirsToHash)

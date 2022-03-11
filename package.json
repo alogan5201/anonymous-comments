@@ -52,8 +52,10 @@
   "dependencies": {
     "bootstrap": "^5.1.3",
     "dompurify": "^2.2.6",
+    "firebase": "^9.6.8",
     "haversine-geolocation": "^1.6.0",
     "jquery": "^3.6.0",
+    "jsdom": "^19.0.0",
     "jshint": "^2.13.4",
     "leaflet-bookmarks": "^0.4.0",
     "leaflet.locatecontrol": "^0.76.0",

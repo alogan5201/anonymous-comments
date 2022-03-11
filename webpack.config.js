@@ -9,9 +9,9 @@ module.exports = (env = {}) => {
 
   return {
     entry: {
-      vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation'],
+      vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation', 'firebase/app', 'firebase/database', 'firebase/auth'],
       app: ['./src/js/index.js'],
-      addressToLatLon: ['./src/js/addressToLatLon.js'],
+
       latlonDistance: ['./src/js/latlonDistance.js'],
       latlonToAddress: ['./src/js/latlonToAddress.js'],
       latlonToDMS: ['./src/js/latlonToDMS.js'],
