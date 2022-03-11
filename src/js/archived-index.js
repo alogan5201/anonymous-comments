@@ -202,33 +202,19 @@ document.addEventListener("DOMContentLoaded", () => {
    window.open(getWidgetUrl(), 'Sign In', 'width=985,height=735');
  };
 
-
+ $(document).ready(function () {
+  console.log('jquery works')
+});
  /**
   * Displays the UI for a signed in user.
   * @param {!firebase.User} user
   */
- var handleSignedInUser = function(user) {
+ var handleSignedInUser = function() {
 
    document.getElementById('sign-in').style.display = 'block';
    document.getElementById('sign-in').style.display = 'none';
-   document.getElementById('name').textContent = user.displayName;
-   document.getElementById('email').textContent = user.email;
-   document.getElementById('phone').textContent = user.phoneNumber;
-   if (user.photoURL) {
-     var photoURL = user.photoURL;
-     // Append size to the photo URL for Google hosted images to avoid requesting
-     // the image with its original resolution (using more bandwidth than needed)
-     // when it is going to be presented in smaller size.
-     if ((photoURL.indexOf('googleusercontent.com') != -1) ||
-         (photoURL.indexOf('ggpht.com') != -1)) {
-       photoURL = photoURL + '?sz=' +
-           document.getElementById('photo').clientHeight;
-     }
-     document.getElementById('photo').src = photoURL;
-     document.getElementById('photo').style.display = 'block';
-   } else {
-     document.getElementById('photo').style.display = 'none';
-   }
+
+
  };
 
 
@@ -236,17 +222,15 @@ document.addEventListener("DOMContentLoaded", () => {
   * Displays the UI for a signed out user.
   */
  var handleSignedOutUser = function() {
-
    document.getElementById('sign-in').style.display = 'none';
    document.getElementById('sign-in').style.display = 'block';
-   ui.start('#firebaseui-container', getUiConfig());
+
  };
 
  // Listen to change in auth state so it displays the correct UI for when
  // the user is signed in or not.
  firebase.auth().onAuthStateChanged(function(user) {
-   document.getElementById('loading').style.display = 'none';
-   document.getElementById('loaded').style.display = 'block';
+
    user ? handleSignedInUser(user) : handleSignedOutUser();
  });
 
@@ -337,7 +321,16 @@ document.addEventListener("DOMContentLoaded", () => {
        getAdminRestrictedOperationStatus();
  };
 
- window.addEventListener('load', initApp);
+$(document).ready(function () {
+
+
+  $('#sign-out').on('click', function () {
+    firebase.auth().signOut();
+
+  });
+
+});
+ //window.addEventListener('load', initApp);
 
 
 
