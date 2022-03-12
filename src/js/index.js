@@ -41,18 +41,22 @@ connectAuthEmulator(auth, "http://localhost:9099");
 
 
 if(window.location.href.includes('login') ){
+
   const App = function _App() {
     return `
-    div class="${_App.state.loading}">
 
-      <div class=" spinner-container col-12 ${_App.state.loadingClass}  " style="z-index-2000 !important">
-    <div class="d-flex justify-content-center ">
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+       <div class="container w-100 h-100 position-relative ${_App.state.class}" style="    min-width: 100vw !important;
+    min-height: 100vh !important; ">
+    <div class="spinner-container position-absolute top-50
+                left-50" style= "width: 100%; text-align: center">
+
+       <div class="spinner-grow text-primary " role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
     </div>
-  </div>
-    </div>
+
+        </div>
 
 
     `;
@@ -69,35 +73,39 @@ if(window.location.href.includes('login') ){
     }
   };
 
-  const setState = (callback) => {
-    callback();
-    updateTree();
 
-  }
 
-  const toggleLoading = () => {
+  function toggleLoading() {
+
   if( App.state.loading == true){
     App.state.loading = false;
-    App.state.class = ''
+    App.state.class = 'd-none'
 
   } else {
     App.state.loading = true
-    App.state.class = false
+    App.state.class = ''
+
   }
+
   };
 
 
-$('#google-sign-in').on('click', function (e) {
-  e.preventDefault()
-  console.log(App.state.loading)
-  setTimeout(() => {
-    console.log(App.state)
-  }, 200);
- // signInWithRedirect(auth, googleProvider);
 
+$('#google-sign-in').on('click', function (e) {
+
+e.preventDefault()
+
+$('main').addClass('d-none')
+
+  $('#spinner-box').removeClass('d-none')
+signInWithRedirect(auth, googleProvider);
 });
 onAuthStateChanged(auth,  (user) => {
+
+
   if (user) {
+
+
 
 
   getRedirectResult(auth)
@@ -106,6 +114,7 @@ onAuthStateChanged(auth,  (user) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
+
 
 
 
@@ -120,11 +129,14 @@ onAuthStateChanged(auth,  (user) => {
     // ...
   })
   .finally(() => {
+
+
     window.location.replace("/");
   });
   } else {
 
-
+$('#spinner-box').addClass('d-none')
+$('main').removeClass('d-none')
       console.log(' signed out')
   }
 });
