@@ -34,11 +34,11 @@ const auth = getAuth();
 
 const googleProvider = new GoogleAuthProvider();
 const db = getDatabase();
+
 if (location.hostname === "localhost") {
   // Point to the RTDB emulator running on localhost.
 connectAuthEmulator(auth, "http://localhost:9099");
 }
-
 
 if(window.location.href.includes('login') ){
 
@@ -151,6 +151,7 @@ $('main').removeClass('d-none')
 
 
 
+
 window.addEventListener('DOMContentLoaded', (event) => {
 $('#testBtn').on('click', function () {
    var myModal = new bootstrap.Modal(document.getElementById('modalSignOut'))
@@ -158,9 +159,7 @@ $('#testBtn').on('click', function () {
 });
 
 onAuthStateChanged(auth,  (user) => {
-// sign-in-elm
 
-// sign-out-elm
   if (user) {
 
   $("#sign-in-elm").css("display", "none");
@@ -203,19 +202,7 @@ $('#sign-out').on('click', async function (e) {
 
 
 
-/*
-  if(url.includes('login')){
-
-  if(user){
-
-  }
-  }*/
-
-
-
-
-
-// eslint-disable-next-line no-console
+// Movie Directory
 
 
 
