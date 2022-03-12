@@ -15,6 +15,7 @@ import 'picturefill'
 import 'utils/errors'
 
 
+
 let url = window.location.href
 
  var firebaseConfig = {
@@ -40,23 +41,73 @@ connectAuthEmulator(auth, "http://localhost:9099");
 
 
 if(window.location.href.includes('login') ){
+  const App = function _App() {
+    return `
+    div class="${_App.state.loading}">
+
+      <div class=" spinner-container col-12 ${_App.state.loadingClass}  " style="z-index-2000 !important">
+    <div class="d-flex justify-content-center ">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+    `;
+  };
+  App.state = {
+    loading: false,
+    class: 'd-none',
+    count: 0,
+    toggleState: () => {
+      setState(() => {
+        App.state.loading  = App.state.loading ? false : true
+
+      });
+    }
+  };
+
+  const setState = (callback) => {
+    callback();
+    updateTree();
+
+  }
+
+  const toggleLoading = () => {
+  if( App.state.loading == true){
+    App.state.loading = false;
+    App.state.class = ''
+
+  } else {
+    App.state.loading = true
+    App.state.class = false
+  }
+  };
+
+
 $('#google-sign-in').on('click', function (e) {
   e.preventDefault()
-  signInWithRedirect(auth, googleProvider);
+  console.log(App.state.loading)
+  setTimeout(() => {
+    console.log(App.state)
+  }, 200);
+ // signInWithRedirect(auth, googleProvider);
 
 });
 onAuthStateChanged(auth,  (user) => {
   if (user) {
 
 
-getRedirectResult(auth)
+  getRedirectResult(auth)
   .then((result) => {
-    // This gives you a Google Access Token. You can use it to access Google APIs.
+
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-
-    // The signed-in user info.
     const user = result.user;
+
+
 
   }).catch((error) => {
     // Handle Errors here.
@@ -67,6 +118,9 @@ getRedirectResult(auth)
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
+  })
+  .finally(() => {
+    window.location.replace("/");
   });
   } else {
 
@@ -119,9 +173,10 @@ onAuthStateChanged(auth,  (user) => {
 $('#sign-out').on('click', async function (e) {
   e.preventDefault()
   signOut(auth).then(() => {
-
+    var myModal = new bootstrap.Modal(document.getElementById('modalSignOut'))
+    myModal.toggle()
 }).catch((error) => {
-  // An error happened.
+
 });
 
 
