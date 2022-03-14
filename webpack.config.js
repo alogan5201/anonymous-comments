@@ -84,7 +84,6 @@ module.exports = (env = {}) => {
         css: globals.Dir.css,
         js: globals.Dir.js,
         utils: globals.Dir.utils,
-
         leafletlocate: globals.Dir.leafletlocate,
         static: globals.Dir.static,
         images: globals.Dir.images,

@@ -1,0 +1,171 @@
+[debug] [2022-03-10T21:30:35.904Z] ----------------------------------------------------------------------
+[debug] [2022-03-10T21:30:35.905Z] Command:       /usr/local/bin/firebase /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2022-03-10T21:30:35.906Z] CLI Version:   10.2.2
+[debug] [2022-03-10T21:30:35.906Z] Platform:      linux
+[debug] [2022-03-10T21:30:35.906Z] Node Version:  v12.18.1
+[debug] [2022-03-10T21:30:35.906Z] Time:          Thu Mar 10 2022 16:30:35 GMT-0500 (Eastern Standard Time)
+[debug] [2022-03-10T21:30:35.906Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-10T21:30:35.958Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-10T21:30:35.958Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting"}}
+[debug] [2022-03-10T21:30:35.968Z] [hub] writing locator at /tmp/hub-geotools-bc75a.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub, storage\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2022-03-10T21:30:35.977Z] Error: Cannot find module '/home/a/Desktop/geo-front-end/functions/package.json'
+Require stack:
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:964:15)
+    at Function._resolveFilename (pkg/prelude/bootstrap.js:1459:46)
+    at Function.Module._load (internal/modules/cjs/loader.js:840:27)
+    at Module.require (internal/modules/cjs/loader.js:1024:19)
+    at Module.require (pkg/prelude/bootstrap.js:1338:31)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at FunctionsEmulator.getNodeBinary (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:529:21)
+    at FunctionsEmulator.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:192:39)
+    at Function.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/registry.js:16:24)
+    at startEmulator (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:96:39)
+    at Object.startAll (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:306:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Command.actionFn (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-03-10T21:31:35.070Z] ----------------------------------------------------------------------
+[debug] [2022-03-10T21:31:35.072Z] Command:       /usr/local/bin/firebase /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2022-03-10T21:31:35.072Z] CLI Version:   10.2.2
+[debug] [2022-03-10T21:31:35.072Z] Platform:      linux
+[debug] [2022-03-10T21:31:35.072Z] Node Version:  v12.18.1
+[debug] [2022-03-10T21:31:35.072Z] Time:          Thu Mar 10 2022 16:31:35 GMT-0500 (Eastern Standard Time)
+[debug] [2022-03-10T21:31:35.072Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-10T21:31:35.123Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-10T21:31:35.124Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting"}}
+[debug] [2022-03-10T21:31:35.133Z] [hub] writing locator at /tmp/hub-geotools-bc75a.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub, storage\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2022-03-10T21:31:35.142Z] Error: Cannot find module '/home/a/Desktop/geo-front-end/functions/package.json'
+Require stack:
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:964:15)
+    at Function._resolveFilename (pkg/prelude/bootstrap.js:1459:46)
+    at Function.Module._load (internal/modules/cjs/loader.js:840:27)
+    at Module.require (internal/modules/cjs/loader.js:1024:19)
+    at Module.require (pkg/prelude/bootstrap.js:1338:31)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at FunctionsEmulator.getNodeBinary (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:529:21)
+    at FunctionsEmulator.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:192:39)
+    at Function.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/registry.js:16:24)
+    at startEmulator (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:96:39)
+    at Object.startAll (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:306:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Command.actionFn (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-03-10T21:32:40.913Z] ----------------------------------------------------------------------
+[debug] [2022-03-10T21:32:40.915Z] Command:       /usr/local/bin/firebase /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2022-03-10T21:32:40.915Z] CLI Version:   10.2.2
+[debug] [2022-03-10T21:32:40.915Z] Platform:      linux
+[debug] [2022-03-10T21:32:40.915Z] Node Version:  v12.18.1
+[debug] [2022-03-10T21:32:40.915Z] Time:          Thu Mar 10 2022 16:32:40 GMT-0500 (Eastern Standard Time)
+[debug] [2022-03-10T21:32:40.916Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-10T21:32:40.967Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-10T21:32:40.967Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[info] i  emulators: Starting emulators: functions, firestore, database, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, firestore, database, hosting"}}
+[debug] [2022-03-10T21:32:40.977Z] [hub] writing locator at /tmp/hub-geotools-bc75a.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, pubsub, storage\u001b[22m"}}
+[info] i  emulators: Shutting down emulators. {"metadata":{"emulator":{"name":"hub"},"message":"Shutting down emulators."}}
+[info] i  functions: Stopping Functions Emulator {"metadata":{"emulator":{"name":"functions"},"message":"Stopping Functions Emulator"}}
+[info] i  hub: Stopping emulator hub {"metadata":{"emulator":{"name":"hub"},"message":"Stopping emulator hub"}}
+[debug] [2022-03-10T21:32:40.985Z] Error: Cannot find module '/home/a/Desktop/geo-front-end/functions/package.json'
+Require stack:
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:964:15)
+    at Function._resolveFilename (pkg/prelude/bootstrap.js:1459:46)
+    at Function.Module._load (internal/modules/cjs/loader.js:840:27)
+    at Module.require (internal/modules/cjs/loader.js:1024:19)
+    at Module.require (pkg/prelude/bootstrap.js:1338:31)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at FunctionsEmulator.getNodeBinary (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:529:21)
+    at FunctionsEmulator.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:192:39)
+    at Function.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/registry.js:16:24)
+    at startEmulator (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:96:39)
+    at Object.startAll (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js:306:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Command.actionFn (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/emulators-start.js:26:9)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-03-10T21:33:12.521Z] ----------------------------------------------------------------------
+[debug] [2022-03-10T21:33:12.523Z] Command:       /usr/local/bin/firebase /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve
+[debug] [2022-03-10T21:33:12.523Z] CLI Version:   10.2.2
+[debug] [2022-03-10T21:33:12.523Z] Platform:      linux
+[debug] [2022-03-10T21:33:12.523Z] Node Version:  v12.18.1
+[debug] [2022-03-10T21:33:12.524Z] Time:          Thu Mar 10 2022 16:33:12 GMT-0500 (Eastern Standard Time)
+[debug] [2022-03-10T21:33:12.524Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-10T21:33:12.577Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-10T21:33:12.577Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[debug] [2022-03-10T21:33:12.577Z] [iam] checking project geotools-bc75a for permissions ["firebase.projects.get"]
+[debug] [2022-03-10T21:33:12.578Z] > refreshing access token with scopes: []
+[debug] [2022-03-10T21:33:12.579Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-10T21:33:12.689Z] <<< HTTP RESPONSE 200 {"date":"Thu, 10 Mar 2022 21:33:12 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-10T21:33:12.705Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions [none]
+[debug] [2022-03-10T21:33:12.706Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-10T21:33:13.245Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions 200
+[debug] [2022-03-10T21:33:13.245Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-10T21:33:13.247Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a [none]
+[debug] [2022-03-10T21:33:13.458Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a 200
+[debug] [2022-03-10T21:33:13.458Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a {"projectId":"geotools-bc75a","projectNumber":"106157954659","displayName":"GeoTools","name":"projects/geotools-bc75a","resources":{"hostingSite":"geotools-bc75a","realtimeDatabaseInstance":"geotools-bc75a-default-rtdb","storageBucket":"geotools-bc75a.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from '/home/a/Desktop/geo-front-end'...
+[info] 
+[debug] [2022-03-10T21:33:13.463Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/geotools-bc75a/sites 
+[debug] [2022-03-10T21:33:13.469Z] Error: Cannot find module '/home/a/Desktop/geo-front-end/functions/package.json'
+Require stack:
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/commands/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/index.js
+- /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:964:15)
+    at Function._resolveFilename (pkg/prelude/bootstrap.js:1459:46)
+    at Function.Module._load (internal/modules/cjs/loader.js:840:27)
+    at Module.require (internal/modules/cjs/loader.js:1024:19)
+    at Module.require (pkg/prelude/bootstrap.js:1338:31)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at FunctionsEmulator.getNodeBinary (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:529:21)
+    at FunctionsEmulator.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:192:39)
+    at Function.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/registry.js:16:24)
+    at EmulatorServer.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/emulator/emulatorServer.js:17:43)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async FunctionsServer.start (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/serve/functions.js:51:9)
+    at async Promise.all (index 1)
+    at async serve (/home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/serve/index.js:14:5)
+[error] 
+[error] Error: An unexpected error has occurred.
