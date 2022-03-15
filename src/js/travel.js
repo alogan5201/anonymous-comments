@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
       { method: "GET" }
     );
     if (query.status !== 200) {
-      console.log(query.status);
+
       return;
     }
 
@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const data = await query.json();
-    console.log(data)
+
     return data;
   }
 
@@ -195,7 +195,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // then, after a half-second, add the class 'hide', which hides
       // it completely and ensures that the user can interact with the
       // map again.
-    console.log('loaded')
+
     }, 500);
   };
   const map = L.mapbox.map("map").setView([37.9, -77], 6);
@@ -346,12 +346,12 @@ geojson.features[1].geometry.coordinates = [lonDestination, latDestination];
     )
       .then((response) => response.json())
       .then((json) => {
-        console.log(json)
+
         const durations = json.durations[0];
         const travelTime = durations[1];
         const result = format(travelTime);
         // //
-        console.log(result)
+
 
         var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
         var alertTrigger = document.getElementById("liveAlertBtn");
@@ -458,16 +458,16 @@ setTimeout(() => {
 
   /**
  *
- *  console.log("%c My Friends","color:orange; font-weight:bold; font-size: 2em");
+ *
    //✅
  *  */
   function consoleRed(message) {
     let msg = `%c ${message}`;
-    console.log(msg, "color:red; font-weight:bold; font-size: 1em");
+
   }
   function consoleBlue(message) {
     let msg = `%c ${message}`;
-    console.log(msg, "color:blue; font-weight:bold; font-size: 1em");
+
   }
 
 
@@ -486,11 +486,11 @@ const query1 = `${lonOrigin},${latOrigin}`;
 const query2 = `${lonDestination},${latDestination}`;
 //  destinationMarker.setLatLng(origin[1], origin[0])
 await callMatrix(query1, query2);
-    console.log(latOrigin);
-    console.log(lonOrigin);
-    console.log(latDestination);
-    console.log(lonDestination);
-    console.log('test')
+
+
+
+
+
     geojson.features[0].geometry.coordinates = [lonOrigin, latOrigin];
     geojson.features[1].geometry.coordinates = [lonDestination, latDestination];
 
@@ -514,8 +514,8 @@ await callMatrix(query1, query2);
 
     const originInput = $(this).find("input:eq(0)").val();
     const destinationInput = $(this).find("input:eq(1)").val();
-    /*   console.log(originInput);
-    console.log(destinationInput); */
+
+
 
     const originFetch = convertAddress(originInput);
     const destinationFetch = convertAddress(destinationInput);
@@ -530,7 +530,7 @@ await callMatrix(query1, query2);
         let destination = result[1].features[1].geometry.coordinates;
         let destinationLat = result[1].features[0].geometry.coordinates[1];
         let destinationLon = result[1].features[0].geometry.coordinates[0];
-console.log(`origin = ${JSON.stringify(origin)} destination = ${JSON.stringify(destination)}`)
+
 
         CoordsApp.state.origin = origin;
         CoordsApp.state.destination = destination;

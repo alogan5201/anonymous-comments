@@ -9,7 +9,7 @@ async function convertLatLon(lat, lon) {
     { method: "GET" }
   );
   if (query.status !== 200) {
-    console.log(query.status);
+
     return;
   }
 
@@ -25,7 +25,7 @@ async function convertLatLon(lat, lon) {
   return data;
 }
 
-/* 
+/*
 
 https://api.mapbox.com/geocoding/v5/mapbox.places/$Atlanta,GA.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA
 
@@ -42,7 +42,7 @@ async function convertAddress(city) {
   }
 
   const data = await query.json();
-  console.log(data);
+
   return data;
 }
 window.addEventListener("DOMContentLoaded", () => {
@@ -106,7 +106,7 @@ $(document).ready(function () {
     setTimeout(function () {
       // then, after a half-second, add the class 'hide', which hides
       // it completely and ensures that the user can interact with the
-      console.log("finished");
+
     }, 500);
   };
 
@@ -273,16 +273,16 @@ $(document).ready(function () {
 
   $("#getTravelForm").on("submit", async function (e) {
     e.preventDefault();
-    //console.log($(this).find("input:eq(0)").val())
+    //
     const value = $(this).find("input:eq(0)").val();
     const fetchResponse = await convertAddress(value);
-    console.log(fetchResponse);
+
 
     setTimeout(() => {
       if (fetchResponse.features.length > 0) {
         let lat = fetchResponse.features[0].geometry.coordinates[1];
         let lon = fetchResponse.features[0].geometry.coordinates[0];
-        console.log(lat);
+
         $("#latlonForm").find("input:eq(0)").val(lat);
         $("#latlonForm").find("input:eq(1)").val(lon);
 
@@ -328,9 +328,25 @@ $(document).ready(function () {
   const title = $("title").html();
 
   const pageTitle = title.slice(11);
-  console.log(pageTitle);
+
 
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle,
   }).addTo(map);
+
+
+
+  $("#comment-form").on("submit", function (e) {
+    e.preventDefault()
+
+    let name = e.currentTarget[0].value
+    let message = e.currentTarget[1].value
+
+
+
+    $("#comment-btn").disabled = true
+
+  });
+
+
 });
