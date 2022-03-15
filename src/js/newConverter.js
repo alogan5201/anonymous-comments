@@ -37,7 +37,7 @@ $(document).ready(function () {
     }
 
     const data = await query.json();
-    console.log(data);
+
     return data;
   }
   function ParseDMS(input) {
@@ -345,12 +345,12 @@ $(document).ready(function () {
 
     const value = $(this).find("input:eq(0)").val();
     const fetchResponse = await convertAddress(value);
-    console.log(fetchResponse);
+
     let lat = fetchResponse.features[0].geometry.coordinates[1];
     let lon = fetchResponse.features[0].geometry.coordinates[0];
 
     const dmsCalculated = DDtoDMS(lat, lon);
-    console.log(dmsCalculated)
+
     setTimeout(() => {
       if (fetchResponse.features.length > 0) {
 
@@ -495,7 +495,7 @@ marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
 
     let latRadio = north.checked ? "N" : "S";
     let lonRadio = west.checked ? "W" : "E";
-    console.log(latRadio);
+
     let latField = [
       parseFloat(e.currentTarget[2].value),
       parseFloat(e.currentTarget[3].value),
@@ -509,13 +509,13 @@ marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
       lonRadio,
     ];
 
-    console.log(e.currentTarget[7].value);
 
-    console.log(typeof latField[2]);
+
+
     let lat = ConvertDMSToDD(latField);
     let lon = ConvertDMSToDD(lonField);
     //let lon = ConvertDMStoDD(lonField)
-    console.log(lat);
+
     lonReduced = lon.toFixed(8);
     latReduced = lat.toFixed(8);
     const result = await findAddress(lat, lon);

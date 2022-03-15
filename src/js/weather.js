@@ -142,7 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
       // then, after a half-second, add the class 'hide', which hides
       // it completely and ensures that the user can interact with the
       // map again.
-      console.log("loaded");
+
     }, 500);
   };
 
@@ -180,11 +180,11 @@ window.addEventListener("DOMContentLoaded", () => {
     let lat = e.latitude;
     let lon = e.longitude;
     var radius = e.accuracy;
-    console.log(e);
+
 
     (async () => {
       const address = await convertLatLon(lat, lon);
-      console.log(address);
+
       if (address.features[0]) {
         $("input")
           .first()
@@ -375,8 +375,8 @@ window.addEventListener("DOMContentLoaded", () => {
         .find("input:eq(0)")
         .val()
     );
-    console.log($("  input:eq( 0 )").val());
-    //console.log($(this).find("input:eq(0)").val());
+
+    //
     if (result.features[0]) {
       if ($(".alert-warning").hasClass("visible")) {
         $(".alert-warning")
@@ -384,8 +384,8 @@ window.addEventListener("DOMContentLoaded", () => {
           .addClass("invisible");
       }
       let coords = result.features[0].center;
-      console.log(coords);
-      console.log(result);
+
+
 
       let lat = coords[1];
       let lon = coords[0];
@@ -406,8 +406,8 @@ window.addEventListener("DOMContentLoaded", () => {
         const result = await convertAddress(inputs[i].value);
         if (result.features[0]) {
           let coords = result.features[0].center;
-          console.log(coords);
-          console.log(result);
+
+
 
           let lat = coords[1];
           let lon = coords[0];
@@ -428,7 +428,7 @@ window.addEventListener("DOMContentLoaded", () => {
       { method: "GET" }
     );
     if (query.status !== 200) {
-      console.log(query.status);
+
       return;
     }
 
@@ -546,7 +546,7 @@ ${currentWeather} and ${temp}°F`);
     let lon = e.currentTarget[1].value;
     const coords = await convertLatLon(lat, lon);
     await fetchWeather(lat, lon);
-    console.log(coords);
+
 
     if (coords.features.length == 0) {
       $(".target-address").val("");
@@ -835,7 +835,7 @@ ${currentWeather} and ${temp}°F`);
   const title = $("title").html();
 
   const pageTitle = title.slice(11);
-  console.log(pageTitle);
+
 
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle

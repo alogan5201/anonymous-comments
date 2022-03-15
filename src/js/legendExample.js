@@ -103,7 +103,7 @@ const findLocation = () => {
 const title = $("title").html();
 
 const pageTitle = title.slice(11);
-console.log(pageTitle);
+
 
 let bookmarkControl = new L.Control.Bookmarks({
   name: pageTitle
@@ -14547,10 +14547,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   let points = getGpsPoints();
-  console.log(points.geometry.coordinates);
-  console.log(points.geometry.coordinates);
 
-  console.log(points.geometry.coordinates);
+
+
+
 
   map.legendControl.addLegend(document.getElementById("legend").innerHTML);
 });

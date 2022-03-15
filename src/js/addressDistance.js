@@ -146,7 +146,7 @@ async function setOrigin(lat, lon) {
 const title = $("title").html();
 
 const pageTitle = title.slice(11);
-console.log(pageTitle);
+
 
 let bookmarkControl = new L.Control.Bookmarks({
   name: pageTitle,

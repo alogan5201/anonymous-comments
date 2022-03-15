@@ -315,17 +315,17 @@ $('#myDmsForm').on('submit', function (e) {
 
 let latRadio = north.checked  ? 'N' : 'S'
 let lonRadio = west.checked ? 'W' : 'E'
-console.log(latRadio)
+
 let latField = [parseFloat(e.currentTarget[2].value),parseFloat(e.currentTarget[3].value) ,parseFloat(e.currentTarget[4].value) , latRadio]
 let lonField = [parseFloat(e.currentTarget[7].value),parseFloat(e.currentTarget[8].value) ,parseFloat(e.currentTarget[9].value) , lonRadio]
 
-console.log(e.currentTarget[7].value)
 
-console.log(typeof latField[2])
+
+
 let lat = ConvertDMSToDD(latField);
 let lon = ConvertDMSToDD(lonField);
 //let lon = ConvertDMStoDD(lonField)
-console.log(lat)
+
 lonReduced = lon.toFixed(8);
 latReduced = lat.toFixed(8);
 
