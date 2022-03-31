@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
+  <body>
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+
+    <!-- Main Content-->
+    <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5">
+        <nav aria-label="Movie Locations Top 250">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="/page/2" aria-label="Previous"
+                >Previous <span aria-hidden="true">&laquo;</span></a
+              >
+            </li>
+            <li class="page-item"><a class="page-link" href="/page/1">1</a></li>
+            <li class="page-item"><a class="page-link" href="/page/2">2</a></li>
+            <li class="active page-item">
+              <a class="page-link" href="/page/3">3</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="/page/4">4</a></li>
+            <li class="page-item"><a class="page-link" href="/page/5">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="/page/4" aria-label="Next"
+                >Next<span aria-hidden="true">&raquo;</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 text-center g-3">
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0111161" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                class="card-img-top"
+                alt="The Shawshank Redemption"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-shawshank-redemption-0111161.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">The Shawshank Redemption</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0068646" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="The Godfather"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-godfather-0068646.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">The Godfather</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0468569" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@.jpg"
+                class="card-img-top"
+                alt="The Dark Knight"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-dark-knight-0468569.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">The Dark Knight</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0071562" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="The Godfather: Part II"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-godfather-part-ii-0071562.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">The Godfather: Part II</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0050083" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
+                class="card-img-top"
+                alt="12 Angry Men"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/12-angry-men-0050083.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">12 Angry Men</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0108052" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                class="card-img-top"
+                alt="Schindler's List"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/schindler-s-list-0108052.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Schindler's List</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0167260" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="The Lord of the Rings: The Return of the King"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-lord-of-the-rings-the-return-of-the-king-0167260.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Return of the King
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0110912" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="Pulp Fiction"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/pulp-fiction-0110912.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Pulp Fiction</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0120737" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@.jpg"
+                class="card-img-top"
+                alt="The Lord of the Rings: The Fellowship of the Ring"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-lord-of-the-rings-the-fellowship-of-the-ring-0120737.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Fellowship of the Ring
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0060196" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
+                class="card-img-top"
+                alt="The Good, the Bad and the Ugly"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-good-the-bad-and-the-ugly-0060196.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    The Good, the Bad and the Ugly
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0109830" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
+                class="card-img-top"
+                alt="Forrest Gump"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/forrest-gump-0109830.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Forrest Gump</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0137523" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
+                class="card-img-top"
+                alt="Fight Club"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/fight-club-0137523.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Fight Club</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="1375666" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@.jpg"
+                class="card-img-top"
+                alt="Inception"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/inception-1375666.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Inception</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0167261" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                class="card-img-top"
+                alt="The Lord of the Rings: The Two Towers"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-lord-of-the-rings-the-two-towers-0167261.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Two Towers
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0080684" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="Star Wars: Episode V - The Empire Strikes Back"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/star-wars-episode-v-the-empire-strikes-back-0080684.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    Star Wars: Episode V - The Empire Strikes Back
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0133093" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                class="card-img-top"
+                alt="The Matrix"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/the-matrix-0133093.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">The Matrix</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0099685" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                class="card-img-top"
+                alt="Goodfellas"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/goodfellas-0099685.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">Goodfellas</p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0073486" class="card">
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
+                class="card-img-top"
+                alt="One Flew Over the Cuckoo's Nest"
+              />
+              <div class="card-body">
+                <a
+                  href="../details/one-flew-over-the-cuckoo-s-nest-0073486.html"
+                  class="stretched-link"
+                >
+                  <p class="card-text text-center">
+                    One Flew Over the Cuckoo's Nest
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/homeScripts`); -%>
+  </body>
+</html>
