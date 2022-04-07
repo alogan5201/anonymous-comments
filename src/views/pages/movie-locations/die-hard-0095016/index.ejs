@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Die Hard</h3>
+                        <p class="card-text">
+                          An NYPD officer tries to save his wife and several others taken hostage by German terrorists during a Christmas party at the Nakatomi Plaza in Los Angeles.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BZjRlNDUxZjAtOGQ4OC00OTNlLTgxNmQtYTBmMDgwZmNmNjkxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Die Hard"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Fox Plaza   2121 Avenue of the Stars, Century City, Los Angeles, California, USA 
+            </td>   
+                <td class="table__cell">
+                34.0548, -118.41369
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                29th 35th Floors, Fox Plaza   2121 Avenue of the Stars, Century City, Los Angeles, California, USA 
+            </td>   
+                <td class="table__cell">
+                34.0548, -118.41369
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles International Airport   1 World Way, Los Angeles, California, USA
+            </td>   
+                <td class="table__cell">
+                33.94469, -118.39817
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Stage 15, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA 
+            </td>   
+                <td class="table__cell">
+                34.04994, -118.41129
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                10350 W Olympic Blvd, Los Angeles, California, USA 
+            </td>   
+                <td class="table__cell">
+                34.05134, -118.41839
+                    </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

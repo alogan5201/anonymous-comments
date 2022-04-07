@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Django Unchained</h3>
+                        <p class="card-text">
+                          With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation-owner in Mississippi.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Django Unchained"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Evergreen Plantation, 4677 Highway 18, Edgard, Louisiana, USA
+            </td>   
+                <td class="table__cell">
+                30.2699, -91.1993
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Jackson Hole, Wyoming, USA
+            </td>   
+                <td class="table__cell">
+                43.482938, -110.762321
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Alabama Hills, Lone Pine, California, USA
+            </td>   
+                <td class="table__cell">
+                36.60179, -118.08127
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Lone Pine, California, USA
+            </td>   
+                <td class="table__cell">
+                36.606, -118.0629
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Ahmanson Ranch, Victory Boulevard, Lasky Mesa, West Hills, Los Angeles, California, USA
+            </td>   
+                <td class="table__cell">
+                34.2032, -118.6455
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Melody Ranch   24715 Oak Creek Avenue, Newhall, California, USA
+            </td>   
+                <td class="table__cell">
+                34.3847, -118.5309
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Whitney Plantation, 5099 Highway 18, Wallace, Louisiana, USA 
+            </td>   
+                <td class="table__cell">
+                30.0433, -90.6673
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                New Orleans, Louisiana, USA
+            </td>   
+                <td class="table__cell">
+                29.9499, -90.0701
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Second Line Stages, New Orleans, Louisiana, USA 
+            </td>   
+                <td class="table__cell">
+                29.931746, -90.069966
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Independence, California, USA
+            </td>   
+                <td class="table__cell">
+                34.013698, -118.495361
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Santa Clarita, California, USA
+            </td>   
+                <td class="table__cell">
+                34.42, -118.54
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Louisiana, USA
+            </td>   
+                <td class="table__cell">
+                30.93749930159, -92.305998069584
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                California, USA
+            </td>   
+                <td class="table__cell">
+                37.0743595873, -119.699375153073
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Simi Valley, California, USA
+            </td>   
+                <td class="table__cell">
+                34.2694, -118.7815
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles, California, USA
+            </td>   
+                <td class="table__cell">
+                34.0544, -118.2439
+                    </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

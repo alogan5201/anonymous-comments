@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">The Seventh Seal</h3>
+                        <p class="card-text">
+                          A knight returning to Sweden after the Crusades seeks answers about life, death, and the existence of God as he plays chess against the Grim Reaper during the Black Plague.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BM2I1ZWU4YjMtYzU0My00YmMzLWFmNTAtZDJhZGYwMmI3YWQ5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="The Seventh Seal"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Hovs Hallar   Naturreservat, Skåne län, Sweden 
+            </td>   
+                <td class="table__cell">
+                56.467873, 12.708134
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Skevik, Värmdö, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.31667, 18.51667
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Skytteholm, Solna, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.36667, 18.01667
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Viby, Sigtuna, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.6327327936475, 17.732220181168
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Solna, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.36667, 18.01667
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Svensk Filmindustri, Filmstaden, Råsunda, Stockholms län, Sweden 
+            </td>   
+                <td class="table__cell">
+                59.367224, 17.981759
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Östanå, Österåker, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.342707, 18.065871
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Gustavsberg, Värmdö, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.32667, 18.38861
+                    </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

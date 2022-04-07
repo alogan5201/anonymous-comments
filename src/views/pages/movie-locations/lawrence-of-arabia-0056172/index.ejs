@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Lawrence of Arabia</h3>
+                        <p class="card-text">
+                          The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BYWY5ZjhjNGYtZmI2Ny00ODM0LWFkNzgtZmI1YzA2N2MxMzA0XkEyXkFqcGdeQXVyNjUwNzk3NDc@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Lawrence of Arabia"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Wadi Rum, Jordan 
+            </td>   
+                <td class="table__cell">
+                31.969741, 35.900547
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Imperial Sand Dunes Recreation Area, Glamis, California, USA 
+            </td>   
+                <td class="table__cell">
+                32.8476, -115.5694
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Alfonso XIII Hotel   2 San Fernando 41004, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.387389, -5.988953
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Aït Benhaddou, Morocco 
+            </td>   
+                <td class="table__cell">
+                32.3507513130338, -6.01707272732872
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                El Casino, Avenida de Maria Luisa, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.3786321287575, -5.99134781646474
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Desert South of Ouarzazate, Morocco 
+            </td>   
+                <td class="table__cell">
+                30.91667, -6.91667
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                El Jafr, Jordan 
+            </td>   
+                <td class="table__cell">
+                32.537428, 35.851935
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Playa del Algarrobico, Carboneras, Almería, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.000426, -1.891478
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Chobham Common, Surrey, England, UK 
+            </td>   
+                <td class="table__cell">
+                51.3481, -0.6038
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Merthyr Mawr, Bridgend, Wales, UK
+            </td>   
+                <td class="table__cell">
+                51.4845, -3.61006
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Plaza of the Americas, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.5, -5.5
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Tabernas, Almería, Andalucía, Spain
+            </td>   
+                <td class="table__cell">
+                37.04989, -2.39138
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Jebel Tubeiq, Jordan 
+            </td>   
+                <td class="table__cell">
+                44.502425, -89.54316
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Desierto de Tabernas, Almería, Andalucía, Spain
+            </td>   
+                <td class="table__cell">
+                37.090023, -2.379403
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Maan, Jordan
+            </td>   
+                <td class="table__cell">
+                30.19333, 35.73333
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Palacio Espanol, Plaza de España, Sevilla, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.37698, -5.98696
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                St Paul's Cathedral, St Paul's Churchyard, City of London, England, UK 
+            </td>   
+                <td class="table__cell">
+                51.513744, -0.09837950000000001
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Almería, Andalucía, Spain
+            </td>   
+                <td class="table__cell">
+                37.1452098010523, -2.07507758056227
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Cabo de Gata, Almería, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                36.781144, -2.242177
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                San José, Almería, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                36.761896, -2.110094
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.3266214954147, -5.96769337244481
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Shepperton Studios, Shepperton, Surrey, England, UK 
+            </td>   
+                <td class="table__cell">
+                51.407444, -0.465177
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Casa de Pilatos, Plaza de Pilatos, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.3902835, -5.987071
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Carboneras, Almería, Andalucía, Spain
+            </td>   
+                <td class="table__cell">
+                37.00046, -1.89189
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Parque de Maria Luisa, Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.403914, -6.185953
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Plaza de Pilatos, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.389824, -5.987061
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
+            </td>   
+                <td class="table__cell">
+                37.374748785893, -5.98642674666078
+                    </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

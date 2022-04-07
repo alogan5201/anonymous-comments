@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Wild Strawberries</h3>
+                        <p class="card-text">
+                          After living a life marked by coldness, an aging professor is forced to confront the emptiness of his existence.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BYWQxYzdhMDMtNjAyZC00NzE0LWFjYmQtYjk0YzMyYjA5NzZkXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Wild Strawberries"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Dalarö, Stockholms län, Sweden
+            </td>   
+                <td class="table__cell">
+                59.13194, 18.40333
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Gotlands län, Sweden
+            </td>   
+                <td class="table__cell">
+                57.49917, 18.50944
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Lund, Skåne län, Sweden
+            </td>   
+                <td class="table__cell">
+                55.7, 13.2
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Svensk Filmindustri, Filmstaden, Råsunda, Stockholms län, Sweden 
+            </td>   
+                <td class="table__cell">
+                59.367224, 17.981759
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Vättern, Sweden
+            </td>   
+                <td class="table__cell">
+                58.5400486577074, 14.5083103858462
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Ängö, Södermanlands län, Sweden
+            </td>   
+                <td class="table__cell">
+                58.7549369540164, 17.4734439860543
+                    </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Lund Cathedral, Lund, Skåne län, Sweden 
+            </td>   
+                <td class="table__cell">
+                55.70018875, 13.19002675
+                    </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>
