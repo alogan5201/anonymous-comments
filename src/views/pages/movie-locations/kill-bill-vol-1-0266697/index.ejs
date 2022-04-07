@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shinjuku, Tokyo, Japan
             </td>   
                 <td class="table__cell">
-                35.6911, 139.7005
+                <span class="lat"> 35.6911</span>, <span class="lon">139.7005</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Luke's Hospital   2632 E. Washington Street, Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.168069, -118.095817
+                <span class="lat"> 34.168069</span>, <span class="lon">-118.095817</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beijing, China
             </td>   
                 <td class="table__cell">
-                39.905, 116.39139
+                <span class="lat"> 39.905</span>, <span class="lon">116.39139</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hong Kong, China
             </td>   
                 <td class="table__cell">
-                22.299653499999998, 114.1675485
+                <span class="lat"> 22.299653499999998</span>, <span class="lon">114.1675485</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Austin, Texas, USA
             </td>   
                 <td class="table__cell">
-                30.2711, -97.7437
+                <span class="lat"> 30.2711</span>, <span class="lon">-97.7437</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lancaster, California, USA
             </td>   
                 <td class="table__cell">
-                34.6981, -118.1366
+                <span class="lat"> 34.6981</span>, <span class="lon">-118.1366</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 American Cement Building, 2404 Wilshire Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.034789, -118.47894
+                <span class="lat"> 34.034789</span>, <span class="lon">-118.47894</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 E Ave G & 198th St E, Lancaster, California, USA
             </td>   
                 <td class="table__cell">
-                34.7350818, -117.7766304
+                <span class="lat"> 34.7350818</span>, <span class="lon">-117.7766304</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5506 Atlas St, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.09734, -118.15977
+                <span class="lat"> 34.09734</span>, <span class="lon">-118.15977</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sanctuary Adventist Church, 19806 East Ave G, Lancaster, California, USA 
             </td>   
                 <td class="table__cell">
-                34.734925, -117.747524
+                <span class="lat"> 34.734925</span>, <span class="lon">-117.747524</span>
                     </td>   
           </tr> 
           </tr>

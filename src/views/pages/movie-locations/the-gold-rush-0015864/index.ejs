@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,83 +60,83 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sierra Nevada Mountains, California, USA
             </td>   
                 <td class="table__cell">
-                39.63, -119.9
+                <span class="lat"> 39.63</span>, <span class="lon">-119.9</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Colorado, USA
             </td>   
                 <td class="table__cell">
-                39.190245999, -105.604997408086
+                <span class="lat"> 39.190245999</span>, <span class="lon">-105.604997408086</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Iverson Ranch   1 Iverson Lane, Chatsworth, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.276, -118.60976
+                <span class="lat"> 34.276</span>, <span class="lon">-118.60976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sacramento, California, USA
             </td>   
                 <td class="table__cell">
-                38.581021, -121.4939328
+                <span class="lat"> 38.581021</span>, <span class="lon">-121.4939328</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Truckee, California, USA
             </td>   
                 <td class="table__cell">
-                39.328, -120.1833
+                <span class="lat"> 39.328</span>, <span class="lon">-120.1833</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chatsworth, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2596, -118.6023
+                <span class="lat"> 34.2596</span>, <span class="lon">-118.6023</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Fernando Valley, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.251081, -118.518444
+                <span class="lat"> 34.251081</span>, <span class="lon">-118.518444</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stockton, California, USA
             </td>   
                 <td class="table__cell">
-                37.9577, -121.2908
+                <span class="lat"> 37.9577</span>, <span class="lon">-121.2908</span>
                     </td>   
           </tr> 
           </tr>

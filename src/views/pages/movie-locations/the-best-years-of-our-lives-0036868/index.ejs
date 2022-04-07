@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,59 +60,59 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0658, -117.6484
+                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walnut Hills High School   3250 Victory Parkway, Cincinnati, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                39.126, -84.4891
+                <span class="lat"> 39.126</span>, <span class="lon">-84.4891</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Beach Airport   4101 E. Donald Douglas Drive, Long Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.77, -118.19
+                <span class="lat"> 33.77</span>, <span class="lon">-118.19</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles County Arboretum & Botanic Garden   301 N. Baldwin Avenue, Arcadia, California, USA
             </td>   
                 <td class="table__cell">
-                34.14445, -118.05243
+                <span class="lat"> 34.14445</span>, <span class="lon">-118.05243</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Raleigh Studios   5300 Melrose Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08336, -118.31616
+                <span class="lat"> 34.08336</span>, <span class="lon">-118.31616</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Samuel Goldwyn Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
             </td>   
                 <td class="table__cell">
-                34.090713, -118.346243
+                <span class="lat"> 34.090713</span>, <span class="lon">-118.346243</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 United Artists Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
             </td>   
                 <td class="table__cell">
-                34.090713, -118.346243
+                <span class="lat"> 34.090713</span>, <span class="lon">-118.346243</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,139 +60,139 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Just outside Northern Meadows community, Rio Rancho, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                35.31, -106.71
+                <span class="lat"> 35.31</span>, <span class="lon">-106.71</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walt Disney's Golden Oak Ranch   19802 Placerita Canyon Road, Newhall, California, USA
             </td>   
                 <td class="table__cell">
-                34.37, -118.51
+                <span class="lat"> 34.37</span>, <span class="lon">-118.51</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ferriday, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                31.6302, -91.5546
+                <span class="lat"> 31.6302</span>, <span class="lon">-91.5546</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oklahoma City, Oklahoma, USA
             </td>   
                 <td class="table__cell">
-                35.473, -97.5171
+                <span class="lat"> 35.473</span>, <span class="lon">-97.5171</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pauls Valley, Oklahoma, USA
             </td>   
                 <td class="table__cell">
-                34.7401, -97.2222
+                <span class="lat"> 34.7401</span>, <span class="lon">-97.2222</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Canal Street, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.965685, -90.086885
+                <span class="lat"> 29.965685</span>, <span class="lon">-90.086885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Superdome   1500 Poydras Street, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.952057, -90.078904
+                <span class="lat"> 29.952057</span>, <span class="lon">-90.078904</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Metairie, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.99, -90.1505
+                <span class="lat"> 29.99</span>, <span class="lon">-90.1505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rio Rancho, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                35.2334, -106.6645
+                <span class="lat"> 35.2334</span>, <span class="lon">-106.6645</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 125 W Oak St, Amite City, LA 70422, USA 
             </td>   
                 <td class="table__cell">
-                30.72688, -90.507275
+                <span class="lat"> 30.72688</span>, <span class="lon">-90.507275</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Mexico, USA
             </td>   
                 <td class="table__cell">
-                34.32485649, -105.998350627305
+                <span class="lat"> 34.32485649</span>, <span class="lon">-105.998350627305</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Orleans, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.9499, -90.0701
+                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.93749930159, -92.305998069584
+                <span class="lat"> 30.93749930159</span>, <span class="lon">-92.305998069584</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oklahoma, USA
             </td>   
                 <td class="table__cell">
-                35.9015874097, -97.5389608460746
+                <span class="lat"> 35.9015874097</span>, <span class="lon">-97.5389608460746</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 125 W Oak St, Amite, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.72688, -90.507275
+                <span class="lat"> 30.72688</span>, <span class="lon">-90.507275</span>
                     </td>   
           </tr> 
           </tr>

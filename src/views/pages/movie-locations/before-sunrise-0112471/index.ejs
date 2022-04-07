@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,115 +60,115 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Café Sperl, Gumpendorfer Strasse 11, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Riesenrad, Prater, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.214074, 16.4016205
+                <span class="lat"> 48.214074</span>, <span class="lon">16.4016205</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kleines Café, Franziskanerplatz 3, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.206476, 16.374264
+                <span class="lat"> 48.206476</span>, <span class="lon">16.374264</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Maria Theresien Platz, Vienna, Austria
             </td>   
                 <td class="table__cell">
-                48.204738, 16.361015
+                <span class="lat"> 48.204738</span>, <span class="lon">16.361015</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Friedhof der Namenlosen, Alberner Hafen, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.1608836, 16.4890456
+                <span class="lat"> 48.1608836</span>, <span class="lon">16.4890456</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arena Wien, Baumgasse 80, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Maria Am Gestade, Passauer Platz, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                47.38333, 12.9
+                <span class="lat"> 47.38333</span>, <span class="lon">12.9</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pressgasse 4, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.194605, 16.3644
+                <span class="lat"> 48.194605</span>, <span class="lon">16.3644</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wien Westbahnhof, Europaplatz, Rudolfsheim Fünfhaus, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.196845249999996, 16.338205000000002
+                <span class="lat"> 48.196845249999996</span>, <span class="lon">16.338205000000002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Vienna, Austria
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Teuchtler Schallplattenhandlung, Windmühlgasse 10, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.199619, 16.357045
+                <span class="lat"> 48.199619</span>, <span class="lon">16.357045</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Zollamtssteg Bridge, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.2282515, 16.4097055
+                <span class="lat"> 48.2282515</span>, <span class="lon">16.4097055</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Albertina Palais Museum, Augustinerstrasse 1, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mariahilfer Kirche, Barnabitengasse 14, Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.199093000000005, 16.352997000000002
+                <span class="lat"> 48.199093000000005</span>, <span class="lon">16.352997000000002</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wadi Rum, Jordan 
             </td>   
                 <td class="table__cell">
-                31.969741, 35.900547
+                <span class="lat"> 31.969741</span>, <span class="lon">35.900547</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stadlandet, Norway 
             </td>   
                 <td class="table__cell">
-                62.13, 5.31
+                <span class="lat"> 62.13</span>, <span class="lon">5.31</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Liwa Oasis, Abu Dhabi, United Arab Emirates 
             </td>   
                 <td class="table__cell">
-                24.29187, 54.3631
+                <span class="lat"> 24.29187</span>, <span class="lon">54.3631</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Origo Film Studios, Budapest, Hungary 
             </td>   
                 <td class="table__cell">
-                47.528941, 19.083222
+                <span class="lat"> 47.528941</span>, <span class="lon">19.083222</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Abu Dhabi, United Arab Emirates
             </td>   
                 <td class="table__cell">
-                24.4748, 54.3706
+                <span class="lat"> 24.4748</span>, <span class="lon">54.3706</span>
                     </td>   
           </tr> 
           </tr>

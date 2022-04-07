@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,195 +60,195 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Union Station   Canal St. & Jackson Blvd., Near West Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Looff Hippodrome, Santa Monica Pier, Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0084455, -118.49869375
+                <span class="lat"> 34.0084455</span>, <span class="lon">-118.49869375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 LaSalle Street Station   141 W. Van Buren Street, Downtown, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 43rd Street El Station, South Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.816425, -87.611045
+                <span class="lat"> 41.816425</span>, <span class="lon">-87.611045</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brownstone Street, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York Street, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.149524, -118.338133
+                <span class="lat"> 34.149524</span>, <span class="lon">-118.338133</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Castle Green Apartments   99 S. Raymond, Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hugus Alley, Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.1464847, -118.151731
+                <span class="lat"> 34.1464847</span>, <span class="lon">-118.151731</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Miller Alley, Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.14618, -118.15194
+                <span class="lat"> 34.14618</span>, <span class="lon">-118.15194</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Biltmore Hotel   506 S. Grand Avenue, Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.119935, -118.163184
+                <span class="lat"> 34.119935</span>, <span class="lon">-118.163184</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Penn Central Freight Yards, Near West Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.88, -87.6667
+                <span class="lat"> 41.88</span>, <span class="lon">-87.6667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 28, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 32, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gold Ballroom, Biltmore Hotel   506 S. Grand Avenue, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.119935, -118.163184
+                <span class="lat"> 34.119935</span>, <span class="lon">-118.163184</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 27, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Winston St. & Werdin Pl., Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Monica Pier, Santa Monica, California, USA
             </td>   
                 <td class="table__cell">
-                34.0084455, -118.49869375
+                <span class="lat"> 34.0084455</span>, <span class="lon">-118.49869375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Near West Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.88, -87.6667
+                <span class="lat"> 41.88</span>, <span class="lon">-87.6667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.891212, -87.622842
+                <span class="lat"> 41.891212</span>, <span class="lon">-87.622842</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Illinois, USA
             </td>   
                 <td class="table__cell">
-                40.1492928594, -89.2749461071049
+                <span class="lat"> 40.1492928594</span>, <span class="lon">-89.2749461071049</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           </tr>

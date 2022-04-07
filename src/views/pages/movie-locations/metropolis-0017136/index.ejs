@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,59 +60,59 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Berlin, Germany
             </td>   
                 <td class="table__cell">
-                52.51667, 13.38333
+                <span class="lat"> 52.51667</span>, <span class="lon">13.38333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Guinness factory, James' Gate Brewery, Dublin, Ireland 
             </td>   
                 <td class="table__cell">
-                53.3425, -6.26583
+                <span class="lat"> 53.3425</span>, <span class="lon">-6.26583</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Vienna, Austria 
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Studio Babelsberg, Potsdam, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.387806, 13.120573
+                <span class="lat"> 52.387806</span>, <span class="lon">13.120573</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Filmwerke Staaken, Staaken, Spandau, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.535788, 13.197792
+                <span class="lat"> 52.535788</span>, <span class="lon">13.197792</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Marlene Dietrich Halle, Studio Babelsberg, Potsdam, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.387158, 13.119628
+                <span class="lat"> 52.387158</span>, <span class="lon">13.119628</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ehlen, Habichtswald, Hessen, Germany 
             </td>   
                 <td class="table__cell">
-                51.323325, 9.310328
+                <span class="lat"> 51.323325</span>, <span class="lon">9.310328</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,147 +60,147 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Conyers, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.6676, -84.0177
+                <span class="lat"> 33.6676</span>, <span class="lon">-84.0177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Porterdale, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.5751, -83.8938
+                <span class="lat"> 33.5751</span>, <span class="lon">-83.8938</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1605 Troy Smith Rd, Monroe, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.80716, -83.77518
+                <span class="lat"> 33.80716</span>, <span class="lon">-83.77518</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 700 Deering Rd SE, Conyers, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.61351, -84.02305
+                <span class="lat"> 33.61351</span>, <span class="lon">-84.02305</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2903 High Brook Way SE, Conyers, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.61251, -84.02539
+                <span class="lat"> 33.61251</span>, <span class="lon">-84.02539</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1634 Phillips Rd, Lithonia, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.743185, -84.1341
+                <span class="lat"> 33.743185</span>, <span class="lon">-84.1341</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 651 James P Brawley Dr NW, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.77245, -84.41215
+                <span class="lat"> 33.77245</span>, <span class="lon">-84.41215</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 748 Donald Lee Hollowell Pkwy NW, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.77277, -84.41193
+                <span class="lat"> 33.77277</span>, <span class="lon">-84.41193</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta Medical Center   1170 Cleveland Ave, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 4916 N Royal Atlanta Dr, Tucker, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.85948, -84.18709
+                <span class="lat"> 33.85948</span>, <span class="lon">-84.18709</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stanton Woods Dr SE, Conyers, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.615315, -84.027025
+                <span class="lat"> 33.615315</span>, <span class="lon">-84.027025</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Greenview Ave SE, Conyers, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.61342, -84.02494
+                <span class="lat"> 33.61342</span>, <span class="lon">-84.02494</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shelton Connecticut, USA
             </td>   
                 <td class="table__cell">
-                41.3165, -73.0932
+                <span class="lat"> 41.3165</span>, <span class="lon">-73.0932</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5099 Memorial Dr, Stone Mountain, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.794025, -84.226345
+                <span class="lat"> 33.794025</span>, <span class="lon">-84.226345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stone Mountain   Highway 78, Stone Mountain, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.834307, -84.080535
+                <span class="lat"> 33.834307</span>, <span class="lon">-84.080535</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Village Square Shopping Center   5616 Memorial Dr, Stone Mountain, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.8081, -84.1706
+                <span class="lat"> 33.8081</span>, <span class="lon">-84.1706</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Derby, Connecticut, USA
             </td>   
                 <td class="table__cell">
-                41.3224, -73.089
+                <span class="lat"> 41.3224</span>, <span class="lon">-73.089</span>
                     </td>   
           </tr> 
           </tr>

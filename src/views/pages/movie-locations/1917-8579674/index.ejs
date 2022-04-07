@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salisbury Plain, Wiltshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.06906129999999, -1.7954134
+                <span class="lat"> 51.06906129999999</span>, <span class="lon">-1.7954134</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Govan Graving Docks, Glasgow, Glasgow City, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                55.860982499999984, -4.2488787
+                <span class="lat"> 55.860982499999984</span>, <span class="lon">-4.2488787</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Low Fell, Gateshead, Tyne & Wear, England, UK
             </td>   
                 <td class="table__cell">
-                54.9343411, -1.5986157
+                <span class="lat"> 54.9343411</span>, <span class="lon">-1.5986157</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Low Force Waterfall, Bowlees, Newbiggin, Barnard Castle, County Durham, England, UK 
             </td>   
                 <td class="table__cell">
-                54.650337, -2.145402
+                <span class="lat"> 54.650337</span>, <span class="lon">-2.145402</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bovingdon Airfield, Bovingdon, Hemel Hempstead, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.72186, -0.534952
+                <span class="lat"> 51.72186</span>, <span class="lon">-0.534952</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tees Barrage International White Water Centre, Tees Barrage Way, Stockton on Tees, County Durham, England, UK 
             </td>   
                 <td class="table__cell">
-                54.565271, -1.28908
+                <span class="lat"> 54.565271</span>, <span class="lon">-1.28908</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hankley Common, Elstead, Godalming, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.161909, -0.727556
+                <span class="lat"> 51.161909</span>, <span class="lon">-0.727556</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gateshead, Tyne & Wear, England, UK
             </td>   
                 <td class="table__cell">
-                54.95, -1.6
+                <span class="lat"> 54.95</span>, <span class="lon">-1.6</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glasgow, Glasgow City, Scotland, UK
             </td>   
                 <td class="table__cell">
-                55.860982499999984, -4.2488787
+                <span class="lat"> 55.860982499999984</span>, <span class="lon">-4.2488787</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bovingdon, Hemel Hempstead, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.72303, -0.53232
+                <span class="lat"> 51.72303</span>, <span class="lon">-0.53232</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bowlees, Newbiggin, Barnard Castle, County Durham, England, UK
             </td>   
                 <td class="table__cell">
-                54.6431, -2.1311
+                <span class="lat"> 54.6431</span>, <span class="lon">-2.1311</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Newbiggin, Barnard Castle, County Durham, England, UK
             </td>   
                 <td class="table__cell">
-                54.6431, -2.1311
+                <span class="lat"> 54.6431</span>, <span class="lon">-2.1311</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Barnard Castle, County Durham, England, UK
             </td>   
                 <td class="table__cell">
-                54.55, -1.92
+                <span class="lat"> 54.55</span>, <span class="lon">-1.92</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stockton on Tees, County Durham, England, UK
             </td>   
                 <td class="table__cell">
-                54.625167000000005, -1.35031
+                <span class="lat"> 54.625167000000005</span>, <span class="lon">-1.35031</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elstead, Godalming, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.184, -0.698
+                <span class="lat"> 51.184</span>, <span class="lon">-0.698</span>
                     </td>   
           </tr> 
           </tr>

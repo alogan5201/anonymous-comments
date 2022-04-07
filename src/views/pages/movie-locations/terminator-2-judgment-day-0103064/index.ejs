@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,291 +60,291 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bayside Parkway & Gateway Blvd., Fremont, California, USA 
             </td>   
                 <td class="table__cell">
-                37.5483, -121.9886
+                <span class="lat"> 37.5483</span>, <span class="lon">-121.9886</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bridge, Intersection of Hayvenhurst & Plummer, San Fernando Valley, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2819, -118.439
+                <span class="lat"> 34.2819</span>, <span class="lon">-118.439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kaiser Steel Mill, Fontana, California, USA
             </td>   
                 <td class="table__cell">
-                48.63, -110.11
+                <span class="lat"> 48.63</span>, <span class="lon">-110.11</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sherman Oaks Galleria   15301 Ventura Blvd., Sherman Oaks, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1509, -118.449
+                <span class="lat"> 34.1509</span>, <span class="lon">-118.449</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fremont, California, USA
             </td>   
                 <td class="table__cell">
-                37.5483, -121.9886
+                <span class="lat"> 37.5483</span>, <span class="lon">-121.9886</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lake View Terrace Branch Library   12002 Osborne Street, Lake View Terrace, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lake View Medical Center   11600 Eldridge Avenue, Lake View Terrace, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lancaster, California, USA
             </td>   
                 <td class="table__cell">
-                34.6981, -118.1366
+                <span class="lat"> 34.6981</span>, <span class="lon">-118.1366</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elysian Park, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0743, -118.2398
+                <span class="lat"> 34.0743</span>, <span class="lon">-118.2398</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Northridge Fashion Mall   9301 Tampa Avenue, Northridge, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.23895, -118.55707
+                <span class="lat"> 34.23895</span>, <span class="lon">-118.55707</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Terminal Island Freeway, Wilmington, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.8008, -118.22259
+                <span class="lat"> 33.8008</span>, <span class="lon">-118.22259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Jose, California, USA
             </td>   
                 <td class="table__cell">
-                37.2751, -121.8261
+                <span class="lat"> 37.2751</span>, <span class="lon">-121.8261</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 46551 140th St East, Lancaster, California, USA 
             </td>   
                 <td class="table__cell">
-                34.73015, -117.88109
+                <span class="lat"> 34.73015</span>, <span class="lon">-117.88109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Monica Place   4th Street & Broadway, Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.011695, -118.489295
+                <span class="lat"> 34.011695</span>, <span class="lon">-118.489295</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lake View Terrace Liquor Store  11844 Foothill Boulevard, Lake View Terrace, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6th Street Viaduct, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.94506, -118.12944
+                <span class="lat"> 33.94506</span>, <span class="lon">-118.12944</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Mirage Dry Lake, California, USA
             </td>   
                 <td class="table__cell">
-                34.624683, -117.547873
+                <span class="lat"> 34.624683</span>, <span class="lon">-117.547873</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.7775, -118.1885
+                <span class="lat"> 33.7775</span>, <span class="lon">-118.1885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Clarita, California, USA
             </td>   
                 <td class="table__cell">
-                34.42, -118.54
+                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Fe, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                35.687, -105.9378
+                <span class="lat"> 35.687</span>, <span class="lon">-105.9378</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 19828 Valerio Street, Winnetka, California, USA 
             </td>   
                 <td class="table__cell">
-                34.20461, -118.56521
+                <span class="lat"> 34.20461</span>, <span class="lon">-118.56521</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 14400 Roscoe Blvd Van Nuys, California, USA 
             </td>   
                 <td class="table__cell">
-                34.22126, -118.44756
+                <span class="lat"> 34.22126</span>, <span class="lon">-118.44756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Petersen Automotive Museum   6060 Wilshire Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.083057, -118.383393
+                <span class="lat"> 34.083057</span>, <span class="lon">-118.383393</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 14224 Roscoe Boulevard @ Wakefield Avenue   Van Nuys, California, USA 
             </td>   
                 <td class="table__cell">
-                34.22152, -118.44336
+                <span class="lat"> 34.22152</span>, <span class="lon">-118.44336</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tujunga Wash, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.171866, -118.379074
+                <span class="lat"> 34.171866</span>, <span class="lon">-118.379074</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 600 Mesquit Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.03838, -118.22943
+                <span class="lat"> 34.03838</span>, <span class="lon">-118.22943</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Northridge, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.99547, -118.353795
+                <span class="lat"> 33.99547</span>, <span class="lon">-118.353795</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Valencia Studios   26030 Avenue Hall, Valencia, California, USA
             </td>   
                 <td class="table__cell">
-                34.4436, -118.6095
+                <span class="lat"> 34.4436</span>, <span class="lon">-118.6095</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arcadia, California, USA
             </td>   
                 <td class="table__cell">
-                34.1362, -118.0401
+                <span class="lat"> 34.1362</span>, <span class="lon">-118.0401</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles County Arboretum & Botanic Garden   301 N. Baldwin Avenue, Arcadia, California, USA
             </td>   
                 <td class="table__cell">
-                34.14445, -118.05243
+                <span class="lat"> 34.14445</span>, <span class="lon">-118.05243</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sherman Oaks, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.152709, -118.460469
+                <span class="lat"> 34.152709</span>, <span class="lon">-118.460469</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sun Valley, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2175, -118.3704
+                <span class="lat"> 34.2175</span>, <span class="lon">-118.3704</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Malibu, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0058, -118.807
+                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Reseda, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2011, -118.5365
+                <span class="lat"> 34.2011</span>, <span class="lon">-118.5365</span>
                     </td>   
           </tr> 
           </tr>

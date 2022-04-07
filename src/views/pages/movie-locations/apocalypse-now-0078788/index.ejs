@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,75 +60,75 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Baler Bay, Baler, Aurora, Philippines 
             </td>   
                 <td class="table__cell">
-                15.75833, 121.5625
+                <span class="lat"> 15.75833</span>, <span class="lon">121.5625</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Baler, Aurora, Philippines 
             </td>   
                 <td class="table__cell">
-                15.75833, 121.5625
+                <span class="lat"> 15.75833</span>, <span class="lon">121.5625</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pagsanjan, Laguna, Philippines 
             </td>   
                 <td class="table__cell">
-                14.26667, 121.45
+                <span class="lat"> 14.26667</span>, <span class="lon">121.45</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Iba, Zambales, Philippines 
             </td>   
                 <td class="table__cell">
-                15.33333, 119.98333
+                <span class="lat"> 15.33333</span>, <span class="lon">119.98333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pagsanjan River, Pagsanjan, Laguna, Philippines 
             </td>   
                 <td class="table__cell">
-                14.26667, 121.45
+                <span class="lat"> 14.26667</span>, <span class="lon">121.45</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Laguna, Philippines
             </td>   
                 <td class="table__cell">
-                14.16667, 121.33333
+                <span class="lat"> 14.16667</span>, <span class="lon">121.33333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Metro Manila, Philippines
             </td>   
                 <td class="table__cell">
-                14.58333, 121
+                <span class="lat"> 14.58333</span>, <span class="lon">121</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Río Chavón, La Romana, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.43, -68.97
+                <span class="lat"> 18.43</span>, <span class="lon">-68.97</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Napa Valley, California, USA
             </td>   
                 <td class="table__cell">
-                38.509364500000004, -122.47841600000001
+                <span class="lat"> 38.509364500000004</span>, <span class="lon">-122.47841600000001</span>
                     </td>   
           </tr> 
           </tr>

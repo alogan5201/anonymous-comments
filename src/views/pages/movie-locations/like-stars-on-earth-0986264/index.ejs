@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,107 +60,107 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Panchgani, Maharashtra, India 
             </td>   
                 <td class="table__cell">
-                17.918044, 73.799756
+                <span class="lat"> 17.918044</span>, <span class="lon">73.799756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mumbai, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                18.96667, 72.83333
+                <span class="lat"> 18.96667</span>, <span class="lon">72.83333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Xavier's High School, Mumbai, Maharashtra, India 
             </td>   
                 <td class="table__cell">
-                18.944321, 72.829906
+                <span class="lat"> 18.944321</span>, <span class="lon">72.829906</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mysore Colony, Chembur, Maharashtra, India 
             </td>   
                 <td class="table__cell">
-                19.032711, 72.891125
+                <span class="lat"> 19.032711</span>, <span class="lon">72.891125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bungalow No. 55, Mysore Colony, Chembur, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                19.032711, 72.891125
+                <span class="lat"> 19.032711</span>, <span class="lon">72.891125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trombay Club, B P Housing Colony, Chembur, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                19.035169, 72.897258
+                <span class="lat"> 19.035169</span>, <span class="lon">72.897258</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bungalow No. 4, B P Housing Colony, Chembur, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                19.05871, 72.89969
+                <span class="lat"> 19.05871</span>, <span class="lon">72.89969</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Haffkins Institute, 40/W, Acharya Dhonde Marg, Parel Village, Parel, Mumbai, Maharashtra 400012, India
             </td>   
                 <td class="table__cell">
-                18.998234, 72.843157
+                <span class="lat"> 18.998234</span>, <span class="lon">72.843157</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Borla Uttam Society, Mumbai, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                18.96667, 72.83333
+                <span class="lat"> 18.96667</span>, <span class="lon">72.83333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Acres Club, 411 B, Hemu Kalani Marg, Chembur East, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                19.052128, 72.892529
+                <span class="lat"> 19.052128</span>, <span class="lon">72.892529</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Era High School, Chesson Rd, Panchgani, Maharashtra, India 
             </td>   
                 <td class="table__cell">
-                17.918044, 73.799756
+                <span class="lat"> 17.918044</span>, <span class="lon">73.799756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ravine Hotel, Sydney Point, Wai Panchgani Rd, Panchgani, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                17.934397, 73.805594
+                <span class="lat"> 17.934397</span>, <span class="lon">73.805594</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Il Palazzo Hotel, Shirinbai Davierwalla Marg, Dist. Satara, Panchgani, Maharashtra, India
             </td>   
                 <td class="table__cell">
-                17.925178, 73.802047
+                <span class="lat"> 17.925178</span>, <span class="lon">73.802047</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,27 +60,27 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wadi Rum, Jordan 
             </td>   
                 <td class="table__cell">
-                31.969741, 35.900547
+                <span class="lat"> 31.969741</span>, <span class="lon">35.900547</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longcross, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.380692, -0.549514
+                <span class="lat"> 51.380692</span>, <span class="lon">-0.549514</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Petra, Jordan 
             </td>   
                 <td class="table__cell">
-                30.3268655, 35.4443585
+                <span class="lat"> 30.3268655</span>, <span class="lon">35.4443585</span>
                     </td>   
           </tr> 
           </tr>

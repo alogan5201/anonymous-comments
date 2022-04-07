@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,147 +60,147 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cape Girardeau, Missouri, USA
             </td>   
                 <td class="table__cell">
-                37.3059, -89.5181
+                <span class="lat"> 37.3059</span>, <span class="lon">-89.5181</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Giant City State Park, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                39.459719, -105.66111
+                <span class="lat"> 39.459719</span>, <span class="lon">-105.66111</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 119 Themis Street, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.3048, -89.51922
+                <span class="lat"> 37.3048</span>, <span class="lon">-89.51922</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Last Bookstore   453 S Spring St, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.89881, -118.218128
+                <span class="lat"> 33.89881</span>, <span class="lon">-118.218128</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Common Pleas Courthouse   44 N. Lorimier Street, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.39514, -89.63495
+                <span class="lat"> 37.39514</span>, <span class="lon">-89.63495</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Keystone Drive, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.32527, -89.5754
+                <span class="lat"> 37.32527</span>, <span class="lon">-89.5754</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elm Street, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.291655, -89.529735
+                <span class="lat"> 37.291655</span>, <span class="lon">-89.529735</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2901 Hawthorne Road, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.31807, -89.567705
+                <span class="lat"> 37.31807</span>, <span class="lon">-89.567705</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hawthorne Plaza   12124 Hawthorne Blvd., Hawthorne, California, USA 
             </td>   
                 <td class="table__cell">
-                33.9113, -118.3478
+                <span class="lat"> 33.9113</span>, <span class="lon">-118.3478</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 104 Fremont Place, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0598, -118.32821
+                <span class="lat"> 34.0598</span>, <span class="lon">-118.32821</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Albert Rasche Drive, Cape Girardeau, Missouri, USA 
             </td>   
                 <td class="table__cell">
-                37.33037, -89.55543
+                <span class="lat"> 37.33037</span>, <span class="lon">-89.55543</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brownstone Street, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Big Lots, 12322 Fourth St, Rancho Cucamonga, CA 91730, USA 
             </td>   
                 <td class="table__cell">
-                34.07768, -117.53531
+                <span class="lat"> 34.07768</span>, <span class="lon">-117.53531</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Red Studios, 846 N. Cahuenga Blvd., Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.16514, -118.3617
+                <span class="lat"> 34.16514</span>, <span class="lon">-118.3617</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Frank's Coffee Shop, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Giant City State Park Lodge & Restaurant   460 Giant City Lodge Road, Makanda, Illinois, USA
             </td>   
                 <td class="table__cell">
-                37.60586, -89.1865
+                <span class="lat"> 37.60586</span>, <span class="lon">-89.1865</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 former Reichsparteitag area, Nuremberg, Bavaria, Germany 
             </td>   
                 <td class="table__cell">
-                49.45278, 11.07778
+                <span class="lat"> 49.45278</span>, <span class="lon">11.07778</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West Berlin, Berlin, Germany
             </td>   
                 <td class="table__cell">
-                42.3881, -71.6606
+                <span class="lat"> 42.3881</span>, <span class="lon">-71.6606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tower of London, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nuremberg, Bavaria, Germany 
             </td>   
                 <td class="table__cell">
-                49.45278, 11.07778
+                <span class="lat"> 49.45278</span>, <span class="lon">11.07778</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Revue Studios, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1389, -118.3534
+                <span class="lat"> 34.1389</span>, <span class="lon">-118.3534</span>
                     </td>   
           </tr> 
           </tr>

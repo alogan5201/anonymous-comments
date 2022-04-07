@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,99 +60,99 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gedenkstätte Hohenschönhausen, Hohenschönhausen, Berlin, Germany
             </td>   
                 <td class="table__cell">
-                52.541779500000004, 13.5011875
+                <span class="lat"> 52.541779500000004</span>, <span class="lon">13.5011875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Karl Marx Allee, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.5183587, 13.4348447
+                <span class="lat"> 52.5183587</span>, <span class="lon">13.4348447</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hebbel Theater, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.505652500000004, 13.333452999999999
+                <span class="lat"> 52.505652500000004</span>, <span class="lon">13.333452999999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Volksbühne am Rosa Luxemburg Platz, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.526887, 13.411869
+                <span class="lat"> 52.526887</span>, <span class="lon">13.411869</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Schönholzer Heide, Pankow, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.577478, 13.3822545
+                <span class="lat"> 52.577478</span>, <span class="lon">13.3822545</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Frankfurter Tor, Friedrichshain, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.51582425, 13.454107749999999
+                <span class="lat"> 52.51582425</span>, <span class="lon">13.454107749999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Leise Park, Prenzlauer Berg, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.521966, 13.460827
+                <span class="lat"> 52.521966</span>, <span class="lon">13.460827</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Altes Stadthaus, Klosterstraße, Berlin, Germany
             </td>   
                 <td class="table__cell">
-                52.5164455, 13.410912
+                <span class="lat"> 52.5164455</span>, <span class="lon">13.410912</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Berlin, Germany
             </td>   
                 <td class="table__cell">
-                52.51667, 13.38333
+                <span class="lat"> 52.51667</span>, <span class="lon">13.38333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hufelandstraße, Prenzlauer Berg, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.5314414, 13.4333867
+                <span class="lat"> 52.5314414</span>, <span class="lon">13.4333867</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Normannenstraße, Lichtenberg, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.5157706, 13.4844497
+                <span class="lat"> 52.5157706</span>, <span class="lon">13.4844497</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wedekindstraße, Friedrichshain, Berlin, Germany 
             </td>   
                 <td class="table__cell">
-                52.5127611, 13.4449724
+                <span class="lat"> 52.5127611</span>, <span class="lon">13.4449724</span>
                     </td>   
           </tr> 
           </tr>

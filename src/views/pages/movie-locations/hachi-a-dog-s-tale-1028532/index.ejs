@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,51 +60,51 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rhode Island, USA
             </td>   
                 <td class="table__cell">
-                41.6850953372, -71.5793902557177
+                <span class="lat"> 41.6850953372</span>, <span class="lon">-71.5793902557177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woonsocket, Rhode Island, USA
             </td>   
                 <td class="table__cell">
-                42.0029, -71.5148
+                <span class="lat"> 42.0029</span>, <span class="lon">-71.5148</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Columbus Theatre Arts Center, Providence, Rhode Island, USA
             </td>   
                 <td class="table__cell">
-                41.824, -71.4128
+                <span class="lat"> 41.824</span>, <span class="lon">-71.4128</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 University of Rhode Island, Kingston, Rhode Island, USA 
             </td>   
                 <td class="table__cell">
-                41.482648999999995, -71.52618749999999
+                <span class="lat"> 41.482648999999995</span>, <span class="lon">-71.52618749999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bristol, Rhode Island, USA
             </td>   
                 <td class="table__cell">
-                41.677, -71.2662
+                <span class="lat"> 41.677</span>, <span class="lon">-71.2662</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1 Depot Square, Woonsocket, Rhode Island, USA 
             </td>   
                 <td class="table__cell">
-                42.00372, -71.51317
+                <span class="lat"> 42.00372</span>, <span class="lon">-71.51317</span>
                     </td>   
           </tr> 
           </tr>

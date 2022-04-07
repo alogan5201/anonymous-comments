@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,163 +60,163 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.046095, -114.065465
+                <span class="lat"> 51.046095</span>, <span class="lon">-114.065465</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Strathmore, Alberta, Canada
             </td>   
                 <td class="table__cell">
-                51.043549, -113.399848
+                <span class="lat"> 51.043549</span>, <span class="lon">-113.399848</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 High River, Alberta, Canada
             </td>   
                 <td class="table__cell">
-                50.579708, -113.856921
+                <span class="lat"> 50.579708</span>, <span class="lon">-113.856921</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6805 Ogden Rd SE, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                50.991621, -114.002391
+                <span class="lat"> 50.991621</span>, <span class="lon">-114.002391</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calgary Public Library, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.045291000000006, -114.06014
+                <span class="lat"> 51.045291000000006</span>, <span class="lon">-114.06014</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1011 Centre Ave NE, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.052331, -114.037999
+                <span class="lat"> 51.052331</span>, <span class="lon">-114.037999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Inglewood, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.0428, -114.039
+                <span class="lat"> 51.0428</span>, <span class="lon">-114.039</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1335 9 Ave SE, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.040355, -114.032378
+                <span class="lat"> 51.040355</span>, <span class="lon">-114.032378</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 319 6th Street, Beiseker, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                50.2186008, -111.1571125
+                <span class="lat"> 50.2186008</span>, <span class="lon">-111.1571125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beiseker, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.385219, -113.538308
+                <span class="lat"> 51.385219</span>, <span class="lon">-113.538308</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 232 6th Street, Beiseker, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                50.2186008, -111.1571125
+                <span class="lat"> 50.2186008</span>, <span class="lon">-111.1571125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 194 North Road, Beiseker, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.387044, -113.536188
+                <span class="lat"> 51.387044</span>, <span class="lon">-113.536188</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 504 7th Street, Beiseker, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                54.1888164, -111.7136789
+                <span class="lat"> 54.1888164</span>, <span class="lon">-111.7136789</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1130 10 Ave SE, Calgary, Alberta, Canada 
             </td>   
                 <td class="table__cell">
-                51.041008, -114.036441
+                <span class="lat"> 51.041008</span>, <span class="lon">-114.036441</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1900 West Lunt Avenue, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.00917, -87.67837
+                <span class="lat"> 42.00917</span>, <span class="lon">-87.67837</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cinespace Chicago Film Studios, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.892674, -87.63125
+                <span class="lat"> 41.892674</span>, <span class="lon">-87.63125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Minnesota, USA 
             </td>   
                 <td class="table__cell">
-                46.3434063154, -94.1991167709013
+                <span class="lat"> 46.3434063154</span>, <span class="lon">-94.1991167709013</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Minneapolis, Minnesota, USA 
             </td>   
                 <td class="table__cell">
-                44.9773, -93.2655
+                <span class="lat"> 44.9773</span>, <span class="lon">-93.2655</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brainerd, Minnesota, USA 
             </td>   
                 <td class="table__cell">
-                46.358, -94.2008
+                <span class="lat"> 46.358</span>, <span class="lon">-94.2008</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bemidji, Minnesota, USA 
             </td>   
                 <td class="table__cell">
-                47.4787, -94.8908
+                <span class="lat"> 47.4787</span>, <span class="lon">-94.8908</span>
                     </td>   
           </tr> 
           </tr>

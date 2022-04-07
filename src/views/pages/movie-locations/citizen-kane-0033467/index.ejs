@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,123 +60,123 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Busch Gardens   S. Grove Avenue, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Balboa Park   1549 El Prado, San Diego, California, USA
             </td>   
                 <td class="table__cell">
-                32.7322, -117.1492
+                <span class="lat"> 32.7322</span>, <span class="lon">-117.1492</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arroyo Boulevard, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.137595, -118.16583
+                <span class="lat"> 34.137595</span>, <span class="lon">-118.16583</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oheka Castle   135 West Gate Drive, Huntington, Long Island, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.8682, -73.4257
+                <span class="lat"> 40.8682</span>, <span class="lon">-73.4257</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 RKO Studios   780 N. Gower Street, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08514, -118.32213
+                <span class="lat"> 34.08514</span>, <span class="lon">-118.32213</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Island, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.583986, -73.686923
+                <span class="lat"> 40.583986</span>, <span class="lon">-73.686923</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Diego, California, USA
             </td>   
                 <td class="table__cell">
-                32.7174, -117.1628
+                <span class="lat"> 32.7174</span>, <span class="lon">-117.1628</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Malibu, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0058, -118.807
+                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Diego Zoo, San Diego, California, USA 
             </td>   
                 <td class="table__cell">
-                32.7357155, -117.150279
+                <span class="lat"> 32.7357155</span>, <span class="lon">-117.150279</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,35 +60,35 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Seaside, Florida, USA 
             </td>   
                 <td class="table__cell">
-                30.3202, -86.1377
+                <span class="lat"> 30.3202</span>, <span class="lon">-86.1377</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Panama City, Florida, USA
             </td>   
                 <td class="table__cell">
-                30.1601, -85.6546
+                <span class="lat"> 30.1601</span>, <span class="lon">-85.6546</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 31, changed to 36, Natchez Street Seaside, Florida, USA 
             </td>   
                 <td class="table__cell">
-                30.32147, -86.141413
+                <span class="lat"> 30.32147</span>, <span class="lon">-86.141413</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Falls Lake, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,99 +60,99 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Isle of Harris, Western Isles, Scotland, UK
             </td>   
                 <td class="table__cell">
-                56.734282295, -4.09589210432502
+                <span class="lat"> 56.734282295</span>, <span class="lon">-4.09589210432502</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 MGM British Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.6578, -0.2723
+                <span class="lat"> 51.6578</span>, <span class="lon">-0.2723</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 South Harris, Western Isles, Scotland, UK
             </td>   
                 <td class="table__cell">
-                56.734282295, -4.09589210432502
+                <span class="lat"> 56.734282295</span>, <span class="lon">-4.09589210432502</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Spitzkoppe, Erongo, Namibia 
             </td>   
                 <td class="table__cell">
-                -23.11667, 14.86667
+                <span class="lat"> -23.11667</span>, <span class="lon">14.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.407444, -0.465177
+                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Monument Valley, Arizona, USA
             </td>   
                 <td class="table__cell">
-                36.9867, -110.1911
+                <span class="lat"> 36.9867</span>, <span class="lon">-110.1911</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Monument Valley, Utah, USA
             </td>   
                 <td class="table__cell">
-                36.998843, -110.1564878
+                <span class="lat"> 36.998843</span>, <span class="lon">-110.1564878</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Borehamwood, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.6578, -0.2723
+                <span class="lat"> 51.6578</span>, <span class="lon">-0.2723</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Spitzkoppe Mountains, Erongo, Namibia 
             </td>   
                 <td class="table__cell">
-                -23.11667, 14.86667
+                <span class="lat"> -23.11667</span>, <span class="lon">14.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Namib Desert, Namibia 
             </td>   
                 <td class="table__cell">
-                10.151559, -85.452172
+                <span class="lat"> 10.151559</span>, <span class="lon">-85.452172</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 H Stage, Shepperton Studios, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.407444, -0.465177
+                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 3, MGM British Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.6578, -0.2723
+                <span class="lat"> 51.6578</span>, <span class="lon">-0.2723</span>
                     </td>   
           </tr> 
           </tr>

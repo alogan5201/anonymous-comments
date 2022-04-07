@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,179 +60,179 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Citta Valmelaina, Via Salaria, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Piazza Vittorio Emanuele, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                42.079285, 12.400895
+                <span class="lat"> 42.079285</span>, <span class="lon">12.400895</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Porta Pia Piazza, Porta Pia, Montesacro, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Porta Portese, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trastevere, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.885458, 12.467054
+                <span class="lat"> 41.885458</span>, <span class="lon">12.467054</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Porta Pia, Montesacro, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Porta Pinciana, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.921987, 12.487658
+                <span class="lat"> 41.921987</span>, <span class="lon">12.487658</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.9499874999981, 12.7727081111137
+                <span class="lat"> 41.9499874999981</span>, <span class="lon">12.7727081111137</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 S.A.F.A. Studios, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via Salaria, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                42.03985775, 12.559354
+                <span class="lat"> 42.03985775</span>, <span class="lon">12.559354</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Montesacro, Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.9499874999981, 12.7727081111137
+                <span class="lat"> 41.9499874999981</span>, <span class="lon">12.7727081111137</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via del Gran Paradiso, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via Maiella, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.9925, 12.61941
+                <span class="lat"> 41.9925</span>, <span class="lon">12.61941</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via dei Montecatini, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.899573, 12.480446
+                <span class="lat"> 41.899573</span>, <span class="lon">12.480446</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 22 Via Francesco Crispi, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via del Traforo, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.9024667455, 12.485962293
+                <span class="lat"> 41.9024667455</span>, <span class="lon">12.485962293</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 19 Via Giacomo Venezian, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.889054, 12.468505
+                <span class="lat"> 41.889054</span>, <span class="lon">12.468505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Basilica of Saints Nereus and Achilleus   28 Viale delle Terme di Caracalla, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.880207, 12.495117
+                <span class="lat"> 41.880207</span>, <span class="lon">12.495117</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Via Pietro da Cortona, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.7940932, 12.2913798
+                <span class="lat"> 41.7940932</span>, <span class="lon">12.2913798</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ponte Duca D'Aosta, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.89306, 12.48278
+                <span class="lat"> 41.89306</span>, <span class="lon">12.48278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Piazza dei Mercanti, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.8867408, 12.4769362
+                <span class="lat"> 41.8867408</span>, <span class="lon">12.4769362</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stadio Flaminio, Rome, Italy 
             </td>   
                 <td class="table__cell">
-                41.926933500000004, 12.4722525
+                <span class="lat"> 41.926933500000004</span>, <span class="lon">12.4722525</span>
                     </td>   
           </tr> 
           </tr>

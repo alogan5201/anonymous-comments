@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,67 +60,67 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Freshwater West, Pembrokeshire, Wales, UK 
             </td>   
                 <td class="table__cell">
-                51.654558, -5.05785
+                <span class="lat"> 51.654558</span>, <span class="lon">-5.05785</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.407444, -0.465177
+                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cardington Airship Hangars, Bedfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.28478, -0.760758
+                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Pancras Station, St. Pancras, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Swinley Forest, Bracknell, Berkshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.38761, -0.740717
+                <span class="lat"> 51.38761</span>, <span class="lon">-0.740717</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Leavesden Studios, Leavesden, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.69323, -0.4184505
+                <span class="lat"> 51.69323</span>, <span class="lon">-0.4184505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Studios, Iver Heath, Buckinghamshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ashbridge, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.798993874999994, -0.560344
+                <span class="lat"> 51.798993874999994</span>, <span class="lon">-0.560344</span>
                     </td>   
           </tr> 
           </tr>

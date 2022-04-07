@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,123 +60,123 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Travel Inn   7254 Foothill Blvd., Tujunga, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0749, -118.55465
+                <span class="lat"> 34.0749</span>, <span class="lon">-118.55465</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glendale, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1423, -118.2484
+                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sylmar, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.15549, -118.44672
+                <span class="lat"> 34.15549</span>, <span class="lon">-118.44672</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hill Crest Inn, 9111 Sepulveda Blvd, North Hills, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.236005, -118.468085
+                <span class="lat"> 34.236005</span>, <span class="lon">-118.468085</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Las Vegas, Nevada, USA
             </td>   
                 <td class="table__cell">
-                36.1663, -115.1492
+                <span class="lat"> 36.1663</span>, <span class="lon">-115.1492</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carson, California, USA
             </td>   
                 <td class="table__cell">
-                33.8322, -118.2518
+                <span class="lat"> 33.8322</span>, <span class="lon">-118.2518</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sunland, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.26, -118.31
+                <span class="lat"> 34.26</span>, <span class="lon">-118.31</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2314, -118.4594
+                <span class="lat"> 34.2314</span>, <span class="lon">-118.4594</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Altadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.1863, -118.1352
+                <span class="lat"> 34.1863</span>, <span class="lon">-118.1352</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tujunga, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2522, -118.2884
+                <span class="lat"> 34.2522</span>, <span class="lon">-118.2884</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nevada, USA
             </td>   
                 <td class="table__cell">
-                40.0711202976, -116.598821819119
+                <span class="lat"> 40.0711202976</span>, <span class="lon">-116.598821819119</span>
                     </td>   
           </tr> 
           </tr>

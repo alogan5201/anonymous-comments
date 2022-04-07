@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,59 +60,59 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Namib Desert, Namibia
             </td>   
                 <td class="table__cell">
-                10.151559, -85.452172
+                <span class="lat"> 10.151559</span>, <span class="lon">-85.452172</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cape Town Film Studios, Cape Town, Western Cape, South Africa 
             </td>   
                 <td class="table__cell">
-                -33.907111, 18.409741
+                <span class="lat"> -33.907111</span>, <span class="lon">18.409741</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.868, 151.21
+                <span class="lat"> -33.868</span>, <span class="lon">151.21</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Swakopmund, Erongo, Namibia
             </td>   
                 <td class="table__cell">
-                -22.696565, 14.539054
+                <span class="lat"> -22.696565</span>, <span class="lon">14.539054</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Potts Hill, Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.89, 151.03
+                <span class="lat"> -33.89</span>, <span class="lon">151.03</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Penrith, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.7511, 150.6942
+                <span class="lat"> -33.7511</span>, <span class="lon">150.6942</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fox Studios, Moore Park, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.892398, 151.226592
+                <span class="lat"> -33.892398</span>, <span class="lon">151.226592</span>
                     </td>   
           </tr> 
           </tr>

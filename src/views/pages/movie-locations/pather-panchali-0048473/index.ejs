@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,27 +60,27 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boral, West Bengal, India 
             </td>   
                 <td class="table__cell">
-                22.446345, 88.370853
+                <span class="lat"> 22.446345</span>, <span class="lon">88.370853</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boral, Kolkata, India 
             </td>   
                 <td class="table__cell">
-                22.446345, 88.370853
+                <span class="lat"> 22.446345</span>, <span class="lon">88.370853</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palsit, Purbha Bardhaman, West Bengal, India 
             </td>   
                 <td class="table__cell">
-                23.199917, 88.009229
+                <span class="lat"> 23.199917</span>, <span class="lon">88.009229</span>
                     </td>   
           </tr> 
           </tr>

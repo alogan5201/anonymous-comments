@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blenheim Palace, Woodstock, Oxfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.84242375, -1.3609806249999998
+                <span class="lat"> 51.84242375</span>, <span class="lon">-1.3609806249999998</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carton House, Maynooth, County Kildare, Ireland
             </td>   
                 <td class="table__cell">
-                53.390557, -6.5660345
+                <span class="lat"> 53.390557</span>, <span class="lon">-6.5660345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chatsworth House, Edensor, Derbyshire, England, UK 
             </td>   
                 <td class="table__cell">
-                53.228235999999995, -1.610953
+                <span class="lat"> 53.228235999999995</span>, <span class="lon">-1.610953</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kells, County Meath, Ireland 
             </td>   
                 <td class="table__cell">
-                53.6542824, -6.6923327
+                <span class="lat"> 53.6542824</span>, <span class="lon">-6.6923327</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cahir Castle, County Tipperary, Ireland 
             </td>   
                 <td class="table__cell">
-                52.375153749999996, -7.9266665
+                <span class="lat"> 52.375153749999996</span>, <span class="lon">-7.9266665</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Guildhall, Lavenham, Suffolk, England, UK 
             </td>   
                 <td class="table__cell">
-                52.242759, 0.581383
+                <span class="lat"> 52.242759</span>, <span class="lon">0.581383</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Royal Victoria Park, Bath, Somerset, England, UK
             </td>   
                 <td class="table__cell">
-                51.386223, -2.373142
+                <span class="lat"> 51.386223</span>, <span class="lon">-2.373142</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dunrobin Castle, Sutherland, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                56.734282295, -4.09589210432502
+                <span class="lat"> 56.734282295</span>, <span class="lon">-4.09589210432502</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Potsdam, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.4, 13.06667
+                <span class="lat"> 52.4</span>, <span class="lon">13.06667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Huntington Castle, Clonegal, County Carlow, Ireland 
             </td>   
                 <td class="table__cell">
-                52.6901205, -6.6484695
+                <span class="lat"> 52.6901205</span>, <span class="lon">-6.6484695</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Somerset Rural Life Museum, Abbey Farm, Glastonbury, Somerset, England, UK 
             </td>   
                 <td class="table__cell">
-                51.14344, -2.714353
+                <span class="lat"> 51.14344</span>, <span class="lon">-2.714353</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Baden Württemberg, Germany 
             </td>   
                 <td class="table__cell">
-                48.53778, 9.04111
+                <span class="lat"> 48.53778</span>, <span class="lon">9.04111</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carrick on Suir, County Tipperary, Ireland 
             </td>   
                 <td class="table__cell">
-                52.3490345, -7.4045505
+                <span class="lat"> 52.3490345</span>, <span class="lon">-7.4045505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Castle Howard, York, North Yorkshire, England, UK 
             </td>   
                 <td class="table__cell">
-                54.12058, -0.911018
+                <span class="lat"> 54.12058</span>, <span class="lon">-0.911018</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sans Souci, Potsdam, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.403669, 13.038540000000001
+                <span class="lat"> 52.403669</span>, <span class="lon">13.038540000000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shell Cottage, Carton Estate, Maynooth, Co. Kildare, Ireland 
             </td>   
                 <td class="table__cell">
-                53.385, -6.5936
+                <span class="lat"> 53.385</span>, <span class="lon">-6.5936</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Castle Hohenzollern, Hechingen, Baden Württemberg, Germany 
             </td>   
                 <td class="table__cell">
-                48.32325025, 8.967694999999999
+                <span class="lat"> 48.32325025</span>, <span class="lon">8.967694999999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Corsham Court, Wiltshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.4343335, -2.1824760000000003
+                <span class="lat"> 51.4343335</span>, <span class="lon">-2.1824760000000003</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hechingen, Baden Württemberg, Germany 
             </td>   
                 <td class="table__cell">
-                48.35167, 8.96333
+                <span class="lat"> 48.35167</span>, <span class="lon">8.96333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longleat House, Wiltshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.1861825, -2.2759679999999998
+                <span class="lat"> 51.1861825</span>, <span class="lon">-2.2759679999999998</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ludwigsburg Castle, Ludwigsburg, Baden Württemberg, Germany 
             </td>   
                 <td class="table__cell">
-                48.899854500000004, 9.19695125
+                <span class="lat"> 48.899854500000004</span>, <span class="lon">9.19695125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ludwigsburg, Baden Württemberg, Germany 
             </td>   
                 <td class="table__cell">
-                48.8975, 9.19194
+                <span class="lat"> 48.8975</span>, <span class="lon">9.19194</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Petworth House, Petworth, West Sussex, England, UK 
             </td>   
                 <td class="table__cell">
-                50.988816, -0.609973
+                <span class="lat"> 50.988816</span>, <span class="lon">-0.609973</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Powerscourt, County Wicklow, Ireland 
             </td>   
                 <td class="table__cell">
-                53.181, -6.2944
+                <span class="lat"> 53.181</span>, <span class="lon">-6.2944</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rathgormack, County Waterford, Ireland
             </td>   
                 <td class="table__cell">
-                52.276428, -7.561804
+                <span class="lat"> 52.276428</span>, <span class="lon">-7.561804</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stourhead Garden, Warminster, Wiltshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.10817, -2.324088
+                <span class="lat"> 51.10817</span>, <span class="lon">-2.324088</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wilton House, Wilton, Salisbury, Wiltshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.0784975, -1.8570505000000002
+                <span class="lat"> 51.0784975</span>, <span class="lon">-1.8570505000000002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glenpatrick, County Waterford, Ireland 
             </td>   
                 <td class="table__cell">
-                52.316679, -7.597935
+                <span class="lat"> 52.316679</span>, <span class="lon">-7.597935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Compton Acres, Poole, Dorset, England, UK 
             </td>   
                 <td class="table__cell">
-                50.707164500000005, -1.9264385000000002
+                <span class="lat"> 50.707164500000005</span>, <span class="lon">-1.9264385000000002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Compton Castle, Marlton, Devon, England, UK 
             </td>   
                 <td class="table__cell">
-                50.4725295, -3.600009
+                <span class="lat"> 50.4725295</span>, <span class="lon">-3.600009</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,195 +60,195 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Skaftafell, Iceland
             </td>   
                 <td class="table__cell">
-                64.0165365, -16.9668115
+                <span class="lat"> 64.0165365</span>, <span class="lon">-16.9668115</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Svínafellsjökull, Vatnajökull, Austurland, Iceland
             </td>   
                 <td class="table__cell">
-                64.007538, -16.875601
+                <span class="lat"> 64.007538</span>, <span class="lon">-16.875601</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mentmore Towers, Mentmore, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.87, -0.684
+                <span class="lat"> 51.87</span>, <span class="lon">-0.684</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lower Wacker Drive, Downtown, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8928, -88.207
+                <span class="lat"> 41.8928</span>, <span class="lon">-88.207</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago Board of Trade   141 W. Jackson Blvd., The Loop, Downtown, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.877263, -87.63204
+                <span class="lat"> 41.877263</span>, <span class="lon">-87.63204</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cardington Airship Hangars, Bedfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.28478, -0.760758
+                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 LaSalle Street, The Loop, Downtown, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Coalhouse Fort, East Tilbury, Essex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.465123500000004, 0.4319505
+                <span class="lat"> 51.465123500000004</span>, <span class="lon">0.4319505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Canary Wharf, Isle of Dogs, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Franklin Orleans Street Bridge, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8872375, -87.6359515
+                <span class="lat"> 41.8872375</span>, <span class="lon">-87.6359515</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hatfield House, Hatfield, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.761217, -0.2098325
+                <span class="lat"> 51.761217</span>, <span class="lon">-0.2098325</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Knebworth House, Knebworth, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.873279499999995, -0.214523
+                <span class="lat"> 51.873279499999995</span>, <span class="lon">-0.214523</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 George Farmiloe Building   28 36 St John Street, Clerkenwell, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527098, -0.104408
+                <span class="lat"> 51.527098</span>, <span class="lon">-0.104408</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Pancras Chambers, St. Pancras Station, St. Pancras, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waukegan, Illinois, USA
             </td>   
                 <td class="table__cell">
-                42.3636, -87.8448
+                <span class="lat"> 42.3636</span>, <span class="lon">-87.8448</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Öræfasveit, Iceland
             </td>   
                 <td class="table__cell">
-                64.9975884448459, -18.6054668169534
+                <span class="lat"> 64.9975884448459</span>, <span class="lon">-18.6054668169534</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 ExCeL London, Royal Victoria Dock, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507746, 0.019321
+                <span class="lat"> 51.507746</span>, <span class="lon">0.019321</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Senate House, University College London, Malet Street, Bloomsbury, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.520851, -0.128585
+                <span class="lat"> 51.520851</span>, <span class="lon">-0.128585</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 H Stage, Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 K Stage, Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 J Stage, Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Knebworth, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.866, -0.184
+                <span class="lat"> 51.866</span>, <span class="lon">-0.184</span>
                     </td>   
           </tr> 
           </tr>

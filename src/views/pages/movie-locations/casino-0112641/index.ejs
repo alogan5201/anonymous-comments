@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Le Bistro Lounge, Riviera Hotel & Casino   2901 Las Vegas Boulevard South, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.136131, -115.162415
+                <span class="lat"> 36.136131</span>, <span class="lon">-115.162415</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ruth's Chris Steak House   3900 Paradise Road, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.119404, -115.170703
+                <span class="lat"> 36.119404</span>, <span class="lon">-115.170703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hanford, California, USA
             </td>   
                 <td class="table__cell">
-                36.3275, -119.6457
+                <span class="lat"> 36.3275</span>, <span class="lon">-119.6457</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 357 Desert Inn Road, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.12627, -115.15068
+                <span class="lat"> 36.12627</span>, <span class="lon">-115.15068</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glass Pool Inn   4613 S Las Vegas Blvd, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.08682, -115.17207
+                <span class="lat"> 36.08682</span>, <span class="lon">-115.17207</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tony Roma's, Main Street Station, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.173705, -115.143676
+                <span class="lat"> 36.173705</span>, <span class="lon">-115.143676</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Baker, California, USA
             </td>   
                 <td class="table__cell">
-                35.2654, -116.0741
+                <span class="lat"> 35.2654</span>, <span class="lon">-116.0741</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bally's Casino Resort   3645 Las Vegas Boulevard South, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.11344, -115.16855
+                <span class="lat"> 36.11344</span>, <span class="lon">-115.16855</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Overton, Nevada, USA
             </td>   
                 <td class="table__cell">
-                36.5407, -114.443
+                <span class="lat"> 36.5407</span>, <span class="lon">-114.443</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Peppermill Fireside Lounge, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.133776, -115.163154
+                <span class="lat"> 36.133776</span>, <span class="lon">-115.163154</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3515 Cochise Lane, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.125965, -115.12381
+                <span class="lat"> 36.125965</span>, <span class="lon">-115.12381</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jean Dry Lake, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.4554, -114.8478
+                <span class="lat"> 36.4554</span>, <span class="lon">-114.8478</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3010 S. Valley View Blvd, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.13606, -115.18989
+                <span class="lat"> 36.13606</span>, <span class="lon">-115.18989</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 520 S. Fourth St., Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.16456, -115.14559
+                <span class="lat"> 36.16456</span>, <span class="lon">-115.14559</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 721 N. Main St #3., Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.17932, -115.14232
+                <span class="lat"> 36.17932</span>, <span class="lon">-115.14232</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Landmark Hotel   Convention Center Drive and Paradise Road, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.1292, -115.1528
+                <span class="lat"> 36.1292</span>, <span class="lon">-115.1528</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Las Vegas National Golf Club, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.128418, -115.125209
+                <span class="lat"> 36.128418</span>, <span class="lon">-115.125209</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mighty Mart   515 E Oakey Blvd, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.151189, -115.152379
+                <span class="lat"> 36.151189</span>, <span class="lon">-115.152379</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mojave Desert, California, USA
             </td>   
                 <td class="table__cell">
-                35.0096785, -115.4742205
+                <span class="lat"> 35.0096785</span>, <span class="lon">-115.4742205</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Moulin Rouge   800 W Bonanza, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.177765, -115.15219
+                <span class="lat"> 36.177765</span>, <span class="lon">-115.15219</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Park Paseo, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.15825, -115.14155
+                <span class="lat"> 36.15825</span>, <span class="lon">-115.14155</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Piero's Restaurant   355 Convention Center Drive, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.13185, -115.15595
+                <span class="lat"> 36.13185</span>, <span class="lon">-115.15595</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Regency Motel   784 N. Main Street, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.179349, -115.141344
+                <span class="lat"> 36.179349</span>, <span class="lon">-115.141344</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Riviera Hotel & Casino   2901 Las Vegas Boulevard South, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.136131, -115.162415
+                <span class="lat"> 36.136131</span>, <span class="lon">-115.162415</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oscar's Steakhouse, Plaza Hotel, 1 Main St., Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.1663, -115.1492
+                <span class="lat"> 36.1663</span>, <span class="lon">-115.1492</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Henderson Sky Harbor Airport, Henderson, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.0391, -114.9819
+                <span class="lat"> 36.0391</span>, <span class="lon">-114.9819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Idle Spurs, Sandy Valley, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                35.8169, -115.6322
+                <span class="lat"> 35.8169</span>, <span class="lon">-115.6322</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kawasaki Dealership, West Sahara, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.14, -115.28
+                <span class="lat"> 36.14</span>, <span class="lon">-115.28</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 La Concha Motel   2955 Las Vegas Boulevard South, Las Vegas, Nevada, USA 
             </td>   
                 <td class="table__cell">
-                36.13418, -115.16204
+                <span class="lat"> 36.13418</span>, <span class="lon">-115.16204</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Las Vegas Boulevard South, Las Vegas, Nevada, USA
             </td>   
                 <td class="table__cell">
-                36.23118, -115.067275
+                <span class="lat"> 36.23118</span>, <span class="lon">-115.067275</span>
                     </td>   
           </tr> 
           </tr>

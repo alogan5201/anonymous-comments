@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,163 +60,163 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Water Street, Edgartown, Martha's Vineyard, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.45444, -70.60176
+                <span class="lat"> 41.45444</span>, <span class="lon">-70.60176</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Falmouth, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.5515, -70.6148
+                <span class="lat"> 41.5515</span>, <span class="lon">-70.6148</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dangerous Reef, South Australia, Australia 
             </td>   
                 <td class="table__cell">
-                -34.724715, 135.8468075
+                <span class="lat"> -34.724715</span>, <span class="lon">135.8468075</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Joseph Sylva State Beach, Martha's Vineyard, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.408934, -70.539354
+                <span class="lat"> 41.408934</span>, <span class="lon">-70.539354</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oak Bluffs, Martha's Vineyard, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.457745, -70.557731
+                <span class="lat"> 41.457745</span>, <span class="lon">-70.557731</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Southern Ocean, South Australia, Australia 
             </td>   
                 <td class="table__cell">
-                -30.1062845047, 135.827373690357
+                <span class="lat"> -30.1062845047</span>, <span class="lon">135.827373690357</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 East Chop, Martha's Vineyard, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.4684, -70.5689
+                <span class="lat"> 41.4684</span>, <span class="lon">-70.5689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Main Street, Edgartown, Martha's Vineyard, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.392, -70.52153
+                <span class="lat"> 41.392</span>, <span class="lon">-70.52153</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Aquinnah, Martha's Vineyard, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.347078, -70.83708
+                <span class="lat"> 41.347078</span>, <span class="lon">-70.83708</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 South Water Street & Davis Lane, Edgartown, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.388479, -70.513795
+                <span class="lat"> 41.388479</span>, <span class="lon">-70.513795</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Menemsha, Martha's Vineyard, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.37693, -70.50947
+                <span class="lat"> 41.37693</span>, <span class="lon">-70.50947</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 American Legion Memorial Bridge, Martha's Vineyard, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.45, -70.6
+                <span class="lat"> 41.45</span>, <span class="lon">-70.6</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Edgartown, Martha's Vineyard, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.389868, -70.52238700000001
+                <span class="lat"> 41.389868</span>, <span class="lon">-70.52238700000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Underwater, Santa Catalina Island, Channel Islands, California, USA
             </td>   
                 <td class="table__cell">
-                34.18, -119.23
+                <span class="lat"> 34.18</span>, <span class="lon">-119.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sengekontacket Pond, Martha's Vineyard, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.428902, -70.556035
+                <span class="lat"> 41.428902</span>, <span class="lon">-70.556035</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 265 East Chop Drive, Vineyard Haven, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.470175, -70.570374
+                <span class="lat"> 41.470175</span>, <span class="lon">-70.570374</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 35 Aquinnah Circle, Aquinnah, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                41.3456, -70.83582
+                <span class="lat"> 41.3456</span>, <span class="lon">-70.83582</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Far West Coast, South Australia, Australia 
             </td>   
                 <td class="table__cell">
-                -30.1062845047, 135.827373690357
+                <span class="lat"> -30.1062845047</span>, <span class="lon">135.827373690357</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Spencer Gulf, South Australia, Australia 
             </td>   
                 <td class="table__cell">
-                -30.1062845047, 135.827373690357
+                <span class="lat"> -30.1062845047</span>, <span class="lon">135.827373690357</span>
                     </td>   
           </tr> 
           </tr>

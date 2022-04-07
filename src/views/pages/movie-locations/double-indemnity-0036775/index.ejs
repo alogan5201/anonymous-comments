@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,115 +60,115 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6301 Quebec Drive, Hollywood Hills, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.11337, -118.32599
+                <span class="lat"> 34.11337</span>, <span class="lon">-118.32599</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1825 N. Kingsley Drive, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1043, -118.30395
+                <span class="lat"> 34.1043</span>, <span class="lon">-118.30395</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 La Golondrina Cafe, Olvera Street, Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05756, -118.23812
+                <span class="lat"> 34.05756</span>, <span class="lon">-118.23812</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Producers Studios   5330 Melrose Avenue, Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.08918, -118.38055
+                <span class="lat"> 34.08918</span>, <span class="lon">-118.38055</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burbank Southern Pacific Station, N Front St, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Forest Lawn Memorial Park   1712 S Glendale Avenue, Glendale, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1423, -118.2484
+                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paramount Studios   5555 Melrose Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08918, -118.38055
+                <span class="lat"> 34.08918</span>, <span class="lon">-118.38055</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Venice Canals, Venice, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.98344, -118.466314
+                <span class="lat"> 33.98344</span>, <span class="lon">-118.466314</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bryson Apartments, 2701 Wilshire Blvd., Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palos Verdes Peninsula, California, USA
             </td>   
                 <td class="table__cell">
-                33.78, -118.36
+                <span class="lat"> 33.78</span>, <span class="lon">-118.36</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glendale, California, USA
             </td>   
                 <td class="table__cell">
-                34.1423, -118.2484
+                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1325, -118.3513
+                <span class="lat"> 34.1325</span>, <span class="lon">-118.3513</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           </tr>

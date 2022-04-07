@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,115 +60,115 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St Peter and St Paul Church   400 Hudson Street, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.73, -74.08
+                <span class="lat"> 40.73</span>, <span class="lon">-74.08</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Our Lady Of Grace Church   400 Willow Avenue, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.742221, -74.033818
+                <span class="lat"> 40.742221</span>, <span class="lon">-74.033818</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hoboken Railway Station, Hoboken, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.738386, -74.030296
+                <span class="lat"> 40.738386</span>, <span class="lon">-74.030296</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hoboken Waterfront, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.738386, -74.030296
+                <span class="lat"> 40.738386</span>, <span class="lon">-74.030296</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5th Street Pier, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.74291, -74.03292
+                <span class="lat"> 40.74291</span>, <span class="lon">-74.03292</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stevens Park, Hudson Street, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.73, -74.08
+                <span class="lat"> 40.73</span>, <span class="lon">-74.08</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Willow Avenue, Hoboken, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.73773, -74.03887
+                <span class="lat"> 40.73773</span>, <span class="lon">-74.03887</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Court Street, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.74248, -74.02887
+                <span class="lat"> 40.74248</span>, <span class="lon">-74.02887</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hudson Street, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.747515, -74.02688625
+                <span class="lat"> 40.747515</span>, <span class="lon">-74.02688625</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hoboken, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7433, -74.0324
+                <span class="lat"> 40.7433</span>, <span class="lon">-74.0324</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.1502478924, -74.3893168105238
+                <span class="lat"> 40.1502478924</span>, <span class="lon">-74.3893168105238</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elysian Park   1001 Hudson Street, Hoboken, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.73, -74.08
+                <span class="lat"> 40.73</span>, <span class="lon">-74.08</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,67 +60,67 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hovs Hallar   Naturreservat, Skåne län, Sweden 
             </td>   
                 <td class="table__cell">
-                56.467873, 12.708134
+                <span class="lat"> 56.467873</span>, <span class="lon">12.708134</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Skevik, Värmdö, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.31667, 18.51667
+                <span class="lat"> 59.31667</span>, <span class="lon">18.51667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Skytteholm, Solna, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.36667, 18.01667
+                <span class="lat"> 59.36667</span>, <span class="lon">18.01667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Viby, Sigtuna, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.6327327936475, 17.732220181168
+                <span class="lat"> 59.6327327936475</span>, <span class="lon">17.732220181168</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Solna, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.36667, 18.01667
+                <span class="lat"> 59.36667</span>, <span class="lon">18.01667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Svensk Filmindustri, Filmstaden, Råsunda, Stockholms län, Sweden 
             </td>   
                 <td class="table__cell">
-                59.367224, 17.981759
+                <span class="lat"> 59.367224</span>, <span class="lon">17.981759</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Östanå, Österåker, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.342707, 18.065871
+                <span class="lat"> 59.342707</span>, <span class="lon">18.065871</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gustavsberg, Värmdö, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.32667, 18.38861
+                <span class="lat"> 59.32667</span>, <span class="lon">18.38861</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,75 +60,75 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sylva, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.3737, -83.226
+                <span class="lat"> 35.3737</span>, <span class="lon">-83.226</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Black Mountain, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.6179, -82.3212
+                <span class="lat"> 35.6179</span>, <span class="lon">-82.3212</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Carolina, USA
             </td>   
                 <td class="table__cell">
-                35.5568849207, -79.3896838690365
+                <span class="lat"> 35.5568849207</span>, <span class="lon">-79.3896838690365</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Maggie Valley, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.5182, -83.0976
+                <span class="lat"> 35.5182</span>, <span class="lon">-83.0976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dillsboro, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.369202, -83.2525
+                <span class="lat"> 35.369202</span>, <span class="lon">-83.2525</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cullowhee, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.3096, -83.1813
+                <span class="lat"> 35.3096</span>, <span class="lon">-83.1813</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Clyde, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.5334, -82.9107
+                <span class="lat"> 35.5334</span>, <span class="lon">-82.9107</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Asheville, North Carolina, USA
             </td>   
                 <td class="table__cell">
-                35.6009, -82.554
+                <span class="lat"> 35.6009</span>, <span class="lon">-82.554</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 581 W. Main Street, Sylva, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.37326, -83.22343
+                <span class="lat"> 35.37326</span>, <span class="lon">-83.22343</span>
                     </td>   
           </tr> 
           </tr>

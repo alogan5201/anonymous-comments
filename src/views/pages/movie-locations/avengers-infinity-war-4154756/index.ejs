@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Durham Cathedral, The College, Durham, County Durham, England, UK 
             </td>   
                 <td class="table__cell">
-                54.776415199999995, -1.5758539
+                <span class="lat"> 54.776415199999995</span>, <span class="lon">-1.5758539</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cockburn Street, Edinburgh, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                55.950582, -3.189753
+                <span class="lat"> 55.950582</span>, <span class="lon">-3.189753</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Banaue Rice Terraces, Ifugao, Philippines 
             </td>   
                 <td class="table__cell">
-                16.955898, 121.08789
+                <span class="lat"> 16.955898</span>, <span class="lon">121.08789</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lençóis Maranhenses National Park, Maranhao, Brazil 
             </td>   
                 <td class="table__cell">
-                -2.499843, -44.250856
+                <span class="lat"> -2.499843</span>, <span class="lon">-44.250856</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waverly Train Station, Edinburgh, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                55.953345599999984, -3.1883749
+                <span class="lat"> 55.953345599999984</span>, <span class="lon">-3.1883749</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Inverness Castle, Scotland, UK
             </td>   
                 <td class="table__cell">
-                57.4762535, -4.225498
+                <span class="lat"> 57.4762535</span>, <span class="lon">-4.225498</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St Abbs Head, Berwickshire, Scotland, UK
             </td>   
                 <td class="table__cell">
-                55.915688, -2.138515
+                <span class="lat"> 55.915688</span>, <span class="lon">-2.138515</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Royal Mile, Edinburgh, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                55.951508, -3.17925
+                <span class="lat"> 55.951508</span>, <span class="lon">-3.17925</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Atlanta Studios   461 Sandy Creek Road, Fayetteville, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.474605, -84.510867
+                <span class="lat"> 33.474605</span>, <span class="lon">-84.510867</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tallulah Gorge, Tallulah Falls, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                34.73056, -83.39444
+                <span class="lat"> 34.73056</span>, <span class="lon">-83.39444</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Piedmont Park, 1071 Piedmont Ave NE, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 84, Walton Street NW, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.75632, -84.39082
+                <span class="lat"> 33.75632</span>, <span class="lon">-84.39082</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woodruff Park, Peachtree St NE, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 103 Forsyth St NW, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.756371, -84.389724
+                <span class="lat"> 33.756371</span>, <span class="lon">-84.389724</span>
                     </td>   
           </tr> 
           </tr>

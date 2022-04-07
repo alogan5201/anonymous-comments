@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Moab, Utah, USA
             </td>   
                 <td class="table__cell">
-                40.47621, -111.88778
+                <span class="lat"> 40.47621</span>, <span class="lon">-111.88778</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 South Park Avenue, Arches National Park, Utah, USA 
             </td>   
                 <td class="table__cell">
-                38.58, -109.55
+                <span class="lat"> 38.58</span>, <span class="lon">-109.55</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Figure 3 Ranch, Amarillo, Texas, USA 
             </td>   
                 <td class="table__cell">
-                35.2072, -101.8338
+                <span class="lat"> 35.2072</span>, <span class="lon">-101.8338</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Al Khazneh, Petra, Jordan 
             </td>   
                 <td class="table__cell">
-                30.322153999999998, 35.451586
+                <span class="lat"> 30.322153999999998</span>, <span class="lon">35.451586</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cortez, Colorado, USA
             </td>   
                 <td class="table__cell">
-                37.3494, -108.5872
+                <span class="lat"> 37.3494</span>, <span class="lon">-108.5872</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Guadix, Granada, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.29955, -3.13712
+                <span class="lat"> 37.29955</span>, <span class="lon">-3.13712</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arches National Park, Utah, USA 
             </td>   
                 <td class="table__cell">
-                38.616267, -109.615746
+                <span class="lat"> 38.616267</span>, <span class="lon">-109.615746</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Schloss Bürresheim, Mayen, Rhineland Palatinate, Germany 
             </td>   
                 <td class="table__cell">
-                50.3526385, 7.1801545
+                <span class="lat"> 50.3526385</span>, <span class="lon">7.1801545</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cabo de Gata, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.781144, -2.242177
+                <span class="lat"> 36.781144</span>, <span class="lon">-2.242177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pagosa Springs, Colorado, USA
             </td>   
                 <td class="table__cell">
-                37.0381, -107.1992
+                <span class="lat"> 37.0381</span>, <span class="lon">-107.1992</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Administration Building, Treasure Island, San Francisco Bay, California, USA 
             </td>   
                 <td class="table__cell">
-                37.82, -122.37
+                <span class="lat"> 37.82</span>, <span class="lon">-122.37</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cumbres & Toltec Scenic Railroad, Chama, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                36.9012975, -106.5810285
+                <span class="lat"> 36.9012975</span>, <span class="lon">-106.5810285</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tabernas, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.04989, -2.39138
+                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chiesa di San Barnaba, Campo San Barnaba, Dorsoduro, Venice, Veneto, Italy 
             </td>   
                 <td class="table__cell">
-                45.433092, 12.325198499999999
+                <span class="lat"> 45.433092</span>, <span class="lon">12.325198499999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Desierto de Tabernas, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.090023, -2.379403
+                <span class="lat"> 37.090023</span>, <span class="lon">-2.379403</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alamosa, Colorado, USA
             </td>   
                 <td class="table__cell">
-                37.4699, -105.8696
+                <span class="lat"> 37.4699</span>, <span class="lon">-105.8696</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rickmansworth Masonic School, Rickmansworth, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.6474955, -0.4737345
+                <span class="lat"> 51.6474955</span>, <span class="lon">-0.4737345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tilbury Docks, Essex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.454012, 0.364197
+                <span class="lat"> 51.454012</span>, <span class="lon">0.364197</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fond Dogana alla Salute, Campo della Salute, Grand Canal, Venice, Vento, Italy 
             </td>   
                 <td class="table__cell">
-                45.431059, 12.335906
+                <span class="lat"> 45.431059</span>, <span class="lon">12.335906</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Campo San Barnaba, Venice, Veneto, Italy 
             </td>   
                 <td class="table__cell">
-                45.4331145, 12.325211
+                <span class="lat"> 45.4331145</span>, <span class="lon">12.325211</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Playa de Monsul, Cabo de Gata, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.8847560338418, -2.44833073448519
+                <span class="lat"> 36.8847560338418</span>, <span class="lon">-2.44833073448519</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stowe School, Buckingham, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.0320015, -1.0188285
+                <span class="lat"> 52.0320015</span>, <span class="lon">-1.0188285</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Royal Horticultural Halls & Conference Centre, Vincent Square, Westminster, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palazzi Barbaro, Grand Canal, Venice, Veneto, Italy 
             </td>   
                 <td class="table__cell">
-                45.43972, 12.33194
+                <span class="lat"> 45.43972</span>, <span class="lon">12.33194</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blenheim Palace, Woodstock, Oxfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.84242375, -1.3609806249999998
+                <span class="lat"> 51.84242375</span>, <span class="lon">-1.3609806249999998</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Baños de Alfaro, Rioja, Almeria, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                36.94512, -2.4627
+                <span class="lat"> 36.94512</span>, <span class="lon">-2.4627</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rodalquilar, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                36.846802, -2.040604
+                <span class="lat"> 36.846802</span>, <span class="lon">-2.040604</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Turre, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.15237, -1.89454
+                <span class="lat"> 37.15237</span>, <span class="lon">-1.89454</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Granada, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.1202823858649, -3.58119996388976
+                <span class="lat"> 37.1202823858649</span>, <span class="lon">-3.58119996388976</span>
                     </td>   
           </tr> 
           </tr>

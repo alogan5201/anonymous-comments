@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,75 +60,75 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Aso, Kumamoto, Japan
             </td>   
                 <td class="table__cell">
-                32.95222, 131.12139
+                <span class="lat"> 32.95222</span>, <span class="lon">131.12139</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Himeji Castle, Himeji, Japan
             </td>   
                 <td class="table__cell">
-                34.839389499999996, 134.6939435
+                <span class="lat"> 34.839389499999996</span>, <span class="lon">134.6939435</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kumamoto Castle, Kumamoto, Japan
             </td>   
                 <td class="table__cell">
-                32.803135, 130.70481
+                <span class="lat"> 32.803135</span>, <span class="lon">130.70481</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gotemba, Shizuoka, Japan
             </td>   
                 <td class="table__cell">
-                35.30861, 138.935
+                <span class="lat"> 35.30861</span>, <span class="lon">138.935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kokonoe, Oita, Japan
             </td>   
                 <td class="table__cell">
-                33.188326, 131.210333
+                <span class="lat"> 33.188326</span>, <span class="lon">131.210333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kurosawa Film Studio, Tokyo, Japan 
             </td>   
                 <td class="table__cell">
-                35.703183, 139.528087
+                <span class="lat"> 35.703183</span>, <span class="lon">139.528087</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nagoya Castle, Nagoya, Aichi, Japan
             </td>   
                 <td class="table__cell">
-                35.1855555, 136.89885349999997
+                <span class="lat"> 35.1855555</span>, <span class="lon">136.89885349999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shonai, Yamagata, Japan
             </td>   
                 <td class="table__cell">
-                38.814088999999996, 139.7874955
+                <span class="lat"> 38.814088999999996</span>, <span class="lon">139.7874955</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Toho Studios, Tokyo, Japan 
             </td>   
                 <td class="table__cell">
-                35.634654999999995, 139.604309
+                <span class="lat"> 35.634654999999995</span>, <span class="lon">139.604309</span>
                     </td>   
           </tr> 
           </tr>

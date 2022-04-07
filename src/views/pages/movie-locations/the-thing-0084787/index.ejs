@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Juneau, Alaska, USA
             </td>   
                 <td class="table__cell">
-                58.3019, -134.4197
+                <span class="lat"> 58.3019</span>, <span class="lon">-134.4197</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kimberley, British Columbia, Canada
             </td>   
                 <td class="table__cell">
-                49.685088, -115.981948
+                <span class="lat"> 49.685088</span>, <span class="lon">-115.981948</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stewart, British Columbia, Canada
             </td>   
                 <td class="table__cell">
-                55.938309, -129.991176
+                <span class="lat"> 55.938309</span>, <span class="lon">-129.991176</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 British Columbia, Canada
             </td>   
                 <td class="table__cell">
-                55.1712152811, -125.022796545935
+                <span class="lat"> 55.1712152811</span>, <span class="lon">-125.022796545935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tongass National Forest, Alaska, USA
             </td>   
                 <td class="table__cell">
-                58.400557, -134.556855
+                <span class="lat"> 58.400557</span>, <span class="lon">-134.556855</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 27, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salmon Glacier, British Columbia, Canada
             </td>   
                 <td class="table__cell">
-                49.193443, -117.278705
+                <span class="lat"> 49.193443</span>, <span class="lon">-117.278705</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hyder, Alaska, USA
             </td>   
                 <td class="table__cell">
-                55.848181, -130.29301
+                <span class="lat"> 55.848181</span>, <span class="lon">-130.29301</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.1389, -118.3534
+                <span class="lat"> 34.1389</span>, <span class="lon">-118.3534</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alaska, USA
             </td>   
                 <td class="table__cell">
-                64.6358675746, -153.180996665583
+                <span class="lat"> 64.6358675746</span>, <span class="lon">-153.180996665583</span>
                     </td>   
           </tr> 
           </tr>

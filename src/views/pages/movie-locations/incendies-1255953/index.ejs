@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Amman, Jordan
             </td>   
                 <td class="table__cell">
-                31.95, 35.93333
+                <span class="lat"> 31.95</span>, <span class="lon">35.93333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Al Rainbow Street, Amman, Jordan
             </td>   
                 <td class="table__cell">
-                31.94972, 35.93278
+                <span class="lat"> 31.94972</span>, <span class="lon">35.93278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2560 Rue Masson, Montréal, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                45.544482, -73.576344
+                <span class="lat"> 45.544482</span>, <span class="lon">-73.576344</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 175 Boulevard Deguire, Montréal, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                45.531537, -73.675686
+                <span class="lat"> 45.531537</span>, <span class="lon">-73.675686</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Montréal, Québec, Canada
             </td>   
                 <td class="table__cell">
-                45.497216, -73.610364
+                <span class="lat"> 45.497216</span>, <span class="lon">-73.610364</span>
                     </td>   
           </tr> 
           </tr>

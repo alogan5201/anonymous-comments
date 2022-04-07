@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,59 +60,59 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Curran Theatre, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.7862785, -122.408933
+                <span class="lat"> 37.7862785</span>, <span class="lon">-122.408933</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 21 Club   21 West 52nd Street, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.76037, -73.97741
+                <span class="lat"> 40.76037</span>, <span class="lon">-73.97741</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 John Golden Theater   252 West 45th Street, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.75885, -73.98792
+                <span class="lat"> 40.75885</span>, <span class="lon">-73.98792</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shubert Theater   247 College Street, New Haven, Connecticut, USA
             </td>   
                 <td class="table__cell">
-                41.30639, -72.92924
+                <span class="lat"> 41.30639</span>, <span class="lon">-72.92924</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 11, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.04994, -118.41129
+                <span class="lat"> 34.04994</span>, <span class="lon">-118.41129</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 242 West 45th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.75868, -73.987685
+                <span class="lat"> 40.75868</span>, <span class="lon">-73.987685</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Taft Hotel,New Haven, Connecticut, USA
             </td>   
                 <td class="table__cell">
-                41.268729, -72.975716
+                <span class="lat"> 41.268729</span>, <span class="lon">-72.975716</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,99 +60,99 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Madame John's Legacy, the French Quarter, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.95916, -90.063002
+                <span class="lat"> 29.95916</span>, <span class="lon">-90.063002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Felicity Plantation, Vacherie, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.00351, -90.7669
+                <span class="lat"> 30.00351</span>, <span class="lon">-90.7669</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Magnolia Plantation   Highway 311, Schriever, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.7144, -90.8173
+                <span class="lat"> 29.7144</span>, <span class="lon">-90.8173</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Joseph Plantation, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.005972, -90.771785
+                <span class="lat"> 30.005972</span>, <span class="lon">-90.771785</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Audubon Park, New Orleans, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.9287525, -90.1271815
+                <span class="lat"> 29.9287525</span>, <span class="lon">-90.1271815</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bocage Plantation, Darrow, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.428, -91.1118
+                <span class="lat"> 30.428</span>, <span class="lon">-91.1118</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.9499, -90.0701
+                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Urbania, Lower Garden District, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.93494, -90.07588
+                <span class="lat"> 29.93494</span>, <span class="lon">-90.07588</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Columns Hotel   3811 St Charles Avenue, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.92476, -90.11078
+                <span class="lat"> 29.92476</span>, <span class="lon">-90.11078</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Destrehan, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.943, -90.3517
+                <span class="lat"> 29.943</span>, <span class="lon">-90.3517</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Magnolia Lane Plantation   2141 River Rd, Bridge City, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.9333, -90.1701
+                <span class="lat"> 29.9333</span>, <span class="lon">-90.1701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.93749930159, -92.305998069584
+                <span class="lat"> 30.93749930159</span>, <span class="lon">-92.305998069584</span>
                     </td>   
           </tr> 
           </tr>

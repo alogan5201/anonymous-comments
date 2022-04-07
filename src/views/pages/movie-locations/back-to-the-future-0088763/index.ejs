@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,191 +60,191 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Whittier High School   12417 E. Philadelphia Street, Whittier, California, USA 
             </td>   
                 <td class="table__cell">
-                33.9749, -118.0337
+                <span class="lat"> 33.9749</span>, <span class="lon">-118.0337</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Puente Hills Mall   1600 Azusa Avenue, City of Industry, California, USA 
             </td>   
                 <td class="table__cell">
-                33.993409, -117.927348
+                <span class="lat"> 33.993409</span>, <span class="lon">-117.927348</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walt Disney's Golden Oak Ranch   19802 Placerita Canyon Road, Newhall, California, USA 
             </td>   
                 <td class="table__cell">
-                34.37, -118.51
+                <span class="lat"> 34.37</span>, <span class="lon">-118.51</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1711 Bushnell Avenue, South Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.10617, -118.1416
+                <span class="lat"> 34.10617</span>, <span class="lon">-118.1416</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1727 Bushnell Avenue, South Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.10569, -118.1416
+                <span class="lat"> 34.10569</span>, <span class="lon">-118.1416</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gamble House   4 Westmoreland Place, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood United Methodist Church   6817 Franklin Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1044225, -118.338932
+                <span class="lat"> 34.1044225</span>, <span class="lon">-118.338932</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1809 Bushnell Avenue, South Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.10528, -118.14159
+                <span class="lat"> 34.10528</span>, <span class="lon">-118.14159</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 9303 Roslyndale Avenue, Arleta, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.23897, -118.43345
+                <span class="lat"> 34.23897</span>, <span class="lon">-118.43345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Courthouse Square, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 RR Blacker House   1177 Hillcrest Avenue, Oak Knoll, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.126975, -118.133545
+                <span class="lat"> 34.126975</span>, <span class="lon">-118.133545</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burger King   535 North Victory Boulevard, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chino, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0134, -117.6901
+                <span class="lat"> 34.0134</span>, <span class="lon">-117.6901</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 McCambridge Recreation Center, 1515 N. Glenoaks Blvd., Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1921, -118.32088
+                <span class="lat"> 34.1921</span>, <span class="lon">-118.32088</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kagel Canyon Street & Sandusky Avenue, Arleta, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2421781, -118.4332077
+                <span class="lat"> 34.2421781</span>, <span class="lon">-118.4332077</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burbank Community Center, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Griffith Park   4730 Crystal Springs Drive, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1259, -118.27416
+                <span class="lat"> 34.1259</span>, <span class="lon">-118.27416</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Panorama City, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2247, -118.4498
+                <span class="lat"> 34.2247</span>, <span class="lon">-118.4498</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 12, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Clarita, California, USA
             </td>   
                 <td class="table__cell">
-                34.42, -118.54
+                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 23, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 36, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">

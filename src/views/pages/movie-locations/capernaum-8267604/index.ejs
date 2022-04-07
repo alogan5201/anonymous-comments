@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cola, Beirut, Lebanon 
             </td>   
                 <td class="table__cell">
-                40.3318725, -76.5148365
+                <span class="lat"> 40.3318725</span>, <span class="lon">-76.5148365</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beirut, Lebanon 
             </td>   
                 <td class="table__cell">
-                33.88694, 35.51306
+                <span class="lat"> 33.88694</span>, <span class="lon">35.51306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Roumieh Prison, Roumieh, Lebanon 
             </td>   
                 <td class="table__cell">
-                39.436508, -84.310642
+                <span class="lat"> 39.436508</span>, <span class="lon">-84.310642</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beirut Luna Park, General De Gaulle, Beirut, Lebanon 
             </td>   
                 <td class="table__cell">
-                33.88694, 35.51306
+                <span class="lat"> 33.88694</span>, <span class="lon">35.51306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Souk Al Ahad, Emile Lahoud, Beirut, Lebanon 
             </td>   
                 <td class="table__cell">
-                33.88333, 35.5
+                <span class="lat"> 33.88333</span>, <span class="lon">35.5</span>
                     </td>   
           </tr> 
           </tr>

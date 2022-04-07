@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,27 +60,27 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walt Disney Studios Motion Pictures   500 S. Buena Vista Street, Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                34.19026, -118.30795
+                <span class="lat"> 34.19026</span>, <span class="lon">-118.30795</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walt Disney Animation Studios   2100 West Riverside Drive, Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                33.9534, -117.3962
+                <span class="lat"> 33.9534</span>, <span class="lon">-117.3962</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                33.7403, -116.967278
+                <span class="lat"> 33.7403</span>, <span class="lon">-116.967278</span>
                     </td>   
           </tr> 
           </tr>

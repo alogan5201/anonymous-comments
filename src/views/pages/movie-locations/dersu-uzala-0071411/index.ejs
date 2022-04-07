@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,27 +60,27 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Primorsky Kray, Russia
             </td>   
                 <td class="table__cell">
-                45.33333, 134.66667
+                <span class="lat"> 45.33333</span>, <span class="lon">134.66667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Siberia, Russia
             </td>   
                 <td class="table__cell">
-                50.013131, 88.664002
+                <span class="lat"> 50.013131</span>, <span class="lon">88.664002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mosfilm Studios, Moscow, Russia 
             </td>   
                 <td class="table__cell">
-                55.695267, 37.390363
+                <span class="lat"> 55.695267</span>, <span class="lon">37.390363</span>
                     </td>   
           </tr> 
           </tr>

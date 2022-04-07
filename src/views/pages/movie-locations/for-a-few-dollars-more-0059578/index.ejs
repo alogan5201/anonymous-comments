@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,163 +60,163 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cabo de Gata, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                36.781144, -2.242177
+                <span class="lat"> 36.781144</span>, <span class="lon">-2.242177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mini Hollywood, Tabernas, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.020366499999994, -2.4319275
+                <span class="lat"> 37.020366499999994</span>, <span class="lon">-2.4319275</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Almería Railway Station, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.8334620641043, -2.45255489213576
+                <span class="lat"> 36.8334620641043</span>, <span class="lon">-2.45255489213576</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cinecittà Studios, Cinecittà, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.852854, 12.575212
+                <span class="lat"> 41.852854</span>, <span class="lon">12.575212</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 La Calahorra, Granada, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.2225409475203, -3.64270536340856
+                <span class="lat"> 37.2225409475203</span>, <span class="lon">-3.64270536340856</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Desierto de Tabernas, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.090023, -2.379403
+                <span class="lat"> 37.090023</span>, <span class="lon">-2.379403</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.1452098010523, -2.07507758056227
+                <span class="lat"> 37.1452098010523</span>, <span class="lon">-2.07507758056227</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Colmenar Viejo, Madrid, Spain 
             </td>   
                 <td class="table__cell">
-                40.65879, -3.76632
+                <span class="lat"> 40.65879</span>, <span class="lon">-3.76632</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Granada, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.1202823858649, -3.58119996388976
+                <span class="lat"> 37.1202823858649</span>, <span class="lon">-3.58119996388976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Guadix, Granada, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.29955, -3.13712
+                <span class="lat"> 37.29955</span>, <span class="lon">-3.13712</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hoyo de Manzanares, Madrid, Spain 
             </td>   
                 <td class="table__cell">
-                40.624249, -3.905184
+                <span class="lat"> 40.624249</span>, <span class="lon">-3.905184</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tabernas, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.04989, -2.39138
+                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Finca El Romeral, San José, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.761896, -2.110094
+                <span class="lat"> 36.761896</span>, <span class="lon">-2.110094</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Church of Santa Maria, Turrillas, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.7, -2.15
+                <span class="lat"> 37.7</span>, <span class="lon">-2.15</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Albaricoques, Cabo de Gata, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.781144, -2.242177
+                <span class="lat"> 36.781144</span>, <span class="lon">-2.242177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San José, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                36.761896, -2.110094
+                <span class="lat"> 36.761896</span>, <span class="lon">-2.110094</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cortijo del Fraile, Níjar, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.96556, -2.20639
+                <span class="lat"> 36.96556</span>, <span class="lon">-2.20639</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Turrillas, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.03008, -2.26333
+                <span class="lat"> 37.03008</span>, <span class="lon">-2.26333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Polopos, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.02542, -2.079196
+                <span class="lat"> 37.02542</span>, <span class="lon">-2.079196</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rodalquilar, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.846802, -2.040604
+                <span class="lat"> 36.846802</span>, <span class="lon">-2.040604</span>
                     </td>   
           </tr> 
           </tr>

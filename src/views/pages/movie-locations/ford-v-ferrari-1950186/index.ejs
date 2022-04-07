@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Savannah, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                32.0835, -81.0998
+                <span class="lat"> 32.0835</span>, <span class="lon">-81.0998</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Willow Springs International Motorsports Park, Rosamond, California, USA 
             </td>   
                 <td class="table__cell">
-                34.8783, -118.2967
+                <span class="lat"> 34.8783</span>, <span class="lon">-118.2967</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6311 Meridian St, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.12023, -118.17877
+                <span class="lat"> 34.12023</span>, <span class="lon">-118.17877</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 645 N Avenue 64, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.11998, -118.17846
+                <span class="lat"> 34.11998</span>, <span class="lon">-118.17846</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Auto Club Speedway   9300 Cherry Avenue, Fontana, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0922, -117.435
+                <span class="lat"> 34.0922</span>, <span class="lon">-117.435</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Statesboro, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                32.449, -81.7833
+                <span class="lat"> 32.449</span>, <span class="lon">-81.7833</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Road Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                34.150789, -83.81415
+                <span class="lat"> 34.150789</span>, <span class="lon">-83.81415</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glendale, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1423, -118.2484
+                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0658, -117.6484
+                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Agua Dulce Airpark   33638 Agua Dulce Canyon Rd, Santa Clarita, California, USA 
             </td>   
                 <td class="table__cell">
-                34.50006, -118.32424
+                <span class="lat"> 34.50006</span>, <span class="lon">-118.32424</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 N Brand Blvd and W Dryden St., Glendale, California, USA 
             </td>   
                 <td class="table__cell">
-                34.161457, -118.255091
+                <span class="lat"> 34.161457</span>, <span class="lon">-118.255091</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ontario, California, USA
             </td>   
                 <td class="table__cell">
-                34.0658, -117.6484
+                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Georgia, USA
             </td>   
                 <td class="table__cell">
-                32.3305706594, -83.2572560296474
+                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fontana, California, USA
             </td>   
                 <td class="table__cell">
-                34.0922, -117.435
+                <span class="lat"> 34.0922</span>, <span class="lon">-117.435</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           </tr>

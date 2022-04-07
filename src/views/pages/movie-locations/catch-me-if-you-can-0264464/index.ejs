@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,235 +60,235 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alcatraz Prison, Alcatraz Island, San Francisco Bay, California, USA
             </td>   
                 <td class="table__cell">
-                37.7648, -122.463
+                <span class="lat"> 37.7648</span>, <span class="lon">-122.463</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Montréal, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                45.497216, -73.610364
+                <span class="lat"> 45.497216</span>, <span class="lon">-73.610364</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Notre Dame des Victoires, Québec City, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                46.8129585, -71.202756
+                <span class="lat"> 46.8129585</span>, <span class="lon">-71.202756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Québec City, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                46.8129585, -71.202756
+                <span class="lat"> 46.8129585</span>, <span class="lon">-71.202756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3077 East California Boulevard, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.136465, -118.086945
+                <span class="lat"> 34.136465</span>, <span class="lon">-118.086945</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Altadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1863, -118.1352
+                <span class="lat"> 34.1863</span>, <span class="lon">-118.1352</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ambassador Hotel   3400 Wilshire Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.039747, -118.472854
+                <span class="lat"> 34.039747</span>, <span class="lon">-118.472854</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0658, -117.6484
+                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Orange, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7707, -74.2326
+                <span class="lat"> 40.7707</span>, <span class="lon">-74.2326</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boeing Aerospace Facility, Rockwell Defense Plant   Bellflower & Imperial Highway, Downey, California, USA 
             </td>   
                 <td class="table__cell">
-                33.94, -118.1326
+                <span class="lat"> 33.94</span>, <span class="lon">-118.1326</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Québec, Canada
             </td>   
                 <td class="table__cell">
-                46.82596, -71.235223
+                <span class="lat"> 46.82596</span>, <span class="lon">-71.235223</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Ana, California, USA
             </td>   
                 <td class="table__cell">
-                33.7495, -117.8732
+                <span class="lat"> 33.7495</span>, <span class="lon">-117.8732</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tropicana Bar, Hollywood Roosevelt Hotel   7000 Hollywood Blvd., Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Buena Vista Avenue, Yonkers, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.930745, -73.9029175
+                <span class="lat"> 40.930745</span>, <span class="lon">-73.9029175</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Compton, California, USA
             </td>   
                 <td class="table__cell">
-                33.8949, -118.226
+                <span class="lat"> 33.8949</span>, <span class="lon">-118.226</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Roosevelt Hotel   7000 Hollywood Blvd., Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.7194, -118.0056
+                <span class="lat"> 34.7194</span>, <span class="lon">-118.0056</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lionel Groulx Metro Station, Montréal, Québec, Canada
             </td>   
                 <td class="table__cell">
-                45.482751, -73.5798195
+                <span class="lat"> 45.482751</span>, <span class="lon">-73.5798195</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Union Station   800 N. Alameda Street, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waldorf Astoria Hotel   301 Park Avenue, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.67663, -73.96777
+                <span class="lat"> 40.67663</span>, <span class="lon">-73.96777</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jamaica, Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6915, -73.8057
+                <span class="lat"> 40.6915</span>, <span class="lon">-73.8057</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Orange County Courthouse   211 West Santa Ana Boulevard, Santa Ana, California, USA
             </td>   
                 <td class="table__cell">
-                33.750057, -117.86352
+                <span class="lat"> 33.750057</span>, <span class="lon">-117.86352</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Place Royale, Québec City, Québec, Canada 
             </td>   
                 <td class="table__cell">
-                46.8131195, -71.20281299999999
+                <span class="lat"> 46.8131195</span>, <span class="lon">-71.20281299999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bellarmine Jefferson High School, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.184303, -118.306404
+                <span class="lat"> 34.184303</span>, <span class="lon">-118.306404</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Borough Hall   Downtown Brooklyn, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.694712625, -73.99038825
+                <span class="lat"> 40.694712625</span>, <span class="lon">-73.99038825</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6501, -73.9496
+                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Launderland Laundromat   151 Lake Avenue, Yonkers, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.946895, -73.885765
+                <span class="lat"> 40.946895</span>, <span class="lon">-73.885765</span>
                     </td>   
           </tr> 
           </tr>

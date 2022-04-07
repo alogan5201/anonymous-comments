@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,451 +60,451 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Rochelle, New York, USA
             </td>   
                 <td class="table__cell">
-                40.911423, -73.777815
+                <span class="lat"> 40.911423</span>, <span class="lon">-73.777815</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 56 26 Maspeth Avenue, Maspeth, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.716468, -73.911985
+                <span class="lat"> 40.716468</span>, <span class="lon">-73.911985</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Staten Island, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.5834, -74.1496
+                <span class="lat"> 40.5834</span>, <span class="lon">-74.1496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tampa, Florida, USA
             </td>   
                 <td class="table__cell">
-                27.9478, -82.4584
+                <span class="lat"> 27.9478</span>, <span class="lon">-82.4584</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Oriental Manor, 1818 86th St, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.60677, -74.00227
+                <span class="lat"> 40.60677</span>, <span class="lon">-74.00227</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2995 Richmond Avenue, Staten Island, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.570951, -74.16971
+                <span class="lat"> 40.570951</span>, <span class="lon">-74.16971</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 19 Alfred Lane, New Rochelle, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.953735, -73.77995
+                <span class="lat"> 40.953735</span>, <span class="lon">-73.77995</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 14 Alfred Lane, New Rochelle, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.954035, -73.78051
+                <span class="lat"> 40.954035</span>, <span class="lon">-73.78051</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1080 Inwood Terrace, Fort Lee, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.83738, -73.98599
+                <span class="lat"> 40.83738</span>, <span class="lon">-73.98599</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2409 Thirty Second Street, Astoria, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.775945, -73.934715
+                <span class="lat"> 40.775945</span>, <span class="lon">-73.934715</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Babbage Street, Richmond Hill, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.70229, -73.8355
+                <span class="lat"> 40.70229</span>, <span class="lon">-73.8355</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Copacabana Nightclub   10 East 60th Street, East Side, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76429, -73.97174
+                <span class="lat"> 40.76429</span>, <span class="lon">-73.97174</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 East Side, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.787414, -73.943559
+                <span class="lat"> 40.787414</span>, <span class="lon">-73.943559</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fort Lee, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.8509, -73.9701
+                <span class="lat"> 40.8509</span>, <span class="lon">-73.9701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 George Washington Bridge, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8488975, -73.9402215
+                <span class="lat"> 40.8488975</span>, <span class="lon">-73.9402215</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hawaii Kai Restaurant, 49th Street, Broadway, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7903, -73.9597
+                <span class="lat"> 40.7903</span>, <span class="lon">-73.9597</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jackson Hole   6935 Astoria Boulevard, Jackson Heights, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76422, -73.89918
+                <span class="lat"> 40.76422</span>, <span class="lon">-73.89918</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salerno's Restaurant   11711 Hillside Avenue, Richmond Hill, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.700545, -73.8328
+                <span class="lat"> 40.700545</span>, <span class="lon">-73.8328</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Valley Stream, Long Island, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6851, -73.7018
+                <span class="lat"> 40.6851</span>, <span class="lon">-73.7018</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West 9th Street & Smith Street, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.733405, -73.99742
+                <span class="lat"> 40.733405</span>, <span class="lon">-73.99742</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Marlboro, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.3154, -74.2463
+                <span class="lat"> 40.3154</span>, <span class="lon">-74.2463</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Collaros Italiano Restaurant   2758 Coney Island Avenue & Avenue Y, Coney Island, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.5779, -73.994
+                <span class="lat"> 40.5779</span>, <span class="lon">-73.994</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Coney Island, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.5779, -73.994
+                <span class="lat"> 40.5779</span>, <span class="lon">-73.994</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fifth Avenue, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.750144, -73.983532
+                <span class="lat"> 40.750144</span>, <span class="lon">-73.983532</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Foley Square, Lower Manhattan, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.714704499999996, -74.0028595
+                <span class="lat"> 40.714704499999996</span>, <span class="lon">-74.0028595</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kaufman Astoria Studios   3412 36th Street, Astoria, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7572895, -73.9238915
+                <span class="lat"> 40.7572895</span>, <span class="lon">-73.9238915</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palisades Interstate Parkway, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.9148654842907, -73.9351676720376
+                <span class="lat"> 40.9148654842907</span>, <span class="lon">-73.9351676720376</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Prospect Park, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.67, -73.97
+                <span class="lat"> 40.67</span>, <span class="lon">-73.97</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Red Hook, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.6751, -74.0096
+                <span class="lat"> 40.6751</span>, <span class="lon">-74.0096</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Richmond Avenue, Staten Island, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.58181, -74.16646
+                <span class="lat"> 40.58181</span>, <span class="lon">-74.16646</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Spartan Diner   7320 Grand Avenue, Maspeth, Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.72965, -73.88936
+                <span class="lat"> 40.72965</span>, <span class="lon">-73.88936</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Catalina Beach Club   2041 Park Street, Atlantic Beach, Long Island, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.589, -73.729
+                <span class="lat"> 40.589</span>, <span class="lon">-73.729</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oyster Bay, Long Island, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8658, -73.532
+                <span class="lat"> 40.8658</span>, <span class="lon">-73.532</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7498, -73.7976
+                <span class="lat"> 40.7498</span>, <span class="lon">-73.7976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Richmond Hill, Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.69982, -73.832596
+                <span class="lat"> 40.69982</span>, <span class="lon">-73.832596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Smith Street, Red Hook, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.66941, -74.00121
+                <span class="lat"> 40.66941</span>, <span class="lon">-74.00121</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Astoria, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7661, -73.9309
+                <span class="lat"> 40.7661</span>, <span class="lon">-73.9309</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 JFK International Airport, Jamaica, Queens, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.642421999999996, -73.781749
+                <span class="lat"> 40.642421999999996</span>, <span class="lon">-73.781749</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lawrence, Long Island, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.9404, -73.8485
+                <span class="lat"> 40.9404</span>, <span class="lon">-73.8485</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Neir's Tavern   87 48 78th Street, Woodhaven, New York, USA
             </td>   
                 <td class="table__cell">
-                40.691867, -73.863865
+                <span class="lat"> 40.691867</span>, <span class="lon">-73.863865</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 23 83 31st Street   Queens, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.758823, -73.889926
+                <span class="lat"> 40.758823</span>, <span class="lon">-73.889926</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 49th Street, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.76208, -73.98726
+                <span class="lat"> 40.76208</span>, <span class="lon">-73.98726</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlantic Beach, Long Island, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.59, -73.71
+                <span class="lat"> 40.59</span>, <span class="lon">-73.71</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Broadway, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.764031, -73.982449
+                <span class="lat"> 40.764031</span>, <span class="lon">-73.982449</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6501, -73.9496
+                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gowanus Canal, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.673176, -73.99632700000001
+                <span class="lat"> 40.673176</span>, <span class="lon">-73.99632700000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hudson River, New York, USA
             </td>   
                 <td class="table__cell">
-                40.71291, -74.023909
+                <span class="lat"> 40.71291</span>, <span class="lon">-74.023909</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Island Railroad, Richmond Hill, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.6998, -73.8312
+                <span class="lat"> 40.6998</span>, <span class="lon">-73.8312</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Island, New York, USA
             </td>   
                 <td class="table__cell">
-                40.583986, -73.686923
+                <span class="lat"> 40.583986</span>, <span class="lon">-73.686923</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lower Manhattan, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.71864, -74.00219
+                <span class="lat"> 40.71864</span>, <span class="lon">-74.00219</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Maspeth, Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7232, -73.9126
+                <span class="lat"> 40.7232</span>, <span class="lon">-73.9126</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York County Courthouse   60 Centre Street, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.714565, -74.002885
+                <span class="lat"> 40.714565</span>, <span class="lon">-74.002885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woodhaven, Queens, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6893, -73.8579
+                <span class="lat"> 40.6893</span>, <span class="lon">-73.8579</span>
                     </td>   
           </tr> 
           </tr>

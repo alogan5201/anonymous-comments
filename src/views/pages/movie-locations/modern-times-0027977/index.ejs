@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sierra Hwy. & Penman Rd., Santa Clarita, California, USA 
             </td>   
                 <td class="table__cell">
-                34.5215271, -118.2645085
+                <span class="lat"> 34.5215271</span>, <span class="lon">-118.2645085</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles Harbor, San Pedro, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.7842845, -118.283979
+                <span class="lat"> 33.7842845</span>, <span class="lon">-118.283979</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Massachusetts Ave. at Sawtelle Blvd., Brentwood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Clarita, California, USA
             </td>   
                 <td class="table__cell">
-                34.42, -118.54
+                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Pedro Harbor, Long Beach, California, USA 
             </td>   
                 <td class="table__cell">
-                33.761755, -118.283373
+                <span class="lat"> 33.761755</span>, <span class="lon">-118.283373</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chaplin Studios   1416 N. La Brea Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.98062, -118.35807
+                <span class="lat"> 33.98062</span>, <span class="lon">-118.35807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Center Street and Jackson Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0508672, -118.2316134
+                <span class="lat"> 34.0508672</span>, <span class="lon">-118.2316134</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 10858 Bluffside Drive, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14054, -118.36683
+                <span class="lat"> 34.14054</span>, <span class="lon">-118.36683</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1685 Vine Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.104063, -118.138953
+                <span class="lat"> 34.104063</span>, <span class="lon">-118.138953</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wilmington, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.78, -118.2626
+                <span class="lat"> 33.78</span>, <span class="lon">-118.2626</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Pedro, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.88105, -118.26406
+                <span class="lat"> 33.88105</span>, <span class="lon">-118.26406</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brentwood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0636, -118.4748
+                <span class="lat"> 34.0636</span>, <span class="lon">-118.4748</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Long Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.7775, -118.1885
+                <span class="lat"> 33.7775</span>, <span class="lon">-118.1885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           </tr>

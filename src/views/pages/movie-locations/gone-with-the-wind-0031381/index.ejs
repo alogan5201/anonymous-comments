@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Little Rock, Arkansas, USA 
             </td>   
                 <td class="table__cell">
-                34.7695, -92.2671
+                <span class="lat"> 34.7695</span>, <span class="lon">-92.2671</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Georgia, USA 
             </td>   
                 <td class="table__cell">
-                32.3305706594, -83.2572560296474
+                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Big Bear Lake, Big Bear Valley, San Bernardino National Forest, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2441, -116.9102
+                <span class="lat"> 34.2441</span>, <span class="lon">-116.9102</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bidwell Park   Manzanita Avenue, Chico, California, USA 
             </td>   
                 <td class="table__cell">
-                39.7285, -121.8375
+                <span class="lat"> 39.7285</span>, <span class="lon">-121.8375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Big Bear Valley, San Bernardino National Forest, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2441, -116.9102
+                <span class="lat"> 34.2441</span>, <span class="lon">-116.9102</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Busch Gardens   S. Grove Avenue, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Bernardino National Forest, California, USA 
             </td>   
                 <td class="table__cell">
-                34.177186, -117.272712
+                <span class="lat"> 34.177186</span>, <span class="lon">-117.272712</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calabasas, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1447, -118.6441
+                <span class="lat"> 34.1447</span>, <span class="lon">-118.6441</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chico, California, USA 
             </td>   
                 <td class="table__cell">
-                39.7285, -121.8375
+                <span class="lat"> 39.7285</span>, <span class="lon">-121.8375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Malibu Lake, California, USA 
             </td>   
                 <td class="table__cell">
-                33.641535, -117.965895
+                <span class="lat"> 33.641535</span>, <span class="lon">-117.965895</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Simi Valley, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2694, -118.7815
+                <span class="lat"> 34.2694</span>, <span class="lon">-118.7815</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Selznick International Studios   9336 W. Washington Blvd., Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.02448, -118.39238
+                <span class="lat"> 34.02448</span>, <span class="lon">-118.39238</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Old Mill Park, Little Rock, Arkansas, USA 
             </td>   
                 <td class="table__cell">
-                34.7465, -92.2896
+                <span class="lat"> 34.7465</span>, <span class="lon">-92.2896</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arroyo Boulevard, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.137595, -118.16583
+                <span class="lat"> 34.137595</span>, <span class="lon">-118.16583</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lasky Mesa, West Hills, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1765941, -118.683986
+                <span class="lat"> 34.1765941</span>, <span class="lon">-118.683986</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Agoura, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1431, -118.7379
+                <span class="lat"> 34.1431</span>, <span class="lon">-118.7379</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.017275, -118.402347
+                <span class="lat"> 34.017275</span>, <span class="lon">-118.402347</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ahmanson Ranch, Victory Boulevard, Lasky Mesa, West Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2032, -118.6455
+                <span class="lat"> 34.2032</span>, <span class="lon">-118.6455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Reuss Ranch, Malibu Lake, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0058, -118.807
+                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paradise Apple Orchard, Chico, California, USA
             </td>   
                 <td class="table__cell">
-                39.7285, -121.8375
+                <span class="lat"> 39.7285</span>, <span class="lon">-121.8375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paradise, California, USA
             </td>   
                 <td class="table__cell">
-                39.7596, -121.6219
+                <span class="lat"> 39.7596</span>, <span class="lon">-121.6219</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Agoura Hills, California, USA
             </td>   
                 <td class="table__cell">
-                34.1364, -118.7745
+                <span class="lat"> 34.1364</span>, <span class="lon">-118.7745</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Northern California, California, USA
             </td>   
                 <td class="table__cell">
-                37.613279, -122.058042
+                <span class="lat"> 37.613279</span>, <span class="lon">-122.058042</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 United Artists Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
             </td>   
                 <td class="table__cell">
-                34.090713, -118.346243
+                <span class="lat"> 34.090713</span>, <span class="lon">-118.346243</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woodland Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1683, -118.6059
+                <span class="lat"> 34.1683</span>, <span class="lon">-118.6059</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pentz Road, Paradise, California, USA
             </td>   
                 <td class="table__cell">
-                39.72543, -121.5758
+                <span class="lat"> 39.72543</span>, <span class="lon">-121.5758</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West Hills, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2032, -118.6455
+                <span class="lat"> 34.2032</span>, <span class="lon">-118.6455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           </tr>

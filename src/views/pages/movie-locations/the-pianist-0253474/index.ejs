@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,150 +60,150 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Instalatorów, Ochota, Warsaw, Mazowieckie, Poland 
             </td>   
                 <td class="table__cell">
-                52.1977874, 20.9596328
+                <span class="lat"> 52.1977874</span>, <span class="lon">20.9596328</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Krakowskie Przedmiescie, Sródmiescie, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.2422587, 21.0156274
+                <span class="lat"> 52.2422587</span>, <span class="lon">21.0156274</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Zabkowska, Praga Pólnoc, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.2518735, 21.0382635
+                <span class="lat"> 52.2518735</span>, <span class="lon">21.0382635</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beelitz, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.23333, 12.96667
+                <span class="lat"> 52.23333</span>, <span class="lon">12.96667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kozia, Sródmiescie, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.2422355, 21.2288247
+                <span class="lat"> 52.2422355</span>, <span class="lon">21.2288247</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mala, Praga Pólnoc, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.21667, 21.03333
+                <span class="lat"> 52.21667</span>, <span class="lon">21.03333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Norblin Factory, Wola, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.179715, 21.073216
+                <span class="lat"> 52.179715</span>, <span class="lon">21.073216</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stalowa, Praga Pólnoc, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.2610068, 21.0426464
+                <span class="lat"> 52.2610068</span>, <span class="lon">21.0426464</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hotel Saski, Plac Bankowy, Sródmiescie, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.21667, 21.03333
+                <span class="lat"> 52.21667</span>, <span class="lon">21.03333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kobylka, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.3361935, 21.2142455
+                <span class="lat"> 52.3361935</span>, <span class="lon">21.2142455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rembertów, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.21667, 21.03333
+                <span class="lat"> 52.21667</span>, <span class="lon">21.03333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.21667, 21.03333
+                <span class="lat"> 52.21667</span>, <span class="lon">21.03333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Babelsberg, Potsdam, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.396806, 13.102277
+                <span class="lat"> 52.396806</span>, <span class="lon">13.102277</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jüterbog, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                51.99333, 13.07278
+                <span class="lat"> 51.99333</span>, <span class="lon">13.07278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Konopacka, Praga Pólnoc, Warsaw, Mazowieckie, Poland
             </td>   
                 <td class="table__cell">
-                52.2595952, 21.0384765
+                <span class="lat"> 52.2595952</span>, <span class="lon">21.0384765</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Potsdam, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.4, 13.06667
+                <span class="lat"> 52.4</span>, <span class="lon">13.06667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">
                 </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Studio Babelsberg, Potsdam, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.387806, 13.120573
+                <span class="lat"> 52.387806</span>, <span class="lon">13.120573</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">

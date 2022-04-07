@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,83 +60,83 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Durham Cathedral, The College, Durham, County Durham, England, UK 
             </td>   
                 <td class="table__cell">
-                54.776415199999995, -1.5758539
+                <span class="lat"> 54.776415199999995</span>, <span class="lon">-1.5758539</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St Abbs, Eyemouth, TD14 5PL, UK 
             </td>   
                 <td class="table__cell">
-                55.8998413, -2.1329017
+                <span class="lat"> 55.8998413</span>, <span class="lon">-2.1329017</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Atlanta Studios   461 Sandy Creek Road, Fayetteville, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.474605, -84.510867
+                <span class="lat"> 33.474605</span>, <span class="lon">-84.510867</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 SANY America, 318 Cooper Circle, Peachtree City, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.35081, -84.55882
+                <span class="lat"> 33.35081</span>, <span class="lon">-84.55882</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Georgia, USA
             </td>   
                 <td class="table__cell">
-                32.3305706594, -83.2572560296474
+                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Edwards AFB, California, USA 
             </td>   
                 <td class="table__cell">
-                34.9045, -117.9295
+                <span class="lat"> 34.9045</span>, <span class="lon">-117.9295</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Proscenium, 1170 Peachtree Street NE, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.78632, -84.38371
+                <span class="lat"> 33.78632</span>, <span class="lon">-84.38371</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Facing MLK Jr Drive., 100 Broad St SW, Atlanta, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           </tr>

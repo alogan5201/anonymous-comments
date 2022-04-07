@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,187 +60,187 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Rosa, New Mexico, USA 
             </td>   
                 <td class="table__cell">
-                34.9387, -104.6825
+                <span class="lat"> 34.9387</span>, <span class="lon">-104.6825</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Needles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.8481, -114.6141
+                <span class="lat"> 34.8481</span>, <span class="lon">-114.6141</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tehachapi, California, USA 
             </td>   
                 <td class="table__cell">
-                35.1322, -118.449
+                <span class="lat"> 35.1322</span>, <span class="lon">-118.449</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Topock, Arizona, USA 
             </td>   
                 <td class="table__cell">
-                34.7183, -114.4872
+                <span class="lat"> 34.7183</span>, <span class="lon">-114.4872</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Daggett, California, USA 
             </td>   
                 <td class="table__cell">
-                34.8634, -116.888
+                <span class="lat"> 34.8634</span>, <span class="lon">-116.888</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Iverson Ranch   1 Iverson Lane, Chatsworth, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.276, -118.60976
+                <span class="lat"> 34.276</span>, <span class="lon">-118.60976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Laguna Pueblo, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                35.03, -106.95
+                <span class="lat"> 35.03</span>, <span class="lon">-106.95</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 McAlester, Oklahoma, USA 
             </td>   
                 <td class="table__cell">
-                34.9335, -95.7698
+                <span class="lat"> 34.9335</span>, <span class="lon">-95.7698</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gallup, New Mexico, USA
             </td>   
                 <td class="table__cell">
-                35.5284, -108.7439
+                <span class="lat"> 35.5284</span>, <span class="lon">-108.7439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Irvine Ranch, Tustin, California, USA
             </td>   
                 <td class="table__cell">
-                33.6479, -117.8419
+                <span class="lat"> 33.6479</span>, <span class="lon">-117.8419</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lamont, California, USA 
             </td>   
                 <td class="table__cell">
-                35.2597, -118.9143
+                <span class="lat"> 35.2597</span>, <span class="lon">-118.9143</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Petrified Forest National Park, Arizona, USA
             </td>   
                 <td class="table__cell">
-                34.864308, -109.801365
+                <span class="lat"> 34.864308</span>, <span class="lon">-109.801365</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sayre, Oklahoma, USA 
             </td>   
                 <td class="table__cell">
-                35.2912, -99.6401
+                <span class="lat"> 35.2912</span>, <span class="lon">-99.6401</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Janss Conejo Ranch, Thousand Oaks, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1706, -118.8376
+                <span class="lat"> 34.1706</span>, <span class="lon">-118.8376</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lasky Mesa, Chatsworth, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2596, -118.6023
+                <span class="lat"> 34.2596</span>, <span class="lon">-118.6023</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Backlot, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.02, -118.49
+                <span class="lat"> 34.02</span>, <span class="lon">-118.49</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 5, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.04994, -118.41129
+                <span class="lat"> 34.04994</span>, <span class="lon">-118.41129</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Fernando Valley, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.251081, -118.518444
+                <span class="lat"> 34.251081</span>, <span class="lon">-118.518444</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arizona Welcome Center, US Interstate 40, Lupton, Arizona, USA 
             </td>   
                 <td class="table__cell">
-                35.353889, -109.05306
+                <span class="lat"> 35.353889</span>, <span class="lon">-109.05306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 US Interstate 40, Lupton, Arizona, USA 
             </td>   
                 <td class="table__cell">
-                35.3624471, -109.0467887
+                <span class="lat"> 35.3624471</span>, <span class="lon">-109.0467887</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 9 Interstate 40 Business Loop, Santa Rosa, New Mexico, USA 
             </td>   
                 <td class="table__cell">
-                34.94564, -104.66844
+                <span class="lat"> 34.94564</span>, <span class="lon">-104.66844</span>
                     </td>   
           </tr> 
           </tr>

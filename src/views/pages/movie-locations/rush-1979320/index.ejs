@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,155 +60,155 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nürburgring, Rhineland Palatinate, Germany
             </td>   
                 <td class="table__cell">
-                50.330861, 6.940269
+                <span class="lat"> 50.330861</span>, <span class="lon">6.940269</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cologne, North Rhine Westphalia, Germany
             </td>   
                 <td class="table__cell">
-                50.94222, 6.95778
+                <span class="lat"> 50.94222</span>, <span class="lon">6.95778</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brands Hatch racing track, Kent, England, UK 
             </td>   
                 <td class="table__cell">
-                51.2245, 0.7334
+                <span class="lat"> 51.2245</span>, <span class="lon">0.7334</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blackbushe Airport, Hampshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.32262, -0.839338
+                <span class="lat"> 51.32262</span>, <span class="lon">-0.839338</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cadwell Park, Lincolnshire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.812744, -0.838793
+                <span class="lat"> 52.812744</span>, <span class="lon">-0.838793</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cadwell Park Racing Circuit, Louth, Lincolnshire, England, UK
             </td>   
                 <td class="table__cell">
-                53.3669, -0.0061
+                <span class="lat"> 53.3669</span>, <span class="lon">-0.0061</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Evolution Printing, Stanhope Road, Camberley, UK 
             </td>   
                 <td class="table__cell">
-                51.332092, -0.768192
+                <span class="lat"> 51.332092</span>, <span class="lon">-0.768192</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Louth, Lincolnshire, England, UK 
             </td>   
                 <td class="table__cell">
-                53.3669, -0.0061
+                <span class="lat"> 53.3669</span>, <span class="lon">-0.0061</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Easton Neston, Towcester, Northamptonshire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.13, -0.99
+                <span class="lat"> 52.13</span>, <span class="lon">-0.99</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Donington Park, Wilson, Leicestershire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.826469, -1.369858
+                <span class="lat"> 52.826469</span>, <span class="lon">-1.369858</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Vienna, Austria
             </td>   
                 <td class="table__cell">
-                48.20833, 16.37306
+                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Singerstraße, Vienna, Austria
             </td>   
                 <td class="table__cell">
-                48.2070986, 16.3743026
+                <span class="lat"> 48.2070986</span>, <span class="lon">16.3743026</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Rhine Westphalia, Germany
             </td>   
                 <td class="table__cell">
-                51.46667, 7.55
+                <span class="lat"> 51.46667</span>, <span class="lon">7.55</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Norfolk, England, UK 
             </td>   
                 <td class="table__cell">
-                52.6667, 1
+                <span class="lat"> 52.6667</span>, <span class="lon">1</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longcross Studios, Chobham Lane, Longcross, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.3481, -0.6038
+                <span class="lat"> 51.3481</span>, <span class="lon">-0.6038</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chobham Lane, Longcross, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.381663, -0.590569
+                <span class="lat"> 51.381663</span>, <span class="lon">-0.590569</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longcross, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.380692, -0.549514
+                <span class="lat"> 51.380692</span>, <span class="lon">-0.549514</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.25, -0.3333
+                <span class="lat"> 51.25</span>, <span class="lon">-0.3333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 England, UK
             </td>   
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <span class="lat"> 52.38145972</span>, <span class="lon">-0.676181762467007</span>
                     </td>   
           </tr> 
           </tr>

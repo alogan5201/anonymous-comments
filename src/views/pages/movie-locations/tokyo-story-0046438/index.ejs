@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Osaka, Japan
             </td>   
                 <td class="table__cell">
-                34.68639, 135.52
+                <span class="lat"> 34.68639</span>, <span class="lon">135.52</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Onomichi, Hiroshima, Japan
             </td>   
                 <td class="table__cell">
-                34.40889, 133.205
+                <span class="lat"> 34.40889</span>, <span class="lon">133.205</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tokyo, Japan
             </td>   
                 <td class="table__cell">
-                35.6652065, 139.7263785
+                <span class="lat"> 35.6652065</span>, <span class="lon">139.7263785</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rino ji temple, Ueno koen, Taito, Tokyo, Japan 
             </td>   
                 <td class="table__cell">
-                35.68, 139.77
+                <span class="lat"> 35.68</span>, <span class="lon">139.77</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atami, Shizuoka, Japan
             </td>   
                 <td class="table__cell">
-                35.09611, 139.07167
+                <span class="lat"> 35.09611</span>, <span class="lon">139.07167</span>
                     </td>   
           </tr> 
           </tr>

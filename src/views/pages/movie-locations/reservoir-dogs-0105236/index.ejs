@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,99 +60,99 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5860 North Figueroa Street, Highland Park, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.11023, -118.19113
+                <span class="lat"> 34.11023</span>, <span class="lon">-118.19113</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pat & Lorraine's Coffee Shop   4720 Eagle Rock Blvd., Eagle Rock, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 York Boulevard and North Avenue 50, Highland Park, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1214755, -118.2069044
+                <span class="lat"> 34.1214755</span>, <span class="lon">-118.2069044</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 4459 Eagle Rock Blvd, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.12551, -118.21999
+                <span class="lat"> 34.12551</span>, <span class="lon">-118.21999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Johnie's Coffee Shop   6101 Wilshire Boulevard, Fairfax, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0268, -118.5017
+                <span class="lat"> 34.0268</span>, <span class="lon">-118.5017</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burbank, California, USA
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Highland Park, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.112, -118.199
+                <span class="lat"> 34.112</span>, <span class="lon">-118.199</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Belmont Tunnel   1304 West 2nd Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2612 West Burbank Boulevard, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.17798, -118.339505
+                <span class="lat"> 34.17798</span>, <span class="lon">-118.339505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5530 N Marmion Way, Highland Park, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.109751, -118.195653
+                <span class="lat"> 34.109751</span>, <span class="lon">-118.195653</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Park Plaza Hotel   607 S. Park View Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.73, -118.29
+                <span class="lat"> 33.73</span>, <span class="lon">-118.29</span>
                     </td>   
           </tr> 
           </tr>

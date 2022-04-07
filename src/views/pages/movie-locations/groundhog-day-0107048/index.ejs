@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,123 +60,123 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 344 Fremont St, Woodstock, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.30977, -88.44466
+                <span class="lat"> 42.30977</span>, <span class="lon">-88.44466</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woodstock, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.315, -88.4475
+                <span class="lat"> 42.315</span>, <span class="lon">-88.4475</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Algonquin, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.1656, -88.2942
+                <span class="lat"> 42.1656</span>, <span class="lon">-88.2942</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rockford, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.2714, -89.094
+                <span class="lat"> 42.2714</span>, <span class="lon">-89.094</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Town Square, Woodstock, Illinois, USA
             </td>   
                 <td class="table__cell">
-                42.315, -88.4475
+                <span class="lat"> 42.315</span>, <span class="lon">-88.4475</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Jail, Woodstock, Illinois, USA
             </td>   
                 <td class="table__cell">
-                42.34142, -88.48424
+                <span class="lat"> 42.34142</span>, <span class="lon">-88.48424</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waukegan, Illinois, USA
             </td>   
                 <td class="table__cell">
-                42.3636, -87.8448
+                <span class="lat"> 42.3636</span>, <span class="lon">-87.8448</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wayne's City Lanes, Woodstock, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                38.3453, -88.5878
+                <span class="lat"> 38.3453</span>, <span class="lon">-88.5878</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cary, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                42.212, -88.2381
+                <span class="lat"> 42.212</span>, <span class="lon">-88.2381</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Courthouse, Woodstock, Illinois, USA
             </td>   
                 <td class="table__cell">
-                39.121721, -88.541211
+                <span class="lat"> 39.121721</span>, <span class="lon">-88.541211</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Opera House, Woodstock, Illinois, USA
             </td>   
                 <td class="table__cell">
-                42.315, -88.4475
+                <span class="lat"> 42.315</span>, <span class="lon">-88.4475</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
             </td>   
                 <td class="table__cell">
-                34.14138, -118.35659
+                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Illinois, USA
             </td>   
                 <td class="table__cell">
-                40.1492928594, -89.2749461071049
+                <span class="lat"> 40.1492928594</span>, <span class="lon">-89.2749461071049</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pittsburgh, Pennsylvania, USA
             </td>   
                 <td class="table__cell">
-                40.4417, -79.9901
+                <span class="lat"> 40.4417</span>, <span class="lon">-79.9901</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blairsville, Pennsylvania, USA 
             </td>   
                 <td class="table__cell">
-                40.4312, -79.2609
+                <span class="lat"> 40.4312</span>, <span class="lon">-79.2609</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1219 Dodds Circle, East Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.05255, -118.19146
+                <span class="lat"> 34.05255</span>, <span class="lon">-118.19146</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 7445 Firestone Boulevard, Downey, California, USA 
             </td>   
                 <td class="table__cell">
-                33.935165, -118.123022
+                <span class="lat"> 33.935165</span>, <span class="lon">-118.123022</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kate Mantilini   9101 Wilshire Boulevard, Beverly Hills, California, USA 
             </td>   
                 <td class="table__cell">
-                34.06738, -118.39032
+                <span class="lat"> 34.06738</span>, <span class="lon">-118.39032</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Venice Boulevard at Georgia Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.995, -118.4669
+                <span class="lat"> 33.995</span>, <span class="lon">-118.4669</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5th Street, Flower Street and Figueroa Street., Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.74963, -117.87676
+                <span class="lat"> 33.74963</span>, <span class="lon">-117.87676</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bob's Big Boy   4211 West Riverside Drive, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.15256, -118.34614
+                <span class="lat"> 34.15256</span>, <span class="lon">-118.34614</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Centinela Drive In Theater   5700 Centinela Avenue, Westchester, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.97685, -118.376653
+                <span class="lat"> 33.97685</span>, <span class="lon">-118.376653</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Interstate 105, El Segundo, California, USA 
             </td>   
                 <td class="table__cell">
-                33.92677, -118.22904
+                <span class="lat"> 33.92677</span>, <span class="lon">-118.22904</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Broadway Deli   1457 3rd Street Promenade, Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.014769, -118.49507
+                <span class="lat"> 34.014769</span>, <span class="lon">-118.49507</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Berth 202, Port of Los Angeles, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.745414, -118.277489
+                <span class="lat"> 33.745414</span>, <span class="lon">-118.277489</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 444 S. Flower Street, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.05222, -118.25533
+                <span class="lat"> 34.05222</span>, <span class="lon">-118.25533</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Harbor Place Tower   525 E. Seaside Way, Long Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.76591, -118.18568
+                <span class="lat"> 33.76591</span>, <span class="lon">-118.18568</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles International Airport   1 World Way, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.94469, -118.39817
+                <span class="lat"> 33.94469</span>, <span class="lon">-118.39817</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Metro Green Line, Marine/Redondo Station   2406 Marine Avenue, Gardena, California, USA 
             </td>   
                 <td class="table__cell">
-                33.8883, -118.3071
+                <span class="lat"> 33.8883</span>, <span class="lon">-118.3071</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Zenzero Restaurant   1535 Ocean Avenue, Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.01223, -118.49526
+                <span class="lat"> 34.01223</span>, <span class="lon">-118.49526</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1284 South Western Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.920148, -118.309091
+                <span class="lat"> 33.920148</span>, <span class="lon">-118.309091</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 990 MacDonough Ave, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.784777, -118.231632
+                <span class="lat"> 33.784777</span>, <span class="lon">-118.231632</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Far East Bank   350 S. Grand Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.9275, -118.2781
+                <span class="lat"> 33.9275</span>, <span class="lon">-118.2781</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Johnie's Broiler   7447 Firestone Blvd., Downey, California, USA 
             </td>   
                 <td class="table__cell">
-                33.94794, -118.14737
+                <span class="lat"> 33.94794</span>, <span class="lon">-118.14737</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Westin Bonaventure Hotel & Suites   404 S. Figueroa Street, Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.92, -118.42
+                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 26940 Malibu Cove Colony Dr Malibu, California, USA 
             </td>   
                 <td class="table__cell">
-                34.02575, -118.75952
+                <span class="lat"> 34.02575</span>, <span class="lon">-118.75952</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles Airport Hilton and Towers   5711 W. Century Blvd., Westchester, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.94621, -118.3816
+                <span class="lat"> 33.94621</span>, <span class="lon">-118.3816</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pacific Ocean Park, Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0022, -118.4837
+                <span class="lat"> 34.0022</span>, <span class="lon">-118.4837</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Mary's Hospital   1050 Linden Avenue, Long Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.78, -118.19
+                <span class="lat"> 33.78</span>, <span class="lon">-118.19</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Venice Blvd. and Interstate 110, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.995, -118.4669
+                <span class="lat"> 33.995</span>, <span class="lon">-118.4669</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Venice, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.991325, -118.470942
+                <span class="lat"> 33.991325</span>, <span class="lon">-118.470942</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Beirut Avenue and Via De Las Olas, Pacific Palisades, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0359073, -118.5308831
+                <span class="lat"> 34.0359073</span>, <span class="lon">-118.5308831</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3506 W 8th St, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.05746, -118.30707
+                <span class="lat"> 34.05746</span>, <span class="lon">-118.30707</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Angeleno Hotel   170 N. Church Lane, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0741, -118.46842
+                <span class="lat"> 34.0741</span>, <span class="lon">-118.46842</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 645 West 9th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.045818, -118.260982
+                <span class="lat"> 34.045818</span>, <span class="lon">-118.260982</span>
                     </td>   
           </tr> 
           </tr>

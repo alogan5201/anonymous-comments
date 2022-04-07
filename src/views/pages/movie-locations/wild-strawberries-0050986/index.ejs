@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,59 +60,59 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dalarö, Stockholms län, Sweden
             </td>   
                 <td class="table__cell">
-                59.13194, 18.40333
+                <span class="lat"> 59.13194</span>, <span class="lon">18.40333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gotlands län, Sweden
             </td>   
                 <td class="table__cell">
-                57.49917, 18.50944
+                <span class="lat"> 57.49917</span>, <span class="lon">18.50944</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lund, Skåne län, Sweden
             </td>   
                 <td class="table__cell">
-                55.7, 13.2
+                <span class="lat"> 55.7</span>, <span class="lon">13.2</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Svensk Filmindustri, Filmstaden, Råsunda, Stockholms län, Sweden 
             </td>   
                 <td class="table__cell">
-                59.367224, 17.981759
+                <span class="lat"> 59.367224</span>, <span class="lon">17.981759</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Vättern, Sweden
             </td>   
                 <td class="table__cell">
-                58.5400486577074, 14.5083103858462
+                <span class="lat"> 58.5400486577074</span>, <span class="lon">14.5083103858462</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ängö, Södermanlands län, Sweden
             </td>   
                 <td class="table__cell">
-                58.7549369540164, 17.4734439860543
+                <span class="lat"> 58.7549369540164</span>, <span class="lon">17.4734439860543</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lund Cathedral, Lund, Skåne län, Sweden 
             </td>   
                 <td class="table__cell">
-                55.70018875, 13.19002675
+                <span class="lat"> 55.70018875</span>, <span class="lon">13.19002675</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,315 +60,315 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Times Square, Causeway Bay, Hong Kong
             </td>   
                 <td class="table__cell">
-                47.61, -122.34
+                <span class="lat"> 47.61</span>, <span class="lon">-122.34</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Battersea Power Station, Battersea, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.4814285, -0.144556
+                <span class="lat"> 51.4814285</span>, <span class="lon">-0.144556</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Millennium Station, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.885258, -87.623985
+                <span class="lat"> 41.885258</span>, <span class="lon">-87.623985</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Twin Anchors Restaurant & Tavern   1655 N. Sedgwick Street, Lincoln Park, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.91272, -87.638337
+                <span class="lat"> 41.91272</span>, <span class="lon">-87.638337</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Post Office, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.875626, -87.637794
+                <span class="lat"> 41.875626</span>, <span class="lon">-87.637794</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brach's Candy Factory   401 N. Cicero Street, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8883, -87.74428
+                <span class="lat"> 41.8883</span>, <span class="lon">-87.74428</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 IBM Building   330 N Wabash, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.888585000000006, -87.6275925
+                <span class="lat"> 41.888585000000006</span>, <span class="lon">-87.6275925</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hong Kong, China
             </td>   
                 <td class="table__cell">
-                22.299653499999998, 114.1675485
+                <span class="lat"> 22.299653499999998</span>, <span class="lon">114.1675485</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 South LaSalle St., Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.74912, -87.55492
+                <span class="lat"> 41.74912</span>, <span class="lon">-87.55492</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atwood Cafe   1 W Washington St, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lower Wacker Drive, Downtown, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8928, -88.207
+                <span class="lat"> 41.8928</span>, <span class="lon">-88.207</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 McCormick Place   2301 S. Lake Shore Drive, Near South Side, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.85064, -87.61615
+                <span class="lat"> 41.85064</span>, <span class="lon">-87.61615</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Piccadilly Circus, Piccadilly, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.509903249999994, -0.13451125
+                <span class="lat"> 51.509903249999994</span>, <span class="lon">-0.13451125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Senate House, University College London, Malet Street, Bloomsbury, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.522841765625, -0.1301126953125
+                <span class="lat"> 51.522841765625</span>, <span class="lon">-0.1301126953125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Queen's Road Central, Central, Hong Kong, China
             </td>   
                 <td class="table__cell">
-                1.332652, 103.848198
+                <span class="lat"> 1.332652</span>, <span class="lon">103.848198</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Richard J. Daley Center   55 W. Randolph Street, The Loop, Downtown, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Victoria Harbour, Hong Kong, China
             </td>   
                 <td class="table__cell">
-                22.287948, 114.17265
+                <span class="lat"> 22.287948</span>, <span class="lon">114.17265</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bedford, Bedfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                52.067944, -0.47248
+                <span class="lat"> 52.067944</span>, <span class="lon">-0.47248</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trump International Hotel & Tower   401 N Wabash, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.11794, -86.40246
+                <span class="lat"> 41.11794</span>, <span class="lon">-86.40246</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 University of Westminster, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.57763, -0.322569
+                <span class="lat"> 51.57763</span>, <span class="lon">-0.322569</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 N Franklin Street, Chicago, Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.891805, -87.635985
+                <span class="lat"> 41.891805</span>, <span class="lon">-87.635985</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chertsey, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.3902, -0.5074
+                <span class="lat"> 51.3902</span>, <span class="lon">-0.5074</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hotel 71   71 E. Wacker Drive, Downtown, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.8866, -87.62533
+                <span class="lat"> 41.8866</span>, <span class="lon">-87.62533</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Town, Near North Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.906897, -87.634573
+                <span class="lat"> 41.906897</span>, <span class="lon">-87.634573</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Twickenham, Middlesex, England, UK
             </td>   
                 <td class="table__cell">
-                51.4486, -0.3369
+                <span class="lat"> 51.4486</span>, <span class="lon">-0.3369</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 George Farmiloe Building   28 36 St John Street, Clerkenwell, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527098, -0.104408
+                <span class="lat"> 51.527098</span>, <span class="lon">-0.104408</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2 International Finance Centre, Central, Hong Kong, China
             </td>   
                 <td class="table__cell">
-                22.285195125, 114.158648875
+                <span class="lat"> 22.285195125</span>, <span class="lon">114.158648875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cardington Airship Hangars, Bedfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.28478, -0.760758
+                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Criterion Theatre, Jermyn Street, St James's, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5098815, -0.1341945
+                <span class="lat"> 51.5098815</span>, <span class="lon">-0.1341945</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Center, Central, Hong Kong, China
             </td>   
                 <td class="table__cell">
-                43.8337, -72.2504
+                <span class="lat"> 43.8337</span>, <span class="lon">-72.2504</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Peninsula Hong Kong, Salisbury Road, Tsim Sha Tsui, Kowloon, Hong Kong, China
             </td>   
                 <td class="table__cell">
-                22.295197, 114.1716925
+                <span class="lat"> 22.295197</span>, <span class="lon">114.1716925</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Navy Pier   600 E. Grand Avenue, Near North Side, Chicago, Illinois, USA
             </td>   
                 <td class="table__cell">
-                41.89169, -87.60835
+                <span class="lat"> 41.89169</span>, <span class="lon">-87.60835</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St John Street, Clerkenwell, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.52316, -0.102312
+                <span class="lat"> 51.52316</span>, <span class="lon">-0.102312</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Leavesden Studios, Leavesden, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.69323, -0.4184505
+                <span class="lat"> 51.69323</span>, <span class="lon">-0.4184505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longcross, Surrey, England, UK
             </td>   
                 <td class="table__cell">
-                51.380692, -0.549514
+                <span class="lat"> 51.380692</span>, <span class="lon">-0.549514</span>
                     </td>   
           </tr> 
           </tr>

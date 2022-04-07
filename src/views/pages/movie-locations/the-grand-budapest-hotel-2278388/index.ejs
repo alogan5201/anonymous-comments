@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Görlitz, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                51.15278, 14.98722
+                <span class="lat"> 51.15278</span>, <span class="lon">14.98722</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Zwinger, Dresden, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                51.053425000000004, 13.733105625
+                <span class="lat"> 51.053425000000004</span>, <span class="lon">13.733105625</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kraków, Malopolskie, Poland 
             </td>   
                 <td class="table__cell">
-                50.06667, 19.95
+                <span class="lat"> 50.06667</span>, <span class="lon">19.95</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Osterstein Castle, Zwickau, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                50.721002, 12.49999
+                <span class="lat"> 50.721002</span>, <span class="lon">12.49999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hainewalde, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                50.90556, 14.7
+                <span class="lat"> 50.90556</span>, <span class="lon">14.7</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dresden, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                51.05, 13.75
+                <span class="lat"> 51.05</span>, <span class="lon">13.75</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waldenburg, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                50.87583, 12.59972
+                <span class="lat"> 50.87583</span>, <span class="lon">12.59972</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sächsische Schweiz, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                50.958545, 14.006784
+                <span class="lat"> 50.958545</span>, <span class="lon">14.006784</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Studio Babelsberg, Potsdam, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.387806, 13.120573
+                <span class="lat"> 52.387806</span>, <span class="lon">13.120573</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burg Kriebstein, Kriebstein, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                51.05, 13.01972
+                <span class="lat"> 51.05</span>, <span class="lon">13.01972</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elbe Sandstone Mountains, Saxony, Germany 
             </td>   
                 <td class="table__cell">
-                51.02694, 13.35889
+                <span class="lat"> 51.02694</span>, <span class="lon">13.35889</span>
                     </td>   
           </tr> 
           </tr>

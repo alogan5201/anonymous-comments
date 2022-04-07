@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fort Point, Presidio, Golden Gate National Recreation Area, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.7694, -122.4757
+                <span class="lat"> 37.7694</span>, <span class="lon">-122.4757</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mission San Juan Bautista   2nd Street & Mariposa Street, San Juan Bautista, California, USA 
             </td>   
                 <td class="table__cell">
-                36.8455, -121.538
+                <span class="lat"> 36.8455</span>, <span class="lon">-121.538</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 900 Lombard Street, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.80253, -122.4166
+                <span class="lat"> 37.80253</span>, <span class="lon">-122.4166</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Big Basin Redwoods State Park   21600 Big Basin Way, Boulder Creek, California, USA 
             </td>   
                 <td class="table__cell">
-                37.172564, -122.222478
+                <span class="lat"> 37.172564</span>, <span class="lon">-122.222478</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brocklebank Apartments   1000 Mason Street, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.79309, -122.41047
+                <span class="lat"> 37.79309</span>, <span class="lon">-122.41047</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cypress Point, Pebble Beach, California, USA 
             </td>   
                 <td class="table__cell">
-                36.5803095, -121.9733525
+                <span class="lat"> 36.5803095</span>, <span class="lon">-121.9733525</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fairmont Hotel   950 Mason Street, Nob Hill, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.79243, -122.41009
+                <span class="lat"> 37.79243</span>, <span class="lon">-122.41009</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ernie's Restaurant   847 Montgomery St, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.797179, -122.403667
+                <span class="lat"> 37.797179</span>, <span class="lon">-122.403667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Union St & Montgomery St, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.8010417, -122.404443
+                <span class="lat"> 37.8010417</span>, <span class="lon">-122.404443</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 224 Grant Avenue, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.78912, -122.40501
+                <span class="lat"> 37.78912</span>, <span class="lon">-122.40501</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Conservatory of Flowers, Golden Gate Park, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.772118, -122.4600655
+                <span class="lat"> 37.772118</span>, <span class="lon">-122.4600655</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Claude Lane, Bush Street, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.7648, -122.463
+                <span class="lat"> 37.7648</span>, <span class="lon">-122.463</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palace of Fine Arts   3301 Lyon Street, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.80283300000001, -122.4483725
+                <span class="lat"> 37.80283300000001</span>, <span class="lon">-122.4483725</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1007 Gough Street, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.783331, -122.424296
+                <span class="lat"> 37.783331</span>, <span class="lon">-122.424296</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Biltmore Hotel   506 S. Grand Avenue, Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.119935, -118.163184
+                <span class="lat"> 34.119935</span>, <span class="lon">-118.163184</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mission Dolores   3321 16th Street, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.766394, -122.424334
+                <span class="lat"> 37.766394</span>, <span class="lon">-122.424334</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California Palace of the Legion of Honor   34th Avenue & Clement Street, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.78423, -122.5008905
+                <span class="lat"> 37.78423</span>, <span class="lon">-122.5008905</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 York Hotel   940 Sutter Street, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                38.108, -122.2551
+                <span class="lat"> 38.108</span>, <span class="lon">-122.2551</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Park Hill Sanatorium   351 Buena Vista Avenue E., San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.7648, -122.463
+                <span class="lat"> 37.7648</span>, <span class="lon">-122.463</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Francisco Drydock, The Dogpatch, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.7611, -122.3884
+                <span class="lat"> 37.7611</span>, <span class="lon">-122.3884</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1000 Mason Street, North Beach, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.79309, -122.41047
+                <span class="lat"> 37.79309</span>, <span class="lon">-122.41047</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gough Street & Eddy Street, Western Addition, San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.782479, -122.424125
+                <span class="lat"> 37.782479</span>, <span class="lon">-122.424125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Big Basin, California, USA
             </td>   
                 <td class="table__cell">
-                37.24931, -122.06834
+                <span class="lat"> 37.24931</span>, <span class="lon">-122.06834</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paramount Studios   5555 Melrose Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08918, -118.38055
+                <span class="lat"> 34.08918</span>, <span class="lon">-118.38055</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Dogpatch, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.7611, -122.3884
+                <span class="lat"> 37.7611</span>, <span class="lon">-122.3884</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Western Addition, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.773115, -122.422172
+                <span class="lat"> 37.773115</span>, <span class="lon">-122.422172</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Clement Street, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.78289, -122.4603
+                <span class="lat"> 37.78289</span>, <span class="lon">-122.4603</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nob Hill, San Francisco, California, USA
             </td>   
                 <td class="table__cell">
-                37.793, -122.417
+                <span class="lat"> 37.793</span>, <span class="lon">-122.417</span>
                     </td>   
           </tr> 
           </tr>

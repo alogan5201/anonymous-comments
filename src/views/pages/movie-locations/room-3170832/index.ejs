@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Apache Burgers, 5236 Dundas St. W., Etobicoke, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.63932, -79.537841
+                <span class="lat"> 43.63932</span>, <span class="lon">-79.537841</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bridgepoint Health hospital, 550 Gerrard St E, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.665282, -79.354723
+                <span class="lat"> 43.665282</span>, <span class="lon">-79.354723</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nathan Phillips Square   100 Queen Street W, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.652831, -79.383628
+                <span class="lat"> 43.652831</span>, <span class="lon">-79.383628</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Toronto Studios, Port Lands, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           </tr>

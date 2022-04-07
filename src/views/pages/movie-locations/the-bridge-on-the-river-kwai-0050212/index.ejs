@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,123 +60,123 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ambepussa, Sri Lanka
             </td>   
                 <td class="table__cell">
-                7.253562652, 80.172499325
+                <span class="lat"> 7.253562652</span>, <span class="lon">80.172499325</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kelani River, Sri Lanka
             </td>   
                 <td class="table__cell">
-                2.997249, 101.445785
+                <span class="lat"> 2.997249</span>, <span class="lon">101.445785</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Government Rest House, Kitulgala, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                6.997872529, 80.408492647
+                <span class="lat"> 6.997872529</span>, <span class="lon">80.408492647</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Colombo, Western Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                6.86667, 80.01667
+                <span class="lat"> 6.86667</span>, <span class="lon">80.01667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kandy, Central Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                7.25, 80.75
+                <span class="lat"> 7.25</span>, <span class="lon">80.75</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mount Lavinia Hotel   100 Hotel Road, Mount Lavinia, Western Province, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                6.842919, 79.866418
+                <span class="lat"> 6.842919</span>, <span class="lon">79.866418</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kitulgala, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                6.997872529, 80.408492647
+                <span class="lat"> 6.997872529</span>, <span class="lon">80.408492647</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mount Lavinia, Western Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                6.842919, 79.866418
+                <span class="lat"> 6.842919</span>, <span class="lon">79.866418</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Peradeniya Botanical Gardens, Central Province, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                7.247535, 80.586124
+                <span class="lat"> 7.247535</span>, <span class="lon">80.586124</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mahara, Sri Lanka
             </td>   
                 <td class="table__cell">
-                6.991302851, 79.939375045
+                <span class="lat"> 6.991302851</span>, <span class="lon">79.939375045</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kalugamuwa, Gelioya, Kandy, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                7.214597871, 80.598184085
+                <span class="lat"> 7.214597871</span>, <span class="lon">80.598184085</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Central Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                1.32703, 103.86307
+                <span class="lat"> 1.32703</span>, <span class="lon">103.86307</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Royal Botanical Gardens, Peradeniya, Kandy District, Central Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                7.247535, 80.586124
+                <span class="lat"> 7.247535</span>, <span class="lon">80.586124</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Peradeniya, Kandy District, Central Province, Sri Lanka
             </td>   
                 <td class="table__cell">
-                7.247535, 80.586124
+                <span class="lat"> 7.247535</span>, <span class="lon">80.586124</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6°59'07.0N 80°25'33.0E, Kelani River, Sri Lanka 
             </td>   
                 <td class="table__cell">
-                2.997249, 101.445785
+                <span class="lat"> 2.997249</span>, <span class="lon">101.445785</span>
                     </td>   
           </tr> 
           </tr>

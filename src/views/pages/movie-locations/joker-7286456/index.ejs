@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,179 +60,179 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1150 Anderson Ave, The Bronx, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.83568, -73.92426
+                <span class="lat"> 40.83568</span>, <span class="lon">-73.92426</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Harlem, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8079, -73.9454
+                <span class="lat"> 40.8079</span>, <span class="lon">-73.9454</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bronx, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.8501, -73.8662
+                <span class="lat"> 40.8501</span>, <span class="lon">-73.8662</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Market Street at Washington Street, Newark, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.74, -74.03
+                <span class="lat"> 40.74</span>, <span class="lon">-74.03</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jersey City, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.7282, -74.0776
+                <span class="lat"> 40.7282</span>, <span class="lon">-74.0776</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Newark Paramount Theatre, Market St, Newark, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.7357, -74.1724
+                <span class="lat"> 40.7357</span>, <span class="lon">-74.1724</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hudson County Courthouse, Jersey City, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.7320675, -74.057456
+                <span class="lat"> 40.7320675</span>, <span class="lon">-74.057456</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Loew's Jersey Theatre, Jersey City, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.731967, -74.063941
+                <span class="lat"> 40.731967</span>, <span class="lon">-74.063941</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn Army Terminal, Sunset Park, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.644429, -74.02507499999999
+                <span class="lat"> 40.644429</span>, <span class="lon">-74.02507499999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chinatown, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.716, -73.9974
+                <span class="lat"> 40.716</span>, <span class="lon">-73.9974</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3396 Jerome Ave, The Bronx, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.88055, -73.88347
+                <span class="lat"> 40.88055</span>, <span class="lon">-73.88347</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paramount Theatre, Newark, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.739998, -74.16765
+                <span class="lat"> 40.739998</span>, <span class="lon">-74.16765</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 199 Cherry St, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.759159, -73.80993
+                <span class="lat"> 40.759159</span>, <span class="lon">-73.80993</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Disused lower level platforms, 9th Avenue Subway Station, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.6995455, -73.9706354
+                <span class="lat"> 40.6995455</span>, <span class="lon">-73.9706354</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Loew's Jersey Theatre, Jersey City, New Jersey, USA 
             </td>   
                 <td class="table__cell">
-                40.731967, -74.063941
+                <span class="lat"> 40.731967</span>, <span class="lon">-74.063941</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Seagram Building, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.758566, -73.972576
+                <span class="lat"> 40.758566</span>, <span class="lon">-73.972576</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Steiner Studios   15 Washington Avenue, Brooklyn Navy Yard, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.70194, -73.96704
+                <span class="lat"> 40.70194</span>, <span class="lon">-73.96704</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West Side Highway & 136th St, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7681, -73.9741
+                <span class="lat"> 40.7681</span>, <span class="lon">-73.9741</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 20 Exchange Place, Financial District, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.70552, -74.009627
+                <span class="lat"> 40.70552</span>, <span class="lon">-74.009627</span>
                     </td>   
           </tr> 
           </tr>

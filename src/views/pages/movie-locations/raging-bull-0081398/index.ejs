@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hell's Kitchen, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7573, -73.9954
+                <span class="lat"> 40.7573</span>, <span class="lon">-73.9954</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1 Clarkson street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.72951, -74.00544
+                <span class="lat"> 40.72951</span>, <span class="lon">-74.00544</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Olympic Auditorium   1801 S. Grand Avenue, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.124076, -118.163214
+                <span class="lat"> 34.124076</span>, <span class="lon">-118.163214</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Webster Hall   125 East 11th Street, Greenwich Village, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.73166, -73.98917
+                <span class="lat"> 40.73166</span>, <span class="lon">-73.98917</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3460 Cabrillo Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.00877, -118.44424
+                <span class="lat"> 34.00877</span>, <span class="lon">-118.44424</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Pedro, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.88105, -118.26406
+                <span class="lat"> 33.88105</span>, <span class="lon">-118.26406</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Culver City, California, USA
             </td>   
                 <td class="table__cell">
-                34.0211, -118.3965
+                <span class="lat"> 34.0211</span>, <span class="lon">-118.3965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 443 West 56th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.768225, -73.988125
+                <span class="lat"> 40.768225</span>, <span class="lon">-73.988125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 10 East 60th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76429, -73.97174
+                <span class="lat"> 40.76429</span>, <span class="lon">-73.97174</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1331 South Pacific Ave, San Pedro, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.73182, -118.28832
+                <span class="lat"> 33.73182</span>, <span class="lon">-118.28832</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Culver Studios   9336 W. Washington Blvd., Culver City, California, USA
             </td>   
                 <td class="table__cell">
-                34.022904, -118.395508
+                <span class="lat"> 34.022904</span>, <span class="lon">-118.395508</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           </tr>

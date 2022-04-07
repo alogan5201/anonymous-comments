@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3630 Pasadena Ave, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08877, -118.21136
+                <span class="lat"> 34.08877</span>, <span class="lon">-118.21136</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chatsworth, California, USA 
             </td>   
                 <td class="table__cell">
-                34.2596, -118.6023
+                <span class="lat"> 34.2596</span>, <span class="lon">-118.6023</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Glendale, California, USA
             </td>   
                 <td class="table__cell">
-                34.1423, -118.2484
+                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Feliz, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.099298, -118.285959
+                <span class="lat"> 34.099298</span>, <span class="lon">-118.285959</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Echo Park, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.08, -118.26
+                <span class="lat"> 34.08</span>, <span class="lon">-118.26</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Buster Keaton Studios   1025 Lillian Way, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.08965, -118.32786
+                <span class="lat"> 34.08965</span>, <span class="lon">-118.32786</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Balboa Island, Newport Beach, California, USA
             </td>   
                 <td class="table__cell">
-                33.606451, -117.893024
+                <span class="lat"> 33.606451</span>, <span class="lon">-117.893024</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1022 Cole Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.089618, -118.329906
+                <span class="lat"> 34.089618</span>, <span class="lon">-118.329906</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Larchmont Blvd. near Beverly Blvd., Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           </tr>

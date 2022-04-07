@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,83 +60,83 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fox Studios, Moore Park, Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.892398, 151.226592
+                <span class="lat"> -33.892398</span>, <span class="lon">151.226592</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.868, 151.21
+                <span class="lat"> -33.868</span>, <span class="lon">151.21</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pisgah National Forest, North Carolina, USA 
             </td>   
                 <td class="table__cell">
-                35.635269, -82.185465
+                <span class="lat"> 35.635269</span>, <span class="lon">-82.185465</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Camden, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -34.0532, 150.6962
+                <span class="lat"> -34.0532</span>, <span class="lon">150.6962</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Centennial Park, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.9011, 151.23
+                <span class="lat"> -33.9011</span>, <span class="lon">151.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Southern Highlands, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -34.450663, 150.449784
+                <span class="lat"> -34.450663</span>, <span class="lon">150.449784</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Newington Armory, Sydney Olympic Park, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.827476000000004, 151.0631035
+                <span class="lat"> -33.827476000000004</span>, <span class="lon">151.0631035</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Richmond, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.601, 150.7496
+                <span class="lat"> -33.601</span>, <span class="lon">150.7496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manly, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.79667, 151.2875
+                <span class="lat"> -33.79667</span>, <span class="lon">151.2875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Carolina, USA
             </td>   
                 <td class="table__cell">
-                35.5568849207, -79.3896838690365
+                <span class="lat"> 35.5568849207</span>, <span class="lon">-79.3896838690365</span>
                     </td>   
           </tr> 
           </tr>

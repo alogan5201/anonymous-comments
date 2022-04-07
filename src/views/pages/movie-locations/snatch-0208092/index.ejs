@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hatton Garden, Clerkenwell, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.523609500000006, -0.088375
+                <span class="lat"> 51.523609500000006</span>, <span class="lon">-0.088375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jester's Amusement Arcade, West Ealing, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.530469, -0.259987
+                <span class="lat"> 51.530469</span>, <span class="lon">-0.259987</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Jolly Gardeners, Lambeth, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.46463, -0.218567
+                <span class="lat"> 51.46463</span>, <span class="lon">-0.218567</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Streatham Hill, Streatham, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.440057, -0.125729
+                <span class="lat"> 51.440057</span>, <span class="lon">-0.125729</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bethnal Green, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5303456, -0.0561633
+                <span class="lat"> 51.5303456</span>, <span class="lon">-0.0561633</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Perivale, Middlesex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.532266, -0.325234
+                <span class="lat"> 51.532266</span>, <span class="lon">-0.325234</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bethnal Green Town Hall, Bethnal Green, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.527149, -0.058469
+                <span class="lat"> 51.527149</span>, <span class="lon">-0.058469</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oaklands Agricultural College, St Albans, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.7492956, -0.34225259999999996
+                <span class="lat"> 51.7492956</span>, <span class="lon">-0.34225259999999996</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 England, UK
             </td>   
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <span class="lat"> 52.38145972</span>, <span class="lon">-0.676181762467007</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,194 +60,194 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tikal National Park, Guatemala 
             </td>   
                 <td class="table__cell">
-                17.219744375, -89.619804375
+                <span class="lat"> 17.219744375</span>, <span class="lon">-89.619804375</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ajim, Jerba, Tunisia 
             </td>   
                 <td class="table__cell">
-                33.7261842, 10.75120342
+                <span class="lat"> 33.7261842</span>, <span class="lon">10.75120342</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chott el Djerid, Nefta, Tunisia 
             </td>   
                 <td class="table__cell">
-                33.876337807, 7.876610029
+                <span class="lat"> 33.876337807</span>, <span class="lon">7.876610029</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sidi Driss Hotel, Matmata, Tunisia 
             </td>   
                 <td class="table__cell">
-                33.545572738, 9.967946839
+                <span class="lat"> 33.545572738</span>, <span class="lon">9.967946839</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sidi Bouhlel, Tozeur, Tunisia 
             </td>   
                 <td class="table__cell">
-                34.011823667, 8.259519925
+                <span class="lat"> 34.011823667</span>, <span class="lon">8.259519925</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Yuma, Arizona, USA 
             </td>   
                 <td class="table__cell">
-                32.7253, -114.6244
+                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calakmul, Campeche, Mexico
             </td>   
                 <td class="table__cell">
-                19.864702, -90.511683
+                <span class="lat"> 19.864702</span>, <span class="lon">-90.511683</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Death Valley National Park, California, USA 
             </td>   
                 <td class="table__cell">
-                36.509057, -116.847615
+                <span class="lat"> 36.509057</span>, <span class="lon">-116.847615</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">
                 </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sidi Bouhel, Tunisia 
             </td>   
                 <td class="table__cell">
-                34.011823667, 8.259519925
+                <span class="lat"> 34.011823667</span>, <span class="lon">8.259519925</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 1, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shed 1, Cardington Airship Hangars, Bedfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.55, -2.7333
+                <span class="lat"> 52.55</span>, <span class="lon">-2.7333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 7, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 8, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 2, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 H Stage, Shepperton Studios, Studios Road, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.396334, -0.453109
+                <span class="lat"> 51.396334</span>, <span class="lon">-0.453109</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 6, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 4, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 3, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 9, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tataouine, Tunisia 
             </td>   
                 <td class="table__cell">
-                32.92556, 10.44417
+                <span class="lat"> 32.92556</span>, <span class="lon">10.44417</span>
                     </td>   
           </tr> 
           </tr>

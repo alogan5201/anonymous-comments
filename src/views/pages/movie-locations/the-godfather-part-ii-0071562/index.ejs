@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,283 +60,283 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kaiser Estate, 4000 W Lake Blvd, Homewood, Lake Tahoe, California, USA 
             </td>   
                 <td class="table__cell">
-                32.6637, -116.2736
+                <span class="lat"> 32.6637</span>, <span class="lon">-116.2736</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Embajador Hotel, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.455024, -69.933387
+                <span class="lat"> 18.455024</span>, <span class="lon">-69.933387</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trieste, Friuli Venezia Giulia, Italy
             </td>   
                 <td class="table__cell">
-                40.2654635, 18.0504036
+                <span class="lat"> 40.2654635</span>, <span class="lon">18.0504036</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.49333, -69.86667
+                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Forza d'Agrò, Messina, Sicily, Italy
             </td>   
                 <td class="table__cell">
-                37.914901, 15.334347750000001
+                <span class="lat"> 37.914901</span>, <span class="lon">15.334347750000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calle Duarte, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.474780815, -69.973467104
+                <span class="lat"> 18.474780815</span>, <span class="lon">-69.973467104</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lake Tahoe, California, USA
             </td>   
                 <td class="table__cell">
-                39.267319, -120.12787
+                <span class="lat"> 39.267319</span>, <span class="lon">-120.12787</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 via Vecchia Pozzillo, Acireale, Catania, Italy 
             </td>   
                 <td class="table__cell">
-                37.661558, 15.173956
+                <span class="lat"> 37.661558</span>, <span class="lon">15.173956</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Riva Nazario Sauro, Trieste, Friuli Venezia Giulia, Italy 
             </td>   
                 <td class="table__cell">
-                45.6475128, 13.764207
+                <span class="lat"> 45.6475128</span>, <span class="lon">13.764207</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sicily, Italy
             </td>   
                 <td class="table__cell">
-                37.23769, 14.521768
+                <span class="lat"> 37.23769</span>, <span class="lon">14.521768</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Train Station Sparagogna, Regalbuto, Enna, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                37.65, 14.63333
+                <span class="lat"> 37.65</span>, <span class="lon">14.63333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Greenwich Village, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.73, -74
+                <span class="lat"> 40.73</span>, <span class="lon">-74</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Las Vegas, Nevada, USA
             </td>   
                 <td class="table__cell">
-                36.1663, -115.1492
+                <span class="lat"> 36.1663</span>, <span class="lon">-115.1492</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Vazac's Bar   108 Avenue B, East Village, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.72503, -73.981435
+                <span class="lat"> 40.72503</span>, <span class="lon">-73.981435</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6th Street, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.74422, -73.99225
+                <span class="lat"> 40.74422</span>, <span class="lon">-73.99225</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Miami, Florida, USA
             </td>   
                 <td class="table__cell">
-                25.76513515625, -80.18537321875
+                <span class="lat"> 25.76513515625</span>, <span class="lon">-80.18537321875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 via Vecchia Pozzillo, Acireale, Catania 
             </td>   
                 <td class="table__cell">
-                37.661558, 15.173956
+                <span class="lat"> 37.661558</span>, <span class="lon">15.173956</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 538 E. 6th. Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.72458, -73.982255
+                <span class="lat"> 40.72458</span>, <span class="lon">-73.982255</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hospital Padre Billini, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.471455, -69.889124
+                <span class="lat"> 18.471455</span>, <span class="lon">-69.889124</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Calle Hostos, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.49333, -69.86667
+                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Avenida Duarte, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.474780815, -69.973467104
+                <span class="lat"> 18.474780815</span>, <span class="lon">-69.973467104</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Avenida Mella, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.49333, -69.86667
+                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 East Village, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7293, -73.9874
+                <span class="lat"> 40.7293</span>, <span class="lon">-73.9874</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hotel Washington   515 15th Street, Washington, District of Columbia, USA
             </td>   
                 <td class="table__cell">
-                38.89696, -77.03339
+                <span class="lat"> 38.89696</span>, <span class="lon">-77.03339</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2045 N. Hibiscus Drive, North Miami, Florida, USA 
             </td>   
                 <td class="table__cell">
-                25.89427, -80.15653
+                <span class="lat"> 25.89427</span>, <span class="lon">-80.15653</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tomkin's Square, Greenwich Village, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.73, -74
+                <span class="lat"> 40.73</span>, <span class="lon">-74</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Parque Independencia, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                18.471916, -69.892211
+                <span class="lat"> 18.471916</span>, <span class="lon">-69.892211</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palacio Nacional, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.474473000000003, -69.89783800000001
+                <span class="lat"> 18.474473000000003</span>, <span class="lon">-69.89783800000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Teatro de Agua y Luz, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.49333, -69.86667
+                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Biblioteca Nacional Pedro Henríquez Ureña, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.470478, -69.907842
+                <span class="lat"> 18.470478</span>, <span class="lon">-69.907842</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Club Náutico de Santo Domingo, Andrés, Santo Domingo Este, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.445364, -69.626091
+                <span class="lat"> 18.445364</span>, <span class="lon">-69.626091</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Parque Independencia, Santo Domingo, Dominican Republic 
             </td>   
                 <td class="table__cell">
-                18.471916, -69.892211
+                <span class="lat"> 18.471916</span>, <span class="lon">-69.892211</span>
                     </td>   
           </tr> 
           </tr>

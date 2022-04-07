@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mehrangarh Fort, Jodhpur, Rajasthan, India 
             </td>   
                 <td class="table__cell">
-                26.2975285, 73.020523
+                <span class="lat"> 26.2975285</span>, <span class="lon">73.020523</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wollaton Hall, Nottingham, Nottinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                52.946951, -1.188368
+                <span class="lat"> 52.946951</span>, <span class="lon">-1.188368</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pittsburgh, Pennsylvania, USA 
             </td>   
                 <td class="table__cell">
-                40.4417, -79.9901
+                <span class="lat"> 40.4417</span>, <span class="lon">-79.9901</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Old Royal Naval College, Greenwich, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.48305125, -0.006040749999999999
+                <span class="lat"> 51.48305125</span>, <span class="lon">-0.006040749999999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Heinz Field   100 Art Rooney Avenue, Pittsburgh, Pennsylvania, USA 
             </td>   
                 <td class="table__cell">
-                40.44753, -80.01634
+                <span class="lat"> 40.44753</span>, <span class="lon">-80.01634</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chand Baori, Abhaneri, Rajasthan, India 
             </td>   
                 <td class="table__cell">
-                26.901755, 75.851844
+                <span class="lat"> 26.901755</span>, <span class="lon">75.851844</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Osterley Park House, Isleworth, Middlesex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.4666, -0.3363
+                <span class="lat"> 51.4666</span>, <span class="lon">-0.3363</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cairngorms National Park, Scotland, UK 
             </td>   
                 <td class="table__cell">
-                57.290937, -3.900625
+                <span class="lat"> 57.290937</span>, <span class="lon">-3.900625</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Delta Point, Croydon, London, UK 
             </td>   
                 <td class="table__cell">
-                51.3833, -0.1
+                <span class="lat"> 51.3833</span>, <span class="lon">-0.1</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Inverness Airport, Dalcross, Highland, Scotland, UK
             </td>   
                 <td class="table__cell">
-                56.734282295, -4.09589210432502
+                <span class="lat"> 56.734282295</span>, <span class="lon">-4.09589210432502</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wall Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.707113, -74.008742
+                <span class="lat"> 40.707113</span>, <span class="lon">-74.008742</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Queensboro Bridge, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.757533499999994, -73.9557415
+                <span class="lat"> 40.757533499999994</span>, <span class="lon">-73.9557415</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Scotland, UK 
             </td>   
                 <td class="table__cell">
-                56.734282295, -4.09589210432502
+                <span class="lat"> 56.734282295</span>, <span class="lon">-4.09589210432502</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carnegie Mellon University   5000 Forbes Avenue, Pittsburgh, Pennsylvania, USA 
             </td>   
                 <td class="table__cell">
-                40.44423, -79.94756
+                <span class="lat"> 40.44423</span>, <span class="lon">-79.94756</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stansted Airport, Essex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.887685, 0.2483265
+                <span class="lat"> 51.887685</span>, <span class="lon">0.2483265</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 550 S Hope St, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04976, -118.25618
+                <span class="lat"> 34.04976</span>, <span class="lon">-118.25618</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 George Farmiloe Building   28 36 St John Street, Clerkenwell, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527098, -0.104408
+                <span class="lat"> 51.527098</span>, <span class="lon">-0.104408</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Newark, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7357, -74.1724
+                <span class="lat"> 40.7357</span>, <span class="lon">-74.1724</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 One Liberty Plaza, 165 Broadway, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Farmiloe Building, 34 St John Street, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527098, -0.104408
+                <span class="lat"> 51.527098</span>, <span class="lon">-0.104408</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trump Tower   725 Fifth Avenue, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76253, -73.97406
+                <span class="lat"> 40.76253</span>, <span class="lon">-73.97406</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 30, Sony Pictures Studios   10202 W. Washington Blvd., Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.02, -118.4
+                <span class="lat"> 34.02</span>, <span class="lon">-118.4</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cardington Airship Hangars, Bedfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.28478, -0.760758
+                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nottingham, Nottinghamshire, England, UK
             </td>   
                 <td class="table__cell">
-                53.037033, -0.964665
+                <span class="lat"> 53.037033</span>, <span class="lon">-0.964665</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Union Station   800 N. Alameda Street, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.150955, -118.339232
+                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Third Street Tunnel, Bunker Hill, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.92, -118.42
+                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Camino College   16007 Crenshaw Blvd, Torrance, California, USA 
             </td>   
                 <td class="table__cell">
-                33.802, -118.336
+                <span class="lat"> 33.802</span>, <span class="lon">-118.336</span>
                     </td>   
           </tr> 
           </tr>

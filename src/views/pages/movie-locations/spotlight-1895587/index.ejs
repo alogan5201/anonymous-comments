@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,91 +60,91 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 333 Bay Street, Bay Adelaide Centre, Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Toronto Studios, Port Lands, Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boston Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.3605, -71.0596
+                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St. Basil's Church, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.666328500000006, -79.3889735
+                <span class="lat"> 43.666328500000006</span>, <span class="lon">-79.3889735</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Globe and Mail   444 Front Street West, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hamilton, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                43.25608, -79.872858
+                <span class="lat"> 43.25608</span>, <span class="lon">-79.872858</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.653482, -79.383935
+                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Scarboro Golf and Country Club, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.753307500000005, -79.21132499999999
+                <span class="lat"> 43.753307500000005</span>, <span class="lon">-79.21132499999999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 209 Mavety Street, Toronto, Ontario, Canada 
             </td>   
                 <td class="table__cell">
-                43.664595, -79.465165
+                <span class="lat"> 43.664595</span>, <span class="lon">-79.465165</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 739 Parker St Roxbury, Boston, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.33083, -71.09777
+                <span class="lat"> 42.33083</span>, <span class="lon">-71.09777</span>
                     </td>   
           </tr> 
           </tr>

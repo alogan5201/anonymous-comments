@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,151 +60,151 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 127A Smithfield Road, Frederiksted, Virgin Islands 
             </td>   
                 <td class="table__cell">
-                17.70913, -64.87986
+                <span class="lat"> 17.70913</span>, <span class="lon">-64.87986</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mansfield Reformatory   100 Reformatory Road, Mansfield, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.78247, -82.5032
+                <span class="lat"> 40.78247</span>, <span class="lon">-82.5032</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Butler, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.5884, -82.4249
+                <span class="lat"> 40.5884</span>, <span class="lon">-82.4249</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sandy Point, St. Croix, U.S. Virgin Islands 
             </td>   
                 <td class="table__cell">
-                17.7789, -64.7455
+                <span class="lat"> 17.7789</span>, <span class="lon">-64.7455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Malabar Farm State Park   4050 Bromfield Road, Lucas, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.651991, -82.397852
+                <span class="lat"> 40.651991</span>, <span class="lon">-82.397852</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mansfield, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.7584, -82.5154
+                <span class="lat"> 40.7584</span>, <span class="lon">-82.5154</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wyandot County Courthouse, Upper Sandusky, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.827135, -83.280731
+                <span class="lat"> 40.827135</span>, <span class="lon">-83.280731</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ashland, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.8687, -82.3182
+                <span class="lat"> 40.8687</span>, <span class="lon">-82.3182</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 193 North Main Street, Mansfield, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.76362, -82.51545
+                <span class="lat"> 40.76362</span>, <span class="lon">-82.51545</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Upper Sandusky, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.8273, -83.2813
+                <span class="lat"> 40.8273</span>, <span class="lon">-83.2813</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Snyder Road and Hagerman Road, Bellville, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.6164545, -82.4290092
+                <span class="lat"> 40.6164545</span>, <span class="lon">-82.4290092</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Yuma, Arizona, USA 
             </td>   
                 <td class="table__cell">
-                32.7253, -114.6244
+                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rod Bay, St Croix, USVI 
             </td>   
                 <td class="table__cell">
-                17.7789, -64.7455
+                <span class="lat"> 17.7789</span>, <span class="lon">-64.7455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 301 E 5th Street, Mansfield, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                40.762573, -82.505421
+                <span class="lat"> 40.762573</span>, <span class="lon">-82.505421</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bellville, Ohio, USA
             </td>   
                 <td class="table__cell">
-                40.6201, -82.5107
+                <span class="lat"> 40.6201</span>, <span class="lon">-82.5107</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sandusky, Ohio, USA 
             </td>   
                 <td class="table__cell">
-                41.4489, -82.708
+                <span class="lat"> 41.4489</span>, <span class="lon">-82.708</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Arizona, USA
             </td>   
                 <td class="table__cell">
-                34.2202611707, -111.422127989113
+                <span class="lat"> 34.2202611707</span>, <span class="lon">-111.422127989113</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ohio, USA
             </td>   
                 <td class="table__cell">
-                40.4174201146, -82.7114488167578
+                <span class="lat"> 40.4174201146</span>, <span class="lon">-82.7114488167578</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">

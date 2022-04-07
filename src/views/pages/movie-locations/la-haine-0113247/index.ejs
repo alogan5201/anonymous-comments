@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,35 +60,35 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chanteloup les Vignes, Yvelines, France 
             </td>   
                 <td class="table__cell">
-                48.97833, 2.03083
+                <span class="lat"> 48.97833</span>, <span class="lon">2.03083</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Paris, France
             </td>   
                 <td class="table__cell">
-                48.85658, 2.35183
+                <span class="lat"> 48.85658</span>, <span class="lon">2.35183</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Place René Cassin, Paris, France 
             </td>   
                 <td class="table__cell">
-                48.863075, 2.344985
+                <span class="lat"> 48.863075</span>, <span class="lon">2.344985</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gare Saint Lazare, Paris, France 
             </td>   
                 <td class="table__cell">
-                48.875354375, 2.325632046875
+                <span class="lat"> 48.875354375</span>, <span class="lon">2.325632046875</span>
                     </td>   
           </tr> 
           </tr>

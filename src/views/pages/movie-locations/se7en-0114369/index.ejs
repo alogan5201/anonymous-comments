@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,178 +60,178 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pacific Electric Building, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 123 E. 6th. Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04491, -118.24916
+                <span class="lat"> 34.04491</span>, <span class="lon">-118.24916</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alexandria Hotel   501 S. Spring Street, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.92, -118.42
+                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rosslyn Hotel   112 W. 5th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04687, -118.24902
+                <span class="lat"> 34.04687</span>, <span class="lon">-118.24902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mojave, California, USA
             </td>   
                 <td class="table__cell">
-                35.0525, -118.174
+                <span class="lat"> 35.0525</span>, <span class="lon">-118.174</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Giant Penny Building   3rd Street & Broadway, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.92, -118.42
+                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Spring Street Towers   650 S. Spring Street, Downtown, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.92, -118.42
+                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York Pizza Express   6302 Hollywood Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.105196, -118.329921
+                <span class="lat"> 34.105196</span>, <span class="lon">-118.329921</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 746 S. San Pedro Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.03952, -118.24772
+                <span class="lat"> 34.03952</span>, <span class="lon">-118.24772</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ambassador Hotel   3400 Wilshire Boulevard, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.039747, -118.472854
+                <span class="lat"> 34.039747</span>, <span class="lon">-118.472854</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salon Pure   117 E. 6th. Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04499, -118.2493
+                <span class="lat"> 34.04499</span>, <span class="lon">-118.2493</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Biltmore Hotel Limousine lane/V.I.P. Ramp, 530 South Grand Ave, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.13656, -118.161755
+                <span class="lat"> 34.13656</span>, <span class="lon">-118.161755</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Quality Coffee Shop   1238 West 7th Street, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 673 Mateo Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.035513, -118.232398
+                <span class="lat"> 34.035513</span>, <span class="lon">-118.232398</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chester Williams Building   215 W. 5th. Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.150955, -118.339232
+                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lancaster, California, USA 
             </td>   
                 <td class="table__cell">
-                34.6981, -118.1366
+                <span class="lat"> 34.6981</span>, <span class="lon">-118.1366</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">
                 </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hotel Alexandria   501 South Spring Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.899369, -118.218164
+                <span class="lat"> 33.899369</span>, <span class="lon">-118.218164</span>
                     </td>   
           </tr> 
           </tr>

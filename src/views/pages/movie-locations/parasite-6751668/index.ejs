@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,39 +60,39 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jahamun ro, Buam dong, Jongno gu, Seoul, South Korea 
             </td>   
                 <td class="table__cell">
-                37.592, 126.964
+                <span class="lat"> 37.592</span>, <span class="lon">126.964</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Goyang Aqua Studio   250 Tongil ro 396beon gil, Deogyang gu, Goyang, South Korea 
             </td>   
                 <td class="table__cell">
-                37.7, 126.9
+                <span class="lat"> 37.7</span>, <span class="lon">126.9</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 24, Seonjam ro 8 gil, Seongbuk gu, Seoul, South Korea 
             </td>   
                 <td class="table__cell">
-                37.58918, 127.01821
+                <span class="lat"> 37.58918</span>, <span class="lon">127.01821</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Seoul, South Korea
             </td>   
                 <td class="table__cell">
-                37.58333, 127
+                <span class="lat"> 37.58333</span>, <span class="lon">127</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">

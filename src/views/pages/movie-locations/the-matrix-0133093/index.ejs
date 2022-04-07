@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,179 +60,179 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nashville, Tennessee, USA 
             </td>   
                 <td class="table__cell">
-                36.1622, -86.7744
+                <span class="lat"> 36.1622</span>, <span class="lon">-86.7744</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.868, 151.21
+                <span class="lat"> -33.868</span>, <span class="lon">151.21</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Redfern, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.89334, 151.20461
+                <span class="lat"> -33.89334</span>, <span class="lon">151.20461</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Francisco, California, USA 
             </td>   
                 <td class="table__cell">
-                37.7648, -122.463
+                <span class="lat"> 37.7648</span>, <span class="lon">-122.463</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sydney Central Business District, Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.865711, 151.211617
+                <span class="lat"> -33.865711</span>, <span class="lon">151.211617</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Colonial State Bank Centre, Martin Place, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.868, 151.21
+                <span class="lat"> -33.868</span>, <span class="lon">151.21</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Westin Hotel, Martin Place, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.8677115, 151.21011149999998
+                <span class="lat"> -33.8677115</span>, <span class="lon">151.21011149999998</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fox Studios, Moore Park, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.892398, 151.226592
+                <span class="lat"> -33.892398</span>, <span class="lon">151.226592</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Forty One Restaurant, Chifley Tower, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.96257, 151.2459
+                <span class="lat"> -33.96257</span>, <span class="lon">151.2459</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 AON Tower, Kent Street, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.906331, 151.2581882
+                <span class="lat"> -33.906331</span>, <span class="lon">151.2581882</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 BT Tower, Market Street, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.9056746, 151.2463298
+                <span class="lat"> -33.9056746</span>, <span class="lon">151.2463298</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Corner of Pitt, O'Connell and Hunter Streets, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.868, 151.21
+                <span class="lat"> -33.868</span>, <span class="lon">151.21</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hickson Road, Millers Point, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.8571872, 151.20515805
+                <span class="lat"> -33.8571872</span>, <span class="lon">151.20515805</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rozelle, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.8649, 151.167
+                <span class="lat"> -33.8649</span>, <span class="lon">151.167</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Waterloo, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.9004, 151.20664
+                <span class="lat"> -33.9004</span>, <span class="lon">151.20664</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 White Bay Studios, Balmain, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.861325, 151.281734
+                <span class="lat"> -33.861325</span>, <span class="lon">151.281734</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Museum Underground Station, Hyde Park, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.873447, 151.21119850000002
+                <span class="lat"> -33.873447</span>, <span class="lon">151.21119850000002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Martin Place Fountain, Martin Place, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.867764, 151.210526
+                <span class="lat"> -33.867764</span>, <span class="lon">151.210526</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pittwater, Broken Bay, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.59, 151.32
+                <span class="lat"> -33.59</span>, <span class="lon">151.32</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Surry Hills, Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.884423, 151.206742
+                <span class="lat"> -33.884423</span>, <span class="lon">151.206742</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Allianz Building, Market Street, Sydney, New South Wales, Australia 
             </td>   
                 <td class="table__cell">
-                -33.9056746, 151.2463298
+                <span class="lat"> -33.9056746</span>, <span class="lon">151.2463298</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chippendale, Sydney, New South Wales, Australia
             </td>   
                 <td class="table__cell">
-                -33.8863, 151.2
+                <span class="lat"> -33.8863</span>, <span class="lon">151.2</span>
                     </td>   
           </tr> 
           </tr>

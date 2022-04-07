@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,219 +60,219 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wadi Rum, Jordan 
             </td>   
                 <td class="table__cell">
-                31.969741, 35.900547
+                <span class="lat"> 31.969741</span>, <span class="lon">35.900547</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Imperial Sand Dunes Recreation Area, Glamis, California, USA 
             </td>   
                 <td class="table__cell">
-                32.8476, -115.5694
+                <span class="lat"> 32.8476</span>, <span class="lon">-115.5694</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alfonso XIII Hotel   2 San Fernando 41004, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.387389, -5.988953
+                <span class="lat"> 37.387389</span>, <span class="lon">-5.988953</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Aït Benhaddou, Morocco 
             </td>   
                 <td class="table__cell">
-                32.3507513130338, -6.01707272732872
+                <span class="lat"> 32.3507513130338</span>, <span class="lon">-6.01707272732872</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Casino, Avenida de Maria Luisa, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.3786321287575, -5.99134781646474
+                <span class="lat"> 37.3786321287575</span>, <span class="lon">-5.99134781646474</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Desert South of Ouarzazate, Morocco 
             </td>   
                 <td class="table__cell">
-                30.91667, -6.91667
+                <span class="lat"> 30.91667</span>, <span class="lon">-6.91667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Jafr, Jordan 
             </td>   
                 <td class="table__cell">
-                32.537428, 35.851935
+                <span class="lat"> 32.537428</span>, <span class="lon">35.851935</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Playa del Algarrobico, Carboneras, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.000426, -1.891478
+                <span class="lat"> 37.000426</span>, <span class="lon">-1.891478</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chobham Common, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.3481, -0.6038
+                <span class="lat"> 51.3481</span>, <span class="lon">-0.6038</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Merthyr Mawr, Bridgend, Wales, UK
             </td>   
                 <td class="table__cell">
-                51.4845, -3.61006
+                <span class="lat"> 51.4845</span>, <span class="lon">-3.61006</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Plaza of the Americas, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.5, -5.5
+                <span class="lat"> 37.5</span>, <span class="lon">-5.5</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tabernas, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.04989, -2.39138
+                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jebel Tubeiq, Jordan 
             </td>   
                 <td class="table__cell">
-                44.502425, -89.54316
+                <span class="lat"> 44.502425</span>, <span class="lon">-89.54316</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Desierto de Tabernas, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.090023, -2.379403
+                <span class="lat"> 37.090023</span>, <span class="lon">-2.379403</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Maan, Jordan
             </td>   
                 <td class="table__cell">
-                30.19333, 35.73333
+                <span class="lat"> 30.19333</span>, <span class="lon">35.73333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palacio Espanol, Plaza de España, Sevilla, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.37698, -5.98696
+                <span class="lat"> 37.37698</span>, <span class="lon">-5.98696</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St Paul's Cathedral, St Paul's Churchyard, City of London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.513744, -0.09837950000000001
+                <span class="lat"> 51.513744</span>, <span class="lon">-0.09837950000000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.1452098010523, -2.07507758056227
+                <span class="lat"> 37.1452098010523</span>, <span class="lon">-2.07507758056227</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cabo de Gata, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.781144, -2.242177
+                <span class="lat"> 36.781144</span>, <span class="lon">-2.242177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San José, Almería, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                36.761896, -2.110094
+                <span class="lat"> 36.761896</span>, <span class="lon">-2.110094</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.3266214954147, -5.96769337244481
+                <span class="lat"> 37.3266214954147</span>, <span class="lon">-5.96769337244481</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shepperton Studios, Shepperton, Surrey, England, UK 
             </td>   
                 <td class="table__cell">
-                51.407444, -0.465177
+                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Casa de Pilatos, Plaza de Pilatos, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.3902835, -5.987071
+                <span class="lat"> 37.3902835</span>, <span class="lon">-5.987071</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carboneras, Almería, Andalucía, Spain
             </td>   
                 <td class="table__cell">
-                37.00046, -1.89189
+                <span class="lat"> 37.00046</span>, <span class="lon">-1.89189</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Parque de Maria Luisa, Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.403914, -6.185953
+                <span class="lat"> 37.403914</span>, <span class="lon">-6.185953</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Plaza de Pilatos, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.389824, -5.987061
+                <span class="lat"> 37.389824</span>, <span class="lon">-5.987061</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
             </td>   
                 <td class="table__cell">
-                37.374748785893, -5.98642674666078
+                <span class="lat"> 37.374748785893</span>, <span class="lon">-5.98642674666078</span>
                     </td>   
           </tr> 
           </tr>

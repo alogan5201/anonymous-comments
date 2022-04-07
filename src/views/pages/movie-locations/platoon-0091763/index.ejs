@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,35 +60,35 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Luzon, Philippines 
             </td>   
                 <td class="table__cell">
-                6.519, 126.0941
+                <span class="lat"> 6.519</span>, <span class="lon">126.0941</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cavite, Philippines 
             </td>   
                 <td class="table__cell">
-                14.26667, 120.86667
+                <span class="lat"> 14.26667</span>, <span class="lon">120.86667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manila, Philippines 
             </td>   
                 <td class="table__cell">
-                14.58333, 121
+                <span class="lat"> 14.58333</span>, <span class="lon">121</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mount Maquiling, Philippines 
             </td>   
                 <td class="table__cell">
-                45.803309, -108.530808
+                <span class="lat"> 45.803309</span>, <span class="lon">-108.530808</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,171 +60,171 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Miller Rellim Redwood Company Property, Morrison Creek Road, Smith River, California, USA 
             </td>   
                 <td class="table__cell">
-                41.9282, -124.147
+                <span class="lat"> 41.9282</span>, <span class="lon">-124.147</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Death Valley National Park, California, USA
             </td>   
                 <td class="table__cell">
-                36.509057, -116.847615
+                <span class="lat"> 36.509057</span>, <span class="lon">-116.847615</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Buttercup Valley, California, USA
             </td>   
                 <td class="table__cell">
-                34.144905, -118.144325
+                <span class="lat"> 34.144905</span>, <span class="lon">-118.144325</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Yuma, Arizona, USA
             </td>   
                 <td class="table__cell">
-                32.7253, -114.6244
+                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Castle Dome Peak, Yuma, Arizona, USA
             </td>   
                 <td class="table__cell">
-                32.7582, -114.3661
+                <span class="lat"> 32.7582</span>, <span class="lon">-114.3661</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blue Canyon, Hopi Indian Reservation, Arizona, USA
             </td>   
                 <td class="table__cell">
-                35.87417, -110.62278
+                <span class="lat"> 35.87417</span>, <span class="lon">-110.62278</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Owen R. Cheatham Grove, Grizzly Creek Redwoods State Park, Carlotta, California, USA 
             </td>   
                 <td class="table__cell">
-                40.5374, -124.0606
+                <span class="lat"> 40.5374</span>, <span class="lon">-124.0606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Twenty Mule Team Canyon, Death Valley National Park, California, USA 
             </td>   
                 <td class="table__cell">
-                36.4573, -116.8653
+                <span class="lat"> 36.4573</span>, <span class="lon">-116.8653</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 White Pocket, Vermilion Cliffs National Monument, Arizona, USA
             </td>   
                 <td class="table__cell">
-                34.2202611707, -111.422127989113
+                <span class="lat"> 34.2202611707</span>, <span class="lon">-111.422127989113</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Imperial County, California, USA 
             </td>   
                 <td class="table__cell">
-                33.04, -115.35
+                <span class="lat"> 33.04</span>, <span class="lon">-115.35</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 6/Star Wars Stage, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 5, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 4, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Industrial Light and Magic   3210 Kerner Boulevard, San Rafael, California, USA 
             </td>   
                 <td class="table__cell">
-                37.9735, -122.5311
+                <span class="lat"> 37.9735</span>, <span class="lon">-122.5311</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 7, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 8, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 1, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 9, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 3, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stage 2, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           </tr>

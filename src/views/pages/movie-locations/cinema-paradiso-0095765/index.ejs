@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,107 +60,107 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cefalù, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                38.074555, 13.445014
+                <span class="lat"> 38.074555</span>, <span class="lon">13.445014</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palermo, Sicily, Italy
             </td>   
                 <td class="table__cell">
-                38.126257, 13.352082
+                <span class="lat"> 38.126257</span>, <span class="lon">13.352082</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palazzo Adriano, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                37.68333, 13.38333
+                <span class="lat"> 37.68333</span>, <span class="lon">13.38333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Termini Imerese, Palermo, Sicily, Italy
             </td>   
                 <td class="table__cell">
-                38.0755985, 13.4475081
+                <span class="lat"> 38.0755985</span>, <span class="lon">13.4475081</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bagheria, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                38.073008, 13.508564
+                <span class="lat"> 38.073008</span>, <span class="lon">13.508564</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chiusa Sclafani, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                37.68333, 13.26667
+                <span class="lat"> 37.68333</span>, <span class="lon">13.26667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Solanto, Santa Flavia, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                38.076669, 13.542848
+                <span class="lat"> 38.076669</span>, <span class="lon">13.542848</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Castelbuono, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                37.93056, 14.08833
+                <span class="lat"> 37.93056</span>, <span class="lon">14.08833</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lascari, Palermo, Sicily, Italy 
             </td>   
                 <td class="table__cell">
-                37.996185, 13.280297
+                <span class="lat"> 37.996185</span>, <span class="lon">13.280297</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Rome, Lazio, Italy
             </td>   
                 <td class="table__cell">
-                41.9499874999981, 12.7727081111137
+                <span class="lat"> 41.9499874999981</span>, <span class="lon">12.7727081111137</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Oriolo Romano, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                42.1710210429676, 12.1378036624942
+                <span class="lat"> 42.1710210429676</span>, <span class="lon">12.1378036624942</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lungomare Paolo Toscanelli, Lido di Ostia, Rome, Lazio, Italy 
             </td>   
                 <td class="table__cell">
-                41.728049, 12.282957
+                <span class="lat"> 41.728049</span>, <span class="lon">12.282957</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sicily, Italy
             </td>   
                 <td class="table__cell">
-                37.23769, 14.521768
+                <span class="lat"> 37.23769</span>, <span class="lon">14.521768</span>
                     </td>   
           </tr> 
           </tr>

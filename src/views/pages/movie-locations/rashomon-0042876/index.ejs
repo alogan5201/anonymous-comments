@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,35 +60,35 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Komyoji Temple, Kyoto, Japan
             </td>   
                 <td class="table__cell">
-                34.951021, 135.819151
+                <span class="lat"> 34.951021</span>, <span class="lon">135.819151</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kyoto, Japan
             </td>   
                 <td class="table__cell">
-                35.02167, 135.75561
+                <span class="lat"> 35.02167</span>, <span class="lon">135.75561</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nara, Japan
             </td>   
                 <td class="table__cell">
-                34.56667, 135.76667
+                <span class="lat"> 34.56667</span>, <span class="lon">135.76667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Daiei Tokyo Studios, Tokyo, Japan 
             </td>   
                 <td class="table__cell">
-                35.64154, 139.799404
+                <span class="lat"> 35.64154</span>, <span class="lon">139.799404</span>
                     </td>   
           </tr> 
           </tr>

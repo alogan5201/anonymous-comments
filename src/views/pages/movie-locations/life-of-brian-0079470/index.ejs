@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,67 +60,67 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Amphitheater, Carthage, Tunis, Tunisia 
             </td>   
                 <td class="table__cell">
-                36.851627037, 10.330440681
+                <span class="lat"> 36.851627037</span>, <span class="lon">10.330440681</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Hadj, Tunisia 
             </td>   
                 <td class="table__cell">
-                52.373853, 9.706496
+                <span class="lat"> 52.373853</span>, <span class="lon">9.706496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Kasbah of Sousse, Sousse, Tunisia 
             </td>   
                 <td class="table__cell">
-                35.792971766, 10.584336659
+                <span class="lat"> 35.792971766</span>, <span class="lon">10.584336659</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ribat, Monastir, Tunisia 
             </td>   
                 <td class="table__cell">
-                35.78333, 10.83333
+                <span class="lat"> 35.78333</span>, <span class="lon">10.83333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Matmata, Tunisia
             </td>   
                 <td class="table__cell">
-                33.545572738, 9.967946839
+                <span class="lat"> 33.545572738</span>, <span class="lon">9.967946839</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sousse, Tunisia
             </td>   
                 <td class="table__cell">
-                35.83333, 10.63333
+                <span class="lat"> 35.83333</span>, <span class="lon">10.63333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Monastir, Tunisia
             </td>   
                 <td class="table__cell">
-                35.78333, 10.83333
+                <span class="lat"> 35.78333</span>, <span class="lon">10.83333</span>
                     </td>   
           </tr> 
           </tr>

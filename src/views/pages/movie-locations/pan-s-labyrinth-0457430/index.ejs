@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,43 +60,43 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 El Espinar, Segovia, Castilla y León, Spain
             </td>   
                 <td class="table__cell">
-                40.7190941122036, -4.23999831526999
+                <span class="lat"> 40.7190941122036</span>, <span class="lon">-4.23999831526999</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Segovia, Castilla y León, Spain
             </td>   
                 <td class="table__cell">
-                40.9919957943205, -4.20932644252205
+                <span class="lat"> 40.9919957943205</span>, <span class="lon">-4.20932644252205</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Belchite, Zaragoza, Aragón, Spain
             </td>   
                 <td class="table__cell">
-                41.5444276128572, -0.974927690344752
+                <span class="lat"> 41.5444276128572</span>, <span class="lon">-0.974927690344752</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sierra de Guadarrama mountain range, Madrid, Spain
             </td>   
                 <td class="table__cell">
-                40.67278, -4.08889
+                <span class="lat"> 40.67278</span>, <span class="lon">-4.08889</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Algete, Madrid, Spain 
             </td>   
                 <td class="table__cell">
-                40.59778, -3.50028
+                <span class="lat"> 40.59778</span>, <span class="lon">-3.50028</span>
                     </td>   
           </tr> 
           </tr>

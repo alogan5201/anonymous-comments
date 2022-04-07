@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,235 +60,235 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Binsey Walk, Southmere Lake, Thamesmead South, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.523266, 0.157075
+                <span class="lat"> 51.523266</span>, <span class="lon">0.157075</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brunel University, Uxbridge, Middlesex, England, UK 
             </td>   
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <span class="lat"> 52.38145972</span>, <span class="lon">-0.676181762467007</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chelsea Drugstore, Kings Road, Chelsea, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5, -0.1667
+                <span class="lat"> 51.5</span>, <span class="lon">-0.1667</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bricket Wood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.7067, -0.3686
+                <span class="lat"> 51.7067</span>, <span class="lon">-0.3686</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wandsworth Bridge Roundabout, Wandsworth, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.462149, -0.185587
+                <span class="lat"> 51.462149</span>, <span class="lon">-0.185587</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Elstree, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.6403, -0.2969
+                <span class="lat"> 51.6403</span>, <span class="lon">-0.2969</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manor Lodge School, Rectory Lane, Ridge Hill, Shenley, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.692, -0.282
+                <span class="lat"> 51.692</span>, <span class="lon">-0.282</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Blenheim Mews, Shenley, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.695373, -0.291266
+                <span class="lat"> 51.695373</span>, <span class="lon">-0.291266</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Skybreak, The Warren, Radlett, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.691362, -0.314172
+                <span class="lat"> 51.691362</span>, <span class="lon">-0.314172</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Taggs Island, Kingston upon Thames, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.412, -0.3
+                <span class="lat"> 51.412</span>, <span class="lon">-0.3</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chelsea Embankment, Chelsea, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.4841445, -0.16051700000000002
+                <span class="lat"> 51.4841445</span>, <span class="lon">-0.16051700000000002</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Radlett Aerodrome Hangers, Radlett, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.6881535, -0.2779165
+                <span class="lat"> 51.6881535</span>, <span class="lon">-0.2779165</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Thamesmead South Estate, Thamesmead South, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5033, 0.1103
+                <span class="lat"> 51.5033</span>, <span class="lon">0.1103</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ward Royal, Windsor, Berkshire, England, UK
             </td>   
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <span class="lat"> 52.38145972</span>, <span class="lon">-0.676181762467007</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 EMI MGM Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bullhead Road, Elstree Studios, Borehamwood, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.657803, -0.269703
+                <span class="lat"> 51.657803</span>, <span class="lon">-0.269703</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.8333, -0.25
+                <span class="lat"> 51.8333</span>, <span class="lon">-0.25</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Princess Alexandra Hospital, Hamstel Road, Harlow, Essex, England, UK 
             </td>   
                 <td class="table__cell">
-                51.771059, 0.086307
+                <span class="lat"> 51.771059</span>, <span class="lon">0.086307</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Shipton Under Wychwood, Oxford, Oxfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.86, -1.596
+                <span class="lat"> 51.86</span>, <span class="lon">-1.596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Southmere Lake, Thamesmead South, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.499354, 0.123837
+                <span class="lat"> 51.499354</span>, <span class="lon">0.123837</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wandsworth Prison, Heathfield Road, Wandsworth, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.462909, -0.182074
+                <span class="lat"> 51.462909</span>, <span class="lon">-0.182074</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chelsea, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.4875167, -0.1687007
+                <span class="lat"> 51.4875167</span>, <span class="lon">-0.1687007</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Edgwarebury Hotel, Barnet Lane, Elstree, Hertfordshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.643334, -0.296915
+                <span class="lat"> 51.643334</span>, <span class="lon">-0.296915</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Friar's Square, Aylesbury, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.83333, -0.83333
+                <span class="lat"> 51.83333</span>, <span class="lon">-0.83333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nettleford Hall, West Norwood Library, West Norwood, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.432785, -0.1039435
+                <span class="lat"> 51.432785</span>, <span class="lon">-0.1039435</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Woolwich Barracks Prison, Woolwich, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lecture Centre, Brunel University, Uxbridge, Middlesex, England, UK 
             </td>   
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <span class="lat"> 52.38145972</span>, <span class="lon">-0.676181762467007</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           </tr>

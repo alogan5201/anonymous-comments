@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,203 +60,203 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Houmas House Plantation, Burnside, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.138611, -90.92389
+                <span class="lat"> 30.138611</span>, <span class="lon">-90.92389</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 McAlister Auditorium, Tulane University, New Orleans, LA 70118, USA 
             </td>   
                 <td class="table__cell">
-                29.939943, -90.119083
+                <span class="lat"> 29.939943</span>, <span class="lon">-90.119083</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carnegie Hall, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7650625, -73.97995900000001
+                <span class="lat"> 40.7650625</span>, <span class="lon">-73.97995900000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 English Turn Golf & Country Club, 1 Clubhouse Dr, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.906123, -89.954386
+                <span class="lat"> 29.906123</span>, <span class="lon">-89.954386</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ruby's Roadhouse, Mandeville, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.361668, -90.058467
+                <span class="lat"> 30.361668</span>, <span class="lon">-90.058467</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 International House Hotel, Camp Street, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.951099499999998, -90.0689295
+                <span class="lat"> 29.951099499999998</span>, <span class="lon">-90.0689295</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carver Theater, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.967086, -90.076657
+                <span class="lat"> 29.967086</span>, <span class="lon">-90.076657</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Clover Grill, French Quarter, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.960269, -90.064136
+                <span class="lat"> 29.960269</span>, <span class="lon">-90.064136</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Orleans Athletic Club, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.9568375, -90.0713345
+                <span class="lat"> 29.9568375</span>, <span class="lon">-90.0713345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Aloha Motel, Metairie, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.018059, -90.155064
+                <span class="lat"> 30.018059</span>, <span class="lon">-90.155064</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Macon, Georgia, USA
             </td>   
                 <td class="table__cell">
-                32.8407, -83.6324
+                <span class="lat"> 32.8407</span>, <span class="lon">-83.6324</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sigle's Antiques, Royal Street, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.9499, -90.0701
+                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Northshore Broadcasting building, Hammond, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.514549, -90.466606
+                <span class="lat"> 30.514549</span>, <span class="lon">-90.466606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Roosevelt New Orleans   130 Roosevelt Way, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.0533, -89.9354
+                <span class="lat"> 30.0533</span>, <span class="lon">-89.9354</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Amite, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.7266, -90.509
+                <span class="lat"> 30.7266</span>, <span class="lon">-90.509</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Orpheum Theater   129 Roosevelt Way, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.954375, -90.072845
+                <span class="lat"> 29.954375</span>, <span class="lon">-90.072845</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Saenger Theater, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.956114499999998, -90.0727235
+                <span class="lat"> 29.956114499999998</span>, <span class="lon">-90.0727235</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 W.P. Brown House, 4717 St. Charles Ave., New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.91, -90.36
+                <span class="lat"> 29.91</span>, <span class="lon">-90.36</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 French Quarter, New Orleans, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.9575, -90.0653
+                <span class="lat"> 29.9575</span>, <span class="lon">-90.0653</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.93749930159, -92.305998069584
+                <span class="lat"> 30.93749930159</span>, <span class="lon">-92.305998069584</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Burnside, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.138611, -90.92389
+                <span class="lat"> 30.138611</span>, <span class="lon">-90.92389</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Orleans, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.9499, -90.0701
+                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hammond, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.5044, -90.4612
+                <span class="lat"> 30.5044</span>, <span class="lon">-90.4612</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Metairie, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.99, -90.1505
+                <span class="lat"> 29.99</span>, <span class="lon">-90.1505</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Georgia, USA
             </td>   
                 <td class="table__cell">
-                32.3305706594, -83.2572560296474
+                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
                     </td>   
           </tr> 
           </tr>

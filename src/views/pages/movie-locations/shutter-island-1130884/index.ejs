@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,139 +60,139 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Peddocks Island, Boston Harbor, Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3605, -71.0596
+                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Acadia National Park, Maine, USA
             </td>   
                 <td class="table__cell">
-                44.352142, -68.2296585
+                <span class="lat"> 44.352142</span>, <span class="lon">-68.2296585</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Medfield State Hospital   45 Hospital Road, Medfield, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.2125115, -71.3354305
+                <span class="lat"> 42.2125115</span>, <span class="lon">-71.3354305</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Borderland State Park   259 Massapoag Avenue, Sharon, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.062417, -71.164669
+                <span class="lat"> 42.062417</span>, <span class="lon">-71.164669</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Whittenton Mills   437 Whittenton Street, Taunton, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.92357, -71.10641
+                <span class="lat"> 41.92357</span>, <span class="lon">-71.10641</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Medfield, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.1866, -71.3055
+                <span class="lat"> 42.1866</span>, <span class="lon">-71.3055</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Taunton, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                41.9001, -71.0898
+                <span class="lat"> 41.9001</span>, <span class="lon">-71.0898</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3605, -71.0596
+                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Wilson Mountain Reservation, Dedham, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.259005, -71.197654
+                <span class="lat"> 42.259005</span>, <span class="lon">-71.197654</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hull, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.302, -70.9078
+                <span class="lat"> 42.302</span>, <span class="lon">-70.9078</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hyde Park, Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.2557, -71.1245
+                <span class="lat"> 42.2557</span>, <span class="lon">-71.1245</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Nahant, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.4265, -70.9189
+                <span class="lat"> 42.4265</span>, <span class="lon">-70.9189</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hearst Ranch, San Simeon, California, USA 
             </td>   
                 <td class="table__cell">
-                35.657178, -121.192077
+                <span class="lat"> 35.657178</span>, <span class="lon">-121.192077</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boston Harbor, Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.34359, -71.03137
+                <span class="lat"> 42.34359</span>, <span class="lon">-71.03137</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Turner Hill Golf and Racquet Club, Topsfield Road, Ipswich, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.6793, -70.8412
+                <span class="lat"> 42.6793</span>, <span class="lon">-70.8412</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 433 So Spring st Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04841, -118.24881
+                <span class="lat"> 34.04841</span>, <span class="lon">-118.24881</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3204700602, -71.9603257607071
+                <span class="lat"> 42.3204700602</span>, <span class="lon">-71.9603257607071</span>
                     </td>   
           </tr> 
           </tr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,83 +60,83 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Queens, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7498, -73.7976
+                <span class="lat"> 40.7498</span>, <span class="lon">-73.7976</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6501, -73.9496
+                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trilith Studios   461 Sandy Creek Road, Fayetteville, Georgia, USA 
             </td>   
                 <td class="table__cell">
-                33.474605, -84.510867
+                <span class="lat"> 33.474605</span>, <span class="lon">-84.510867</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Queensboro Bridge, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.757533499999994, -73.9557415
+                <span class="lat"> 40.757533499999994</span>, <span class="lon">-73.9557415</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alexander Hamilton Bridge, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.845543500000005, -73.928708
+                <span class="lat"> 40.845543500000005</span>, <span class="lon">-73.928708</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Franklin K. Lane High School   999 Jamaica Avenue, Brooklyn, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.692136, -73.868042
+                <span class="lat"> 40.692136</span>, <span class="lon">-73.868042</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West 12th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.737495, -74.002525
+                <span class="lat"> 40.737495</span>, <span class="lon">-74.002525</span>
                     </td>   
           </tr> 
           </tr>

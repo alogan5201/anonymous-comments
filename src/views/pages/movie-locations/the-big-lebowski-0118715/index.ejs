@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,235 +60,235 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ralphs Supermarket, South Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.115355, -118.162968
+                <span class="lat"> 34.115355</span>, <span class="lon">-118.162968</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Star Lanes   5227 Santa Monica Boulevard, East Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.09094, -118.30312
+                <span class="lat"> 34.09094</span>, <span class="lon">-118.30312</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 606 Venezia Avenue, Venice, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.98984, -118.45936
+                <span class="lat"> 33.98984</span>, <span class="lon">-118.45936</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Johnie's Coffee Shop   6101 Wilshire Boulevard, Fairfax, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0268, -118.5017
+                <span class="lat"> 34.0268</span>, <span class="lon">-118.5017</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sheats Goldstein Residence, Hollywood Hills, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1325, -118.3513
+                <span class="lat"> 34.1325</span>, <span class="lon">-118.3513</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Venice, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.991325, -118.470942
+                <span class="lat"> 33.991325</span>, <span class="lon">-118.470942</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Pedro, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.7359, -118.2923
+                <span class="lat"> 33.7359</span>, <span class="lon">-118.2923</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 10231 Charing Cross Road, Beverly Hills, California, USA 
             </td>   
                 <td class="table__cell">
-                34.07799, -118.42968
+                <span class="lat"> 34.07799</span>, <span class="lon">-118.42968</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1824 Stearns Drive, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04325, -118.37357
+                <span class="lat"> 34.04325</span>, <span class="lon">-118.37357</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dinah's Family Restaurant   6521 S. Sepulveda Blvd., Westchester, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.189746, -118.46643
+                <span class="lat"> 34.189746</span>, <span class="lon">-118.46643</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6333 La Mirada Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.09336, -118.32783
+                <span class="lat"> 34.09336</span>, <span class="lon">-118.32783</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Point Dume, Malibu, California, USA 
             </td>   
                 <td class="table__cell">
-                34.001583124999996, -118.806688125
+                <span class="lat"> 34.001583124999996</span>, <span class="lon">-118.806688125</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6757 Santa Monica Blvd, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.09085, -118.33771
+                <span class="lat"> 34.09085</span>, <span class="lon">-118.33771</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Monica Airport   3223 Donald Douglas Loop S., Santa Monica, California, USA 
             </td>   
                 <td class="table__cell">
-                34.01636, -118.44889
+                <span class="lat"> 34.01636</span>, <span class="lon">-118.44889</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Greystone Park & Mansion   905 Loma Vista Drive, Beverly Hills, California, USA 
             </td>   
                 <td class="table__cell">
-                34.09167, -118.4015
+                <span class="lat"> 34.09167</span>, <span class="lon">-118.4015</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0211, -118.3965
+                <span class="lat"> 34.0211</span>, <span class="lon">-118.3965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jefferson Blvd. at Duquesne Avenue, Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0211, -118.3965
+                <span class="lat"> 34.0211</span>, <span class="lon">-118.3965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 North Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1729, -118.374
+                <span class="lat"> 34.1729</span>, <span class="lon">-118.374</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 606 Venezia Ave, Venice, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.98984, -118.45936
+                <span class="lat"> 33.98984</span>, <span class="lon">-118.45936</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 812 North Kenmore Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0863, -118.29688
+                <span class="lat"> 34.0863</span>, <span class="lon">-118.29688</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Palace Theater   1735 N. Vine Street, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.102715, -118.326965
+                <span class="lat"> 34.102715</span>, <span class="lon">-118.326965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Pedro, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.88105, -118.26406
+                <span class="lat"> 33.88105</span>, <span class="lon">-118.26406</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Monica, California, USA
             </td>   
                 <td class="table__cell">
-                34.0196, -118.487
+                <span class="lat"> 34.0196</span>, <span class="lon">-118.487</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Simi Valley, California, USA
             </td>   
                 <td class="table__cell">
-                34.2694, -118.7815
+                <span class="lat"> 34.2694</span>, <span class="lon">-118.7815</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 West Hollywood, California, USA
             </td>   
                 <td class="table__cell">
-                34.09, -118.3617
+                <span class="lat"> 34.09</span>, <span class="lon">-118.3617</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fairfax, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.03187, -118.3714196875
+                <span class="lat"> 34.03187</span>, <span class="lon">-118.3714196875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1325, -118.3513
+                <span class="lat"> 34.1325</span>, <span class="lon">-118.3513</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beverly Hills, California, USA
             </td>   
                 <td class="table__cell">
-                34.0736, -118.4004
+                <span class="lat"> 34.0736</span>, <span class="lon">-118.4004</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Downtown, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.05, -118.23
+                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
                     </td>   
           </tr> 
           </tr>

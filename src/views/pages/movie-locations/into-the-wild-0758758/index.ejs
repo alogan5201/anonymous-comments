@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Astoria, Oregon, USA
             </td>   
                 <td class="table__cell">
-                46.1879, -123.8313
+                <span class="lat"> 46.1879</span>, <span class="lon">-123.8313</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Healy, Alaska, USA
             </td>   
                 <td class="table__cell">
-                63.8705, -148.9958
+                <span class="lat"> 63.8705</span>, <span class="lon">-148.9958</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Yuma, Arizona, USA
             </td>   
                 <td class="table__cell">
-                32.7253, -114.6244
+                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beaverton, Oregon, USA
             </td>   
                 <td class="table__cell">
-                45.4872, -122.8038
+                <span class="lat"> 45.4872</span>, <span class="lon">-122.8038</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Niland, California, USA
             </td>   
                 <td class="table__cell">
-                33.314987, -115.733931
+                <span class="lat"> 33.314987</span>, <span class="lon">-115.733931</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Winner, South Dakota, USA
             </td>   
                 <td class="table__cell">
-                43.3767, -99.859
+                <span class="lat"> 43.3767</span>, <span class="lon">-99.859</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mount Hood, Oregon, USA
             </td>   
                 <td class="table__cell">
-                45.330501, -121.710066
+                <span class="lat"> 45.330501</span>, <span class="lon">-121.710066</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Anchorage, Alaska, USA
             </td>   
                 <td class="table__cell">
-                61.2163, -149.8949
+                <span class="lat"> 61.2163</span>, <span class="lon">-149.8949</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Longview Fibre Company   300 Fibre Way, Longview, Washington, USA
             </td>   
                 <td class="table__cell">
-                46.10403, -122.92277
+                <span class="lat"> 46.10403</span>, <span class="lon">-122.92277</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sisters, Oregon, USA
             </td>   
                 <td class="table__cell">
-                44.2909, -121.5493
+                <span class="lat"> 44.2909</span>, <span class="lon">-121.5493</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Needles, California, USA
             </td>   
                 <td class="table__cell">
-                34.8481, -114.6141
+                <span class="lat"> 34.8481</span>, <span class="lon">-114.6141</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Reno, Nevada, USA
             </td>   
                 <td class="table__cell">
-                39.5293, -119.8137
+                <span class="lat"> 39.5293</span>, <span class="lon">-119.8137</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salton Sea, California, USA
             </td>   
                 <td class="table__cell">
-                33.343029, -115.855313
+                <span class="lat"> 33.343029</span>, <span class="lon">-115.855313</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Catalina Island, Channel Islands, California, USA
             </td>   
                 <td class="table__cell">
-                34.18, -119.23
+                <span class="lat"> 34.18</span>, <span class="lon">-119.23</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Topock, Arizona, USA
             </td>   
                 <td class="table__cell">
-                34.7183, -114.4872
+                <span class="lat"> 34.7183</span>, <span class="lon">-114.4872</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Portland, Oregon, USA
             </td>   
                 <td class="table__cell">
-                45.5202, -122.6742
+                <span class="lat"> 45.5202</span>, <span class="lon">-122.6742</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Slab City, California, USA
             </td>   
                 <td class="table__cell">
-                33.257573, -115.4688265
+                <span class="lat"> 33.257573</span>, <span class="lon">-115.4688265</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Palm Springs, California, USA
             </td>   
                 <td class="table__cell">
-                33.8246, -116.5403
+                <span class="lat"> 33.8246</span>, <span class="lon">-116.5403</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Parker, Arizona, USA
             </td>   
                 <td class="table__cell">
-                34.15, -114.2891
+                <span class="lat"> 34.15</span>, <span class="lon">-114.2891</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Peach Springs, Arizona, USA
             </td>   
                 <td class="table__cell">
-                35.52904, -113.42447
+                <span class="lat"> 35.52904</span>, <span class="lon">-113.42447</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Seattle, Washington, USA
             </td>   
                 <td class="table__cell">
-                47.6038, -122.3301
+                <span class="lat"> 47.6038</span>, <span class="lon">-122.3301</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Anza Borrego Desert State Park   200 Palm Canyon Drive, Borrego Springs, California, USA
             </td>   
                 <td class="table__cell">
-                33.256077, -116.406841
+                <span class="lat"> 33.256077</span>, <span class="lon">-116.406841</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Denali National Park, Alaska, USA
             </td>   
                 <td class="table__cell">
-                63.760271, -150.39187
+                <span class="lat"> 63.760271</span>, <span class="lon">-150.39187</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Atlanta, Georgia, USA
             </td>   
                 <td class="table__cell">
-                33.7491, -84.3902
+                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cantwell, Alaska, USA
             </td>   
                 <td class="table__cell">
-                63.392261, -148.95152
+                <span class="lat"> 63.392261</span>, <span class="lon">-148.95152</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fairbanks, Alaska, USA
             </td>   
                 <td class="table__cell">
-                64.8378, -147.7164
+                <span class="lat"> 64.8378</span>, <span class="lon">-147.7164</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Orick Beach, Washington, USA
             </td>   
                 <td class="table__cell">
-                48.7159, -122.6838
+                <span class="lat"> 48.7159</span>, <span class="lon">-122.6838</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Salton City, California, USA
             </td>   
                 <td class="table__cell">
-                33.298611, -115.95528
+                <span class="lat"> 33.298611</span>, <span class="lon">-115.95528</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Black Hills Wild Horse Sanctuary   12163 Highland Road, Hot Springs, South Dakota, USA
             </td>   
                 <td class="table__cell">
-                43.4316, -103.4744
+                <span class="lat"> 43.4316</span>, <span class="lon">-103.4744</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Copper River, Alaska, USA
             </td>   
                 <td class="table__cell">
-                60.7304053, -144.6612734
+                <span class="lat"> 60.7304053</span>, <span class="lon">-144.6612734</span>
                     </td>   
           </tr> 
           </tr>

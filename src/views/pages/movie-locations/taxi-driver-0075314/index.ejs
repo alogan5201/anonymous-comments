@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,211 +60,211 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 87 Columbia Heights, Brooklyn, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.70002, -73.9954
+                <span class="lat"> 40.70002</span>, <span class="lon">-73.9954</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 202 East 13th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.732405, -73.987465
+                <span class="lat"> 40.732405</span>, <span class="lon">-73.987465</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 226 East 13th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.732015, -73.986715
+                <span class="lat"> 40.732015</span>, <span class="lon">-73.986715</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ed Sullivan Theater   1697 Broadway, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.763894, -73.98266
+                <span class="lat"> 40.763894</span>, <span class="lon">-73.98266</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 546 Columbus Ave., New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.78692, -73.97208
+                <span class="lat"> 40.78692</span>, <span class="lon">-73.97208</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 13 St between 2nd & 3rd Avenues, Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.705949, -74.005156
+                <span class="lat"> 40.705949</span>, <span class="lon">-74.005156</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 737 8th Avenue, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76016, -73.98779
+                <span class="lat"> 40.76016</span>, <span class="lon">-73.98779</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 58th Street & 8th Avenue, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.636635, -74.008371
+                <span class="lat"> 40.636635</span>, <span class="lon">-74.008371</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 5th Ave & 19th St, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.662469, -73.992255
+                <span class="lat"> 40.662469</span>, <span class="lon">-73.992255</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 214 W 42rd St, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.75657, -73.98846
+                <span class="lat"> 40.75657</span>, <span class="lon">-73.98846</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 671 8th Avenue, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.75778, -73.989735
+                <span class="lat"> 40.75778</span>, <span class="lon">-73.989735</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.68917359673309, -73.9826731487689
+                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 657 West 57th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.77131, -73.99332
+                <span class="lat"> 40.77131</span>, <span class="lon">-73.99332</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 27 West 72nd Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.777155, -73.97743
+                <span class="lat"> 40.777155</span>, <span class="lon">-73.97743</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 110 3rd Avenue, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.732955, -73.98776
+                <span class="lat"> 40.732955</span>, <span class="lon">-73.98776</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2 East 55th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.761305, -73.974455
+                <span class="lat"> 40.761305</span>, <span class="lon">-73.974455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1866 Broadway, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.874707, -73.909438
+                <span class="lat"> 40.874707</span>, <span class="lon">-73.909438</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 8th Avenue and 40th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.6467231, -73.9978897
+                <span class="lat"> 40.6467231</span>, <span class="lon">-73.9978897</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 East 28th Street and Park Avenue South, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.7433005, -73.9840243
+                <span class="lat"> 40.7433005</span>, <span class="lon">-73.9840243</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 208 West 38th Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.747957, -73.975597
+                <span class="lat"> 40.747957</span>, <span class="lon">-73.975597</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Columbus Circle, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.768134, -73.98176175
+                <span class="lat"> 40.768134</span>, <span class="lon">-73.98176175</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 152 West 51st Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.76153, -73.98263
+                <span class="lat"> 40.76153</span>, <span class="lon">-73.98263</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1 Times Square, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.75538, -73.98665
+                <span class="lat"> 40.75538</span>, <span class="lon">-73.98665</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 725 7th Avenue, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.759965, -73.98377
+                <span class="lat"> 40.759965</span>, <span class="lon">-73.98377</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 1886 Broadway, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.77078, -73.98203
+                <span class="lat"> 40.77078</span>, <span class="lon">-73.98203</span>
                     </td>   
           </tr> 
           </tr>

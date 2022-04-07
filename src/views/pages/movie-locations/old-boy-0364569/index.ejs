@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,35 +60,35 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Busan, South Korea
             </td>   
                 <td class="table__cell">
-                35.1, 129.04028
+                <span class="lat"> 35.1</span>, <span class="lon">129.04028</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mount Lyford, Southern Alps, New Zealand 
             </td>   
                 <td class="table__cell">
-                -41.8388752215127, 171.779900195937
+                <span class="lat"> -41.8388752215127</span>, <span class="lon">171.779900195937</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Songgye High School, Chinju, Kyongsangnam Do, South Korea 
             </td>   
                 <td class="table__cell">
-                37.6525355, 127.055969
+                <span class="lat"> 37.6525355</span>, <span class="lon">127.055969</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Seoul, South Korea
             </td>   
                 <td class="table__cell">
-                37.58333, 127
+                <span class="lat"> 37.58333</span>, <span class="lon">127</span>
                     </td>   
           </tr> 
           </tr>

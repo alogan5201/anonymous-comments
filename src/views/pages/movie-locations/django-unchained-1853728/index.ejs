@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,123 +60,123 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Evergreen Plantation, 4677 Highway 18, Edgard, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.2699, -91.1993
+                <span class="lat"> 30.2699</span>, <span class="lon">-91.1993</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jackson Hole, Wyoming, USA
             </td>   
                 <td class="table__cell">
-                43.482938, -110.762321
+                <span class="lat"> 43.482938</span>, <span class="lon">-110.762321</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Alabama Hills, Lone Pine, California, USA
             </td>   
                 <td class="table__cell">
-                36.60179, -118.08127
+                <span class="lat"> 36.60179</span>, <span class="lon">-118.08127</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lone Pine, California, USA
             </td>   
                 <td class="table__cell">
-                36.606, -118.0629
+                <span class="lat"> 36.606</span>, <span class="lon">-118.0629</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Ahmanson Ranch, Victory Boulevard, Lasky Mesa, West Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.2032, -118.6455
+                <span class="lat"> 34.2032</span>, <span class="lon">-118.6455</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Melody Ranch   24715 Oak Creek Avenue, Newhall, California, USA
             </td>   
                 <td class="table__cell">
-                34.3847, -118.5309
+                <span class="lat"> 34.3847</span>, <span class="lon">-118.5309</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Whitney Plantation, 5099 Highway 18, Wallace, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                30.0433, -90.6673
+                <span class="lat"> 30.0433</span>, <span class="lon">-90.6673</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New Orleans, Louisiana, USA
             </td>   
                 <td class="table__cell">
-                29.9499, -90.0701
+                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Second Line Stages, New Orleans, Louisiana, USA 
             </td>   
                 <td class="table__cell">
-                29.931746, -90.069966
+                <span class="lat"> 29.931746</span>, <span class="lon">-90.069966</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Independence, California, USA
             </td>   
                 <td class="table__cell">
-                34.013698, -118.495361
+                <span class="lat"> 34.013698</span>, <span class="lon">-118.495361</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Clarita, California, USA
             </td>   
                 <td class="table__cell">
-                34.42, -118.54
+                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Louisiana, USA
             </td>   
                 <td class="table__cell">
-                30.93749930159, -92.305998069584
+                <span class="lat"> 30.93749930159</span>, <span class="lon">-92.305998069584</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Simi Valley, California, USA
             </td>   
                 <td class="table__cell">
-                34.2694, -118.7815
+                <span class="lat"> 34.2694</span>, <span class="lon">-118.7815</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           </tr>

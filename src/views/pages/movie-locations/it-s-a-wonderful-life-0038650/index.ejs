@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,90 +60,90 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 RKO Encino Ranch   Balboa Boulevard & Burbank Boulevard, Encino, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1816, -118.3259
+                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beverly Hills High School   241 Moreno Drive, Beverly Hills, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0624165, -118.4114555
+                <span class="lat"> 34.0624165</span>, <span class="lon">-118.4114555</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 4587 Viro Road, La Cañada Flintridge, California, USA 
             </td>   
                 <td class="table__cell">
-                34.19764, -118.17919
+                <span class="lat"> 34.19764</span>, <span class="lon">-118.17919</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 RKO Pathé Studios   9336 Washington Blvd., Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.022904, -118.395508
+                <span class="lat"> 34.022904</span>, <span class="lon">-118.395508</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Beverly Hills, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0736, -118.4004
+                <span class="lat"> 34.0736</span>, <span class="lon">-118.4004</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Encino, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1591, -118.5016
+                <span class="lat"> 34.1591</span>, <span class="lon">-118.5016</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Culver City, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0211, -118.3965
+                <span class="lat"> 34.0211</span>, <span class="lon">-118.3965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA 
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 
             </td>   
                 <td class="table__cell">
                 </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles County, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0572885, -118.24605249999999
+                <span class="lat"> 34.0572885</span>, <span class="lon">-118.24605249999999</span>
                     </td>   
           </tr> 
           </tr>

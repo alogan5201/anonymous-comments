@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 720 S Hill Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04524, -118.2548
+                <span class="lat"> 34.04524</span>, <span class="lon">-118.2548</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Super Store 6   37202 90th Street E, Littlerock, California, USA 
             </td>   
                 <td class="table__cell">
-                34.55814, -117.968855
+                <span class="lat"> 34.55814</span>, <span class="lon">-117.968855</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Carrow's Restaurant   815 Fremont Avenue, South Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.11621, -118.15349
+                <span class="lat"> 34.11621</span>, <span class="lon">-118.15349</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 6000 S Boyle Avenue, Vernon, California, USA 
             </td>   
                 <td class="table__cell">
-                33.9869, -118.22104
+                <span class="lat"> 33.9869</span>, <span class="lon">-118.22104</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tiki Motel   7301 Santa Fe Avenue, Huntington Park, California, USA 
             </td>   
                 <td class="table__cell">
-                33.97374, -118.23043
+                <span class="lat"> 33.97374</span>, <span class="lon">-118.23043</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Tunnel at Lower Grand & West Gen Thad Kosciuszko Way, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 316 W 7th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04541, -118.25418
+                <span class="lat"> 34.04541</span>, <span class="lon">-118.25418</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 14239 Gilmore Street, Van Nuys, California, USA 
             </td>   
                 <td class="table__cell">
-                34.18776, -118.44356
+                <span class="lat"> 34.18776</span>, <span class="lon">-118.44356</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Griffith Observatory, 2800 E Observatory Rd, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.11, -118.27
+                <span class="lat"> 34.11</span>, <span class="lon">-118.27</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 219 W 7th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04301, -118.24974
+                <span class="lat"> 34.04301</span>, <span class="lon">-118.24974</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Department Of Water And Power   111 N Hope Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.987058, -118.291383
+                <span class="lat"> 33.987058</span>, <span class="lon">-118.291383</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 420 S Lafayette Park Place, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.14, -118.13
+                <span class="lat"> 34.14</span>, <span class="lon">-118.13</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 795 Keller Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.054514, -118.228794
+                <span class="lat"> 34.054514</span>, <span class="lon">-118.228794</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 14329 Victory Boulevard, Van Nuys, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.18683, -118.44541
+                <span class="lat"> 34.18683</span>, <span class="lon">-118.44541</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 403 E 5th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04473, -118.244707
+                <span class="lat"> 34.04473</span>, <span class="lon">-118.244707</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Griffith Park   4730 Crystal Springs Drive, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1259, -118.27416
+                <span class="lat"> 34.1259</span>, <span class="lon">-118.27416</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 185 S Figueroa Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.055221, -118.25441
+                <span class="lat"> 34.055221</span>, <span class="lon">-118.25441</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 13010 E Temple Avenue, City of Industry, California, USA 
             </td>   
                 <td class="table__cell">
-                34.055258, -118.000317
+                <span class="lat"> 34.055258</span>, <span class="lon">-118.000317</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 212 W 7th Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04277, -118.25022
+                <span class="lat"> 34.04277</span>, <span class="lon">-118.25022</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 583 West Gen Thad Kosciuszko Way @ South Grand Avenue, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                33.9275, -118.2781
+                <span class="lat"> 33.9275</span>, <span class="lon">-118.2781</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 2nd Street Tunnel between Hill and Figueroa, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 555 Ramirez Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.05425, -118.2309
+                <span class="lat"> 34.05425</span>, <span class="lon">-118.2309</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Van Nuys, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1867, -118.4487
+                <span class="lat"> 34.1867</span>, <span class="lon">-118.4487</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 731 S Broadway, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04483, -118.25386
+                <span class="lat"> 34.04483</span>, <span class="lon">-118.25386</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gilmore Hamlin Apartments   11844 Hamlin Street, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Miceli's   1646 N Las Palmas Avenue, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.10115, -118.33601
+                <span class="lat"> 34.10115</span>, <span class="lon">-118.33601</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 445 S Broadway, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.04884, -118.25013
+                <span class="lat"> 34.04884</span>, <span class="lon">-118.25013</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Occidental Studios   201 N. Occidental Boulevard, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.07228, -118.27856
+                <span class="lat"> 34.07228</span>, <span class="lon">-118.27856</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fantasy II Film Effects   415 S Flower Street, Burbank, California, USA 
             </td>   
                 <td class="table__cell">
-                34.17491, -118.30875
+                <span class="lat"> 34.17491</span>, <span class="lon">-118.30875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bethlehem Steel Corporation   3300 E Slauson Avenue, Vernon, California, USA 
             </td>   
                 <td class="table__cell">
-                33.98529, -118.20752
+                <span class="lat"> 33.98529</span>, <span class="lon">-118.20752</span>
                     </td>   
           </tr> 
           </tr>

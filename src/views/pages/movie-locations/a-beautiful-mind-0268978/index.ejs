@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,99 +60,99 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Princeton, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.3493, -74.6593
+                <span class="lat"> 40.3493</span>, <span class="lon">-74.6593</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Manhattan College   Manhattan College Parkway, Riverdale, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.890535, -73.903015
+                <span class="lat"> 40.890535</span>, <span class="lon">-73.903015</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Belleville, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7937, -74.1501
+                <span class="lat"> 40.7937</span>, <span class="lon">-74.1501</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Newark, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7357, -74.1724
+                <span class="lat"> 40.7357</span>, <span class="lon">-74.1724</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fairleigh Dickinson University   285 Madison Avenue, Madison, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7598, -74.4171
+                <span class="lat"> 40.7598</span>, <span class="lon">-74.4171</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fordham University   441 E. Fordham Road. Rose Hill, Bronx, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8593, -73.8985
+                <span class="lat"> 40.8593</span>, <span class="lon">-73.8985</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Jersey City, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7282, -74.0776
+                <span class="lat"> 40.7282</span>, <span class="lon">-74.0776</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bayonne, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.6687, -74.1143
+                <span class="lat"> 40.6687</span>, <span class="lon">-74.1143</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bronx Community College   University Avenue at West 181 Street, Bronx, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.85654, -73.90739
+                <span class="lat"> 40.85654</span>, <span class="lon">-73.90739</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 East Orange, New Jersey, USA
             </td>   
                 <td class="table__cell">
-                40.7673, -74.2049
+                <span class="lat"> 40.7673</span>, <span class="lon">-74.2049</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Yonkers, New York, USA
             </td>   
                 <td class="table__cell">
-                40.9312, -73.8987
+                <span class="lat"> 40.9312</span>, <span class="lon">-73.8987</span>
                     </td>   
           </tr> 
           </tr>

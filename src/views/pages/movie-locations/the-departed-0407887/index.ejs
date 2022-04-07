@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,171 +60,171 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 SUNY Maritime College, Bronx, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8074035, -73.796796
+                <span class="lat"> 40.8074035</span>, <span class="lon">-73.796796</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Charlestown, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.392176, -71.069825
+                <span class="lat"> 42.392176</span>, <span class="lon">-71.069825</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chinatown, Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3499, -71.0644
+                <span class="lat"> 42.3499</span>, <span class="lon">-71.0644</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lynn, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.4668, -70.9495
+                <span class="lat"> 42.4668</span>, <span class="lon">-70.9495</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 White Plains, New York, USA
             </td>   
                 <td class="table__cell">
-                41.034, -73.7629
+                <span class="lat"> 41.034</span>, <span class="lon">-73.7629</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Fore River Ship Yard, Quincy, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.2529, -71.0023
+                <span class="lat"> 42.2529</span>, <span class="lon">-71.0023</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn Heights, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6977, -73.9943
+                <span class="lat"> 40.6977</span>, <span class="lon">-73.9943</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Gerritsen Beach, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.5929, -73.9257
+                <span class="lat"> 40.5929</span>, <span class="lon">-73.9257</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Quincy, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.2529, -71.0023
+                <span class="lat"> 42.2529</span>, <span class="lon">-71.0023</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Erich Lindemann Mental Health Center   25 Staniford Street, Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.36213, -71.0635
+                <span class="lat"> 42.36213</span>, <span class="lon">-71.0635</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Greenpoint, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.7237, -73.951
+                <span class="lat"> 40.7237</span>, <span class="lon">-73.951</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Boston, Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3605, -71.0596
+                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bronx, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.8501, -73.8662
+                <span class="lat"> 40.8501</span>, <span class="lon">-73.8662</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6501, -73.9496
+                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Sunset Park, Brooklyn, New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.6455, -74.0124
+                <span class="lat"> 40.6455</span>, <span class="lon">-74.0124</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 12 Farnsworth Street, Boston, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.35138, -71.048805
+                <span class="lat"> 42.35138</span>, <span class="lon">-71.048805</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Raoul's   180 Prince Street, Manhattan, New York City, New York, USA 
             </td>   
                 <td class="table__cell">
-                40.761555, -73.832934
+                <span class="lat"> 40.761555</span>, <span class="lon">-73.832934</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dorchester, Boston, Massachusetts, USA 
             </td>   
                 <td class="table__cell">
-                42.300105, -71.014535
+                <span class="lat"> 42.300105</span>, <span class="lon">-71.014535</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York City, New York, USA
             </td>   
                 <td class="table__cell">
-                40.751296, -73.984819
+                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Massachusetts, USA
             </td>   
                 <td class="table__cell">
-                42.3204700602, -71.9603257607071
+                <span class="lat"> 42.3204700602</span>, <span class="lon">-71.9603257607071</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 New York, USA
             </td>   
                 <td class="table__cell">
-                40.7306, -73.9866
+                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
                     </td>   
           </tr> 
           </tr>

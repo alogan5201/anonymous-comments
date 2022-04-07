@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,243 +60,243 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 St John Street, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.52316, -0.102312
+                <span class="lat"> 51.52316</span>, <span class="lon">-0.102312</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 19 Park Street, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.506978, -0.09439
+                <span class="lat"> 51.506978</span>, <span class="lon">-0.09439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Stables Market, 842 Chalk Farm Road, Camden Town, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.542958, -0.149271
+                <span class="lat"> 51.542958</span>, <span class="lon">-0.149271</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Royal Oak, 73 Columbia Road, Bethnal Green, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.52957, -0.0693395
+                <span class="lat"> 51.52957</span>, <span class="lon">-0.0693395</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Dorney Court, Court Lane, Dorney, Windsor, Buckinghamshire, England, UK 
             </td>   
                 <td class="table__cell">
-                51.503477, -0.668498
+                <span class="lat"> 51.503477</span>, <span class="lon">-0.668498</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pedley Street, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.52302, -0.068302
+                <span class="lat"> 51.52302</span>, <span class="lon">-0.068302</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 42 44 Cheshire Street, Bethnal Green, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.52365, -0.069127
+                <span class="lat"> 51.52365</span>, <span class="lon">-0.069127</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bethnal Green Town Hall, 8 Patriot Square, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.530694, -0.055141
+                <span class="lat"> 51.530694</span>, <span class="lon">-0.055141</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5303456, -0.0561633
+                <span class="lat"> 51.5303456</span>, <span class="lon">-0.0561633</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Borough Market, 8 Southwark Street, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5055055, -0.09067900000000001
+                <span class="lat"> 51.5055055</span>, <span class="lon">-0.09067900000000001</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hackney, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5476, -0.0558
+                <span class="lat"> 51.5476</span>, <span class="lon">-0.0558</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Cheshire Street, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.523545999999996, -0.069354
+                <span class="lat"> 51.523545999999996</span>, <span class="lon">-0.069354</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Repton Boxing Club, The Bath House, 116 Cheshire Street, Bethnal Green, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.524022, -0.06606
+                <span class="lat"> 51.524022</span>, <span class="lon">-0.06606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Southwark Bridge, Southwark, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.502754, -0.096875
+                <span class="lat"> 51.502754</span>, <span class="lon">-0.096875</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Three Mills Studios, Three Mill Lane, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527418, -0.006227
+                <span class="lat"> 51.527418</span>, <span class="lon">-0.006227</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 13 15 Park Street, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 The Bath House, 116 Cheshire Street, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.524022, -0.06606
+                <span class="lat"> 51.524022</span>, <span class="lon">-0.06606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 116 Cheshire Street, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.524022, -0.06606
+                <span class="lat"> 51.524022</span>, <span class="lon">-0.06606</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Southwark, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.4881, -0.0583
+                <span class="lat"> 51.4881</span>, <span class="lon">-0.0583</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 3 Mills Studios, Three Mill Lane, London, Greater London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.527418, -0.006227
+                <span class="lat"> 51.527418</span>, <span class="lon">-0.006227</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Park Street, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.506918, -0.093779
+                <span class="lat"> 51.506918</span>, <span class="lon">-0.093779</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 842 Chalk Farm Road, Camden Town, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.542958, -0.149271
+                <span class="lat"> 51.542958</span>, <span class="lon">-0.149271</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chalk Farm Road, Camden Town, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.542958, -0.149271
+                <span class="lat"> 51.542958</span>, <span class="lon">-0.149271</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Camden Town, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5423045, -0.1395604
+                <span class="lat"> 51.5423045</span>, <span class="lon">-0.1395604</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 73 Columbia Road, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.529845, -0.068716
+                <span class="lat"> 51.529845</span>, <span class="lon">-0.068716</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Columbia Road, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.528082, -0.076072
+                <span class="lat"> 51.528082</span>, <span class="lon">-0.076072</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 8 Patriot Square, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.530694, -0.055141
+                <span class="lat"> 51.530694</span>, <span class="lon">-0.055141</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Patriot Square, Bethnal Green, London, Greater London, England, UK
             </td>   
                 <td class="table__cell">
-                51.530675, -0.054321
+                <span class="lat"> 51.530675</span>, <span class="lon">-0.054321</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Court Lane, Dorney, Windsor, Buckinghamshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.503477, -0.668498
+                <span class="lat"> 51.503477</span>, <span class="lon">-0.668498</span>
                     </td>   
           </tr> 
           </tr>

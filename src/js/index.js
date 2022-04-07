@@ -132,6 +132,56 @@ if (window.location.href.includes("login")) {
   );
 }
 
+
+if($('body').hasClass('film-location')){
+
+
+ let map = L.map('map');
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
+            foo: 'bar',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        map.setView([0, 0], 5);
+
+           function extractData () {
+  let table = document.querySelector('.table')
+
+  const results = []
+ for (let index = 1; index < table.rows.length; index++) {
+
+  const row = table.rows[index];
+  let location = row.cells[0].innerText
+  let coordinates = row.cells[1]
+  let lat = coordinates.firstElementChild.innerText
+  let lon = coordinates.lastElementChild.innerText
+  console.log(lat, lon)
+  /*if (coordinates.length > 1 ){
+
+ let parsedCoords = coordinates.replace(/[\(\)]/g,'').split(',');
+  parsedCoords[0] = parseFloat(parsedCoords[0])
+  parsedCoords[1] = parseFloat(parsedCoords[1])
+   // console.log(parsedCoords)
+
+  let obj = {"location": location, "coordinates":parsedCoords}
+  results.push(obj)
+
+  }
+  else {
+    console.log('NaN')
+  }*/
+
+
+
+}
+
+
+}
+extractData()
+
+};
+
+
+
 window.addEventListener("DOMContentLoaded", (event) => {
   $("#testBtn").on("click", function () {
     var myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));

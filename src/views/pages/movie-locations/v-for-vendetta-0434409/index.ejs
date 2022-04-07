@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,115 +60,115 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Aldwych Underground Station, Aldwych, Holborn, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5195982, -0.1137266
+                <span class="lat"> 51.5195982</span>, <span class="lon">-0.1137266</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Berlin, Germany
             </td>   
                 <td class="table__cell">
-                52.51667, 13.38333
+                <span class="lat"> 52.51667</span>, <span class="lon">13.38333</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Güterfelde, Stahnsdorf, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.365104, 13.196034
+                <span class="lat"> 52.365104</span>, <span class="lon">13.196034</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Studio Babelsberg, Potsdam, Brandenburg, Germany 
             </td>   
                 <td class="table__cell">
-                52.387806, 13.120573
+                <span class="lat"> 52.387806</span>, <span class="lon">13.120573</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London Central Business District, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Trafalgar Square, St James's, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.5080215, -0.128052
+                <span class="lat"> 51.5080215</span>, <span class="lon">-0.128052</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Strand, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.480897, -0.278674
+                <span class="lat"> 51.480897</span>, <span class="lon">-0.278674</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Farringdon Underground station, Cowcross Street, Clerkenwell, London, England, UK
             </td>   
                 <td class="table__cell">
-                51.432595, 0.102599
+                <span class="lat"> 51.432595</span>, <span class="lon">0.102599</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hatfield House, Hatfield, Hertfordshire, England, UK
             </td>   
                 <td class="table__cell">
-                51.761217, -0.2098325
+                <span class="lat"> 51.761217</span>, <span class="lon">-0.2098325</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Singers' Club, George IV Public House, Portugal Street, Westminster, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Marlene Dietrich Halle, Studio Babelsberg, Potsdam, Brandenburg, Germany
             </td>   
                 <td class="table__cell">
-                52.387158, 13.119628
+                <span class="lat"> 52.387158</span>, <span class="lon">13.119628</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 London, England, UK
             </td>   
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Parliament Square, Westminster, London, England, UK 
             </td>   
                 <td class="table__cell">
-                51.5005755, -0.1267345
+                <span class="lat"> 51.5005755</span>, <span class="lon">-0.1267345</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chicago Illinois, USA 
             </td>   
                 <td class="table__cell">
-                41.8756, -87.6244
+                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
                     </td>   
           </tr> 
           </tr>

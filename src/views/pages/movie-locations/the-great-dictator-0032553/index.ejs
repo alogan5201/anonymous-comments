@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -48,7 +48,11 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
  <table class="table">
           <tr class="table__header">
             
@@ -56,131 +60,131 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Santa Monica Mountains, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.127796, -118.388317
+                <span class="lat"> 34.127796</span>, <span class="lon">-118.388317</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Chaplin Studios   1416 N. La Brea Avenue, Hollywood, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                33.98062, -118.35807
+                <span class="lat"> 33.98062</span>, <span class="lon">-118.35807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 City Hall   100 N. Garfield Avenue, Pasadena, California, USA 
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Malibu Lake, California, USA 
             </td>   
                 <td class="table__cell">
-                33.641535, -117.965895
+                <span class="lat"> 33.641535</span>, <span class="lon">-117.965895</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Mulholland Highway, Santa Monica Mountains, Los Angeles County, California, USA
             </td>   
                 <td class="table__cell">
-                34.09644, -118.807865
+                <span class="lat"> 34.09644</span>, <span class="lon">-118.807865</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 San Fernando Valley, Los Angeles, California, USA 
             </td>   
                 <td class="table__cell">
-                34.251081, -118.518444
+                <span class="lat"> 34.251081</span>, <span class="lon">-118.518444</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Agoura Hills, California, USA
             </td>   
                 <td class="table__cell">
-                34.1364, -118.7745
+                <span class="lat"> 34.1364</span>, <span class="lon">-118.7745</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Holly Street, Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.14782, -118.14707
+                <span class="lat"> 34.14782</span>, <span class="lon">-118.14707</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Lake Vista Drive, Agoura Hills, California, USA
             </td>   
                 <td class="table__cell">
-                34.10903, -118.75802
+                <span class="lat"> 34.10903</span>, <span class="lon">-118.75802</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Laurel Canyon, Hollywood Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.12996, -118.39744
+                <span class="lat"> 34.12996</span>, <span class="lon">-118.39744</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Reuss Ranch, Malibu Lake, California, USA
             </td>   
                 <td class="table__cell">
-                34.0058, -118.807
+                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood Hills, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.1325, -118.3513
+                <span class="lat"> 34.1325</span>, <span class="lon">-118.3513</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Hollywood, Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.095884, -118.370965
+                <span class="lat"> 34.095884</span>, <span class="lon">-118.370965</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Los Angeles, California, USA
             </td>   
                 <td class="table__cell">
-                34.0544, -118.2439
+                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 Pasadena, California, USA
             </td>   
                 <td class="table__cell">
-                34.1476, -118.1445
+                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
                     </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell">
+            <td class="table__cell location">
                 California, USA
             </td>   
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
                     </td>   
           </tr> 
           </tr>
