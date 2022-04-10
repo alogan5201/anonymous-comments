@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Inside Out</h3>
                         <p class="card-text">
-                          After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions - Joy, Fear, Anger, Disgust and Sadness - conflict on how best to navigate a new city, house, and school.
+                          After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions - Joy, Fear, Anger, Disgust and Sadness - conflict on how best to navigate a new city, house, and school. Growing up can be a bumpy road, and it's no exception for Riley, who is uprooted from her Midwest life when her father starts a new job in San Francisco. Like all of us, Riley is guided by her emotions - Joy, Fear, Anger, Disgust and Sadness. The emotions live in Headquarters, the control center inside Riley's mind, where they help advise her through everyday life. As Riley and her emotions struggle to adjust to a new life in San Francisco, turmoil ensues in Headquarters. Although Joy, Riley's main and most important emotion, tries to keep things positive, the emotions conflict on how best to navigate a new city, house and school.::Pixar When a young girl named Riley is uprooted from her Midwestern lifestyle and moves to the busy and chaotic San Francisco, her emotions; Anger, Sadness, Disgust, Fear, and (her most important emotion) Joy, start to disagree on how to deal with this dramatic change, which causes problems up in Headquarters, the central living and working place for the five emotions. But, an accident involving Riley's happy memories changes her entire outlook. Joy and Sadness need to find her memories and return them to Headquarters before it's too late. All of us have various brain functions that govern our response to various situations. The functions responsible for Happiness, Sadness, Fear, Anger and Disgust are characterized and the details of the activities they do to run the life of a young girl Riley right from her birth is what drives the story. When a sudden change in the life of Riley upsets their rhythm, they try to control the situation too much, which creates more confusion for her. Their adventures in an attempt to restore normalcy is what forms the crux of this movie.::PipingHotViews [Shriram] Emotions run wild in the mind of a little girl who is uprooted from her peaceful life in the Midwest and forced to move to San Francisco in this Pixar adventure from director Pete Docter (Up, Monsters Inc.). Young Riley was perfectly content with her life when her father landed a new job in San Francisco, and the family moved across the country. Now, as Riley prepares to navigate a new city and attend a new school, her emotional headquarters becomes a hot bed of activity. As Joy (voice of Amy Poehler) attempts to keep Riley feeling happy and positive about the move, other emotions like Fear (voice of Bill Hader), Anger (voice of Lewis Black), Disgust (voice of Mindy Kaling) and Sadness (Phyllis Smith) make the transition a bit more complicated. Out of the blue, the cheerful eleven-year-old Minnesota girl and hockey aficionado, Riley, finds her world turn upside down, when her parents decide to make a fresh start in San Francisco. As a result, with Riley struggling to cope with the new reality, her young mind's emotional headquarters--where the fundamental feelings of Joy, Sadness, Anger, Disgust, and Fear reside--are forced to work double time. Now, as the situation spirals out of control, and desperate Joy tries her best to troubleshoot the unprecedented problem, something starts to happen in Riley's core memory sector. Will things get back to normal?::Nick Riganas
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,20 +67,20 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
+            <td class="table__cell">
+                1200 Park Avenue, San Jacinto, California 92583, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.763315</span>, <span class="lon">-116.941071</span>
-                    </td>   
+                33.763345, -116.941164
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
+            <td class="table__cell">
+                500 South Buena Vista Street, Hemet, California 92543, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7403</span>, <span class="lon">-116.967278</span>
-                    </td>   
+                33.7403, -116.967278
+            </td>   
           </tr> 
           </tr>
         
@@ -87,5 +94,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Lord of the Rings: The Return of the King</h3>
                         <p class="card-text">
-                          Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.
+                          Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring. The final confrontation between the forces of good and evil fighting for control of the future of Middle-earth. Frodo and Sam reach Mordor in their quest to destroy the One Ring, while Aragorn leads the forces of good against Sauron's evil army at the stone city of Minas Tirith.::Jwelch5742 Sauron's forces have laid siege to Minas Tirith, the capital of Gondor, in their efforts to eliminate the race of men. The once-great kingdom, watched over by a fading Steward, has never been in more desperate need of its King. But can Aragorn answer the call of his heritage and become what he was born to be? In no small measure, the fate of Middle-earth rests on his broad shoulders. With the final battle joined, and the legions of darkness gathering, Gandalf urgently tries to rally Gondor's broken army to action. He is aided by Rohan's King Theoden, who unites his warriors for history's biggest test. Yet even with their courage and passionate loyalty, the forces of men, with Eowyn and Merry hidden amongst them, are no match for the enemies swarming against Gondor. Still, in the face of great losses, they charge forward into the battle of their lifetimes, tied together by their singular goal to keep Sauron distracted and give the Ring Bearer a chance to complete his quest. Their hopes rest with Frodo, a tiny but determined Hobbit making a perilous trip across treacherous enemy lands to cast the One Ring into the fires of Mount Doom. The closer Frodo gets to his destination, the heavier his burden becomes, and the more he must rely on Samwise Gamgee. Gollum, and the Ring, will test Frodo's allegiances and, ultimately, his humanity.::Jwelch5742 Gondor is overrun by the orcs of Mordor, and Gandalf rides to Minas Tirith to aid the humans in the war that is ahead. Aragorn must realize his true identity and purpose as the King of Men, and journey with Gimli and Legolas to summon the Army of the Dead so that the battle against evil can be won. Meanwhile, paranoia and suspicion rises between Frodo, Sam, and Gollum as they continue their increasingly dark and dangerous travel to Mount Doom, the one place where the One Ring can be destroyed once and for all.::Qrrbirbel The Fellowship divides to conquer as Frodo and Sam, with the help and hindrance of Gollum, continue their way to Mount Doom. Gandalf and Pippin ride to Minas Tirith to help defend Gondor while Merry remains with Éowyn and the other Rohan fighters. Aragorn, Legolas, and Gimli seek aid from those that live in the Cursed Mountains. All of these battles have one goal in mind: distract the Eye of Sauron and buy Frodo a little more time to destroy the One Ring.::PompeyV The War of the Ring reaches its climax as the Dark Lord Sauron sets his sights on Minas Tirith, the capital of Gondor. The members of the Fellowship in Rohan are warned of the impending attack when Pippin cannot resist looking into Saruman's palantír and is briefly contacted by the Dark Lord. King Théoden is too proud to send his men to help without being asked, so Gandalf and Pippin ride to Minas Tirith to see that this request is sent. They meet opposition there from Denethor, Steward of the city and father of Faramir and the late Boromir. Denethor's family has acted as temporary guardians of Gondor for centuries until a member of the true line of Kings returns. This member is none other than Aragorn, who must overcome his own self-doubt before he can take on the role he was destined to fulfill. Meanwhile, Frodo and Sam continue to carry the One Ring towards Mordor, guided by Gollum. What they don't know is that Gollum is leading them into a trap so that he can reclaim the Ring for himself. Though Sam suspects his deceit, Frodo is starting to be corrupted by the Ring's power and the mistrust of Sam this causes is fully exploited by Gollum. The only way good can prevail in this contest is if the Ring is destroyed, an event that is becoming harder every minute for Frodo to achieve. The fate of every living creature in Middle-earth will be decided once and for all as the Quest of the Ringbearer reaches its climax.::rmlohner
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,156 +67,156 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Hinuera Valley, Matamata, Waikato, New Zealand 
+            <td class="table__cell">
+                Hinuera Road, Matamata, Matamata 3472, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -37.8529654</span>, <span class="lon">175.7575813</span>
-                    </td>   
+                -37.8529654, 175.7575813
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fernside, Featherston, Wairarapa, New Zealand 
+            <td class="table__cell">
+                Featherston, Wellington, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.11667</span>, <span class="lon">175.31667</span>
-                    </td>   
+                -41.11667, 175.31667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Queenstown, Otago, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -45.03023</span>, <span class="lon">168.66271</span>
-                    </td>   
+                -45.03023, 168.66271
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Camperdown Studios, Camperdown Road, Miramar, Wellington, New Zealand 
+            <td class="table__cell">
+                Camperdown Road, Miramar, Wellington 6022, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.3066553</span>, <span class="lon">174.8254519</span>
-                    </td>   
+                -41.3066553, 174.8254519
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mt. Potts Station, Erewhon, Canterbury, New Zealand 
+            <td class="table__cell">
+                Mount Potts Street, Ashburton Lakes, Ashburton 7771, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -43.6094425</span>, <span class="lon">171.0457983</span>
-                    </td>   
+                -43.6094425, 171.0457983
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dry Creek Quarry, Wellington, New Zealand 
+            <td class="table__cell">
+                Wellington, Wellington, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.28889</span>, <span class="lon">174.77722</span>
-                    </td>   
+                -41.28889, 174.77722
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tongariro National Park, Central Plateau, New Zealand 
+            <td class="table__cell">
+                Tongariro National Park, Owhango, Manawatu-Wanganui, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -39.2</span>, <span class="lon">175.54</span>
-                    </td>   
+                -39.2, 175.54
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Twizel, Canterbury, New Zealand 
+            <td class="table__cell">
+                Twizel, Canterbury, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -44.25</span>, <span class="lon">170.1</span>
-                    </td>   
+                -44.25, 170.1
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Deer Park Heights, Queenstown, Otago, New Zealand 
+            <td class="table__cell">
+                Queenstown, Otago, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -45.03023</span>, <span class="lon">168.66271</span>
-                    </td>   
+                -45.03023, 168.66271
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Rangipo Desert, Waiouru, Tongariro National Park, Central Plateau, New Zealand 
+            <td class="table__cell">
+                Rangipo, Turangi, Waikato, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -39.1309</span>, <span class="lon">175.8088</span>
-                    </td>   
+                -39.1309, 175.8088
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Twizel, Canterbury, New Zealand 
+            <td class="table__cell">
+                Twizel, Canterbury, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -44.25</span>, <span class="lon">170.1</span>
-                    </td>   
+                -44.25, 170.1
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Milford Sound, Fiordland National Park, Southland, New Zealand
+            <td class="table__cell">
+                Fiordland National Park, Te Anau, Southland, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -44.495032</span>, <span class="lon">168.083297</span>
-                    </td>   
+                -44.495032, 168.083297
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Paradise, Glenorchy, Otago, New Zealand 
+            <td class="table__cell">
+                Glenorchy, Otago, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -44.85</span>, <span class="lon">168.38333</span>
-                    </td>   
+                -44.85, 168.38333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Upper Hutt, Wellington, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.13333</span>, <span class="lon">175.05</span>
-                    </td>   
+                -41.13333, 175.05
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mount Ruapehu, Tongariro National Park, Central Plateau, New Zealand 
+            <td class="table__cell">
+                Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -39.236926</span>, <span class="lon">175.556076</span>
-                    </td>   
+                -39.236926, 175.556076
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stone Street Studios, Stone Street, Miramar, Wellington, New Zealand 
+            <td class="table__cell">
+                Wellington, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.28333</span>, <span class="lon">174.76667</span>
-                    </td>   
+                -41.28333, 174.76667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stone Street Studios, Stone Street, Miramar, Wellington, New Zealand 
+            <td class="table__cell">
+                Wellington, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.28333</span>, <span class="lon">174.76667</span>
-                    </td>   
+                -41.28333, 174.76667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mount Ruapehu, Tongariro National Park, Central Plateau, New Zealand 
+            <td class="table__cell">
+                Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -39.236926</span>, <span class="lon">175.556076</span>
-                    </td>   
+                -39.236926, 175.556076
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Putangirua Pinnacles, Wairarapa region, North Island, New Zealand 
+            <td class="table__cell">
+                New Zealand
             </td>   
                 <td class="table__cell">
-                <span class="lat"> -41.8388752215127</span>, <span class="lon">171.779900195937</span>
-                    </td>   
+                -41.8388752215127, 171.779900195937
+            </td>   
           </tr> 
           </tr>
         
@@ -223,5 +230,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[-45.03023, 168.66271], [-45.03023, 168.66271], [-44.85, 168.38333]], "data": [{"lat": -37.8529654, "lon": 175.7575813, "name": "Hinuera Road, Matamata, Matamata 3472, New Zealand"}, {"lat": -41.11667, "lon": 175.31667, "name": "Featherston, Wellington, New Zealand"}, {"lat": -45.03023, "lon": 168.66271, "name": "Queenstown, Otago, New Zealand"}, {"lat": -41.3066553, "lon": 174.8254519, "name": "Camperdown Road, Miramar, Wellington 6022, New Zealand"}, {"lat": -43.6094425, "lon": 171.0457983, "name": "Mount Potts Street, Ashburton Lakes, Ashburton 7771, New Zealand"}, {"lat": -41.28889, "lon": 174.77722, "name": "Wellington, Wellington, New Zealand"}, {"lat": -39.2, "lon": 175.54, "name": "Tongariro National Park, Owhango, Manawatu-Wanganui, New Zealand"}, {"lat": -44.25, "lon": 170.1, "name": "Twizel, Canterbury, New Zealand"}, {"lat": -45.03023, "lon": 168.66271, "name": "Queenstown, Otago, New Zealand"}, {"lat": -39.1309, "lon": 175.8088, "name": "Rangipo, Turangi, Waikato, New Zealand"}, {"lat": -44.25, "lon": 170.1, "name": "Twizel, Canterbury, New Zealand"}, {"lat": -44.495032, "lon": 168.083297, "name": "Fiordland National Park, Te Anau, Southland, New Zealand"}, {"lat": -44.85, "lon": 168.38333, "name": "Glenorchy, Otago, New Zealand"}, {"lat": -41.13333, "lon": 175.05, "name": "Upper Hutt, Wellington, New Zealand"}, {"lat": -39.236926, "lon": 175.556076, "name": "Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand"}, {"lat": -41.28333, "lon": 174.76667, "name": "Wellington, New Zealand"}, {"lat": -41.28333, "lon": 174.76667, "name": "Wellington, New Zealand"}, {"lat": -39.236926, "lon": 175.556076, "name": "Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand"}, {"lat": -41.8388752215127, "lon": 171.779900195937, "name": "New Zealand"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

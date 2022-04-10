@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Ford v Ferrari</h3>
                         <p class="card-text">
-                          American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order to defeat Ferrari at the 24 Hours of Le Mans in 1966.
+                          American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order to defeat Ferrari at the 24 Hours of Le Mans in 1966. As Enzo Ferrari's fast Rosso-Corsa racing cars dominate the mid-1960s motorsport world, the American car designer, Carroll Shelby, is forced to retire after winning the demanding 1959 '24 Hours of Le Mans' endurance race. But, before long, an unexpected proposition by the Vice President of Henry Ford's motor company, Lee Iacocca, will offer an opportunity to beat the Italians at their own game. Now, under those pressing circumstances, the British sports car driver and racing engineer, Ken Miles, reluctantly agrees to lend a hand and improve the firm's image, as Ford's race team has less than ninety days to rewrite history. As a result, the non-conformist duo comes up with the mighty Ford GT40 Mk I high-performance racing car. Can Shelby and Miles break Ferrari's streak?::Nick Riganas American automotive designer Carroll Shelby and British race car driver Ken Miles compete in a fierce corporate battle as well as nature itself,to build a vehicle for the Ford automobiles. Together, they plan to compete against the race cars of Enzo Ferrari at the 24 Hours of Le Mans in France in 1966.::Jwelch5742 Ford Company has a big problem in selling its cars in the 1960s. They decide to take part in 24 Hours of Le Mans endurance race to show and advertise their cars. Ferrari's fast racing cars dominate the mid-60s racing world. Ford's advertisement team request Carrol Shelby to build fast cars for the race. Shelby asks British driver and racing engineer, Ken Miles to be the main driver for Ford's company in the race.
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,132 +455,140 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Savannah, Georgia, USA 
+            <td class="table__cell">
+                Savannah, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.0835</span>, <span class="lon">-81.0998</span>
-                    </td>   
+                32.0835, -81.0998
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Willow Springs International Motorsports Park, Rosamond, California, USA 
+            <td class="table__cell">
+                Willow Springs, Rosamond, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.8783</span>, <span class="lon">-118.2967</span>
-                    </td>   
+                34.8783, -118.2967
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                6311 Meridian St, Los Angeles, California, USA 
+            <td class="table__cell">
+                6311 Meridian Avenue, Los Angeles, California 90042, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.12023</span>, <span class="lon">-118.17877</span>
-                    </td>   
+                34.12023, -118.17877
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                645 N Avenue 64, Los Angeles, California, USA 
+            <td class="table__cell">
+                645 Avenue 64, Los Angeles, California 90042, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.11998</span>, <span class="lon">-118.17846</span>
-                    </td>   
+                34.11998, -118.17846
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Auto Club Speedway   9300 Cherry Avenue, Fontana, California, USA 
+            <td class="table__cell">
+                Fontana, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0922</span>, <span class="lon">-117.435</span>
-                    </td>   
+                34.0922, -117.435
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Statesboro, Georgia, USA 
+            <td class="table__cell">
+                Statesboro, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.449</span>, <span class="lon">-81.7833</span>
-                    </td>   
+                32.449, -81.7833
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Road Atlanta, Georgia, USA 
+            <td class="table__cell">
+                Road Atlanta, 5300 Winder Hwy, Braselton, Georgia 30517, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150789</span>, <span class="lon">-83.81415</span>
-                    </td>   
+                34.150789, -83.81415
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Glendale, California, USA 
+            <td class="table__cell">
+                Glendale, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
-                    </td>   
+                34.1423, -118.2484
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
+            <td class="table__cell">
+                Ontario, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
-                    </td>   
+                34.0658, -117.6484
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Agua Dulce Airpark   33638 Agua Dulce Canyon Rd, Santa Clarita, California, USA 
+            <td class="table__cell">
+                33638 Agua Dulce Canyon Road, Agua Dulce, California 91390, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.50006</span>, <span class="lon">-118.32424</span>
-                    </td>   
+                34.50006, -118.32424
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                N Brand Blvd and W Dryden St., Glendale, California, USA 
+            <td class="table__cell">
+                North Brand Boulevard and West Dryden Street, Glendale, California 91202, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.161457</span>, <span class="lon">-118.255091</span>
-                    </td>   
+                34.161457, -118.255091
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ontario, California, USA
+            <td class="table__cell">
+                Ontario, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
-                    </td>   
+                34.0658, -117.6484
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Georgia, USA
+            <td class="table__cell">
+                Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
-                    </td>   
+                32.3305706594, -83.2572560296474
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fontana, California, USA
+            <td class="table__cell">
+                Fontana, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0922</span>, <span class="lon">-117.435</span>
-                    </td>   
+                34.0922, -117.435
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -650,5 +661,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.0544, -118.2439], [34.0658, -117.6484], [34.0658, -117.6484]], "data": [{"lat": 32.0835, "lon": -81.0998, "name": "Savannah, Georgia, United States"}, {"lat": 34.8783, "lon": -118.2967, "name": "Willow Springs, Rosamond, California, United States"}, {"lat": 34.12023, "lon": -118.17877, "name": "6311 Meridian Avenue, Los Angeles, California 90042, United States"}, {"lat": 34.11998, "lon": -118.17846, "name": "645 Avenue 64, Los Angeles, California 90042, United States"}, {"lat": 34.0922, "lon": -117.435, "name": "Fontana, California, United States"}, {"lat": 32.449, "lon": -81.7833, "name": "Statesboro, Georgia, United States"}, {"lat": 34.150789, "lon": -83.81415, "name": "Road Atlanta, 5300 Winder Hwy, Braselton, Georgia 30517, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.1423, "lon": -118.2484, "name": "Glendale, California, United States"}, {"lat": 34.0658, "lon": -117.6484, "name": "Ontario, California, United States"}, {"lat": 34.50006, "lon": -118.32424, "name": "33638 Agua Dulce Canyon Road, Agua Dulce, California 91390, United States"}, {"lat": 34.161457, "lon": -118.255091, "name": "North Brand Boulevard and West Dryden Street, Glendale, California 91202, United States"}, {"lat": 34.0658, "lon": -117.6484, "name": "Ontario, California, United States"}, {"lat": 32.3305706594, "lon": -83.2572560296474, "name": "Georgia, United States"}, {"lat": 34.0922, "lon": -117.435, "name": "Fontana, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

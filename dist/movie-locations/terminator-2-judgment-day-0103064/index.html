@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Terminator 2: Judgment Day</h3>
                         <p class="card-text">
-                          A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten-year-old son John from a more advanced and powerful cyborg.
+                          A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten-year-old son John from a more advanced and powerful cyborg. Over 10 years have passed since the first machine called The Terminator tried to kill Sarah Connor and her unborn son, John. The man who will become the future leader of the human resistance against the Machines is now a healthy young boy. However, another Terminator, called the T-1000, is sent back through time by the supercomputer Skynet. This new Terminator is more advanced and more powerful than its predecessor and its mission is to kill John Connor when he's still a child. However, Sarah and John do not have to face the threat of the T-1000 alone. Another Terminator (identical to the same model that tried and failed to kill Sarah Connor in 1984) is also sent back through time to protect them. Now, the battle for tomorrow has begun.::Eric ggg In 1995, one long decade after the Terminator's failed assassination mission in The Terminator (1984), a now-ten-year-old John Connor finds himself in foster care, after the imprisonment of his mother, Sarah, at a mental institution. To prevent John from changing the course of history and becoming the leader of the human Resistance Army, the self-aware computer system, Skynet, sends another cybernetic assassin; this time, a nearly indestructible, shape-shifting killer. Now, against the backdrop of an imminent nuclear Armageddon, two unstoppable cyborgs--the antiquated but lethal, T-800, and the far superior, liquid-metal model, T-1000--are after the same vulnerable target. Can Sarah and John avert the coming Judgment Day?::Nick Riganas Nearly 10 years have passed since Sarah Connor was targeted for termination by a cyborg from the future. Now her son, John, the future leader of the resistance, is the target for a newer, more deadly terminator. Once again, the resistance has managed to send a protector back to attempt to save John and his mother Sarah.::Colin Tinto <cst@imdb.com> Skynet, the 21st century computer waging a losing war on humans sends a second terminator back in time to destroy the leader of the human resistance while he is still a boy. His mother is the only one who knows of the existence of the Terminators, human-like robots that exist only to kill and are nearly indestructible, and Sarah, the boy's mother is currently in a state mental hospital because of her 'delusions'.::John Vogel <jlvogel@comcast.net> It has been about 10 long years since a Terminator failed to kill Sarah Connor and her unborn son, John. Now, Skynet has sent back another Terminator. This one being more advanced than the last one. John Connor, who is now about ten years old, is the target. The future John sends back a replica of the Terminator that tried to kill him back in time to 1994. It's Terminator vs. Terminator.::Ricky Steck (rickysteck@sbcglobal.net)
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,292 +455,284 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Bayside Parkway & Gateway Blvd., Fremont, California, USA 
+            <td class="table__cell">
+                Fremont, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.5483</span>, <span class="lon">-121.9886</span>
-                    </td>   
+                37.5483, -121.9886
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bridge, Intersection of Hayvenhurst & Plummer, San Fernando Valley, Los Angeles, California, USA 
+            <td class="table__cell">
+                San Fernando, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2819</span>, <span class="lon">-118.439</span>
-                    </td>   
+                34.2819, -118.439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kaiser Steel Mill, Fontana, California, USA
+            <td class="table__cell">
+                Hill County, Montana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.63</span>, <span class="lon">-110.11</span>
-                    </td>   
+                48.63, -110.11
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sherman Oaks Galleria   15301 Ventura Blvd., Sherman Oaks, Los Angeles, California, USA
+            <td class="table__cell">
+                Sherman Oaks, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1509</span>, <span class="lon">-118.449</span>
-                    </td>   
+                34.1509, -118.449
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fremont, California, USA
+            <td class="table__cell">
+                Fremont, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.5483</span>, <span class="lon">-121.9886</span>
-                    </td>   
+                37.5483, -121.9886
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lake View Terrace Branch Library   12002 Osborne Street, Lake View Terrace, Los Angeles, California, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lake View Medical Center   11600 Eldridge Avenue, Lake View Terrace, Los Angeles, California, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lancaster, California, USA
+            <td class="table__cell">
+                Lancaster, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.6981</span>, <span class="lon">-118.1366</span>
-                    </td>   
+                34.6981, -118.1366
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Elysian Park, Los Angeles, California, USA 
+            <td class="table__cell">
+                Elysian Park, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0743</span>, <span class="lon">-118.2398</span>
-                    </td>   
+                34.0743, -118.2398
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Northridge Fashion Mall   9301 Tampa Avenue, Northridge, Los Angeles, California, USA 
+            <td class="table__cell">
+                9301 Tampa Avenue, Northridge, California 91324, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.23895</span>, <span class="lon">-118.55707</span>
-                    </td>   
+                34.23895, -118.55707
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Terminal Island Freeway, Wilmington, Los Angeles, California, USA 
+            <td class="table__cell">
+                Terminal Island Freeway, Long Beach, California 90810, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.8008</span>, <span class="lon">-118.22259</span>
-                    </td>   
+                33.8008, -118.22259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Jose, California, USA
+            <td class="table__cell">
+                San Jose, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.2751</span>, <span class="lon">-121.8261</span>
-                    </td>   
+                37.2751, -121.8261
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                46551 140th St East, Lancaster, California, USA 
+            <td class="table__cell">
+                46551 140th Street East, Lancaster, California 93535, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.73015</span>, <span class="lon">-117.88109</span>
-                    </td>   
+                34.73015, -117.88109
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Monica Place   4th Street & Broadway, Santa Monica, California, USA 
+            <td class="table__cell">
+                4th Street Grill, 1707 Fourth St, Santa Monica, California 90401, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.011695</span>, <span class="lon">-118.489295</span>
-                    </td>   
+                34.011695, -118.489295
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lake View Terrace Liquor Store  11844 Foothill Boulevard, Lake View Terrace, Los Angeles, California, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                6th Street Viaduct, Los Angeles, California, USA
+            <td class="table__cell">
+                6th Street, Downey, California 90241, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.94506</span>, <span class="lon">-118.12944</span>
-                    </td>   
+                33.94506, -118.12944
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                El Mirage Dry Lake, California, USA
+            <td class="table__cell">
+                El Mirage Dry Lake, 20471 Mountain View Rd, Adelanto, California 92301, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.624683</span>, <span class="lon">-117.547873</span>
-                    </td>   
+                34.624683, -117.547873
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Long Beach, California, USA
+            <td class="table__cell">
+                Long Beach, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7775</span>, <span class="lon">-118.1885</span>
-                    </td>   
+                33.7775, -118.1885
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Clarita, California, USA
+            <td class="table__cell">
+                Santa Clarita, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
-                    </td>   
+                34.42, -118.54
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Fe, New Mexico, USA
+            <td class="table__cell">
+                Santa Fe, New Mexico, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.687</span>, <span class="lon">-105.9378</span>
-                    </td>   
+                35.687, -105.9378
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                19828 Valerio Street, Winnetka, California, USA 
+            <td class="table__cell">
+                19828 Valerio Street, Canoga Park, California 91306, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.20461</span>, <span class="lon">-118.56521</span>
-                    </td>   
+                34.20461, -118.56521
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                14400 Roscoe Blvd Van Nuys, California, USA 
+            <td class="table__cell">
+                14400 Roscoe Boulevard, Panorama City, California 91402, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.22126</span>, <span class="lon">-118.44756</span>
-                    </td>   
+                34.22126, -118.44756
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Petersen Automotive Museum   6060 Wilshire Boulevard, Los Angeles, California, USA 
+            <td class="table__cell">
+                Wilshire Blvd, Glendale, California 90048, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.083057</span>, <span class="lon">-118.383393</span>
-                    </td>   
+                34.14728, -118.2096
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                14224 Roscoe Boulevard @ Wakefield Avenue   Van Nuys, California, USA 
+            <td class="table__cell">
+                14224 Roscoe Blvd, Panorama City, California 91402, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.22152</span>, <span class="lon">-118.44336</span>
-                    </td>   
+                34.22152, -118.44336
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tujunga Wash, Los Angeles, California, USA 
+            <td class="table__cell">
+                Tujunga Car Wash, 5553 Tujunga Ave, North Hollywood, California 91601, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.171866</span>, <span class="lon">-118.379074</span>
-                    </td>   
+                34.171866, -118.379074
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                600 Mesquit Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                600 Mesquit Street, Los Angeles, California 90021, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.03838</span>, <span class="lon">-118.22943</span>
-                    </td>   
+                34.03838, -118.22943
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chicago, Illinois, USA 
+            <td class="table__cell">
+                Northridge, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                34.2286, -118.5369
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Northridge, Los Angeles, California, USA
+            <td class="table__cell">
+                Valencia, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.99547</span>, <span class="lon">-118.353795</span>
-                    </td>   
+                34.4436, -118.6095
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Valencia Studios   26030 Avenue Hall, Valencia, California, USA
+            <td class="table__cell">
+                Arcadia, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.4436</span>, <span class="lon">-118.6095</span>
-                    </td>   
+                34.1362, -118.0401
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Arcadia, California, USA
+            <td class="table__cell">
+                301 Baldwin Avenue, Arcadia, California 91007, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1362</span>, <span class="lon">-118.0401</span>
-                    </td>   
+                34.14724, -118.05049
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles County Arboretum & Botanic Garden   301 N. Baldwin Avenue, Arcadia, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14445</span>, <span class="lon">-118.05243</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Sherman Oaks Plaza, 15030 Ventura Blvd, Sherman Oaks, California 91403, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.152709, -118.460469
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sherman Oaks, Los Angeles, California, USA
+            <td class="table__cell">
+                Sun Valley, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.152709</span>, <span class="lon">-118.460469</span>
-                    </td>   
+                34.2175, -118.3704
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sun Valley, Los Angeles, California, USA
+            <td class="table__cell">
+                Malibu, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2175</span>, <span class="lon">-118.3704</span>
-                    </td>   
+                34.0058, -118.807
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Malibu, California, USA 
+            <td class="table__cell">
+                Mecca Avenue / Reseda Boulevard, Tarzana, California 91356, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Reseda, Los Angeles, California, USA 
+                34.16209, -118.53733
             </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.2011</span>, <span class="lon">-118.5365</span>
-                    </td>   
           </tr> 
           </tr>
         
@@ -810,5 +805,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.7775, -118.1885], [33.8008, -118.22259], [33.94506, -118.12944]], "data": [{"lat": 37.5483, "lon": -121.9886, "name": "Fremont, California, United States"}, {"lat": 34.2819, "lon": -118.439, "name": "San Fernando, California, United States"}, {"lat": 48.63, "lon": -110.11, "name": "Hill County, Montana, United States"}, {"lat": 34.1509, "lon": -118.449, "name": "Sherman Oaks, California, United States"}, {"lat": 37.5483, "lon": -121.9886, "name": "Fremont, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.6981, "lon": -118.1366, "name": "Lancaster, California, United States"}, {"lat": 34.0743, "lon": -118.2398, "name": "Elysian Park, Los Angeles, California, United States"}, {"lat": 34.23895, "lon": -118.55707, "name": "9301 Tampa Avenue, Northridge, California 91324, United States"}, {"lat": 33.8008, "lon": -118.22259, "name": "Terminal Island Freeway, Long Beach, California 90810, United States"}, {"lat": 37.2751, "lon": -121.8261, "name": "San Jose, California, United States"}, {"lat": 34.73015, "lon": -117.88109, "name": "46551 140th Street East, Lancaster, California 93535, United States"}, {"lat": 34.011695, "lon": -118.489295, "name": "4th Street Grill, 1707 Fourth St, Santa Monica, California 90401, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 33.94506, "lon": -118.12944, "name": "6th Street, Downey, California 90241, United States"}, {"lat": 34.624683, "lon": -117.547873, "name": "El Mirage Dry Lake, 20471 Mountain View Rd, Adelanto, California 92301, United States"}, {"lat": 33.7775, "lon": -118.1885, "name": "Long Beach, California, United States"}, {"lat": 34.42, "lon": -118.54, "name": "Santa Clarita, California, United States"}, {"lat": 35.687, "lon": -105.9378, "name": "Santa Fe, New Mexico, United States"}, {"lat": 34.20461, "lon": -118.56521, "name": "19828 Valerio Street, Canoga Park, California 91306, United States"}, {"lat": 34.22126, "lon": -118.44756, "name": "14400 Roscoe Boulevard, Panorama City, California 91402, United States"}, {"lat": 34.14728, "lon": -118.2096, "name": "Wilshire Blvd, Glendale, California 90048, United States"}, {"lat": 34.22152, "lon": -118.44336, "name": "14224 Roscoe Blvd, Panorama City, California 91402, United States"}, {"lat": 34.171866, "lon": -118.379074, "name": "Tujunga Car Wash, 5553 Tujunga Ave, North Hollywood, California 91601, United States"}, {"lat": 34.03838, "lon": -118.22943, "name": "600 Mesquit Street, Los Angeles, California 90021, United States"}, {"lat": 34.2286, "lon": -118.5369, "name": "Northridge, California, United States"}, {"lat": 34.4436, "lon": -118.6095, "name": "Valencia, California, United States"}, {"lat": 34.1362, "lon": -118.0401, "name": "Arcadia, California, United States"}, {"lat": 34.14724, "lon": -118.05049, "name": "301 Baldwin Avenue, Arcadia, California 91007, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.152709, "lon": -118.460469, "name": "Sherman Oaks Plaza, 15030 Ventura Blvd, Sherman Oaks, California 91403, United States"}, {"lat": 34.2175, "lon": -118.3704, "name": "Sun Valley, California, United States"}, {"lat": 34.0058, "lon": -118.807, "name": "Malibu, California, United States"}, {"lat": 34.16209, "lon": -118.53733, "name": "Mecca Avenue / Reseda Boulevard, Tarzana, California 91356, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

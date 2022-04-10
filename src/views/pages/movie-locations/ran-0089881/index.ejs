@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Ran</h3>
                         <p class="card-text">
-                          In Medieval Japan, an elderly warlord retires, handing over his empire to his three sons. However, he vastly underestimates how the new-found power will corrupt them and cause them to turn on each other...and him.
+                          In Medieval Japan, an elderly warlord retires, handing over his empire to his three sons. However, he vastly underestimates how the new-found power will corrupt them and cause them to turn on each other...and him. Japanese warlord Hidetori Ichimonji decides the time has come to retire and divide his fiefdom among his three sons. His eldest and middle sons - Taro and Jiro - agree with his decision and promise to support him for his remaining days. The youngest son Saburo disagrees with all of them arguing that there is little likelihood the three brothers will remain united. Insulted by his son's brashness, the warlord banishes Saburo. As the warlord begins his retirement, he quickly realizes that his two eldest sons selfish and have no intention of keeping their promises. It leads to war and only banished Saburo can possibly save him.::garykmcd A story of greed, a lust for power, and ultimate revenge. The Great Lord Hidetora Ichimonji has decided to step aside to make room for the younger blood of his three sons, Taro, Jiro, and Saburo, the Lord's only wish now being to live out his years as an honored guest in the castle of each of his sons in turn. While the older two sons flatter their father, the youngest son attempts to warn him of the folly of expecting the three sons to remain united; enraged at the younger son's attempt to point out the danger, the father banishes him. True to the younger son's warning, however, the oldest Son soon conspires with the second son to strip The Great Lord of everything, even his title.::Bill albers.bill@gmail.com
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,76 +67,76 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Aso, Kumamoto, Japan
+            <td class="table__cell">
+                Japan, Kumamoto阿蘇市
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.95222</span>, <span class="lon">131.12139</span>
-                    </td>   
+                32.95222, 131.12139
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Himeji Castle, Himeji, Japan
+            <td class="table__cell">
+                姫路城 (Himeji Castle), 本町68, 姫路市, Hyōgo 670-0012, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.839389499999996</span>, <span class="lon">134.6939435</span>
-                    </td>   
+                34.839389499999996, 134.6939435
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kumamoto Castle, Kumamoto, Japan
+            <td class="table__cell">
+                熊本城 馬具櫓, 中央区本丸1, 熊本市, Kumamoto 860-0002, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.803135</span>, <span class="lon">130.70481</span>
-                    </td>   
+                32.803135, 130.70481
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gotemba, Shizuoka, Japan
+            <td class="table__cell">
+                Japan, Shizuoka御殿場市
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.30861</span>, <span class="lon">138.935</span>
-                    </td>   
+                35.30861, 138.935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kokonoe, Oita, Japan
+            <td class="table__cell">
+                Japan, Ōita玖珠郡九重町
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.188326</span>, <span class="lon">131.210333</span>
-                    </td>   
+                33.188326, 131.210333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kurosawa Film Studio, Tokyo, Japan 
+            <td class="table__cell">
+                二馬力, 梶野町1-5-41, 小金井市, Tokyo Prefecture 184-0002, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.703183</span>, <span class="lon">139.528087</span>
-                    </td>   
+                35.703183, 139.528087
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Nagoya Castle, Nagoya, Aichi, Japan
+            <td class="table__cell">
+                名古屋城 (Nagoya Castle), 中区本丸1-1, 名古屋市, Aichi 460-0031, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.1855555</span>, <span class="lon">136.89885349999997</span>
-                    </td>   
+                35.1855555, 136.89885349999997
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Shonai, Yamagata, Japan
+            <td class="table__cell">
+                庄内空港 (Shonai Airport - SYO/RJSY), 浜中字村東30-3, 酒田市, Yamagata 998-0112, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.814088999999996</span>, <span class="lon">139.7874955</span>
-                    </td>   
+                38.814088999999996, 139.7874955
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Toho Studios, Tokyo, Japan 
+            <td class="table__cell">
+                東宝スタジオ (TOHO STUDIOS), 成城1-4-1, 東京都, Tokyo Prefecture 157-0066, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.634654999999995</span>, <span class="lon">139.604309</span>
-                    </td>   
+                35.634654999999995, 139.604309
+            </td>   
           </tr> 
           </tr>
         
@@ -143,5 +150,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[32.803135, 130.70481], [32.95222, 131.12139], [33.188326, 131.210333]], "data": [{"lat": 32.95222, "lon": 131.12139, "name": "Japan, Kumamoto\u963f\u8607\u5e02"}, {"lat": 34.839389499999996, "lon": 134.6939435, "name": "\u59eb\u8def\u57ce (Himeji Castle), \u672c\u753a68, \u59eb\u8def\u5e02, Hy\u014dgo 670-0012, Japan"}, {"lat": 32.803135, "lon": 130.70481, "name": "\u718a\u672c\u57ce \u99ac\u5177\u6ad3, \u4e2d\u592e\u533a\u672c\u4e381, \u718a\u672c\u5e02, Kumamoto 860-0002, Japan"}, {"lat": 35.30861, "lon": 138.935, "name": "Japan, Shizuoka\u5fa1\u6bbf\u5834\u5e02"}, {"lat": 33.188326, "lon": 131.210333, "name": "Japan, \u014cita\u7396\u73e0\u90e1\u4e5d\u91cd\u753a"}, {"lat": 35.703183, "lon": 139.528087, "name": "\u4e8c\u99ac\u529b, \u68b6\u91ce\u753a1-5-41, \u5c0f\u91d1\u4e95\u5e02, Tokyo Prefecture 184-0002, Japan"}, {"lat": 35.1855555, "lon": 136.89885349999997, "name": "\u540d\u53e4\u5c4b\u57ce (Nagoya Castle), \u4e2d\u533a\u672c\u4e381-1, \u540d\u53e4\u5c4b\u5e02, Aichi 460-0031, Japan"}, {"lat": 38.814088999999996, "lon": 139.7874955, "name": "\u5e84\u5185\u7a7a\u6e2f (Shonai Airport - SYO/RJSY), \u6d5c\u4e2d\u5b57\u6751\u677130-3, \u9152\u7530\u5e02, Yamagata 998-0112, Japan"}, {"lat": 35.634654999999995, "lon": 139.604309, "name": "\u6771\u5b9d\u30b9\u30bf\u30b8\u30aa (TOHO STUDIOS), \u6210\u57ce1-4-1, \u6771\u4eac\u90fd, Tokyo Prefecture 157-0066, Japan"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

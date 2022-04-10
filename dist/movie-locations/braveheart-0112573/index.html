@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Braveheart</h3>
                         <p class="card-text">
-                          Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.
+                          Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England. William Wallace is a Scottish rebel who leads an uprising against the cruel English ruler Edward the Longshanks, who wishes to inherit the crown of Scotland for himself. When he was a young boy, William Wallace's father and brother, along with many others, lost their lives trying to free Scotland. Once he loses another of his loved ones, William Wallace begins his long quest to make Scotland free once and for all, along with the assistance of Robert the Bruce.::Anonymous Tells the story of the legendary thirteenth century Scottish hero named William Wallace. Wallace rallies the Scottish against the English monarch and Edward I after he suffers a personal tragedy by English soldiers. Wallace gathers a group of amateur warriors that is stronger than any English army.::Jwelch5742 Around the end of the 1200s, oppressed by King Edward "Longshanks" who rules England with an iron fist, the noble and charismatic Scot of humble descent, William Wallace, leads a righteous campaign to end tyranny. In this gallant quest for freedom, the gifted strategist and mighty warrior will amass the hordes of the oppressed Scotsmen who thirst to reclaim their independence, however, the road to liberty is always drenched in blood.::Nick Riganas In 14th Century Scotland, William Wallace leads his people in a rebellion against the tyranny of the English King, who has given English nobility the 'Prima Nocta' - a right to take all new brides for the first night. The Scots are none too pleased with the brutal English invaders, but they lack leadership to fight back. Wallace creates a legend of himself, with his courageous defense of his people and attacks on the English.::Rob Hartill
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,172 +455,172 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Fort William, Glen Coe, Highland, Scotland, UK
+            <td class="table__cell">
+                Fort William, Highland, Scotland, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 56.81694</span>, <span class="lon">-5.10972</span>
-                    </td>   
+                56.81694, -5.10972
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Arizona, USA 
+            <td class="table__cell">
+                Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2202611707</span>, <span class="lon">-111.422127989113</span>
-                    </td>   
+                34.2202611707, -111.422127989113
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ardmore Studios, Herbert Road, Bray, County Wicklow, Ireland 
+            <td class="table__cell">
+                Bray, Wicklow, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.2028</span>, <span class="lon">-6.1083</span>
-                    </td>   
+                53.2028, -6.1083
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Glen Nevis, Fort William, Highland, Scotland, UK
+            <td class="table__cell">
+                Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 56.804311</span>, <span class="lon">-5.073844</span>
-                    </td>   
+                56.804311, -5.073844
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Aonach Eagach, Highland, Scotland, UK 
+            <td class="table__cell">
+                Highland, Scotland, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 57.5066</span>, <span class="lon">-5.0038</span>
-                    </td>   
+                57.5066, -5.0038
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Coronation Plantation, County Wicklow, Ireland
+            <td class="table__cell">
+                Wicklow, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53</span>, <span class="lon">-6.41667</span>
-                    </td>   
+                53, -6.41667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Loch Leven, Onich, Highland, Scotland, UK
+            <td class="table__cell">
+                Onich, Highland, Scotland, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 56.7033</span>, <span class="lon">-5.2277</span>
-                    </td>   
+                56.7033, -5.2277
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ballymore Eustace, County Kildare, Ireland
+            <td class="table__cell">
+                Ballymore Eustace, Kildare, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.1321</span>, <span class="lon">-6.6152</span>
-                    </td>   
+                53.1321, -6.6152
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Trim Castle, Trim, County Meath, Ireland 
+            <td class="table__cell">
+                Trim Castle, Castle St, Trim, Meath C15, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.558242</span>, <span class="lon">-6.790737</span>
-                    </td>   
+                53.558242, -6.790737
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bective Abbey, County Meath, Ireland 
+            <td class="table__cell">
+                Bective Abbey, Bective, Meath C15, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.582363</span>, <span class="lon">-6.702843</span>
-                    </td>   
+                53.582363, -6.702843
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Curragh Plains, County Kildare, Ireland 
+            <td class="table__cell">
+                Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.157165</span>, <span class="lon">-6.840038</span>
-                    </td>   
+                53.157165, -6.840038
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dunsany Castle, County Meath, Ireland
+            <td class="table__cell">
+                Dunsany, Killeen, Meath, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.544036</span>, <span class="lon">-6.619148</span>
-                    </td>   
+                53.544036, -6.619148
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sally's Gap, County Wicklow, Ireland
+            <td class="table__cell">
+                Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.137675</span>, <span class="lon">-6.311974</span>
-                    </td>   
+                53.137675, -6.311974
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Curragh, County Kildare, Ireland
+            <td class="table__cell">
+                Curragh, Kildare, Kildare, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.17</span>, <span class="lon">-6.86</span>
-                    </td>   
+                53.17, -6.86
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                King John's Castle, Trim, County Meath, Ireland
+            <td class="table__cell">
+                Trim, Meath, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.55224</span>, <span class="lon">-6.79341</span>
-                    </td>   
+                53.55224, -6.79341
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dunsoghly Castle, County Dublin, Ireland 
+            <td class="table__cell">
+                Trim, Meath, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.3658155</span>, <span class="lon">-6.330507</span>
-                    </td>   
+                53.55224, -6.79341
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Glen Coe, Highland, Scotland, UK
+            <td class="table__cell">
+                Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 57.5066</span>, <span class="lon">-5.0038</span>
-                    </td>   
+                53.3658155, -6.330507
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Trim, County Meath, Ireland
+            <td class="table__cell">
+                Highland, Scotland, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.55224</span>, <span class="lon">-6.79341</span>
-                    </td>   
+                57.5066, -5.0038
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kippure Estate, Blessington, County Wicklow, Ireland
+            <td class="table__cell">
+                Kippure Estate, Kilbride, Wicklow W91, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.166743</span>, <span class="lon">-6.37861</span>
-                    </td>   
+                53.166743, -6.37861
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Luggala Estate, County Wicklow, Ireland
+            <td class="table__cell">
+                Wicklow, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53</span>, <span class="lon">-6.41667</span>
-                    </td>   
+                53, -6.41667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St Margarets, Dublin, County Dublin, Ireland
+            <td class="table__cell">
+                St. Margaret'S, Dubber, County Dublin, Ireland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 53.432074</span>, <span class="lon">-6.303392</span>
-                    </td>   
+                53.432074, -6.303392
+            </td>   
           </tr> 
           </tr>
         
@@ -690,5 +693,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[53, -6.41667], [53, -6.41667], [53.1321, -6.6152]], "data": [{"lat": 56.81694, "lon": -5.10972, "name": "Fort William, Highland, Scotland, United Kingdom"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 53.2028, "lon": -6.1083, "name": "Bray, Wicklow, Ireland"}, {"lat": 56.804311, "lon": -5.073844, "name": "Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53, "lon": -6.41667, "name": "Wicklow, Ireland"}, {"lat": 56.7033, "lon": -5.2277, "name": "Onich, Highland, Scotland, United Kingdom"}, {"lat": 53.1321, "lon": -6.6152, "name": "Ballymore Eustace, Kildare, Ireland"}, {"lat": 53.558242, "lon": -6.790737, "name": "Trim Castle, Castle St, Trim, Meath C15, Ireland"}, {"lat": 53.582363, "lon": -6.702843, "name": "Bective Abbey, Bective, Meath C15, Ireland"}, {"lat": 53.157165, "lon": -6.840038, "name": "Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland"}, {"lat": 53.544036, "lon": -6.619148, "name": "Dunsany, Killeen, Meath, Ireland"}, {"lat": 53.137675, "lon": -6.311974, "name": "Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland"}, {"lat": 53.17, "lon": -6.86, "name": "Curragh, Kildare, Kildare, Ireland"}, {"lat": 53.55224, "lon": -6.79341, "name": "Trim, Meath, Ireland"}, {"lat": 53.55224, "lon": -6.79341, "name": "Trim, Meath, Ireland"}, {"lat": 53.3658155, "lon": -6.330507, "name": "Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53.166743, "lon": -6.37861, "name": "Kippure Estate, Kilbride, Wicklow W91, Ireland"}, {"lat": 53, "lon": -6.41667, "name": "Wicklow, Ireland"}, {"lat": 53.432074, "lon": -6.303392, "name": "St. Margaret\u0027S, Dubber, County Dublin, Ireland"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

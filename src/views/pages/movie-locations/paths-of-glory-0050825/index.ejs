@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Paths of Glory</h3>
                         <p class="card-text">
-                          After refusing to attack an enemy position, a general accuses the soldiers of cowardice and their commanding officer must defend them.
+                          After refusing to attack an enemy position, a general accuses the soldiers of cowardice and their commanding officer must defend them. The futility and irony of the war in the trenches in WWI is shown as a unit commander in the French army must deal with the mutiny of his men and a glory-seeking general after part of his force falls back under fire in an impossible attack.::Keith Loh <loh@sfu.ca> In "Paths of Glory" war is viewed in terms of power. This film about a true episode in World War I combines the idea that class differences are more important than national differences with the cannon-fodder theory of war, the theory that soldiers are merely pawns in the hands of generals who play at war is if it were a game of chess.::alfiehitchie 1916. The trench warfare between the French and Germans on the battlefields of France results in little advancement of troops on either side - each advancement in tens of meters rather than kilometers - but in many casualties. Thus, the request by French General George Broulard to his subordinate General Paul Mireau to lead an attack to capture the Anthill, a key German held position which is just visible from the current French trench position, is generally regarded as futile. The request is largely one out of want for personal glory for the French military's upper echelon with little regard for the soldiers. Mireau hesitates in accepting the assignment until he learns that a prestigious promotion is on the line, one that is his regardless of success or failure. The regiment he assigns to carry out the attack is led by Colonel Dax, who has no other option but to obey orders despite both he and Mireau knowing the regiment's casualties would number over half without any guarantee of success. While Mireau's eyes are on his own personal gain, Dax is concerned both with carrying out the mission to the best of his ability while protecting his soldiers as a collective. What happens on the battlefield leads to a further rift in overall beliefs between Mireau and Dax in what is best for French society. What also results from the battle is a legal issue scapegoating three of Dax's soldiers, he who will protect his men to the best of his abilities against the cards stacked against them by the military elite.::Huggo A regiment are provoked to leave their trench during the capture of "Ant Hill" after a secluded ambush. Three individual soldiers are picked randomly from the regiment, to face a death trial for cowardice. Meanwhile their commanding officer Col. Dax defends their dignity, and life by battling with a general duo who seek to prove a vital point. 1916 - trench warfare between French and German troops on the battlefields of France perpetuates the slaughter of soldiers while impeding the significant advancement of either side. Indifferent to the plight of the men bogged down in the hell of the trenches, the French military elite incentivize their upper ranks with the promise of prestigious promotions - regardless of the outcome - in order to break the impasse. Colonel Dax (Kirk Douglas) is subsequently ordered by General Paul Mireau (George Macready) to launch an impossible attack on the heavily fortified, key German position of Anthill and Dax is in no position to refuse the suicidal assignment. In return for their service, a few of Dax's soldiers are scapegoated and he is forced to mount a defense against his own egomaniacal superiors and their insatiable hunger for glory.::Mae Moreno
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,52 +67,60 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Schleißheim Palace, Oberschleißheim, Bavaria, Germany
+            <td class="table__cell">
+                Schlossanlage Schleissheim, Max-Emanuel-Platz 1, Oberschleißheim, Bavaria 85764, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.248647</span>, <span class="lon">11.568404000000001</span>
-                    </td>   
+                48.248647, 11.568404000000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bavaria Studios, Bavariafilmplatz 7, Geiselgasteig, Grünwald, Bavaria, Germany 
+            <td class="table__cell">
+                Bavariafilmplatz 7, 82031 Grünwald, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.066591</span>, <span class="lon">11.549117</span>
-                    </td>   
+                48.066591, 11.549117
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Munich, Bavaria, Germany 
+            <td class="table__cell">
+                München, Bavaria, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.13333</span>, <span class="lon">11.56667</span>
-                    </td>   
+                48.13333, 11.56667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bernried, Weilheim Schongau, Bavaria, Germany
+            <td class="table__cell">
+                B 472, 86977 Burggen, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 47.7896734</span>, <span class="lon">10.7973597</span>
-                    </td>   
+                47.7896734, 10.7973597
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pacaria Filmkunst Studios, Munich, Bavaria, Germany 
+            <td class="table__cell">
+                München, Bavaria, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.13333</span>, <span class="lon">11.56667</span>
-                    </td>   
+                48.13333, 11.56667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Bavaria, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.7775</span>, <span class="lon">11.43111</span>
-                    </td>   
+                48.7775, 11.43111
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Germany
+            </td>   
+                <td class="table__cell">
+                51.1334813439932, 10.0183432948567
+            </td>   
           </tr> 
           </tr>
         
@@ -119,5 +134,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[47.7896734, 10.7973597], [48.066591, 11.549117], [48.13333, 11.56667]], "data": [{"lat": 48.248647, "lon": 11.568404000000001, "name": "Schlossanlage Schleissheim, Max-Emanuel-Platz 1, Oberschlei\u00dfheim, Bavaria 85764, Germany"}, {"lat": 48.066591, "lon": 11.549117, "name": "Bavariafilmplatz 7, 82031 Gr\u00fcnwald, Germany"}, {"lat": 48.13333, "lon": 11.56667, "name": "M\u00fcnchen, Bavaria, Germany"}, {"lat": 47.7896734, "lon": 10.7973597, "name": "B 472, 86977 Burggen, Germany"}, {"lat": 48.13333, "lon": 11.56667, "name": "M\u00fcnchen, Bavaria, Germany"}, {"lat": 48.7775, "lon": 11.43111, "name": "Bavaria, Germany"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

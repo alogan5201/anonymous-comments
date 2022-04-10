@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Three Billboards Outside Ebbing, Missouri</h3>
                         <p class="card-text">
-                          A mother personally challenges the local authorities to solve her daughter's murder when they fail to catch the culprit.
+                          A mother personally challenges the local authorities to solve her daughter's murder when they fail to catch the culprit. THREE BILLBOARDS OUTSIDE EBBING, MISSOURI is a darkly comic drama from Academy Award nominee Martin McDonagh (In Bruges). After months have passed without a culprit in her daughter's murder case, Mildred Hayes (Academy Award winner Frances McDormand) makes a bold move, painting three signs leading into her town with a controversial message directed at William Willoughby (Academy Award nominee Woody Harrelson), the town's revered chief of police. When his second-in-command Officer Dixon (Academy Award winner Sam Rockwell), an immature mother's boy with a penchant for violence, gets involved, the battle between Mildred and Ebbing's law enforcement is only exacerbated.::Fox Searchlight Pictures In an effort to track down who raped and murdered her daughter, Mildred Hayes has three billboards erected outside her town of Ebbing, Missouri. They accuse the Sheriff of doing nothing to catch the killer. This causes a largely adverse, and diverse, reaction amongst the town's folk, not least of all the sheriff's deputy, the hot-headed, irascible Jason Dixon.::grantss It's been already seven months since her daughter's hideous murder, and the divorced mother, Mildred Hayes, is still grieving, refusing to come to terms with her loss. In Mildred's case, nothing seems to be able to take away the gut-wrenching pain only a mother feels when she loses a child; however, in one of those spur-of-the-moment decisions, the plucky parent will rent three derelict billboards on the outskirts of her town, Ebbing, to declare war against the local police for failing to find the killer. No one is spared in this brave crusade, not even the ailing police chief, Willoughby, as Mildred's bold black-on-red statements demand answers and the culprit's head on a platter. Just how far is Mildred willing to go to appease her rage?::Nick Riganas The story takes place entirely in the small town of Ebbing, Missouri, where a girl was raped and murdered a few months ago. The mother, Mildred Hayes, believes that the local police did nothing to find the killer, so she rents three billboards in order to challenge them to search deeper. This leads to many complex situations that involve tragedy, anger, hate, love, redemption and broken characters.::Chris Makrozahopoulos <makzax@hotmail.com> Mildred Hayes, a hard-nosed mother is seeking justice for her murdered daughter. With no arrests after seven months, Mildred puts up three roadside signs to goad Ebbing police chief into action. But the law - and especially Sam Rockwell's hot-headed deputy - don't take kindly to the provocation. And the townsfolk are on their side. But Mildred doesn't care about ruffling a few feathers. In fact, she's happy to pluck the whole bird.::Jwelch5742 It's been seven months since Angela Hayes was discovered raped and murdered outside her small hometown of Ebbing, Missouri. Because of what she believes is the police inaction on the case, frustrated and angry Mildred Hayes, Angela's divorced working class mother, rents the three no longer used billboards, despite the cost of the rental which she really cannot afford, on a local road just outside of town for one year, the billboards to have messages in simple, bold faced text highlighting that police inaction on the case. Mildred, via the billboards, names Chief Bill Willoughby directly as although not the lead investigator, he is the chief and the "buck stops with him". Using his name is also despite Mildred knowing what is probably the worst kept secret in town: that he is suffering from a terminal case of pancreatic cancer, his eventually passing which would leave him survived by his loving wife and two adolescent daughters. The police's lead investigator in Angela's case, Jason Dixon, is openly racist, misogynistic, homophobic and a mama's boy, who prefers to read comic books than do any meaningful work. With the billboards the highest profile action on the matter in months, the rhetoric and associated actions ratchets up on both sides with each having his or her supporters who are not afraid to show that support largely through intimidation on their own initiative. Any support Mildred gets, which does not include from her abusive ex-husband Charlie who is in a relationship with nineteen year old Penelope, is despite she not being easy to like outside of this situation, she and Angela who did not have the best of mother/daughter relationships. As both sides try to protect their position, the fact of Angela herself may get lost in the process.::Huggo
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,76 +455,84 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Sylva, North Carolina, USA 
+            <td class="table__cell">
+                Sylva, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.3737</span>, <span class="lon">-83.226</span>
-                    </td>   
+                35.3737, -83.226
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Black Mountain, North Carolina, USA 
+            <td class="table__cell">
+                Black Mountain, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.6179</span>, <span class="lon">-82.3212</span>
-                    </td>   
+                35.6179, -82.3212
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                North Carolina, USA
+            <td class="table__cell">
+                North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.5568849207</span>, <span class="lon">-79.3896838690365</span>
-                    </td>   
+                35.5568849207, -79.3896838690365
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Maggie Valley, North Carolina, USA 
+            <td class="table__cell">
+                Maggie Valley, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.5182</span>, <span class="lon">-83.0976</span>
-                    </td>   
+                35.5182, -83.0976
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dillsboro, North Carolina, USA 
+            <td class="table__cell">
+                Dillsboro, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.369202</span>, <span class="lon">-83.2525</span>
-                    </td>   
+                35.369202, -83.2525
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cullowhee, North Carolina, USA 
+            <td class="table__cell">
+                Cullowhee, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.3096</span>, <span class="lon">-83.1813</span>
-                    </td>   
+                35.3096, -83.1813
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Clyde, North Carolina, USA 
+            <td class="table__cell">
+                Clyde, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.5334</span>, <span class="lon">-82.9107</span>
-                    </td>   
+                35.5334, -82.9107
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Asheville, North Carolina, USA
+            <td class="table__cell">
+                Asheville, North Carolina, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.6009</span>, <span class="lon">-82.554</span>
-                    </td>   
+                35.6009, -82.554
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                581 W. Main Street, Sylva, North Carolina, USA 
+            <td class="table__cell">
+                581 West Main Street, Sylva, North Carolina 28779, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.37326</span>, <span class="lon">-83.22343</span>
-                    </td>   
+                35.37326, -83.22343
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -594,5 +605,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[35.3096, -83.1813], [35.369202, -83.2525], [35.37326, -83.22343]], "data": [{"lat": 35.3737, "lon": -83.226, "name": "Sylva, North Carolina, United States"}, {"lat": 35.6179, "lon": -82.3212, "name": "Black Mountain, North Carolina, United States"}, {"lat": 35.5568849207, "lon": -79.3896838690365, "name": "North Carolina, United States"}, {"lat": 35.5182, "lon": -83.0976, "name": "Maggie Valley, North Carolina, United States"}, {"lat": 35.369202, "lon": -83.2525, "name": "Dillsboro, North Carolina, United States"}, {"lat": 35.3096, "lon": -83.1813, "name": "Cullowhee, North Carolina, United States"}, {"lat": 35.5334, "lon": -82.9107, "name": "Clyde, North Carolina, United States"}, {"lat": 35.6009, "lon": -82.554, "name": "Asheville, North Carolina, United States"}, {"lat": 35.37326, "lon": -83.22343, "name": "581 West Main Street, Sylva, North Carolina 28779, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

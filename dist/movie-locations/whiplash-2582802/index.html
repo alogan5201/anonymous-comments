@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Whiplash</h3>
                         <p class="card-text">
-                          A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.
+                          A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential. Nineteen year old Andrew Niemann wants to be the greatest jazz drummer in the world, in a league with Buddy Rich. This goal is despite not coming from a pedigree of greatest, musical or otherwise, with Jim, his high school teacher father, being a failed writer. Andrew is starting his first year at Shaffer Conservatory of Music, the best music school in the United States. At Shaffer, being the best means being accepted to study under Terence Fletcher and being asked to play in his studio band, which represents the school at jazz competitions. Based on their less than positive first meeting, Andrew is surprised that Fletcher asks him to join the band, albeit in the alternate drummer position which he is more than happy to do initially. Andrew quickly learns that Fletcher operates on fear and intimidation, never settling for what he considers less than the best each and every time. Being the best in Fletcher's mind does not only entail playing well, but knowing that you're playing well and if not what you're doing wrong. His modus operandi creates an atmosphere of fear and of every man or woman for him/herself within the band. Regardless, Andrew works hard to be the best. He has to figure out his life priorities and what he is willing to sacrifice to be the best. The other question becomes how much emotional abuse he will endure by Fletcher to reach that greatness, which he may believe he can only achieve with the avenues opened up by Fletcher.::Huggo Andrew Neiman, a 19-year-old jazz drummer is determined to rise to the top of the country's most elite music conservatory. Plagued by the failed writing career of his father, Andrew hungers day and night to become one of the greats. Terence Fletcher (J.K. Simmons, Juno), an instructor equally known for his teaching talents as for his terrifying methods, leads the top jazz ensemble in the school. Fletcher discovers Andrew and transfers the aspiring drummer into his band, forever changing the young man's life. Andrew's passion to achieve perfection quickly spirals into obsession, as his ruthless teacher continues to push him to the brink of both his ability and his sanity.::Loft Cinema Andrew is a drummer and a first year student at the Schaffer Conservatory. He is selected by the school's senior instructor, Mr. Fletcher, to play on his studio band. Fletcher is - to say the least - a difficult and demanding task master who accepts and expects nothing less that perfection from his students. His methods of exacting the best from his students include belittling them, throwing objects at them and creating a level of tension so high that average individuals would likely crumble under the pressure. It leads Andrew to eventually quit but a surprise encounter with Fletcher gives him a chance to show just what he can accomplish - or to fail miserably.::garykmcd With dreams of becoming one of the best jazz drummers in the world, Andrew Neiman enrols himself into a prestigious music conservatory. His ambition does not go unnoticed, and he is hand-picked, and mentored by the schools senior instructor, Fletcher. Andrew soon realises that Fletcher's terrifying methods will either make, or break him as an artist.::BecksyKane
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,28 +455,28 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Clarita, California, USA
+            <td class="table__cell">
+                Santa Clarita, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.42</span>, <span class="lon">-118.54</span>
-                    </td>   
+                34.42, -118.54
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Orpheum Theater   842 South Broadway, Downtown, Los Angeles, California, USA 
+            <td class="table__cell">
+                842 Broadway, Santa Monica, California 90404, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.018918</span>, <span class="lon">-118.488884</span>
-                    </td>   
+                34.018918, -118.488884
+            </td>   
           </tr> 
           </tr>
         
@@ -546,5 +549,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.018918, -118.488884], [34.0544, -118.2439], [34.42, -118.54]], "data": [{"lat": 34.42, "lon": -118.54, "name": "Santa Clarita, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.018918, "lon": -118.488884, "name": "842 Broadway, Santa Monica, California 90404, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Life of Brian</h3>
                         <p class="card-text">
-                          Born on the original Christmas in the stable next door to Jesus Christ, Brian of Nazareth spends his life being mistaken for a messiah.
+                          Born on the original Christmas in the stable next door to Jesus Christ, Brian of Nazareth spends his life being mistaken for a messiah. The story of Brian of Nazareth (Graham Chapman), born on the same day as Jesus of Nazareth, who takes a different path in life that leads to the same conclusion. Brian joins a political resistance movement aiming to get the Romans out of Judea. Brian scores a victory of sorts when he manages to paint political slogans on an entire wall in the city of Jerusalem. The movement is not very effective but somehow Brian becomes a prophet and gathers his own following. His fate is sealed however and he lives a very short life.::garykmcd As the otherwise mighty Romans try to rule 33 A.D. Judea with an iron hand, Three Wise Men from the east arrive at a humble manger, intent on delivering their precious gifts to newborn Jesus Christ. Instead, they visit poor Mandy Cohen and her baby boy named Brian at their dilapidated stable, only to set in motion a series of unforeseen coincidences. As a result, thirty-three long years later, against the backdrop of a new religion, Brian has now become an active member of the subversive movement known as the "People's Front of Judea", only to find himself mistaken for the prophesied Messiah, after a botched act of extremism. Now, there's no turning back, and the cross awaits him. Can Brian prove that he was just a boy living a few stables away from Jesus?::Nick Riganas Brian is born in a stable on Christmas, right next to You Know Who. The wise men appear and begin to distribute gifts. The star moves further, so they take it all back and move on. This is how Brian's life goes. The Jews are looking for a release from the Romans, Spiritual and political decay, keep looking for signs and a group decides Brian is the Messiah. He cannot convince them he is not. He joins the Peoples' Front of Judea, one of several dozen separatist groups who actually do nothing, but really hate the Romans. While not about Jesus, it is about those who hadn't time, or interest to listen to his message. Many Political and Social comments.::John Vogel <jlvogel@comcast.net>
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,68 +455,76 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Amphitheater, Carthage, Tunis, Tunisia 
+            <td class="table__cell">
+                قرطاج, Tunis, Tunisia
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.851627037</span>, <span class="lon">10.330440681</span>
-                    </td>   
+                36.851627037, 10.330440681
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                El Hadj, Tunisia 
+            <td class="table__cell">
+                El Hadi, Limmerstr. 59, Hannover, Lower Saxony 30451, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 52.373853</span>, <span class="lon">9.706496</span>
-                    </td>   
+                52.373853, 9.706496
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kasbah of Sousse, Sousse, Tunisia 
+            <td class="table__cell">
+                Cité Ezzehour, Sousse, Tunisia
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.792971766</span>, <span class="lon">10.584336659</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Ribat, Monastir, Tunisia 
+                35.792971766, 10.584336659
             </td>   
-                <td class="table__cell">
-                <span class="lat"> 35.78333</span>, <span class="lon">10.83333</span>
-                    </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Matmata, Tunisia
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 33.545572738</span>, <span class="lon">9.967946839</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Sousse, Tunisia
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 35.83333</span>, <span class="lon">10.63333</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                London, England, UK
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Monastir, Tunisia
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.78333</span>, <span class="lon">10.83333</span>
-                    </td>   
+                35.78333, 10.83333
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Tunisia
+            </td>   
+                <td class="table__cell">
+                34.1107038598115, 9.56116835557131
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                مطماطة, Gabès, Tunisia
+            </td>   
+                <td class="table__cell">
+                33.545572738, 9.967946839
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Sousse, Tunisia
+            </td>   
+                <td class="table__cell">
+                35.83333, 10.63333
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                London, Greater London, England, United Kingdom
+            </td>   
+                <td class="table__cell">
+                51.507321899999994, -0.12764739999999997
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Monastir, Tunisia
+            </td>   
+                <td class="table__cell">
+                35.78333, 10.83333
+            </td>   
           </tr> 
           </tr>
         
@@ -586,5 +597,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[35.78333, 10.83333], [35.78333, 10.83333], [35.792971766, 10.584336659]], "data": [{"lat": 36.851627037, "lon": 10.330440681, "name": "\u0642\u0631\u0637\u0627\u062c, Tunis, Tunisia"}, {"lat": 52.373853, "lon": 9.706496, "name": "El Hadi, Limmerstr. 59, Hannover, Lower Saxony 30451, Germany"}, {"lat": 35.792971766, "lon": 10.584336659, "name": "Cit\u00e9 Ezzehour, Sousse, Tunisia"}, {"lat": 35.78333, "lon": 10.83333, "name": "Monastir, Tunisia"}, {"lat": 34.1107038598115, "lon": 9.56116835557131, "name": "Tunisia"}, {"lat": 33.545572738, "lon": 9.967946839, "name": "\u0645\u0637\u0645\u0627\u0637\u0629, Gab\u00e8s, Tunisia"}, {"lat": 35.83333, "lon": 10.63333, "name": "Sousse, Tunisia"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 35.78333, "lon": 10.83333, "name": "Monastir, Tunisia"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

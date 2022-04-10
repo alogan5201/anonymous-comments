@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Fight Club</h3>
                         <p class="card-text">
-                          An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.
+                          An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more. A nameless first person narrator (Edward Norton) attends support groups in attempt to subdue his emotional state and relieve his insomniac state. When he meets Marla (Helena Bonham Carter), another fake attendee of support groups, his life seems to become a little more bearable. However when he associates himself with Tyler (Brad Pitt) he is dragged into an underground fight club and soap making scheme. Together the two men spiral out of control and engage in competitive rivalry for love and power.::Rhiannon A young man leads a pretty humdrum life assessing car crashes to determine if his automobile company should issue recalls to fix problems. He also suffers from insomnia and takes to attending group therapy sessions for people who have survived various diseases. There he meets Marla who like him attends these sessions though she is neither a victim nor a survivor. His life changes when he meets Tyler Durden on a flight home. Tyler seems to be everything that he's not and together they create a men-only group for bare-knuckle fighting. It soon becomes all the rage with fight clubs springing up across the country and the group itself becoming an anti-capitalist domestic terrorist organization. Tyler and Marla develop a relationship leaving him often on the outside of what is going on. He soon finds that the group is out of control and after a major self-revelation decides there is only one way out.::garykmcd An insomniac unnamed narrator needs a fantasy to escape from his deadly boring life, he tries joining a cancer support group however the only thing they do in the group is cry into each others chest, but then he is on a plane on his way back from what a viewer would assume is a business trip our unnamed narrator encounters Tyler Durden, a soap selling bad-ass who happens to run a secret fight club in the diner parking lot with his friend who follows 8 simple rules set out by Tyler, our unnamed narrator of course is taken into this scheme ran by Tyler.::ahmetkozan Posing as a pitiful sufferer during fruitless late-night sessions in highly addictive support groups for terminal illnesses, an unhappy insomniac struggles to find meaning in his mundane and dysfunctional existence. Then, a fateful encounter with the anarchist philosopher and travelling soap salesman, Tyler Durden, changes his life, as--for the first time in a long while--the bored white-collar worker reconnects with his inner self. Much to his surprise, the formerly depressed loner finds himself deriving pleasure out of pain through bare-knuckle brawls in the Fight Club: an underground society of men who yearn to free themselves from the fetters of a cruel modern life. Now, he is ready to wage war. Are violence and freedom the two sides of the same coin?::Nick Riganas A young urban professional who works for a major car manufacturer can't sleep. Although he doesn't have any of the associated afflictions, he stumbles across support groups as a means to let out whatever emotions he is feeling, which in turn allows him to sleep. But the use of these support groups is ruined when he meets a young woman named Marla Singer, who is also going to all these support group meetings. Because he knows she too is not afflicted with any of the maladies for which the groups exist, her presence has lessened the impact of the stories he hears. His life changes when he meets a soap manufacturer named Tyler Durden, who in many ways is the antithesis of the insomniac. Due to unusual circumstances with his own condo, the insomniac moves in with Tyler, who lives in a large dilapidated house in an otherwise abandoned part of town. After a bit of spontaneous roughhousing with Tyler in a bar parking lot, the insomniac finds it becomes a ritual between the two of them, which helps him cope with the other more difficult aspects of his life. The fights also attract a following, others who not only want to watch but join in. Understanding that there are other men like them, the insomniac and Tyler begin a secret fight club. As the fight club's popularity grows, so does its scope in all aspects. Marla becomes a circle not specifically of the fight clubs but of Tyler and the insomniac's collectives lives. As the nature of the fight clubs becomes out of control in the insomniac's view, the insomniac's life, in association, is one where he no longer understands what is happening around him, or how he can get out of it without harming himself.::Huggo
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,227 +455,228 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                240 North Neptune Avenue, Los Angeles, California, USA 
+            <td class="table__cell">
+                240 North Neptune Avenue, Wilmington, California 90744, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.773259</span>, <span class="lon">-118.268456</span>
-                    </td>   
+                33.773259, -118.268456
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                217 Figueroa Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                217 Figueroa Street, Los Angeles, California 90037, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.056268</span>, <span class="lon">-118.253413</span>
-                    </td>   
+                34.056268, -118.253413
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St. Brendan's Catholic Church   310 S. Van Ness Avenue, Hancock Park, Los Angeles, California, USA
+            <td class="table__cell">
+                325 West 8th Street, Los Angeles, California 90014, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0685</span>, <span class="lon">-118.31483</span>
-                    </td>   
+                34.04443, -118.25542
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 15, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA 
+            <td class="table__cell">
+                310 South Van Ness Avenue, Los Angeles, California 90020, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04994</span>, <span class="lon">-118.41129</span>
-                    </td>   
+                34.0685, -118.31483
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                325 West 8th Street   Los Angeles, California, USA 
+            <td class="table__cell">
+                10201 West Pico Boulevard, Los Angeles, California 90064, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04443</span>, <span class="lon">-118.25542</span>
-                    </td>   
+                34.04994, -118.41129
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                123 South Figueroa Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                123 Figueroa Street, Los Angeles, California 90012, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.05758</span>, <span class="lon">-118.2532</span>
-                    </td>   
+                34.05758, -118.2532
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1331 B Street, Wilmington, Los Angeles, California, USA 
+            <td class="table__cell">
+                1331 West C Street, Wilmington, California 90744, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.77064</span>, <span class="lon">-118.27834</span>
-                    </td>   
+                33.77064, -118.27834
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tower Theatre   802 S. Broadway, Downtown, Los Angeles, California, USA 
+            <td class="table__cell">
+                802 Broadway, Santa Monica, California 90404, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.018158</span>, <span class="lon">-118.48982</span>
-                    </td>   
+                34.018158, -118.48982
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                421 W. Eighth Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                421 East 8th Street, Los Angeles, California 90014, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04046</span>, <span class="lon">-118.25048</span>
-                    </td>   
+                34.04046, -118.25048
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Melrose Avenue at North Heliotrope Drive, Los Angeles, California, USA 
+            <td class="table__cell">
+                Melrose, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.085376</span>, <span class="lon">-118.352768</span>
-                    </td>   
+                34.085376, -118.352768
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                505 North Avalon Boulevard, Los Angeles, California, USA 
+            <td class="table__cell">
+                505 North Avalon Boulevard, Wilmington, California 90744, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.77581</span>, <span class="lon">-118.262405</span>
-                    </td>   
+                33.77581, -118.262405
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                330 West 8th Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                330 West 8th Street, Los Angeles, California 90014, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04421</span>, <span class="lon">-118.255685</span>
-                    </td>   
+                34.04421, -118.255685
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                150 World Way, Los Angeles, California, USA 
+            <td class="table__cell">
+                150 World Way, Los Angeles, California 90045, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.94737</span>, <span class="lon">-118.40125</span>
-                    </td>   
+                33.94737, -118.40125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles Center Studios   450 S. Bixel Street, Downtown, Los Angeles, California, USA 
+            <td class="table__cell">
+                450 South Bixel Street, Los Angeles, California 90017, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.055789</span>, <span class="lon">-118.2609</span>
-                    </td>   
+                34.055789, -118.2609
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Olympic Theatre   313 W. Eighth Street, Los Angeles, California, USA 
+            <td class="table__cell">
+                313 East 8th Street, Los Angeles, California 90021, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.041007</span>, <span class="lon">-118.251351</span>
-                    </td>   
+                34.041007, -118.251351
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Pedro, Los Angeles, California, USA
+            <td class="table__cell">
+                San Pedro Street, Carson, California 90746, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.88105</span>, <span class="lon">-118.26406</span>
-                    </td>   
+                33.88105, -118.26406
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 16, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA 
+            <td class="table__cell">
+                10201 West Pico Boulevard, Los Angeles, California 90064, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04994</span>, <span class="lon">-118.41129</span>
-                    </td>   
+                34.04994, -118.41129
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles Theatre   615 S. Broadway, Downtown, Los Angeles, California, USA 
+            <td class="table__cell">
+                615 South Broadway, Los Angeles, California 90014, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04634</span>, <span class="lon">-118.25255</span>
-                    </td>   
+                34.04634, -118.25255
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hancock Park, Los Angeles, California, USA
+            <td class="table__cell">
+                Hancock Park, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0678</span>, <span class="lon">-118.3326</span>
-                    </td>   
+                34.0678, -118.3326
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Century City, Los Angeles, California, USA
+            <td class="table__cell">
+                Century City, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0556</span>, <span class="lon">-118.4179</span>
-                    </td>   
+                34.0556, -118.4179
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                4313 Melrose Avenue, Los Angeles, California, USA 
+            <td class="table__cell">
+                4313 Melrose Avenue, Los Angeles, California 90046, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.083589</span>, <span class="lon">-118.294576</span>
-                    </td>   
+                34.083589, -118.294576
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ukrainian Culture Center   4315 Melrose Avenue, Los Angeles, California, USA 
+            <td class="table__cell">
+                Melrose, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.083648</span>, <span class="lon">-118.294594</span>
-                    </td>   
+                34.085376, -118.352768
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                4323 Melrose Avenue, Los Angeles, California, USA 
+            <td class="table__cell">
+                4323 Melrose Avenue, Los Angeles, California 90029, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0837</span>, <span class="lon">-118.29472</span>
-                    </td>   
+                34.0837, -118.29472
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Wilmington, Los Angeles, California, USA
+            <td class="table__cell">
+                South Wilmington Avenue, Compton, California 90220, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.87155</span>, <span class="lon">-118.23678</span>
-                    </td>   
+                33.87155, -118.23678
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Downtown, Los Angeles, California, USA
+            <td class="table__cell">
+                Downtown, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
-                    </td>   
+                34.05, -118.23
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -745,5 +749,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.77064, -118.27834], [33.773259, -118.268456], [33.77581, -118.262405]], "data": [{"lat": 33.773259, "lon": -118.268456, "name": "240 North Neptune Avenue, Wilmington, California 90744, United States"}, {"lat": 34.056268, "lon": -118.253413, "name": "217 Figueroa Street, Los Angeles, California 90037, United States"}, {"lat": 34.04443, "lon": -118.25542, "name": "325 West 8th Street, Los Angeles, California 90014, United States"}, {"lat": 34.0685, "lon": -118.31483, "name": "310 South Van Ness Avenue, Los Angeles, California 90020, United States"}, {"lat": 34.04994, "lon": -118.41129, "name": "10201 West Pico Boulevard, Los Angeles, California 90064, United States"}, {"lat": 34.05758, "lon": -118.2532, "name": "123 Figueroa Street, Los Angeles, California 90012, United States"}, {"lat": 33.77064, "lon": -118.27834, "name": "1331 West C Street, Wilmington, California 90744, United States"}, {"lat": 34.018158, "lon": -118.48982, "name": "802 Broadway, Santa Monica, California 90404, United States"}, {"lat": 34.04046, "lon": -118.25048, "name": "421 East 8th Street, Los Angeles, California 90014, United States"}, {"lat": 34.085376, "lon": -118.352768, "name": "Melrose, Los Angeles, California, United States"}, {"lat": 33.77581, "lon": -118.262405, "name": "505 North Avalon Boulevard, Wilmington, California 90744, United States"}, {"lat": 34.04421, "lon": -118.255685, "name": "330 West 8th Street, Los Angeles, California 90014, United States"}, {"lat": 33.94737, "lon": -118.40125, "name": "150 World Way, Los Angeles, California 90045, United States"}, {"lat": 34.055789, "lon": -118.2609, "name": "450 South Bixel Street, Los Angeles, California 90017, United States"}, {"lat": 34.041007, "lon": -118.251351, "name": "313 East 8th Street, Los Angeles, California 90021, United States"}, {"lat": 33.88105, "lon": -118.26406, "name": "San Pedro Street, Carson, California 90746, United States"}, {"lat": 34.04994, "lon": -118.41129, "name": "10201 West Pico Boulevard, Los Angeles, California 90064, United States"}, {"lat": 34.04634, "lon": -118.25255, "name": "615 South Broadway, Los Angeles, California 90014, United States"}, {"lat": 34.0678, "lon": -118.3326, "name": "Hancock Park, Los Angeles, California, United States"}, {"lat": 34.0556, "lon": -118.4179, "name": "Century City, Los Angeles, California, United States"}, {"lat": 34.083589, "lon": -118.294576, "name": "4313 Melrose Avenue, Los Angeles, California 90046, United States"}, {"lat": 34.085376, "lon": -118.352768, "name": "Melrose, Los Angeles, California, United States"}, {"lat": 34.0837, "lon": -118.29472, "name": "4323 Melrose Avenue, Los Angeles, California 90029, United States"}, {"lat": 33.87155, "lon": -118.23678, "name": "South Wilmington Avenue, Compton, California 90220, United States"}, {"lat": 34.05, "lon": -118.23, "name": "Downtown, Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Seven Samurai</h3>
                         <p class="card-text">
-                          A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves.
+                          A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves. A veteran samurai, who has fallen on hard times, answers a village's request for protection from bandits. He gathers 6 other samurai to help him, and they teach the townspeople how to defend themselves, and they supply the samurai with three small meals a day. The film culminates in a giant battle when 40 bandits attack the village.::Colin Tinto <cst@imdb.com> In the Sixteenth Century, in Japan, a poor village is frequently looted by armed bandits losing their crop of rice. Their patriarch Grandpa advises the villagers to hire a Ronin to defend their village. Four farmers head to town to seek out their possible protectors, but they just can offer three meals of rice per day and lodging for the samurai. They succeed in hiring the warming-hearted veteran Kambei Shimada that advises that they need six other samurai to protect their lands. Kambei recruits the necessary five samurai and the brave jester Kikuchiyo and move to the village. After a feared reception, Kambei plots a defense strategy and the samurai start training the farmers how to defend their lands and families for the battle that approaches.::Claudio Carvalho, Rio de Janeiro, Brazil Fed up with the annual hit-and-run raids by a marauding gang of ferocious bandits, the peaceful farmers of a small sixteenth-century Japanese community summon up the courage to take matters into their own hands, dispatching the hot-headed villager, Rikichi, to bring help. When the farmer returns to the village, seven battle-scarred ronin become the defenceless hamlet's new protectors, entrusted with the challenging task of teaching the inexperienced peasants how to fight, in exchange for a handful of rice and lodging. Undoubtedly, before the imminent attack of the mounted plunderers, the odds are stacked up against the farmers and their defenders; however, both have sworn to fight like lions for their freedom. Can the Seven Samurai pull off a surprise victory?::Nick Riganas A village is constantly attacked by well armed bandits. One day after an attack they seek the wisdom of an elder who tells them they cannot afford weapons, but they can find men with weapons, samurai, who will fight for them, if they find samurai who are in down on their luck and wondering where their next meal will come from. They find a very experienced samurai with a good heart who agrees to recruit their party for them. He selects five genuine samurai and one who is suspect but the seven return to the village to protect it from the forty plus bandits.::John Vogel <jlvogel@comcast.net> In 16th century Japan, farmers in a small village face the prospect of again losing their crops to a band of roving thieves. Their solution is to go to the nearest city and see if they can hire samurai to protect them. The farmers are poor and can only offer food and lodging but they soon recruit Kambei Shimada who determines that they will need a total of seven samurai to properly guard the village. Slowly, he recruits other samurai for their task and once complete, move to the village. There they teach the farmers basic self defense and fortify the village itself. When the bandits attack, they are prepared but suffer many losses.::garykmcd
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,19 +67,20 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Izu Peninsula, Shizuoka, Japan
+            <td class="table__cell">
+                Japan, Shizuoka伊豆市
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.97667</span>, <span class="lon">138.94694</span>
-                    </td>   
+                34.97667, 138.94694
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                Japan
             </td>   
                 <td class="table__cell">
-                </td>   
+                36.3864928218528, 138.592229549504
+            </td>   
           </tr> 
           </tr>
         
@@ -86,5 +94,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 34.97667, "lon": 138.94694, "name": "Japan, Shizuoka\u4f0a\u8c46\u5e02"}, {"lat": 36.3864928218528, "lon": 138.592229549504, "name": "Japan"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

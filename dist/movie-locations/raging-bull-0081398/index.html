@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Raging Bull</h3>
                         <p class="card-text">
-                          The life of boxer Jake LaMotta, whose violence and temper that led him to the top in the ring destroyed his life outside of it.
+                          The life of boxer Jake LaMotta, whose violence and temper that led him to the top in the ring destroyed his life outside of it. When Jake LaMotta steps into a boxing ring and obliterates his opponent, he's a prizefighter. But when he treats his family and friends the same way, he's a ticking time bomb, ready to go off at any moment. Though LaMotta wants his family's love, something always seems to come between them. Perhaps it's his violent bouts of paranoia and jealousy. This kind of rage helped make him a champ, but in real life, he winds up in the ring alone.::alfiehitchie The story of middleweight boxing champion Jake LaMotta, famously dubbed, "The Raging Bull" and "The Bronx Bull". Martin Scorsese's "Raging Bull" chronicles two decades of his life, and how the violence inside the ring was only an extension of his violence and temper outside of it.::Liam Alexander The life of Bronx-based Jake LaMotta during his professional middleweight boxing career from 1941 to the mid-1950s, and his immediate post-boxing life is dramatized. Managed for most of his boxing career by his brother Joey LaMotta, Jake has the goal not only of getting the title fight at almost any cost - the one thing he unwilling to do to demonstrate that he is the best and in his "my way or the high way" mentality is to be knocked out, even if it is for a longer term benefit - but also to have the most fame possible, which means the improbable fantasy of becoming a heavyweight. While not managed by them, much of his career is affected by his and Joey's mafia connections. Despite his boxing prowess, Jake, to reach his own personal goals, has to overcome his disagreements with what the mafia wants and his own brutish behavior, which spills over into his personal life. That personal life shown largely is during the time of what is his second marriage, to Vickie LaMotta, a girl he spotted in the neighborhood. Their relationship is punctuated by jealousy and paranoia on Jake's side, he who becomes to believe that Vickie is sleeping with every man to who she pays any attention, those feelings by Jake which leads to emotional and physical abuse.::Huggo
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,132 +455,180 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Hell's Kitchen, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                Hell's Kitchen, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7573</span>, <span class="lon">-73.9954</span>
-                    </td>   
+                40.7573, -73.9954
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1 Clarkson street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                1 Clarkson Street, New York, New York 10014, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.72951</span>, <span class="lon">-74.00544</span>
-                    </td>   
+                40.72951, -74.00544
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Olympic Auditorium   1801 S. Grand Avenue, Downtown, Los Angeles, California, USA 
+            <td class="table__cell">
+                1801 Grand Avenue, Pasadena, California 91030, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.124076</span>, <span class="lon">-118.163214</span>
-                    </td>   
+                34.124076, -118.163214
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Webster Hall   125 East 11th Street, Greenwich Village, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                125 East 11th Street, New York, New York 10003, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.73166</span>, <span class="lon">-73.98917</span>
-                    </td>   
+                40.73166, -73.98917
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                3460 Cabrillo Boulevard, Los Angeles, California, USA 
+            <td class="table__cell">
+                3460 Cabrillo Boulevard, Los Angeles, California 90066, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.00877</span>, <span class="lon">-118.44424</span>
-                    </td>   
+                34.00877, -118.44424
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Downtown, Los Angeles, California, USA
+            <td class="table__cell">
+                Downtown, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
-                    </td>   
+                34.05, -118.23
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Culver City, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
-                    </td>   
+                34.0211, -118.3965
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Pedro, Los Angeles, California, USA
+            <td class="table__cell">
+                443 West 56th Street, New York, New York 10019, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.88105</span>, <span class="lon">-118.26406</span>
-                    </td>   
+                40.768225, -73.988125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Culver City, California, USA
+            <td class="table__cell">
+                10 East 60th Street, New York, New York 10022, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0211</span>, <span class="lon">-118.3965</span>
-                    </td>   
+                40.76429, -73.97174
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                443 West 56th Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                1331 South Pacific Avenue, San Pedro, California 90731, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.768225</span>, <span class="lon">-73.988125</span>
-                    </td>   
+                33.73182, -118.28832
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                10 East 60th Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                9336 Washington Boulevard, Culver City, California 90232, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.76429</span>, <span class="lon">-73.97174</span>
-                    </td>   
+                34.02448, -118.39238
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1331 South Pacific Ave, San Pedro, Los Angeles, California, USA 
+            <td class="table__cell">
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.73182</span>, <span class="lon">-118.28832</span>
-                    </td>   
+                40.68917359673309, -73.9826731487689
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Culver Studios   9336 W. Washington Blvd., Culver City, California, USA
+            <td class="table__cell">
+                San Pedro Street, Carson, California 90746, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.022904</span>, <span class="lon">-118.395508</span>
-                    </td>   
+                33.88105, -118.26406
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                116 East 14th Street, New York, New York 10003, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                40.733994, -73.988847
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York, USA
+            <td class="table__cell">
+                106 Central Park South, New York, New York 10019, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
-                    </td>   
+                40.765585, -73.97683
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                1 City Island Road, Bronx, New York 10464, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
+                40.86343, -73.80777
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                220 West 49th Street, New York, New York 10019, United States
+            </td>   
+                <td class="table__cell">
+                40.760955, -73.9853
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                225 West 49th Street, New York, New York 10019, United States
+            </td>   
+                <td class="table__cell">
+                40.761315, -73.9853
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                California, United States
+            </td>   
+                <td class="table__cell">
+                37.0743595873, -119.699375153073
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                New York, New York, United States
+            </td>   
+                <td class="table__cell">
+                40.7306, -73.9866
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
+            </td>   
+                <td class="table__cell">
+                40.751296, -73.984819
+            </td>   
           </tr> 
           </tr>
         
@@ -650,5 +701,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.73182, -118.28832], [33.88105, -118.26406], [34.00877, -118.44424]], "data": [{"lat": 40.7573, "lon": -73.9954, "name": "Hell\u0027s Kitchen, New York, New York, United States"}, {"lat": 40.72951, "lon": -74.00544, "name": "1 Clarkson Street, New York, New York 10014, United States"}, {"lat": 34.124076, "lon": -118.163214, "name": "1801 Grand Avenue, Pasadena, California 91030, United States"}, {"lat": 40.73166, "lon": -73.98917, "name": "125 East 11th Street, New York, New York 10003, United States"}, {"lat": 34.00877, "lon": -118.44424, "name": "3460 Cabrillo Boulevard, Los Angeles, California 90066, United States"}, {"lat": 34.05, "lon": -118.23, "name": "Downtown, Los Angeles, California, United States"}, {"lat": 34.0211, "lon": -118.3965, "name": "Culver City, California, United States"}, {"lat": 40.768225, "lon": -73.988125, "name": "443 West 56th Street, New York, New York 10019, United States"}, {"lat": 40.76429, "lon": -73.97174, "name": "10 East 60th Street, New York, New York 10022, United States"}, {"lat": 33.73182, "lon": -118.28832, "name": "1331 South Pacific Avenue, San Pedro, California 90731, United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 33.88105, "lon": -118.26406, "name": "San Pedro Street, Carson, California 90746, United States"}, {"lat": 40.733994, "lon": -73.988847, "name": "116 East 14th Street, New York, New York 10003, United States"}, {"lat": 40.765585, "lon": -73.97683, "name": "106 Central Park South, New York, New York 10019, United States"}, {"lat": 40.86343, "lon": -73.80777, "name": "1 City Island Road, Bronx, New York 10464, United States"}, {"lat": 40.760955, "lon": -73.9853, "name": "220 West 49th Street, New York, New York 10019, United States"}, {"lat": 40.761315, "lon": -73.9853, "name": "225 West 49th Street, New York, New York 10019, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Schindler's List</h3>
                         <p class="card-text">
-                          In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.
+                          In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis. Oskar Schindler is a vain and greedy German businessman who becomes an unlikely humanitarian amid the barbaric German Nazi reign when he feels compelled to turn his factory into a refuge for Jews. Based on the true story of Oskar Schindler who managed to save about 1100 Jews from being gassed at the Auschwitz concentration camp, it is a testament to the good in all of us.::Harald Mayr <marvin@bike.augusta.de> The incredible true story of the enigmatic and opportunistic businessman Oskar Schindler, who saved the lives of more than 1,100 Jews during the Holocaust. Schindler's List chronicles the trials and triumph of one man who made a difference and the tribulations of those who survived one of the darkest chapters in human history because of his actions.::Spiricom Businessman Oskar Schindler arrives in Krakow in 1939, ready to make his fortune from World War II, which has just started. After joining the Nazi party primarily for political expediency, he staffs his factory with Jewish workers for similarly pragmatic reasons. When the SS begins exterminating Jews in the Krakow ghetto, Schindler arranges to have his workers protected to keep his factory in operation, but soon realizes that in so doing, he is also saving innocent lives.::Jwelch5742 The true story of Czech born Oskar Schindler, a businessman who tried to make his fortune during the Second World War by exploiting cheap Jewish labour, but ended up penniless having saved over 1000 Polish Jews from almost certain death during the Holocaust.::Rob Hartill "Schindler's List" is the based-on-truth story of Nazi Czech business man Oskar Schindler, who uses Jewish labor to start a factory in occupied Poland. As World War II progresses, and the fate of the Jews becomes more and more clear, Schindler's motivations switch from profit to human sympathy and he is able to save over 1100 Jews from death in the gas chambers.::Anthony Hughes <husnock31@hotmail.com>
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,74 +455,76 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Auschwitz Birkenau Concentration Camp, Oswiecim, Malopolskie, Poland
+            <td class="table__cell">
+                Oświęcim, Powiat Oświęcimski, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.03333</span>, <span class="lon">19.23333</span>
-                    </td>   
+                50.03333, 19.23333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Most Pilsudskiego, Kraków, Malopolskie, Poland
+            <td class="table__cell">
+                Kraków, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.06667</span>, <span class="lon">19.95</span>
-                    </td>   
+                50.06667, 19.95
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Plaszów, Kraków, Malopolskie, Poland
+            <td class="table__cell">
+                Łaszów, Powiat Proszowicki, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.281</span>, <span class="lon">20.339</span>
-                    </td>   
+                50.281, 20.339
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Szeroka, Kraków, Malopolskie, Poland
+            <td class="table__cell">
+                Szeroka, 31-053 Kraków, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.0522791</span>, <span class="lon">19.9479472</span>
-                    </td>   
+                50.0522791, 19.9479472
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kraków, Malopolskie, Poland 
+            <td class="table__cell">
+                Kraków, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.06667</span>, <span class="lon">19.95</span>
-                    </td>   
+                50.06667, 19.95
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Józefa, Kraków, Malopolskie, Poland
+            <td class="table__cell">
+                Józefa, 31-056 Kraków, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.0507477</span>, <span class="lon">19.9454284</span>
-                    </td>   
+                50.0507477, 19.9454284
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Jerusalem, Israel
+            <td class="table__cell">
+                Jerusalem, Jerusalem District, Israel
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 31.77331512</span>, <span class="lon">35.18679028</span>
-                    </td>   
+                31.77331512, 35.18679028
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                Poland
             </td>   
                 <td class="table__cell">
-                </td>   
+                52.1246099075455, 19.30063630556
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                Israel
             </td>   
                 <td class="table__cell">
-                </td>   
+                31.8472608144505, 34.8419985253627
+            </td>   
           </tr> 
           </tr>
         
@@ -592,5 +597,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[50.03333, 19.23333], [50.0507477, 19.9454284], [50.0522791, 19.9479472]], "data": [{"lat": 50.03333, "lon": 19.23333, "name": "O\u015bwi\u0119cim, Powiat O\u015bwi\u0119cimski, Lesser Poland Voivodeship, Poland"}, {"lat": 50.06667, "lon": 19.95, "name": "Krak\u00f3w, Lesser Poland Voivodeship, Poland"}, {"lat": 50.281, "lon": 20.339, "name": "\u0141asz\u00f3w, Powiat Proszowicki, Lesser Poland Voivodeship, Poland"}, {"lat": 50.0522791, "lon": 19.9479472, "name": "Szeroka, 31-053 Krak\u00f3w, Lesser Poland Voivodeship, Poland"}, {"lat": 50.06667, "lon": 19.95, "name": "Krak\u00f3w, Lesser Poland Voivodeship, Poland"}, {"lat": 50.0507477, "lon": 19.9454284, "name": "J\u00f3zefa, 31-056 Krak\u00f3w, Lesser Poland Voivodeship, Poland"}, {"lat": 31.77331512, "lon": 35.18679028, "name": "Jerusalem, Jerusalem District, Israel"}, {"lat": 52.1246099075455, "lon": 19.30063630556, "name": "Poland"}, {"lat": 31.8472608144505, "lon": 34.8419985253627, "name": "Israel"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

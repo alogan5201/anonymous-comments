@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Grave of the Fireflies</h3>
                         <p class="card-text">
-                          A young boy and his little sister struggle to survive in Japan during World War II.
+                          A young boy and his little sister struggle to survive in Japan during World War II. The story of Seita and Setsuko, two young Japanese siblings, living in the declining days of World War II. When an American firebombing separates the two children from their parents, the two siblings must rely completely on one another while they struggle to fight for their survival.::Kyle Perez Japan, World War 2. Teenage boy Seita and his young sister Setsuko are left homeless and effectively orphaned when their city is firebombed by US bombers. They end up living with an aunt. Initially things go well and life seems almost normal again. However, their relationship with their aunt deteriorates and Seita and Setsuko decide to leave and fend for themselves. They find a place and things seem to be going well. However, over time food gets scarcer and life becomes a constant struggle for survival.::grantss Separated from their mother during the strategic bombing of Kobe in World War II, fourteen-year-old Seita and his four-year-old sister, Setsuko, find themselves wandering in the carcass of their barren, scorched city. With their father serving in the Japanese Imperial Navy, and their distant aunt concerned with the survival of her family, the siblings end up scavenging for food in a battle-scarred country where shelter, and above all, resources are scarce. But life must go on. Why do fireflies have to die so soon?::Nick Riganas Setsuko (aged 4) and Seita (aged 14) are brother and sister living in wartime Japan. After their mother is killed in an air raid they find a temporary home with relatives. Having quarreled with their aunt they leave the city and make their home in an abandoned shelter. While their soldier father's destiny is unknown, the two must depend on each other to somehow keep a roof over their heads and food in their stomachs. When everything is in short supply, they gradually succumb to hunger and their only entertainment is the light of the fireflies.::Corrected by Liron
                         </p>
                       </div>
                     </div>
@@ -48,7 +48,18 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -67,5 +78,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": []}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

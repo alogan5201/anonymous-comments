@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Once Upon a Time in America</h3>
                         <p class="card-text">
-                          A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan 35 years later, where he must once again confront the ghosts and regrets of his old life.
+                          A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan 35 years later, where he must once again confront the ghosts and regrets of his old life. With the vivid memory of his long-gone childhood friends Max, Patsy, and Cockeye etched in his mind, his ferociously loyal partners-in-crime during their rise to prominence in New York's Prohibition-era Lower East Side, the defeated, penniless, and guilt-ridden former gangster David "Noodles" Aaronson returns to Manhattan. Not knowing what to expect on his mission to shed light on his opaque past, grizzled Noodles reunites with his only living friend Fat Moe after 35 haunted years of self-exile. However, the relentless, piercing sound of culpability stands in the way of finding closure, as the inscrutable content of a well-worn leather suitcase further complicates matters. And now, against the backdrop of a torn conscience, the sad, bittersweet recollections of more than 50 years of love, death, and everything in-between become inextricably intertwined, leading to even more puzzling questions. But what are a man's options when he is left with nothing?::Nick Riganas Epic, episodic tale of the lives of a small group of New York City Jewish gangsters spanning over 40 years. Told mostly in flashbacks and flash-forwards, the movie centers on small-time hood David 'Noodles' Aaronson and his lifelong partners in crime: Max, Cockeye, and Patsy, and their friends from growing up in the rough Jewish neighborhood of New York's Lower East Side in the 1920s to the last years of Prohibition in the early 1930s, through to the late 1960s, where an elderly Noodles returns to New York after many years in hiding to look into the past.::Matthew Patay
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,236 +67,236 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Williamsburg Bridge, New York City, New York, USA
+            <td class="table__cell">
+                Williamsburg Bridge, Williamsburg Bridge, New York, New York 10002, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.710444332031244</span>, <span class="lon">-73.98189653417968</span>
-                    </td>   
+                40.710444332031244, -73.98189653417968
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cinecittà Studios, Cinecittà, Rome, Lazio, Italy 
+            <td class="table__cell">
+                Cinecittà Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.852854</span>, <span class="lon">12.575212</span>
-                    </td>   
+                41.852854, 12.575212
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Don Cesar Hotel   3400 Gulf Boulevard, St. Petersburg, Florida, USA 
+            <td class="table__cell">
+                Don Cesar, Saint Petersburg Beach, Florida, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 27.7096</span>, <span class="lon">-82.7336</span>
-                    </td>   
+                27.7096, -82.7336
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Intersection of Washington Street and Water Street, Dumbo, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                Dumbo, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7026</span>, <span class="lon">-73.9904</span>
-                    </td>   
+                40.7026, -73.9904
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hoboken Terminal   1 Hudson Place, Hoboken, New Jersey, USA 
+            <td class="table__cell">
+                Hoboken Terminal, 1 Hudson Pl, Hoboken, New Jersey 07030, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.735020500000005</span>, <span class="lon">-74.0280775</span>
-                    </td>   
+                40.735020500000005, -74.0280775
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Woodlawn Cemetery, Bronx, New York City, New York, USA 
+            <td class="table__cell">
+                Woodlawn Cemetery, Webster Avenue, New York, New York 10467, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.887268750000004</span>, <span class="lon">-73.876942</span>
-                    </td>   
+                40.887268750000004, -73.876942
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gare du Nord, Paris 10, Paris, France 
+            <td class="table__cell">
+                Paris, France
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.85658</span>, <span class="lon">2.35183</span>
-                    </td>   
+                48.85658, 2.35183
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chambers Paper Fibres, 139 Plymouth Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                139 Plymouth Street, Brooklyn, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.70387</span>, <span class="lon">-73.98773</span>
-                    </td>   
+                40.70387, -73.98773
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Louiseville, Québec, Canada 
+            <td class="table__cell">
+                Manhattan Bridge, New York, New York 10002, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 46.255609</span>, <span class="lon">-72.947502</span>
-                    </td>   
+                40.71019, -73.99125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ocean Avenue and Warren Avenue, Spring Lake, New Jersey, USA 
+            <td class="table__cell">
+                Louiseville, Quebec, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.149335</span>, <span class="lon">-74.023211</span>
-                    </td>   
+                46.255609, -72.947502
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                300 Rue de Moyne, Montreal, Quebec, Canada 
+            <td class="table__cell">
+                Ocean Avenue and Warren Avenue, Spring Lake, New Jersey 07762, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.501678</span>, <span class="lon">-73.556648</span>
-                    </td>   
+                40.149335, -74.023211
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manhattan Bridge, New York City, New York, USA
+            <td class="table__cell">
+                300 Rue Le Moyne, Montréal, Quebec H2Y 1Y2, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.71019</span>, <span class="lon">-73.99125</span>
-                    </td>   
+                45.501678, -73.556648
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Vinegar Hill, New York, USA
+            <td class="table__cell">
+                Vinegar Hill, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.703651</span>, <span class="lon">-73.982253</span>
-                    </td>   
+                40.703651, -73.982253
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                95 South 8th Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                95 South 8th Street, Brooklyn, New York 11249, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.709845</span>, <span class="lon">-73.9653</span>
-                    </td>   
+                40.709845, -73.9653
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                449 Rue Saint Pierre, Montreal, Quebec, Canada 
+            <td class="table__cell">
+                449 Rue Saint-Pierre, Montréal, Quebec H2Y 2M8, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.502065</span>, <span class="lon">-73.557709</span>
-                    </td>   
+                45.502065, -73.557709
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Porto Marghera, Venice, Veneto, Italy 
+            <td class="table__cell">
+                Porto Marghera, Porto Marghera, Venezia, Venice 30175, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.460386</span>, <span class="lon">12.244992</span>
-                    </td>   
+                45.460386, 12.244992
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                350 Flushing Avenue, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                350 Flushing Avenue, Brooklyn, New York 11205, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.69808</span>, <span class="lon">-73.96056</span>
-                    </td>   
+                40.69808, -73.96056
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                300 Rue du Saint Sacrement, Montreal, Quebec, Canada 
+            <td class="table__cell">
+                300 Rue Saint-Sacrement, Montréal, Quebec H2Y 1X4, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.502045</span>, <span class="lon">-73.557128</span>
-                    </td>   
+                45.502045, -73.557128
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                105 South 8th Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                105 South 8th Street, Brooklyn, New York 11249, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.70979</span>, <span class="lon">-73.96489</span>
-                    </td>   
+                40.70979, -73.96489
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                126 South 8th Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                126 South 8th Street, Brooklyn, New York 11249, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.70948</span>, <span class="lon">-73.96432</span>
-                    </td>   
+                40.70948, -73.96432
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                2 Main Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                2 Main Street, Brooklyn, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7037</span>, <span class="lon">-73.99085</span>
-                    </td>   
+                40.7037, -73.99085
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1228 Rue Sherbrooke Ouest, Montreal, Quebec, Canada 
+            <td class="table__cell">
+                1228 Rue Sherbrooke Ouest, Montréal, Quebec H3G 0R1, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.499851</span>, <span class="lon">-73.577965</span>
-                    </td>   
+                45.499851, -73.577965
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bordeaux Prison   800 Boulevard Gouin Ouest, Montreal, Quebec, Canada 
+            <td class="table__cell">
+                800 Boulevard Gouin Ouest, Montréal, Quebec H3L 3W3, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.546694</span>, <span class="lon">-73.684816</span>
-                    </td>   
+                45.546694, -73.684816
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Excelsior Venice, Longomare Guglielmo Marconi 41, Venice, Veneto, Italy 
+            <td class="table__cell">
+                Via Guglielmo Marconi 41, 30175 Venezia Venice, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.466566</span>, <span class="lon">12.225048</span>
-                    </td>   
+                45.466566, 12.225048
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                459 Broome Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                459 Broome Street, New York, New York 10013, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.72226</span>, <span class="lon">-74.00108</span>
-                    </td>   
+                40.72226, -74.00108
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                2510 Court Square West, Long Island City, Queens, New York City, New York, USA 
+            <td class="table__cell">
+                25-10 Court Square, Queens, New York 11101, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.746085</span>, <span class="lon">-73.943055</span>
-                    </td>   
+                40.746085, -73.943055
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Guardia di Finanza Tenenza Castelporziano, Via Pontina 690, Castel Porziano, Rome, Lazio, Italy 
+            <td class="table__cell">
+                Via Pontina Vecchia, 00040 Ardea Rome, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.6420570101972</span>, <span class="lon">12.5558046158027</span>
-                    </td>   
+                41.6420570101972, 12.5558046158027
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                113 South 8th Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                113 South 8th Street, Brooklyn, New York 11249, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.709755</span>, <span class="lon">-73.96453</span>
-                    </td>   
+                40.709755, -73.96453
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                102 South 6th Street, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                102 South 6th Street, Brooklyn, New York 11249, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.71064</span>, <span class="lon">-73.96461</span>
-                    </td>   
+                40.71064, -73.96461
+            </td>   
           </tr> 
           </tr>
         
@@ -303,5 +310,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[40.149335, -74.023211], [40.69808, -73.96056], [40.7026, -73.9904]], "data": [{"lat": 40.710444332031244, "lon": -73.98189653417968, "name": "Williamsburg Bridge, Williamsburg Bridge, New York, New York 10002, United States"}, {"lat": 41.852854, "lon": 12.575212, "name": "Cinecitt\u00e0 Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy"}, {"lat": 27.7096, "lon": -82.7336, "name": "Don Cesar, Saint Petersburg Beach, Florida, United States"}, {"lat": 40.7026, "lon": -73.9904, "name": "Dumbo, New York, New York, United States"}, {"lat": 40.735020500000005, "lon": -74.0280775, "name": "Hoboken Terminal, 1 Hudson Pl, Hoboken, New Jersey 07030, United States"}, {"lat": 40.887268750000004, "lon": -73.876942, "name": "Woodlawn Cemetery, Webster Avenue, New York, New York 10467, United States"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 40.70387, "lon": -73.98773, "name": "139 Plymouth Street, Brooklyn, New York 11201, United States"}, {"lat": 40.71019, "lon": -73.99125, "name": "Manhattan Bridge, New York, New York 10002, United States"}, {"lat": 46.255609, "lon": -72.947502, "name": "Louiseville, Quebec, Canada"}, {"lat": 40.149335, "lon": -74.023211, "name": "Ocean Avenue and Warren Avenue, Spring Lake, New Jersey 07762, United States"}, {"lat": 45.501678, "lon": -73.556648, "name": "300 Rue Le Moyne, Montr\u00e9al, Quebec H2Y 1Y2, Canada"}, {"lat": 40.703651, "lon": -73.982253, "name": "Vinegar Hill, New York, New York, United States"}, {"lat": 40.709845, "lon": -73.9653, "name": "95 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 45.502065, "lon": -73.557709, "name": "449 Rue Saint-Pierre, Montr\u00e9al, Quebec H2Y 2M8, Canada"}, {"lat": 45.460386, "lon": 12.244992, "name": "Porto Marghera, Porto Marghera, Venezia, Venice 30175, Italy"}, {"lat": 40.69808, "lon": -73.96056, "name": "350 Flushing Avenue, Brooklyn, New York 11205, United States"}, {"lat": 45.502045, "lon": -73.557128, "name": "300 Rue Saint-Sacrement, Montr\u00e9al, Quebec H2Y 1X4, Canada"}, {"lat": 40.70979, "lon": -73.96489, "name": "105 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.70948, "lon": -73.96432, "name": "126 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.7037, "lon": -73.99085, "name": "2 Main Street, Brooklyn, New York 11201, United States"}, {"lat": 45.499851, "lon": -73.577965, "name": "1228 Rue Sherbrooke Ouest, Montr\u00e9al, Quebec H3G 0R1, Canada"}, {"lat": 45.546694, "lon": -73.684816, "name": "800 Boulevard Gouin Ouest, Montr\u00e9al, Quebec H3L 3W3, Canada"}, {"lat": 45.466566, "lon": 12.225048, "name": "Via Guglielmo Marconi 41, 30175 Venezia Venice, Italy"}, {"lat": 40.72226, "lon": -74.00108, "name": "459 Broome Street, New York, New York 10013, United States"}, {"lat": 40.746085, "lon": -73.943055, "name": "25-10 Court Square, Queens, New York 11101, United States"}, {"lat": 41.6420570101972, "lon": 12.5558046158027, "name": "Via Pontina Vecchia, 00040 Ardea Rome, Italy"}, {"lat": 40.709755, "lon": -73.96453, "name": "113 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.71064, "lon": -73.96461, "name": "102 South 6th Street, Brooklyn, New York 11249, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

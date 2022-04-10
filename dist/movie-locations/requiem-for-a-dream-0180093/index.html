@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Requiem for a Dream</h3>
                         <p class="card-text">
-                          The drug-induced utopias of four Coney Island people are shattered when their addictions run deep.
+                          The drug-induced utopias of four Coney Island people are shattered when their addictions run deep. Sara Goldfarb (Ellen Burstyn) is a retired widow, living in a small apartment. She spends most of her time watching TV, especially a particular self-help show. She has delusions of rising above her current dull existence by being a guest on that show. Her son, Harry (Jared Leto) is a junkie but along with his friend Tyrone (Marlon Wayans) has visions of making it big by becoming a drug dealer. Harry's girlfriend Marion (Jennifer Connelly) could be fashion designer or artist but is swept along in Harry's drug-centric world. Meanwhile Sara has developed an addiction of her own. She desperately wants to lose weight and so goes on a crash course involving popping pills, pills which turn out to be very addictive and harmful to her mental state.::grantss Drugs. They consume mind, body and soul. Once you're hooked, you're hooked. Four lives. Four addicts. Four failures. Despite their aspirations of greatness, they succumb to their addictions. Watching the addicts spiral out of control, we bear witness to the dirtiest, ugliest portions of the underworld addicts reside in. It is shocking and eye-opening but demands to be seen by both addicts and non-addicts alike.::Jeff Mellinger <jmell@uclink4.berkeley.edu> Requiem for a Dream exposes four paralleled individuals and their menacing addiction to heroin, cocaine, and diet pills (speed). Taking place in Brooklyn amidst the waning Coney Island, the drugs are very easily obtained and keep each main character in its cycle of dependence. The protagonist Harry Goldfarb is your typical heroin junky with an ambitious plan of "Getting off hard knocks," with help from his cocaine crazed girlfriend Marion and his long time friend Tyrone. Meanwhile his widowed mother is obsessed with the glamor of television and eventually finds her way to a dietitian who pushes her into the cycle of drug induced enslavement.::spiro muqhar A film paralleling the lives of Sara Goldfarb, a lonely, TV obsessed widow, and her son Harry, his girlfriend Marion, and his drug dealer friend Tyrone. After learning that she will make an appearance on a TV game show, Sara tries to lose weight so that she can fit into her prized red dress, and becomes hooked on diet pills. Meanwhile, Harry and his friends are taking heroin and cocaine. We then witness the disasterous consequences and the downward spiral their lives take as a result of their addictions.::richie-29 Pills and heroin offer fulfillment of the dreams of four residents of Brooklyn's Brighton Beach in the shadow of a crumbling Coney Island amusement park. Sara dreams of appearing on television wearing a red dress that's a bit snug. So she starts a diet assisted by uppers. Her son Harry, his girlfriend Marion, and his best friend Tyrone pin their hopes for money on moving up from pushing nickel bags of heroin to buying in bulk. They also deal to support their growing habits. Things are going well: Harry buys his mom a new TV, she's losing weight, she has status among her friends, Tyrone's girlfriend is cool, and the team has money in a shoe box. These dreams are addictive.::<jhailey@hotmail.com>
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,28 +455,28 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Coney Island, Brooklyn, New York City, New York, USA
+            <td class="table__cell">
+                Coney Island, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.5779</span>, <span class="lon">-73.994</span>
-                    </td>   
+                40.5779, -73.994
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Red Hook, Brooklyn, New York City, New York, USA
+            <td class="table__cell">
+                Red Hook, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.6751</span>, <span class="lon">-74.0096</span>
-                    </td>   
+                40.6751, -74.0096
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Brooklyn, New York City, New York, USA
+            <td class="table__cell">
+                Brooklyn, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
-                    </td>   
+                40.6501, -73.9496
+            </td>   
           </tr> 
           </tr>
         
@@ -546,5 +549,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[40.5779, -73.994], [40.6501, -73.9496], [40.6751, -74.0096]], "data": [{"lat": 40.5779, "lon": -73.994, "name": "Coney Island, New York, New York, United States"}, {"lat": 40.6751, "lon": -74.0096, "name": "Red Hook, New York, New York, United States"}, {"lat": 40.6501, "lon": -73.9496, "name": "Brooklyn, New York, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Lawrence of Arabia</h3>
                         <p class="card-text">
-                          The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks.
+                          The story of T.E. Lawrence, the English officer who successfully united and led the diverse, often warring, Arab tribes during World War I in order to fight the Turks. Due to his knowledge of the native Bedouin tribes, British Lieutenant T.E. Lawrence is sent to Arabia to find Prince Faisal and serve as a liaison between the Arabs and the British in their fight against the Turks. With the aid of native Sherif Ali, Lawrence rebels against the orders of his superior officer and strikes out on a daring camel journey across the harsh desert to attack a well-guarded Turkish port.::Jwelch5742 A semi-fictional account of the exploits of British military officer T.E. Lawrence during WWI is presented, plus a prologue at his 1935 funeral where his contemporaries remark or don't remark at how they consider him and his military contributions especially to the Great War. Viewed somewhat as an insolent man, he, a lieutenant in intelligence at a desk job in the Cairo bureau, is assigned to go on a reconnaissance mission to the Arabian peninsula to assess Prince Faisal's efforts against the Turks. He is assigned this job in what is considered its low importance in the British still focusing their own efforts directly on the German offensive, and because of his academic knowledge of Arabia. Against the narrow confines of his original orders and advice of ranking officers in the field, Lawrence, befriending many he meets, not only the Prince but most specifically Sherif Ali, bands with the Arabs in being able to coalesce the many disparate tribes which comprise the fighting Bedouins. Things begin to change for Lawrence when the British military as a whole gets more involved in the goings-on in Arabia - they working on the presumed goals of the politicians - and Lawrence himself changes his own outlook as a human being in being caught directly in battle.::Huggo An inordinately complex man who has been labelled everything from hero, to charlatan, to sadist, T.E. Lawrence blazed his way to glory in the Arabian desert, then sought anonymity as a common soldier under an assumed name. The story opens with the death of Lawrence in a motorcycle accident in Dorset at the age of forty-six, then flashbacks to recount his adventures: as a young intelligence officer in Cairo in 1916, he is given leave to investigate the progress of the Arab revolt against the Turks in World War I. In the desert, he organizes a guerrilla army and, for two years, leads the Arabs in harassing the Turks with desert raids, train-wrecking, and camel attacks. Eventually, he leads his army northward and helps a British General destroy the power of the Ottoman Empire.::alfiehitchie
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,220 +455,228 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Wadi Rum, Jordan 
+            <td class="table__cell">
+                Imperial, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 31.969741</span>, <span class="lon">35.900547</span>
-                    </td>   
+                32.8476, -115.5694
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Imperial Sand Dunes Recreation Area, Glamis, California, USA 
+            <td class="table__cell">
+                Run Jordan, Shamesani, اممان, Amman, Jordan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.8476</span>, <span class="lon">-115.5694</span>
-                    </td>   
+                31.969741, 35.900547
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Alfonso XIII Hotel   2 San Fernando 41004, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                41004, Sevilla, Seville, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.387389</span>, <span class="lon">-5.988953</span>
-                    </td>   
+                37.387389, -5.988953
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Aït Benhaddou, Morocco 
+            <td class="table__cell">
+                Маракуйя, вул. Маршала Тимошенка, 29, Київ, Kyiv 04205, Ukraine
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.3507513130338</span>, <span class="lon">-6.01707272732872</span>
-                    </td>   
+                50.512677, 30.503327
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                El Casino, Avenida de Maria Luisa, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Avenida De María Luisa, 41013 Sevilla, Seville, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.3786321287575</span>, <span class="lon">-5.99134781646474</span>
-                    </td>   
+                37.3786321287575, -5.99134781646474
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Desert South of Ouarzazate, Morocco 
+            <td class="table__cell">
+                Ouarzazate, Drâa-Tafilalet, Morocco
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.91667</span>, <span class="lon">-6.91667</span>
-                    </td>   
+                30.91667, -6.91667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                El Jafr, Jordan 
+            <td class="table__cell">
+                Jafra, University street, يربيد, Irbid, Jordan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.537428</span>, <span class="lon">35.851935</span>
-                    </td>   
+                32.537428, 35.851935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Playa del Algarrobico, Carboneras, Almería, Andalucía, Spain 
+            <td class="table__cell">
+                Playa De Algarrobico, Carboneras, Almería 04140, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.000426</span>, <span class="lon">-1.891478</span>
-                    </td>   
+                37.000426, -1.891478
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chobham Common, Surrey, England, UK 
+            <td class="table__cell">
+                Chobham, Surrey, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.3481</span>, <span class="lon">-0.6038</span>
-                    </td>   
+                51.3481, -0.6038
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Merthyr Mawr, Bridgend, Wales, UK
+            <td class="table__cell">
+                Merthyr Mawr, Pen-Y-Bont Ar Ogwr, Wales, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.4845</span>, <span class="lon">-3.61006</span>
-                    </td>   
+                51.4845, -3.61006
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Plaza of the Americas, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Seville, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.5</span>, <span class="lon">-5.5</span>
-                    </td>   
+                37.5, -5.5
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tabernas, Almería, Andalucía, Spain
+            <td class="table__cell">
+                Tabernas, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
-                    </td>   
+                37.04989, -2.39138
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Jebel Tubeiq, Jordan 
+            <td class="table__cell">
+                Nebel Street, Jordan, Wisconsin 54481, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 44.502425</span>, <span class="lon">-89.54316</span>
-                    </td>   
+                44.502425, -89.54316
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Desierto de Tabernas, Almería, Andalucía, Spain
+            <td class="table__cell">
+                Desierto De Tabernas, Tabernas, Almería 04212, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.090023</span>, <span class="lon">-2.379403</span>
-                    </td>   
+                37.090023, -2.379403
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Maan, Jordan
+            <td class="table__cell">
+                ماان, Ma'an, Jordan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.19333</span>, <span class="lon">35.73333</span>
-                    </td>   
+                30.19333, 35.73333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palacio Espanol, Plaza de España, Sevilla, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Plaza de España, Av. de Isabel 'La Católica', Sevilla, Seville 41013, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.37698</span>, <span class="lon">-5.98696</span>
-                    </td>   
+                37.37698, -5.98696
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St Paul's Cathedral, St Paul's Churchyard, City of London, England, UK 
+            <td class="table__cell">
+                St Paul's Cathedral, St Paul's Church Yard, London, England EC4M 8AE, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.513744</span>, <span class="lon">-0.09837950000000001</span>
-                    </td>   
+                51.513744, -0.09837950000000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Almería, Andalucía, Spain
+            <td class="table__cell">
+                Andalucía, 04271 Sorbas, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.1452098010523</span>, <span class="lon">-2.07507758056227</span>
-                    </td>   
+                37.1452098010523, -2.07507758056227
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cabo de Gata, Almería, Andalucía, Spain 
+            <td class="table__cell">
+                Cabo de Gata, Almería, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.781144</span>, <span class="lon">-2.242177</span>
-                    </td>   
+                36.781144, -2.242177
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San José, Almería, Andalucía, Spain 
+            <td class="table__cell">
+                San José, Níjar, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.761896</span>, <span class="lon">-2.110094</span>
-                    </td>   
+                36.761896, -2.110094
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Calle Andalucía, 41014 Sevilla, Seville, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.3266214954147</span>, <span class="lon">-5.96769337244481</span>
-                    </td>   
+                37.3266214954147, -5.96769337244481
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Shepperton Studios, Shepperton, Surrey, England, UK 
+            <td class="table__cell">
+                Saudi Arabia
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
-                    </td>   
+                23.384784, 44.652426
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Casa de Pilatos, Plaza de Pilatos, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.3902835</span>, <span class="lon">-5.987071</span>
-                    </td>   
+                51.407444, -0.465177
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Carboneras, Almería, Andalucía, Spain
+            <td class="table__cell">
+                Casa de Pilatos, Plaza de Pilatos, 1, Sevilla, Seville 41003, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.00046</span>, <span class="lon">-1.89189</span>
-                    </td>   
+                37.3902835, -5.987071
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Parque de Maria Luisa, Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Carboneras, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.403914</span>, <span class="lon">-6.185953</span>
-                    </td>   
+                37.00046, -1.89189
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Plaza de Pilatos, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Santa Isabel, Sanlúcar la Mayor, Seville, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.389824</span>, <span class="lon">-5.987061</span>
-                    </td>   
+                37.403914, -6.185953
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Avenida de Isabel la Catolica, Sevilla, Andalucía, Spain 
+            <td class="table__cell">
+                Plaza de Pilatos, Plaza de Pilatos, Sevilla, Seville 41003, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.374748785893</span>, <span class="lon">-5.98642674666078</span>
-                    </td>   
+                37.389824, -5.987061
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Avenida Isabel La Católica, 41013 Sevilla, Seville, Spain
+            </td>   
+                <td class="table__cell">
+                37.374748785893, -5.98642674666078
+            </td>   
           </tr> 
           </tr>
         
@@ -738,5 +749,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[36.761896, -2.110094], [36.781144, -2.242177], [37.000426, -1.891478]], "data": [{"lat": 32.8476, "lon": -115.5694, "name": "Imperial, California, United States"}, {"lat": 31.969741, "lon": 35.900547, "name": "Run Jordan, Shamesani, \u0627\u0645\u0645\u0627\u0646, Amman, Jordan"}, {"lat": 37.387389, "lon": -5.988953, "name": "41004, Sevilla, Seville, Spain"}, {"lat": 50.512677, "lon": 30.503327, "name": "\u041c\u0430\u0440\u0430\u043a\u0443\u0439\u044f, \u0432\u0443\u043b. \u041c\u0430\u0440\u0448\u0430\u043b\u0430 \u0422\u0438\u043c\u043e\u0448\u0435\u043d\u043a\u0430, 29, \u041a\u0438\u0457\u0432, Kyiv 04205, Ukraine"}, {"lat": 37.3786321287575, "lon": -5.99134781646474, "name": "Avenida De Mar\u00eda Luisa, 41013 Sevilla, Seville, Spain"}, {"lat": 30.91667, "lon": -6.91667, "name": "Ouarzazate, Dr\u00e2a-Tafilalet, Morocco"}, {"lat": 32.537428, "lon": 35.851935, "name": "Jafra, University street, \u064a\u0631\u0628\u064a\u062f, Irbid, Jordan"}, {"lat": 37.000426, "lon": -1.891478, "name": "Playa De Algarrobico, Carboneras, Almer\u00eda 04140, Spain"}, {"lat": 51.3481, "lon": -0.6038, "name": "Chobham, Surrey, England, United Kingdom"}, {"lat": 51.4845, "lon": -3.61006, "name": "Merthyr Mawr, Pen-Y-Bont Ar Ogwr, Wales, United Kingdom"}, {"lat": 37.5, "lon": -5.5, "name": "Seville, Spain"}, {"lat": 37.04989, "lon": -2.39138, "name": "Tabernas, Almer\u00eda, Spain"}, {"lat": 44.502425, "lon": -89.54316, "name": "Nebel Street, Jordan, Wisconsin 54481, United States"}, {"lat": 37.090023, "lon": -2.379403, "name": "Desierto De Tabernas, Tabernas, Almer\u00eda 04212, Spain"}, {"lat": 30.19333, "lon": 35.73333, "name": "\u0645\u0627\u0627\u0646, Ma\u0027an, Jordan"}, {"lat": 37.37698, "lon": -5.98696, "name": "Plaza de Espa\u00f1a, Av. de Isabel \u0027La Cat\u00f3lica\u0027, Sevilla, Seville 41013, Spain"}, {"lat": 51.513744, "lon": -0.09837950000000001, "name": "St Paul\u0027s Cathedral, St Paul\u0027s Church Yard, London, England EC4M 8AE, United Kingdom"}, {"lat": 37.1452098010523, "lon": -2.07507758056227, "name": "Andaluc\u00eda, 04271 Sorbas, Almer\u00eda, Spain"}, {"lat": 36.781144, "lon": -2.242177, "name": "Cabo de Gata, Almer\u00eda, Almer\u00eda, Spain"}, {"lat": 36.761896, "lon": -2.110094, "name": "San Jos\u00e9, N\u00edjar, Almer\u00eda, Spain"}, {"lat": 37.3266214954147, "lon": -5.96769337244481, "name": "Calle Andaluc\u00eda, 41014 Sevilla, Seville, Spain"}, {"lat": 23.384784, "lon": 44.652426, "name": "Saudi Arabia"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 37.3902835, "lon": -5.987071, "name": "Casa de Pilatos, Plaza de Pilatos, 1, Sevilla, Seville 41003, Spain"}, {"lat": 37.00046, "lon": -1.89189, "name": "Carboneras, Almer\u00eda, Spain"}, {"lat": 37.403914, "lon": -6.185953, "name": "Santa Isabel, Sanl\u00facar la Mayor, Seville, Spain"}, {"lat": 37.389824, "lon": -5.987061, "name": "Plaza de Pilatos, Plaza de Pilatos, Sevilla, Seville 41003, Spain"}, {"lat": 37.374748785893, "lon": -5.98642674666078, "name": "Avenida Isabel La Cat\u00f3lica, 41013 Sevilla, Seville, Spain"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

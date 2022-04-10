@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Beauty and the Beast</h3>
+                        <p class="card-text">
+                          A prince cursed to spend his days as a hideous monster sets out to regain his humanity by earning a young woman's love. Having lived a life in selfishness, young Prince Adam is cursed by a mysterious enchantress to having the appearance of a monstrous beast. His only hope is to learn to love a young woman and earn her love in return in order to redeem himself. Ten years later, his chance shows itself when a young maiden named Belle (Paige O'Hara) offers to take her ill father Maurice's (Rex Everhart's) place as his prisoner. With help from the castle's enchanted staff, Belle learns to appreciate her captor and immediately falls in love with him. Back in the village however, unscrupulous hunter Gaston (Richard White) has his own plans for Belle.::Blazer346 Arrogant young Prince Adam and his castle's servants fall under the spell of a wicked enchantress, who turns him into the hideous Beast (Robbie Benson) until he learns to love and be loved in return. The spirited, headstrong village girl Belle (Paige O'Hara) enters the Beast's castle after he imprisons her father Maurice (Rex Everhart). With the help of his enchanted servants, including the matronly Mrs. Potts (Dame Angela Lansbury), Belle begins to draw the cold-hearted Beast out of his isolation.::Jwelch5742 A young prince (Robby Benson) is cursed by an enchantress to remain a beast until he can learn to love another and earn their love in return. Meanwhile, a young provincial French girl (Paige O'Hara) longs for a different life. Her father stumbles upon the Beast's castle and earns his wrath.::Spider-Man's Aunt Belle (Paige O'Hara) is a girl who is dissatisfied with life in a small provincial French town, constantly trying to fend off the misplaced "affections" of conceited Gaston (Richard White). The Beast (Robbie Benson) is a Prince who was placed under a spell because he could not love. A wrong turn taken by Maurice (Rex Everhart), Belle's father, causes the two to meet.::Tim Pickett <quetzal@yoyo.cc.monash.edu.au> Prince Adam was cursed to a beast form by an enchantress who saw no love in his arrogant heart for others. The one way he could break the spell was to learn to love another and earn her love in return before the last petal from his enchanted rose fell, which would bloom until his twenty-first birthday. But who could ever learn to love a beast? Ten years later, Maurice (Rex Everhart), an inventor from a nearby village, becomes lost in the woods and seeks shelter in the Beast's castle, the Beast (Robbie Benson) imprisons him for trespassing. His daughter Belle (Paige O'Hara), a bookworm who dreams of life outside her provincial village, finds him trapped in the castle and offers her place instead. The Beast accepts with a promise she'll remain in the castle forever. In the beginning Belle views him as nothing more than a monster, he views her as difficult and stubborn. But the two soon taste the bitter-sweetness of finding "you can change and learning you were wrong".::O.G.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BMzE5MDM1NDktY2I0OC00YWI5LTk2NzUtYjczNDczOWQxYjM0XkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Beauty and the Beast"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                500 South Buena Vista Street, Hemet, California 92543, United States
+            </td>   
+                <td class="table__cell">
+                33.7403, -116.967278
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Walt Disney World Entrance, 12620 SR 535, Lake Buena Vista, Florida 32836, United States
+            </td>   
+                <td class="table__cell">
+                28.381988, -81.505828
+            </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}, {"lat": 28.381988, "lon": -81.505828, "name": "Walt Disney World Entrance, 12620 SR 535, Lake Buena Vista, Florida 32836, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

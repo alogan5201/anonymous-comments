@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Jurassic Park</h3>
                         <p class="card-text">
-                          A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose.
+                          A pragmatic paleontologist touring an almost complete theme park on an island in Central America is tasked with protecting a couple of kids after a power failure causes the park's cloned dinosaurs to run loose. Huge advancements in scientific technology have enabled a mogul to create an island full of living dinosaurs. John Hammond has invited four individuals, along with his two grandchildren, to join him at Jurassic Park. But will everything go according to plan? A park employee attempts to steal dinosaur embryos, critical security systems are shut down and it now becomes a race for survival with dinosaurs roaming freely over the island.::Film_Fan On Isla Nublar, a new park has just been built with genetically engineered dinosaurs. Tragedy strikes when one of the workers is killed by a velociraptor. The founder of the park, John Hammond, (Sir Richard Attenborough) requests Paleontologist Dr. Alan Grant (Sam Neill) and his assistant, Dr. Ellie Sattler (Laura Dern) to come to the park and ensure that it is safe. Also joining them are Hammond's lawyer Donald Gennaro (Martin Ferrero) and chaotician Dr. Ian Malcolm (Jeff Goldblum). When they reach the island, they are amazed to discover that Hammond has created living dinosaurs. However, at the same time, they all have their doubts. Later, Hammond's grandchildren Lex and Tim (Ariana Richards and Joseph Mazzello) join the group in a tour of the park. Sattler leaves the tour to take care of an ill triceratops. Soon the power in the park is shut down by computer systems geek Dennis Nedry (Wayne Knight), who wishes to steal embryos from the park to sell to a secret buyer. In the process, many dinosaurs escape their paddocks, including the deadly Tyrannosaurus Rex, who, during a thunderstorm, escapes his paddock and attacks the children, and eats Gennaro. Malcolm is injured and Grant and the children are then lost in the park. Meanwhile, Hammond, Sattler, and the rest of the operations team learn that Nedry (who in the meantime has been killed) has locked up the computer system to cover his tracks. They attempt to get power back in the park in order to escape the island. After shutting down the system, then restoring it, the group realizes that velociraptors are also on the loose, and are now on the hunt for the visitors.::ahmetkozan Paleontologists Alan Grant and Ellie Sattler and mathematician Ian Malcolm are among a select group chosen to tour an island theme park populated by dinosaurs created from prehistoric DNA. While the park's mastermind, billionaire John Hammond, assures everyone that the facility is safe, they find out otherwise when various ferocious predators break free and go on the hunt.::Jwelch5742 In high hopes of putting the investors' minds at ease, John Hammond--the visionary billionaire entrepreneur, and founder of the bio-engineering company, InGen--calls in three experts to witness the wonders of the first-ever dinosaur preserve. There, in the isolated island of Isla Nublar, the visitors' wide-eyed excitement will soon turn into pure horror, when the palaeontologist, Dr Alan Grant, the palaeobotanist, Dr Ellie Sattler, and the cynical mathematician, Dr Ian Malcolm, come face-to-face with ferocious primaeval reptiles on the loose, after a devastating malfunction. Now, the ultimate apex-predator, the Tyrannosaurus Rex, is on the hunt for fresh meat. Can they escape from the terrors of Jurassic Park?::Nick Riganas On a remote island, a wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening the attraction to the public, he invites a top paleontologist, a paleobotanist, a mathematician/theorist, and his two eager grandchildren to experience the park, and help calm anxious investors. However, their park visit is anything but tranquil as the park's security system breaks down, the prehistoric creatures break out, and the excitement builds to surprising results.::Robert Lynch <docrlynch@yahoo.com>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,188 +67,196 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Tehachapi Pass, California, USA 
+            <td class="table__cell">
+                Tehachapi Pass, Highway 58, Tehachapi, California 93561, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.121946</span>, <span class="lon">-118.402764</span>
-                    </td>   
+                35.121946, -118.402764
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manawaiopuna Falls, Hanapepe Valley, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Hanapepe, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.9163</span>, <span class="lon">-159.5899</span>
-                    </td>   
+                21.9163, -159.5899
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kualoa Ranch   49560 Kamehameha Highway, Ka'a'awa, O'ahu, Hawaii, USA 
+            <td class="table__cell">
+                Kamehameha Highway, Kaaawa, Hawaii 96730, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.52766</span>, <span class="lon">-157.83475</span>
-                    </td>   
+                21.53114, -157.83624
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Jurassic Kahili Ranch, Kilauea, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Kilauea, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.1892</span>, <span class="lon">-159.4133</span>
-                    </td>   
+                22.1892, -159.4133
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 16, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA 
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Blue Hole, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Kauai County, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.06667</span>, <span class="lon">-159.65</span>
-                    </td>   
+                22.06667, -159.65
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 12, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Red Rock Canyon State Park   Highway 14, Cantil, California, USA 
+            <td class="table__cell">
+                Red Rock Canyon State Park, 37749 Abbott Dr., Cantil, California 93519, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.380933</span>, <span class="lon">-117.982006</span>
-                    </td>   
+                35.380933, -117.982006
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Olokele Valley, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Olokele, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.9208</span>, <span class="lon">-159.6256</span>
-                    </td>   
+                21.9208, -159.6256
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lawai, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Lawai, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.919099</span>, <span class="lon">-159.506494</span>
-                    </td>   
+                21.919099, -159.506494
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 24, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                National Tropical Botanical Gardens, Allerton Garden on Kauai   Papalina Rd, Kalaheo, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                National Tropical Botanical Garden, 4425 Lāwa'i Road, Koloa, Hawaii 96756, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.9264</span>, <span class="lon">-159.5297</span>
-                    </td>   
+                21.886876, -159.492789
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Griffith Observatory, 2800 E Observatory Rd, Los Angeles, California, USA
+            <td class="table__cell">
+                Griffith, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.11</span>, <span class="lon">-118.27</span>
-                    </td>   
+                34.11, -118.27
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 28, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 27, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hawaii, USA
+            <td class="table__cell">
+                Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 21.31139</span>, <span class="lon">-157.79639</span>
-                    </td>   
+                21.31139, -157.79639
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hoopii Falls, Kapaa, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Ho'opi'i Falls, End of Kapahi rd, Kapaa, Hawaii 96746, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.106353499999997</span>, <span class="lon">-159.343707</span>
-                    </td>   
+                22.106353499999997, -159.343707
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Valley House Plantation Estate   6191 Hauaala Rd, Kealia, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Kealia, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.098858</span>, <span class="lon">-159.305724</span>
-                    </td>   
+                22.098858, -159.305724
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Waikoko Forest Management Rd, Kaua'i, Hawaii, USA 
+            <td class="table__cell">
+                Kauai County, Hawaii, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.06667</span>, <span class="lon">-159.65</span>
-                    </td>   
+                22.06667, -159.65
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 23, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Jungle Set, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA 
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -255,5 +270,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[21.886876, -159.492789], [21.9163, -159.5899], [21.919099, -159.506494]], "data": [{"lat": 35.121946, "lon": -118.402764, "name": "Tehachapi Pass, Highway 58, Tehachapi, California 93561, United States"}, {"lat": 21.9163, "lon": -159.5899, "name": "Hanapepe, Hawaii, United States"}, {"lat": 21.53114, "lon": -157.83624, "name": "Kamehameha Highway, Kaaawa, Hawaii 96730, United States"}, {"lat": 22.1892, "lon": -159.4133, "name": "Kilauea, Hawaii, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 22.06667, "lon": -159.65, "name": "Kauai County, Hawaii, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 35.380933, "lon": -117.982006, "name": "Red Rock Canyon State Park, 37749 Abbott Dr., Cantil, California 93519, United States"}, {"lat": 21.9208, "lon": -159.6256, "name": "Olokele, Hawaii, United States"}, {"lat": 21.919099, "lon": -159.506494, "name": "Lawai, Hawaii, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 21.886876, "lon": -159.492789, "name": "National Tropical Botanical Garden, 4425 L\u0101wa\u0027i Road, Koloa, Hawaii 96756, United States"}, {"lat": 34.11, "lon": -118.27, "name": "Griffith, Los Angeles, California, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 21.31139, "lon": -157.79639, "name": "Hawaii, United States"}, {"lat": 22.106353499999997, "lon": -159.343707, "name": "Ho\u0027opi\u0027i Falls, End of Kapahi rd, Kapaa, Hawaii 96746, United States"}, {"lat": 22.098858, "lon": -159.305724, "name": "Kealia, Hawaii, United States"}, {"lat": 22.06667, "lon": -159.65, "name": "Kauai County, Hawaii, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

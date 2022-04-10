@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Monsters, Inc.</h3>
                         <p class="card-text">
-                          In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think.
+                          In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think. A city of monsters with no humans called Monstropolis centers around the city's power company, Monsters, Inc. The lovable, confident, tough, furry blue behemoth-like giant monster named James P. Sullivan (better known as Sulley) and his wisecracking best friend, short, green cyclops monster Mike Wazowski, discover what happens when the real world interacts with theirs in the form of a 2-year-old baby girl dubbed "Boo," who accidentally sneaks into the monster world with Sulley one night. And now it's up to Sulley and Mike to send Boo back in her door before anybody finds out, especially two evil villains such as Sulley's main rival as a scarer, chameleon-like Randall (a monster that Boo is very afraid of), who possesses the ability to change the color of his skin, and Mike and Sulley's boss Mr. Waternoose, the chairman and chief executive officer of Monsters, Inc.::Anthony Pereyra {hypersonic91@yahoo.com} Sully and Mike are 2 monster employees that work at a lighting/scaring company known as Monsters Inc and are close to breaking the all-time scare record. While mike is out with his girlfriend, Selia, Sully finds a door while looking for mike's paper and something else-a human child running amok in the city! Left with no other choice, sully must now seek help from mike to return the child before everyone finds out and Armageddon breaks out In a world behind our closet doors, monsters reign supreme. The utility company Monsters Inc. specializes in fueling their world with the screams of human children. A team of monster scarers led by lovable Sulley and his wisecracking best friend Mike work hard and long hours to ensure the fuel of the screams. But things go crazy when Sulley discovers a mysterious door and a runaway little girl running amok. However, both Sulley and Mike discover that the little girl (Boo) is not actually dangerous, so they must bring her home to the human world. But what the duo doesn't know is that Boo is actually the key to a sinister conspiracy to saving the monster world from a rising crisis.::Blazer346 James P. Sullivan (AKA "Sulley") and Mike Wazowski pick up their paychecks at Monsters Inc., the utility company that generates energy from the goose bumps of children. Sulley, the No. 1 scream-generator at the plant accidentally lets in a little girl into the monster world. Since monsters are actually terrified of children it's a major cause for alarm and a major headache for Sulley and Mike.::Anonymous In a land of monsters, James P. Sullivan is king. He and his coworker/ friend Mike Wazowski are two of many monsters that work for Monsters Inc. a utility company that generates power for a very paranoid and nervous city of monsters. This power, oddly enough, is generated from the screams of children, which is produced by scaring them in their sleep. One night, however, Sully uncovers a devious plot to rid Monster city of it's power problems, but in all the wrong ways. Together, ironically, Sully and Mike will fight to protect the innocence of the children they scare every night.::Redblok In the world behind our closet doors, monsters like Mike and Sulley work hard for their income. To be exact, the monster world depends on our children's screams: It is their energy that makes lightbulbs glow and cars drive. Big companies like Monsters, Inc. collect the scream energy, and many monsters work there in shifts. In these times, it is getting harder and harder to shock the kids properly, since they're so spoiled by television, so that there's an energy shortage in the monster world. Sulley, the number one frightener, one day accidentally lets a human child into the monster world. Since kids are supposed to be poisonous and carry loads of diseases, pandemonium ensues. After Mike and Sulley discover that the girl they named Boo actually seems quite harmless, they decide to bring her back through her door into her room. But Boo's presence is more than just a mere accident. Now, Mike and Sulley have to face an enemy within their own ranks.::Julian Reischl <julianreischl@mac.com>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,20 +67,20 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
+            <td class="table__cell">
+                1200 Park Avenue, San Jacinto, California 92583, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.763315</span>, <span class="lon">-116.941071</span>
-                    </td>   
+                33.763345, -116.941164
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
+            <td class="table__cell">
+                500 South Buena Vista Street, Hemet, California 92543, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7403</span>, <span class="lon">-116.967278</span>
-                    </td>   
+                33.7403, -116.967278
+            </td>   
           </tr> 
           </tr>
         
@@ -87,5 +94,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

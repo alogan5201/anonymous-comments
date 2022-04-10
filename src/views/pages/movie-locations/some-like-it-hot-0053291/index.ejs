@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Some Like It Hot</h3>
                         <p class="card-text">
-                          After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in.
+                          After two male musicians witness a mob hit, they flee the state in an all-female band disguised as women, but further complications set in. After two Chicago musicians, Joe and Jerry, witness the the St. Valentine's Day massacre, they want to get out of town and get away from the gangster responsible, Spats Colombo. They're desperate to get a gig out of town but the only job they know of is in an all-girl band heading to Florida. They show up at the train station as Josephine and Daphne, the replacement saxophone and bass players. They certainly enjoy being around the girls, especially Sugar Kane Kowalczyk who sings and plays the ukulele. Joe in particular sets out to woo her while Jerry/Daphne is wooed by a millionaire, Osgood Fielding III. Mayhem ensues as the two men try to keep their true identities hidden and Spats Colombo and his crew show up for a meeting with several other crime lords.::garykmcd It's the winter of 1929 in Chicago. Friends and roommates Jerry and Joe are band musicians, a string bassist and tenor saxophonist respectively. They are also deep in debt. Womanizing and smooth talking Joe is a glass half full type of guy, who figures they can earn quick money gambling with what little money they earn to pay off their debts, while more conservative Jerry is a half glass empty type of guy. They are in the wrong place at the wrong time when they witness a gangland slaying by bootlegger Spats Colombo and his men, Jerry and Joe managing to make it away from the scene within an inch of their lives. Needing to lay low and get out of town away from Spats, they sense an opportunity when they learn of a local jazz band needing a bassist and a saxophonist for a three week gig at a luxurious tropical seaside resort in Miami, all expenses paid. The problem?: it's an all girl band, but nothing that "Geraldine" and "Josephine" can't overcome, the former who instead chooses Daphne as "her" stage name. Sweet Sue, the band leader, has two basic rules for the band members while on tour: no liquor and no men. Beyond needing to evade Spats and his henchmen, and maintain the front of being women, especially in the most private of situations with the other female band members, Jerry and Joe have two primary problems. First, the more brazen Joe falls for one of the other band members, ukulele player and vocalist Sugar Kane Kowalczyk, although Jerry too is attracted to her. Joe does whatever he can to find time to get out of drag to woo Sugar while in Miami, using all the knowledge Josephine gleans directly from Sugar about what turns her crank in potential husband material. And second, Jerry, as Daphne, catches the eye of wealthy lovestruck Osgood Fielding III, who won't take no for an answer.::Huggo After witnessing a Mafia murder, slick saxophone player Joe and his long-suffering buddy, Jerry, improvise a quick plan to escape from Chicago with their lives. Disguising themselves as women, they join an all-female jazz band and hop a train bound for sunny Florida. While Joe pretends to be a millionaire to win the band's sexy singer, Sugar, Jerry finds himself pursued by a real millionaire as things heat up and the mobsters close in.::Jwelch5742 Two struggling musicians witness the St. Valentine's Day Massacre and try to find a way out of the city before they are found and killed by the mob. The only job that will pay their way is an all girl band so the two dress up as women. In addition to hiding, each has his own problems; One falls for another band member but can't tell her his gender, and the other has a rich suitor who will not take "No," for an answer.::John Vogel <jlvogel@comcast.net> Joe, the saxophone player, is Josephine in the all girls band that he joined with Jerry, the bass violin player, to be one step ahead of the mob after witnessing the 1929 St. Valentine's Day Massacre in Chicago. After a train ride that sets a record for number of people in an upper berth, they are In Miami. Joe decides to be the man of Sugar Kane's dreams and invites her out to a yacht he doesn't have. But he can use Osgood Fielding's yacht if Jerry -- as Daphne -- will keep Osgood dancing. The pace gets even giddier when the Chicago mob arrives in Miami for a convention.::Dale O'Connor <daleoc@interaccess.com>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,36 +67,36 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel del Coronado   1500 Orange Avenue, Coronado, California, USA 
+            <td class="table__cell">
+                Orange Avenue Junction, Irwindale, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0925</span>, <span class="lon">-117.9431</span>
-                    </td>   
+                34.0925, -117.9431
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Coronado Beach, Coronado, California, USA 
+            <td class="table__cell">
+                Coronado Beach, 1063 Ocean Blvd, Coronado, California 92118, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.683796</span>, <span class="lon">-117.185755</span>
-                    </td>   
+                32.683796, -117.185755
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Lot   1041 N. Formosa Avenue, West Hollywood, California, USA 
+            <td class="table__cell">
+                1041 North Formosa Avenue, West Hollywood, California 90046, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08977</span>, <span class="lon">-118.34745</span>
-                    </td>   
+                34.08977, -118.34745
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA 
+            <td class="table__cell">
+                10202 West Washington Boulevard, Culver City, California 90232, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.017275</span>, <span class="lon">-118.402347</span>
-                    </td>   
+                34.017275, -118.402347
+            </td>   
           </tr> 
           </tr>
         
@@ -103,5 +110,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.017275, -118.402347], [34.08977, -118.34745], [34.0925, -117.9431]], "data": [{"lat": 34.0925, "lon": -117.9431, "name": "Orange Avenue Junction, Irwindale, California, United States"}, {"lat": 32.683796, "lon": -117.185755, "name": "Coronado Beach, 1063 Ocean Blvd, Coronado, California 92118, United States"}, {"lat": 34.08977, "lon": -118.34745, "name": "1041 North Formosa Avenue, West Hollywood, California 90046, United States"}, {"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

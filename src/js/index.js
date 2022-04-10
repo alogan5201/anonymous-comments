@@ -132,7 +132,7 @@ if (window.location.href.includes("login")) {
   );
 }
 
-
+/*
 if($('body').hasClass('film-location')){
 
 
@@ -175,7 +175,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
               let marker = L.marker([lat, lon]);
               marker.bindPopup(location);
               marker.addTo(map);
-              }*/
+              }
 
 }
 //console.log(allcoords)
@@ -202,7 +202,7 @@ else if (ordered.length < 3){
 extractData()
 
 };
-
+*/
 
 
 window.addEventListener("DOMContentLoaded", (event) => {

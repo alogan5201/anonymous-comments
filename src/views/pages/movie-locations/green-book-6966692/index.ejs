@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Green Book</h3>
                         <p class="card-text">
-                          A working-class Italian-American bouncer becomes the driver of an African-American classical pianist on a tour of venues through the 1960s American South.
+                          A working-class Italian-American bouncer becomes the driver of an African-American classical pianist on a tour of venues through the 1960s American South. In 1962, Tony "Tony Lip" Vallelonga, a tough bouncer, is looking for work when his nightclub is closed for renovations. The most promising offer turns out to be the driver for the African-American classical pianist Don Shirley for a concert tour into the Deep South states. Although hardly enthused at working for a black man, Tony accepts the job and they begin their trek armed with The Negro Motorist Green Book, a travel guide for safe travel through America's racial segregation. Together, the snobbishly erudite pianist and the crudely practical bouncer can barely get along with their clashing attitudes to life and ideals. However, as the disparate pair witness and endure America's appalling injustices on the road, they find a newfound respect for each other's talents and start to face them together. In doing so, they would nurture a friendship and understanding that would change both their lives.::Kenneth Chisholm (kchishol@rogers.com) New York City bouncer Frank "Tony Lip" Vallelonga is searching for new employment after his nightclub is closed for renovations, eventually landing an interview as a driver for "Doc" Don Shirley, a famed pianist. Their first encounter does not go well, as Tony's flippant, uncultured behavior clashes with Don's sophisticated, reserved demeanor. However, Don eventually hires Tony on the strength of others' word, as he needs someone who can help him stay out of trouble during an eight-week concert tour through the Deep South. They embark with plans to return home on Christmas Eve. Tony is given a copy of the Green Book by Don's record studio: a guide for black travelers to find safe havens throughout the segregated South. They begin the tour in the Midwest before eventually heading further south. Tony and Don clash over their differences, as Tony feels uncomfortable being asked to act properly, while Don is disgusted by Tony's habits. Regardless, Tony finds himself impressed with Don's talent on the piano, and increasingly disgusted by the discriminatory treatment the latter receives by the hosts when he is not on stage. After a bar incident leads to a group of white men threatening Don's life, Tony rescues him by threatening to pull a gun on them. He instructs Don not to go out without him for the rest of the tour. Dr Don Shirley is a world-class African-American pianist, who is about to embark on a concert tour in the Deep South in 1962. In need of a driver and protection, Shirley recruits Tony Lip, a tough-talking bouncer from an Italian-American neighbourhood in the Bronx. Despite their differences, the two men soon develop an unexpected bond while confronting racism and danger in an era of segregation.::Jwelch5742 In early-1960s openly and legally segregated America, two polar opposites--the distinguished and refined African-American classical pianist, Don Shirley, and the uncultivated Italian-American nightclub bouncer, Tony Vallelonga--are about to form an unlikely friendship. With New York's Copacabana Club being renovated, Don and his new problem-solver chauffeur embark on a lengthy two-month concert tour through the hostile Deep South, equipped only with a subtly tremendous talent, a serenely resilient dignity, and a little vert guide book for visitors--The Negro Motorist Green-Book. Before endless kilometres of unfriendly territory, a single man chooses the hard way for the sake of progress; however, can one person make a difference?::Nick Riganas October, 1962. Italian-American Bronx native Tony Vallelonga - long called Tony Lip by those that know him for being able to BS his way out of anything - largely uses that ability to BS, his street smarts and his fists to do his job in "customer relations" (i.e. a glorified bouncer) at the Copa, where he has to deal with well dressed toughs and thugs, albeit with a smile and often without they knowing that he is screwing them. Like most of his Italian-American friends and family, he is a working class bigot, as demonstrated by his actions concerning some black laborers who did work in his and his wife Dolores' apartment. With the Copa closed for renovations until the new year, Tony has to find another job in the interim, he, without telling Dolores, pawning some of his valuables in the meantime to put food on their and their two adolescent sons' table. When he is given the inside scoop on a job working for Dr. Don Shirley, he only did not know before meeting Dr. Shirley that the Dr. refers to his multiple Ph.D.s, and that he is a classically trained pianist (the head of the popular music playing Don Shirley Trio) instead of a physician, but arguably most importantly that he is a well educated, wealthy and refined black man. The job is not only as chauffeur as Tony initially thought, but to be his all-expenses and well paid general foot soldier, especially in the area of security, for the eight week tour he has arranged for the trio with his record label, much of that tour in the Deep South (the last scheduled date being December 23rd in Birmingham, Alabama) hence the need for especially that security in he being black. Renegotiating the terms, learning that Dr. Shirley actually recruited him based on his reputation for being able to get the job done, and getting the okay from Dolores in the stipulation that he make it home for Christmas or else, Tony accepts the job. Beyond the obvious hazards of the race relations aspect of the job once they get to the Deep South, they will not only have to get over their own differences as humans in their moral and ethical values to survive with each other for eight weeks, but deal with the general role reversal of the uneducated white man being subservient to the well-educated black man. In that aspect, Dr. Shirley may have other issues in the Deep South as not fitting into either the white or black populations in general.::Huggo
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,204 +67,212 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Houmas House Plantation, Burnside, Louisiana, USA 
+            <td class="table__cell">
+                Burnside, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.138611</span>, <span class="lon">-90.92389</span>
-                    </td>   
+                30.138611, -90.92389
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                McAlister Auditorium, Tulane University, New Orleans, LA 70118, USA 
+            <td class="table__cell">
+                McAlister Auditorium, 6823 Saint Charles Ave, New Orleans, Louisiana 70118, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.939943</span>, <span class="lon">-90.119083</span>
-                    </td>   
+                29.939943, -90.119083
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Carnegie Hall, New York City, New York, USA
+            <td class="table__cell">
+                Carnegie Hall, 881 7th Ave, New York, New York 10019, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7650625</span>, <span class="lon">-73.97995900000001</span>
-                    </td>   
+                40.7650625, -73.97995900000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                English Turn Golf & Country Club, 1 Clubhouse Dr, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                English Turn Golf and Country Club, 1 Clubhouse Dr, New Orleans, Louisiana 70131, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.906123</span>, <span class="lon">-89.954386</span>
-                    </td>   
+                29.906123, -89.954386
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ruby's Roadhouse, Mandeville, Louisiana, USA 
+            <td class="table__cell">
+                Ruby's Roadhouse, 840 Lamarque St, Mandeville, Louisiana 70448, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.361668</span>, <span class="lon">-90.058467</span>
-                    </td>   
+                30.361668, -90.058467
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                International House Hotel, Camp Street, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                International House Hotel, 221 Camp St, New Orleans, Louisiana 70130, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.951099499999998</span>, <span class="lon">-90.0689295</span>
-                    </td>   
+                29.951099499999998, -90.0689295
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Carver Theater, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                Carver Theater, 2101 Orleans Ave, New Orleans, Louisiana 70116, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.967086</span>, <span class="lon">-90.076657</span>
-                    </td>   
+                29.967086, -90.076657
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Clover Grill, French Quarter, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                Clover Grill, 900 Bourbon St, New Orleans, Louisiana 70116, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.960269</span>, <span class="lon">-90.064136</span>
-                    </td>   
+                29.960269, -90.064136
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New Orleans Athletic Club, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                New Orleans Athletic Club, 222 N Rampart St, New Orleans, Louisiana 70112, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.9568375</span>, <span class="lon">-90.0713345</span>
-                    </td>   
+                29.9568375, -90.0713345
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Aloha Motel, Metairie, Louisiana, USA 
+            <td class="table__cell">
+                New Orleans Marriott Metairie at Lakeway, 3838 N Causeway Blvd, Metairie, Louisiana 70002, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.018059</span>, <span class="lon">-90.155064</span>
-                    </td>   
+                30.018059, -90.155064
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Macon, Georgia, USA
+            <td class="table__cell">
+                Macon, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.8407</span>, <span class="lon">-83.6324</span>
-                    </td>   
+                32.8407, -83.6324
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sigle's Antiques, Royal Street, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                New Orleans, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
-                    </td>   
+                29.9499, -90.0701
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Northshore Broadcasting building, Hammond, Louisiana, USA 
+            <td class="table__cell">
+                Fayard Hall, Hammond, Louisiana 70401, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.514549</span>, <span class="lon">-90.466606</span>
-                    </td>   
+                30.514549, -90.466606
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Roosevelt New Orleans   130 Roosevelt Way, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                New Orleans East, New Orleans, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.0533</span>, <span class="lon">-89.9354</span>
-                    </td>   
+                30.0533, -89.9354
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Amite, Louisiana, USA 
+            <td class="table__cell">
+                Amite, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.7266</span>, <span class="lon">-90.509</span>
-                    </td>   
+                30.7266, -90.509
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Orpheum Theater   129 Roosevelt Way, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                129 Roosevelt Way, New Orleans, Louisiana 70112, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.954375</span>, <span class="lon">-90.072845</span>
-                    </td>   
+                29.954375, -90.072845
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Saenger Theater, New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                Saenger Theatre, 1101 Canal St, New Orleans, Louisiana 70112, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.956114499999998</span>, <span class="lon">-90.0727235</span>
-                    </td>   
+                29.956114499999998, -90.0727235
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                W.P. Brown House, 4717 St. Charles Ave., New Orleans, Louisiana, USA 
+            <td class="table__cell">
+                St. Charles Parish, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.91</span>, <span class="lon">-90.36</span>
-                    </td>   
+                29.91, -90.36
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                French Quarter, New Orleans, Louisiana, USA
+            <td class="table__cell">
+                French Quarter, New Orleans, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.9575</span>, <span class="lon">-90.0653</span>
-                    </td>   
+                29.9575, -90.0653
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Louisiana, USA
+            <td class="table__cell">
+                Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.93749930159</span>, <span class="lon">-92.305998069584</span>
-                    </td>   
+                30.93749930159, -92.305998069584
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Burnside, Louisiana, USA
+            <td class="table__cell">
+                Burnside, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.138611</span>, <span class="lon">-90.92389</span>
-                    </td>   
+                30.138611, -90.92389
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New Orleans, Louisiana, USA
+            <td class="table__cell">
+                New Orleans, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.9499</span>, <span class="lon">-90.0701</span>
-                    </td>   
+                29.9499, -90.0701
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hammond, Louisiana, USA
+            <td class="table__cell">
+                Hammond, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.5044</span>, <span class="lon">-90.4612</span>
-                    </td>   
+                30.5044, -90.4612
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Metairie, Louisiana, USA
+            <td class="table__cell">
+                Metairie, Louisiana, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 29.99</span>, <span class="lon">-90.1505</span>
-                    </td>   
+                29.99, -90.1505
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Georgia, USA
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
-                    </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Georgia, United States
+            </td>   
+                <td class="table__cell">
+                32.3305706594, -83.2572560296474
+            </td>   
           </tr> 
           </tr>
         
@@ -271,5 +286,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[29.906123, -89.954386], [29.91, -90.36], [29.939943, -90.119083]], "data": [{"lat": 30.138611, "lon": -90.92389, "name": "Burnside, Louisiana, United States"}, {"lat": 29.939943, "lon": -90.119083, "name": "McAlister Auditorium, 6823 Saint Charles Ave, New Orleans, Louisiana 70118, United States"}, {"lat": 40.7650625, "lon": -73.97995900000001, "name": "Carnegie Hall, 881 7th Ave, New York, New York 10019, United States"}, {"lat": 29.906123, "lon": -89.954386, "name": "English Turn Golf and Country Club, 1 Clubhouse Dr, New Orleans, Louisiana 70131, United States"}, {"lat": 30.361668, "lon": -90.058467, "name": "Ruby\u0027s Roadhouse, 840 Lamarque St, Mandeville, Louisiana 70448, United States"}, {"lat": 29.951099499999998, "lon": -90.0689295, "name": "International House Hotel, 221 Camp St, New Orleans, Louisiana 70130, United States"}, {"lat": 29.967086, "lon": -90.076657, "name": "Carver Theater, 2101 Orleans Ave, New Orleans, Louisiana 70116, United States"}, {"lat": 29.960269, "lon": -90.064136, "name": "Clover Grill, 900 Bourbon St, New Orleans, Louisiana 70116, United States"}, {"lat": 29.9568375, "lon": -90.0713345, "name": "New Orleans Athletic Club, 222 N Rampart St, New Orleans, Louisiana 70112, United States"}, {"lat": 30.018059, "lon": -90.155064, "name": "New Orleans Marriott Metairie at Lakeway, 3838 N Causeway Blvd, Metairie, Louisiana 70002, United States"}, {"lat": 32.8407, "lon": -83.6324, "name": "Macon, Georgia, United States"}, {"lat": 29.9499, "lon": -90.0701, "name": "New Orleans, Louisiana, United States"}, {"lat": 30.514549, "lon": -90.466606, "name": "Fayard Hall, Hammond, Louisiana 70401, United States"}, {"lat": 30.0533, "lon": -89.9354, "name": "New Orleans East, New Orleans, Louisiana, United States"}, {"lat": 30.7266, "lon": -90.509, "name": "Amite, Louisiana, United States"}, {"lat": 29.954375, "lon": -90.072845, "name": "129 Roosevelt Way, New Orleans, Louisiana 70112, United States"}, {"lat": 29.956114499999998, "lon": -90.0727235, "name": "Saenger Theatre, 1101 Canal St, New Orleans, Louisiana 70112, United States"}, {"lat": 29.91, "lon": -90.36, "name": "St. Charles Parish, Louisiana, United States"}, {"lat": 29.9575, "lon": -90.0653, "name": "French Quarter, New Orleans, Louisiana, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 30.138611, "lon": -90.92389, "name": "Burnside, Louisiana, United States"}, {"lat": 29.9499, "lon": -90.0701, "name": "New Orleans, Louisiana, United States"}, {"lat": 30.5044, "lon": -90.4612, "name": "Hammond, Louisiana, United States"}, {"lat": 29.99, "lon": -90.1505, "name": "Metairie, Louisiana, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 32.3305706594, "lon": -83.2572560296474, "name": "Georgia, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Inception</h3>
                         <p class="card-text">
-                          A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.
+                          A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster. Dom Cobb is a skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state, when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved. Now Cobb is being offered a chance at redemption. One last job could give him his life back but only if he can accomplish the impossible, inception. Instead of the perfect heist, Cobb and his team of specialists have to pull off the reverse: their task is not to steal an idea, but to plant one. If they succeed, it could be the perfect crime. But no amount of careful planning or expertise can prepare the team for the dangerous enemy that seems to predict their every move. An enemy that only Cobb could have seen coming.::Warner Bros. Pictures Dominic Cobb is an spy who instead of breaking into a person's home, office, or even computer, gets the information he needs by getting into the person's mind through their dreams. Cobb is also a fugitive who misses his children. Someone approaches Cobb and wants to hire him but instead of getting information out, the man wants Cobb to implant something, a process called "inception", which is not easy to do. Cobb is hesitant to do it, but when the man offers to help Cobb go back to his children, Cobb agrees. So he assembles his team but when they begin, there are things Cobb didn't tell his team that could jeopardize the job, and when they occur, they're not sure if they should continue.::rcs0411@yahoo.com Dominic Cobb is the foremost practitioner of the artistic science of extraction, inserting oneself into a subject's dreams to obtain hidden information without the subject knowing, a concept taught to him by his professor father-in-law, Dr. Stephen Miles. Dom's associates are Miles' former students, who Dom requires as he has given up being the dream architect for reasons he won't disclose. Dom's primary associate, Arthur, believes it has something to do with Dom's deceased wife, Mal, who often figures prominently and violently in those dreams, or Dom's want to "go home" (get back to his own reality, which includes two young children). Dom's work is generally in corporate espionage. As the subjects don't want the information to get into the wrong hands, the clients have zero tolerance for failure. Dom is also a wanted man, as many of his past subjects have learned what Dom has done to them. One of those subjects, Mr. Saito, offers Dom a job he can't refuse: to take the concept one step further into inception, namely planting thoughts into the subject's dreams without them knowing. Inception can fundamentally alter that person as a being. Saito's target is Robert Michael Fischer, the heir to an energy business empire, which has the potential to rule the world if continued on the current trajectory. Beyond the complex logistics of the dream architecture of the case and some unknowns concerning Fischer, the biggest obstacles in success for the team become worrying about one aspect of inception which Cobb fails to disclose to the other team members prior to the job, and Cobb's newest associate Ariadne's belief that Cobb's own subconscious, especially as it relates to Mal, may be taking over what happens in the dreams.::Huggo Mr. Cobb a unique con artist can enter anyone's dreams and extract the most valuable ideas and secrets of people with the help of "inception" (a dream sharing technology) when the state of mind is at its vulnerable best. Cobbs ability has made him the face of corporate spying, hence a wanted man too. Seeing his abilities, he is approached by Saito to carry out an almost impossible mission not to steal, but to plant the idea into the mind of the legal heir of a billion dollar enterprenauer. Mr. Cobb, with some specialists, must do the impossible in order to get back his life in a completely different "world of dreams" facing his own demons.::Mahesh Shelatkar Dom Cobb is a thief with the rare ability to enter people's dreams and steal their secrets from their subconsciouses. His skill has made him a hot commodity in the world of corporate espionage, but has also cost him everything he loves. Cobb gets a chance at redemption when he is offered a seemingly impossible task: Plant an idea in someone's mind. If he succeeds, it will be the perfect crime, but a dangerous enemy anticipates Cobb's every move.::Jwelch5742
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,274 +455,268 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Fortress Mountain, Kananaskis Country, Alberta, Canada
+            <td class="table__cell">
+                Fortress Mountain Way, Exshaw, Alberta T0L 2C0, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.061735</span>, <span class="lon">-115.160036</span>
-                    </td>   
+                51.061735, -115.160036
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tangier, Morocco 
+            <td class="table__cell">
+                Tangier, Tanger-Tétouan-Al Hoceïma, Morocco
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.78472</span>, <span class="lon">-5.8125</span>
-                    </td>   
+                35.78472, -5.8125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Shizuoka, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.91639</span>, <span class="lon">138.31639</span>
-                    </td>   
+                34.91639, 138.31639
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tokyo, Japan
+            <td class="table__cell">
+                国立新美術館 (The National Art Center, 六本木7-22-2, 東京都, Tokyo Prefecture 106-0032, Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.6652065</span>, <span class="lon">139.7263785</span>
-                    </td>   
+                35.6652065, 139.7263785
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Alberta, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 54.6426717391</span>, <span class="lon">-114.757175843012</span>
-                    </td>   
+                54.6426717391, -114.757175843012
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Da Stuzzi Delicatessen, 6 Rue César Franck, Paris 15, France 
+            <td class="table__cell">
+                6 Rue César Franck, 75015 Paris, France
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.847457</span>, <span class="lon">2.309955</span>
-                    </td>   
+                48.847457, 2.309955
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kananaskis Village, Kananaskis Country, Alberta, Canada
+            <td class="table__cell">
+                Kananaskis Village Centre, Kananaskis Village, Kananaskis, Alberta T0L 2H0, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.9185</span>, <span class="lon">-115.147196</span>
-                    </td>   
+                50.9185, -115.147196
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pont de Bir Hakeim, Paris, France
+            <td class="table__cell">
+                Pont de Bir-Hakeim, Pont de Bir-Hakeim, Paris, 75016, France
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.856051</span>, <span class="lon">2.28697775</span>
-                    </td>   
+                48.856051, 2.28697775
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bedford, Bedfordshire, England, UK
+            <td class="table__cell">
+                Mill Lane, Houghton Conquest, Bedford, MK45 3BW, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 52.067944</span>, <span class="lon">-0.47248</span>
-                    </td>   
+                52.067944, -0.47248
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cardington Airship Hangars, Bedfordshire, England, UK 
+            <td class="table__cell">
+                Airship Hangar, Farnborough, England GU14 7JP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
-                    </td>   
+                51.28478, -0.760758
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Spring Street, Downtown, Los Angeles, California, USA
+            <td class="table__cell">
+                Downtown, El Segundo, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.92</span>, <span class="lon">-118.42</span>
-                    </td>   
+                33.92, -118.42
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                University College London, Bloomsbury, London, England, UK
+            <td class="table__cell">
+                University College London, Gower St, London, England WC1H 0XG, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.522696867187506</span>, <span class="lon">-0.1293049453125</span>
-                    </td>   
+                51.522696867187506, -0.1293049453125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                Morocco
             </td>   
                 <td class="table__cell">
-                </td>   
+                32.3507513130338, -6.01707272732872
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Commodore Schuyler F. Heim Bridge, Port of Los Angeles, Los Angeles, California, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7611452884965</span>, <span class="lon">-118.239047462989</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Farnborough Airfield, Hampshire, England, UK
+            <td class="table__cell">
+                Farnborough, Hampshire, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.29</span>, <span class="lon">-0.75</span>
-                    </td>   
+                51.29, -0.75
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Rancho Palos Verdes, California, USA
+            <td class="table__cell">
+                Rancho Palos Verdes, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7483</span>, <span class="lon">-118.3708</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Rue Bouchut, Paris 15, Paris, France
+                33.7483, -118.3708
             </td>   
-                <td class="table__cell">
-                <span class="lat"> 48.85658</span>, <span class="lon">2.35183</span>
-                    </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bedfordshire, England, UK
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 51.869071</span>, <span class="lon">0.567501</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Stage 16, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA 
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                John Ferraro Building, 111 North Hope Street, Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.05811</span>, <span class="lon">-118.24953</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Leo Carrillo State Beach   35000 W. Pacific Coast Highway, Malibu, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.04678</span>, <span class="lon">-118.92636</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Pasadena, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.1476</span>, <span class="lon">-118.1445</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                1240 S Hope St, Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.039895</span>, <span class="lon">-118.264921</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Falls Lake, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                453 S Spring St, Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.04812</span>, <span class="lon">-118.24909</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Malibu, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.0058</span>, <span class="lon">-118.807</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Paris 15, Paris, France
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 46.066038</span>, <span class="lon">4.055113</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Downtown, Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.05</span>, <span class="lon">-118.23</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                
-            </td>   
-                <td class="table__cell">
-                </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Paris, France
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.85658</span>, <span class="lon">2.35183</span>
-                    </td>   
+                48.85658, 2.35183
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                Rushmoor Drive, Braintree, CM7 1FJ, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                51.869071, 0.567501
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ark Mori Building   1 12 32, Akasaka, Minato, Tokyo, Japan 
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.667274</span>, <span class="lon">139.739817</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                111 North Hope Street, Los Angeles, California 90012, United States
+            </td>   
+                <td class="table__cell">
+                34.05811, -118.24953
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                35000 Pacific Coast Highway, Malibu, California 90265, United States
+            </td>   
+                <td class="table__cell">
+                34.04678, -118.92636
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Pasadena, California, United States
+            </td>   
+                <td class="table__cell">
+                34.1476, -118.1445
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                1240 South Hope Street, Los Angeles, California 90015, United States
+            </td>   
+                <td class="table__cell">
+                34.039895, -118.264921
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
+            </td>   
+                <td class="table__cell">
+                34.14138, -118.35659
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                453 S Spring St, Los Angeles, California 90013, United States
+            </td>   
+                <td class="table__cell">
+                34.04812, -118.24909
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Malibu, California, United States
+            </td>   
+                <td class="table__cell">
+                34.0058, -118.807
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                15 Route De Paris, 42300 Mably, France
+            </td>   
+                <td class="table__cell">
+                46.066038, 4.055113
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Downtown, Los Angeles, California, United States
+            </td>   
+                <td class="table__cell">
+                34.05, -118.23
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles, California, United States
+            </td>   
+                <td class="table__cell">
+                34.0544, -118.2439
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                France
+            </td>   
+                <td class="table__cell">
+                47.8249046208979, 2.61878695312962
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Paris, France
+            </td>   
+                <td class="table__cell">
+                48.85658, 2.35183
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                California, United States
+            </td>   
+                <td class="table__cell">
+                37.0743595873, -119.699375153073
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                アーク森ビル (ARK MORI BUILDING), 赤坂1-12-32, 東京都, Tokyo Prefecture 107-0052, Japan
+            </td>   
+                <td class="table__cell">
+                35.667274, 139.739817
+            </td>   
           </tr> 
           </tr>
         
@@ -792,5 +789,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.7483, -118.3708], [33.92, -118.42], [34.0058, -118.807]], "data": [{"lat": 51.061735, "lon": -115.160036, "name": "Fortress Mountain Way, Exshaw, Alberta T0L 2C0, Canada"}, {"lat": 35.78472, "lon": -5.8125, "name": "Tangier, Tanger-T\u00e9touan-Al Hoce\u00efma, Morocco"}, {"lat": 34.91639, "lon": 138.31639, "name": "Shizuoka, Japan"}, {"lat": 35.6652065, "lon": 139.7263785, "name": "\u56fd\u7acb\u65b0\u7f8e\u8853\u9928 (The National Art Center, \u516d\u672c\u67287-22-2, \u6771\u4eac\u90fd, Tokyo Prefecture 106-0032, Japan"}, {"lat": 54.6426717391, "lon": -114.757175843012, "name": "Alberta, Canada"}, {"lat": 48.847457, "lon": 2.309955, "name": "6 Rue C\u00e9sar Franck, 75015 Paris, France"}, {"lat": 50.9185, "lon": -115.147196, "name": "Kananaskis Village Centre, Kananaskis Village, Kananaskis, Alberta T0L 2H0, Canada"}, {"lat": 48.856051, "lon": 2.28697775, "name": "Pont de Bir-Hakeim, Pont de Bir-Hakeim, Paris, 75016, France"}, {"lat": 52.067944, "lon": -0.47248, "name": "Mill Lane, Houghton Conquest, Bedford, MK45 3BW, United Kingdom"}, {"lat": 51.28478, "lon": -0.760758, "name": "Airship Hangar, Farnborough, England GU14 7JP, United Kingdom"}, {"lat": 33.92, "lon": -118.42, "name": "Downtown, El Segundo, California, United States"}, {"lat": 51.522696867187506, "lon": -0.1293049453125, "name": "University College London, Gower St, London, England WC1H 0XG, United Kingdom"}, {"lat": 32.3507513130338, "lon": -6.01707272732872, "name": "Morocco"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 51.29, "lon": -0.75, "name": "Farnborough, Hampshire, England, United Kingdom"}, {"lat": 33.7483, "lon": -118.3708, "name": "Rancho Palos Verdes, California, United States"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 51.869071, "lon": 0.567501, "name": "Rushmoor Drive, Braintree, CM7 1FJ, United Kingdom"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.05811, "lon": -118.24953, "name": "111 North Hope Street, Los Angeles, California 90012, United States"}, {"lat": 34.04678, "lon": -118.92636, "name": "35000 Pacific Coast Highway, Malibu, California 90265, United States"}, {"lat": 34.1476, "lon": -118.1445, "name": "Pasadena, California, United States"}, {"lat": 34.039895, "lon": -118.264921, "name": "1240 South Hope Street, Los Angeles, California 90015, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 34.04812, "lon": -118.24909, "name": "453 S Spring St, Los Angeles, California 90013, United States"}, {"lat": 34.0058, "lon": -118.807, "name": "Malibu, California, United States"}, {"lat": 46.066038, "lon": 4.055113, "name": "15 Route De Paris, 42300 Mably, France"}, {"lat": 34.05, "lon": -118.23, "name": "Downtown, Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 47.8249046208979, "lon": 2.61878695312962, "name": "France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 35.667274, "lon": 139.739817, "name": "\u30a2\u30fc\u30af\u68ee\u30d3\u30eb (ARK MORI BUILDING), \u8d64\u57421-12-32, \u6771\u4eac\u90fd, Tokyo Prefecture 107-0052, Japan"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

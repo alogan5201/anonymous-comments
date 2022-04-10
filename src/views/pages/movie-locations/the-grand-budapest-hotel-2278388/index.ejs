@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Grand Budapest Hotel</h3>
                         <p class="card-text">
-                          A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge.
+                          A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years under an exceptional concierge. This movie recounts the adventures of M. Gustave (Ralph Fiennes), a legendary concierge at a famous European hotel between the wars, and Zero Moustafa (Tony Revolori), the lobby boy who becomes his most trusted friend. The story involves the theft and recovery of a priceless Renaissance painting and the battle for an enormous family fortune - all against the backdrop of a suddenly and dramatically changing continent.::Fox Searchlight Pictures A teenage girl visits the monument of the writer who penned the book, "The Grand Budapest Hotel". In 1968, that author was inspired to write the book when he visited that hotel, located in the European mountainous country formerly known as Zubrowka. Once a luxurious hotel, it, in 1968, has fallen on hard times. The author meets the then current owner, Mr. Zero Moustafa (F. Murray Abraham), who recounts the story of how he became the hotel's owner and why he holds onto it and keeps it open despite it obviously making him no money. Zero's story begins in 1932, when the hotel was in its golden era. Zero (Tony Revolori) was the novice immigrant lobby boy, who, like all the other hotel staff, was under the guidance of M. Gustave (Ralph Fiennes), the devoted concierge. Gustave aimed to please, he giving the guests whatever they wanted, especially the wealthy blonde women. The story largely revolves around one of those women, the wealthy Madame Céline Villeneuve Desgoffe-und-Taxis - better known as Madame D. (Tilda Swinton) - her opportunistic son Dmitri (Adrian Brody), the bequeathing of a valuable painting called "Boy with Apple" to Gustave, the mysterious circumstances surrounding her death which is initially pinned on Gustave, and the attempts of Zero, his girlfriend - a baker's assistant named Agatha (Saoirse Ronan) - and others to clear Gustave's name while Dmitri does whatever he needs to get what he believes is rightfully his, namely the painting.::Huggo A writer travels to the decadent Grand Budapest Hotel in the mountains of the Republic of Zubrowka and he meets the owner Mr. Zero Moustafa (F. Murray Abraham), who is a very simple man. Zero invites the author to have dinner with him and he tells his story and how he became the owner of the hotel. In 1932, in the glorious days of the Grand Budapest Hotel, Zero Moustafa (Tony Revolori) is hired to work as lobby boy under the command of the legendary concierge M. Gustave (Ralph Fiennes), who becomes his friend. Gustave efficiently manages the hotel and staff and also attends the sexual needs of the old ladies lodged at the hotel. He spends one night with Madame Céline Villeneuve Desgoffe-und-Taxis, a.k.a. Madame D. (Tilda Swinton) and soon he learns that she was found dead at home. Gustave summons Zero to travel with him to the funeral and he learns that he has inherited the valuable painting "Boy with Apple". Madame D's son Dmitri (Adrian Brody) and her family do not accept that a concierge may have inherited the painting and Gustave and Zero steal it and return to the Grand Budapest Hotel. Gustave promises Zero that he would be his heir for helping him. But Gustave is falsely accused of murdering Madame D. and is arrested and imprisoned. Will his friend Zero let him die in prison?::Claudio Carvalho, Rio de Janeiro, Brazil In the far reaches of Eastern Europe in the former Republic of Zubrowka, there once was the Grand Budapest hotel. A writer remembers a stay at the hotel during the off season many years ago and recalls the tales he heard of the hotel's past from the elderly owner, Mr. Zero Moustafa (F. Murray Abraham). He tells the young writer about how he came to acquire the hotel and of the original concierge of the Grand Budapest, M. Gustave (Ralph Fiennes). Young Zero (Tony Revolori) was a lobby boy at the time and accompanies Gustave to the reading of a will after one of their regular guests dies. She leaves Gustave a valuable painting, but when the woman's son challenges the will, Gustave and Moustafa steal the painting setting off a series of events that will lead to Moustafa's present circumstance.::garykmcd In the 1930s, The Grand Budapest Hotel is a popular European ski resort, presided over by concierge M. Gustave (Ralph Fiennes). Zero Moustafa (Tony Revolori), a junior lobby boy, becomes Gustave's friend and protégé. Gustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.::Jwelch5742 M. Gustave (Ralph Fiennes), the famous concierge at a legendary hotel situated in the Alps during the 1930s becomes the center of a farcical whirlwind of suspicion when one of his institution's oldest and richest patrons turns up dead, and she suspiciously leaves him her most priceless work of art - a Renaissance painting of a boy with an apple. Infuriated that she left anything of value to anyone else, the woman's greedy and nefarious heir uses all manner of underhanded and illegal tactics to pin her death on Gustave and to silence anyone who questions his objective of inheriting every penny of her estate, leaving Gustave's trusted lobby boy Zero Moustafa (Tony Revolori) to clear Gustave's name and prove that the grand lady's killer is none other than her own son, Dmitri (Adrian Brody).
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,92 +67,108 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Görlitz, Saxony, Germany 
+            <td class="table__cell">
+                Görlitz, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.15278</span>, <span class="lon">14.98722</span>
-                    </td>   
+                51.15278, 14.98722
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Zwinger, Dresden, Saxony, Germany 
+            <td class="table__cell">
+                Zwingerteich, Theaterplatz, Dresden, Saxony 01067, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.053425000000004</span>, <span class="lon">13.733105625</span>
-                    </td>   
+                51.053425000000004, 13.733105625
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kraków, Malopolskie, Poland 
+            <td class="table__cell">
+                Kraków, Lesser Poland Voivodeship, Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.06667</span>, <span class="lon">19.95</span>
-                    </td>   
+                50.06667, 19.95
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Osterstein Castle, Zwickau, Saxony, Germany 
+            <td class="table__cell">
+                Schloss Osterstein, Schlossgrabenweg 1, Zwickau, Saxony 08056, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.721002</span>, <span class="lon">12.49999</span>
-                    </td>   
+                50.721002, 12.49999
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hainewalde, Saxony, Germany 
+            <td class="table__cell">
+                Hainewalde, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.90556</span>, <span class="lon">14.7</span>
-                    </td>   
+                50.90556, 14.7
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Dresden, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.05</span>, <span class="lon">13.75</span>
-                    </td>   
+                51.05, 13.75
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Waldenburg, Saxony, Germany 
+            <td class="table__cell">
+                Waldenburg, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.87583</span>, <span class="lon">12.59972</span>
-                    </td>   
+                50.87583, 12.59972
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sächsische Schweiz, Saxony, Germany 
+            <td class="table__cell">
+                Miniaturpark Kleine Sächsische Schweiz, Schustergasse 8, Stadt Wehlen, Saxony 01829, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 50.958545</span>, <span class="lon">14.006784</span>
-                    </td>   
+                50.958545, 14.006784
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Studio Babelsberg, Potsdam, Brandenburg, Germany
+            <td class="table__cell">
+                Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 52.387806</span>, <span class="lon">13.120573</span>
-                    </td>   
+                52.387806, 13.120573
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Burg Kriebstein, Kriebstein, Saxony, Germany 
+            <td class="table__cell">
+                Poland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.05</span>, <span class="lon">13.01972</span>
-                    </td>   
+                52.1246099075455, 19.30063630556
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Elbe Sandstone Mountains, Saxony, Germany 
+            <td class="table__cell">
+                Kriebstein, Saxony, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.02694</span>, <span class="lon">13.35889</span>
-                    </td>   
+                51.05, 13.01972
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Germany
+            </td>   
+                <td class="table__cell">
+                51.1334813439932, 10.0183432948567
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Saxony, Germany
+            </td>   
+                <td class="table__cell">
+                51.02694, 13.35889
+            </td>   
           </tr> 
           </tr>
         
@@ -159,5 +182,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[51.02694, 13.35889], [51.05, 13.01972], [51.05, 13.75]], "data": [{"lat": 51.15278, "lon": 14.98722, "name": "G\u00f6rlitz, Saxony, Germany"}, {"lat": 51.053425000000004, "lon": 13.733105625, "name": "Zwingerteich, Theaterplatz, Dresden, Saxony 01067, Germany"}, {"lat": 50.06667, "lon": 19.95, "name": "Krak\u00f3w, Lesser Poland Voivodeship, Poland"}, {"lat": 50.721002, "lon": 12.49999, "name": "Schloss Osterstein, Schlossgrabenweg 1, Zwickau, Saxony 08056, Germany"}, {"lat": 50.90556, "lon": 14.7, "name": "Hainewalde, Saxony, Germany"}, {"lat": 51.05, "lon": 13.75, "name": "Dresden, Saxony, Germany"}, {"lat": 50.87583, "lon": 12.59972, "name": "Waldenburg, Saxony, Germany"}, {"lat": 50.958545, "lon": 14.006784, "name": "Miniaturpark Kleine S\u00e4chsische Schweiz, Schustergasse 8, Stadt Wehlen, Saxony 01829, Germany"}, {"lat": 52.387806, "lon": 13.120573, "name": "Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany"}, {"lat": 52.1246099075455, "lon": 19.30063630556, "name": "Poland"}, {"lat": 51.05, "lon": 13.01972, "name": "Kriebstein, Saxony, Germany"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}, {"lat": 51.02694, "lon": 13.35889, "name": "Saxony, Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">American History X</h3>
                         <p class="card-text">
-                          A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did.
+                          A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did. Derek Vineyard is paroled after serving 3 years in prison for brutally killing two black men who tried to break into/steal his truck. Through his brother's, Danny Vineyard, narration, we learn that before going to prison, Derek was a skinhead and the leader of a violent white supremacist gang that committed acts of racial crime throughout L.A. and his actions greatly influenced Danny. Reformed and fresh out of prison, Derek severs contact with the gang and becomes determined to keep Danny from going down the same violent path as he did.::Nitesh D.(nmxpa7@msn.com) Edward Norton plays, Derek Vineyard, an ex neo-nazi ex-con that was a real product of his subtle upbringing and environment. When he gets out of jail he tries to convince his little brother (who he actually introduced to the same hateful life) that he can make better choices.::ahmetkozan Derek Vinyard is a skinhead and the leader of a white supremacist gang. After killing two black men who tried to steal his truck he is sent to prison for three years. Prison gives him a time to think about his life and when he comes out he decides to avoid the hate and prejudice of his past. He leaves the gang and attempts to live a normal life. However, his previous actions and prejudices may have influenced his younger brother.::grantss Derek Vinyard returns from prison to find his younger brother, Danny, caught in the same web of racism and hatred that landed him in prison. After Derek's father is killed in the line of duty by a minority, Derek's view of mankind is altered, but while in prison, he discovers that there is good and bad in every race. The task before him now is to convince Danny of his newfound enlightenment.::Robin <soonerzs@yahoo.com> A brutal Neo Nazi skinhead named Derek Vinyard is tried and sent to prison for three years for the murder of two black guys who tried to steal his truck. When he returns from prison reformed, his younger brother Daniel Vinyard who idolizes him is on the brink of becoming a Neo Nazi himself. Derek must save his younger brother from a similar fate.::Emphinix
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,84 +67,84 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Venice High School   13000 Venice Boulevard, Venice, Los Angeles, California, USA
+            <td class="table__cell">
+                Venice, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.995</span>, <span class="lon">-118.4669</span>
-                    </td>   
+                33.995, -118.4669
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Johnie's Coffee Shop   6101 Wilshire Boulevard, Fairfax, Los Angeles, California, USA
+            <td class="table__cell">
+                Wilshire, Santa Monica, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0268</span>, <span class="lon">-118.5017</span>
-                    </td>   
+                34.0268, -118.5017
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Archie's Ranch Market   7500 Lankershim Blvd, North Hollywood, Los Angeles, California, USA 
+            <td class="table__cell">
+                7500 Lankershim Boulevard, North Hollywood, California 91605, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.20684</span>, <span class="lon">-118.38758</span>
-                    </td>   
+                34.20684, -118.38758
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                2206 Meade Place, Venice Beach, Los Angeles, California, USA 
+            <td class="table__cell">
+                2206 Meade Place, Venice, California 90291, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.99305</span>, <span class="lon">-118.45575</span>
-                    </td>   
+                33.99305, -118.45575
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Venice Beach, Los Angeles, California, USA
+            <td class="table__cell">
+                Venice Beach, Venice, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.988044</span>, <span class="lon">-118.474913</span>
-                    </td>   
+                33.988044, -118.474913
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                North Hollywood, Los Angeles, California, USA
+            <td class="table__cell">
+                North Hollywood, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1729</span>, <span class="lon">-118.374</span>
-                    </td>   
+                34.1729, -118.374
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fairfax, Los Angeles, California, USA
+            <td class="table__cell">
+                Fairfax Avenue, Culver City, California 90016, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.03187</span>, <span class="lon">-118.3714196875</span>
-                    </td>   
+                34.03187, -118.3714196875
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1250 Gordon Street, Hollywood, Los Angeles, California, USA 
+            <td class="table__cell">
+                1250 Gordon Street, Los Angeles, California 90038, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.09392</span>, <span class="lon">-118.31997</span>
-                    </td>   
+                34.09392, -118.31997
+            </td>   
           </tr> 
           </tr>
         
@@ -151,5 +158,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.988044, -118.474913], [33.99305, -118.45575], [33.995, -118.4669]], "data": [{"lat": 33.995, "lon": -118.4669, "name": "Venice, California, United States"}, {"lat": 34.0268, "lon": -118.5017, "name": "Wilshire, Santa Monica, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.20684, "lon": -118.38758, "name": "7500 Lankershim Boulevard, North Hollywood, California 91605, United States"}, {"lat": 33.99305, "lon": -118.45575, "name": "2206 Meade Place, Venice, California 90291, United States"}, {"lat": 33.988044, "lon": -118.474913, "name": "Venice Beach, Venice, California, United States"}, {"lat": 34.1729, "lon": -118.374, "name": "North Hollywood, California, United States"}, {"lat": 34.03187, "lon": -118.3714196875, "name": "Fairfax Avenue, Culver City, California 90016, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 34.09392, "lon": -118.31997, "name": "1250 Gordon Street, Los Angeles, California 90038, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

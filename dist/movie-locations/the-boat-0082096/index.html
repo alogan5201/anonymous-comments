@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Boat</h3>
                         <p class="card-text">
-                          The claustrophobic world of a WWII German U-boat; boredom, filth and sheer terror.
+                          The claustrophobic world of a WWII German U-boat; boredom, filth and sheer terror. It is 1942 and the German submarine fleet is heavily engaged in the so-called "Battle of the Atlantic" to harass and destroy British shipping. With better escorts of the destroyer class, however, German U-boats have begun to take heavy losses. "Das Boot" is the story of the crew of one such U-Boat, with the film examining how these submariners maintained their professionalism as soldiers and attempted to accomplish impossible missions, all the while attempting to understand and obey the ideology of the government under which they served.::Anthony Hughes <husnock31@hotmail.com> A look at the lives of the officers and men of the U-96, a German U-boat patrolling the north Atlantic during World War II. Led by Capt.-Lt. Heinrich Lehmann-Willenbrock, the men, for the most part, are seasoned veterans of undersea duty. For the new recruits, including military journalist Lt. Werner, it's all a bit of an eye opener. The quarters are cramped with men sharing bunks - while one is on duty, the other gets sleep - and there's barely enough room for more that two men in passageways at any one time. Their trip is also marked by lengthy periods of boredom while they search for enemy shipping to attack and periods of absolute terror when they find themselves under attack by Allied naval vessels. Throughout it all, the men band together, cynical about just what they are doing but also proud of their accomplishments.::garykmcd 1941 and the Battle of the Atlantic - German U-boats versus freighters supplying Britain - is underway. We see this struggle from the side of the crew of a German U-boat, U-96. We see the relaxation and fun in port, the boredom of patrol, the tension of stalking a convoy, and the sheer terror when they become the hunted.::grantss In the autumn of 1941, the German Capt.-Lt. Henrich Lehmann-Willenbrock of the U-96 U-Boat receives the war correspondent Lt. Werner to cover the work in the submarine during their mission in the Atlantic Ocean. They sail out of the shipyard La Rochelle and along the next weeks, Werner learns the lives, loves, fear and behavior of the young crew, the veteran Captain and his officers. The skilled captain hunts British vessels to sink and dives to depths below the limit of the boat to escape from the destroyers. Near Christmas, they plan to return to La Rochelle; but out of the blue, Captain Henrich receives and order to cross the Strait of Gibraltar to go to Italy. But the captain knows how protected the area is and plans a means to lure the British Navy. Will the U-96 succeed in crossing the Strait of Gibraltar?::Claudio Carvalho, Rio de Janeiro, Brazil
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,28 +455,44 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                La Pallice, La Rochelle, Charente Maritime, France
+            <td class="table__cell">
+                North Sea, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 46.1631</span>, <span class="lon">-1.2095</span>
-                    </td>   
+                40.9329, -72.4143
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bodensee, Bavaria, Germany
+            <td class="table__cell">
+                La Pallice, La Rochelle, Charente-Maritime, France
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 47.9724932</span>, <span class="lon">10.1627992</span>
-                    </td>   
+                46.1631, -1.2095
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bavaria Studios, Bavariafilmplatz 7, Geiselgasteig, Grünwald, Bavaria, Germany 
+            <td class="table__cell">
+                Bodenseestr., 87700 Memmingen, Germany
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.066591</span>, <span class="lon">11.549117</span>
-                    </td>   
+                47.9724932, 10.1627992
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Bavariafilmplatz 7, 82031 Grünwald, Germany
+            </td>   
+                <td class="table__cell">
+                48.066591, 11.549117
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco
+            </td>   
+                <td class="table__cell">
+                33.606847, -7.632845
+            </td>   
           </tr> 
           </tr>
         
@@ -546,5 +565,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 40.9329, "lon": -72.4143, "name": "North Sea, New York, United States"}, {"lat": 46.1631, "lon": -1.2095, "name": "La Pallice, La Rochelle, Charente-Maritime, France"}, {"lat": 47.9724932, "lon": 10.1627992, "name": "Bodenseestr., 87700 Memmingen, Germany"}, {"lat": 48.066591, "lon": 11.549117, "name": "Bavariafilmplatz 7, 82031 Gr\u00fcnwald, Germany"}, {"lat": 33.606847, "lon": -7.632845, "name": "Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

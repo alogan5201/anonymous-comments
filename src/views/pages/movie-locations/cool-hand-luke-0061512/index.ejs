@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,13 +33,13 @@
                       <div class="card-body">
                         <h3 class="card-title">Cool Hand Luke</h3>
                         <p class="card-text">
-                          A laid back Southern man is sentenced to two years in a rural prison, but refuses to conform.
+                          A laid back Southern man is sentenced to two years in a rural prison, but refuses to conform. Luke Jackson is a cool, gutsy prisoner in a Southern chain gang, who, while refusing to buckle under to authority, keeps escaping and being recaptured. The prisoners admire Luke because, as Dragline explains it, "You're an original, that's what you are!" Nevertheless, the camp staff actively works to crush Luke until he finally breaks.::alfiehitchie Lucas Jackson, natural born world shaker, someone with more guts than brains, a man who refuses to conform to the rules he has been given. Sent to a prison camp for a misdemeanor Luke soon gains respect and becomes an idol. He has some fun in jail doing things for the hell of it, after his mother dies the Bosses put him in the box afraid he might want to attend the funeral. When he gets out he runs and gets caught and runs and gets caught, the bosses try to break him but he just won't break.::Sandra Spence Luke Jackson is a cool, aloof man incapable of conforming to the societal demands of his surroundings. After being arrested for drunkenly decapitating parking meters, Luke is sentenced to two years in a Florida prison farm where he quickly develops a reputation as a man with an unbreakable will and whose spirit simply can't be broken. Idolized by his fellow convicts while simultaneously detested by his superiors, Luke's bravado in the face of adversity makes him both a hero and a villain in the rural prison. But how long will it take before Luke's body gives out?::Kyle Perez When petty criminal Luke Jackson is sentenced to two years in a Florida prison farm, he doesn't play by the rules of either the sadistic warden or the yard's resident heavy, Dragline, who ends up admiring the new guy's unbreakable will. Luke's bravado, even in the face of repeated stints in the prison's dreaded solitary confinement cell, "the box," make him a rebel hero to his fellow convicts and a thorn in the side of the prison officers.::Jwelch5742 Luke is sent to a prison camp, where he gets a reputation as a hard man. The head of the gang hates him, and tries to break him by beating him up. It doesn't work, and he gains respect. His mother dies, and he escapes, but is caught, escapes again, and is caught again. Will the camp bosses ever break him ?::Colin Tinto <cst@imdb.com>
                         </p>
                       </div>
                     </div>
                     <div class="col-md-4 justify-self-end">
                       <img
-                                      src="https://m.media-amazon.com/images/M/MV5BOWFlNzZhYmYtYTI5YS00MDQyLWIyNTUtNTRjMWUwNTEzNjA0XkEyXkFqcGdeQXVyNjUwNzk3NDc@.jpg"
+                                      src="https://m.media-amazon.com/images/M/MV5BNjcwNTQ3Y2EtMjdmZi00ODBhLWFhNzQtOTc3MWU5NTZlMDViXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Cool Hand Luke"
                                     />
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,84 +67,84 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Jacksonville, Florida, USA
+            <td class="table__cell">
+                Jacksonville, Florida, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.3322</span>, <span class="lon">-81.6557</span>
-                    </td>   
+                30.3322, -81.6557
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stockton, California, USA
+            <td class="table__cell">
+                Stockton, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.9577</span>, <span class="lon">-121.2908</span>
-                    </td>   
+                37.9577, -121.2908
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Joaquin River, California, USA 
+            <td class="table__cell">
+                San Joaquin River, Fresno, California 93722, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.834202</span>, <span class="lon">-119.919535</span>
-                    </td>   
+                36.834202, -119.919535
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tavares, Florida, USA
+            <td class="table__cell">
+                Tavares, Florida, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 28.8042</span>, <span class="lon">-81.7256</span>
-                    </td>   
+                28.8042, -81.7256
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Joaquin Sacramento River Delta, California, USA
+            <td class="table__cell">
+                San Joaquin, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.6066</span>, <span class="lon">-120.189</span>
-                    </td>   
+                36.6066, -120.189
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lodi, California, USA
+            <td class="table__cell">
+                Lodi, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.1302</span>, <span class="lon">-121.2724</span>
-                    </td>   
+                38.1302, -121.2724
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Joaquin Valley, California, USA
+            <td class="table__cell">
+                San Joaquin Valley College, 27270 Madison Ave, Temecula, California 92590, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.525867</span>, <span class="lon">-117.166415</span>
-                    </td>   
+                33.525867, -117.166415
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 9, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 1, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 6, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           </tr>
         
@@ -151,5 +158,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.150955, -118.339232], [34.1816, -118.3259], [34.1816, -118.3259]], "data": [{"lat": 30.3322, "lon": -81.6557, "name": "Jacksonville, Florida, United States"}, {"lat": 37.9577, "lon": -121.2908, "name": "Stockton, California, United States"}, {"lat": 36.834202, "lon": -119.919535, "name": "San Joaquin River, Fresno, California 93722, United States"}, {"lat": 28.8042, "lon": -81.7256, "name": "Tavares, Florida, United States"}, {"lat": 36.6066, "lon": -120.189, "name": "San Joaquin, California, United States"}, {"lat": 38.1302, "lon": -121.2724, "name": "Lodi, California, United States"}, {"lat": 33.525867, "lon": -117.166415, "name": "San Joaquin Valley College, 27270 Madison Ave, Temecula, California 92590, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

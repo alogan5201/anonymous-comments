@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Grapes of Wrath</h3>
                         <p class="card-text">
-                          An Oklahoma family driven off their farm by the poverty and hopelessness of the Dust Bowl joins the westward migration to California, suffering the misfortunes of the homeless in the Great Depression.
+                          An Oklahoma family driven off their farm by the poverty and hopelessness of the Dust Bowl joins the westward migration to California, suffering the misfortunes of the homeless in the Great Depression. The Joad clan, introduced to the world in John Steinbeck's iconic novel, is looking for a better life in California. After their drought-ridden farm is seized by the bank, the family -- led by just-paroled son Tom -- loads up a truck and heads West. On the road, beset by hardships, the Joads meet dozens of other families making the same trek and holding onto the same dream. Once in California, however, the Joads soon realize that the promised land isn't quite what they hoped.::Jwelch5742 The story of the Joad family is told, they, poor Oklahoma sharecroppers, who, like all others in their situation, are pushed off the land by the wealthy landowners, many large corporations, during the Great Depression, and, as a result, they, again like many others in their situation, making the decision for the dozen or so of the family members, with another one on the way, to migrate to what is seen as the land of opportunity, California, where jobs, specifically as fruit pickers, are purported to be plentiful. Not only because of the jalopy of a truck they could afford to buy to make the trek and their remaining limited funds which they calculate should just be enough to get them to California where they will once again start to earn money, their trip is not without incident from unforeseen circumstances. Arriving in California, they discover that the land of opportunity is not all it was advertised to be, with they and all others like them facing different challenges to survive, where, if there are jobs to be had, they are more often than not for wages on which a family cannot survive, and with security on site with guns and clubs to control labor unrest. Often, they will have to make some difficult decisions on whether to accept work in unacceptable conditions in even attempting to survive, or hold out, like some others are doing, but who are considered "agitators" who the owners will do anything to eliminate, for good if need be. While Ma Joad believes that the family unit is the most important thing that has always gotten them through the bad times, oldest son Tom Joad may have the most holistically consequential decisions as the one on parole, he just released from prison after four years of a seven year sentence for killing a man in a bar brawl.::Huggo Tom Joad returns to his home after a jail sentence to find his family kicked off their farm due to foreclosure. He catches up with them on his uncle's farm and joins them the next day as they head for California and a new life - Hopefully.::Colin Tinto <cst@imdb.com>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,188 +67,196 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Rosa, New Mexico, USA 
+            <td class="table__cell">
+                Santa Rosa, New Mexico, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.9387</span>, <span class="lon">-104.6825</span>
-                    </td>   
+                34.9387, -104.6825
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Needles, California, USA 
+            <td class="table__cell">
+                Needles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.8481</span>, <span class="lon">-114.6141</span>
-                    </td>   
+                34.8481, -114.6141
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tehachapi, California, USA 
+            <td class="table__cell">
+                Topock, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.1322</span>, <span class="lon">-118.449</span>
-                    </td>   
+                34.7183, -114.4872
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Topock, Arizona, USA 
+            <td class="table__cell">
+                Tehachapi, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.7183</span>, <span class="lon">-114.4872</span>
-                    </td>   
+                35.1322, -118.449
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Daggett, California, USA 
+            <td class="table__cell">
+                Daggett, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.8634</span>, <span class="lon">-116.888</span>
-                    </td>   
+                34.8634, -116.888
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Iverson Ranch   1 Iverson Lane, Chatsworth, Los Angeles, California, USA
+            <td class="table__cell">
+                1 Iverson Lane, Chatsworth, California 91311, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.276</span>, <span class="lon">-118.60976</span>
-                    </td>   
+                34.276, -118.60976
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Laguna Pueblo, New Mexico, USA
+            <td class="table__cell">
+                Laguna, New Mexico, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.03</span>, <span class="lon">-106.95</span>
-                    </td>   
+                35.03, -106.95
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                McAlester, Oklahoma, USA 
+            <td class="table__cell">
+                McAlester, Oklahoma, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.9335</span>, <span class="lon">-95.7698</span>
-                    </td>   
+                34.9335, -95.7698
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gallup, New Mexico, USA
+            <td class="table__cell">
+                Gallup, New Mexico, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.5284</span>, <span class="lon">-108.7439</span>
-                    </td>   
+                35.5284, -108.7439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Irvine Ranch, Tustin, California, USA
+            <td class="table__cell">
+                University of California, Irvine, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.6479</span>, <span class="lon">-117.8419</span>
-                    </td>   
+                33.6479, -117.8419
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lamont, California, USA 
+            <td class="table__cell">
+                Lamont, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.2597</span>, <span class="lon">-118.9143</span>
-                    </td>   
+                35.2597, -118.9143
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Petrified Forest National Park, Arizona, USA
+            <td class="table__cell">
+                Petrified Forest National Park, Petrified Forest Rd., Holbrook, Arizona 85924, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.864308</span>, <span class="lon">-109.801365</span>
-                    </td>   
+                34.864308, -109.801365
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sayre, Oklahoma, USA 
+            <td class="table__cell">
+                Sayre, Oklahoma, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.2912</span>, <span class="lon">-99.6401</span>
-                    </td>   
+                35.2912, -99.6401
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Janss Conejo Ranch, Thousand Oaks, California, USA 
+            <td class="table__cell">
+                Thousand Oaks, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1706</span>, <span class="lon">-118.8376</span>
-                    </td>   
+                34.1706, -118.8376
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lasky Mesa, Chatsworth, Los Angeles, California, USA 
+            <td class="table__cell">
+                Chatsworth, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2596</span>, <span class="lon">-118.6023</span>
-                    </td>   
+                34.2596, -118.6023
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Backlot, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA
+            <td class="table__cell">
+                Pico, Santa Monica, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.02</span>, <span class="lon">-118.49</span>
-                    </td>   
+                34.02, -118.49
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 5, 20th Century Fox Studios   10201 Pico Blvd., Century City, Los Angeles, California, USA
+            <td class="table__cell">
+                10201 West Pico Boulevard, Los Angeles, California 90064, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.04994</span>, <span class="lon">-118.41129</span>
-                    </td>   
+                34.04994, -118.41129
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Fernando Valley, Los Angeles, California, USA
+            <td class="table__cell">
+                San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.251081</span>, <span class="lon">-118.518444</span>
-                    </td>   
+                34.251081, -118.518444
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Arizona Welcome Center, US Interstate 40, Lupton, Arizona, USA 
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.353889</span>, <span class="lon">-109.05306</span>
-                    </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                US Interstate 40, Lupton, Arizona, USA 
+            <td class="table__cell">
+                Lupton, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.3624471</span>, <span class="lon">-109.0467887</span>
-                    </td>   
+                35.353889, -109.05306
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                9 Interstate 40 Business Loop, Santa Rosa, New Mexico, USA 
+            <td class="table__cell">
+                I 40, Houck, Arizona 86512, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.94564</span>, <span class="lon">-104.66844</span>
-                    </td>   
+                35.3624471, -109.0467887
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Historic Route 66, Santa Rosa, New Mexico 88435, United States
+            </td>   
+                <td class="table__cell">
+                34.94564, -104.66844
+            </td>   
           </tr> 
           </tr>
         
@@ -255,5 +270,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.6479, -117.8419], [34.02, -118.49], [34.04994, -118.41129]], "data": [{"lat": 34.9387, "lon": -104.6825, "name": "Santa Rosa, New Mexico, United States"}, {"lat": 34.8481, "lon": -114.6141, "name": "Needles, California, United States"}, {"lat": 34.7183, "lon": -114.4872, "name": "Topock, Arizona, United States"}, {"lat": 35.1322, "lon": -118.449, "name": "Tehachapi, California, United States"}, {"lat": 34.8634, "lon": -116.888, "name": "Daggett, California, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 35.03, "lon": -106.95, "name": "Laguna, New Mexico, United States"}, {"lat": 34.9335, "lon": -95.7698, "name": "McAlester, Oklahoma, United States"}, {"lat": 35.5284, "lon": -108.7439, "name": "Gallup, New Mexico, United States"}, {"lat": 33.6479, "lon": -117.8419, "name": "University of California, Irvine, California, United States"}, {"lat": 35.2597, "lon": -118.9143, "name": "Lamont, California, United States"}, {"lat": 34.864308, "lon": -109.801365, "name": "Petrified Forest National Park, Petrified Forest Rd., Holbrook, Arizona 85924, United States"}, {"lat": 35.2912, "lon": -99.6401, "name": "Sayre, Oklahoma, United States"}, {"lat": 34.1706, "lon": -118.8376, "name": "Thousand Oaks, California, United States"}, {"lat": 34.2596, "lon": -118.6023, "name": "Chatsworth, California, United States"}, {"lat": 34.02, "lon": -118.49, "name": "Pico, Santa Monica, California, United States"}, {"lat": 34.04994, "lon": -118.41129, "name": "10201 West Pico Boulevard, Los Angeles, California 90064, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.251081, "lon": -118.518444, "name": "San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 35.353889, "lon": -109.05306, "name": "Lupton, Arizona, United States"}, {"lat": 35.3624471, "lon": -109.0467887, "name": "I 40, Houck, Arizona 86512, United States"}, {"lat": 34.94564, "lon": -104.66844, "name": "Historic Route 66, Santa Rosa, New Mexico 88435, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

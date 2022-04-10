@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Into the Wild</h3>
                         <p class="card-text">
-                          After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life.
+                          After graduating from Emory University, top student and athlete Christopher McCandless abandons his possessions, gives his entire $24,000 savings account to charity and hitchhikes to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters that shape his life. Based on a true story. After graduating from Emory University, Christopher McCandless abandoned his possessions, gave his entire savings account to charity, and hitchhiked to Alaska to live in the wilderness. Along the way, Christopher encounters a series of characters who shape his life.::Lisa Kelley A young man bravely sets out alone on what turns into a majestic journey to explore the beauty and wonder of the world. Throughout his travels, which ultimatelty lead him into the wild and wilderness, he seeks and ultimately finds pleasure and joy along with a sense of truth and purpose he has been yearning for all his life. Along the way he meets and deeply touches a cast of others who are all in their own ways also looking to escape or move on from the past and enjoy life again.::James Quirke Based on the true story of 19 year-old Christopher McCandless who walked out of his privileged life and promising future to become a back-to-nature wanderer in the 1990s. On the way, he encounters a series of adventures and people that will all shape him in a unique, meaningful way.::Kyle Perez In the spring of 1990, Christopher McCandless obtains his undergraduate degree from Emory. Watching him get his degree are his wealthy parents, Walt McCandless and Billie McCandless, and his teenaged sister, Carine McCandless. Before his parents and sister head home to Virginia following the convocation, Chris, refusing his parents' gift of a new car to replace his old Datsun which he states works perfectly fine, tells them that he has thoughts of going into Harvard Law, he having received excellent grades in what were largely classes focusing on global social consciousness. Walt, Billie and Carine will learn by the end of the summer that Chris had no intention of going to Harvard as he has since moved from his apartment in Atlanta without a word to them, he arranging with the post office to hold his mail for a couple of months before being "returned to sender" to give him a head start in his escape from his family. Chris' Datsun is eventually discovered abandoned in the Arizona desert, the authorities believing it being done on purpose as opposed to Chris being abducted. Walt and Billie intend to continue to search for Chris until they know conclusively what has happened to him. Carine, having had much the same upbringing as Chris, believes she understands what he is doing in making this escape. What he has done is either donated most of his money to Oxfam or burned it, and has destroyed all of his ID in an effort to start life anew as a child of the Earth, he rechristening himself Alexander Supertramp. This move is in rebellion to much of western society, and most specifically against the type of life his parents epitomize, they who he believes should never have gotten married and are hypocrites in portraying what they believe society expects of them, being generally unhappy with each other and life in the process. He ultimately wants to live off the land, carrying with him only what material possessions he will need, but wants to experience freedom by traveling the country by thumbing rides or riding the rails, working the odd job until he earns enough to purchase what he needs at any give time, and obtaining some skills he knows he will need to survive in the destination he has in mind when he is ready: the wilds of Alaska. Despite stating that he does not want or need attachments, he does make some human connections along the way, and not necessarily to/with like-minded people.::Huggo
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,244 +455,492 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Astoria, Oregon, USA
+            <td class="table__cell">
+                Astoria, Oregon, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 46.1879</span>, <span class="lon">-123.8313</span>
-                    </td>   
+                46.1879, -123.8313
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Healy, Alaska, USA
+            <td class="table__cell">
+                Healy, Alaska, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 63.8705</span>, <span class="lon">-148.9958</span>
-                    </td>   
+                63.8705, -148.9958
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Yuma, Arizona, USA
+            <td class="table__cell">
+                Yuma, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
-                    </td>   
+                32.7253, -114.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Beaverton, Oregon, USA
+            <td class="table__cell">
+                Beaverton, Oregon, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.4872</span>, <span class="lon">-122.8038</span>
-                    </td>   
+                45.4872, -122.8038
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Niland, California, USA
+            <td class="table__cell">
+                Niland, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.314987</span>, <span class="lon">-115.733931</span>
-                    </td>   
+                33.314987, -115.733931
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Winner, South Dakota, USA
+            <td class="table__cell">
+                Winner, South Dakota, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.3767</span>, <span class="lon">-99.859</span>
-                    </td>   
+                43.3767, -99.859
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mount Hood, Oregon, USA
+            <td class="table__cell">
+                Mount Hood, Government Camp, Oregon 97028, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.330501</span>, <span class="lon">-121.710066</span>
-                    </td>   
+                45.330501, -121.710066
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Anchorage, Alaska, USA
+            <td class="table__cell">
+                Needles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 61.2163</span>, <span class="lon">-149.8949</span>
-                    </td>   
+                34.8481, -114.6141
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Longview Fibre Company   300 Fibre Way, Longview, Washington, USA
+            <td class="table__cell">
+                Reno, Nevada, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 46.10403</span>, <span class="lon">-122.92277</span>
-                    </td>   
+                39.5293, -119.8137
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sisters, Oregon, USA
+            <td class="table__cell">
+                Salton Sea, Thermal, California 92274, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 44.2909</span>, <span class="lon">-121.5493</span>
-                    </td>   
+                33.343029, -115.855313
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Needles, California, USA
+            <td class="table__cell">
+                Channel Islands, Oxnard, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.8481</span>, <span class="lon">-114.6141</span>
-                    </td>   
+                34.18, -119.23
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Reno, Nevada, USA
+            <td class="table__cell">
+                Topock, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.5293</span>, <span class="lon">-119.8137</span>
-                    </td>   
+                34.7183, -114.4872
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Salton Sea, California, USA
+            <td class="table__cell">
+                Anchorage, Alaska, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.343029</span>, <span class="lon">-115.855313</span>
-                    </td>   
+                61.2163, -149.8949
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Santa Catalina Island, Channel Islands, California, USA
+            <td class="table__cell">
+                300 Fibre Way, Longview, Washington 98632, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.18</span>, <span class="lon">-119.23</span>
-                    </td>   
+                46.10403, -122.92277
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Topock, Arizona, USA
+            <td class="table__cell">
+                Sisters, Oregon, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.7183</span>, <span class="lon">-114.4872</span>
-                    </td>   
+                44.2909, -121.5493
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Portland, Oregon, USA
+            <td class="table__cell">
+                Portland, Oregon, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.5202</span>, <span class="lon">-122.6742</span>
-                    </td>   
+                45.5202, -122.6742
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Slab City, California, USA
+            <td class="table__cell">
+                Slab City, Calipatria, California 92233, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.257573</span>, <span class="lon">-115.4688265</span>
-                    </td>   
+                33.257573, -115.4688265
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palm Springs, California, USA
+            <td class="table__cell">
+                Palm Springs, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.8246</span>, <span class="lon">-116.5403</span>
-                    </td>   
+                33.8246, -116.5403
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Parker, Arizona, USA
+            <td class="table__cell">
+                Parker, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.15</span>, <span class="lon">-114.2891</span>
-                    </td>   
+                34.15, -114.2891
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Peach Springs, Arizona, USA
+            <td class="table__cell">
+                Peach Springs, Peach Springs, Arizona 86434, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.52904</span>, <span class="lon">-113.42447</span>
-                    </td>   
+                35.52904, -113.42447
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Seattle, Washington, USA
+            <td class="table__cell">
+                Seattle, Washington, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 47.6038</span>, <span class="lon">-122.3301</span>
-                    </td>   
+                47.6038, -122.3301
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Anza Borrego Desert State Park   200 Palm Canyon Drive, Borrego Springs, California, USA
+            <td class="table__cell">
+                Atlanta, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.256077</span>, <span class="lon">-116.406841</span>
-                    </td>   
+                33.7491, -84.3902
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Denali National Park, Alaska, USA
+            <td class="table__cell">
+                Cantwell, Alaska, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 63.760271</span>, <span class="lon">-150.39187</span>
-                    </td>   
+                63.392261, -148.95152
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Atlanta, Georgia, USA
+            <td class="table__cell">
+                Fairbanks, Alaska, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
-                    </td>   
+                64.8378, -147.7164
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cantwell, Alaska, USA
+            <td class="table__cell">
+                Anza-Borrego Desert State Park, 200 Palm Canyon Dr, Borrego Springs, California 92004, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 63.392261</span>, <span class="lon">-148.95152</span>
-                    </td>   
+                33.256077, -116.406841
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fairbanks, Alaska, USA
+            <td class="table__cell">
+                Denali National Park, Alaska, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 64.8378</span>, <span class="lon">-147.7164</span>
-                    </td>   
+                63.760271, -150.39187
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Orick Beach, Washington, USA
+            <td class="table__cell">
+                Salton City, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.7159</span>, <span class="lon">-122.6838</span>
-                    </td>   
+                33.298611, -115.95528
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Salton City, California, USA
+            <td class="table__cell">
+                Hot Springs, South Dakota, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.298611</span>, <span class="lon">-115.95528</span>
-                    </td>   
+                43.4316, -103.4744
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Black Hills Wild Horse Sanctuary   12163 Highland Road, Hot Springs, South Dakota, USA
+            <td class="table__cell">
+                Copper River Highway, Cordova, Alaska 99574, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.4316</span>, <span class="lon">-103.4744</span>
-                    </td>   
+                60.6705671, -144.7461512
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Copper River, Alaska, USA
+            <td class="table__cell">
+                El Centro, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 60.7304053</span>, <span class="lon">-144.6612734</span>
-                    </td>   
+                32.792, -115.5631
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Kingman, Arizona, United States
+            </td>   
+                <td class="table__cell">
+                35.1894, -114.053
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                El Golfo de Santa Clara, Golfo De Santa Clara, Sonora, Mexico
+            </td>   
+                <td class="table__cell">
+                31.687739, -114.494228
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Boulder City, Nevada, United States
+            </td>   
+                <td class="table__cell">
+                35.9786, -114.8325
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Cape Disappointment, Ilwaco, Washington 98624, United States
+            </td>   
+                <td class="table__cell">
+                46.30544, -124.05978
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Carthage, South Dakota, United States
+            </td>   
+                <td class="table__cell">
+                44.1711, -97.7165
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Arizona, United States
+            </td>   
+                <td class="table__cell">
+                34.2202611707, -111.422127989113
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Hot Springs, South Dakota, United States
+            </td>   
+                <td class="table__cell">
+                43.4316, -103.4744
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Kingman Wash, Kingman Wash Rd, Temple Bar Marina, Arizona 86445, United States
+            </td>   
+                <td class="table__cell">
+                36.035927, -114.7101585
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Las Vegas, Nevada, United States
+            </td>   
+                <td class="table__cell">
+                36.1663, -115.1492
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Laughlin, Nevada, United States
+            </td>   
+                <td class="table__cell">
+                35.1678, -114.573
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Lee's Ferry, Marble Canyon, Arizona 86036, United States
+            </td>   
+                <td class="table__cell">
+                36.858497, -111.611799
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                USA/MEX Border Crossing, Winterhaven, California 92283, United States
+            </td>   
+                <td class="table__cell">
+                32.718449, -114.727774
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Page, Arizona, United States
+            </td>   
+                <td class="table__cell">
+                36.9148, -111.4573
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Niland, California, United States
+            </td>   
+                <td class="table__cell">
+                33.314987, -115.733931
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Bullhead City, Arizona, United States
+            </td>   
+                <td class="table__cell">
+                35.1478, -114.5683
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Atlanta, Georgia, United States
+            </td>   
+                <td class="table__cell">
+                33.7491, -84.3902
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Newberg, Oregon, United States
+            </td>   
+                <td class="table__cell">
+                45.3006, -122.9725
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                The Ritz-Carlton, 13031 Ritz-Carlton Highlands Court, Truckee, California 96161, United States
+            </td>   
+                <td class="table__cell">
+                39.267319, -120.12787
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Reed, Portland, Oregon, United States
+            </td>   
+                <td class="table__cell">
+                45.4813, -122.6343
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Grand Canyon National Park, Entrance Rd, Grand Canyon, Arizona 86023, United States
+            </td>   
+                <td class="table__cell">
+                36.054975, -112.1256055
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                27567 Fantastic Lane, Castaic, California 91384, United States
+            </td>   
+                <td class="table__cell">
+                34.49571, -118.61863
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles, California, United States
+            </td>   
+                <td class="table__cell">
+                34.0544, -118.2439
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Alaska, United States
+            </td>   
+                <td class="table__cell">
+                64.6358675746, -153.180996665583
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Beach, Washington, United States
+            </td>   
+                <td class="table__cell">
+                48.7159, -122.6838
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Oregon, United States
+            </td>   
+                <td class="table__cell">
+                44.0328841608, -120.281411696945
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Georgia, United States
+            </td>   
+                <td class="table__cell">
+                32.3305706594, -83.2572560296474
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                California, United States
+            </td>   
+                <td class="table__cell">
+                37.0743595873, -119.699375153073
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Nevada, United States
+            </td>   
+                <td class="table__cell">
+                40.0711202976, -116.598821819119
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                South Dakota, United States
+            </td>   
+                <td class="table__cell">
+                44.8688864124, -100.149201511155
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Washington, United States
+            </td>   
+                <td class="table__cell">
+                48.0250054263, -120.094292506456
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -762,5 +1013,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[32.718449, -114.727774], [32.7253, -114.6244], [32.792, -115.5631]], "data": [{"lat": 46.1879, "lon": -123.8313, "name": "Astoria, Oregon, United States"}, {"lat": 63.8705, "lon": -148.9958, "name": "Healy, Alaska, United States"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 45.4872, "lon": -122.8038, "name": "Beaverton, Oregon, United States"}, {"lat": 33.314987, "lon": -115.733931, "name": "Niland, California, United States"}, {"lat": 43.3767, "lon": -99.859, "name": "Winner, South Dakota, United States"}, {"lat": 45.330501, "lon": -121.710066, "name": "Mount Hood, Government Camp, Oregon 97028, United States"}, {"lat": 34.8481, "lon": -114.6141, "name": "Needles, California, United States"}, {"lat": 39.5293, "lon": -119.8137, "name": "Reno, Nevada, United States"}, {"lat": 33.343029, "lon": -115.855313, "name": "Salton Sea, Thermal, California 92274, United States"}, {"lat": 34.18, "lon": -119.23, "name": "Channel Islands, Oxnard, California, United States"}, {"lat": 34.7183, "lon": -114.4872, "name": "Topock, Arizona, United States"}, {"lat": 61.2163, "lon": -149.8949, "name": "Anchorage, Alaska, United States"}, {"lat": 46.10403, "lon": -122.92277, "name": "300 Fibre Way, Longview, Washington 98632, United States"}, {"lat": 44.2909, "lon": -121.5493, "name": "Sisters, Oregon, United States"}, {"lat": 45.5202, "lon": -122.6742, "name": "Portland, Oregon, United States"}, {"lat": 33.257573, "lon": -115.4688265, "name": "Slab City, Calipatria, California 92233, United States"}, {"lat": 33.8246, "lon": -116.5403, "name": "Palm Springs, California, United States"}, {"lat": 34.15, "lon": -114.2891, "name": "Parker, Arizona, United States"}, {"lat": 35.52904, "lon": -113.42447, "name": "Peach Springs, Peach Springs, Arizona 86434, United States"}, {"lat": 47.6038, "lon": -122.3301, "name": "Seattle, Washington, United States"}, {"lat": 33.7491, "lon": -84.3902, "name": "Atlanta, Georgia, United States"}, {"lat": 63.392261, "lon": -148.95152, "name": "Cantwell, Alaska, United States"}, {"lat": 64.8378, "lon": -147.7164, "name": "Fairbanks, Alaska, United States"}, {"lat": 33.256077, "lon": -116.406841, "name": "Anza-Borrego Desert State Park, 200 Palm Canyon Dr, Borrego Springs, California 92004, United States"}, {"lat": 63.760271, "lon": -150.39187, "name": "Denali National Park, Alaska, United States"}, {"lat": 33.298611, "lon": -115.95528, "name": "Salton City, California, United States"}, {"lat": 43.4316, "lon": -103.4744, "name": "Hot Springs, South Dakota, United States"}, {"lat": 60.6705671, "lon": -144.7461512, "name": "Copper River Highway, Cordova, Alaska 99574, United States"}, {"lat": 32.792, "lon": -115.5631, "name": "El Centro, California, United States"}, {"lat": 35.1894, "lon": -114.053, "name": "Kingman, Arizona, United States"}, {"lat": 31.687739, "lon": -114.494228, "name": "El Golfo de Santa Clara, Golfo De Santa Clara, Sonora, Mexico"}, {"lat": 35.9786, "lon": -114.8325, "name": "Boulder City, Nevada, United States"}, {"lat": 46.30544, "lon": -124.05978, "name": "Cape Disappointment, Ilwaco, Washington 98624, United States"}, {"lat": 44.1711, "lon": -97.7165, "name": "Carthage, South Dakota, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 43.4316, "lon": -103.4744, "name": "Hot Springs, South Dakota, United States"}, {"lat": 36.035927, "lon": -114.7101585, "name": "Kingman Wash, Kingman Wash Rd, Temple Bar Marina, Arizona 86445, United States"}, {"lat": 36.1663, "lon": -115.1492, "name": "Las Vegas, Nevada, United States"}, {"lat": 35.1678, "lon": -114.573, "name": "Laughlin, Nevada, United States"}, {"lat": 36.858497, "lon": -111.611799, "name": "Lee\u0027s Ferry, Marble Canyon, Arizona 86036, United States"}, {"lat": 32.718449, "lon": -114.727774, "name": "USA/MEX Border Crossing, Winterhaven, California 92283, United States"}, {"lat": 36.9148, "lon": -111.4573, "name": "Page, Arizona, United States"}, {"lat": 33.314987, "lon": -115.733931, "name": "Niland, California, United States"}, {"lat": 35.1478, "lon": -114.5683, "name": "Bullhead City, Arizona, United States"}, {"lat": 33.7491, "lon": -84.3902, "name": "Atlanta, Georgia, United States"}, {"lat": 45.3006, "lon": -122.9725, "name": "Newberg, Oregon, United States"}, {"lat": 39.267319, "lon": -120.12787, "name": "The Ritz-Carlton, 13031 Ritz-Carlton Highlands Court, Truckee, California 96161, United States"}, {"lat": 45.4813, "lon": -122.6343, "name": "Reed, Portland, Oregon, United States"}, {"lat": 36.054975, "lon": -112.1256055, "name": "Grand Canyon National Park, Entrance Rd, Grand Canyon, Arizona 86023, United States"}, {"lat": 34.49571, "lon": -118.61863, "name": "27567 Fantastic Lane, Castaic, California 91384, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 64.6358675746, "lon": -153.180996665583, "name": "Alaska, United States"}, {"lat": 48.7159, "lon": -122.6838, "name": "Beach, Washington, United States"}, {"lat": 44.0328841608, "lon": -120.281411696945, "name": "Oregon, United States"}, {"lat": 32.3305706594, "lon": -83.2572560296474, "name": "Georgia, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 40.0711202976, "lon": -116.598821819119, "name": "Nevada, United States"}, {"lat": 44.8688864124, "lon": -100.149201511155, "name": "South Dakota, United States"}, {"lat": 48.0250054263, "lon": -120.094292506456, "name": "Washington, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

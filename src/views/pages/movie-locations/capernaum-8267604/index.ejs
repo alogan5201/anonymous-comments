@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,13 +33,13 @@
                       <div class="card-body">
                         <h3 class="card-title">Capernaum</h3>
                         <p class="card-text">
-                          While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect.
+                          While serving a five-year sentence for a violent crime, a 12-year-old boy sues his parents for neglect. Capernaüm ("Chaos") tells the story of Zain (Zain al-Rafeea), a Lebanese boy who sues his parents for the "crime" of giving him life. The film follows Zain as he journeys from gutsy, streetwise child to hardened 12-year-old "adult" fleeing his negligent parents, surviving through his wits on the streets, where he meets Ethiopian migrant worker Rahil, who provides him with shelter and food, as Zain takes care of her baby son Yonas in return. Zain later gets jailed for committing a violent crime, and finally seeks justice in a courtroom. With his family grappling with extreme poverty, forever indebted to their ruthless landlord, the sad twelve-year-old boy, Zain, is forced to fend for himself in the squalid and overcrowded slums of Beirut. Unable to save his eleven-year-old sister, Sahar, from an uneasy arrangement, Zain will soon find himself all alone in a faceless city, ending up at a small amusement park to befriend another lost soul: the Ethiopian cleaner and mother of one, Rahil. But, in this grim and hostile world, there is no room for dreamers--and as a horrifying discovery is the last straw--a rabid desire for retribution possesses Zain and his blood-thirsty knife demands justice. Who is to blame when love becomes hate, and life turns into an unendurable torment?::Nick Riganas
                         </p>
                       </div>
                     </div>
                     <div class="col-md-4 justify-self-end">
                       <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMmExNzU2ZWMtYzUwYi00YmM2LTkxZTQtNmVhNjY0NTMyMWI2XkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                                      src="https://m.media-amazon.com/images/M/MV5BY2Y3OWNkMTctYzNjYS00NWVkLTg4OWEtY2YxN2I3NDhlYzE0XkEyXkFqcGdeQXVyMTI3ODAyMzE2.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Capernaum"
                                     />
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,44 +67,52 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Cola, Beirut, Lebanon 
+            <td class="table__cell">
+                Lebanon Valley College, 101 N College Ave, Annville, Pennsylvania 17003, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.3318725</span>, <span class="lon">-76.5148365</span>
-                    </td>   
+                40.3318725, -76.5148365
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Beirut, Lebanon 
+            <td class="table__cell">
+                بيروت, Beirut, Lebanon
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.88694</span>, <span class="lon">35.51306</span>
-                    </td>   
+                33.88694, 35.51306
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Roumieh Prison, Roumieh, Lebanon 
+            <td class="table__cell">
+                Warren Correctional Institute, Lebanon, Ohio 45036, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.436508</span>, <span class="lon">-84.310642</span>
-                    </td>   
+                39.436508, -84.310642
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Beirut Luna Park, General De Gaulle, Beirut, Lebanon 
+            <td class="table__cell">
+                بيروت, Beirut, Lebanon
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.88694</span>, <span class="lon">35.51306</span>
-                    </td>   
+                33.88694, 35.51306
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Souk Al Ahad, Emile Lahoud, Beirut, Lebanon 
+            <td class="table__cell">
+                Beirut, Lebanon
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.88333</span>, <span class="lon">35.5</span>
-                    </td>   
+                33.88333, 35.5
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Lebanon
+            </td>   
+                <td class="table__cell">
+                33.9202654117664, 35.888026075855
+            </td>   
           </tr> 
           </tr>
         
@@ -111,5 +126,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.88333, 35.5], [33.88694, 35.51306], [33.88694, 35.51306]], "data": [{"lat": 40.3318725, "lon": -76.5148365, "name": "Lebanon Valley College, 101 N College Ave, Annville, Pennsylvania 17003, United States"}, {"lat": 33.88694, "lon": 35.51306, "name": "\u0628\u064a\u0631\u0648\u062a, Beirut, Lebanon"}, {"lat": 39.436508, "lon": -84.310642, "name": "Warren Correctional Institute, Lebanon, Ohio 45036, United States"}, {"lat": 33.88694, "lon": 35.51306, "name": "\u0628\u064a\u0631\u0648\u062a, Beirut, Lebanon"}, {"lat": 33.88333, "lon": 35.5, "name": "Beirut, Lebanon"}, {"lat": 33.9202654117664, "lon": 35.888026075855, "name": "Lebanon"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

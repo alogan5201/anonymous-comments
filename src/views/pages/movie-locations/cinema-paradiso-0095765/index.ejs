@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Cinema Paradiso</h3>
                         <p class="card-text">
-                          A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist.
+                          A filmmaker recalls his childhood when falling in love with the pictures at the cinema of his home village and forms a deep friendship with the cinema's projectionist. A boy who grew up in a native Sicilian Village returns home as a famous director after receiving news about the death of an old friend. Told in a flashback, Salvatore reminiscences about his childhood and his relationship with Alfredo, a projectionist at Cinema Paradiso. Under the fatherly influence of Alfredo, Salvatore fell in love with film making, with the duo spending many hours discussing about films and Alfredo painstakingly teaching Salvatore the skills that became a stepping stone for the young boy into the world of film making. The film brings the audience through the changes in cinema and the dying trade of traditional film making, editing and screening. It also explores a young boy's dream of leaving his little town to foray into the world outside.::Clarisse P. In post-World War II Sicily, at the small village of Giancaldo, the fatherless eight-year-old boy, Salvatore "Totò" Di Vita, befriends Alfredo, the grizzled projectionist of the local Cinema Paradiso, and gains a mentor, and the father he never had. As the wide-eyed boy becomes enchanted by the dazzling world of the movies, growing up with the everlasting characters of Akira Kurosawa, Jean Renoir, John Wayne, Charles Chaplin, and everything in between, his vivid dreams start taking shape, even though the village priest, Father Adelfio, never misses an opportunity to censor films. But, after thirty long years of absence, the death of a dear one forces silver-haired Salvatore, now a prominent film director, to reconnect with his old hometown, and his faded, celluloid-scented childhood memories. Can he remember the taste of youth's first kiss?::Nick Riganas A man receives news from his aging mother in a little town that someone he once knew has passed away. A beautiful story unfolds about the man's childhood friendship with an old man who was the projectionist at the local theater. Their bond was one that contained many highlights and tragedies, and shaped the way for a young boy to grow and move out of his rundown village to pursue a dream.::Tam Bui <tbui@bjt.net>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,108 +67,116 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Cefalù, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Via Cefalù, 90039 Villabate Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.074555</span>, <span class="lon">13.445014</span>
-                    </td>   
+                38.074555, 13.445014
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palermo, Sicily, Italy
+            <td class="table__cell">
+                Sicilò, Via Messina, 13A, Palermo, Palermo 90141, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.126257</span>, <span class="lon">13.352082</span>
-                    </td>   
+                38.126257, 13.352082
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palazzo Adriano, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Palazzo Adriano, Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.68333</span>, <span class="lon">13.38333</span>
-                    </td>   
+                37.68333, 13.38333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Termini Imerese, Palermo, Sicily, Italy
+            <td class="table__cell">
+                Via Termini Imerese, 90039 Villabate Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.0755985</span>, <span class="lon">13.4475081</span>
-                    </td>   
+                38.0755985, 13.4475081
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bagheria, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Bagheria, Bagheria, Palermo 90011, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.073008</span>, <span class="lon">13.508564</span>
-                    </td>   
+                38.073008, 13.508564
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chiusa Sclafani, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Chiusa Sclafani, Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.68333</span>, <span class="lon">13.26667</span>
-                    </td>   
+                37.68333, 13.26667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Solanto, Santa Flavia, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Solanto, Santa Flavia, Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.076669</span>, <span class="lon">13.542848</span>
-                    </td>   
+                38.076669, 13.542848
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Castelbuono, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Castelbuono, Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.93056</span>, <span class="lon">14.08833</span>
-                    </td>   
+                37.93056, 14.08833
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lascari, Palermo, Sicily, Italy 
+            <td class="table__cell">
+                Via Pio La Torre, 90037 Piana degli Albanesi Palermo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.996185</span>, <span class="lon">13.280297</span>
-                    </td>   
+                37.996185, 13.280297
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Rome, Lazio, Italy
+            <td class="table__cell">
+                Via Lazio, 00019 Tivoli Rome, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.9499874999981</span>, <span class="lon">12.7727081111137</span>
-                    </td>   
+                41.9499874999981, 12.7727081111137
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Oriolo Romano, Lazio, Italy 
+            <td class="table__cell">
+                Via Lazio, 01010 Oriolo Romano Viterbo, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.1710210429676</span>, <span class="lon">12.1378036624942</span>
-                    </td>   
+                42.1710210429676, 12.1378036624942
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lungomare Paolo Toscanelli, Lido di Ostia, Rome, Lazio, Italy 
+            <td class="table__cell">
+                Lungomare Paolo Toscanelli, Lungomare Paolo Toscanelli, Roma, Rome 00122, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.728049</span>, <span class="lon">12.282957</span>
-                    </td>   
+                41.728049, 12.282957
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sicily, Italy
+            <td class="table__cell">
+                Scala to Santa Maria del Monte, Caltagirone, Catania 95041, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.23769</span>, <span class="lon">14.521768</span>
-                    </td>   
+                37.23769, 14.521768
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Italy
+            </td>   
+                <td class="table__cell">
+                42.5041539170675, 12.6463610364431
+            </td>   
           </tr> 
           </tr>
         
@@ -175,5 +190,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[37.68333, 13.26667], [37.68333, 13.38333], [37.93056, 14.08833]], "data": [{"lat": 38.074555, "lon": 13.445014, "name": "Via Cefal\u00f9, 90039 Villabate Palermo, Italy"}, {"lat": 38.126257, "lon": 13.352082, "name": "Sicil\u00f2, Via Messina, 13A, Palermo, Palermo 90141, Italy"}, {"lat": 37.68333, "lon": 13.38333, "name": "Palazzo Adriano, Palermo, Italy"}, {"lat": 38.0755985, "lon": 13.4475081, "name": "Via Termini Imerese, 90039 Villabate Palermo, Italy"}, {"lat": 38.073008, "lon": 13.508564, "name": "Bagheria, Bagheria, Palermo 90011, Italy"}, {"lat": 37.68333, "lon": 13.26667, "name": "Chiusa Sclafani, Palermo, Italy"}, {"lat": 38.076669, "lon": 13.542848, "name": "Solanto, Santa Flavia, Palermo, Italy"}, {"lat": 37.93056, "lon": 14.08833, "name": "Castelbuono, Palermo, Italy"}, {"lat": 37.996185, "lon": 13.280297, "name": "Via Pio La Torre, 90037 Piana degli Albanesi Palermo, Italy"}, {"lat": 41.9499874999981, "lon": 12.7727081111137, "name": "Via Lazio, 00019 Tivoli Rome, Italy"}, {"lat": 42.1710210429676, "lon": 12.1378036624942, "name": "Via Lazio, 01010 Oriolo Romano Viterbo, Italy"}, {"lat": 41.728049, "lon": 12.282957, "name": "Lungomare Paolo Toscanelli, Lungomare Paolo Toscanelli, Roma, Rome 00122, Italy"}, {"lat": 37.23769, "lon": 14.521768, "name": "Scala to Santa Maria del Monte, Caltagirone, Catania 95041, Italy"}, {"lat": 42.5041539170675, "lon": 12.6463610364431, "name": "Italy"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

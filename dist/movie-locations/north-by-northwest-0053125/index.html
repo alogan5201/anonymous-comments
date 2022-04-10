@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">North by Northwest</h3>
                         <p class="card-text">
-                          A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies, and falls for a woman whose loyalties he begins to doubt.
+                          A New York City advertising executive goes on the run after being mistaken for a government agent by a group of foreign spies, and falls for a woman whose loyalties he begins to doubt. Madison Avenue advertising man Roger Thornhill finds himself thrust into the world of spies when he is mistaken for a man by the name of George Kaplan. Foreign spy Philip Vandamm and his henchman Leonard try to eliminate him but when Thornhill tries to make sense of the case, he is framed for murder. Now on the run from the police, he manages to board the 20th Century Limited bound for Chicago where he meets a beautiful blond, Eve Kendall, who helps him to evade the authorities. His world is turned upside down yet again when he learns that Eve isn't the innocent bystander he thought she was. Not all is as it seems however, leading to a dramatic rescue and escape at the top of Mt. Rushmore.::garykmcd Manhattan advertising executive Roger Thornhill is already having a hectic day with a jammed packed schedule for its remainder. That schedule takes a turn when he is detained during a business lunch by two men he doesn't know who proceed to kidnap him. Unsure why anyone would want to kidnap him, he discovers the man behind the kidnapping, a Lester Townsend, believes him to be someone named George Kaplan. Townsend wants information from Kaplan, but is prepared to kill Kaplan with or without that information, Kaplan's death meant to look like an accident or suicide. Thornhill is eventually able to escape from his captors. While he does connect with the authorities who do not believe his story, Thornhill subsequently has to go on the run as he becomes implicated in a murder connected to he being Kaplan. As such, Thornhill has to find out what's going on on his own with whatever information he has on hand, most of it gleaned during his captivity: he being able to identify Townsend, his wife, their housekeeper, and three of the thugs working for Townsend; the address of Townsend's mansion where he was being held captive; and Kaplan's recent whereabouts and future movements in what seems to be some tour of the United States, those next two locations being Chicago, Illinois and Rapid City, South Dakota. In his travels in evading both Townsend's people and the authorities, Thornhill gets some willing assistance from a beautiful young blonde woman he meets, industrial designer Eve Kendall, whose help is despite she knowing who he is from the newspaper reports of him being wanted for murder. They eventually fall for each other. She, however, may have some undisclosed ulterior motive for helping him. All the while, Kaplan's people have been and are continuing to watch the proceedings from the sidelines, what they deciding to do largely to protect "Kaplan" from being discovered by "Townsend".::Huggo Middle-aged Madison Avenue advertising executive Roger O. Thornhill is mistaken for a government agent by a gang of spies. He gets involved in a series of misadventures and is pursued across the States by both the spies and the government while being helped by a beautiful blonde.::Col Needham <col@imdb.com> New York City advertising executive Roger Thornhill is kidnapped by a gang of spies led by Philip Vandamm, who believe Thornhill is C.I.A. Agent George Kaplan. Thornhill escapes, but must find Kaplan in order to clear himself of a murder it is believed he committed. Following Kaplan to Chicago as a fugitive from justice, Thornhill is helped by beautiful Eve Kendall. In Chicago, she delivers a message to Kaplan that almost costs Thornhill his life when he is chased across a cornfield by a crop-dusting plane.::filmfactsman
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,228 +455,236 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Garces Highway 1/10th mile East from Corcoran Road and Kern National Wildlife Preserve, Kern County, California, USA 
+            <td class="table__cell">
+                Kern County, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.34</span>, <span class="lon">-118.72</span>
-                    </td>   
+                35.34, -118.72
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Old Westbury Gardens   71 Old Westbury Road, Old Westbury, Long Island, New York, USA 
+            <td class="table__cell">
+                Old Westbury, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7887</span>, <span class="lon">-73.5996</span>
-                    </td>   
+                40.7887, -73.5996
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA 
+            <td class="table__cell">
+                10202 West Washington Boulevard, Culver City, California 90232, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.017275</span>, <span class="lon">-118.402347</span>
-                    </td>   
+                34.017275, -118.402347
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Southern Pacific Railroad Tunnel between Santa Susana & Chatsworth, California, USA 
+            <td class="table__cell">
+                Santa Susana, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2622</span>, <span class="lon">-118.6737</span>
-                    </td>   
+                34.2622, -118.6737
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mount Rushmore National Memorial   Highway 244, Keystone, South Dakota, USA 
+            <td class="table__cell">
+                Mount Rushmore National Memorial, 13000 SD Highway 244, Keystone, South Dakota 57751, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.876769249999995</span>, <span class="lon">-103.4554875</span>
-                    </td>   
+                43.876769249999995, -103.4554875
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Midway Airport, Chicago, Illinois, USA
+            <td class="table__cell">
+                Chicago Midway International Airport (MDW), 5700 S Cicero Ave, Chicago, Illinois 60638, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.786872</span>, <span class="lon">-87.747394</span>
-                    </td>   
+                41.786872, -87.747394
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Plaza Hotel   750 Fifth Avenue, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                1301 North State Parkway, Chicago, Illinois 60610, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.763515</span>, <span class="lon">-73.97358</span>
-                    </td>   
+                41.90607, -87.628347
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Omni Ambassador East Hotel   1301 N. State Parkway, Near North Side, Chicago, Illinois, USA
+            <td class="table__cell">
+                750 5th Avenue, New York, New York 10065, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.90607</span>, <span class="lon">-87.628347</span>
-                    </td>   
+                40.763515, -73.97358
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Old Westbury Gardens   71 Old Westbury Road, Old Westbury, Long Island, New York, USA
+            <td class="table__cell">
+                Old Westbury, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7887</span>, <span class="lon">-73.5996</span>
-                    </td>   
+                40.7887, -73.5996
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Potrero Valley, Thousand Oaks, California, USA 
+            <td class="table__cell">
+                Potrero Valley, Westlake Village, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1507</span>, <span class="lon">-118.9535</span>
-                    </td>   
+                34.1507, -118.9535
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                United Nations   First Avenue at 46th Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                Manhattan, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7903</span>, <span class="lon">-73.9597</span>
-                    </td>   
+                40.7903, -73.9597
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Glen Cove, Long Island, New York, USA
+            <td class="table__cell">
+                Glen Cove, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.8623</span>, <span class="lon">-73.6337</span>
-                    </td>   
+                40.8623, -73.6337
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Grand Central Station, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Grand Central Terminal, 87 E 42nd St, New York, New York 10017, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.75246725</span>, <span class="lon">-73.977362</span>
-                    </td>   
+                40.75246725, -73.977362
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                LaSalle Street Station   141 W. Van Buren Street, Downtown, Chicago, Illinois, USA
+            <td class="table__cell">
+                Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                41.8756, -87.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chicago, Illinois, USA
+            <td class="table__cell">
+                Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                41.8756, -87.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Park Avenue, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Park Avenue, New York, New York 10457, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.80436</span>, <span class="lon">-73.93893</span>
-                    </td>   
+                40.80436, -73.93893
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                650 Madison Avenue, New York City, New York, USA 
+            <td class="table__cell">
+                650 Madison Ave, Manhattan, New York 10022, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.76426</span>, <span class="lon">-73.97106</span>
-                    </td>   
+                40.76426, -73.97106
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fifth Avenue, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                The Langham, 400 5th Ave, New York, New York 10018, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.750144</span>, <span class="lon">-73.983532</span>
-                    </td>   
+                40.750144, -73.983532
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Near North Side, Chicago, Illinois, USA
+            <td class="table__cell">
+                Near North Side, Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.9</span>, <span class="lon">-87.63</span>
-                    </td>   
+                41.9, -87.63
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bakersfield, California, USA
+            <td class="table__cell">
+                Bakersfield, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.3739</span>, <span class="lon">-119.0195</span>
-                    </td>   
+                35.3739, -119.0195
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
-                    </td>   
+                40.68917359673309, -73.9826731487689
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
+                40.751296, -73.984819
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Long Island, New York, USA
+            <td class="table__cell">
+                Overlook at the Beach, Long Beach, New York 11561, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.583986</span>, <span class="lon">-73.686923</span>
-                    </td>   
+                40.583986, -73.686923
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Illinois, USA
+            <td class="table__cell">
+                Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.1492928594</span>, <span class="lon">-89.2749461071049</span>
-                    </td>   
+                40.1492928594, -89.2749461071049
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York, USA
+            <td class="table__cell">
+                New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
-                    </td>   
+                40.7306, -73.9866
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Downtown, Chicago, Illinois, USA
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.891212</span>, <span class="lon">-87.622842</span>
-                    </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                CTCA Outpatient Care Center, 160 E Illinois St, Chicago, Illinois 60611, United States
+            </td>   
+                <td class="table__cell">
+                41.891212, -87.622842
+            </td>   
           </tr> 
           </tr>
         
@@ -746,5 +757,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.017275, -118.402347], [34.0544, -118.2439], [34.1507, -118.9535]], "data": [{"lat": 35.34, "lon": -118.72, "name": "Kern County, California, United States"}, {"lat": 40.7887, "lon": -73.5996, "name": "Old Westbury, New York, United States"}, {"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.2622, "lon": -118.6737, "name": "Santa Susana, California, United States"}, {"lat": 43.876769249999995, "lon": -103.4554875, "name": "Mount Rushmore National Memorial, 13000 SD Highway 244, Keystone, South Dakota 57751, United States"}, {"lat": 41.786872, "lon": -87.747394, "name": "Chicago Midway International Airport (MDW), 5700 S Cicero Ave, Chicago, Illinois 60638, United States"}, {"lat": 41.90607, "lon": -87.628347, "name": "1301 North State Parkway, Chicago, Illinois 60610, United States"}, {"lat": 40.763515, "lon": -73.97358, "name": "750 5th Avenue, New York, New York 10065, United States"}, {"lat": 40.7887, "lon": -73.5996, "name": "Old Westbury, New York, United States"}, {"lat": 34.1507, "lon": -118.9535, "name": "Potrero Valley, Westlake Village, California, United States"}, {"lat": 40.7903, "lon": -73.9597, "name": "Manhattan, New York, United States"}, {"lat": 40.8623, "lon": -73.6337, "name": "Glen Cove, New York, United States"}, {"lat": 40.75246725, "lon": -73.977362, "name": "Grand Central Terminal, 87 E 42nd St, New York, New York 10017, United States"}, {"lat": 41.8756, "lon": -87.6244, "name": "Chicago, Illinois, United States"}, {"lat": 41.8756, "lon": -87.6244, "name": "Chicago, Illinois, United States"}, {"lat": 40.80436, "lon": -73.93893, "name": "Park Avenue, New York, New York 10457, United States"}, {"lat": 40.76426, "lon": -73.97106, "name": "650 Madison Ave, Manhattan, New York 10022, United States"}, {"lat": 40.750144, "lon": -73.983532, "name": "The Langham, 400 5th Ave, New York, New York 10018, United States"}, {"lat": 41.9, "lon": -87.63, "name": "Near North Side, Chicago, Illinois, United States"}, {"lat": 35.3739, "lon": -119.0195, "name": "Bakersfield, California, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.583986, "lon": -73.686923, "name": "Overlook at the Beach, Long Beach, New York 11561, United States"}, {"lat": 40.1492928594, "lon": -89.2749461071049, "name": "Illinois, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 41.891212, "lon": -87.622842, "name": "CTCA Outpatient Care Center, 160 E Illinois St, Chicago, Illinois 60611, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

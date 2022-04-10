@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Dead Poets Society</h3>
                         <p class="card-text">
-                          Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression.
+                          Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression. Painfully shy Todd Anderson has been sent to the school where his popular older brother was valedictorian. His roommate, Neil Perry, although exceedingly bright and popular, is very much under the thumb of his overbearing father. The two, along with their other friends, meet Professor Keating, their new English teacher, who tells them of the Dead Poets Society, and encourages them to go against the status quo. Each does so in his own way, and is changed for life.::Liz Jordan <c9310494@alinga.newcastle.edu.au> A new English teacher, John Keating, is introduced to an all-boys preparatory school that is known for its ancient traditions and high standards. He uses unorthodox methods to reach out to his students, who face enormous pressures from their parents and the school. With Keating's help, students Neil Perry, Todd Anderson and others learn to break out of their shells, pursue their dreams and seize the day.::Jwelch5742
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,60 +67,60 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                St. Andrew's School   350 Noxontown Road, Middletown, Delaware, USA 
+            <td class="table__cell">
+                Middletown, Delaware, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.4496</span>, <span class="lon">-75.7163</span>
-                    </td>   
+                39.4496, -75.7163
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Everett Theatre   47 West Main Street, Middletown, Delaware, USA 
+            <td class="table__cell">
+                47 West Main Street, Middletown, Delaware 19709, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.44983</span>, <span class="lon">-75.71821</span>
-                    </td>   
+                39.44983, -75.71821
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New Castle, Delaware, USA
+            <td class="table__cell">
+                New Castle, Delaware, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.6621</span>, <span class="lon">-75.5663</span>
-                    </td>   
+                39.6621, -75.5663
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Middletown, Delaware, USA
+            <td class="table__cell">
+                Middletown, Delaware, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.4496</span>, <span class="lon">-75.7163</span>
-                    </td>   
+                39.4496, -75.7163
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Westover Hills, New Castle, Delaware, USA 
+            <td class="table__cell">
+                Westover Hills, Wilmington, Delaware, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.7634</span>, <span class="lon">-75.5908</span>
-                    </td>   
+                39.7634, -75.5908
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Wolf Cave, Delaware, USA 
+            <td class="table__cell">
+                Wolf Avenue, Medford, New Jersey 08055, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.8514</span>, <span class="lon">-74.84986</span>
-                    </td>   
+                39.8514, -74.84986
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Rockland, Delaware, USA
+            <td class="table__cell">
+                Rockland, Delaware, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.790828</span>, <span class="lon">-75.575903</span>
-                    </td>   
+                39.790828, -75.575903
+            </td>   
           </tr> 
           </tr>
         
@@ -127,5 +134,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[39.4496, -75.7163], [39.4496, -75.7163], [39.44983, -75.71821]], "data": [{"lat": 39.4496, "lon": -75.7163, "name": "Middletown, Delaware, United States"}, {"lat": 39.44983, "lon": -75.71821, "name": "47 West Main Street, Middletown, Delaware 19709, United States"}, {"lat": 39.6621, "lon": -75.5663, "name": "New Castle, Delaware, United States"}, {"lat": 39.4496, "lon": -75.7163, "name": "Middletown, Delaware, United States"}, {"lat": 39.7634, "lon": -75.5908, "name": "Westover Hills, Wilmington, Delaware, United States"}, {"lat": 39.8514, "lon": -74.84986, "name": "Wolf Avenue, Medford, New Jersey 08055, United States"}, {"lat": 39.790828, "lon": -75.575903, "name": "Rockland, Delaware, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Third Man</h3>
                         <p class="card-text">
-                          Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.
+                          Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime. An out of work pulp fiction novelist, Holly Martins, arrives in a post war Vienna divided into sectors by the victorious allies, and where a shortage of supplies has led to a flourishing black market. He arrives at the invitation of an ex-school friend, Harry Lime, who has offered him a job, only to discover that Lime has recently died in a peculiar traffic accident. From talking to Lime's friends and associates Martins soon notices that some of the stories are inconsistent, and determines to discover what really happened to Harry Lime.::Mark Thompson <mrt@oasis.icl.co.uk> Pulp novelist Holly Martins, portrayed by Joseph Cotten, has traveled to Vienna because his friend, Harry Lime, portrayed by Orson Welles, has offered him a job. However, upon his arrival, Martins is told that Lime died in an accident. Driven to investigate Lime's death, Martins soon discovers incredible dark secrets about Lime's life and death.::trivwhiz In the post Second World War, the unemployed pulp fiction writer Holly Martins arrives in Vienna to meet with his old friend from school, Harry Lime, who has offered him a job. On the arrival, he learns that Harry has just died, hit by a truck in front of his building, and he goes to his funeral. Holly Martins sees a beautiful woman, Anna Schmidt, and a friend of Harry and sooner he learns that Anna was Harry's lover. Maj. Calloway, who is commanding the investigation, offers the ticket to Holly return home, but while waiting for the trip, he talks to two friends of Harry that tell that they had been the firsts to help his friend. However, the porter of Harry's building tells that there was a mysterious third man that helped Harry and Holly Martins becomes intrigued with the inconsistency and decides to investigate further. Sooner he discloses that Harry Lime was the leader of a gang that robbed penicillin from the military hospital to adulterate and resell it, and has caused the death and anomalies in many children. He continues to investigate and he has a great surprise when he finds who the third man is.::Claudio Carvalho, Rio de Janeiro, Brazil Holly Martins, a hack American dime store novelist, broke, has just arrived in Vienna as his longtime friend, Harry Lime, offered him a job, the plane ticket on Harry's dime. Holly's arrival coincides with Harry's graveside memorial service as he was just killed in a traffic accident outside of his apartment building. Meeting him at the service, Holly further learns of accusations by a Major Calloway, a British military officer as the Brits control that sector of the city, that Harry was one of the biggest racketeers in town. Calloway is continuing his investigation not so much of Harry's death, but his criminal activities. While corruption does run rampant in this post-war era as Vienna is being rebuilt both literally and figuratively, Holly does not believe the accusations. As such, Holly finds any excuse to remain in Vienna, especially as what happened to Harry does not seem to add up leading to Holly believing he was murdered. Holly also believes that many of the people that were at the memorial service were somehow involved, the person who he wants to get to know the most being the beautiful young woman. He will learn that she is actress Anna Schmidt, a Czechoslovakian national in Austria on forged papers, she who claims to have been Harry's girlfriend. As Holly collects more and more stories from people who purportedly saw or heard or helped in the aftermath of Harry's death, he ultimately is in search of the mysterious "third man", the unknown person assisting two other known people carrying Harry's dead body away. He will find that in getting deeper and deeper into the investigation, Holly is putting his own life in danger.::Huggo An American pulp writer arrives in post-WWII Vienna only to find that the friend who waited for him is killed under mysterious circumstances. The ensuing mystery entangles him in his friend's involvement in the black market, with the multinational police, and with his Czech girlfriend.::Keith Loh <loh@sfu.ca>
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,84 +67,84 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                8 Schreyvogelgasse, Vienna, Austria 
+            <td class="table__cell">
+                Schreyvogelgasse 8, 1010 Innere Stadt, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.212149</span>, <span class="lon">16.362752</span>
-                    </td>   
+                48.212149, 16.362752
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Sacher, Philharmonikerstrasse 4, Vienna, Austria 
+            <td class="table__cell">
+                Hotel Sacher, Philharmonikerstr. 4, Innere Stadt, Vienna 1010, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.2038435</span>, <span class="lon">16.369573000000003</span>
-                    </td>   
+                48.2038435, 16.369573000000003
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Zentral Friedhof, Simmeringen Hauptstrasse, Vienna, Austria 
+            <td class="table__cell">
+                Simmeringer Hauptstraße, 1110 Simmering, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.16329005</span>, <span class="lon">16.42808725</span>
-                    </td>   
+                48.16329005, 16.42808725
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Neuer Markt, Vienna, Austria 
+            <td class="table__cell">
+                Neuer Markt, Neuer Markt, Innere Stadt, Vienna 1010, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.2060995</span>, <span class="lon">16.370687500000003</span>
-                    </td>   
+                48.2060995, 16.370687500000003
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palais Pallavicini, Josefsplatz 5, Vienna, Austria 
+            <td class="table__cell">
+                Palais Pallavicini, Josefsplatz 5, Innere Stadt, Vienna 1010, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.2068175</span>, <span class="lon">16.3674165</span>
-                    </td>   
+                48.2068175, 16.3674165
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Reichsbrücke, Vienna, Austria 
+            <td class="table__cell">
+                Reichsbrücke, Reichsbrücke, Donaustadt, Vienna 1220, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.2282515</span>, <span class="lon">16.4097055</span>
-                    </td>   
+                48.2282515, 16.4097055
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Morzinplatz, Vienna, Austria 
+            <td class="table__cell">
+                Morzinplatz, Morzinplatz, Innere Stadt, Vienna 1010, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.212917000000004</span>, <span class="lon">16.374419000000003</span>
-                    </td>   
+                48.212917000000004, 16.374419000000003
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Prater Park, Prater, Vienna, Austria 
+            <td class="table__cell">
+                Vienna, Austria
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 48.20833</span>, <span class="lon">16.37306</span>
-                    </td>   
+                48.20833, 16.37306
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                London Film Studios, Shepperton, Surrey, England, UK 
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
-                    </td>   
+                51.407444, -0.465177
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Isleworth, Middlesex, England, UK
+            <td class="table__cell">
+                Isleworth, Greater London, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.4666</span>, <span class="lon">-0.3363</span>
-                    </td>   
+                51.4666, -0.3363
+            </td>   
           </tr> 
           </tr>
         
@@ -151,5 +158,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[48.16329005, 16.42808725], [48.2038435, 16.369573000000003], [48.2060995, 16.370687500000003]], "data": [{"lat": 48.212149, "lon": 16.362752, "name": "Schreyvogelgasse 8, 1010 Innere Stadt, Austria"}, {"lat": 48.2038435, "lon": 16.369573000000003, "name": "Hotel Sacher, Philharmonikerstr. 4, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.16329005, "lon": 16.42808725, "name": "Simmeringer Hauptstra\u00dfe, 1110 Simmering, Austria"}, {"lat": 48.2060995, "lon": 16.370687500000003, "name": "Neuer Markt, Neuer Markt, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.2068175, "lon": 16.3674165, "name": "Palais Pallavicini, Josefsplatz 5, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.2282515, "lon": 16.4097055, "name": "Reichsbr\u00fccke, Reichsbr\u00fccke, Donaustadt, Vienna 1220, Austria"}, {"lat": 48.212917000000004, "lon": 16.374419000000003, "name": "Morzinplatz, Morzinplatz, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.4666, "lon": -0.3363, "name": "Isleworth, Greater London, England, United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

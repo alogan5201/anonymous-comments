@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">12 Angry Men</h3>
                         <p class="card-text">
-                          The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.
+                          The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict. The defense and the prosecution have rested, and the jury is filing into the jury room to decide if a young man is guilty or innocent of murdering his father. What begins as an open-and-shut case of murder soon becomes a detective story that presents a succession of clues creating doubt, and a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, AND each other. Based on the play, all of the action takes place on the stage of the jury room.::pjk <PETESID@VNET.IBM.COM> When a young Puerto Rican boy is on trial for the alleged murder of his father, 11 of the 12 jurors are quick to vote that he is guilty in an ostensibly straightforward case. The remaining juror seems skeptical about the evidence at hand, and demands a thorough deliberation of the facts from each juror before sentencing the boy to death: prove the defendant's guilt beyond a reasonable doubt.::Kyle Perez The verdict of a seemingly open and shut case lies in the hands of twelve Jury members, the verdict is obvious, guilty. But to one, there's more than meets the eye. What else might be hiding in the details of the case? Will an innocent man be put to death? Or will a guilty man be spared?::Seth Trojcak In need of a unanimous, cut-and-dried guilty verdict by the end of the session, twelve jurors crammed in a small New York City jury room during one scorching hot day have the fate of an impecunious eighteen-year-old man in their hands. However, in what seems like an open-and-shut case of first-degree murder, one man, Juror #8, harbours reasonable doubt about the young defendant's guilt, having a hunch that there is a lot more to it than meets the eye. After all, a man is innocent until proven guilty. Can concerned Juror #8 overcome the obstinate prejudices of the other eleven members of the jury and let truth shine?::Nick Riganas "12 Angry Men" focuses on a jury's deliberations in a capital murder case. A 12-man jury is sent to begin deliberations in the first-degree murder trial of an 18-year old Puerto Rican boy accused in the stabbing death of his father, where a guilty verdict means an automatic death sentence. The case appears to be open-and-shut: The defendant has a weak alibi; a knife he claimed to have lost is found at the murder scene; and several witnesses either heard screaming, saw the killing or the boy fleeing the scene. Eleven of the jurors immediately vote guilty; only Juror No. 8 (Mr. Davis) casts a not guilty vote. At first Mr. Davis bases his vote more so for the sake of discussion; after all, the jurors must believe beyond a reasonable doubt that the defendant is guilty. That provides the backdrop to Mr. Davis' attempts in convincing the other jurors that a "not guilty" verdict might be appropriate.::Brian Rathjen <briguy_52732@yahoo.com>
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,43 +455,44 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                New York County Courthouse   60 Centre Street, New York City, New York, USA
+            <td class="table__cell">
+                Division Of Jurors, 60 Centre St, New York, New York 10278, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.714565</span>, <span class="lon">-74.002885</span>
-                    </td>   
+                40.714565, -74.002885
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Fox Movietone Studio, New York, USA 
+            <td class="table__cell">
+                New York City Center, 131 W 55th St, New York, New York 10019, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.763908</span>, <span class="lon">-73.97975149999999</span>
-                    </td>   
+                40.763908, -73.97975149999999
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
+                40.751296, -73.984819
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York, USA
+            <td class="table__cell">
+                New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7306</span>, <span class="lon">-73.9866</span>
-                    </td>   
+                40.7306, -73.9866
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -561,5 +565,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[40.714565, -74.002885], [40.7306, -73.9866], [40.751296, -73.984819]], "data": [{"lat": 40.714565, "lon": -74.002885, "name": "Division Of Jurors, 60 Centre St, New York, New York 10278, United States"}, {"lat": 40.763908, "lon": -73.97975149999999, "name": "New York City Center, 131 W 55th St, New York, New York 10019, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

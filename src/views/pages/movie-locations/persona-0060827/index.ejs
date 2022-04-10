@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Persona</h3>
+                        <p class="card-text">
+                          A nurse is put in charge of a mute actress and finds that their personae are melding together. A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer. Alma eventually confesses her secrets to a seemingly sympathetic Elisabeth and finds that her own personality is being submerged into Elisabeth's persona.::Kathy Li Swedish actress Elisabet Vogler, while on stage during a performance of Elektra, becomes mute. The day following, she is in a near catatonic state. The doctors in charge of her case diagnose no medical reason that would cause these disabilities. A nurse named Alma is assigned to be Elisabet's caretaker, she who believes that there is some sort of inner strength that Elisabet possesses to choose not to speak. Since Elisabet is not allowed visits by either her husband or her son, the doctor provides her own secluded beach side summer house as a respite for Elisabet and Alma. To break the silence during the respite, Alma speaks continually to Elisabet, ultimately about personal details of her life. Elisabet responds to Alma's talking, and Alma uses these situations as her own therapy sessions. Alma admires Elisabet and wants to be like her. As the women spend more time alone together, Alma learns more about her patient. But Alma also begins a transformation, which she now knowingly tries to stop because of those things she has learned about Elisabet.::Huggo A nurse at a psychiatric hospital, Alma, is given a new patient. Elisabet Vogler is a famous actress but has suddenly become apathetic, lethargic, mute and prone to fits of laughter at arbitrary, innocuous things. Alma does her best to engage Elisabet and get her to talk but the more Alma opens up to Elisabet, the more she empathises with her and becomes like her.::grantss A piece of visual poetry that elevates Bergman to a new level in his career. In this film the female figures form a relationship where there is a spiritual and emotional connection recognized as one of the most important creations of this director. Between contrasting images and dream light this is a film of great psychological depth. Elisabeth Vogler seems to have everything: she is a successful actress, happily married and mother of a small child. However, one night, she is paralyzed in the middle of a presentation, after this event she spends three months in the hospital without her condition being defined. After this period she spends her days in a summer house near the Baltic Sea where the nurse, Alma, assists her in her recovery. These two women form a powerful bond in which friendship and betrayal take place to change their lives.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BNjdhMGYyNTYtNTg5OC00MzY0LWE4YjctZWI3NDRkMzIyODBiXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Persona"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Fårö, Gotland, Sweden
+            </td>   
+                <td class="table__cell">
+                57.9167, 19.1333
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Filmstaden Råsunda, Greta garbos väg 11,13, Solna, Stockholm 169 40, Sweden
+            </td>   
+                <td class="table__cell">
+                59.367224, 17.981759
+            </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 57.9167, "lon": 19.1333, "name": "F\u00e5r\u00f6, Gotland, Sweden"}, {"lat": 59.367224, "lon": 17.981759, "name": "Filmstaden R\u00e5sunda, Greta garbos v\u00e4g 11,13, Solna, Stockholm 169 40, Sweden"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

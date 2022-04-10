@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Sherlock Jr.</h3>
                         <p class="card-text">
-                          A film projectionist longs to be a detective, and puts his meagre skills to work when he is framed by a rival for stealing his girlfriend's father's pocketwatch.
+                          A film projectionist longs to be a detective, and puts his meagre skills to work when he is framed by a rival for stealing his girlfriend's father's pocketwatch. A meek and mild projectionist, who also cleans up after screenings, would like nothing better than to be a private detective. He becomes engaged to a pretty girl but a ladies man known as the Sheik vies for her affection. He gets rid of the projectionist by stealing a pocket watch belonging to the girl's father - which he pawns to buy her an expensive box of candy. He then slips the pawn ticket into the projectionist's pocket and subsequently is found by the police. He doesn't have much luck but in his dreams, he the debonair and renowned detective Sherlock Jr. who faces danger and solves the crime. In real life, the girl solves crimes quickly.::garykmcd A young man works as a projectionist at a movie theatre but dreams of becoming a famous detective. His studies toward this goal are put to the test when visiting his girlfriend. A rival steals his girlfriend's father's watch and frames him for the crime. He is forbidden from seeing her again. Now he must fight to clear his name.::grantss A projectionist is studying to be a detective and is in love with a young lady. When he proposes her, his rival steals the chain watch of her father and incriminates him. The disappointed young projectionist returns to his job and while projecting the film, he dreams on being the detective of the story. Meanwhile, the girl finds the truth and acquits the guilty of the projectionist to her father.::Claudio Carvalho, Rio de Janeiro, Brazil
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,92 +455,100 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                3630 Pasadena Ave, Los Angeles, California, USA 
+            <td class="table__cell">
+                3630 Pasadena Avenue, Los Angeles, California 90031, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08877</span>, <span class="lon">-118.21136</span>
-                    </td>   
+                34.08877, -118.21136
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chatsworth, California, USA 
+            <td class="table__cell">
+                Chatsworth, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2596</span>, <span class="lon">-118.6023</span>
-                    </td>   
+                34.2596, -118.6023
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Glendale, California, USA
+            <td class="table__cell">
+                Glendale, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1423</span>, <span class="lon">-118.2484</span>
-                    </td>   
+                34.1423, -118.2484
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Feliz, Los Angeles, California, USA
+            <td class="table__cell">
+                Los Feliz, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.099298</span>, <span class="lon">-118.285959</span>
-                    </td>   
+                34.099298, -118.285959
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Echo Park, Los Angeles, California, USA
+            <td class="table__cell">
+                Echo Park, Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08</span>, <span class="lon">-118.26</span>
-                    </td>   
+                34.08, -118.26
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Buster Keaton Studios   1025 Lillian Way, Los Angeles, California, USA 
+            <td class="table__cell">
+                1025 Lillian Way, Los Angeles, California 90038, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08965</span>, <span class="lon">-118.32786</span>
-                    </td>   
+                34.08965, -118.32786
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Balboa Island, Newport Beach, California, USA
+            <td class="table__cell">
+                Balboa Island, Newport Beach, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.606451</span>, <span class="lon">-117.893024</span>
-                    </td>   
+                33.606451, -117.893024
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                1022 Cole Avenue, Los Angeles, California, USA 
+            <td class="table__cell">
+                1022 Cole Avenue, Los Angeles, California 90038, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.089618</span>, <span class="lon">-118.329906</span>
-                    </td>   
+                34.089618, -118.329906
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Larchmont Blvd. near Beverly Blvd., Los Angeles, California, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>   
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -610,5 +621,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.606451, -117.893024], [34.0544, -118.2439], [34.0544, -118.2439]], "data": [{"lat": 34.08877, "lon": -118.21136, "name": "3630 Pasadena Avenue, Los Angeles, California 90031, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.2596, "lon": -118.6023, "name": "Chatsworth, California, United States"}, {"lat": 34.1423, "lon": -118.2484, "name": "Glendale, California, United States"}, {"lat": 34.099298, "lon": -118.285959, "name": "Los Feliz, Los Angeles, California, United States"}, {"lat": 34.08, "lon": -118.26, "name": "Echo Park, Los Angeles, California, United States"}, {"lat": 34.08965, "lon": -118.32786, "name": "1025 Lillian Way, Los Angeles, California 90038, United States"}, {"lat": 33.606451, "lon": -117.893024, "name": "Balboa Island, Newport Beach, California, United States"}, {"lat": 34.089618, "lon": -118.329906, "name": "1022 Cole Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

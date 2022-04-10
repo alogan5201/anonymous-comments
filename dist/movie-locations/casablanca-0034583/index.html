@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Casablanca</h3>
                         <p class="card-text">
-                          A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.
+                          A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco. The story of Rick Blaine, a cynical world-weary ex-patriate who runs a nightclub in Casablanca, Morocco during the early stages of WWII. Despite the pressure he constantly receives from the local authorities, Rick's cafe has become a kind of haven for refugees seeking to obtain illicit letters that will help them escape to America. But when Ilsa, a former lover of Rick's, and her husband, show up to his cafe one day, Rick faces a tough challenge which will bring up unforeseen complications, heartbreak and ultimately an excruciating decision to make.::Kyle Perez In World War II Casablanca, Rick Blaine, exiled American and former freedom fighter, runs the most popular nightspot in town. The cynical lone wolf Blaine comes into the possession of two valuable letters of transit. When Nazi Major Strasser arrives in Casablanca, the sycophantic police Captain Renault does what he can to please him, including detaining a Czechoslovak underground leader Victor Laszlo. Much to Rick's surprise, Lazslo arrives with Ilsa, Rick's one time love. Rick is very bitter towards Ilsa, who ran out on him in Paris, but when he learns she had good reason to, they plan to run off together again using the letters of transit. Well, that was their original plan....::Gary Jackson <garyjack5@cogeco.ca> During World War II, Europeans who were fleeing from the Germans, sought refuge in America. But to get there they would first have to go Casablanca and once they get there, they have to obtain exit visas which are not very easy to come by. Now the hottest spot in all of Casablanca is Rick's Cafe which is operated by Rick Blaine, an American expatriate, who for some reason can't return there, and he is also extremely cynical. Now it seems that two German couriers were killed and the documents they were carrying were taken. Now one of Rick's regulars, Ugarte entrusts to him some letters of transit, which he intends to sell but before he does he is arrested for killing the couriers. Captain Renault, the Chief of Police, who is neutral in his political views, informs Rick that Victor Laszlo, a resistance leader from Czechoslovakia, is in Casablanca and will do anything to get an exit visa but Renault has been "told" by Major Strasser of the Gestapo, to keep Laszlo in Casablanca. Laszlo goes to Rick's to meet Ugarte, because he was the one Ugarte was going to sell the letters to. But since Ugarte was arrested he has to find another way. Accompanying him is Ilsa Lund, who knew Rick when he was in Paris, and when they meet some of Rick's old wounds reopen. It is obvious that Rick's stone heart was because of her leaving him. And when they learn that Rick has the letters, he refuses to give them to him, because "he doesn't stick his neck out for anyone".::rcs0411@yahoo.com Rick Blaine, who owns a nightclub in Casablanca, Morocco, discovers his old flame Ilsa is in town with her husband, Victor Laszlo. Laszlo is a resistance leader from Czechoslovakia, and with Germans on his tail, Ilsa knows Rick can help them get out of the country - but will he?::Anonymous
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,204 +455,212 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Monte Vista, Flagstaff, Arizona, USA 
+            <td class="table__cell">
+                Hotel Monte Vista, 100 N San Francisco St, Flagstaff, Arizona 86001, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.1981995</span>, <span class="lon">-111.64729650000001</span>
-                    </td>   
+                35.1981995, -111.64729650000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Flagstaff, Arizona, USA
+            <td class="table__cell">
+                Flagstaff, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 35.1995</span>, <span class="lon">-111.6514</span>
-                    </td>   
+                35.1995, -111.6514
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Metropolitan Airport   6590 Hayvenhurst Avenue, Van Nuys, Los Angeles, California, USA 
+            <td class="table__cell">
+                6590 Hayvenhurst Avenue, Van Nuys, California 91406, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.190278</span>, <span class="lon">-118.492381</span>
-                    </td>   
+                34.190278, -118.492381
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Del Sol   200 East 3rd Street, Yuma, Arizona, USA
+            <td class="table__cell">
+                200 East 3rd Street, Yuma, Arizona 85364, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.722757</span>, <span class="lon">-114.616485</span>
-                    </td>   
+                32.722757, -114.616485
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Yuma, Arizona, USA
+            <td class="table__cell">
+                Yuma, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.7253</span>, <span class="lon">-114.6244</span>
-                    </td>   
+                32.7253, -114.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Waterman Drive, Van Nuys, Los Angeles, California, USA 
+            <td class="table__cell">
+                Waterman Drive, Van Nuys, California 91406, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.21476</span>, <span class="lon">-118.48628</span>
-                    </td>   
+                34.21476, -118.48628
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                French Street, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gilpin Airport, Tucson, Arizona, USA
+            <td class="table__cell">
+                Tucson, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.2217</span>, <span class="lon">-110.9265</span>
-                    </td>   
+                32.2217, -110.9265
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 12, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 14, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 17, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 18, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 4, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 5, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 6, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                Burbank, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1816</span>, <span class="lon">-118.3259</span>
-                    </td>   
+                34.1816, -118.3259
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 7, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 8, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 9, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 11, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 25, Warner Brothers Burbank Studios   4000 Warner Boulevard, Burbank, California, USA
+            <td class="table__cell">
+                4000 Warner Boulevard, Burbank, California 91522, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.150955</span>, <span class="lon">-118.339232</span>
-                    </td>   
+                34.150955, -118.339232
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Van Nuys, Los Angeles, California, USA
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.1867</span>, <span class="lon">-118.4487</span>
-                    </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Van Nuys, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.1867, -118.4487
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tucson, Arizona, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.2217</span>, <span class="lon">-110.9265</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Arizona, USA
+            <td class="table__cell">
+                Tucson, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2202611707</span>, <span class="lon">-111.422127989113</span>
-                    </td>   
+                32.2217, -110.9265
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Arizona, United States
+            </td>   
+                <td class="table__cell">
+                34.2202611707, -111.422127989113
+            </td>   
           </tr> 
           </tr>
         
@@ -722,5 +733,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[34.0544, -118.2439], [34.150955, -118.339232], [34.150955, -118.339232]], "data": [{"lat": 35.1981995, "lon": -111.64729650000001, "name": "Hotel Monte Vista, 100 N San Francisco St, Flagstaff, Arizona 86001, United States"}, {"lat": 35.1995, "lon": -111.6514, "name": "Flagstaff, Arizona, United States"}, {"lat": 34.190278, "lon": -118.492381, "name": "6590 Hayvenhurst Avenue, Van Nuys, California 91406, United States"}, {"lat": 32.722757, "lon": -114.616485, "name": "200 East 3rd Street, Yuma, Arizona 85364, United States"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 34.21476, "lon": -118.48628, "name": "Waterman Drive, Van Nuys, California 91406, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 32.2217, "lon": -110.9265, "name": "Tucson, Arizona, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 34.1867, "lon": -118.4487, "name": "Van Nuys, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 32.2217, "lon": -110.9265, "name": "Tucson, Arizona, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

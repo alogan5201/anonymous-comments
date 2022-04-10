@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Best Years of Our Lives</h3>
                         <p class="card-text">
-                          Three World War II veterans, two of them traumatized or disabled, return home to the American midwest to discover that they and their families have been irreparably changed.
+                          Three World War II veterans, two of them traumatized or disabled, return home to the American midwest to discover that they and their families have been irreparably changed. The story concentrates on the social re-adjustment of three World War II servicemen, each from a different station of society. Al Stephenson returns to an influential banking position, but finds it hard to reconcile his loyalties to ex-servicemen with new commercial realities. Fred Derry is an ordinary working man who finds it difficult to hold down a job or pick up the threads of his marriage. Having had both hands burnt off during the war, Homer Parrish is unsure that his fiancée's feelings are still those of love and not those of pity. Each of the veterans faces a crisis upon his arrival, and each crisis is a microcosm of the experiences of many American warriors who found an alien world awaiting them when they came marching home.::alfiehitchie At the end of World War II, a soldier, a sailor and an airman return to their home town of Boone City and must re-adjust to the society they had left several years before. Al Stephenson was a banker before joining up. He is older than your average war veteran and gets home to find that his children have grown up and faces the difficult task of re-establishing an intimate relationship with his loving wife. At work, Al is promoted but now finds it difficult to be the hardhearted banker he seemingly once was. Fred Derry was an Air Force Officer and Bombardier but realizes on his return that he has no marketable skills and finds himself in his old job at the pharmacy working as a soda jerk. He also finds that he had married in haste and that his wife, whom he'd only known for a few weeks when they married during his flight training, isn't quite as enamored with him now that he's out of uniform. Lastly, there is Homer Parrish who lost both of his hands in a shipboard fire. He's become quite adept at using the prosthetics the Navy has provided him but resents the pity he sees in others eyes. He had hoped to marry his childhood sweetheart but is no longer sure he can burden her with his own physical limitations. All three men become fast friends and with Fred Derry's marriage falling apart, he finds himself falling in love with Al's daughter, Peggy. In the end, all three finds ways to move forward with their lives.::garykmcd Fred, Al and Homer are three World War II veterans facing difficulties as they re-enter civilian life. Fred is a war hero who, unable to compete with more highly skilled workers, has to return to his low-wage soda jerk job. Bank executive Al gets into trouble for offering favorable loans to veterans. After losing both hands in the war, Homer returns to his loving fiancée, but must struggle to adjust.::Jwelch5742
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,60 +67,60 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
+            <td class="table__cell">
+                Ontario, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0658</span>, <span class="lon">-117.6484</span>
-                    </td>   
+                34.0658, -117.6484
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Walnut Hills High School   3250 Victory Parkway, Cincinnati, Ohio, USA 
+            <td class="table__cell">
+                Walnut Hills, Cincinnati, Ohio, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.126</span>, <span class="lon">-84.4891</span>
-                    </td>   
+                39.126, -84.4891
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Long Beach Airport   4101 E. Donald Douglas Drive, Long Beach, California, USA
+            <td class="table__cell">
+                Downtown Long Beach, Long Beach, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.77</span>, <span class="lon">-118.19</span>
-                    </td>   
+                33.77, -118.19
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles County Arboretum & Botanic Garden   301 N. Baldwin Avenue, Arcadia, California, USA
+            <td class="table__cell">
+                301 Baldwin Avenue, Arcadia, California 91007, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14445</span>, <span class="lon">-118.05243</span>
-                    </td>   
+                34.14724, -118.05049
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Raleigh Studios   5300 Melrose Avenue, Hollywood, Los Angeles, California, USA 
+            <td class="table__cell">
+                5300 Melrose Avenue, Los Angeles, California 90038, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08336</span>, <span class="lon">-118.31616</span>
-                    </td>   
+                34.08336, -118.31616
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Samuel Goldwyn Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
+            <td class="table__cell">
+                7200 Santa Monica Boulevard, West Hollywood, California 90025, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.090713</span>, <span class="lon">-118.346243</span>
-                    </td>   
+                34.090713, -118.346243
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                United Artists Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
+            <td class="table__cell">
+                7200 Santa Monica Boulevard, West Hollywood, California 90025, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.090713</span>, <span class="lon">-118.346243</span>
-                    </td>   
+                34.090713, -118.346243
+            </td>   
           </tr> 
           </tr>
         
@@ -127,5 +134,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.77, -118.19], [34.0658, -117.6484], [34.08336, -118.31616]], "data": [{"lat": 34.0658, "lon": -117.6484, "name": "Ontario, California, United States"}, {"lat": 39.126, "lon": -84.4891, "name": "Walnut Hills, Cincinnati, Ohio, United States"}, {"lat": 33.77, "lon": -118.19, "name": "Downtown Long Beach, Long Beach, California, United States"}, {"lat": 34.14724, "lon": -118.05049, "name": "301 Baldwin Avenue, Arcadia, California 91007, United States"}, {"lat": 34.08336, "lon": -118.31616, "name": "5300 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.090713, "lon": -118.346243, "name": "7200 Santa Monica Boulevard, West Hollywood, California 90025, United States"}, {"lat": 34.090713, "lon": -118.346243, "name": "7200 Santa Monica Boulevard, West Hollywood, California 90025, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

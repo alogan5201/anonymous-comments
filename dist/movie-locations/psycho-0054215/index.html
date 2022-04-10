@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Psycho</h3>
                         <p class="card-text">
-                          A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother.
+                          A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run, and checks into a remote motel run by a young man under the domination of his mother. Phoenix office worker Marion Crane is fed up with the way life has treated her. She has to meet her lover Sam in lunch breaks, and they cannot get married because Sam has to give most of his money away in alimony. One Friday, Marion is trusted to bank forty thousand dollars by her employer. Seeing the opportunity to take the money and start a new life, Marion leaves town and heads towards Sam's California store. Tired after the long drive and caught in a storm, she gets off the main highway and pulls into the Bates Motel. The motel is managed by a quiet young man called Norman who seems to be dominated by his mother.::Col Needham <col@imdb.com> Stressed and under pressure because of stealing a large amount of money from her employer and running away, a partly poor office worker who's committed theft in order to be able to marry the man she loves, gets lost and decides to stay at a motel for the night, regretting what she's done. But on her single night at the motel, she finds out it was a mistake to choose this motel, as she finds its young depressed manager's mother an unrelenting psycho.::J. S. Golden Phoenix-based Marion Crane, who has for ten years worked as an assistant to real estate agent George Lowery, laments the fact she and her divorced boyfriend, Sam Loomis, can't get married due to money issues, he a penniless hardware store clerk whose debt is a result of having to pay alimony. Marion senses an opportunity when one of Lowery's wealthy clients pays his account with forty thousand dollars cash, Marion is tasked with taking the money to the bank. Being a Friday afternoon, Marion believes she can slip out of town immediately undetected with the money to join Sam in Fairvale, California where he lives, before Lowery would even suspect that she has absconded with the money the earliest by Monday. Despite several close calls, Marion is able to make it to fifteen miles short of Fairvale at the Bates Motel, where she stops on the rainy Saturday night. The isolated motel has had little business ever since the state highway was moved. The motel is run by friendly, but lonely Norman Bates, who lives with with his invalid mother in the big, old house on the hill overlooking the motel. Although she doesn't meet Mrs. Bates, Marion knows that she is an angry, controlling woman based on an argument she overhears between her and Norman. Norman admits that his mother is mentally mad. That evening, Marion has a change of heart and contemplates returning to Phoenix to return the money. But she never makes it either to Phoenix or Fairvale. As such, several people come looking for her, including Sam, who is suspected of being in cahoots with Marion in stealing the money, Marion's worried sister Lila Crane, who is able to convince Lowery not to press charges if Marion returns the money, and a private investigator named Arbogast who was hired by Lowery. At various times, they all make their way to the mysterious Bates Motel, where Mrs. Bates will do whatever required to maintain control of what happens at the motel and within her family.::Huggo For Marion Crane, it's been quite an eventful day. The day before, she had stolen forty thousand dollars from her employer's client, packed her bags and driven all day on her way to join her paramour several hundred miles away. Now, she is taking a relaxing hot shower after her long day's journey. The remoteness of the motel suit her purposes perfectly. The only sounds heard are the chirping of the crickets, the splashing of the water, and her humming contentedly as the hot needles of water caress her aching shoulders.::filmfactsman Marion Crane is a Phoenix, Arizona working girl fed up with having to sneak away during lunch breaks to meet her lover, Sam Loomis, who cannot get married because most of his money goes towards alimony. One Friday, Marion's employer asks her to take forty thousand dollars in cash to a local bank for deposit. Desperate to make a change in her life, she impulsively leaves town with the money, determined to start a new life with Sam in California. As night falls and a torrential rain obscures the road ahead of her, Marion turns off the main highway. Exhausted from the long drive and the stress of her criminal act, she decides to spend the night at the desolate Bates Motel. The motel is run by Norman Bates, a peculiar young man dominated by his invalid mother. After Norman fixes her a light dinner, Marion goes back to her room for a shower.::passionate_libra21
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,179 +455,180 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Psycho House, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Jefferson Hotel, 109 S. Central, Phoenix, Arizona, USA 
+            <td class="table__cell">
+                Phoenix, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.4486</span>, <span class="lon">-112.0773</span>
-                    </td>   
+                33.4486, -112.0773
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Falls Lake, Backlot, Universal Studios   100 Universal City Plaza, Universal City, California, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Phoenix, Arizona, USA 
+            <td class="table__cell">
+                Phoenix, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.4486</span>, <span class="lon">-112.0773</span>
-                    </td>   
+                33.4486, -112.0773
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gorman, California, USA 
+            <td class="table__cell">
+                Gorman, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.7943</span>, <span class="lon">-118.8536</span>
-                    </td>   
+                34.7943, -118.8536
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                4270 Lankershim Boulevard, North Hollywood, Los Angeles, California, USA 
+            <td class="table__cell">
+                4270 Lankershim Boulevard, North Hollywood, California 91602, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14767</span>, <span class="lon">-118.36399</span>
-                    </td>   
+                34.14767, -118.36399
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                State Route 99, California, USA 
+            <td class="table__cell">
+                Golden State Highway, Tulare, California 93291, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.10608</span>, <span class="lon">-119.32236</span>
-                    </td>   
+                36.10575, -119.3245
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 18, Universal Studios   100 Universal City Plaza, Universal City, California, USA
+            <td class="table__cell">
+                San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                34.251081, -118.518444
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Stage 28, Universal Studios   100 Universal City Plaza, Universal City, California, USA
+            <td class="table__cell">
+                114 West Adams Street, Phoenix, Arizona 85003, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.14138</span>, <span class="lon">-118.35659</span>
-                    </td>   
+                33.449601, -112.075475
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                San Fernando Valley, Los Angeles, California, USA
+            <td class="table__cell">
+                Phoenix, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.251081</span>, <span class="lon">-118.518444</span>
-                    </td>   
+                33.4486, -112.0773
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Title and Trust Building, 114 West Adams Street, downtown Phoenix, Arizona, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.449601</span>, <span class="lon">-112.075475</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Valley Bank and Trust Company Building, North Central Avenue and Monroe Street, downtown Phoenix, Arizona, USA 
+            <td class="table__cell">
+                San Carlos, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.4486</span>, <span class="lon">-112.0773</span>
-                    </td>   
+                33.3453, -110.4532
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel San Carlos   202 N. Central Avenue, Phoenix, Arizona, USA 
+            <td class="table__cell">
+                Gila Bend, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.450615</span>, <span class="lon">-112.074205</span>
-                    </td>   
+                32.9478, -112.7168
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Luhrs Tower, downtown Phoenix, Arizona, USA 
+            <td class="table__cell">
+                Luhrs Tower, 45 W Jefferson St, Phoenix, Arizona 85003, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.446974</span>, <span class="lon">-112.074815</span>
-                    </td>   
+                33.446974, -112.074815
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Heard Security Building, 234 North Central Avenue, downtown Phoenix, Arizona, USA 
+            <td class="table__cell">
+                100 Universal City Plz, Los Angeles, California 91608, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.45109</span>, <span class="lon">-112.074205</span>
-                    </td>   
+                34.14138, -118.35659
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Downtown Phoenix, Arizona, USA 
+            <td class="table__cell">
+                234 North Central Avenue, Phoenix, Arizona 85004, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.4481</span>, <span class="lon">-112.0744</span>
-                    </td>   
+                33.45109, -112.074205
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Buckeye, Arizona, USA 
+            <td class="table__cell">
+                Downtown Phoenix, Phoenix, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.3703</span>, <span class="lon">-112.5839</span>
-                    </td>   
+                33.4481, -112.0744
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Gila Bend, Arizona, USA 
+            <td class="table__cell">
+                Buckeye, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.9478</span>, <span class="lon">-112.7168</span>
-                    </td>   
+                33.3703, -112.5839
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Del Sol   200 East 3rd Street, Yuma, Arizona, USA 
+            <td class="table__cell">
+                200 East 3rd Street, Yuma, Arizona 85364, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.722757</span>, <span class="lon">-114.616485</span>
-                    </td>   
+                32.722757, -114.616485
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Arizona, USA
+            <td class="table__cell">
+                Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.2202611707</span>, <span class="lon">-111.422127989113</span>
-                    </td>   
+                34.2202611707, -111.422127989113
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                California, USA
+            <td class="table__cell">
+                California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.0743595873</span>, <span class="lon">-119.699375153073</span>
-                    </td>   
+                37.0743595873, -119.699375153073
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
           </tr> 
           </tr>
         
@@ -697,5 +701,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.3703, -112.5839], [33.446974, -112.074815], [33.4481, -112.0744]], "data": [{"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 33.4486, "lon": -112.0773, "name": "Phoenix, Arizona, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 33.4486, "lon": -112.0773, "name": "Phoenix, Arizona, United States"}, {"lat": 34.7943, "lon": -118.8536, "name": "Gorman, California, United States"}, {"lat": 34.14767, "lon": -118.36399, "name": "4270 Lankershim Boulevard, North Hollywood, California 91602, United States"}, {"lat": 36.10575, "lon": -119.3245, "name": "Golden State Highway, Tulare, California 93291, United States"}, {"lat": 34.251081, "lon": -118.518444, "name": "San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States"}, {"lat": 33.449601, "lon": -112.075475, "name": "114 West Adams Street, Phoenix, Arizona 85003, United States"}, {"lat": 33.4486, "lon": -112.0773, "name": "Phoenix, Arizona, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 33.3453, "lon": -110.4532, "name": "San Carlos, Arizona, United States"}, {"lat": 32.9478, "lon": -112.7168, "name": "Gila Bend, Arizona, United States"}, {"lat": 33.446974, "lon": -112.074815, "name": "Luhrs Tower, 45 W Jefferson St, Phoenix, Arizona 85003, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 33.45109, "lon": -112.074205, "name": "234 North Central Avenue, Phoenix, Arizona 85004, United States"}, {"lat": 33.4481, "lon": -112.0744, "name": "Downtown Phoenix, Phoenix, Arizona, United States"}, {"lat": 33.3703, "lon": -112.5839, "name": "Buckeye, Arizona, United States"}, {"lat": 32.722757, "lon": -114.616485, "name": "200 East 3rd Street, Yuma, Arizona 85364, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

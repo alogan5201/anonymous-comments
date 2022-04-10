@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Once Upon a Time in the West</h3>
                         <p class="card-text">
-                          A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.
+                          A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad. Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down, but upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those who want to take it--at any cost. Even if it means killing a man and his kids.::DrGoodBeat The sprawling railways are reaching the far west, and somewhere along its way, in a small border town, the paths of four characters will cross and clash: a young woman looking for a fresh start, an outlaw on the run for a crime he didn't commit (this time), a ruthless killer on the payroll of a railroad tycoon, and a mysterious man with no name who plays a couple of sad chords on a harmonica and a few cadences on his revolver.::Azeitonascomchantili Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down. Upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those want to take it--at any cost. Even if it means killing a man and his children.::garykmcd A young woman leaves her old life behind for her new husband and a new future out West. When her train arrives, she finds that he and his children have been murdered. A man known only as Harmonica knows Frank did it and goes after him. Just then, another outlaw, Cheyenne, appears intent on tracking down Frank. As good pursuit of Frank gets closer to him, Cheyenne leaves none of Frank's associates alive.::J. S. Golden Nestled deep in the middle of nowhere, suddenly Irishman Brett McBain's dusty settlement, the Sweetwater, becomes a pole of attraction for beautiful widows in black and notorious desperadoes alike. As Frank, the unscrupulous gun-for-hire, tries every trick in the book to fulfill the aspiration of his terminally ill boss, railroad magnate Morton, another visitor, Harmonica, the taciturn stranger with the lighting-fast right hand, enters the picture. Now, greed and ambition put everyone's already fragile allegiances to the test, as hidden personal agendas seem to rule them all. However, the past always comes back to haunt us. Can there be redemption in revenge?::Nick Riganasa
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,124 +455,124 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Monument Valley, Arizona, USA
+            <td class="table__cell">
+                Monument Valley, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.9867</span>, <span class="lon">-110.1911</span>
-                    </td>   
+                36.9867, -110.1911
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tabernas, Almería, Andalucía, Spain
+            <td class="table__cell">
+                Tabernas, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
-                    </td>   
+                37.04989, -2.39138
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Highway 163, Monument Valley, Utah, USA 
+            <td class="table__cell">
+                Utah, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.2548171647</span>, <span class="lon">-111.602499934826</span>
-                    </td>   
+                39.2548171647, -111.602499934826
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                La Calahorra, Granada, Andalucía, Spain
+            <td class="table__cell">
+                Calle Calahorra, 18220 Albolote, Granada, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.2225409475203</span>, <span class="lon">-3.64270536340856</span>
-                    </td>   
+                37.2225409475203, -3.64270536340856
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Estación de Calahorra, Guadix, Granada, Andalucía, Spain 
+            <td class="table__cell">
+                Guadix, Granada, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.29955</span>, <span class="lon">-3.13712</span>
-                    </td>   
+                37.29955, -3.13712
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Moab, Utah, USA
+            <td class="table__cell">
+                Moab Way, Draper, Utah 84020, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.47621</span>, <span class="lon">-111.88778</span>
-                    </td>   
+                40.47621, -111.88778
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Teec Nos Pos, Arizona, USA
+            <td class="table__cell">
+                Teec Nos Pos, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.9211</span>, <span class="lon">-109.0857</span>
-                    </td>   
+                36.9211, -109.0857
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Kayenta, Arizona, USA
+            <td class="table__cell">
+                Kayenta, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.718</span>, <span class="lon">-110.2606</span>
-                    </td>   
+                36.718, -110.2606
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cinecittà Studios, Cinecittà, Rome, Lazio, Italy 
+            <td class="table__cell">
+                Cinecittà Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.852854</span>, <span class="lon">12.575212</span>
-                    </td>   
+                41.852854, 12.575212
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Bavispe, Sonora, Mexico
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 30.48001</span>, <span class="lon">-108.9405</span>
-                    </td>   
+                30.48001, -108.9405
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Red Mesa, Arizona, USA
+            <td class="table__cell">
+                Red Mesa, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.96</span>, <span class="lon">-109.4</span>
-                    </td>   
+                36.96, -109.4
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Poblado Western 'Sergio Leone', Tabernas, Almería, Andalucía, Spain 
+            <td class="table__cell">
+                Tabernas, Almería, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.04989</span>, <span class="lon">-2.39138</span>
-                    </td>   
+                37.04989, -2.39138
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Desierto de Tabernas, Almería, Andalucía, Spain
+            <td class="table__cell">
+                Desierto De Tabernas, Tabernas, Almería 04212, Spain
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.090023</span>, <span class="lon">-2.379403</span>
-                    </td>   
+                37.090023, -2.379403
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Mexican Water, Arizona, USA
+            <td class="table__cell">
+                Mexican Water, Arizona, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.9669</span>, <span class="lon">-109.6379</span>
-                    </td>   
+                36.9669, -109.6379
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Paramount Studios   5555 Melrose Avenue, Hollywood, Los Angeles, California, USA 
+            <td class="table__cell">
+                5555 Melrose Avenue, Los Angeles, California 90038, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.08918</span>, <span class="lon">-118.38055</span>
-                    </td>   
+                34.08363, -118.32191
+            </td>   
           </tr> 
           </tr>
         
@@ -642,5 +645,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[36.9211, -109.0857], [36.96, -109.4], [36.9669, -109.6379]], "data": [{"lat": 36.9867, "lon": -110.1911, "name": "Monument Valley, Arizona, United States"}, {"lat": 37.04989, "lon": -2.39138, "name": "Tabernas, Almer\u00eda, Spain"}, {"lat": 39.2548171647, "lon": -111.602499934826, "name": "Utah, United States"}, {"lat": 37.2225409475203, "lon": -3.64270536340856, "name": "Calle Calahorra, 18220 Albolote, Granada, Spain"}, {"lat": 37.29955, "lon": -3.13712, "name": "Guadix, Granada, Spain"}, {"lat": 40.47621, "lon": -111.88778, "name": "Moab Way, Draper, Utah 84020, United States"}, {"lat": 36.9211, "lon": -109.0857, "name": "Teec Nos Pos, Arizona, United States"}, {"lat": 36.718, "lon": -110.2606, "name": "Kayenta, Arizona, United States"}, {"lat": 41.852854, "lon": 12.575212, "name": "Cinecitt\u00e0 Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy"}, {"lat": 30.48001, "lon": -108.9405, "name": "Bavispe, Sonora, Mexico"}, {"lat": 36.96, "lon": -109.4, "name": "Red Mesa, Arizona, United States"}, {"lat": 37.04989, "lon": -2.39138, "name": "Tabernas, Almer\u00eda, Spain"}, {"lat": 37.090023, "lon": -2.379403, "name": "Desierto De Tabernas, Tabernas, Almer\u00eda 04212, Spain"}, {"lat": 36.9669, "lon": -109.6379, "name": "Mexican Water, Arizona, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Apocalypse Now</h3>
                         <p class="card-text">
-                          A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god.
+                          A U.S. Army officer serving in Vietnam is tasked with assassinating a renegade Special Forces Colonel who sees himself as a god. It is the height of the war in Vietnam, and U.S. Army Captain Willard is sent by Colonel Lucas and a General to carry out a mission that, officially, 'does not exist - nor will it ever exist'. The mission: To seek out a mysterious Green Beret Colonel, Walter Kurtz, whose army has crossed the border into Cambodia and is conducting hit-and-run missions against the Viet Cong and NVA. The army believes Kurtz has gone completely insane and Willard's job is to eliminate him. Willard, sent up the Nung River on a U.S. Navy patrol boat, discovers that his target is one of the most decorated officers in the U.S. Army. His crew meets up with surfer-type Lt-Colonel Kilgore, head of a U.S Army helicopter cavalry group which eliminates a Viet Cong outpost to provide an entry point into the Nung River. After some hair-raising encounters, in which some of his crew are killed, Willard, Lance and Chef reach Colonel Kurtz's outpost, beyond the Do Lung Bridge. Now, after becoming prisoners of Kurtz, will Willard & the others be able to fulfill their mission?::Derek O'Cain In 1969, at the height of the Vietnam War, Captain Benjamin Willard is resting in his hotel room, waiting for a mission to be given to him by the United States Army. A mission that no one else has ever been given before. The mission is to travel upriver to assassinate a colonel, who's gone AWOL and acts like a demi-god to a group of tribal natives in the jungle. Taking the mission for what it is, Willard travels upriver along with a ragtag group of American soldiers, some of which are called by their nicknames. Along the way, several obstacles get in their way of the mission including a deadly encounter with a tiger and heavy enemy fire at a strategic bridge. As Willard nears the end of his mission, he soon finds himself reeling in the horrors and sanity of war itself as he confronts the colonel face to face in which Willard's true nature begins to emerge slowly.::blazesnakes9 The worn out and fatigued U.S Army captain Benjamin L. Willard is sent on a harrowing and surreal mission into the deepest parts of the jungle during the height of the Vietnam War, with the objective of eliminating the rogue Walter E. Kurtz, a Green Beret officer who has completely lost his sanity. Together with a small squad of soldiers, Willard sets out by boat to travel upriver towards Kurtz' base. But Willard soon eerily realizes that the closer he gets to his target, the more he seems himself in him. Everything could happen on the mission, but one thing is clear; if successful, Willard will not return the same.::goddangwatir At the height of the Vietnam war, experienced soldier and covert operative Captain Benjamin Willard withdraws from a drunken and disheveled state to accept his most daring and secretive mission yet. His objective is to travel down the Nyung river by boat and assassinate a Green Beret Colonel named Kurtz who has gone insane deep within the Jungle, and leads his men and a local tribe as a god on illegal guerrilla missions into enemy territory. As Willard and the crew of a Navy PR boat unaware of his objective embark on their journey from the security of civilization into the untamed depths of the jungle, Willard confronts not only the same horrors and hypocrisy that pushed the level headed Colonel Kurtz over the edge into an abyss of insanity, but the primal violence of human nature and the darkness of his own heart.::redcommander27 Vietnam, 1969. Burnt out Special Forces officer Captain Willard is sent into the jungle with top-secret orders to find and kill renegade Colonel Kurtz who has set up his own army within the jungle. As Willard descends into the jungle, he is slowly over taken by the jungle's mesmerizing powers and battles the insanity which surrounds him. His boat crew succumbs to drugs and is slowly killed off one by one. As Willard continues his journey he becomes more and more like the man he was sent to kill.::Michael Arndt
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,76 +67,84 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Baler Bay, Baler, Aurora, Philippines 
+            <td class="table__cell">
+                Baler, Aurora, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 15.75833</span>, <span class="lon">121.5625</span>
-                    </td>   
+                15.75833, 121.5625
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Baler, Aurora, Philippines 
+            <td class="table__cell">
+                Baler, Aurora, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 15.75833</span>, <span class="lon">121.5625</span>
-                    </td>   
+                15.75833, 121.5625
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pagsanjan, Laguna, Philippines 
+            <td class="table__cell">
+                Pagsanjan, Laguna, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 14.26667</span>, <span class="lon">121.45</span>
-                    </td>   
+                14.26667, 121.45
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Iba, Zambales, Philippines 
+            <td class="table__cell">
+                Iba, Zambales, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 15.33333</span>, <span class="lon">119.98333</span>
-                    </td>   
+                15.33333, 119.98333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pagsanjan River, Pagsanjan, Laguna, Philippines 
+            <td class="table__cell">
+                Pagsanjan, Laguna, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 14.26667</span>, <span class="lon">121.45</span>
-                    </td>   
+                14.26667, 121.45
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Laguna, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 14.16667</span>, <span class="lon">121.33333</span>
-                    </td>   
+                14.16667, 121.33333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Metro Manila, Philippines
+            <td class="table__cell">
+                Manila, Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 14.58333</span>, <span class="lon">121</span>
-                    </td>   
+                14.58333, 121
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Río Chavón, La Romana, Dominican Republic
+            <td class="table__cell">
+                Philippines
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.43</span>, <span class="lon">-68.97</span>
-                    </td>   
+                14.58678841, 120.98177916
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Napa Valley, California, USA
+            <td class="table__cell">
+                La Romana, La Romana, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.509364500000004</span>, <span class="lon">-122.47841600000001</span>
-                    </td>   
+                18.43, -68.97
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Las Alcobas, 1915 Main St, Saint Helena, California 94574, United States
+            </td>   
+                <td class="table__cell">
+                38.509364500000004, -122.47841600000001
+            </td>   
           </tr> 
           </tr>
         
@@ -143,5 +158,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[14.16667, 121.33333], [14.26667, 121.45], [14.26667, 121.45]], "data": [{"lat": 15.75833, "lon": 121.5625, "name": "Baler, Aurora, Philippines"}, {"lat": 15.75833, "lon": 121.5625, "name": "Baler, Aurora, Philippines"}, {"lat": 14.26667, "lon": 121.45, "name": "Pagsanjan, Laguna, Philippines"}, {"lat": 15.33333, "lon": 119.98333, "name": "Iba, Zambales, Philippines"}, {"lat": 14.26667, "lon": 121.45, "name": "Pagsanjan, Laguna, Philippines"}, {"lat": 14.16667, "lon": 121.33333, "name": "Laguna, Philippines"}, {"lat": 14.58333, "lon": 121, "name": "Manila, Philippines"}, {"lat": 14.58678841, "lon": 120.98177916, "name": "Philippines"}, {"lat": 18.43, "lon": -68.97, "name": "La Romana, La Romana, Dominican Republic"}, {"lat": 38.509364500000004, "lon": -122.47841600000001, "name": "Las Alcobas, 1915 Main St, Saint Helena, California 94574, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

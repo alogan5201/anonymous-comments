@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Toy Story 3</h3>
                         <p class="card-text">
-                          The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home.
+                          The toys are mistakenly delivered to a day-care center instead of the attic right before Andy leaves for college, and it's up to Woody to convince the other toys that they weren't abandoned and to return home. Woody, Buzz and the whole gang are back. As their owner Andy prepares to depart for college, his loyal toys find themselves in daycare where untamed tots with their sticky little fingers do not play nice. So, it's all for one and one for all as they join Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear to plan their great escape.::Walt Disney Studios With their beloved Andy preparing to leave for college, Woody, Buzz Lightyear, Jessie, and the rest of the toys find themselves headed for the attic but mistakenly wind up on the curb with the trash. Woody's quick thinking saves the gang, but all but Woody end up being donated to a day-care center. Unfortunately, the uncontrollable kids do not play nice, so Woody and the gang make plans for a great escape.::Jwelch5742 As their owner Andy begins preparing for college, Woody, Buzz and their friends feel like they need to move on as well. The toys are then mistakenly sent to a local daycare center with the intention to be played with again. But their enthusiasm is short lived when they discover the true nature of their new home which is run by the dictatorship of an evil bear named Lotso. Now it's up to Woody to rescue his friends and plan a daring escape in order to returning home before Andy is gone forever.::Blazer346 Andy is going to college and doesn't play with his toys anymore causing Woody and the others to be donated to Sunnyside Daycare, where they discover that the place is not exactly what they dreamed it was, and will have to face many dangers to come home safely.::MadMovieManiac Andy is now 17 and ready to head off to college, leaving Woody, Buzz, Jessie, and the rest of the toy-box gang to ponder their uncertain futures. When the toys are accidentally donated to the Sunnyside Daycare center they're initially overjoyed to once again be played with, but their enthusiasm quickly gives way to horror as they discover the true nature of the establishment under the rule of the deceptively welcoming "Lotso" Bear. Now, all of the toys must band together in one final, crazy scheme to escape their confines and return home to Andy.::The Massie Twins
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,36 +67,28 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
+            <td class="table__cell">
+                1200 Park Avenue, San Jacinto, California 92583, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.763315</span>, <span class="lon">-116.941071</span>
-                    </td>   
+                33.763345, -116.941164
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Walt Disney Animation Studios   2100 Riverside Drive, Burbank, California, USA
+            <td class="table__cell">
+                Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.155243</span>, <span class="lon">-118.323675</span>
-                    </td>   
+                34.155243, -118.323675
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                500 South Buena Vista Street, Hemet, California 92543, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
+                33.7403, -116.967278
             </td>   
-                <td class="table__cell">
-                <span class="lat"> 33.7403</span>, <span class="lon">-116.967278</span>
-                    </td>   
           </tr> 
           </tr>
         
@@ -103,5 +102,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 34.155243, "lon": -118.323675, "name": "Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

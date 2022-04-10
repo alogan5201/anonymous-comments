@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">Unforgiven</h3>
+                        <p class="card-text">
+                          Retired Old West gunslinger William Munny reluctantly takes on one last job, with the help of his old partner Ned Logan and a young man, The "Schofield Kid." After escaping death by the skin of her teeth, the horribly disfigured prostitute, Delilah Fitzgerald, and her appalled and equally furious co-workers summon up the courage to seek retribution in 1880s Wyoming's dangerous town of Big Whiskey. With a hefty bounty on the perpetrators' heads, triggered by the tough Sheriff "Little Bill" Daggett's insufficient sense of justice, the infamous former outlaw and now destitute Kansas hog farmer, William Munny, embarks on a murderous last mission to find the men behind the hideous crime. Along with his old partner-in-crime, Ned Logan, and the brash but inexperienced young gunman, the "Schofield Kid", Munny enters a perilous world he has renounced many years ago, knowing that he walks right into a deadly trap; however, he still needs to find a way to raise his motherless children. Now, blood demands blood. Who is the hero, and who is the villain?::Nick Riganas The town of Big Whiskey, Wyoming is full of normal people trying to lead quiet lives. Cowboys try to make a living. Sheriff "Little Bill" Daggett (Gene Hackman) tries to build a house and keep a heavy-handed order. The town prostitutes just try to get by.Then a couple of cowboys cut up one of them. Dissatisfied with Bill's justice, the prostitutes put a bounty on the cowboys. The bounty attracts a young gun billing himself as "The Schofield Kid" (Jaimz Woolvett), and aging killer William Munny (Clint Eastwood). Munny reformed for his young wife, and has been raising crops and two children in peace. But his wife is dead. Farm life is hard. And Munny is no good at it. So he calls his old partner Ned Logan (Morgan Freeman), saddles his ornery nag, and rides off to kill one more time, blurring the lines between heroism and villainy, man and myth.::Charlie Ness
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BODM3YWY4NmQtN2Y3Ni00OTg0LWFhZGQtZWE3ZWY4MTJlOWU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Unforgiven"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Brooks, Alberta, Canada
+            </td>   
+                <td class="table__cell">
+                50.571027, -111.893005
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Rancho Sonora Estates, Sonora, California, United States
+            </td>   
+                <td class="table__cell">
+                37.993775, -120.403806
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Longview, Longview, Alberta T0L 1H0, Canada
+            </td>   
+                <td class="table__cell">
+                50.532983, -114.23104699999999
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Calgary, Alberta, Canada
+            </td>   
+                <td class="table__cell">
+                51.046095, -114.065465
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                High River, Alberta, Canada
+            </td>   
+                <td class="table__cell">
+                50.579708, -113.856921
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Drumheller, Alberta, Canada
+            </td>   
+                <td class="table__cell">
+                51.466279, -112.704664
+            </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 50.571027, "lon": -111.893005, "name": "Brooks, Alberta, Canada"}, {"lat": 37.993775, "lon": -120.403806, "name": "Rancho Sonora Estates, Sonora, California, United States"}, {"lat": 50.532983, "lon": -114.23104699999999, "name": "Longview, Longview, Alberta T0L 1H0, Canada"}, {"lat": 51.046095, "lon": -114.065465, "name": "Calgary, Alberta, Canada"}, {"lat": 50.579708, "lon": -113.856921, "name": "High River, Alberta, Canada"}, {"lat": 51.466279, "lon": -112.704664, "name": "Drumheller, Alberta, Canada"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

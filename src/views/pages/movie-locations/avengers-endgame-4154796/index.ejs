@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Avengers: Endgame</h3>
                         <p class="card-text">
-                          After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.
+                          After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe. After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face... The grave course of events set in motion by Thanos, that wiped out half the universe and fractured the Avengers ranks, compels the remaining Avengers to take one final stand in Marvel Studios' grand conclusion to twenty-two films - Avengers: Endgame. After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right. Along the way, the Avengers realize that sacrifices must be made as they prepare for the ultimate final showdown with Thanos, which will result in the heroes fighting the biggest battle they have ever faced.::Blazer346 Catastrophe. Confusion. Loss. The overwhelming devastation caused by the mad Titan Thanos has left what remains of the Avengers reeling. For a while, all hope seems lost...until an opportunity to reverse the damage is presented. Now, the team must assemble once more and do whatever it takes to restore the universe and bring those they lost back.
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,84 +67,100 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Durham Cathedral, The College, Durham, County Durham, England, UK 
+            <td class="table__cell">
+                Durham, Durham, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 54.776415199999995</span>, <span class="lon">-1.5758539</span>
-                    </td>   
+                54.776415199999995, -1.5758539
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Atlanta, Georgia, USA
+            <td class="table__cell">
+                Atlanta, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
-                    </td>   
+                33.7491, -84.3902
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St Abbs, Eyemouth, TD14 5PL, UK 
+            <td class="table__cell">
+                TD14 5PL, Eyemouth, Scottish Borders, Scotland, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 55.8998413</span>, <span class="lon">-2.1329017</span>
-                    </td>   
+                55.8998413, -2.1329017
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pinewood Atlanta Studios   461 Sandy Creek Road, Fayetteville, Georgia, USA
+            <td class="table__cell">
+                461 Sandy Creek Road, Fayetteville, Georgia 30214, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.474605</span>, <span class="lon">-84.510867</span>
-                    </td>   
+                33.474605, -84.510867
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
+                54.2379333607472, -2.36966957036279
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                SANY America, 318 Cooper Circle, Peachtree City, Georgia, USA 
+            <td class="table__cell">
+                Japan
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.35081</span>, <span class="lon">-84.55882</span>
-                    </td>   
+                36.3864928218528, 138.592229549504
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Georgia, USA
+            <td class="table__cell">
+                318 Cooper Circle, Peachtree City, Georgia 30269, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.3305706594</span>, <span class="lon">-83.2572560296474</span>
-                    </td>   
+                33.35081, -84.55882
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Edwards AFB, California, USA 
+            <td class="table__cell">
+                Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.9045</span>, <span class="lon">-117.9295</span>
-                    </td>   
+                32.3305706594, -83.2572560296474
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Proscenium, 1170 Peachtree Street NE, Atlanta, Georgia, USA 
+            <td class="table__cell">
+                Edwards AFB, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.78632</span>, <span class="lon">-84.38371</span>
-                    </td>   
+                34.9045, -117.9295
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Facing MLK Jr Drive., 100 Broad St SW, Atlanta, Georgia, USA 
+            <td class="table__cell">
+                United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
-                    </td>   
+                39.3812661305678, -97.9222112121185
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                1170 Peachtree Street Northeast, Atlanta, Georgia 30309, United States
+            </td>   
+                <td class="table__cell">
+                33.78632, -84.38371
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Atlanta, Georgia, United States
+            </td>   
+                <td class="table__cell">
+                33.7491, -84.3902
+            </td>   
           </tr> 
           </tr>
         
@@ -151,5 +174,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.35081, -84.55882], [33.474605, -84.510867], [33.7491, -84.3902]], "data": [{"lat": 54.776415199999995, "lon": -1.5758539, "name": "Durham, Durham, England, United Kingdom"}, {"lat": 33.7491, "lon": -84.3902, "name": "Atlanta, Georgia, United States"}, {"lat": 55.8998413, "lon": -2.1329017, "name": "TD14 5PL, Eyemouth, Scottish Borders, Scotland, United Kingdom"}, {"lat": 33.474605, "lon": -84.510867, "name": "461 Sandy Creek Road, Fayetteville, Georgia 30214, United States"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}, {"lat": 36.3864928218528, "lon": 138.592229549504, "name": "Japan"}, {"lat": 33.35081, "lon": -84.55882, "name": "318 Cooper Circle, Peachtree City, Georgia 30269, United States"}, {"lat": 32.3305706594, "lon": -83.2572560296474, "name": "Georgia, United States"}, {"lat": 34.9045, "lon": -117.9295, "name": "Edwards AFB, California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 33.78632, "lon": -84.38371, "name": "1170 Peachtree Street Northeast, Atlanta, Georgia 30309, United States"}, {"lat": 33.7491, "lon": -84.3902, "name": "Atlanta, Georgia, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

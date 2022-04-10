@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5"> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">The Kid</h3>
+                        <p class="card-text">
+                          The Tramp cares for an abandoned child, but events put their relationship in jeopardy. The opening title reads: "A comedy with a smile--and perhaps a tear". As she leaves the charity hospital and passes a church wedding, Edna deposits her new baby with a pleading note in a limousine and goes off to commit suicide. The limo is stolen by thieves who dump the baby by a garbage can. Charlie the Tramp finds the baby and makes a home for him. Five years later Edna has become an opera star but does charity work for slum youngsters in hopes of finding her boy. A doctor she calls discovers the note with the truth about The Kid and reports it to the authorities, who come to take him away from Charlie. Before he arrives at the Orphan Asylum, Charlie steals him back and takes him to a flophouse. The proprietor reads of a reward for the Kid and takes him to Edna. Charlie is later awakened by a kind policeman who reunites him with the Kid at Edna's mansion.::Ed Stephan <stephan@cc.wwu.edu> A woman decides to abandon her baby in the backseat of an automobile with a handwritten note attached, beseeching the finder to care for and love the child. When thieves steal the car and discover the baby in the backseat, they leave him on the street and he's discovered by the initially-reluctant Tramp, who eventually softens and comes to love him as his own. As the boy grows up, both he and The Tramp must learn to navigate through a life that spawns one adventure after another.::Kyle Perez The unwed Mother (Purviance) leaves a charity hospital with her newborn, disconsolately passes a church wedding, and leaves her baby in a limousine with a note. But car thieves steal the limo and dump the baby in the garbage, where he is discovered by a Tramp (Chaplin). The Tramp rescues the infant and takes him to raise. Five years later, the Mother has become an opera star and does charity work hoping to relocate her son. The Tramp has raised the Kid to work a scam in tandem: the boy breaks windows by tossing rocks, and the Tramp shows up instantly and offers to repair them for a fee. A doctor tips off the Mother, who has the authorities pick up the child, but the Tramp steals him back and a chase ensues. This was Chaplin's first six-reel feature; he had to hold it hostage to get the studio to pay him the $1.5 million he was entitled to when they tried to pay him for only a two-reeler. A 12-year-old girl named Lillita McMurray appears briefly in the film as a flirtatious angel; three years later she would become pregnant by the writer-director and marry him at age 16.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BZjhhMThhNDItNTY2MC00MmU1LTliNDEtNDdhZjdlNTY5ZDQ1XkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="The Kid"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                1416 South La Brea Avenue, Inglewood, California 90302, United States
+            </td>   
+                <td class="table__cell">
+                33.98062, -118.35807
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Placita Olvera, 421-485 E Commercial St, Los Angeles, California 90012, United States
+            </td>   
+                <td class="table__cell">
+                34.057227375, -118.238187125
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Colorado Street Bridge, 504 W Colorado Blvd., Pasadena, California 91105, United States
+            </td>   
+                <td class="table__cell">
+                34.14464, -118.1640895
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                55 Fremont Place, Los Angeles, California 90005, United States
+            </td>   
+                <td class="table__cell">
+                34.06004, -118.32688
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                121 Avenue 50, Los Angeles, California 90042, United States
+            </td>   
+                <td class="table__cell">
+                34.10555, -118.20242
+            </td>   
+          </tr> 
+          </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[33.98062, -118.35807], [34.057227375, -118.238187125], [34.06004, -118.32688]], "data": [{"lat": 33.98062, "lon": -118.35807, "name": "1416 South La Brea Avenue, Inglewood, California 90302, United States"}, {"lat": 34.057227375, "lon": -118.238187125, "name": "Placita Olvera, 421-485 E Commercial St, Los Angeles, California 90012, United States"}, {"lat": 34.14464, "lon": -118.1640895, "name": "Colorado Street Bridge, 504 W Colorado Blvd., Pasadena, California 91105, United States"}, {"lat": 34.06004, "lon": -118.32688, "name": "55 Fremont Place, Los Angeles, California 90005, United States"}, {"lat": 34.10555, "lon": -118.20242, "name": "121 Avenue 50, Los Angeles, California 90042, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

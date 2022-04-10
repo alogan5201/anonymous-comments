@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Spider-Man: No Way Home</h3>
                         <p class="card-text">
-                          With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.
+                          With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man. Peter Parker's secret identity is revealed to the entire world. Desperate for help, Peter turns to Doctor Strange to make the world forget that he is Spider-Man. The spell goes horribly wrong and shatters the multiverse, bringing in monstrous villains that could destroy the world. Picking up where Far From Home left off, Peter Parker's whole world is turned upside down when his old enemy Mysterio posthumously reveals his identity to the public. Wanting to make his identity a secret, Peter turns to Doctor Strange for help. But when Strange's spell goes haywire, Peter must go up against five deadly new enemies--the Green Goblin, Dr. Octopus, Electro, the Lizard and Sandman--all while discovering what it truly means to be Spider-Man.::Blazer346 "With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.::krmanirethnam With his identity compromised, right after the spectacular confrontation with super-hero charlatan Mysterio in Spider-Man: Far from Home (2019), Peter Parker is now with his back to the wall. On the run and having no one to turn to for advice, desperate Peter seeks a radical and equally dangerous solution to right a wrong, utterly unaware of the grave consequences of his ill-advised decision. And, as the unfathomable Multiverse expands with a vengeance, formidable adversaries from a not-so-distant past, too, seek closure, demanding the Spider's head on a platter. But when there's no way home and nowhere to hide, whom can Parker trust?::Nick Riganas
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,84 +455,100 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Iceland
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                64.9975884448459, -18.6054668169534
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Atlanta, Georgia, USA
+            <td class="table__cell">
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.7491</span>, <span class="lon">-84.3902</span>
-                    </td>   
+                40.68917359673309, -73.9826731487689
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Queens, New York, USA
+            <td class="table__cell">
+                Atlanta, Georgia, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7498</span>, <span class="lon">-73.7976</span>
-                    </td>   
+                33.7491, -84.3902
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Brooklyn, New York City, New York, USA
+            <td class="table__cell">
+                Queens, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.6501</span>, <span class="lon">-73.9496</span>
-                    </td>   
+                40.7498, -73.7976
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Trilith Studios   461 Sandy Creek Road, Fayetteville, Georgia, USA 
+            <td class="table__cell">
+                Brooklyn, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 33.474605</span>, <span class="lon">-84.510867</span>
-                    </td>   
+                40.6501, -73.9496
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Queensboro Bridge, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                461 Sandy Creek Road, Fayetteville, Georgia 30214, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.757533499999994</span>, <span class="lon">-73.9557415</span>
-                    </td>   
+                33.474605, -84.510867
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Alexander Hamilton Bridge, New York City, New York, USA 
+            <td class="table__cell">
+                Vacaville, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.845543500000005</span>, <span class="lon">-73.928708</span>
-                    </td>   
+                38.3566, -121.9877
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Franklin K. Lane High School   999 Jamaica Avenue, Brooklyn, New York City, New York, USA 
+            <td class="table__cell">
+                Ed Koch Queensboro Bridge, Queensboro Bridge, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.692136</span>, <span class="lon">-73.868042</span>
-                    </td>   
+                40.757533499999994, -73.9557415
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                West 12th Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                Alexander Hamilton Bridge, I-95 / US-1, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.737495</span>, <span class="lon">-74.002525</span>
-                    </td>   
+                40.845543500000005, -73.928708
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Franklin K. Lane High School, 999 Jamaica Ave, New York, New York 11421, United States
+            </td>   
+                <td class="table__cell">
+                40.692136, -73.868042
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                West 12th Street, New York, New York 10014, United States
+            </td>   
+                <td class="table__cell">
+                40.737495, -74.002525
+            </td>   
           </tr> 
           </tr>
         
@@ -602,5 +621,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[40.6501, -73.9496], [40.68917359673309, -73.9826731487689], [40.692136, -73.868042]], "data": [{"lat": 64.9975884448459, "lon": -18.6054668169534, "name": "Iceland"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 33.7491, "lon": -84.3902, "name": "Atlanta, Georgia, United States"}, {"lat": 40.7498, "lon": -73.7976, "name": "Queens, New York, United States"}, {"lat": 40.6501, "lon": -73.9496, "name": "Brooklyn, New York, United States"}, {"lat": 33.474605, "lon": -84.510867, "name": "461 Sandy Creek Road, Fayetteville, Georgia 30214, United States"}, {"lat": 38.3566, "lon": -121.9877, "name": "Vacaville, California, United States"}, {"lat": 40.757533499999994, "lon": -73.9557415, "name": "Ed Koch Queensboro Bridge, Queensboro Bridge, New York, New York, United States"}, {"lat": 40.845543500000005, "lon": -73.928708, "name": "Alexander Hamilton Bridge, I-95 / US-1, New York, New York, United States"}, {"lat": 40.692136, "lon": -73.868042, "name": "Franklin K. Lane High School, 999 Jamaica Ave, New York, New York 11421, United States"}, {"lat": 40.737495, "lon": -74.002525, "name": "West 12th Street, New York, New York 10014, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

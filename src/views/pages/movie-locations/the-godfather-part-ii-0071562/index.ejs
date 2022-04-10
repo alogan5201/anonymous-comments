@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Godfather: Part II</h3>
                         <p class="card-text">
-                          The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.
+                          The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate. The continuing saga of the Corleone crime family tells the story of a young Vito Corleone growing up in Sicily and in 1910s New York; and follows Michael Corleone in the 1950s as he attempts to expand the family business into Las Vegas, Hollywood and Cuba.::Keith Loh <loh@sfu.ca> The life of Vito Corleone is shown as he becomes from a boy born in Sicily to one of the most respected mafia dons of New York while Micheal attempts to expand his business empire into Las Vegas, Florida and pre-revolution Cuba while facing his own personal problems trying to keep his collapsing marriage and relationship with his brother intact.::ahmetkozan The continuation of the Godfather saga with two focuses: the ongoing story of the Corleone family, and Michael in particular, and Vito Corleone's (Michael's father) backstory. Regarding the ongoing Michael Corleone story, it is about seven years since the events that concluded The Godfather. With the murders of the heads of the other four New York / New Jersey families, the Corleone family has unassailable control in New York. The move to Nevada went smoothly and Michael Corleone controls several hotels and casinos in the state. Frank Pentageli, the man who runs Michael's interests in New York, comes to Michael, asking if he can take out the Rosato Brothers as they are infringing on Pentageli's turf and business interests. However, the Rosatos are backed by Hyman Roth, a business partner of Michael's and a long- time ally of Michael's father, Vito Corleone, and Michael refuses. An attempted assassination attempt is then carried out on Michael's life, in his own home. Michael investigates who is trying to kill him, and suspects that there is a traitor in his family. Meanwhile. Michael and Hyman Roth fly to Cuba to finalise some business deals there. The Cuban trip reveals all. In a story interwoven with the present day, we see the backstory to Vito Corleone. From how his parents and brother were murdered by a Don in their home town of Corleone in Sicily, to his escaping, as a boy, to New York, his adult life and his rise to Don Corleone.::grantss The childhood of Vito Corleone and his rise from a petty criminal to the most powerful don in New York City during the early 20th century is depicted, whilst his son Don Michael Corleone succumbs to power, greed, and ruthlessness, all for the sake of pride and keeping the Corleone family intact.::goddangwatir
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,284 +67,284 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Kaiser Estate, 4000 W Lake Blvd, Homewood, Lake Tahoe, California, USA 
+            <td class="table__cell">
+                Boulevard, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 32.6637</span>, <span class="lon">-116.2736</span>
-                    </td>   
+                32.6637, -116.2736
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                El Embajador Hotel, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                El Embajador, Avenida Sarasota #65, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.455024</span>, <span class="lon">-69.933387</span>
-                    </td>   
+                18.455024, -69.933387
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Trieste, Friuli Venezia Giulia, Italy
+            <td class="table__cell">
+                Via Friuli Venezia Giulia, 73043 Copertino Lecce, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.2654635</span>, <span class="lon">18.0504036</span>
-                    </td>   
+                40.2654635, 18.0504036
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
-                    </td>   
+                18.49333, -69.86667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Forza d'Agrò, Messina, Sicily, Italy
+            <td class="table__cell">
+                Forza d'Agrò, Forza d'Agrò, Messina 98030, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.914901</span>, <span class="lon">15.334347750000001</span>
-                    </td>   
+                37.914901, 15.334347750000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Calle Duarte, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Duarte, Santo Domingo Oeste, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.474780815</span>, <span class="lon">-69.973467104</span>
-                    </td>   
+                18.474780815, -69.973467104
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lake Tahoe, California, USA
+            <td class="table__cell">
+                The Ritz-Carlton, 13031 Ritz-Carlton Highlands Court, Truckee, California 96161, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 39.267319</span>, <span class="lon">-120.12787</span>
-                    </td>   
+                39.267319, -120.12787
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                via Vecchia Pozzillo, Acireale, Catania, Italy 
+            <td class="table__cell">
+                Via Vecchia Pozzillo, 95024 Acireale Catania, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.661558</span>, <span class="lon">15.173956</span>
-                    </td>   
+                37.661558, 15.173956
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Riva Nazario Sauro, Trieste, Friuli Venezia Giulia, Italy 
+            <td class="table__cell">
+                Riva Nazario Sauro, 34123 Trieste Trieste, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 45.6475128</span>, <span class="lon">13.764207</span>
-                    </td>   
+                45.6475128, 13.764207
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Sicily, Italy
+            <td class="table__cell">
+                Scala to Santa Maria del Monte, Caltagirone, Catania 95041, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.23769</span>, <span class="lon">14.521768</span>
-                    </td>   
+                37.23769, 14.521768
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Train Station Sparagogna, Regalbuto, Enna, Sicily, Italy 
+            <td class="table__cell">
+                Regalbuto, Enna, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.65</span>, <span class="lon">14.63333</span>
-                    </td>   
+                37.65, 14.63333
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Greenwich Village, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Greenwich Village, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.73</span>, <span class="lon">-74</span>
-                    </td>   
+                40.73, -74
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Las Vegas, Nevada, USA
+            <td class="table__cell">
+                Las Vegas, Nevada, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 36.1663</span>, <span class="lon">-115.1492</span>
-                    </td>   
+                36.1663, -115.1492
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Vazac's Bar   108 Avenue B, East Village, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                108 Avenue B, New York, New York 10009, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.72503</span>, <span class="lon">-73.981435</span>
-                    </td>   
+                40.72503, -73.981435
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                6th Street, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                East 6th Street, New York, New York 10009, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.74422</span>, <span class="lon">-73.99225</span>
-                    </td>   
+                40.724835, -73.98286
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Miami, Florida, USA
+            <td class="table__cell">
+                Mandarin Oriental, 500 Brickell Key Dr, Miami, Florida 33131, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 25.76513515625</span>, <span class="lon">-80.18537321875</span>
-                    </td>   
+                25.76513515625, -80.18537321875
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                via Vecchia Pozzillo, Acireale, Catania 
+            <td class="table__cell">
+                Via Vecchia Pozzillo, 95024 Acireale Catania, Italy
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 37.661558</span>, <span class="lon">15.173956</span>
-                    </td>   
+                37.661558, 15.173956
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                538 E. 6th. Street, Manhattan, New York City, New York, USA 
+            <td class="table__cell">
+                538 East 6th Street, New York, New York 10009, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.72458</span>, <span class="lon">-73.982255</span>
-                    </td>   
+                40.72458, -73.982255
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hospital Padre Billini, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Hospital Padre Billini, Calle Espaillat, Zona Colonial, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.471455</span>, <span class="lon">-69.889124</span>
-                    </td>   
+                18.471455, -69.889124
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Calle Hostos, Santo Domingo, Dominican Republic
+            <td class="table__cell">
+                Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
-                    </td>   
+                18.49333, -69.86667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Avenida Duarte, Santo Domingo, Dominican Republic
+            <td class="table__cell">
+                Duarte, Santo Domingo Oeste, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.474780815</span>, <span class="lon">-69.973467104</span>
-                    </td>   
+                18.474780815, -69.973467104
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Avenida Mella, Santo Domingo, Dominican Republic
+            <td class="table__cell">
+                Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
-                    </td>   
+                18.49333, -69.86667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                East Village, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                East Village, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.7293</span>, <span class="lon">-73.9874</span>
-                    </td>   
+                40.7293, -73.9874
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel Washington   515 15th Street, Washington, District of Columbia, USA
+            <td class="table__cell">
+                515 15th Street Northwest, Washington, District of Columbia 20004, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 38.89696</span>, <span class="lon">-77.03339</span>
-                    </td>   
+                38.89696, -77.03339
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.68917359673309</span>, <span class="lon">-73.9826731487689</span>
-                    </td>   
+                40.68917359673309, -73.9826731487689
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                New York City, New York, USA
+            <td class="table__cell">
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.751296</span>, <span class="lon">-73.984819</span>
-                    </td>   
+                40.751296, -73.984819
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                2045 N. Hibiscus Drive, North Miami, Florida, USA 
+            <td class="table__cell">
+                2045 North Hibiscus Drive, North Miami, Florida 33181, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 25.89427</span>, <span class="lon">-80.15653</span>
-                    </td>   
+                25.89427, -80.15653
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Tomkin's Square, Greenwich Village, Manhattan, New York City, New York, USA
+            <td class="table__cell">
+                Greenwich Village, New York, New York, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 40.73</span>, <span class="lon">-74</span>
-                    </td>   
+                40.73, -74
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Parque Independencia, Santo Domingo, Dominican Republic
+            <td class="table__cell">
+                Parque Independencia, Av. Independencia, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.471916</span>, <span class="lon">-69.892211</span>
-                    </td>   
+                18.471916, -69.892211
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Palacio Nacional, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Palacio Nacional, Av. Mexico, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.474473000000003</span>, <span class="lon">-69.89783800000001</span>
-                    </td>   
+                18.474473000000003, -69.89783800000001
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Teatro de Agua y Luz, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.49333</span>, <span class="lon">-69.86667</span>
-                    </td>   
+                18.49333, -69.86667
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Biblioteca Nacional Pedro Henríquez Ureña, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Biblioteca Nacional Pedro Henriquez Ureña, Av. Cesar Nicolas Penson, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.470478</span>, <span class="lon">-69.907842</span>
-                    </td>   
+                18.470478, -69.907842
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Club Náutico de Santo Domingo, Andrés, Santo Domingo Este, Dominican Republic 
+            <td class="table__cell">
+                Club Náutico de Santo Domingo, C/ San Andrés #6, Andres, Boca Chica, Boca Chica, Santo Domingo, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.445364</span>, <span class="lon">-69.626091</span>
-                    </td>   
+                18.445364, -69.626091
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Parque Independencia, Santo Domingo, Dominican Republic 
+            <td class="table__cell">
+                Parque Independencia, Av. Independencia, Santo Domingo de Guzmán, Distrito Nacional, Dominican Republic
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 18.471916</span>, <span class="lon">-69.892211</span>
-                    </td>   
+                18.471916, -69.892211
+            </td>   
           </tr> 
           </tr>
         
@@ -351,5 +358,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[18.445364, -69.626091], [18.455024, -69.933387], [18.470478, -69.907842]], "data": [{"lat": 32.6637, "lon": -116.2736, "name": "Boulevard, California, United States"}, {"lat": 18.455024, "lon": -69.933387, "name": "El Embajador, Avenida Sarasota #65, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}, {"lat": 40.2654635, "lon": 18.0504036, "name": "Via Friuli Venezia Giulia, 73043 Copertino Lecce, Italy"}, {"lat": 18.49333, "lon": -69.86667, "name": "Santo Domingo, Dominican Republic"}, {"lat": 37.914901, "lon": 15.334347750000001, "name": "Forza d\u0027Agr\u00f2, Forza d\u0027Agr\u00f2, Messina 98030, Italy"}, {"lat": 18.474780815, "lon": -69.973467104, "name": "Duarte, Santo Domingo Oeste, Santo Domingo, Dominican Republic"}, {"lat": 39.267319, "lon": -120.12787, "name": "The Ritz-Carlton, 13031 Ritz-Carlton Highlands Court, Truckee, California 96161, United States"}, {"lat": 37.661558, "lon": 15.173956, "name": "Via Vecchia Pozzillo, 95024 Acireale Catania, Italy"}, {"lat": 45.6475128, "lon": 13.764207, "name": "Riva Nazario Sauro, 34123 Trieste Trieste, Italy"}, {"lat": 37.23769, "lon": 14.521768, "name": "Scala to Santa Maria del Monte, Caltagirone, Catania 95041, Italy"}, {"lat": 37.65, "lon": 14.63333, "name": "Regalbuto, Enna, Italy"}, {"lat": 40.73, "lon": -74, "name": "Greenwich Village, New York, New York, United States"}, {"lat": 36.1663, "lon": -115.1492, "name": "Las Vegas, Nevada, United States"}, {"lat": 40.72503, "lon": -73.981435, "name": "108 Avenue B, New York, New York 10009, United States"}, {"lat": 40.724835, "lon": -73.98286, "name": "East 6th Street, New York, New York 10009, United States"}, {"lat": 25.76513515625, "lon": -80.18537321875, "name": "Mandarin Oriental, 500 Brickell Key Dr, Miami, Florida 33131, United States"}, {"lat": 37.661558, "lon": 15.173956, "name": "Via Vecchia Pozzillo, 95024 Acireale Catania, Italy"}, {"lat": 40.72458, "lon": -73.982255, "name": "538 East 6th Street, New York, New York 10009, United States"}, {"lat": 18.471455, "lon": -69.889124, "name": "Hospital Padre Billini, Calle Espaillat, Zona Colonial, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}, {"lat": 18.49333, "lon": -69.86667, "name": "Santo Domingo, Dominican Republic"}, {"lat": 18.474780815, "lon": -69.973467104, "name": "Duarte, Santo Domingo Oeste, Santo Domingo, Dominican Republic"}, {"lat": 18.49333, "lon": -69.86667, "name": "Santo Domingo, Dominican Republic"}, {"lat": 40.7293, "lon": -73.9874, "name": "East Village, New York, New York, United States"}, {"lat": 38.89696, "lon": -77.03339, "name": "515 15th Street Northwest, Washington, District of Columbia 20004, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 25.89427, "lon": -80.15653, "name": "2045 North Hibiscus Drive, North Miami, Florida 33181, United States"}, {"lat": 40.73, "lon": -74, "name": "Greenwich Village, New York, New York, United States"}, {"lat": 18.471916, "lon": -69.892211, "name": "Parque Independencia, Av. Independencia, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}, {"lat": 18.474473000000003, "lon": -69.89783800000001, "name": "Palacio Nacional, Av. Mexico, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 18.49333, "lon": -69.86667, "name": "Santo Domingo, Dominican Republic"}, {"lat": 18.470478, "lon": -69.907842, "name": "Biblioteca Nacional Pedro Henriquez Ure\u00f1a, Av. Cesar Nicolas Penson, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}, {"lat": 18.445364, "lon": -69.626091, "name": "Club N\u00e1utico de Santo Domingo, C/ San Andr\u00e9s #6, Andres, Boca Chica, Boca Chica, Santo Domingo, Dominican Republic"}, {"lat": 18.471916, "lon": -69.892211, "name": "Parque Independencia, Av. Independencia, Santo Domingo de Guzm\u00e1n, Distrito Nacional, Dominican Republic"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

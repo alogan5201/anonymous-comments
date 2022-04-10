@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">The Dark Knight</h3>
                         <p class="card-text">
-                          When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.
+                          When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice. Set within a year after the events of Batman Begins (2005), Batman, Lieutenant James Gordon, and new District Attorney Harvey Dent successfully begin to round up the criminals that plague Gotham City, until a mysterious and sadistic criminal mastermind known only as "The Joker" appears in Gotham, creating a new wave of chaos. Batman's struggle against The Joker becomes deeply personal, forcing him to "confront everything he believes" and improve his technology to stop him. A love triangle develops between Bruce Wayne, Dent, and Rachel Dawes.::Leon Lombardi The follow-up to Batman Begins (2005), this movie reunites Writer, Producer, and Director Christopher Nolan and Christian Bale, who reprises the role of Batman/Bruce Wayne in his continuing war on crime. With the help of Lieutenant James Gordon and District Attorney Harvey Dent, Batman sets out to destroy organized crime in Gotham for good. The triumvirate proves to be effective. But soon the three find themselves prey to a rising criminal mastermind known as "The Joker", who thrusts Gotham into anarchy and forces Batman closer to crossing the fine line between hero and vigilante. Gotham's new District Attorney has been elected. His name is Harvey Dent, and he has a radical new agenda that threatens to take down Gotham's organized crime underworld once and for all with an iron fist. But the emergence of the rogue vigilante known as Batman has caused problems for Dent and his agenda. A new criminal mastermind known only as "The Joker" has arrived and aims to take Gotham out from under Harvey Dent's iron fist. The Joker stages a masterfully planned bank robbery and robs the Gotham mob blind. He uses this money to stage a series of horrific and strategic attacks against the city and its people, each one carefully planned and aimed at Dent and Batman, while causing the rest of the city to enter panic mode. Meanwhile, Batman thinks he might have found a lead to The Joker thanks to Wayne Enterprises' dealings with a shady Chinese banker, and that takes Batman and Alfred to Hong Kong. The Joker has no rules, but Batman has only one, and the Joker aims to make Batman break his only rule. But who will be the one to take him out, will it be rogue vigilante Batman, or will it be elected official Harvey Dent, the new hero with a face?::halo1k One year after the events of Batman Begins (2008), Batman, Lieutenant James Gordon, and District Attorney Harvey Dent plan to launch an attack on the mob by arresting the shady accountant of the mob, Lau. Lau is abducted from his building by Batman and is thrown into jail. Lau divulges the secrets which results in almost all the mob bosses thrown in jail. The desperate mob bosses turn to The Joker, a sadistic psychopath with green hair, completely yellow teeth, and a custom purple suit. The Joker kills a judge, the Police Commissioner, and tries to kill the Mayor and Harvey. The acts of The Joker produces anarchy and chaos in the people of Gotham, forcing Batman to come to terms to which may seem to be his greatest test to fight injustice and come closer to the fine line between hero and vigilante.::srijanarora-152-448595 With the help of allies Lieutenant James Gordon and District Attorney Harvey Dent, Batman has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself "The Joker" suddenly throws the city into chaos, the Caped Crusader begins to tread a fine line between heroism and vigilantism.::Jwelch5742
                         </p>
                       </div>
                     </div>
@@ -49,10 +49,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -60,316 +67,324 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Chicago, Illinois, USA
+            <td class="table__cell">
+                Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                41.8756, -87.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Times Square, Causeway Bay, Hong Kong
+            <td class="table__cell">
+                Times Square, Washington, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 47.61</span>, <span class="lon">-122.34</span>
-                    </td>   
+                47.61, -122.34
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Battersea Power Station, Battersea, London, England, UK
+            <td class="table__cell">
+                Battersea Power Station, 188 Kirtling St, London, England SW11 8AB, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.4814285</span>, <span class="lon">-0.144556</span>
-                    </td>   
+                51.4814285, -0.144556
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Millennium Station, Chicago, Illinois, USA
+            <td class="table__cell">
+                Millennium Station, 151 N Michigan Ave, Chicago, Illinois 60601, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.885258</span>, <span class="lon">-87.623985</span>
-                    </td>   
+                41.885258, -87.623985
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Twin Anchors Restaurant & Tavern   1655 N. Sedgwick Street, Lincoln Park, Chicago, Illinois, USA
+            <td class="table__cell">
+                1655 North Sedgwick Street, Chicago, Illinois 60614, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.91272</span>, <span class="lon">-87.638337</span>
-                    </td>   
+                41.91272, -87.638337
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Los Angeles, California, USA
+            <td class="table__cell">
+                Old Post Office, 433 W Van Buren St, Chicago, Illinois 60607, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 34.0544</span>, <span class="lon">-118.2439</span>
-                    </td>   
+                41.875626, -87.637794
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Old Post Office, Chicago, Illinois, USA 
+            <td class="table__cell">
+                401 North Cicero Avenue, Chicago, Illinois 60644, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.875626</span>, <span class="lon">-87.637794</span>
-                    </td>   
+                41.8883, -87.74428
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Brach's Candy Factory   401 N. Cicero Street, Chicago, Illinois, USA 
+            <td class="table__cell">
+                330 North Wabash, 1 E Ibm Plz, Chicago, Illinois 60611, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8883</span>, <span class="lon">-87.74428</span>
-                    </td>   
+                41.888585000000006, -87.6275925
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                IBM Building   330 N Wabash, Chicago, Illinois, USA 
+            <td class="table__cell">
+                Los Angeles, California, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.888585000000006</span>, <span class="lon">-87.6275925</span>
-                    </td>   
+                34.0544, -118.2439
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hong Kong, China
+            <td class="table__cell">
+                S La Salle St, Chicago, Illinois 60621, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.299653499999998</span>, <span class="lon">114.1675485</span>
-                    </td>   
+                41.74912, -87.55492
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                South LaSalle St., Chicago, Illinois, USA 
+            <td class="table__cell">
+                Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.74912</span>, <span class="lon">-87.55492</span>
-                    </td>   
+                41.8756, -87.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Atwood Cafe   1 W Washington St, Chicago, Illinois, USA
+            <td class="table__cell">
+                Downtown West Chicago, West Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                41.8928, -88.207
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Lower Wacker Drive, Downtown, Chicago, Illinois, USA 
+            <td class="table__cell">
+                2301 S Lake Shore Dr, Chicago, Illinois 60616, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8928</span>, <span class="lon">-88.207</span>
-                    </td>   
+                41.85064, -87.61615
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                McCormick Place   2301 S. Lake Shore Drive, Near South Side, Chicago, Illinois, USA 
+            <td class="table__cell">
+                Hong Kong China Ferry Terminal, 1-2/F, China Hong Kong City, 33 Canton Rd, Yau Tsim Mong District, Hong Kong
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.85064</span>, <span class="lon">-87.61615</span>
-                    </td>   
+                22.299653499999998, 114.1675485
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Piccadilly Circus, Piccadilly, London, England, UK
+            <td class="table__cell">
+                Piccadilly Circus, Piccadilly, London, England W1J 9HP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.509903249999994</span>, <span class="lon">-0.13451125</span>
-                    </td>   
+                51.509903249999994, -0.13451125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Senate House, University College London, Malet Street, Bloomsbury, London, England, UK
+            <td class="table__cell">
+                Chicago, Illinois, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.522841765625</span>, <span class="lon">-0.1301126953125</span>
-                    </td>   
+                41.8756, -87.6244
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
+            <td class="table__cell">
+                Birkbeck, Malet St, London, England WC1E 7JL, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
-                    </td>   
+                51.522841765625, -0.1301126953125
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Queen's Road Central, Central, Hong Kong, China
+            <td class="table__cell">
+                N, Rochester, Indiana 46975, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 1.332652</span>, <span class="lon">103.848198</span>
-                    </td>   
+                41.12153, -86.40741
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Richard J. Daley Center   55 W. Randolph Street, The Loop, Downtown, Chicago, Illinois, USA
+            <td class="table__cell">
+                North Franklin Street, Chicago, Illinois 60610, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8756</span>, <span class="lon">-87.6244</span>
-                    </td>   
+                41.891805, -87.635985
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Victoria Harbour, Hong Kong, China
+            <td class="table__cell">
+                71 East South Water Street, Chicago, Illinois 60601, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.287948</span>, <span class="lon">114.17265</span>
-                    </td>   
+                41.8866, -87.62533
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bedford, Bedfordshire, England, UK
+            <td class="table__cell">
+                Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 52.067944</span>, <span class="lon">-0.47248</span>
-                    </td>   
+                51.5483805, -0.5348885
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Trump International Hotel & Tower   401 N Wabash, Chicago, Illinois, USA 
+            <td class="table__cell">
+                China
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.11794</span>, <span class="lon">-86.40246</span>
-                    </td>   
+                35.4867029846329, 101.901875103385
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                University of Westminster, London, England, UK
+            <td class="table__cell">
+                Victoria Harbour 維多利亞港, Victoria Harbour, Wan Chai District, Hong Kong
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.57763</span>, <span class="lon">-0.322569</span>
-                    </td>   
+                22.287948, 114.17265
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                N Franklin Street, Chicago, Illinois, USA 
+            <td class="table__cell">
+                Mill Lane, Houghton Conquest, Bedford, MK45 3BW, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.891805</span>, <span class="lon">-87.635985</span>
-                    </td>   
+                52.067944, -0.47248
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Chertsey, Surrey, England, UK
+            <td class="table__cell">
+                University of Westminster, Watford Rd, Harrow, England HA1 3TP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.3902</span>, <span class="lon">-0.5074</span>
-                    </td>   
+                51.57763, -0.322569
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Hotel 71   71 E. Wacker Drive, Downtown, Chicago, Illinois, USA
+            <td class="table__cell">
+                Chertsey, Surrey, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.8866</span>, <span class="lon">-87.62533</span>
-                    </td>   
+                51.3902, -0.5074
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Old Town, Near North Side, Chicago, Illinois, USA
+            <td class="table__cell">
+                Old Town Pub, 1339 N Wells St, Chicago, Illinois 60610, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.906897</span>, <span class="lon">-87.634573</span>
-                    </td>   
+                41.906897, -87.634573
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Twickenham, Middlesex, England, UK
+            <td class="table__cell">
+                Twickenham, Greater London, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.4486</span>, <span class="lon">-0.3369</span>
-                    </td>   
+                51.4486, -0.3369
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                George Farmiloe Building   28 36 St John Street, Clerkenwell, London, England, UK 
+            <td class="table__cell">
+                Saint John Street, Islington, London, EC1V 4UB, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.527098</span>, <span class="lon">-0.104408</span>
-                    </td>   
+                51.52316, -0.102312
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                2 International Finance Centre, Central, Hong Kong, China
+            <td class="table__cell">
+                One International Finance Centre, 1 Harbour View St, Central and Western District, Hong Kong
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.285195125</span>, <span class="lon">114.158648875</span>
-                    </td>   
+                22.285195125, 114.158648875
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cardington Airship Hangars, Bedfordshire, England, UK 
+            <td class="table__cell">
+                Airship Hangar, Farnborough, England GU14 7JP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
-                    </td>   
+                51.28478, -0.760758
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Criterion Theatre, Jermyn Street, St James's, London, England, UK
+            <td class="table__cell">
+                600 East Grand Avenue, Chicago, Illinois 60611, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.5098815</span>, <span class="lon">-0.1341945</span>
-                    </td>   
+                41.89169, -87.60835
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                London, England, UK
+            <td class="table__cell">
+                Criterion Theatre, 2 Jermyn St., London, England W1J 9HP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
-                    </td>   
+                51.5098815, -0.1341945
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Center, Central, Hong Kong, China
+            <td class="table__cell">
+                London, Greater London, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.8337</span>, <span class="lon">-72.2504</span>
-                    </td>   
+                51.507321899999994, -0.12764739999999997
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Peninsula Hong Kong, Salisbury Road, Tsim Sha Tsui, Kowloon, Hong Kong, China
+            <td class="table__cell">
+                Thet Ctr, Vermont, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 22.295197</span>, <span class="lon">114.1716925</span>
-                    </td>   
+                43.8337, -72.2504
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Navy Pier   600 E. Grand Avenue, Near North Side, Chicago, Illinois, USA
+            <td class="table__cell">
+                The Peninsula Hong Kong, 9-21 Salisbury Rd, Yau Tsim Mong District, Hong Kong
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 41.89169</span>, <span class="lon">-87.60835</span>
-                    </td>   
+                22.295197, 114.1716925
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St John Street, Clerkenwell, London, England, UK
+            <td class="table__cell">
+                Saint John Street, Islington, London, EC1V 4UB, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.52316</span>, <span class="lon">-0.102312</span>
-                    </td>   
+                51.52316, -0.102312
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Leavesden Studios, Leavesden, Hertfordshire, England, UK
+            <td class="table__cell">
+                Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.69323</span>, <span class="lon">-0.4184505</span>
-                    </td>   
+                51.69323, -0.4184505
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Longcross, Surrey, England, UK
+            <td class="table__cell">
+                Trys Hill, Lyne, Chertsey, KT16 0DJ, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.380692</span>, <span class="lon">-0.549514</span>
-                    </td>   
+                51.380692, -0.549514
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                230 S La Salle St, Chicago, Illinois 60604, United States
+            </td>   
+                <td class="table__cell">
+                41.8785, -87.632696
+            </td>   
           </tr> 
           </tr>
         
@@ -383,5 +398,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[22.285195125, 114.158648875], [22.287948, 114.17265], [22.295197, 114.1716925]], "data": [{"lat": 41.8756, "lon": -87.6244, "name": "Chicago, Illinois, United States"}, {"lat": 47.61, "lon": -122.34, "name": "Times Square, Washington, United States"}, {"lat": 51.4814285, "lon": -0.144556, "name": "Battersea Power Station, 188 Kirtling St, London, England SW11 8AB, United Kingdom"}, {"lat": 41.885258, "lon": -87.623985, "name": "Millennium Station, 151 N Michigan Ave, Chicago, Illinois 60601, United States"}, {"lat": 41.91272, "lon": -87.638337, "name": "1655 North Sedgwick Street, Chicago, Illinois 60614, United States"}, {"lat": 41.875626, "lon": -87.637794, "name": "Old Post Office, 433 W Van Buren St, Chicago, Illinois 60607, United States"}, {"lat": 41.8883, "lon": -87.74428, "name": "401 North Cicero Avenue, Chicago, Illinois 60644, United States"}, {"lat": 41.888585000000006, "lon": -87.6275925, "name": "330 North Wabash, 1 E Ibm Plz, Chicago, Illinois 60611, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 41.74912, "lon": -87.55492, "name": "S La Salle St, Chicago, Illinois 60621, United States"}, {"lat": 41.8756, "lon": -87.6244, "name": "Chicago, Illinois, United States"}, {"lat": 41.8928, "lon": -88.207, "name": "Downtown West Chicago, West Chicago, Illinois, United States"}, {"lat": 41.85064, "lon": -87.61615, "name": "2301 S Lake Shore Dr, Chicago, Illinois 60616, United States"}, {"lat": 22.299653499999998, "lon": 114.1675485, "name": "Hong Kong China Ferry Terminal, 1-2/F, China Hong Kong City, 33 Canton Rd, Yau Tsim Mong District, Hong Kong"}, {"lat": 51.509903249999994, "lon": -0.13451125, "name": "Piccadilly Circus, Piccadilly, London, England W1J 9HP, United Kingdom"}, {"lat": 41.8756, "lon": -87.6244, "name": "Chicago, Illinois, United States"}, {"lat": 51.522841765625, "lon": -0.1301126953125, "name": "Birkbeck, Malet St, London, England WC1E 7JL, United Kingdom"}, {"lat": 41.12153, "lon": -86.40741, "name": "N, Rochester, Indiana 46975, United States"}, {"lat": 41.891805, "lon": -87.635985, "name": "North Franklin Street, Chicago, Illinois 60610, United States"}, {"lat": 41.8866, "lon": -87.62533, "name": "71 East South Water Street, Chicago, Illinois 60601, United States"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 35.4867029846329, "lon": 101.901875103385, "name": "China"}, {"lat": 22.287948, "lon": 114.17265, "name": "Victoria Harbour \u7dad\u591a\u5229\u4e9e\u6e2f, Victoria Harbour, Wan Chai District, Hong Kong"}, {"lat": 52.067944, "lon": -0.47248, "name": "Mill Lane, Houghton Conquest, Bedford, MK45 3BW, United Kingdom"}, {"lat": 51.57763, "lon": -0.322569, "name": "University of Westminster, Watford Rd, Harrow, England HA1 3TP, United Kingdom"}, {"lat": 51.3902, "lon": -0.5074, "name": "Chertsey, Surrey, England, United Kingdom"}, {"lat": 41.906897, "lon": -87.634573, "name": "Old Town Pub, 1339 N Wells St, Chicago, Illinois 60610, United States"}, {"lat": 51.4486, "lon": -0.3369, "name": "Twickenham, Greater London, England, United Kingdom"}, {"lat": 51.52316, "lon": -0.102312, "name": "Saint John Street, Islington, London, EC1V 4UB, United Kingdom"}, {"lat": 22.285195125, "lon": 114.158648875, "name": "One International Finance Centre, 1 Harbour View St, Central and Western District, Hong Kong"}, {"lat": 51.28478, "lon": -0.760758, "name": "Airship Hangar, Farnborough, England GU14 7JP, United Kingdom"}, {"lat": 41.89169, "lon": -87.60835, "name": "600 East Grand Avenue, Chicago, Illinois 60611, United States"}, {"lat": 51.5098815, "lon": -0.1341945, "name": "Criterion Theatre, 2 Jermyn St., London, England W1J 9HP, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 43.8337, "lon": -72.2504, "name": "Thet Ctr, Vermont, United States"}, {"lat": 22.295197, "lon": 114.1716925, "name": "The Peninsula Hong Kong, 9-21 Salisbury Rd, Yau Tsim Mong District, Hong Kong"}, {"lat": 51.52316, "lon": -0.102312, "name": "Saint John Street, Islington, London, EC1V 4UB, United Kingdom"}, {"lat": 51.69323, "lon": -0.4184505, "name": "Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom"}, {"lat": 51.380692, "lon": -0.549514, "name": "Trys Hill, Lyne, Chertsey, KT16 0DJ, United Kingdom"}, {"lat": 41.8785, "lon": -87.632696, "name": "230 S La Salle St, Chicago, Illinois 60604, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

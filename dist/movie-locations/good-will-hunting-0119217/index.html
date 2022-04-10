@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Good Will Hunting</h3>
                         <p class="card-text">
-                          Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life.
+                          Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life. A touching tale of a wayward young man who struggles to find his identity, living in a world where he can solve any problem, except the one brewing deep within himself, until one day he meets his soul mate who opens his mind and his heart.::Dima & Danielle A young adult by the name of Will Hunting has always been living in the slums. He spends his nights at bars and batting cages with his best friends. However, he has an amazing talent in Mathematics. When Will is almost sent to jail, a professor at MIT decides to bail him out under the condition that he works with him for math every week and that he visits a therapist. Little does he know that the therapist, Sean, will change his life in so many ways.::Eric A janitor at MIT, Will Hunting has a gift for math and chemistry that can take him light-years beyond his blue-collar roots, but he doesn't realize his potential and can't even imagine leaving his childhood Boston South End neighborhood, his construction job, or his best friend. To complicate matters, several strangers enter the equation: a brilliant math professor who discovers, even envies, Will's gifts, an empathetic shrink who identifies with Will's blue-collar roots, and a beautiful, gifted pre-med student who shows him, for the first time in his life, the possibility of love.::Damien Saunders <dvs@rainbow.net.au> Will Hunting is a genius who's living a rough life in South Boston, while being employed at a prestigious college in Boston, he's discovered by a Fields Medal winning Professor who eventually tries to get Will to turn his life around with the help of Sean Maguire, as Will begins to realize that there's more to himself then he thinks there is.::Ryan Harder <hotshotharder@hotmail.com> Will Hunting is a boy genius who was severely abused as a child and has been in trouble with the law ever since. When Will finally agrees to get counseling to keep himself out of jail and with his girlfriend, he meets Sean, the therapist who will change his life. Good Will Hunting tells the poignant story of Will and Sean's coming to terms with the blows life has dealt them and with the questions that lie in the future.::Anuja <anujav@excite.com>
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,196 +455,196 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Central Tech. High School, Toronto, Ontario, Canada
-            </td>   
-                <td class="table__cell">
-                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell location">
+            <td class="table__cell">
                 Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
-                    </td>   
+                43.653482, -79.383935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Massachusetts Turnpike, Massachusetts, USA 
+            <td class="table__cell">
+                Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3740695139485</span>, <span class="lon">-71.0296626134716</span>
-                    </td>   
+                43.653482, -79.383935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                University of Toronto, Toronto, Ontario, Canada 
+            <td class="table__cell">
+                Massachusetts Turnpike, Boston, Massachusetts 02128, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.666713</span>, <span class="lon">-79.399975</span>
-                    </td>   
+                42.3740695139485, -71.0296626134716
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Upfront Bar & Grill   106 Front Street E., Toronto, Ontario, Canada 
+            <td class="table__cell">
+                School of Continuing Studies, 158 Saint George Street, Toronto, Ontario M5S 2E9, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.649996</span>, <span class="lon">-79.370882</span>
-                    </td>   
+                43.666713, -79.399975
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ontario Specialty Co, Toronto, Ontario, Canada 
+            <td class="table__cell">
+                106 Front Street East, Toronto, Ontario M5A 1E1, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
-                    </td>   
+                43.649996, -79.370882
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dorchester, Boston, Massachusetts, USA
+            <td class="table__cell">
+                Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.300105</span>, <span class="lon">-71.014535</span>
-                    </td>   
+                43.653482, -79.383935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Dunster House, Harvard University, Cambridge, Massachusetts, USA
+            <td class="table__cell">
+                Dorchester Street, Quincy, Massachusetts 02171, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3751</span>, <span class="lon">-71.1056</span>
-                    </td>   
+                42.300105, -71.014535
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                The Tasty, Harvard Square, Cambridge, Massachusetts, USA 
+            <td class="table__cell">
+                Cambridge, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.374</span>, <span class="lon">-71.119</span>
-                    </td>   
+                42.3751, -71.1056
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Woody's L Street Tavern   658 E. Eighth Street #A, South Boston, Boston, Massachusetts, USA
+            <td class="table__cell">
+                Harvard Square, Cambridge, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.33163</span>, <span class="lon">-71.035442</span>
-                    </td>   
+                42.374, -71.119
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Public Garden   Charles and Beacon Streets, Boston, Massachusetts, USA 
+            <td class="table__cell">
+                658 East Eighth Street, South Boston, Massachusetts 02127, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
-                    </td>   
+                42.33163, -71.035442
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                100 Federal Street, Boston, Massachusetts, USA 
+            <td class="table__cell">
+                Boston, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.35478</span>, <span class="lon">-71.05619</span>
-                    </td>   
+                42.3605, -71.0596
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                McLennan Physical Laboratories, University of Toronto, Toronto, Ontario, Canada 
+            <td class="table__cell">
+                100 Federal St, Boston, Massachusetts 02110, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
-                    </td>   
+                42.35478, -71.05619
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bow & Arrow Pub   1 Bow Street, Harvard Square, Cambridge, Massachusetts, USA
+            <td class="table__cell">
+                Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.372185</span>, <span class="lon">-71.115962</span>
-                    </td>   
+                43.653482, -79.383935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cambridge, Massachusetts, USA
+            <td class="table__cell">
+                1 Bow Street, Cambridge, Massachusetts 02138, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3751</span>, <span class="lon">-71.1056</span>
-                    </td>   
+                42.372185, -71.115962
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                E. 5th Street, South Boston, Boston, Massachusetts, USA
+            <td class="table__cell">
+                Cambridge, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.33411</span>, <span class="lon">-71.03477</span>
-                    </td>   
+                42.3751, -71.1056
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Massachusetts Institute of Technology   77 Massachusetts Avenue, Cambridge, Massachusetts, USA
+            <td class="table__cell">
+                East Fifth Street, South Boston, Massachusetts 02127, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.35917</span>, <span class="lon">-71.093185</span>
-                    </td>   
+                42.33411, -71.03477
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                South Boston District Municipal Court   535 East Broadway, South Boston, Boston, Massachusetts, USA
+            <td class="table__cell">
+                77 Massachusetts Avenue, Cambridge, Massachusetts 02142, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3334</span>, <span class="lon">-71.0495</span>
-                    </td>   
+                42.35917, -71.093185
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Wonderland Greyhound Park   Revere, Massachusetts, USA 
+            <td class="table__cell">
+                South Boston, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.4084</span>, <span class="lon">-71.012</span>
-                    </td>   
+                42.3334, -71.0495
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Whitney Hall residence, University College, University of Toronto, Toronto, Ontario, Canada 
+            <td class="table__cell">
+                Revere, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 43.653482</span>, <span class="lon">-79.383935</span>
-                    </td>   
+                42.4084, -71.012
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Harvard Square, Cambridge, Massachusetts, USA
+            <td class="table__cell">
+                Toronto, Ontario, Canada
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.374</span>, <span class="lon">-71.119</span>
-                    </td>   
+                43.653482, -79.383935
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                W. 5th Street, South Boston, Boston, Massachusetts, USA
+            <td class="table__cell">
+                Harvard Square, Cambridge, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.33727</span>, <span class="lon">-71.05231</span>
-                    </td>   
+                42.374, -71.119
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Boston, Massachusetts, USA
+            <td class="table__cell">
+                West Fifth Street, South Boston, Massachusetts 02127, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.3605</span>, <span class="lon">-71.0596</span>
-                    </td>   
+                42.33727, -71.05231
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Bunker Hill Community College   250 N. Rutherford Avenue, Charlestown, Massachusetts, USA
+            <td class="table__cell">
+                Boston, Massachusetts, United States
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 42.376141</span>, <span class="lon">-71.061837</span>
-                    </td>   
+                42.3605, -71.0596
+            </td>   
+          </tr> 
+          <tr class="table__row">
+            <td class="table__cell">
+                Bunker Hill, Boston, Massachusetts, United States
+            </td>   
+                <td class="table__cell">
+                42.376141, -71.061837
+            </td>   
           </tr> 
           </tr>
         
@@ -714,5 +717,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[42.300105, -71.014535], [42.33163, -71.035442], [42.3334, -71.0495]], "data": [{"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 42.3740695139485, "lon": -71.0296626134716, "name": "Massachusetts Turnpike, Boston, Massachusetts 02128, United States"}, {"lat": 43.666713, "lon": -79.399975, "name": "School of Continuing Studies, 158 Saint George Street, Toronto, Ontario M5S 2E9, Canada"}, {"lat": 43.649996, "lon": -79.370882, "name": "106 Front Street East, Toronto, Ontario M5A 1E1, Canada"}, {"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 42.300105, "lon": -71.014535, "name": "Dorchester Street, Quincy, Massachusetts 02171, United States"}, {"lat": 42.3751, "lon": -71.1056, "name": "Cambridge, Massachusetts, United States"}, {"lat": 42.374, "lon": -71.119, "name": "Harvard Square, Cambridge, Massachusetts, United States"}, {"lat": 42.33163, "lon": -71.035442, "name": "658 East Eighth Street, South Boston, Massachusetts 02127, United States"}, {"lat": 42.3605, "lon": -71.0596, "name": "Boston, Massachusetts, United States"}, {"lat": 42.35478, "lon": -71.05619, "name": "100 Federal St, Boston, Massachusetts 02110, United States"}, {"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 42.372185, "lon": -71.115962, "name": "1 Bow Street, Cambridge, Massachusetts 02138, United States"}, {"lat": 42.3751, "lon": -71.1056, "name": "Cambridge, Massachusetts, United States"}, {"lat": 42.33411, "lon": -71.03477, "name": "East Fifth Street, South Boston, Massachusetts 02127, United States"}, {"lat": 42.35917, "lon": -71.093185, "name": "77 Massachusetts Avenue, Cambridge, Massachusetts 02142, United States"}, {"lat": 42.3334, "lon": -71.0495, "name": "South Boston, Massachusetts, United States"}, {"lat": 42.4084, "lon": -71.012, "name": "Revere, Massachusetts, United States"}, {"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 42.374, "lon": -71.119, "name": "Harvard Square, Cambridge, Massachusetts, United States"}, {"lat": 42.33727, "lon": -71.05231, "name": "West Fifth Street, South Boston, Massachusetts 02127, United States"}, {"lat": 42.3605, "lon": -71.0596, "name": "Boston, Massachusetts, United States"}, {"lat": 42.376141, "lon": -71.061837, "name": "Bunker Hill, Boston, Massachusetts, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

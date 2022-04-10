@@ -44,12 +44,8 @@
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
 <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.css" />
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -425,7 +421,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Harry Potter and the Deathly Hallows: Part 2</h3>
                         <p class="card-text">
-                          Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.
+                          Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts. Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue their quest of finding and destroying Voldemort's (Ralph Fiennes') three remaining Horcruxes, the magical items responsible for his immortality. But as the mystical Deathly Hallows are uncovered, and Voldemort finds out about their mission, the biggest battle begins, and life as they know it will never be the same again.::Jordan Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue to find the rest of Voldemort's (Ralph Fiennes') Horcruxes, until Harry discovers that one is at Hogwarts, they flee there as soon as possible, but Voldemort instantly finds out about their mission. The battle is drawn at Hogwarts as many people fight to protect Harry. Harry then realizes that people are dying constantly for his mistakes and then eventually fights Voldemort for the last time. Along the way, crucial secrets are unravelled, and the mysterious, but legendary, Deathly Hallows reappear. Harry, Ron and Hermione's search for the last few Horcruxes continues. But when Voldemort finds out about their mission, the trio find that they must return to Hogwarts. Now the battle lines are drawn between the forces of good and evil to decide the fate of the Wizarding world. But as secrets are revealed and the mysterious Deathly Hallows are uncovered, Harry discovers that he will need to make the ultimate sacrifice as he is in for the fight of his life while facing Lord Voldemort one final time.::Blazer346
                         </p>
                       </div>
                     </div>
@@ -441,10 +437,17 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="map-container">
-             <div  id="map" ></div>
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
             </div>
-            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -452,68 +455,68 @@
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
-            <td class="table__cell location">
-                Freshwater West, Pembrokeshire, Wales, UK 
+            <td class="table__cell">
+                Freshwater West, Freshwater Water, Pembroke, Wales SA71 5AH, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.654558</span>, <span class="lon">-5.05785</span>
-                    </td>   
+                51.654558, -5.05785
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Shepperton Studios, Shepperton, Surrey, England, UK 
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.407444</span>, <span class="lon">-0.465177</span>
-                    </td>   
+                51.407444, -0.465177
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Cardington Airship Hangars, Bedfordshire, England, UK
+            <td class="table__cell">
+                Airship Hangar, Farnborough, England GU14 7JP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.28478</span>, <span class="lon">-0.760758</span>
-                    </td>   
+                51.28478, -0.760758
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                St. Pancras Station, St. Pancras, London, England, UK 
+            <td class="table__cell">
+                London, Greater London, England, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.507321899999994</span>, <span class="lon">-0.12764739999999997</span>
-                    </td>   
+                51.507321899999994, -0.12764739999999997
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Swinley Forest, Bracknell, Berkshire, England, UK 
+            <td class="table__cell">
+                Swinley Forest, Bracknell, England RG12 7QW, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.38761</span>, <span class="lon">-0.740717</span>
-                    </td>   
+                51.38761, -0.740717
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Leavesden Studios, Leavesden, Hertfordshire, England, UK
+            <td class="table__cell">
+                Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.69323</span>, <span class="lon">-0.4184505</span>
-                    </td>   
+                51.69323, -0.4184505
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Pinewood Studios, Iver Heath, Buckinghamshire, England, UK
+            <td class="table__cell">
+                Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.5483805</span>, <span class="lon">-0.5348885</span>
-                    </td>   
+                51.5483805, -0.5348885
+            </td>   
           </tr> 
           <tr class="table__row">
-            <td class="table__cell location">
-                Ashbridge, Hertfordshire, England, UK
+            <td class="table__cell">
+                Ashridge Business School, Ashridge, Berkhamsted, England HP4 1NS, United Kingdom
             </td>   
                 <td class="table__cell">
-                <span class="lat"> 51.798993874999994</span>, <span class="lon">-0.560344</span>
-                    </td>   
+                51.798993874999994, -0.560344
+            </td>   
           </tr> 
           </tr>
         
@@ -586,5 +589,40 @@
 <script src="/js/app.js"></script>
 
  
+
+  <script type="text/javascript">
+var locations =[{"bbox": [[51.28478, -0.760758], [51.38761, -0.740717], [51.407444, -0.465177]], "data": [{"lat": 51.654558, "lon": -5.05785, "name": "Freshwater West, Freshwater Water, Pembroke, Wales SA71 5AH, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.28478, "lon": -0.760758, "name": "Airship Hangar, Farnborough, England GU14 7JP, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 51.38761, "lon": -0.740717, "name": "Swinley Forest, Bracknell, England RG12 7QW, United Kingdom"}, {"lat": 51.69323, "lon": -0.4184505, "name": "Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 51.798993874999994, "lon": -0.560344, "name": "Ashridge Business School, Ashridge, Berkhamsted, England HP4 1NS, United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>
