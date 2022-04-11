@@ -655,3 +655,23 @@ box-shadow: none !important;
 .modal-tour .modal-dialog {
   width: 380px;
 }
+
+
+
+
+
+#film-details a.collapsed:after  {
+    content: '+ Show More';
+     box-shadow: transparent !important
+
+}
+
+#film-details a:not(.collapsed):after {
+    content: '- Show Less';
+     box-shadow: transparent !important
+}
+
+#film-details .btn-check:focus + .btn, .btn:focus {
+    outline: 0;
+    box-shadow: none !important
+}

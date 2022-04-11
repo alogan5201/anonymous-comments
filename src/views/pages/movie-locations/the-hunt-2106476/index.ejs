@@ -16,38 +16,47 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Hunt</h3>
-                        <p class="card-text">
-                          A teacher lives a lonely life, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie. Lucas is a Kindergarten teacher who takes great care of his students. Unfortunately for him, young Klara has a run-away imagination and concocts a lie about her teacher. Before Lucas is even able to understand the consequences, he has become the outcast of the town. The hunt is on to prove his innocence before it's taken from him for good.::napierslogs A teacher (Mikkelsen) lives a lonely life following a difficult divorce, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.
+                      <h3 class="card-title">The Hunt</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A teacher lives a lonely life, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.  </span>
+                          <span > Lucas is a Kindergarten teacher who takes great care of his students. Unfortunately for him, young Klara has a run-away imagination and concocts a lie about her teacher. Before Lucas is even able to understand the consequences, he has become the outcast of the town. The hunt is on to prove his innocence before it's taken from him for good. -napierslogs.  </span>
+                          <span > A teacher (Mikkelsen) lives a lonely life following a difficult divorce, all the while struggling over his son's custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.  </span>
+                          
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMTg2NDg3ODg4NF5BMl5BanBnXkFtZTcwNzk3NTc3Nw@@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Hunt"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
+          
             <div class="col-lg-12">
   <div class="map-container">
                   <div id="map"></div>
@@ -59,43 +68,44 @@
                 </div>
 
             </div>
-         
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Høje Taastrup St., Banestrøget 5, Taastrup, Capital RegionDenmark 2630, Denmark
-            </td>   
+            </td>
                 <td class="table__cell">
                 55.648779, 12.26962
-            </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Denmark
-            </td>   
+            </td>
                 <td class="table__cell">
                 55.9633978748347, 10.0462968058278
-            </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
 
   <script type="text/javascript">
+
 var locations =[{"bbox": null, "data": [{"lat": 55.648779, "lon": 12.26962, "name": "H\u00f8je Taastrup St., Banestr\u00f8get 5, Taastrup, Capital RegionDenmark 2630, Denmark"}, {"lat": 55.9633978748347, "lon": 10.0462968058278, "name": "Denmark"}]}];
 var map = L.map('map').setView([0,0], 20);
 
