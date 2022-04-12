@@ -502,14 +502,7 @@ https://api.mapbox.com/geocoding/v5/mapbox.places/$Atlanta,GA.json?access_token=
           name: pageTitle,
         }).addTo(map);
 
-        $("#comment-form").on("submit", function (e) {
-          e.preventDefault();
 
-          let name = e.currentTarget[0].value;
-          let message = e.currentTarget[1].value;
-
-          $("#comment-btn").disabled = true;
-        });
       });
     </script>
   </body>

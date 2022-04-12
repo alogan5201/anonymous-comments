@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -97,7 +97,7 @@ eval("/*jshint esversion: 8 */\nfunction test(e) {\n  e.preventDefault();\n}\n\n
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./src/js/latlonToDMS.js ***!
   \*************************************/

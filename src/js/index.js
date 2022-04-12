@@ -8,7 +8,8 @@
 
 import dompurify from "dompurify";
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set,  onValue, push } from "firebase/database";
+
 import {
   getAuth,
   signInWithRedirect,
@@ -21,7 +22,6 @@ import {
 
 import "picturefill";
 import "utils/errors";
-import orderByDistance from 'geolib/es/orderByDistance';
 let url = window.location.href;
 
 var firebaseConfig = {
@@ -39,7 +39,7 @@ const auth = getAuth();
 // Get a reference to the database service
 
 const googleProvider = new GoogleAuthProvider();
-const db = getDatabase();
+
 /*
 if (location.hostname === "localhost") {
   // Point to the RTDB emulator running on localhost.
@@ -132,80 +132,51 @@ if (window.location.href.includes("login")) {
   );
 }
 
-/*
-if($('body').hasClass('film-location')){
 
-
- let map = L.map('map').setView([0, 0], 5);;
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
-            foo: 'bar',
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-
-           function extractData () {
-              let table = document.querySelector('.table')
-
-              const results = []
-              const markers = []
-              const allcoords = []
-            for (let index = 1; index < table.rows.length; index++) {
-              const row = table.rows[index];
-              let location = row.cells[0].innerText
-              let coordinates = row.cells[1]
-              let lat = coordinates.firstElementChild.innerText
-              let lon = coordinates.lastElementChild.innerText
-              let coords = [lat, lon]
-              allcoords.push(coords)
-              let marker = L.marker([lat, lon]);
-              marker.bindPopup(location);
-              marker.addTo(map);
-
-              /*
-              if (index < 4){
-              markers.push([lat,lon])
-              let marker = L.marker([lat, lon]);
-              marker.bindPopup(location);
-              marker.addTo(map);
-              }
-              else {
-
-
-              // /console.log(lat, lon)
-              let marker = L.marker([lat, lon]);
-              marker.bindPopup(location);
-              marker.addTo(map);
-              }
-
-}
-//console.log(allcoords)
-const firstC = allcoords[0]
-const ordered = orderByDistance(firstC, allcoords);
-
-//console.log(ordered)
-if (ordered.length > 3){
-  let newArr = ordered.slice(0,3)
-  console.log(newArr)
-  map.fitBounds([newArr])
-  map.zoomOut(5)
-
-}
-else if (ordered.length < 3){
-  map.fitBounds([ordered])
-  map.zoomOut(5)
-}
-
-
-//map.fitBounds(result)
-
-}
-extractData()
-
-};
-*/
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
+  const db = getDatabase();
+
+  if (document.getElementById("comment-form")){
+    const messageRef= ref(db, 'messages/'  );
+    onValue(messageRef, (snapshot) => {
+      const data = snapshot.val();
+ console.log(data)
+ for (const key in data) {
+
+ }
+    });
+    $("#comment-form").on("submit", function (e) {
+      e.preventDefault();
+$("#comment-btn").disabled = true;
+      let name = e.currentTarget[0].value;
+      let message = e.currentTarget[1].value;
+      let commentSection = document.getElementById("comment-section")
+      function writeUserData(userId, name, email, imageUrl) {
+
+
+      }
+      if(name && message){
+        $( "#comment-section" ).append( `<div class="d-flex">
+
+          <div class="ms-3">
+            <div class="fw-bold">${name}</div>
+            ${message}
+          </div>
+        </div>` );
+        const postListRef = ref(db, 'messages');
+        const newPostRef = push(postListRef);
+        set(newPostRef, {
+           name: name,
+           message: message
+        });
+
+      }
+        console.log(name, message)
+
+    });
+  }
   $("#testBtn").on("click", function () {
     var myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));
     myModal.toggle();
