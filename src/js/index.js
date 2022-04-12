@@ -8,7 +8,7 @@
 
 import dompurify from "dompurify";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set,  onValue, push } from "firebase/database";
+import { getDatabase, ref, set, get,  onValue, push, query, orderByValue } from "firebase/database";
 
 import {
   getAuth,
@@ -22,7 +22,32 @@ import {
 
 import "picturefill";
 import "utils/errors";
+import { result } from "lodash";
 let url = window.location.href;
+Date.prototype.toShortFormat = function() {
+
+  let monthNames =["Jan","Feb","Mar","Apr",
+                    "May","Jun","Jul","Aug",
+                    "Sep", "Oct","Nov","Dec"];
+
+  let day = this.getDate();
+
+  let monthIndex = this.getMonth();
+  let monthName = monthNames[monthIndex];
+
+  let year = this.getFullYear();
+
+  return `${monthName} ${year}`;
+}
+
+// Now any Date object can be declared
+let anyDate = new Date(1528578000000);
+
+// and it can represent itself in the custom format defined above.
+
+let today = new Date();
+
+const prettyDate = today.toShortFormat()
 
 var firebaseConfig = {
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
@@ -119,7 +144,6 @@ if (window.location.href.includes("login")) {
     } else {
       $("#spinner-box").addClass("d-none");
       $("main").removeClass("d-none");
-      console.log(" signed out");
     }
   });
 
@@ -132,50 +156,299 @@ if (window.location.href.includes("login")) {
   );
 }
 
+function extractObjValues(obj){
+      const result = []
 
+  for (const property in obj) {
+  let object = {
+   key: property,
+    value: obj[property]
+
+  }
+  result.push(object)
+
+  }
+  return result
+}
+
+/*
+
+ mainForm.on('submit', e => {
+        e.preventDefault()
+
+        $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${dompurify.sanitize(mainForm.message.value)}`
+
+        import(/* webpackChunkName: "lazy-module.lazy"  './lazy-module').then(module => {
+          const foo = module.default
+
+          foo()
+      })
+  })
+*/
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const db = getDatabase();
 
   if (document.getElementById("comment-form")){
+    const mostViewedPosts = query(ref(db, 'messages'), orderByValue());
     const messageRef= ref(db, 'messages/'  );
+    get(messageRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        console.log(snapshot.val());
+        const data = snapshot.val();
+      const map = new Map(Object.entries(data));
+
+      for (const [key, value] of map.entries()) {
+       const dateinfo = value.date ? value.date : ""
+        let newObject= {
+          "id": key,
+          "name": value.name,
+          "message": value.message
+        }
+        if (!value.replies){
+          $( "#comment-section" ).append( `<div class="row d-flex justify-content-center mt-5 comment-box bg-light">
+
+          <div class="col-md-12 col-lg-12 col-xl-12">
+          <div class="card border-0 ">
+            <div class="card-body" id = "${key}">
+              <div class="d-flex flex-start align-items-center border-bottom">
+
+
+                  <h6 class="fw-bold text-primary mb-1">${value.name}</h6>
+                  <p class="text-muted small mb-0">
+                   ${dateinfo}
+                  </p>
+
+              </div>
+
+              <p class="mt-3 mb-0 pb-2">
+             ${value.message}
+              </p>
+
+              <div class="small d-flex justify-content-start">
+                <a href="#!" class="d-flex align-items-center me-3">
+                  <i class="far fa-thumbs-up me-2"></i>
+
+                </a>
+                <a href="#!" class="d-flex align-items-center me-3">
+                  <i class="far fa-thumbs-down me-2"></i>
+
+                </a>
+                <a href="#!" class="d-flex align-items-center me-3 reply-btn">
+                  <i class="far fa-comment-dots me-2"></i>
+                  <p class="m-0">Reply</p>
+                </a>
+
+              </div>
+            </div>
+            <div class="card-footer py-3 border-0  row justify-content-end" style="background-color: #f8f9fa;">
+            <div class = "other-comments">s
+
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>` );
+
+        }
+        else {
+          console.log('theres replies')
+        }
+
+      }
+
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+    /*
     onValue(messageRef, (snapshot) => {
       const data = snapshot.val();
- console.log(data)
- for (const key in data) {
+      const map = new Map(Object.entries(data));
+      //console.log(map); // Map(2) {"foo" => "bar", "baz" => 42}
+      for (const [key, value] of map.entries()) {
 
- }
+        let newObject= {
+          "id": key,
+          "name": value.name,
+          "message": value.message
+        }
+        $( "#comment-section" ).append( `<div class="d-flex">
+
+        <div id = "${key}" class="ms-3">
+          <div class="fw-bold">${value.name}</div>
+          ${value.message}
+        </div>
+      </div>` );
+
+      }
     });
+    */
+
     $("#comment-form").on("submit", function (e) {
+
       e.preventDefault();
+
 $("#comment-btn").disabled = true;
       let name = e.currentTarget[0].value;
       let message = e.currentTarget[1].value;
+      console.log(name)
       let commentSection = document.getElementById("comment-section")
-      function writeUserData(userId, name, email, imageUrl) {
 
-
-      }
       if(name && message){
-        $( "#comment-section" ).append( `<div class="d-flex">
-
-          <div class="ms-3">
-            <div class="fw-bold">${name}</div>
-            ${message}
-          </div>
-        </div>` );
+      let cleanMessage=  dompurify.sanitize(message)
+      let cleanName = dompurify.sanitize(name)
+      console.log(cleanMessage)
+      console.log(cleanName)
         const postListRef = ref(db, 'messages');
         const newPostRef = push(postListRef);
         set(newPostRef, {
-           name: name,
-           message: message
+           name: cleanName,
+           message: cleanMessage,
+           date: prettyDate
         });
+        $( "#comment-section" ).append( `<div class="d-flex comment-box">
+
+        <div class="ms-3 ">
+          <div class="fw-bold">${cleanName}</div>
+          ${cleanMessage}
+        </div>
+      </div>` );
+      }
+
+      else if(!name && message) {
+          let guest = 'Guest'
+          let cleanMessage = dompurify.sanitize(message)
+          const postListRef = ref(db, 'messages');
+          const newPostRef = push(postListRef);
+
+          set(newPostRef, {
+             name: guest,
+             message: cleanMessage
+          });
 
       }
-        console.log(name, message)
 
     });
+    $('#comment-section').on('click', '.reply-btn', function (e) {
+      e.preventDefault()
+      console.log(e.target)
+let siblings = $(this).parent().parent().siblings()
+let otherComments = siblings[0]
+
+console.log(  $(this).closest("div.other-comments"))
+
+
+      //var parentTag = $(this).parent().parent().attr('id');
+      var parentTag = $(this).parent().parent().attr('id')
+      var grandFather = $(this).parent().parent().parent().children().last().children()
+      let footer =   $(this).parent().parent().parent().children().last()
+      let replySection = $(this).parent().parent().parent().children().last().children()
+      $(replySection).addClass('d-none')
+      console.log(footer)
+
+  $(footer).append(`
+
+  <form class="reply-form">
+    <div class="d-flex flex-start w-100 justify-content-end">
+      <div class="col-md-11" >
+       <div class="form-outline w-100">
+
+         <div class="mb-3" >
+
+           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="replyName" placeholder="Name (Optional)">
+
+
+         </div>
+
+         <textarea class="form-control" id="textAreaExample" rows="4"
+           style="background: #fff;" placeholder="Write a comment."></textarea>
+
+       </div>
+      </div>
+
+       </div>
+
+       <div class="float-end mt-2 pt-1">
+        <button type="submit" class="btn btn-primary btn-sm">Send <i class="far fa-paper-plane"></i></button>
+      </div>
+  </form>
+
+
+
+  `);
+
+  $('.reply-form').on('submit', function (e) {
+      e.preventDefault()
+      let inputs = e.target.elements
+      //console.log(e.target.elements)
+      let name = inputs[0].value.length > 0 ? inputs[0].value: "Anonymous"
+
+      let message = inputs[1]
+      var parent = $(this).parent()
+      let siblings = $(this).siblings()
+
+      let otherComments = siblings[1]
+
+console.log($(this).parent())
+console.log($(this).siblings())
+
+      $(this).animate({opacity: 0}, 1000,function(){
+      $(this).css('display','none');
+        $(siblings[0]).removeClass("d-none")
+      $(siblings[0]).append(
+        `
+        <div class="col-md-11 p-3" style = "background-color: white !important">
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h6 class="fw-bold text-primary mb-1 ">${name}</h6>
+        <p class="text-muted small m-0">
+        ${prettyDate}
+        </p>
+        </div>
+        <p class="mt-3 mb-0 pb-2">
+        ${message.value}
+        </p>
+        </div>
+        `
+            );
+            $(otherComments).animate({opacity: 1}, 500);
+
+     // $('#one').animate({opacity: 1}, 500);
+    });
+
+
+/*
+setTimeout(() => {
+  $(otherComments).append(
+    `
+
+
+    <div class="col-md-11 p-3" style = "background-color: white !important">
+
+
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+
+    <h6 class="fw-bold text-primary mb-1 ">${name}</h6>
+    <p class="text-muted small m-0">
+    ${prettyDate}
+    </p>
+    </div>
+    <p class="mt-3 mb-0 pb-2">
+    ${message.value}
+    </p>
+    </div>
+    `
+
+        );
+        console.log($(otherComments).removeClass('d-none'))
+}, 5000);
+*/
+
+  });
+  });
   }
   $("#testBtn").on("click", function () {
     var myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));

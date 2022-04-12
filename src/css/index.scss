@@ -438,7 +438,7 @@ input:-webkit-autofill:active {
 
 .legend label,
 .legend span {
-  display: block;
+
   float: left;
   height: 15px;
   width: 20%;
@@ -674,4 +674,38 @@ box-shadow: none !important;
 #film-details .btn-check:focus + .btn, .btn:focus {
     outline: 0;
     box-shadow: none !important
+}
+
+
+
+
+
+.menu {
+  opacity: 1;
+  -webkit-animation: fade-in-menu 1s ease ;
+  -moz-animation: fade-in-menu 1s ease ;
+  animation: fade-in-menu 1s ease ;
+}
+
+@-webkit-keyframes fade-in-menu {
+  0% {
+
+    opacity: 1;
+  }
+  30% {
+
+    opacity: 0.8;
+  }
+  60% {
+
+    opacity: 0.6;
+  }
+  80% {
+
+    opacity: 0.3;
+  }
+  100% {
+display: none;
+    opacity: 0;
+  }
 }
