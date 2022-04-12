@@ -11,7 +11,7 @@ module.exports = (env = {}) => {
     entry: {
       vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation', 'firebase/app', 'firebase/database', 'firebase/auth'],
       app: ['./src/js/index.js'],
-
+      autocomplete: ['./src/js/autocomplete.js'],
       latlonDistance: ['./src/js/latlonDistance.js'],
       latlonToAddress: ['./src/js/latlonToAddress.js'],
       latlonToDMS: ['./src/js/latlonToDMS.js'],

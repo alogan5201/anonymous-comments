@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,296 +16,530 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Barry Lyndon</h3>
-                        <p class="card-text">
-                          An Irish rogue wins the heart of a rich widow and assumes her dead husband's aristocratic position in 18th-century England.
+                      <h3 class="card-title">Barry Lyndon</h3>
+          <p class="card-text mb-0">
+
+
+  <span > An Irish rogue wins the heart of a rich widow and assumes her dead husband's aristocratic position in 18th-century England.  </span>
+                          <span > In the eighteenth century, in a small village in Ireland, Redmond Barry (Ryan O'Neal) is a young farm boy in love with his cousin Nora Brady (Gay Hamilton). When Nora gets engaged to British Captain John Quin (Leonard Rossiter), Barry challenges him to a duel of pistols. He wins and escapes to Dublin, but is robbed on the road. Without an alternative, Barry joins the British Army to fight in the Seven Years War. He deserts and is forced to join the Prussian Army, where he saves the life of his Captain and becomes his protégé and spy of Irish gambler Chevalier de Balibari (Patrick Magee). He helps Chevalier and becomes his associate until he decides to marry the wealthy Lady Lyndon (Marisa Berenson). They move to England and Barry, in his obsession of nobility, dissipates her fortune and makes a dangerous and revengeful enemy. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+                          <span > The rise and fall of the adult life of Irishman Redmond Barry (Ryan O'Neal), who, in his later life, would be known as Barry Lyndon, from the mid to late eighteenth century, is presented. Growing up in humble means, largely due to the early death of his aspiring lawyer father, the potential family breadwinner, Barry strives to live up to the standards of being a gentleman in every respect of the word, including monetarily. He leads a disjointed early adult life in trying to find his way, sometimes being unfairly given some hard knocks as the ways of the world work around him. He seems to find his stride in falling in love with wealthy and married Lady Lyndon (Marisa Berenson), who he ends up marrying following the death of her elderly first husband, Sir Charles Lyndon (Frank Middlemass). In taking over the affairs of the Lyndon mansion, Barry is able to live a means of his liking, all off the Lyndon's now quickly dwindling wealth due to Barry's squandering. As Barry is without money of his own, Mrs. Barry (Marie Kean) encourages her son to work toward a peerage as a means to have money of his own, as she fears that if Lady Lyndon were to die, she would leave all of what would remain of the Lyndon wealth to her son, Barry's stepson, Lord Bullingdon (Leon Vitali), with whom Barry has always had an antagonistic relationship to the point of Lord Bullingdon wanting revenge on the woes that his stepfather has created in their lives. Outwardly, Lord Bullingdon may seem to be the cause of Barry's fall, however, it may be more attributed to Barry being unable to adapt to any of the lives into which he is thrust to truly reach his goal of being a gentleman. -Huggo.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > A gentlemanly rogue travels the battlefields and parlors of eighteenth century Europe determined to make for himself the life of a nobleman through seduction, gambling, and duelling in this methodical movie showing the rhythm and life of the period. -Keith Loh .  </span>
+    <span class="additional-information" > Redmond Barry (Ryan O'Neal) is a young, roguish Irishman who's determined, in any way, to make a life for himself as a wealthy nobleman. Enlisting in the British Army, fighting in the Seven Years War in Europe, Barry deserts from the British Army, joins the Prussian Army, gets promoted to the rank of a spy, then becomes pupil to con artist and gambler Chevalier de Balibari (Patrick Magee). Barry then lies, dupes, duels, and seduces his way up the social ladder and enters into a lustful but loveless marriage to a wealthy countess named Lady Lyndon (Marisa Berenson), takes the name of "Barry Lyndon", settles in England with wealth and power beyond his wildest dreams, then slowly falls dramatically into ruin. -matt-282.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNmY0MWY2NDctZDdmMi00MjA1LTk0ZTQtZDMyZTQ1NTNlYzVjXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Barry Lyndon"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Blenheim Palace, Woodstock, Oxfordshire, England, UK 
-            </td>   
+                Blenheim Palace, Blenheim Palace, Woodstock, England OX20 1PX, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.84242375, -1.3609806249999998
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Carton House, Maynooth, County Kildare, Ireland
-            </td>   
+                Carton House, Carton Demesne, Maynooth, Kildare W23, Ireland
+            </td>
                 <td class="table__cell">
                 53.390557, -6.5660345
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chatsworth House, Edensor, Derbyshire, England, UK 
-            </td>   
+                Chatsworth House, Chatsworth Estate, Bakewell, England DE45 1PP, United Kingdom
+            </td>
                 <td class="table__cell">
                 53.228235999999995, -1.610953
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kells, County Meath, Ireland 
-            </td>   
+                Kells Road, Navan, Meath C15, Ireland
+            </td>
                 <td class="table__cell">
                 53.6542824, -6.6923327
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cahir Castle, County Tipperary, Ireland 
-            </td>   
+                Cahir Castle, Castle St, Caher, Tipperary E21, Ireland
+            </td>
                 <td class="table__cell">
                 52.375153749999996, -7.9266665
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                The Guildhall, Lavenham, Suffolk, England, UK 
-            </td>   
+                the Gildhall, Barrow, Bury St. Edmunds, IP29 5AN, United Kingdom
+            </td>
                 <td class="table__cell">
                 52.242759, 0.581383
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Royal Victoria Park, Bath, Somerset, England, UK
-            </td>   
+                Royal Victoria Park, Royal Ave, Bath, England BA1 2LZ, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.386223, -2.373142
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Dunrobin Castle, Sutherland, Scotland, UK 
-            </td>   
+                Scotland, United Kingdom
+            </td>
                 <td class="table__cell">
                 56.734282295, -4.09589210432502
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Potsdam, Brandenburg, Germany 
-            </td>   
+                Potsdam, Brandenburg, Germany
+            </td>
                 <td class="table__cell">
                 52.4, 13.06667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Huntington Castle, Clonegal, County Carlow, Ireland 
-            </td>   
+                Huntington Castle, Huntington, Clonegall, Carlow Y21, Ireland
+            </td>
                 <td class="table__cell">
                 52.6901205, -6.6484695
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Somerset Rural Life Museum, Abbey Farm, Glastonbury, Somerset, England, UK 
-            </td>   
+                Somerset Rural Life Museum, Chilkwell Street, Glastonbury, England BA6 8AP, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.14344, -2.714353
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Baden Württemberg, Germany 
-            </td>   
+                Baden-Württemberg, Germany
+            </td>
                 <td class="table__cell">
                 48.53778, 9.04111
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Carrick on Suir, County Tipperary, Ireland 
-            </td>   
+                Carrick-On-Suir Railway Station, Cregg Rd., Carrick, Tipperary E32, Ireland
+            </td>
                 <td class="table__cell">
                 52.3490345, -7.4045505
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Castle Howard, York, North Yorkshire, England, UK 
-            </td>   
+                Castle Howard, Malton, York, England YO60 7BY, United Kingdom
+            </td>
                 <td class="table__cell">
                 54.12058, -0.911018
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sans Souci, Potsdam, Brandenburg, Germany 
-            </td>   
+                Schloss Sanssouci, Maulbeerallee, Potsdam, Brandenburg 14469, Germany
+            </td>
                 <td class="table__cell">
                 52.403669, 13.038540000000001
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shell Cottage, Carton Estate, Maynooth, Co. Kildare, Ireland 
-            </td>   
+                Maynooth, Kildare, Ireland
+            </td>
                 <td class="table__cell">
                 53.385, -6.5936
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Castle Hohenzollern, Hechingen, Baden Württemberg, Germany 
-            </td>   
+                Burg Hohenzollern, Burg Hohenzollern, Bisingen, Baden-Württemberg 72379, Germany
+            </td>
                 <td class="table__cell">
                 48.32325025, 8.967694999999999
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Corsham Court, Wiltshire, England, UK 
-            </td>   
+                Corsham Court, Church St (end of), Corsham, England SN13 0BZ, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.4343335, -2.1824760000000003
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hechingen, Baden Württemberg, Germany 
-            </td>   
+                Hechingen, Baden-Württemberg, Germany
+            </td>
                 <td class="table__cell">
                 48.35167, 8.96333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Longleat House, Wiltshire, England, UK 
-            </td>   
+                Longleat House, Longleat, Warminster, England BA12 7NW, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.1861825, -2.2759679999999998
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ludwigsburg Castle, Ludwigsburg, Baden Württemberg, Germany 
-            </td>   
+                Residenzschloss Ludwigsburg, Schlossstr. 30, Ludwigsburg, Baden-Württemberg 71634, Germany
+            </td>
                 <td class="table__cell">
                 48.899854500000004, 9.19695125
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ludwigsburg, Baden Württemberg, Germany 
-            </td>   
+                Ludwigsburg, Baden-Württemberg, Germany
+            </td>
                 <td class="table__cell">
                 48.8975, 9.19194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Petworth House, Petworth, West Sussex, England, UK 
-            </td>   
+                Petworth House, Church St., Petworth, England GU28 0DP, United Kingdom
+            </td>
                 <td class="table__cell">
                 50.988816, -0.609973
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Powerscourt, County Wicklow, Ireland 
-            </td>   
+                Powerscourt, Wicklow, Ireland
+            </td>
                 <td class="table__cell">
                 53.181, -6.2944
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rathgormack, County Waterford, Ireland
-            </td>   
+                Rathgormuck, Waterford City, Ireland
+            </td>
                 <td class="table__cell">
                 52.276428, -7.561804
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stourhead Garden, Warminster, Wiltshire, England, UK 
-            </td>   
+                Stourhead National Trust, Warminster, England BA12 6QH, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.10817, -2.324088
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Wilton House, Wilton, Salisbury, Wiltshire, England, UK 
-            </td>   
+                Wilton House, Wilton, Wiltshire, Salisbury, England SP2 0BJ, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.0784975, -1.8570505000000002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Glenpatrick, County Waterford, Ireland 
-            </td>   
+                Glenpatrick, Gurteen, Waterford City, Ireland
+            </td>
                 <td class="table__cell">
                 52.316679, -7.597935
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Compton Acres, Poole, Dorset, England, UK 
-            </td>   
+                Compton Acres, Poole, England BH13 7EH, United Kingdom
+            </td>
                 <td class="table__cell">
                 50.707164500000005, -1.9264385000000002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Compton Castle, Marlton, Devon, England, UK 
-            </td>   
+                Compton Castle, Marldon, Paignton, England TQ3 1TA, United Kingdom
+            </td>
                 <td class="table__cell">
                 50.4725295, -3.600009
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                Chavenage Lane, Tetbury, GL8 8JW, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.642043, -2.16611
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Coneysthorpe, North Yorkshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                54.13251, -0.91177
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Dublin Castle, 2 Palace St, Dublin, Dublin D02, Ireland
+            </td>
+                <td class="table__cell">
+                53.343025499999996, -6.2674520000000005
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Petworth, West Sussex, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                50.986, -0.609
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Salisbury, Wiltshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.06906129999999, -1.7954134
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Warminster, Wiltshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.209, -2.18
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Wilton, Wiltshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.078, -1.8683
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Germany
+            </td>
+                <td class="table__cell">
+                51.1334813439932, 10.0183432948567
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Ireland
+            </td>
+                <td class="table__cell">
+                53.3054943871234, -7.73764888796793
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                County Dublin, Ireland
+            </td>
+                <td class="table__cell">
+                53.41667, -6.25
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                County Kilkenny, Vicar St, Kilkenny, Kilkenny R95, Ireland
+            </td>
+                <td class="table__cell">
+                52.656783, -7.255725
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Meath, Ireland
+            </td>
+                <td class="table__cell">
+                53.66667, -6.66667
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Tipperary, Ireland
+            </td>
+                <td class="table__cell">
+                52.66667, -7.83333
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Waterford Street, Clonard, Belfast, BT132QZ, United Kingdom
+            </td>
+                <td class="table__cell">
+                54.597184, -5.955422
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                West Sussex, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51, -0.4167
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Wiltshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.25, -1.9167
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Templemichael, Waterford City, Ireland
+            </td>
+                <td class="table__cell">
+                52.012009, -7.90624
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                North Yorkshire, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                54.134, -1.3911
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                England, United Kingdom
+            </td>
+                <td class="table__cell">
+                52.38145972, -0.676181762467007
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                United Kingdom
+            </td>
+                <td class="table__cell">
+                54.2379333607472, -2.36966957036279
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[48.32325025, 8.967694999999999], [48.35167, 8.96333], [48.53778, 9.04111]], "data": [{"lat": 51.84242375, "lon": -1.3609806249999998, "name": "Blenheim Palace, Blenheim Palace, Woodstock, England OX20 1PX, United Kingdom"}, {"lat": 53.390557, "lon": -6.5660345, "name": "Carton House, Carton Demesne, Maynooth, Kildare W23, Ireland"}, {"lat": 53.228235999999995, "lon": -1.610953, "name": "Chatsworth House, Chatsworth Estate, Bakewell, England DE45 1PP, United Kingdom"}, {"lat": 53.6542824, "lon": -6.6923327, "name": "Kells Road, Navan, Meath C15, Ireland"}, {"lat": 52.375153749999996, "lon": -7.9266665, "name": "Cahir Castle, Castle St, Caher, Tipperary E21, Ireland"}, {"lat": 52.242759, "lon": 0.581383, "name": "the Gildhall, Barrow, Bury St. Edmunds, IP29 5AN, United Kingdom"}, {"lat": 51.386223, "lon": -2.373142, "name": "Royal Victoria Park, Royal Ave, Bath, England BA1 2LZ, United Kingdom"}, {"lat": 56.734282295, "lon": -4.09589210432502, "name": "Scotland, United Kingdom"}, {"lat": 52.4, "lon": 13.06667, "name": "Potsdam, Brandenburg, Germany"}, {"lat": 52.6901205, "lon": -6.6484695, "name": "Huntington Castle, Huntington, Clonegall, Carlow Y21, Ireland"}, {"lat": 51.14344, "lon": -2.714353, "name": "Somerset Rural Life Museum, Chilkwell Street, Glastonbury, England BA6 8AP, United Kingdom"}, {"lat": 48.53778, "lon": 9.04111, "name": "Baden-W\u00fcrttemberg, Germany"}, {"lat": 52.3490345, "lon": -7.4045505, "name": "Carrick-On-Suir Railway Station, Cregg Rd., Carrick, Tipperary E32, Ireland"}, {"lat": 54.12058, "lon": -0.911018, "name": "Castle Howard, Malton, York, England YO60 7BY, United Kingdom"}, {"lat": 52.403669, "lon": 13.038540000000001, "name": "Schloss Sanssouci, Maulbeerallee, Potsdam, Brandenburg 14469, Germany"}, {"lat": 53.385, "lon": -6.5936, "name": "Maynooth, Kildare, Ireland"}, {"lat": 48.32325025, "lon": 8.967694999999999, "name": "Burg Hohenzollern, Burg Hohenzollern, Bisingen, Baden-W\u00fcrttemberg 72379, Germany"}, {"lat": 51.4343335, "lon": -2.1824760000000003, "name": "Corsham Court, Church St (end of), Corsham, England SN13 0BZ, United Kingdom"}, {"lat": 48.35167, "lon": 8.96333, "name": "Hechingen, Baden-W\u00fcrttemberg, Germany"}, {"lat": 51.1861825, "lon": -2.2759679999999998, "name": "Longleat House, Longleat, Warminster, England BA12 7NW, United Kingdom"}, {"lat": 48.899854500000004, "lon": 9.19695125, "name": "Residenzschloss Ludwigsburg, Schlossstr. 30, Ludwigsburg, Baden-W\u00fcrttemberg 71634, Germany"}, {"lat": 48.8975, "lon": 9.19194, "name": "Ludwigsburg, Baden-W\u00fcrttemberg, Germany"}, {"lat": 50.988816, "lon": -0.609973, "name": "Petworth House, Church St., Petworth, England GU28 0DP, United Kingdom"}, {"lat": 53.181, "lon": -6.2944, "name": "Powerscourt, Wicklow, Ireland"}, {"lat": 52.276428, "lon": -7.561804, "name": "Rathgormuck, Waterford City, Ireland"}, {"lat": 51.10817, "lon": -2.324088, "name": "Stourhead National Trust, Warminster, England BA12 6QH, United Kingdom"}, {"lat": 51.0784975, "lon": -1.8570505000000002, "name": "Wilton House, Wilton, Wiltshire, Salisbury, England SP2 0BJ, United Kingdom"}, {"lat": 52.316679, "lon": -7.597935, "name": "Glenpatrick, Gurteen, Waterford City, Ireland"}, {"lat": 50.707164500000005, "lon": -1.9264385000000002, "name": "Compton Acres, Poole, England BH13 7EH, United Kingdom"}, {"lat": 50.4725295, "lon": -3.600009, "name": "Compton Castle, Marldon, Paignton, England TQ3 1TA, United Kingdom"}, {"lat": 51.642043, "lon": -2.16611, "name": "Chavenage Lane, Tetbury, GL8 8JW, United Kingdom"}, {"lat": 54.13251, "lon": -0.91177, "name": "Coneysthorpe, North Yorkshire, England, United Kingdom"}, {"lat": 53.343025499999996, "lon": -6.2674520000000005, "name": "Dublin Castle, 2 Palace St, Dublin, Dublin D02, Ireland"}, {"lat": 50.986, "lon": -0.609, "name": "Petworth, West Sussex, England, United Kingdom"}, {"lat": 51.06906129999999, "lon": -1.7954134, "name": "Salisbury, Wiltshire, England, United Kingdom"}, {"lat": 51.209, "lon": -2.18, "name": "Warminster, Wiltshire, England, United Kingdom"}, {"lat": 51.078, "lon": -1.8683, "name": "Wilton, Wiltshire, England, United Kingdom"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}, {"lat": 53.3054943871234, "lon": -7.73764888796793, "name": "Ireland"}, {"lat": 53.41667, "lon": -6.25, "name": "County Dublin, Ireland"}, {"lat": 52.656783, "lon": -7.255725, "name": "County Kilkenny, Vicar St, Kilkenny, Kilkenny R95, Ireland"}, {"lat": 53.66667, "lon": -6.66667, "name": "Meath, Ireland"}, {"lat": 52.66667, "lon": -7.83333, "name": "Tipperary, Ireland"}, {"lat": 54.597184, "lon": -5.955422, "name": "Waterford Street, Clonard, Belfast, BT132QZ, United Kingdom"}, {"lat": 51, "lon": -0.4167, "name": "West Sussex, England, United Kingdom"}, {"lat": 51.25, "lon": -1.9167, "name": "Wiltshire, England, United Kingdom"}, {"lat": 52.012009, "lon": -7.90624, "name": "Templemichael, Waterford City, Ireland"}, {"lat": 54.134, "lon": -1.3911, "name": "North Yorkshire, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

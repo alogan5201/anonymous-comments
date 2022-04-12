@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,136 +16,210 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Ben-Hur</h3>
-                        <p class="card-text">
-                          After a Jewish prince is betrayed and sent into slavery by a Roman friend in 1st-century Jerusalem, he regains his freedom and comes back for revenge.
+                      <h3 class="card-title">Ben-Hur</h3>
+          <p class="card-text mb-0">
+
+
+  <span > After a Jewish prince is betrayed and sent into slavery by a Roman friend in 1st-century Jerusalem, he regains his freedom and comes back for revenge.  </span>
+                          <span > Judah Ben-Hur lives as a rich Jewish prince and merchant in Jerusalem at the beginning of the 1st century. Together with the new governor his old friend Messala arrives as commanding officer of the Roman legions. At first they are happy to meet after a long time but their different politic views separate them. During the welcome parade a roof tile falls down from Judah's house and injures the governor. Although Messala knows they are not guilty, he sends Judah to the galleys and throws his mother and sister into prison. But Judah swears to come back and take revenge. -Matthias Scheler .  </span>
+                          <span > When Prince Judah Ben-Hur hears that his childhood friend Messala has been named to command the Roman garrison of Jerusalem, he is thrilled. He soon finds, however, that his friend has changed and has become an arrogant conqueror, full of the grandeur of Rome. After Judah refuses to divulge the names of Jews who oppose Roman rule, Messala decides to make an example of him and sends him off as a galley slave. Through fate and good fortune, Judah survives the galleys and manages to return to Jerusalem in the hopes of finding his mother and sister, who were also imprisoned, and to seek revenge against his one-time friend. -garykmcd.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Charlton Heston plays a Jew who is battling the Roman empire at the time of Christ. His actions send him and his family into slavery, but an inspirational encounter with Jesus changes everything. Heston finally meets his rival in a justly famous chariot race and rescues his suffering family. -Jwelch5742.  </span>
+    <span class="additional-information" > In A.D. 26-Jerusalem, the wealthy merchant and son of a Jewish family, Judah Ben-Hur, enjoys a comfortable life. However, the unexpected reunion after many years with his childhood best friend and now a Roman tribune, Messala, will lead to an eventual separation, banishing Judah to a life of slavery and imprisonment at a galley ship. Only an unforeseen and gracious act of pardon will set free the once noble prince, who is now bent on revenge, as the incendiary teachings of the Nazarene Jesus rapidly gain ground. Will Judah finally find peace in this revolutionary and enlightened new doctrine of kindness? -Nick Riganas.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNjgxY2JiZDYtZmMwOC00ZmJjLWJmODUtMTNmNWNmYWI5ODkwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Ben-Hur"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Corner of Via di Salone and Via delle Case Rosse, Salone Caves, Rome, Lazio, Italy 
-            </td>   
+                Via Delle Case Rosse, 00131 Roma Rome, Italy
+            </td>
                 <td class="table__cell">
                 41.92883, 12.6382925
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Anzio, Italy 
-            </td>   
+                Anzio, Rome, Italy
+            </td>
                 <td class="table__cell">
                 41.493228, 12.615393
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Canale Monterano, Rome, Lazio, Italy 
-            </td>   
+                Canale Monterano, Rome, Italy
+            </td>
                 <td class="table__cell">
                 42.13333, 12.1
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Frosinone, Lazio, Italy 
-            </td>   
+                Piazza Lazio, 03100 Frosinone Frosinone, Italy
+            </td>
                 <td class="table__cell">
                 41.6188768575, 13.318966225
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Durango, Mexico 
-            </td>   
+                Durango, Durango, Mexico
+            </td>
                 <td class="table__cell">
                 23.911273, -104.919807
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA 
-            </td>   
+                10202 West Washington Boulevard, Culver City, California 90232, United States
+            </td>
                 <td class="table__cell">
                 34.017275, -118.402347
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stage 5, Cinecittà Studios, Cinecittà, Rome, Lazio, Italy
-            </td>   
+                Teatro 5 - Cinecittà Studios, Via Tuscolana 1055, Roma, Rome 00173, Italy
+            </td>
                 <td class="table__cell">
                 41.851995, 12.576729
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cinecittà Studios, Cinecittà, Rome, Lazio, Italy 
-            </td>   
+                Cinecittà Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy
+            </td>
                 <td class="table__cell">
                 41.852854, 12.575212
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Arcinazzo Romano, Frosinone, Lazio, Italy 
-            </td>   
+                Via Arcinazzo Romano, 00012 Guidonia Montecelio Rome, Italy
+            </td>
                 <td class="table__cell">
                 41.962069, 12.653132
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fogliano, Latina, Lazio, Italy 
-            </td>   
+                Fogliano, Latina, Latina, Italy
+            </td>
                 <td class="table__cell">
                 41.396864, 12.915584
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[41.396864, 12.915584], [41.493228, 12.615393], [41.6188768575, 13.318966225]], "data": [{"lat": 41.92883, "lon": 12.6382925, "name": "Via Delle Case Rosse, 00131 Roma Rome, Italy"}, {"lat": 41.493228, "lon": 12.615393, "name": "Anzio, Rome, Italy"}, {"lat": 42.13333, "lon": 12.1, "name": "Canale Monterano, Rome, Italy"}, {"lat": 41.6188768575, "lon": 13.318966225, "name": "Piazza Lazio, 03100 Frosinone Frosinone, Italy"}, {"lat": 23.911273, "lon": -104.919807, "name": "Durango, Durango, Mexico"}, {"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 41.851995, "lon": 12.576729, "name": "Teatro 5 - Cinecitt\u00e0 Studios, Via Tuscolana 1055, Roma, Rome 00173, Italy"}, {"lat": 41.852854, "lon": 12.575212, "name": "Cinecitt\u00e0 Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy"}, {"lat": 41.962069, "lon": 12.653132, "name": "Via Arcinazzo Romano, 00012 Guidonia Montecelio Rome, Italy"}, {"lat": 41.396864, "lon": 12.915584, "name": "Fogliano, Latina, Latina, Italy"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

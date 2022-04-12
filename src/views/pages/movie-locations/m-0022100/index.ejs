@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,72 +16,155 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">M</h3>
-                        <p class="card-text">
-                          When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.
+                      <h3 class="card-title">M</h3>
+          <p class="card-text mb-0">
+
+
+  <span > When the police in a German city are unable to catch a child-murderer, other criminals join in the manhunt.  </span>
+                          <span > There have been a rash of child abductions and murders in Berlin. The murderer lures the children into his confidence by candy and other such child friendly items. Everyone is on edge because the murderer has not been caught. The most substantial pieces of evidence the police have are hand written letters by the murderer which he sent to the newspaper for publication. Unknown even to himself, a blind beggar, who sold the murderer a balloon for one of the child victims, may have key information as to the murderer's identity. The murder squad's work is made even more difficult with the large number of tips they receive from the paranoid public, who are quick to accuse anyone of suspicious activity solely for their own piece of mind that someone - anyone - is apprehended for the heinous crimes. Conversely, many want to take the case into their own hands, including the town's leading criminals since the increased police presence has placed a strain on their ability to conduct criminal activity. Although they both have the same end goal of capturing the murderer, the police and the criminals seem to be working at cross purposes, which may provide an edge to the murderer in getting away. -Huggo.  </span>
+                          <span > In Berlin in the early 1930's, children are being lured to their death by a psychopathic killer. In the space of a year, 8 children have been murdered. The police have redoubled their efforts to find the guilty man but have yet to find him and citizens are beginning to dispense their own justice on otherwise innocent people. The heads of the city's criminal element are paying a high price due to the increased police presence and decide to find the psychopath on their own. They approach the beggars union to have their members blanket the city with spies. They're successful in finding the killer and put him on trial in their own special court but the police make progress and have their own views on how justice should be administered. -garykmcd.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Someone is murdering children in a German town. The police are doing all they can to solve the case but, after several months, several murders and exhausting work, still have no clues. Their methods of trying to find the murderer start to adversely affect the local criminal community. Due to this, the local organised crime syndicate takes it upon themselves to find the murderer and mete out punishment. -grantss.  </span>
+    <span class="additional-information" > Preying on unsuspecting, innocent children, an elusive psychopath spreads terror and confusion in the heart of 1930s Berlin without leaving a trace. More and more, as the police comb the city's cruel urban maze, unable to sniff out any clues and ferret out the ruthless and unstoppable serial killer, the suffocating stranglehold of the law tightens around the local criminal network. As the hideous monster remains at large, whistling the same tune to lure his pure victims to their deaths, an all-out manhunt commences. Now, thieves, beggars, prostitutes, and thugs team up to find the murderer; however, who can stop the invisible dragon of Berlin? -Nick Riganas.  </span>
+    <span class="additional-information" > A psychotic child murderer stalks a city, and despite an exhaustive investigation fueled by public hysteria and outcry, the police have been unable to find him. But the police crackdown does have one side-affect, it makes it nearly impossible for the organized criminal underground to operate. So they decide that the only way to get the police off their backs is to catch the murderer themselves. Besides, he is giving them a bad name. -Ken Yousten .  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BODA4ODk3OTEzMF5BMl5BanBnXkFtZTgwMTQ2ODMwMzE@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="M"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Staaken, Spandau, Berlin, Germany
-            </td>   
+                Spandau, Berlin, Germany
+            </td>
                 <td class="table__cell">
                 52.535788, 13.197792
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Berlin, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 52.51667, 13.38333
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                Germany
+            </td>
+                <td class="table__cell">
+                51.1334813439932, 10.0183432948567
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 52.535788, "lon": 13.197792, "name": "Spandau, Berlin, Germany"}, {"lat": 52.51667, "lon": 13.38333, "name": "Berlin, Germany"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

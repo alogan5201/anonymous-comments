@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,80 +16,154 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Coco</h3>
-                        <p class="card-text">
-                          Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.
+                      <h3 class="card-title">Coco</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.  </span>
+                          <span > Despite his family's baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history. -Disney/Pixar.  </span>
+                          <span > Young Miguel simply loves music. But his family has a mysterious ban on anyone from their clan performing music. The ban dates back for many generations yet Miguel dreams of becoming an accomplished musician just like his idol, Ernesto de la Cruz. Longing to prove his musical talents, Miguel finds himself in the technicolor Land of the Dead. Along his way, he meets the charming trickster Hector, and together, they set out to find the real story behind his family's mysterious ban on music. -DeAlan Wilson - ComedyEcom.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Rebellious Miguel, a twelve-year-old Mexican boy and hopeful musician, can't understand the family's continuing ban on all music, especially when his icon and the greatest guitar player ever, the deceased Ernesto de la Cruz, is the town's hero. However, when an inadvertent mistake on the sacred Day of the Dead magically transports Miguel to the distant and bustling Land of the Dead, the scoundrel skeleton, Hector, will lead the way through the vibrant underworld to help the young trespasser find a missing ancestor. But can they do it before sunrise? -Nick Riganas.  </span>
+    <span class="additional-information" > An aspiring young guitar player, whose family has a classic hate for music, tries to find answers of his great Grandfather, which leads his search to his entrance to Tierra De Muertos, where all dead people get to live if they are remembered well. In there, the boy will not only discover his family's legacy, but his search will lead him to an unexpected truth in this Disney tale about love, hate, death, music, betrayal -- and most of all: Family. -Ivo Byrt.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Coco"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
-            </td>   
+                1200 Park Avenue, San Jacinto, California 92583, United States
+            </td>
                 <td class="table__cell">
-                33.763315, -116.941071
-                    </td>   
-          </tr> 
+                33.763345, -116.941164
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Animation Studios   2100 Riverside Drive, Burbank, California, USA
-            </td>   
+                Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States
+            </td>
                 <td class="table__cell">
                 34.155243, -118.323675
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
-            </td>   
+                500 South Buena Vista Street, Hemet, California 92543, United States
+            </td>
                 <td class="table__cell">
                 33.7403, -116.967278
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 34.155243, "lon": -118.323675, "name": "Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

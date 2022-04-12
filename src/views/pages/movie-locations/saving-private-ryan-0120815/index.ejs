@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,141 +16,219 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Saving Private Ryan</h3>
-                        <p class="card-text">
-                          Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.
+                      <h3 class="card-title">Saving Private Ryan</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.  </span>
+                          <span > Opening with the Allied invasion of Normandy on 6 June 1944, members of the 2nd Ranger Battalion under Cpt. Miller fight ashore to secure a beachhead. Amidst the fighting, two brothers are killed in action. Earlier in New Guinea, a third brother is KIA. Their mother, Mrs. Ryan, is to receive all three of the grave telegrams on the same day. The United States Army Chief of Staff, George C. Marshall, is given an opportunity to alleviate some of her grief when he learns of a fourth brother, Private James Ryan, and decides to send out 8 men (Cpt. Miller and select members from 2nd Rangers) to find him and bring him back home to his mother... -J.Zelman.  </span>
+                          <span > After the invasion of fortress Europe on June 6th 1944, Cpt. Miller leads his squad from the 2nd Ranger Battalion of the 29th Infantry Division, on a mission to find and bring home Private James Francis Ryan after the death of his brothers. The mission takes them through Nazi occupied territory to establish contact with Ryan's unit, an element of the 101st Airborne Division. This exciting war thriller brings the reality of history's bloodiest war into the homes of ordinary people, but also brings to light the reality of broken and lost families in a time of total and encompassing war. -Pvt. Maher, HHC 29th Aviation Brigade, 29th Infantry Division, Aberdeen Proving Grounds, MD.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The film opens with the Allied invasion on the Normandy beach on June 6, 1944. Cpt. Miller and members of the 2nd Ranger Battalion fight to secure the beachhead. During the invasion, two brothers are killed in action. Earlier, the third brother was killed in New Guinea. The mother of the brothers is about to recieve the grave telegrams at the same day. The United States Army Chief of Staff, George C. Marshall, is given an opportunity to alleviate some of her grief when he finds out that there was also a fourth brother, Private James Ryan, who went missing somewhere in France. He sends Cpt. Miller and seven other people from the 2nd Ranger Battalion to go look for him and bring him back to his mother. -ahmetkozan.  </span>
+    <span class="additional-information" > During WWII, Chief of Staff, General Marshall is informed that three of a woman's sons have been killed and that she's going to receive the notifications of their demise at the same time. And when he learns that a fourth son is still unaccounted for, the General decides to send a unit to find him and bring him back, despite being told that it's highly unlikely that he is still alive and the area that he was known to be at is very dangerous. So the unit consisting of 8 men are sent to find him but as stated it's very dangerous and one by one, they are picked off. Will they find him and how many of them will still be alive? -rcs0411@yahoo.com.  </span>
+    <span class="additional-information" > Following the Allied invasion of Normandy, two brothers lay dead in the wake of the onslaught. Meanwhile, in New Guinea, a third brother has been killed fighting the Japanese. After the Army General Staff learns that a fourth brother is missing in the French countryside, a rescue mission is ordered to find the young soldier and return him safely home. The mission is mounted by a veteran Ranger Captain commanding a squad of men who have mixed feelings about risking their lives to "Save Private Ryan". -Anthony Hughes .  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Saving Private Ryan"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Curracloe Beach, Ballinesker, County Wexford, Ireland 
-            </td>   
+                Curracloe Beach, Ravens Point, Ardcolm, Wexford Y21, Ireland
+            </td>
                 <td class="table__cell">
                 52.387879, -6.368052
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Former British Aerospace factory, Hatfield, Hertfordshire, England, UK 
-            </td>   
+                Hatfield Business Park, Hatfield, England AL10 9AX, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.765464, -0.244137
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                County Wexford, Ireland 
-            </td>   
+                Wexford, Ireland
+            </td>
                 <td class="table__cell">
                 52.5, -6.66667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hatfield, Hertfordshire, England, UK
-            </td>   
+                Hatfield, Hertfordshire, England, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.762, -0.228
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Thame Park, Thame, Oxfordshire, England, UK 
-            </td>   
+                Thame Park Road, Thame, OX9 3PN, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.732321, -0.97491
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Calvados, France
-            </td>   
+            </td>
                 <td class="table__cell">
                 49.03333, 0.25
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                London, England, UK
-            </td>   
+                London, Greater London, England, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.507321899999994, -0.12764739999999997
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                England, UK
-            </td>   
+                England, United Kingdom
+            </td>
                 <td class="table__cell">
                 52.38145972, -0.676181762467007
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                
-            </td>   
-                <td class="table__cell">
-                </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                
-            </td>   
-                <td class="table__cell">
-                </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                
-            </td>   
-                <td class="table__cell">
-                </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                United Kingdom
+            </td>
+                <td class="table__cell">
+                54.2379333607472, -2.36966957036279
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Ireland
+            </td>
+                <td class="table__cell">
+                53.3054943871234, -7.73764888796793
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                France
+            </td>
+                <td class="table__cell">
+                47.8249046208979, 2.61878695312962
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[51.507321899999994, -0.12764739999999997], [51.732321, -0.97491], [51.762, -0.228]], "data": [{"lat": 52.387879, "lon": -6.368052, "name": "Curracloe Beach, Ravens Point, Ardcolm, Wexford Y21, Ireland"}, {"lat": 51.765464, "lon": -0.244137, "name": "Hatfield Business Park, Hatfield, England AL10 9AX, United Kingdom"}, {"lat": 52.5, "lon": -6.66667, "name": "Wexford, Ireland"}, {"lat": 51.762, "lon": -0.228, "name": "Hatfield, Hertfordshire, England, United Kingdom"}, {"lat": 51.732321, "lon": -0.97491, "name": "Thame Park Road, Thame, OX9 3PN, United Kingdom"}, {"lat": 49.03333, "lon": 0.25, "name": "Calvados, France"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}, {"lat": 53.3054943871234, "lon": -7.73764888796793, "name": "Ireland"}, {"lat": 47.8249046208979, "lon": 2.61878695312962, "name": "France"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

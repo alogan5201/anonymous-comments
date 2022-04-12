@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,248 +16,322 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Great Escape</h3>
-                        <p class="card-text">
-                          Allied prisoners of war plan for several hundred of their number to escape from a German camp during World War II.
+                      <h3 class="card-title">The Great Escape</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Allied prisoners of war plan for several hundred of their number to escape from a German camp during World War II.  </span>
+                          <span > Based on a true story, a group of allied escape artist-type prisoners-of-war are all put in an "escape proof" camp. Their leader decides to try to take out several hundred all at once. The first half of the movie is played for comedy, as the prisoners mostly outwit their jailers to dig the escape tunnel. The second half is high adventure as they use planes, trains, and boats to get out of occupied Europe. -John Vogel .  </span>
+                          <span > In 1942, the Germans have built what they consider an escape-proof P.O.W. camp, where they plan to house all the problem P.O.W.s (those that have made multiple escape attempts in the past). What the Germans don't realize is that they've put all the best escape minds in one location. If they can't escape, these P.O.W.s believe it is their military duty to make the enemy place as much effort into their confinement as possible to divert them from other war-related pursuits. Royal Air Force Squadron Leader Bartlett plans not just a one or two man escape at a time like most escape attempts in the past have been, but a massive escape of two hundred fifty men through a series of tunnels. If one tunnel is found, they can focus on the others. Each escapee will be provided with a complete set of forged documents and standard clothing. With their reputations preceding them, each P.O.W. is assigned a specific task in carrying out the plan. Somewhat outside of the plot are Captain Hilts and Flying Officer Ives, who spent their first thirty days in camp in the cooler together. They who are unofficially assigned as the decoys who will make more rudimentary escape attempts. They ask Hilts to make a more serious task of reconnaissance of the local town if he ever does successfully escape, which of course means his recapture to bring the information back into camp and more time in the cooler. Beyond basic logistical problems and the Germans finding out what's going on, they have potential problems in certain P.O.W.s who may become liabilities dealing with their own personal issues. -Huggo.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The Nazis, exasperated at the number of escapes from their prison camps by a relatively small number of Allied prisoners, relocate them to a high-security "escape-proof" camp to sit out the remainder of the war. Undaunted, the prisoners plan one of the most ambitious escape attempts of World War II. Based on a true story. -Kevin Ackley .  </span>
+    <span class="additional-information" > Based on a true story, this movie deals with the largest Allied escape attempt from a German P.O.W. camp during World War II. The first part of the movie focuses on the escape efforts within the camp and the process of secretly digging an escape tunnel. The second half deals with the massive effort by the German Gestapo to track down the over seventy escaped prisoners, who are at this point, throughout the Third Reich attempting to make their way to England and various neutral countries. -Anthony Hughes .  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNzA2NmYxMWUtNzBlMC00MWM2LTkwNmQtYTFlZjQwODNhOWE0XkEyXkFqcGdeQXVyNTIzOTk5ODM@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Great Escape"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Füssen, Bavaria, Germany 
-            </td>   
+                Füssen, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 47.56667, 10.7
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Bavaria, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 48.7775, 11.43111
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Geiselgasteig, Grünwald, Bavaria, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 48.062632, 11.547945
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hamburg   Munich Railway Line, Bavaria, Germany 
-            </td>   
+                München, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 48.13333, 11.56667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Munich, Bavaria, Germany
-            </td>   
+                München, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 48.13333, 11.56667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bavaria Studios, Bavariafilmplatz 7, Geiselgasteig, Grünwald, Bavaria, Germany 
-            </td>   
+                Bavariafilmplatz 7, 82031 Grünwald, Germany
+            </td>
                 <td class="table__cell">
                 48.066591, 11.549117
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Geiselgasteig, Bavaria, Germany
-            </td>   
+                Geiselgasteig, Grünwald, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 48.062632, 11.547945
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Neuschwanstein Castle, Hohenschwangau, Schwangau, Bavaria, Germany 
-            </td>   
+                Schloss Neuschwanstein, Neuschwansteinstr. 20, Schwangau, Bavaria 87645, Germany
+            </td>
                 <td class="table__cell">
                 47.557638, 10.749785
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Perlacher Forst, Bavaria, Germany 
-            </td>   
+                Perlacher Forst, Perlacher Forst, Perlacher Forst, Bavaria 82041, Germany
+            </td>
                 <td class="table__cell">
                 48.063827, 11.576672
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Grosshesselohe Isartal station, Pullach, Bavaria, Germany 
-            </td>   
+                S Großhesselohe-Isartalbahnhof, Kreuzeckstr. 23-25, Pullach im Isartal, Bavaria 82049, Germany
+            </td>
                 <td class="table__cell">
                 48.0707675, 11.530719
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ebersberger Straße, Markt Schwaben, Bavaria, Germany 
-            </td>   
+                Ebersberger Straße, 85570 Markt Schwaben, Germany
+            </td>
                 <td class="table__cell">
                 48.1871298, 11.8694147
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sebastianstraße, Füssen, Bavaria, Germany 
-            </td>   
+                Sebastianstraße, 87629 Füssen, Germany
+            </td>
                 <td class="table__cell">
                 47.5687795, 10.7021456
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St. Mary's Church, Speiden, Bavaria, Germany 
-            </td>   
+                Speiden, Eisenberg, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 47.61056, 10.61275
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lechhalde, Füssen, Bavaria, Germany 
-            </td>   
+                Lechhalde, 87629 Füssen, Germany
+            </td>
                 <td class="table__cell">
                 47.5669033, 10.7003286
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pfronten Ried station, Pfronten, Bavaria, Germany 
-            </td>   
+                Bahnhof Pfronten-Ried, Bahnhofstr. 1, Pfronten, Bavaria 87459, Germany
+            </td>
                 <td class="table__cell">
                 47.583759, 10.560715
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Füssen station, Bahnhofstraße, Füssen, Bavaria, Germany 
-            </td>   
+                Bahnhof Füssen, Ruprechtstr., Füssen, Bavaria 87629, Germany
+            </td>
                 <td class="table__cell">
                 47.5704035, 10.697481
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Füssener Straße and Kemptener Straße, Pfronten, Bavaria, Germany 
-            </td>   
+                Füssener Straße, 87459 Pfronten, Germany
+            </td>
                 <td class="table__cell">
-                47.5958033, 10.553988
-                    </td>   
-          </tr> 
+                47.5956548, 10.5588013
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Malerweg, Pfronten, Bavaria, Germany 
-            </td>   
+                Malerweg, 87459 Pfronten, Germany
+            </td>
                 <td class="table__cell">
                 47.5946098, 10.5530338
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Penzing, Bavaria, Germany 
-            </td>   
+                Penzing, Babensham, Bavaria, Germany
+            </td>
                 <td class="table__cell">
                 48.071479, 12.249645
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mariahilfer Straße, Speiden, Bavaria, Germany 
-            </td>   
+                Mariahilferstraße, 87637 Eisenberg, Germany
+            </td>
                 <td class="table__cell">
                 47.6108398, 10.6123573
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Frauenried, Bavaria, Germany 
-            </td>   
+                Frauenried, 83730 Fischbachau, Germany
+            </td>
                 <td class="table__cell">
                 47.7769049, 11.940954
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lechhalde Bridge, Füssen, Bavaria, Germany 
-            </td>   
+                Theresienbrücke, Füssen, Bavaria 87629, Germany
+            </td>
                 <td class="table__cell">
                 47.565564, 10.700114
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Port of Emden, Emden, Lower Saxony, Germany 
-            </td>   
+                Emden, Lower Saxony, Germany
+            </td>
                 <td class="table__cell">
                 53.37009, 7.2031
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stage 4/5, Bavaria Studios, Bavariafilmplatz 7, Geiselgasteig, Grünwald, Bavaria, Germany 
-            </td>   
+                H Grünwald, Grünwald, Bavaria 82031, Germany
+            </td>
                 <td class="table__cell">
                 48.067312, 11.546399
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[47.557638, 10.749785], [47.565564, 10.700114], [47.56667, 10.7]], "data": [{"lat": 47.56667, "lon": 10.7, "name": "F\u00fcssen, Bavaria, Germany"}, {"lat": 48.7775, "lon": 11.43111, "name": "Bavaria, Germany"}, {"lat": 48.062632, "lon": 11.547945, "name": "Geiselgasteig, Gr\u00fcnwald, Bavaria, Germany"}, {"lat": 48.13333, "lon": 11.56667, "name": "M\u00fcnchen, Bavaria, Germany"}, {"lat": 48.13333, "lon": 11.56667, "name": "M\u00fcnchen, Bavaria, Germany"}, {"lat": 48.066591, "lon": 11.549117, "name": "Bavariafilmplatz 7, 82031 Gr\u00fcnwald, Germany"}, {"lat": 48.062632, "lon": 11.547945, "name": "Geiselgasteig, Gr\u00fcnwald, Bavaria, Germany"}, {"lat": 47.557638, "lon": 10.749785, "name": "Schloss Neuschwanstein, Neuschwansteinstr. 20, Schwangau, Bavaria 87645, Germany"}, {"lat": 48.063827, "lon": 11.576672, "name": "Perlacher Forst, Perlacher Forst, Perlacher Forst, Bavaria 82041, Germany"}, {"lat": 48.0707675, "lon": 11.530719, "name": "S Gro\u00dfhesselohe-Isartalbahnhof, Kreuzeckstr. 23-25, Pullach im Isartal, Bavaria 82049, Germany"}, {"lat": 48.1871298, "lon": 11.8694147, "name": "Ebersberger Stra\u00dfe, 85570 Markt Schwaben, Germany"}, {"lat": 47.5687795, "lon": 10.7021456, "name": "Sebastianstra\u00dfe, 87629 F\u00fcssen, Germany"}, {"lat": 47.61056, "lon": 10.61275, "name": "Speiden, Eisenberg, Bavaria, Germany"}, {"lat": 47.5669033, "lon": 10.7003286, "name": "Lechhalde, 87629 F\u00fcssen, Germany"}, {"lat": 47.583759, "lon": 10.560715, "name": "Bahnhof Pfronten-Ried, Bahnhofstr. 1, Pfronten, Bavaria 87459, Germany"}, {"lat": 47.5704035, "lon": 10.697481, "name": "Bahnhof F\u00fcssen, Ruprechtstr., F\u00fcssen, Bavaria 87629, Germany"}, {"lat": 47.5956548, "lon": 10.5588013, "name": "F\u00fcssener Stra\u00dfe, 87459 Pfronten, Germany"}, {"lat": 47.5946098, "lon": 10.5530338, "name": "Malerweg, 87459 Pfronten, Germany"}, {"lat": 48.071479, "lon": 12.249645, "name": "Penzing, Babensham, Bavaria, Germany"}, {"lat": 47.6108398, "lon": 10.6123573, "name": "Mariahilferstra\u00dfe, 87637 Eisenberg, Germany"}, {"lat": 47.7769049, "lon": 11.940954, "name": "Frauenried, 83730 Fischbachau, Germany"}, {"lat": 47.565564, "lon": 10.700114, "name": "Theresienbr\u00fccke, F\u00fcssen, Bavaria 87629, Germany"}, {"lat": 53.37009, "lon": 7.2031, "name": "Emden, Lower Saxony, Germany"}, {"lat": 48.067312, "lon": 11.546399, "name": "H Gr\u00fcnwald, Gr\u00fcnwald, Bavaria 82031, Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Spider-Man: Into the Spider-Verse</h3>
                         <p class="card-text">
-                          Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.
+                          Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities. Phil Lord and Christopher Miller, the creative minds behind The Lego Movie and 21 Jump Street, bring their unique talents to a fresh vision of a different Spider-Man Universe, with a groundbreaking visual style that's the first of its kind. "Spider-Man(TM): Into the Spider-Verse" introduces Brooklyn teen Miles Morales (Shameik Moore), and the limitless possibilities of the Spider-Verse, where more than one can wear the mask.::Sony Pictures Miles Morales has just started at a new school and is struggling to fit in. Then he is bitten by a radioactive spider and he obtains certain powers, similar to those of Spiderman. He doesn't know what to do with the powers, or how to control them, so naturally he turns to Spider-Man for advice.::grantss Struggling to find his place in the world while juggling school and family, Miles Morales, a smart teenager from Brooklyn, reluctantly enrols in an elite New York City boarding school. Wrestling with his new responsibilities, Miles discovers a whole new world hidden at an abandoned NYC subway tunnel, only to get bitten by a stealthy radioactive arachnid from another dimension. Now, gifted with unfathomable powers, much like the original Spider-Man (2002), Miles is shocked to discover that life has become even more complicated, unbeknownst to him that he is about to get caught in the middle of a dreadful inter-dimensional conflict. More and more, with the fate of the multiverse hanging by a thread, young and utterly inexperienced Miles has no other choice but to master his newfound abilities, even though he believes that not everyone is cut out to be a hero. But a hero isn't the one who always wins. It's the one who always tries. Can Miles take a leap of faith and become Spider-Man?::Nick Riganas
                         </p>
                       </div>
                     </div>
@@ -48,29 +48,24 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
  <table class="table">
           <tr class="table__header">
             
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-                New York City, New York, USA
-            </td>   
-                <td class="table__cell">
-                40.751296, -73.984819
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Chicago, Illinois, USA 
-            </td>   
-                <td class="table__cell">
-                41.8756, -87.6244
-                    </td>   
-          </tr> 
           </tr>
         
         </table>
@@ -83,5 +78,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": []}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

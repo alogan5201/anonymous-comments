@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,112 +16,201 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Metropolis</h3>
-                        <p class="card-text">
-                          In a futuristic city sharply divided between the working class and the city planners, the son of the city's mastermind falls in love with a working-class prophet who predicts the coming of a savior to mediate their differences.
+                      <h3 class="card-title">Metropolis</h3>
+          <p class="card-text mb-0">
+
+
+  <span > In a futuristic city sharply divided between the working class and the city planners, the son of the city's mastermind falls in love with a working-class prophet who predicts the coming of a savior to mediate their differences.  </span>
+                          <span > Sometime in the future, the city of Metropolis is home to a Utopian society where its wealthy residents live a carefree life. One of those is Freder Fredersen. One day, he spots a beautiful woman with a group of children, she and the children quickly disappear. Trying to follow her, he is horrified to find an underground world of workers who apparently run the machinery that keeps the Utopian world above ground functioning. One of the few people above ground who knows about the world below is Freder's father, John Fredersen, who is the founder and master of Metropolis. Freder learns that the woman is called Maria, who espouses the need to join the "hands" - the workers - to the "head" - those in power above - by a mediator who will act as the "heart". Freder wants to help the plight of the workers in their struggle for a better life. But when John learns of what Maria is advocating and that Freder has joined their cause, with the assistance of an old colleague. an inventor called Rotwang, who turns out to be But their nemesis goes to works towards quashing a proposed uprising, with Maria at the centre of their plan. John, unaware that Rotwang has his own agenda., makes plans that include shutting down the machines, with the prospect of unleashing total anarchy both above and below ground. -Huggo.  </span>
+                          <span > In the future, the society of Metropolis is divided in two social classes: the workers, who live in the underground below the machines level, and the dominant classes that lives in the surface. The workers are controlled by their leader Maria, who wants to find a mediator between the upper class lords and the workers, since she believes that a heart would be necessary between brains and muscles. Maria meets Freder Fredersen, the son of the Lord of Metropolis Johhan Fredersen, in a meeting of the workers, and they fall in love for each other. Meanwhile, Johhan decides that the workers are no longer necessary for Metropolis, and uses a robot pretending to be Maria to promote a revolution of the working class and eliminate them. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The future. Metropolis is a wonderful city, high above the ground its towers stand. The people prosper, the economy is flourishing, the suspended streets are busy. But Metropolis also has a great secret, so hidden that not even Freder Fredersen, son of founder John Fredersen knows about it. He is spending his free time in the Eternal Gardens, when suddenly a woman shows up, with what looks like a class of children. They're from the City of Workers, in the depth, Freder learns. "These are your brothers", she tells the children, before she is forced to leave. Freder is so intrigued he follows them into the depth and doesn't like what he sees. The workers are exploited, they must do labor like robots. Freder tries to convince his father to change, while the woman tries to keep workers' morale high by predicting a man will stand up that will mediate. Someone that will use both hands and head, someone that will be the heart. -Arnoud Tiele (imdb@tiele.nl).  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMTg5YWIyMWUtZDY5My00Zjc1LTljOTctYmI0MWRmY2M2NmRkXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Metropolis"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Berlin, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 52.51667, 13.38333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Guinness factory, James' Gate Brewery, Dublin, Ireland 
-            </td>   
+                Dublin, Ireland
+            </td>
                 <td class="table__cell">
                 53.3425, -6.26583
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Vienna, Austria 
-            </td>   
+                Vienna, Austria
+            </td>
                 <td class="table__cell">
                 48.20833, 16.37306
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Studio Babelsberg, Potsdam, Brandenburg, Germany
-            </td>   
+                Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany
+            </td>
                 <td class="table__cell">
                 52.387806, 13.120573
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Filmwerke Staaken, Staaken, Spandau, Berlin, Germany 
-            </td>   
+                Spandau, Berlin, Germany
+            </td>
                 <td class="table__cell">
                 52.535788, 13.197792
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Marlene Dietrich Halle, Studio Babelsberg, Potsdam, Brandenburg, Germany
-            </td>   
+                Marlene-Dietrich-Halle, Joseph-von-Sternberg-Str., Potsdam, Brandenburg 14482, Germany
+            </td>
                 <td class="table__cell">
                 52.387158, 13.119628
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ehlen, Habichtswald, Hessen, Germany 
-            </td>   
+                Ehlen, Habichtswald, Hesse, Germany
+            </td>
                 <td class="table__cell">
                 51.323325, 9.310328
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                Germany
+            </td>
+                <td class="table__cell">
+                51.1334813439932, 10.0183432948567
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Austria
+            </td>
+                <td class="table__cell">
+                47.6077978292689, 14.3001435907641
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[52.387158, 13.119628], [52.387806, 13.120573], [52.51667, 13.38333]], "data": [{"lat": 52.51667, "lon": 13.38333, "name": "Berlin, Germany"}, {"lat": 53.3425, "lon": -6.26583, "name": "Dublin, Ireland"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 52.387806, "lon": 13.120573, "name": "Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany"}, {"lat": 52.535788, "lon": 13.197792, "name": "Spandau, Berlin, Germany"}, {"lat": 52.387158, "lon": 13.119628, "name": "Marlene-Dietrich-Halle, Joseph-von-Sternberg-Str., Potsdam, Brandenburg 14482, Germany"}, {"lat": 51.323325, "lon": 9.310328, "name": "Ehlen, Habichtswald, Hesse, Germany"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}, {"lat": 47.6077978292689, "lon": 14.3001435907641, "name": "Austria"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

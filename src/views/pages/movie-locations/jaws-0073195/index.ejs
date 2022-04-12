@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,216 +16,290 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Jaws</h3>
-                        <p class="card-text">
-                          When a killer shark unleashes chaos on a beach community off Long Island, it's up to a local sheriff, a marine biologist, and an old seafarer to hunt the beast down.
+                      <h3 class="card-title">Jaws</h3>
+          <p class="card-text mb-0">
+
+
+  <span > When a killer shark unleashes chaos on a beach community off Long Island, it's up to a local sheriff, a marine biologist, and an old seafarer to hunt the beast down.  </span>
+                          <span > It's a hot summer on Amity Island, a small community whose main business is its beaches. When new Sheriff Martin Brody discovers the remains of a shark attack victim, his first inclination is to close the beaches to swimmers. This doesn't sit well with Mayor Larry Vaughn and several of the local businessmen. Brody backs down to his regret as that weekend a young boy is killed by the predator. The dead boy's mother puts out a bounty on the shark and Amity is soon swamped with amateur hunters and fisherman hoping to cash in on the reward. A local fisherman with much experience hunting sharks, Quint, offers to hunt down the creature for a hefty fee. Soon Quint, Brody and Matt Hooper from the Oceanographic Institute are at sea hunting the Great White shark. As Brody succinctly surmises after their first encounter with the creature, they're going to need a bigger boat. -garykmcd.  </span>
+                          <span > One short week before the annual 4th of July celebrations, Martin Brody, the new police chief of the small summer resort town of Amity Island, has reasons to believe that the mangled body of the missing young swimmer found washed up on shore is the work of a predatory shark. Worried about the unsuspecting tourists, Brody insists on closing down the beaches; however, greed, and Mayor Larry Vaughn, get in the way of security, only to spark a series of additional bloody attacks. Now, all eyes are on the deep blue ocean, while Brody, along with the marine biologist, Matt Hooper, and the expert shark killer, Quint, hunt for the undisputed ruler of the sea: a monstrous, slate-grey great white shark that patrols the waters, hungry for human flesh. But, can they outsmart the ultimate aquatic man-eater, and escape from its massive jaws? -Nick Riganas.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The peaceful community of Amity island is being terrorized. There is something in the sea that is attacking swimmers. They can no longer enjoy the sea and the sun as they used to, and the spreading fear is affecting the numbers of tourists that are normally attracted to this island. After many attempts the great white shark won't go away and sheriff Brody, with friends Hooper and Quint decide to go after the shark and kill it. -Sami Al-Taher .  </span>
+    <span class="additional-information" > A Great White Shark decides to make the small beach resort town of Amity his private feeding grounds. This greatly frustrates the town police chief who wants to close the beaches to chase the shark away. He is thwarted in his efforts by the town's mayor who finally relents when nothing else seems to work and the chief, a scientist, and an old fisherman with revenge on his mind take to the sea to kill the beast. -.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMmVmODY1MzEtYTMwZC00MzNhLWFkNDMtZjAwM2EwODUxZTA5XkEyXkFqcGdeQXVyNTAyODkwOQ@@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Jaws"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Water Street, Edgartown, Martha's Vineyard, Massachusetts, USA
-            </td>   
+                Water Street, Vineyard Haven, Massachusetts 02568, United States
+            </td>
                 <td class="table__cell">
-                41.45444, -70.60176
-                    </td>   
-          </tr> 
+                41.45439, -70.60073
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Falmouth, Massachusetts, USA
-            </td>   
+                Falmouth, Massachusetts, United States
+            </td>
                 <td class="table__cell">
                 41.5515, -70.6148
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Dangerous Reef, South Australia, Australia 
-            </td>   
+                Reef Court, Port Lincoln South Australia 5606, Australia
+            </td>
                 <td class="table__cell">
                 -34.724715, 135.8468075
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Joseph Sylva State Beach, Martha's Vineyard, Massachusetts, USA 
-            </td>   
+                Joseph Sylvia State Beach, Marthas Vineyard, Massachusetts 02539, United States
+            </td>
                 <td class="table__cell">
                 41.408934, -70.539354
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Oak Bluffs, Martha's Vineyard, Massachusetts, USA 
-            </td>   
+                Oak Bluffs Harbor, 41 Harbor Ln, Vineyard Haven, Massachusetts 02557, United States
+            </td>
                 <td class="table__cell">
                 41.457745, -70.557731
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, USA 
-            </td>   
+                Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.0544, -118.2439
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Southern Ocean, South Australia, Australia 
-            </td>   
+                South Australia, Australia
+            </td>
                 <td class="table__cell">
                 -30.1062845047, 135.827373690357
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                East Chop, Martha's Vineyard, Massachusetts, USA
-            </td>   
+                East Chop, Vineyard Haven, Massachusetts, United States
+            </td>
                 <td class="table__cell">
                 41.4684, -70.5689
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Main Street, Edgartown, Martha's Vineyard, Massachusetts, USA
-            </td>   
+                Main Street, Edgartown, Massachusetts 02539, United States
+            </td>
                 <td class="table__cell">
-                41.392, -70.52153
-                    </td>   
-          </tr> 
+                41.38969, -70.51335
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Aquinnah, Martha's Vineyard, Massachusetts, USA
-            </td>   
+                Aquinnah Shop, 27 Aquinnah Cir, Aquinnah, Massachusetts 02535, United States
+            </td>
                 <td class="table__cell">
                 41.347078, -70.83708
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                South Water Street & Davis Lane, Edgartown, Massachusetts, USA 
-            </td>   
+                South Water Street and Davis Lane, Edgartown, Massachusetts 02539, United States
+            </td>
                 <td class="table__cell">
                 41.388479, -70.513795
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Menemsha, Martha's Vineyard, Massachusetts, USA 
-            </td>   
+                Menamsha Avenue, Marthas Vineyard, Massachusetts 02539, United States
+            </td>
                 <td class="table__cell">
                 41.37693, -70.50947
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                American Legion Memorial Bridge, Martha's Vineyard, Massachusetts, USA 
-            </td>   
+                Marthas Vineyard, Massachusetts, United States
+            </td>
                 <td class="table__cell">
                 41.45, -70.6
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Edgartown, Martha's Vineyard, Massachusetts, USA
-            </td>   
+                Edgartown School, School street, Edgartown, Massachusetts 02539, United States
+            </td>
                 <td class="table__cell">
                 41.389868, -70.52238700000001
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Underwater, Santa Catalina Island, Channel Islands, California, USA
-            </td>   
+                Channel Islands, Oxnard, California, United States
+            </td>
                 <td class="table__cell">
                 34.18, -119.23
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sengekontacket Pond, Martha's Vineyard, Massachusetts, USA 
-            </td>   
+                Sengekontacket Pond, Marthas Vineyard, Massachusetts 02557, United States
+            </td>
                 <td class="table__cell">
                 41.428902, -70.556035
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                265 East Chop Drive, Vineyard Haven, Massachusetts, USA 
-            </td>   
+                265 East Chop Drive, Vineyard Haven, Massachusetts 02568, United States
+            </td>
                 <td class="table__cell">
-                41.470175, -70.570374
-                    </td>   
-          </tr> 
+                41.470196, -70.570393
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                35 Aquinnah Circle, Aquinnah, Massachusetts, USA 
-            </td>   
+                35 Aquinnah Circle, Aquinnah, Massachusetts 02535, United States
+            </td>
                 <td class="table__cell">
                 41.3456, -70.83582
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Far West Coast, South Australia, Australia 
-            </td>   
-                <td class="table__cell">
-                -30.1062845047, 135.827373690357
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Spencer Gulf, South Australia, Australia 
-            </td>   
-                <td class="table__cell">
-                -30.1062845047, 135.827373690357
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                South Australia, Australia
+            </td>
+                <td class="table__cell">
+                -30.1062845047, 135.827373690357
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                South Australia, Australia
+            </td>
+                <td class="table__cell">
+                -30.1062845047, 135.827373690357
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[-30.1062845047, 135.827373690357], [-30.1062845047, 135.827373690357], [-30.1062845047, 135.827373690357]], "data": [{"lat": 41.45439, "lon": -70.60073, "name": "Water Street, Vineyard Haven, Massachusetts 02568, United States"}, {"lat": 41.5515, "lon": -70.6148, "name": "Falmouth, Massachusetts, United States"}, {"lat": -34.724715, "lon": 135.8468075, "name": "Reef Court, Port Lincoln South Australia 5606, Australia"}, {"lat": 41.408934, "lon": -70.539354, "name": "Joseph Sylvia State Beach, Marthas Vineyard, Massachusetts 02539, United States"}, {"lat": 41.457745, "lon": -70.557731, "name": "Oak Bluffs Harbor, 41 Harbor Ln, Vineyard Haven, Massachusetts 02557, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": -30.1062845047, "lon": 135.827373690357, "name": "South Australia, Australia"}, {"lat": 41.4684, "lon": -70.5689, "name": "East Chop, Vineyard Haven, Massachusetts, United States"}, {"lat": 41.38969, "lon": -70.51335, "name": "Main Street, Edgartown, Massachusetts 02539, United States"}, {"lat": 41.347078, "lon": -70.83708, "name": "Aquinnah Shop, 27 Aquinnah Cir, Aquinnah, Massachusetts 02535, United States"}, {"lat": 41.388479, "lon": -70.513795, "name": "South Water Street and Davis Lane, Edgartown, Massachusetts 02539, United States"}, {"lat": 41.37693, "lon": -70.50947, "name": "Menamsha Avenue, Marthas Vineyard, Massachusetts 02539, United States"}, {"lat": 41.45, "lon": -70.6, "name": "Marthas Vineyard, Massachusetts, United States"}, {"lat": 41.389868, "lon": -70.52238700000001, "name": "Edgartown School, School street, Edgartown, Massachusetts 02539, United States"}, {"lat": 34.18, "lon": -119.23, "name": "Channel Islands, Oxnard, California, United States"}, {"lat": 41.428902, "lon": -70.556035, "name": "Sengekontacket Pond, Marthas Vineyard, Massachusetts 02557, United States"}, {"lat": 41.470196, "lon": -70.570393, "name": "265 East Chop Drive, Vineyard Haven, Massachusetts 02568, United States"}, {"lat": 41.3456, "lon": -70.83582, "name": "35 Aquinnah Circle, Aquinnah, Massachusetts 02535, United States"}, {"lat": -30.1062845047, "lon": 135.827373690357, "name": "South Australia, Australia"}, {"lat": -30.1062845047, "lon": 135.827373690357, "name": "South Australia, Australia"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

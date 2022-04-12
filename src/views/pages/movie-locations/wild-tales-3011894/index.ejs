@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,160 +16,233 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Wild Tales</h3>
-                        <p class="card-text">
-                          Six short stories that explore the extremities of human behavior involving people in distress.
+                      <h3 class="card-title">Wild Tales</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Six short stories that explore the extremities of human behavior involving people in distress.  </span>
+                          <span > The film is divided into six segments. (1) "Pasternak": While being on a plane, a model and a music critic realise they have a common acquaintance called Pasternak. Soon they discover that every passenger and crew member on board know Pasternak. Is this coincidence? (2) "The Rats": A waitress recognizes her client - it's the loan shark who caused a tragedy in her family. The cook suggests mixing rat poison with his food, but the waitress refuses. The stubborn cook, however, decides to proceed with her plan. (3) "The Strongest": Two drivers on a lone highway have an argument with tragic consequences. (4) "Little Bomb": A demolition engineer has his car towed by a truck for parking in a wrong place and he has an argument with the employee of the towing company. This event destroys his private and professional life, and he plots revenge against the corrupt towing company and the city hall. (5) "The Proposal": A reckless son of a wealthy family has an overnight hit-and-run accident, in which a pregnant woman gets killed. He wakes his parents up and his father calls the lawyer. The parents propose to pay the groundkeeper to take the blame for the boy. Soon the father discovers that he is a victim of extortion of his lawyer and the public prosecutor in charge of the investigation. What will be his decision? (6) "Until Death Do Us Apart": During the wedding party, the bride discovers that her newlywed husband has been cheating on her with one of the guests, and she decides to pay him back. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+                          <span > Composed of six short segments dealing with revenge and violence, "Wild Tales" pivots around the universal theme of retribution and the complications of seeking catharsis through vengeance. Starting with "Pasternak", an attractive young model, while aboard a plane, strikes up a conversation with another passenger about a guy named Pasternak, only to realise that they're not the only ones who know him. Who is the man locked in the cockpit? In "The Rats", a young waitress comes face-to-face with her painful past and agonising moral dilemmas. Is revenge a dish best served cold? Then, in "The Strongest", a remote highway in the desert becomes the macabre backdrop for two drivers. Who will prevail? In "Little Bomb", a parking violation sets in motion a series of unfortunate events, as a demolition engineer's whole world comes crashing down around him. Will he put his skills to good use? In "The Proposal", the affluent parents of a teenage driver who has committed a horrible hit-and-run accident devise a plan to get him off the hook. But, can money buy everything? Lastly, in "Till Death Do Us Part", a blissful bride discovers that her groom has cheated on her. Will she turn the tables on him? -Nick Riganas.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Six separate stories, whose characters find themselves facing a reality that shifts and suddenly turns unpredictable, and crossing the divide between civilization and barbarism. A lover's betrayal, a return to the repressed past and the violence woven into everyday encounters drive the characters to madness as they lose control.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNGQzY2Y0MTgtMDA4OC00NjM3LWI0ZGQtNTJlM2UxZDQxZjI0XkEyXkFqcGdeQXVyNDUzOTQ5MjY@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Wild Tales"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Cafayate, Salta, Argentina
-            </td>   
+            </td>
                 <td class="table__cell">
                 -26.08333, -65.96667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Isidro, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                 25.730711,  65.696708, Argentina 
-            </td>   
+                Argentina
+            </td>
                 <td class="table__cell">
                 -36.252002, -63.954193
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Jujuy, Argentina
-            </td>   
+            </td>
                 <td class="table__cell">
                 -23.75, -65.5
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Buenos Aires, Federal District, Argentina
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Juncal 1294, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Puente Morales, RN 68 Km42, Cafayate, Salta, Argentina 
-            </td>   
+                Cafayate, Salta, Argentina
+            </td>
                 <td class="table__cell">
                 -26.08333, -65.96667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                176 Av Córdoba, Buenos Aires, Ciudad Autónoma de Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                33°56'18.9S 59°24'51.1W, RN 9, Km 127, Baradero, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Baradero, Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -33.8, -59.51667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hotel InterContinental, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                1168 Suipacha, Buenos Aires, Ciudad Autónoma de Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Jorge Newbery Metropolitan Airport, Avenida Costanera Rafael Obligado, Palermo, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Rafael Obligado, Rojas, Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.359684, -60.783884
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Av. Don Pedro de Mendoza 3550, CABA Argentina 
-            </td>   
+                Mendoza, Argentina
+            </td>
                 <td class="table__cell">
                 -32.89028, -68.84722
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[-34.59972, -58.38194], [-34.59972, -58.38194], [-34.59972, -58.38194]], "data": [{"lat": -26.08333, "lon": -65.96667, "name": "Cafayate, Salta, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -36.252002, "lon": -63.954193, "name": "Argentina"}, {"lat": -23.75, "lon": -65.5, "name": "Jujuy, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -26.08333, "lon": -65.96667, "name": "Cafayate, Salta, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -33.8, "lon": -59.51667, "name": "Baradero, Buenos Aires, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -34.359684, "lon": -60.783884, "name": "Rafael Obligado, Rojas, Buenos Aires, Argentina"}, {"lat": -32.89028, "lon": -68.84722, "name": "Mendoza, Argentina"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

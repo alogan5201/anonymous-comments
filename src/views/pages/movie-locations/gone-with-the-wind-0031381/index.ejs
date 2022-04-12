@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,296 +16,426 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Gone with the Wind</h3>
-                        <p class="card-text">
-                          The manipulative daughter of a Georgia plantation owner conducts a turbulent romance with a roguish profiteer during the American Civil War and Reconstruction periods.
+                      <h3 class="card-title">Gone with the Wind</h3>
+          <p class="card-text mb-0">
+
+
+  <span > The manipulative daughter of a Georgia plantation owner conducts a turbulent romance with a roguish profiteer during the American Civil War and Reconstruction periods.  </span>
+                          <span > Scarlett is a woman who can deal with a nation at war, Atlanta burning, the Union Army carrying off everything from her beloved Tara, the carpetbaggers who arrive after the war. Scarlett is beautiful. She has vitality. But Ashley, the man she has wanted for so long, is going to marry his placid cousin, Melanie. Mammy warns Scarlett to behave herself at the party at Twelve Oaks. There is a new man there that day, the day the Civil War begins. Rhett Butler. Scarlett does not know he is in the room when she pleads with Ashley to choose her instead of Melanie. -Dale O'Connor .  </span>
+                          <span > In the face of the imminent U.S. Civil War, the pampered socialite and petulant Southern Belle, Scarlett O'Hara, basks in the limelight, enjoying a lavish lifestyle. Knowing that the rich and red-hued soil of Tara--the ancestral cotton plantation in Georgia--is the only thing worth fighting for, the resilient woman will do everything in her power to control her destiny; including marrying the wrong men to maintain her enviable social status. However, death seems to follow Scarlett--and as she swears never to be poor again, standing on the sparkling ashes of her beloved but burned-to-the-ground home--the cynical playboy, Rhett Butler, offers a way out, and a new lease of life. Headstrong, passionate, and, above all, resolute, not even war--or death--can stand in Scarlett's way; nevertheless, love is delicate and elusive, and, somehow, it is always one step ahead of her. Has Scarlett's noble aspiration for a better future gone with the wind? -Nick Riganas.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The epic tale of a woman's life during one of the most tumultuous periods in America's history. From her young, innocent days on a feudalistic plantation to the war-torn streets of Atlanta; from her first love whom she has always desired to three husbands; from the utmost luxury to absolute starvation and poverty; from her innocence to her understanding and comprehension of life. -Luke C.  </span>
+    <span class="additional-information" > This tale of the Old South from the start of the Civil War through to the period of reconstruction focuses on the beautiful Scarlett O'Hara. Before the start of the war life at the O'Hara plantation, Tara, could only be described as genteel. As for the young Scarlett, she is without doubt the most beautiful girl in the area and is always the belle of the ball. She is very much looking forward to a barbecue at the nearby Wilkes plantation as she will get to see the man she loves, Ashley Wilkes. She is more than a little dismayed when she hears that he is to marry his cousin Melanie Hamilton and in a fit of anger, she decides to marry Melanie's brother. War is soon declared and as always seems to be the case, men march off to battle thinking that it will only last a few weeks. Now living in Atlanta, Scarlett sees the ravages that war brings. She also becomes re-acquainted with Rhett Butler, whom she had first met at the Wilkes barbecue. Now a widow, she still pines for the married Ashley and dreams of his return. With the war lost however, she returns to Tara and faces the hardship of keeping her family together and Tara from being sold at auction to collect the taxes. She has becomes hardened and bitter and will do anything, including marrying her sister's beau, to ensure she will never again be poor and hungry. After becoming a widow for the second time, she finally marries the dashing Rhett but they soon find themselves working at cross-purposes, their relationship seemingly doomed from the outset. -garykmcd.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BYjUyZWZkM2UtMzYxYy00ZmQ3LWFmZTQtOGE2YjBkNjA3YWZlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Gone with the Wind"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                North Little Rock, Arkansas, USA 
-            </td>   
+                North Little Rock, Arkansas, United States
+            </td>
                 <td class="table__cell">
                 34.7695, -92.2671
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Georgia, USA 
-            </td>   
+                Georgia, United States
+            </td>
                 <td class="table__cell">
                 32.3305706594, -83.2572560296474
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Big Bear Lake, Big Bear Valley, San Bernardino National Forest, California, USA 
-            </td>   
+                Big Bear Lake, California, United States
+            </td>
                 <td class="table__cell">
                 34.2441, -116.9102
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bidwell Park   Manzanita Avenue, Chico, California, USA 
-            </td>   
+                Chico, California, United States
+            </td>
                 <td class="table__cell">
                 39.7285, -121.8375
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Big Bear Valley, San Bernardino National Forest, California, USA 
-            </td>   
+                Big Bear Lake, California, United States
+            </td>
                 <td class="table__cell">
                 34.2441, -116.9102
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Busch Gardens   S. Grove Avenue, Pasadena, California, USA 
-            </td>   
+                Pasadena, California, United States
+            </td>
                 <td class="table__cell">
                 34.1476, -118.1445
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Bernardino National Forest, California, USA 
-            </td>   
+                San Bernardino National Forest, San Bernardino, California 92404, United States
+            </td>
                 <td class="table__cell">
                 34.177186, -117.272712
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Calabasas, California, USA 
-            </td>   
+                North Little Rock, Arkansas, United States
+            </td>
+                <td class="table__cell">
+                34.7695, -92.2671
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Calabasas, California, United States
+            </td>
                 <td class="table__cell">
                 34.1447, -118.6441
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chico, California, USA 
-            </td>   
+                Chico, California, United States
+            </td>
                 <td class="table__cell">
                 39.7285, -121.8375
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Malibu Lake, California, USA 
-            </td>   
+                Malibu Lane, Huntington Beach, California 92646, United States
+            </td>
                 <td class="table__cell">
                 33.641535, -117.965895
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Simi Valley, California, USA 
-            </td>   
+                Simi Valley, California, United States
+            </td>
                 <td class="table__cell">
                 34.2694, -118.7815
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Selznick International Studios   9336 W. Washington Blvd., Culver City, California, USA 
-            </td>   
+                9336 Washington Boulevard, Culver City, California 90232, United States
+            </td>
                 <td class="table__cell">
                 34.02448, -118.39238
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                The Old Mill Park, Little Rock, Arkansas, USA 
-            </td>   
-                <td class="table__cell">
-                34.7465, -92.2896
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Arroyo Boulevard, Pasadena, California, USA 
-            </td>   
+                Arroyo Boulevard, Pasadena, California 91105, United States
+            </td>
                 <td class="table__cell">
                 34.137595, -118.16583
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lasky Mesa, West Hills, Los Angeles, California, USA 
-            </td>   
+                Laskey Mesa Trail, West Hills, California 91377, United States
+            </td>
                 <td class="table__cell">
                 34.1765941, -118.683986
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pasadena, California, USA 
-            </td>   
+                Pasadena, California, United States
+            </td>
                 <td class="table__cell">
                 34.1476, -118.1445
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Agoura, California, USA 
-            </td>   
+                Agoura, Agoura Hills, California, United States
+            </td>
                 <td class="table__cell">
                 34.1431, -118.7379
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA 
-            </td>   
+                10202 West Washington Boulevard, Culver City, California 90232, United States
+            </td>
                 <td class="table__cell">
                 34.017275, -118.402347
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ahmanson Ranch, Victory Boulevard, Lasky Mesa, West Hills, Los Angeles, California, USA
-            </td>   
+                West Hills, California, United States
+            </td>
                 <td class="table__cell">
                 34.2032, -118.6455
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Reuss Ranch, Malibu Lake, California, USA 
-            </td>   
+                Malibu, California, United States
+            </td>
                 <td class="table__cell">
                 34.0058, -118.807
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Paradise Apple Orchard, Chico, California, USA
-            </td>   
+                Chico, California, United States
+            </td>
                 <td class="table__cell">
                 39.7285, -121.8375
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Paradise, California, USA
-            </td>   
+                Paradise, California, United States
+            </td>
                 <td class="table__cell">
                 39.7596, -121.6219
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Agoura Hills, California, USA
-            </td>   
+                Agoura Hills, California, United States
+            </td>
                 <td class="table__cell">
                 34.1364, -118.7745
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Northern California, California, USA
-            </td>   
+                Brook Furniture Rental, 30985 Santana St, Hayward, California 94544, United States
+            </td>
                 <td class="table__cell">
                 37.613279, -122.058042
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United Artists Studios   7200 Santa Monica Boulevard, West Hollywood, California, USA 
-            </td>   
+                7200 Santa Monica Boulevard, West Hollywood, California 90025, United States
+            </td>
                 <td class="table__cell">
                 34.090713, -118.346243
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Woodland Hills, Los Angeles, California, USA
-            </td>   
+                Woodland Hills, California, United States
+            </td>
                 <td class="table__cell">
                 34.1683, -118.6059
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pentz Road, Paradise, California, USA
-            </td>   
+                Pentz Road, Paradise, California 95969, United States
+            </td>
                 <td class="table__cell">
                 39.72543, -121.5758
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                West Hills, Los Angeles, California, USA 
-            </td>   
+                West Hills, California, United States
+            </td>
                 <td class="table__cell">
                 34.2032, -118.6455
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hollywood, Los Angeles, California, USA
-            </td>   
+                Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States
+            </td>
                 <td class="table__cell">
                 34.095884, -118.370965
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, USA
-            </td>   
+                Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.0544, -118.2439
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                California, United States
+            </td>
+                <td class="table__cell">
+                37.0743595873, -119.699375153073
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Arkansas, United States
+            </td>
+                <td class="table__cell">
+                35.0968852383, -92.4202962772624
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                9336 Washington Boulevard, Culver City, California 90232, United States
+            </td>
+                <td class="table__cell">
+                34.02448, -118.39238
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                9336 Washington Boulevard, Culver City, California 90232, United States
+            </td>
+                <td class="table__cell">
+                34.02448, -118.39238
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                9336 Washington Boulevard, Culver City, California 90232, United States
+            </td>
+                <td class="table__cell">
+                34.02448, -118.39238
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                9336 Washington Boulevard, Culver City, California 90232, United States
+            </td>
+                <td class="table__cell">
+                34.02448, -118.39238
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[33.641535, -117.965895], [34.0058, -118.807], [34.017275, -118.402347]], "data": [{"lat": 34.7695, "lon": -92.2671, "name": "North Little Rock, Arkansas, United States"}, {"lat": 32.3305706594, "lon": -83.2572560296474, "name": "Georgia, United States"}, {"lat": 34.2441, "lon": -116.9102, "name": "Big Bear Lake, California, United States"}, {"lat": 39.7285, "lon": -121.8375, "name": "Chico, California, United States"}, {"lat": 34.2441, "lon": -116.9102, "name": "Big Bear Lake, California, United States"}, {"lat": 34.1476, "lon": -118.1445, "name": "Pasadena, California, United States"}, {"lat": 34.177186, "lon": -117.272712, "name": "San Bernardino National Forest, San Bernardino, California 92404, United States"}, {"lat": 34.7695, "lon": -92.2671, "name": "North Little Rock, Arkansas, United States"}, {"lat": 34.1447, "lon": -118.6441, "name": "Calabasas, California, United States"}, {"lat": 39.7285, "lon": -121.8375, "name": "Chico, California, United States"}, {"lat": 33.641535, "lon": -117.965895, "name": "Malibu Lane, Huntington Beach, California 92646, United States"}, {"lat": 34.2694, "lon": -118.7815, "name": "Simi Valley, California, United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.137595, "lon": -118.16583, "name": "Arroyo Boulevard, Pasadena, California 91105, United States"}, {"lat": 34.1765941, "lon": -118.683986, "name": "Laskey Mesa Trail, West Hills, California 91377, United States"}, {"lat": 34.1476, "lon": -118.1445, "name": "Pasadena, California, United States"}, {"lat": 34.1431, "lon": -118.7379, "name": "Agoura, Agoura Hills, California, United States"}, {"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.2032, "lon": -118.6455, "name": "West Hills, California, United States"}, {"lat": 34.0058, "lon": -118.807, "name": "Malibu, California, United States"}, {"lat": 39.7285, "lon": -121.8375, "name": "Chico, California, United States"}, {"lat": 39.7596, "lon": -121.6219, "name": "Paradise, California, United States"}, {"lat": 34.1364, "lon": -118.7745, "name": "Agoura Hills, California, United States"}, {"lat": 37.613279, "lon": -122.058042, "name": "Brook Furniture Rental, 30985 Santana St, Hayward, California 94544, United States"}, {"lat": 34.090713, "lon": -118.346243, "name": "7200 Santa Monica Boulevard, West Hollywood, California 90025, United States"}, {"lat": 34.1683, "lon": -118.6059, "name": "Woodland Hills, California, United States"}, {"lat": 39.72543, "lon": -121.5758, "name": "Pentz Road, Paradise, California 95969, United States"}, {"lat": 34.2032, "lon": -118.6455, "name": "West Hills, California, United States"}, {"lat": 34.095884, "lon": -118.370965, "name": "Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 35.0968852383, "lon": -92.4202962772624, "name": "Arkansas, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.02448, "lon": -118.39238, "name": "9336 Washington Boulevard, Culver City, California 90232, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

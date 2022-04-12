@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,288 +16,369 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Rocky</h3>
-                        <p class="card-text">
-                          A small-time Philadelphia boxer gets a supremely rare chance to fight the world heavyweight champion in a bout in which he strives to go the distance for his self-respect.
+                      <h3 class="card-title">Rocky</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A small-time Philadelphia boxer gets a supremely rare chance to fight the world heavyweight champion in a bout in which he strives to go the distance for his self-respect.  </span>
+                          <span > Rocky Balboa is a struggling boxer trying to make the big time, working as a debt collector for a pittance. When heavyweight champion Apollo Creed visits Philadelphia, his managers want to set up an exhibition match between Creed and a struggling boxer, touting the fight as a chance for a "nobody" to become a "somebody". The match is supposed to be easily won by Creed, but someone forgot to tell Rocky, who sees this as his only shot at the big time. -Murray Chapman .  </span>
+                          <span > Rocky Balboa is a struggling boxer failing to make it big time. Despite his true talent and his inability to admit defeat, his friends and his coach, Micky, never give him the time of day. When Apollo Creed, the Heavyweight Champion of the World visits Rocky's home town asking for a lesser man to fight, Apollo chooses him based on his nickname, 'The Italian Stallion'. With his shot at glory in front of him, Rocky trains harder than he thought was possible in order to earn his own self-respect and go the distance. -nalimradek.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Rocky Balboa, a small-time boxer from working-class Philadelphia, is arbitrarily chosen to take on the reigning world heavyweight champion, Apollo Creed, when the undefeated fighter's scheduled opponent is injured. While training with feisty former bantamweight contender Mickey Goldmill, Rocky tentatively begins a relationship with Adrian, the wallflower sister of his meat-packer pal Paulie. -Jwelch5742.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@.jpg"
+                                      src="https://m.media-amazon.com/images/M/MV5BNTBkMjg2MjYtYTZjOS00ODQ0LTg0MDEtM2FiNmJmOGU1NGEwXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Rocky"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                1818 East Tusculum Street, Kensington, North Philadelphia, Pennsylvania, USA 
-            </td>   
+                1818 East Tusculum Street, Philadelphia, Pennsylvania 19134, United States
+            </td>
                 <td class="table__cell">
                 39.989915, -75.12405
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pat's King of Steaks   1237 S. Passyunk Avenue, Philadelphia, Pennsylvania, USA
-            </td>   
+                Pat's King of Steaks, 1301 E Passyunk Ave, Philadelphia, Pennsylvania 19147, United States
+            </td>
                 <td class="table__cell">
                 39.933260000000004, -75.15919199999999
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                2822 2824 Rosehill St, Philadelphia, Pensylvannia, USA 
-            </td>   
+                2822-2824 Rosehill Street, Philadelphia, Pennsylvania 19134, United States
+            </td>
                 <td class="table__cell">
-                39.992425, -75.12533
-                    </td>   
-          </tr> 
+                39.992385, -75.12534
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fairmount Park, Philadelphia, Pennsylvania, USA 
-            </td>   
+                Fairmount Park, Philadelphia, Pennsylvania, United States
+            </td>
                 <td class="table__cell">
                 39.97, -75.19
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Philadelphia Museum of Art   2600 Benjamin Franklin Parkway, Philadelphia, Pennsylvania, USA
-            </td>   
+                Philadelphia, Pennsylvania, United States
+            </td>
                 <td class="table__cell">
                 40.0115, -75.1327
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Resurrection Gym   1114 S. Lorena Street, East Los Angeles, California, USA 
-            </td>   
+                1114 South Lorena Street, Los Angeles, California 90023, United States
+            </td>
                 <td class="table__cell">
                 34.023285, -118.203436
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                1124 Jackson street, Philadelphia ,Pennsylvania, USA 
-            </td>   
+                1124 Jackson Street, Philadelphia, Pennsylvania 19148, United States
+            </td>
                 <td class="table__cell">
                 39.922405, -75.16553
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                South 12th street & Cantrell st, Philadelphia, Pennsylvania, USA 
-            </td>   
+                South 12th Street and Cantrell Street, Philadelphia, Pennsylvania 19148, United States
+            </td>
                 <td class="table__cell">
-                39.9234569, -75.1660816
-                    </td>   
-          </tr> 
+                39.9234651, -75.1661144
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Main Street Gym   318½ S Main St, Downtown, Los Angeles, California, USA 
-            </td>   
+                South, California, United States
+            </td>
                 <td class="table__cell">
                 33.9275, -118.2781
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shamrock Meats   3461 E. Vernon Avenue, Vernon, California, USA
-            </td>   
+                3461 East Vernon Avenue, Vernon, California 90058, United States
+            </td>
                 <td class="table__cell">
                 34.00678, -118.20895
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles Memorial Sports Arena   3939 S. Figueroa Street, Los Angeles, California, USA
-            </td>   
+                3939 North Figueroa Street, Los Angeles, California 90065, United States
+            </td>
                 <td class="table__cell">
                 34.0921, -118.21073
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                North Christopher Columbus Blvd, Philadelphia, Pennsylvania, USA 
-            </td>   
+                North Christopher Columbus Boulevard, Pennsylvania, United States
+            </td>
                 <td class="table__cell">
                 39.9545, -75.13822
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                S. 9th Street & Washington Avenue, Philadelphia, Pennsylvania, USA 
-            </td>   
+                South 9th Street and Washington Avenue, Philadelphia, Pennsylvania 19147, United States
+            </td>
                 <td class="table__cell">
                 39.9363562, -75.1584044
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ice Capades Chalet   500 Broadway, Santa Monica, California, USA 
-            </td>   
-                <td class="table__cell">
-                34.015565, -118.49179
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Philadelphia, Pennsylvania, USA
-            </td>   
-                <td class="table__cell">
-                40.0115, -75.1327
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                2146 N Front Street, Philadelphia, Pennsylvania, USA 
-            </td>   
-                <td class="table__cell">
-                39.982865, -75.132845
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Olympic Auditorium   1801 S. Grand Avenue, Downtown, Los Angeles, California, USA
-            </td>   
-                <td class="table__cell">
-                34.124076, -118.163214
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                2147 N Front Street, Philadelphia, Pennsylvania, USA 
-            </td>   
-                <td class="table__cell">
-                39.9824, -75.13259
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Kensington, North Philadelphia, Pennsylvania, USA
-            </td>   
-                <td class="table__cell">
-                39.986, -75.1318
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Philadelphia City Hall   1450 John F. Kennedy Blvd., Philadelphia, Pennsylvania, USA
-            </td>   
-                <td class="table__cell">
-                40.0115, -75.1327
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                320 East Gurney Street, Philadelphia, Pennsylvania, USA 
-            </td>   
-                <td class="table__cell">
-                39.990806, -75.126172
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Vernon, California, USA
-            </td>   
-                <td class="table__cell">
-                34.007, -118.225
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Santa Monica, California, USA
-            </td>   
+                Santa Monica, California, United States
+            </td>
                 <td class="table__cell">
                 34.0196, -118.487
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Downtown, Los Angeles, California, USA
-            </td>   
+                Philadelphia, Pennsylvania, United States
+            </td>
+                <td class="table__cell">
+                40.0115, -75.1327
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                2146 North Front Street, Philadelphia, Pennsylvania 19122, United States
+            </td>
+                <td class="table__cell">
+                39.982865, -75.132845
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                1801 Grand Avenue, Pasadena, California 91030, United States
+            </td>
+                <td class="table__cell">
+                34.124076, -118.163214
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                2147 N Front St, Philadelphia, Pennsylvania 19122, United States
+            </td>
+                <td class="table__cell">
+                39.9824, -75.13259
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Kensington, Philadelphia, Pennsylvania, United States
+            </td>
+                <td class="table__cell">
+                39.986, -75.1318
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Philadelphia, Pennsylvania, United States
+            </td>
+                <td class="table__cell">
+                40.0115, -75.1327
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                320 East Gurney Street, Philadelphia, Pennsylvania 19134, United States
+            </td>
+                <td class="table__cell">
+                39.990806, -75.126172
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Vernon, California, United States
+            </td>
+                <td class="table__cell">
+                34.007, -118.225
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Santa Monica, California, United States
+            </td>
+                <td class="table__cell">
+                34.0196, -118.487
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Downtown, Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.05, -118.23
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, USA
-            </td>   
+                Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.0544, -118.2439
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                California, USA
-            </td>   
+                California, United States
+            </td>
                 <td class="table__cell">
                 37.0743595873, -119.699375153073
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pennsylvania, USA
-            </td>   
+                Pennsylvania, United States
+            </td>
                 <td class="table__cell">
                 41.0911397651, -78.2907462468837
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                3390 Robertson Boulevard   Culver City, California, USA 
-            </td>   
+                United States
+            </td>
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                3390 South Robertson Boulevard, Culver City, California 90034, United States
+            </td>
                 <td class="table__cell">
                 34.0283, -118.390355
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Culver City, California, USA
-            </td>   
+                Culver City, California, United States
+            </td>
                 <td class="table__cell">
                 34.0211, -118.3965
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[33.9275, -118.2781], [34.00678, -118.20895], [34.007, -118.225]], "data": [{"lat": 39.989915, "lon": -75.12405, "name": "1818 East Tusculum Street, Philadelphia, Pennsylvania 19134, United States"}, {"lat": 39.933260000000004, "lon": -75.15919199999999, "name": "Pat\u0027s King of Steaks, 1301 E Passyunk Ave, Philadelphia, Pennsylvania 19147, United States"}, {"lat": 39.992385, "lon": -75.12534, "name": "2822-2824 Rosehill Street, Philadelphia, Pennsylvania 19134, United States"}, {"lat": 39.97, "lon": -75.19, "name": "Fairmount Park, Philadelphia, Pennsylvania, United States"}, {"lat": 40.0115, "lon": -75.1327, "name": "Philadelphia, Pennsylvania, United States"}, {"lat": 34.023285, "lon": -118.203436, "name": "1114 South Lorena Street, Los Angeles, California 90023, United States"}, {"lat": 39.922405, "lon": -75.16553, "name": "1124 Jackson Street, Philadelphia, Pennsylvania 19148, United States"}, {"lat": 39.9234651, "lon": -75.1661144, "name": "South 12th Street and Cantrell Street, Philadelphia, Pennsylvania 19148, United States"}, {"lat": 33.9275, "lon": -118.2781, "name": "South, California, United States"}, {"lat": 34.00678, "lon": -118.20895, "name": "3461 East Vernon Avenue, Vernon, California 90058, United States"}, {"lat": 34.0921, "lon": -118.21073, "name": "3939 North Figueroa Street, Los Angeles, California 90065, United States"}, {"lat": 39.9545, "lon": -75.13822, "name": "North Christopher Columbus Boulevard, Pennsylvania, United States"}, {"lat": 39.9363562, "lon": -75.1584044, "name": "South 9th Street and Washington Avenue, Philadelphia, Pennsylvania 19147, United States"}, {"lat": 34.0196, "lon": -118.487, "name": "Santa Monica, California, United States"}, {"lat": 40.0115, "lon": -75.1327, "name": "Philadelphia, Pennsylvania, United States"}, {"lat": 39.982865, "lon": -75.132845, "name": "2146 North Front Street, Philadelphia, Pennsylvania 19122, United States"}, {"lat": 34.124076, "lon": -118.163214, "name": "1801 Grand Avenue, Pasadena, California 91030, United States"}, {"lat": 39.9824, "lon": -75.13259, "name": "2147 N Front St, Philadelphia, Pennsylvania 19122, United States"}, {"lat": 39.986, "lon": -75.1318, "name": "Kensington, Philadelphia, Pennsylvania, United States"}, {"lat": 40.0115, "lon": -75.1327, "name": "Philadelphia, Pennsylvania, United States"}, {"lat": 39.990806, "lon": -75.126172, "name": "320 East Gurney Street, Philadelphia, Pennsylvania 19134, United States"}, {"lat": 34.007, "lon": -118.225, "name": "Vernon, California, United States"}, {"lat": 34.0196, "lon": -118.487, "name": "Santa Monica, California, United States"}, {"lat": 34.05, "lon": -118.23, "name": "Downtown, Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 41.0911397651, "lon": -78.2907462468837, "name": "Pennsylvania, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 34.0283, "lon": -118.390355, "name": "3390 South Robertson Boulevard, Culver City, California 90034, United States"}, {"lat": 34.0211, "lon": -118.3965, "name": "Culver City, California, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

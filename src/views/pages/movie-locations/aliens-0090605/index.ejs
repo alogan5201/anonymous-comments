@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,80 +16,155 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Aliens</h3>
-                        <p class="card-text">
-                          Fifty-seven years after surviving an apocalyptic attack aboard her space vessel by merciless space creatures, Officer Ripley awakens from hyper-sleep and tries to warn anyone who will listen about the predators.
+                      <h3 class="card-title">Aliens</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Fifty-seven years after surviving an apocalyptic attack aboard her space vessel by merciless space creatures, Officer Ripley awakens from hyper-sleep and tries to warn anyone who will listen about the predators.  </span>
+                          <span > 57 years after Ellen Ripley had a close encounter with the reptilian alien creature from the first movie, she is called back, this time, to help a group of highly trained colonial marines fight off against the sinister extraterrestrials. But this time, the aliens have taken over a space colony on the moon LV-426. When the colonial marines are called upon to search the deserted space colony, they later find out that they are up against more than what they bargained for. Using specially modified machine guns and enough firepower, it's either fight or die as the space marines battle against the aliens. As the Marines do their best to defend themselves, Ripley must attempt to protect a young girl who is the sole survivor of the nearly wiped out space colony. -blazesnakes9.  </span>
+                          <span > Living in a state of suspended animation for the past fifty-seven years, the sole survivor of the bloody Nostromo massacre in Alien (1979), Lieutenant First Class Ellen Ripley, wakes up in a salvage ship on its way back to Earth. Now, faced with the consequences of her actions, disgraced Ripley reluctantly accepts to escort the junior executive, Carter Burke, along with a tough-as-nails squad of U.S. Colonial Marines to Hadley's Hope, the terraforming and mining colony on LV-426, in exchange for her pilot's licence. But, there, on the dark surface of the remote exoplanetary satellite, multitudes of predatory endoparasitoid creatures known as Xenomorphs, just like the aggressive Stage 3 drone that killed Ellen's companions, prowl the area. This time, it's war, and as the undaunted, acid-spewing space-insects decimate the armed-to-the-teeth troops, once more, Ripley must take her life into her own hands. Can a woman alone put an end to the nightmare of the ferocious Aliens? -Nick Riganas.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > In James Cameron's superb sequel to Alien (1979), Sigourney Weaver returns to civilization and is recruited to rescue a space colony on the planet where the first alien reigned. Only one small girl has survived--but a whole nest of 'them' is waiting for new prey. Hellbent on saving the child, Weaver takes on the alien leader, a female protecting her young, in a fight to the death.  </span>
+    <span class="additional-information" > Fifty-seven years after surviving an apocalyptic attack aboard her space vessel by merciless space creatures, Officer Ripley (Sigourney Weaver) awakens from hyper-sleep and tries to warn anyone who will listen about the predators. Although she is ignored at first, when contact with colonists on a planet thought safe is suddenly lost, Ripley and a military team are sent to confront the aliens.  </span>
+    <span class="additional-information" > Ellen Ripley, the sole survivor of the alien attack on the mining ship Nostromo, awakens 57 years later when she is found by a salvage vessel. The welcome given to her by the Company officials is far from warm, since they refuse to believe her discovery of alien existence and revoke her flight officer's license. Much to her horror, Ripley also discovers that the moon LV-426 where her crew had encountered an alien species for the first time, is now colonized by the Company. But when all contact from the moon is lost, Ripley is called back into action again as an advisor to a team of tough space marines with a great deal of firepower. To get rid of her recurrent nightmares about the alien creature, Ripley prepares for a final battle with the monsters - and this time, there are hundreds of them out there. -Soumitra.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BZGU2OGY5ZTYtMWNhYy00NjZiLWI0NjUtZmNhY2JhNDRmODU3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Aliens"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Acton Lane Power Station, Acton Lane, Acton, London, England, UK 
-            </td>   
+                England, United Kingdom
+            </td>
                 <td class="table__cell">
-                51.5, -0.1667
-                    </td>   
-          </tr> 
+                52.38145972, -0.676181762467007
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Albert R. Broccoli 007 Stage, Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
-            </td>   
+                007 Stage Pinewood, Pinewood Road, Iver, England SL0 0NQ, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.549791, -0.535229
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pinewood Studios, Iver Heath, Buckinghamshire, England, UK 
-            </td>   
+                Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.5483805, -0.5348885
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[51.5483805, -0.5348885], [51.549791, -0.535229], [52.38145972, -0.676181762467007]], "data": [{"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.549791, "lon": -0.535229, "name": "007 Stage Pinewood, Pinewood Road, Iver, England SL0 0NQ, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

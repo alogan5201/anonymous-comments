@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,96 +16,154 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">WALL·E</h3>
-                        <p class="card-text">
-                          In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.
+                      <h3 class="card-title">WALL·E</h3>
+          <p class="card-text mb-0">
+
+
+  <span > In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.  </span>
+                          <span > In a distant, but not so unrealistic, future where mankind has abandoned earth because it has become covered with trash from products sold by the powerful multi-national Buy N Large corporation, WALL-E, a garbage collecting robot has been left to clean up the mess. Mesmerized with trinkets of Earth's history and show tunes, WALL-E is alone on Earth except for a sprightly pet cockroach. One day, EVE, a sleek (and dangerous) reconnaissance robot, is sent to Earth to find proof that life is once again sustainable. WALL-E falls in love with EVE. WALL-E rescues EVE from a dust storm and shows her a living plant he found amongst the rubble. Consistent with her "directive", EVE takes the plant and automatically enters a deactivated state except for a blinking green beacon. WALL-E, doesn't understand what has happened to his new friend, but, true to his love, he protects her from wind, rain, and lightning, even as she is unresponsive. One day a massive ship comes to reclaim EVE, but WALL-E, out of love or loneliness, hitches a ride on the outside of the ship to rescue EVE. The ship arrives back at a large space cruise ship, which is carrying all of the humans who evacuated Earth 700 years earlier. The people of Earth ride around this space resort on hovering chairs which give them a constant feed of TV and video chatting. They drink all of their meals through a straw out of laziness and/or bone loss, and are all so fat that they can barely move. When the auto-pilot computer, acting on hastily-given instructions sent many centuries before, tries to prevent the people of Earth from returning by stealing the plant, WALL-E, EVE, the portly captain, and a band of broken robots stage a mutiny.  </span>
+                          <span > In the distant future, humans abandon Earth because there is too much trash on it. WALL-E, with habit of picking up everything he finds interesting, lives alone on the planet with a pet cockroach. He has quite a collection of things, from lighters to a working iPod and even a small ring box (without the ring). He even has the last living plant. When a spaceship comes to earth and drops a sleek and dangerous probe EVE to look for a living plant, WALL-E falls in love with her. WALL-E gives her the plant, which makes EVE go into sleep mode. When a spaceship comes to take EVE back, WALL-E too goes with her. What follows is an adventure onboard the Axiom, where people move on hovering chairs and get liquid food which they suck up through a straw. Due to laziness, they have become so fat that they are unable to move. Due to hastily given instructions given to it, auto, the autopilot it tries to get rid of the plant which compels WALL-E, EVE, the pilot and some malfunctioning robots to find a way to retrieve the plant and save the earth. -srijanarora-152-448595.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > WALL-E, short for Waste Allocation Load Lifter Earth-class, is the last robot left on Earth. He spends his days tidying up the planet, one piece of garbage at a time. But during 700 years, WALL-E has developed a personality, and he's more than a little lonely. Then he spots EVE, a sleek and shapely probe sent back to Earth on a scanning mission. Smitten WALL-E embarks on his greatest adventure yet when he follows EVE across the galaxy. -Jwelch5742.  </span>
+    <span class="additional-information" > It's late in the third millennium, and Earth has become an uninhabitable wasteland with nothing able to grow. Several hundred years earlier, a corporation called Buy-N-Large shipped all humans off the planet to live on starships, they biding their time until Earth is able to regenerate itself into an inhabitable planet. They also left WALL·E (Waste Allocation Load Lifter: Earth-Class) robots on Earth to clean up and compact all the industrial waste. Only one WALL·E remains, it which has gained emotions and the ability to feel. In order to survive emotionally, WALL·E uses whatever it can find as touchstones to past life on Earth. Despite their initial antagonistic encounter, WALL·E befriends an EVE (Extra-terrestrial Vegetation Evaluator), a droid sent from the mother ship, Axiom, as a sensor to gauge if life has regenerated on Earth. Not knowing about EVE's mission, WALL·E is surprised by EVE's interest in a small seedling WALL·E previously found and brought back to its makeshift abode. In EVE needing to take the seedling back to Axiom, WALL·E, not wanting to lose its new friend, hitches a ride as a stowaway to Axiom. A combination of WALL·E making it back to Axiom and EVE bringing back the seedling leads to a risk to both their survival, as AUTO, the automated pilot manning Axiom, has its own agenda against the recolonization of Earth. -Huggo.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="WALL·E"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Animation Studios   2100 Riverside Drive, Burbank, California, USA
-            </td>   
+                Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States
+            </td>
                 <td class="table__cell">
                 34.155243, -118.323675
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
-            </td>   
+                1200 Park Avenue, San Jacinto, California 92583, United States
+            </td>
                 <td class="table__cell">
-                33.763315, -116.941071
-                    </td>   
-          </tr> 
+                33.763345, -116.941164
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New York City, New York, USA
-            </td>   
-                <td class="table__cell">
-                40.751296, -73.984819
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Chicago Illinois, USA 
-            </td>   
-                <td class="table__cell">
-                41.8756, -87.6244
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
-            </td>   
+                500 South Buena Vista Street, Hemet, California 92543, United States
+            </td>
                 <td class="table__cell">
                 33.7403, -116.967278
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 34.155243, "lon": -118.323675, "name": "Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States"}, {"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

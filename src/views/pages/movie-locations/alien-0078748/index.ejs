@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,80 +16,186 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Alien</h3>
-                        <p class="card-text">
-                          The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.
+                      <h3 class="card-title">Alien</h3>
+          <p class="card-text mb-0">
+
+
+  <span > The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.  </span>
+                          <span > In the distant future, the crew of the commercial spaceship Nostromo are on their way home when they pick up a distress call from a distant moon. The crew are under obligation to investigate and the spaceship descends on the moon afterwards. After a rough landing, three crew members leave the spaceship to explore the area on the moon. At the same time as they discover a hive colony of some unknown creature, the ship's computer deciphers the message to be a warning, not a distress call. When one of the eggs is disturbed, the crew realizes that they are not alone on the spaceship and they must deal with the consequences. -blazesnakes9.  </span>
+                          <span > In the far reaches of space, a crew on-board the ship Nostromo are returning to Earth until they receive a distress call, an alien one. Unknown to them, they will soon take back with them the most terrifying creature in the universe: The Xenomorph, a killing machine that bleeds corrosive acid whenever anyone tries to hurt it. All alone in space, no one can hear them scream: trying to warn the rest of the galaxy of the terror that is the Xenomorph. -Johnny.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > In the depths of the cold, boundless space, Mother, the state-of-the-art AI super-computer aboard the commercial towing vehicle, USCSS Nostromo, detects a possible distress signal from the nearby barren, inhospitable moon, Acheron, and awakens the seven-member crew from cryosleep. To investigate the mysterious transmission, Captain Arthur Dallas, along with the executive officer, Thomas Kane, and navigator, Joan Lambert, descend to the dim-lit celestial body known as LV-426, only to discover a downed but relatively intact extraterrestrial spacecraft, and its bizarre cargo. But, was this cryptic signal, indeed, a desperate SOS, or was it a warning? Either way, somehow, something else, too, has found its way into the Nostromo, and now, its silent, dark corridors will never be safe again. Who dares to confront the formidable Alien, the unwanted eighth passenger? -Nick Riganas.  </span>
+    <span class="additional-information" > In the distant future, during her return to Earth, the commercial spaceship Nostromo intercepts a distress call from a distant moon. The seven-member crew are awakened from hypersleep and the spaceship subsequently descends on the moon. While exploring the moon, a three-member team of the crew discover a derelict spaceship and a huge chamber inside her containing thousands of eggs. When a curious team member goes near the egg, the parasite inside the egg attacks him, rendering him unconscious. He is brought back aboard and the spaceship takes off. After a little while, the parasite dies and his host wakes up seemingly unruffled. Everything soon returns to normal, but not for long. -Soumitra.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMmQ2MmU3NzktZjAxOC00ZDZhLTk4YzEtMDMyMzcxY2IwMDAyXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                      src="https://m.media-amazon.com/images/M/MV5BODJmOTU4ZTUtMTk2Ny00NjAwLWI2N2QtMjIyNWE2NmI2ZDhhXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Alien"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shepperton Studios, Shepperton, Surrey, England, UK 
-            </td>   
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.407444, -0.465177
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Bray Studios, Down Place, Oakley Green, Berkshire, England, UK 
-            </td>   
-                <td class="table__cell">
-                51.490464, -0.675138
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Acton Lane Power Station, Acton Lane, London, England, UK 
-            </td>   
-                <td class="table__cell">
-                51.5, -0.1667
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                England, United Kingdom
+            </td>
+                <td class="table__cell">
+                52.38145972, -0.676181762467007
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                England, United Kingdom
+            </td>
+                <td class="table__cell">
+                52.38145972, -0.676181762467007
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.407444, -0.465177
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.407444, -0.465177
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.407444, -0.465177
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.407444, -0.465177
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[51.407444, -0.465177], [51.407444, -0.465177], [51.407444, -0.465177]], "data": [{"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

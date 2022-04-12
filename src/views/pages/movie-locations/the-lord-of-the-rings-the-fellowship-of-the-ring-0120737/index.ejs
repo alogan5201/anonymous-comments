@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,368 +16,435 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Lord of the Rings: The Fellowship of the Ring</h3>
-                        <p class="card-text">
-                          A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.
+                      <h3 class="card-title">The Lord of the Rings: The Fellowship of the Ring</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.  </span>
+                          <span > An ancient Ring thought lost for centuries has been found, and through a strange twist of fate has been given to a small Hobbit named Frodo. When Gandalf discovers the Ring is in fact the One Ring of the Dark Lord Sauron, Frodo must make an epic quest to the Cracks of Doom in order to destroy it. However, he does not go alone. He is joined by Gandalf, Legolas the elf, Gimli the Dwarf, Aragorn, Boromir, and his three Hobbit friends Merry, Pippin, and Samwise. Through mountains, snow, darkness, forests, rivers and plains, facing evil and danger at every corner the Fellowship of the Ring must go. Their quest to destroy the One Ring is the only hope for the end of the Dark Lords reign. -Paul Twomey .  </span>
+                          <span > The future of civilization rests in the fate of the One Ring, which has been lost for centuries. Powerful forces are unrelenting in their search for it. But fate has placed it in the hands of a young Hobbit named Frodo Baggins, who inherits the Ring and steps into legend. A daunting task lies ahead for Frodo when he becomes the Ringbearer, to destroy the One Ring in the fires of Mount Doom where it was forged. -Jwelch5742.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The power of Bilbo Baggins' ring of invisibility may have been underestimated, Gandalf the Grey fears its power even with his unfathomable magical abilities. As the power of the one Ring grows, so too do the armies of Sauron and Sarumon as their evil spreads across the lands of man, dwarf, and elf alike. It is up to a ragtag band of heroes to carry the ring to Mount Doom, the evil place of its birth, and cast it into the eternal fires that forged it. Does the fellowship have what it takes to complete its task, or will the powers of evil overcome those of good leaving behind a world ravaged by the rage of Sauron, the Dark Lord? -ahmetkozan.  </span>
+    <span class="additional-information" > In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, still it remained lost to him. After many ages it fell, by chance, into the hands of the Hobbit, Bilbo Baggins. On his eleventy-first birthday, Bilbo disappeared, bequeathing to his young nephew, Frodo, the Ruling Ring, and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord and destroy the Ring by casting it into the Cracks of Doom. -The Tolkien Society.  </span>
+    <span class="additional-information" > In ancient times, the Elven-smiths created the Rings of Power. Then the Dark Lord Sauron created a Ring to rule the Lesser Rings. But the Ring was stolen, and for a long time, he thought it to be lost. But many years later, the Ring came to the hobbit, Bilbo Baggins. In a land called the Shire, Frodo inherits the Ring from his uncle, Bilbo. Now Frodo must take a journey across Middle-earth, and throw the Ring into the volcano, Mt. Doom, the only place it can be destroyed. -nathan77.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Lord of the Rings: The Fellowship of the Ring"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Wellington, New Zealand 
-            </td>   
+                Wellington, Wellington, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.28889, 174.77722
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hinuera Valley, Matamata, Waikato, New Zealand 
-            </td>   
+                Hinuera Road, Matamata, Matamata 3472, New Zealand
+            </td>
                 <td class="table__cell">
                 -37.8529654, 175.7575813
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kaitoke Regional Park, Wellington Region, New Zealand 
-            </td>   
+                Kaitoke Regional Park, Waterworks Road, Upper Hutt, Wellington 5018, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.066716, 175.196501
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Queenstown, Otago, New Zealand 
-            </td>   
+                Queenstown, Otago, New Zealand
+            </td>
                 <td class="table__cell">
                 -45.03023, 168.66271
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Milford Sound, Fiordland National Park, Southland, New Zealand
-            </td>   
+                Fiordland National Park, Te Anau, Southland, New Zealand
+            </td>
                 <td class="table__cell">
                 -44.495032, 168.083297
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Port Waikato, Waikato, New Zealand 
-            </td>   
+                Port Waikato, Tuakau, Waikato, New Zealand
+            </td>
                 <td class="table__cell">
                 -37.3913, 174.7173
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fernside, Featherston, Wairarapa, New Zealand 
-            </td>   
+                Featherston, Wellington, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.11667, 175.31667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rangipo Desert, Waiouru, Tongariro National Park, Central Plateau, New Zealand
-            </td>   
+                Rangipo, Turangi, Waikato, New Zealand
+            </td>
                 <td class="table__cell">
                 -39.1309, 175.8088
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rangitikei River, Manawatu Wanganui, New Zealand 
-            </td>   
+                Rangitīkei River Bridge, Bulls, Bulls 4818, New Zealand
+            </td>
                 <td class="table__cell">
                 -40.1879954, 175.38772705000002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tongariro National Park, Central Plateau, New Zealand 
-            </td>   
+                Tongariro National Park, Owhango, Manawatu-Wanganui, New Zealand
+            </td>
                 <td class="table__cell">
                 -39.2, 175.54
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lake Wakatipu, Queenstown, Otago, New Zealand 
-            </td>   
+                Lake Wakatipu, Lake Esp, Queenstown, Otago 9300, New Zealand
+            </td>
                 <td class="table__cell">
                 -45.034472, 168.659878
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mavora Lakes, Southland, New Zealand 
-            </td>   
+                Mavora Lakes Road, The Key, Te Anau 9672, New Zealand
+            </td>
                 <td class="table__cell">
                 -45.4235751, 168.0792459
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tarras, Wanaka, Otago, New Zealand 
-            </td>   
+                Tarras, Cromwell, Otago, New Zealand
+            </td>
                 <td class="table__cell">
                 -44.8332, 169.4248
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Canterbury, New Zealand 
-            </td>   
+                Canterbury, New Zealand
+            </td>
                 <td class="table__cell">
                 -43.6, 172
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Poet's Corner, Upper Hutt, Wellington, New Zealand 
-            </td>   
-                <td class="table__cell">
-                -41.13333, 175.05
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                South Island, New Zealand 
-            </td>   
-                <td class="table__cell">
-                -41.288888, 174.00042
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Harcourt Park, Upper Hutt, Wellington, New Zealand 
-            </td>   
-                <td class="table__cell">
-                -41.102233, 175.094225
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Upper Hutt, Wellington, New Zealand
-            </td>   
+            </td>
                 <td class="table__cell">
                 -41.13333, 175.05
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Camperdown Studios, Camperdown Road, Miramar, Wellington, New Zealand 
-            </td>   
+                The South Island, Picton, Marlborough 7220, New Zealand
+            </td>
+                <td class="table__cell">
+                -41.288888, 174.00042
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Harcourt Park, Upper Hutt, Wellington 5018, New Zealand
+            </td>
+                <td class="table__cell">
+                -41.102233, 175.094225
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Upper Hutt, Wellington, New Zealand
+            </td>
+                <td class="table__cell">
+                -41.13333, 175.05
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Camperdown Road, Miramar, Wellington 6022, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.3066553, 174.8254519
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Twizel, Canterbury, New Zealand
-            </td>   
+            </td>
                 <td class="table__cell">
                 -44.25, 170.1
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Arrowtown Recreational Reserve, Arrowtown, Otago, New Zealand 
-            </td>   
+                Arrowtown, Arrowtown, Otago, New Zealand
+            </td>
                 <td class="table__cell">
                 -44.9406, 168.8351
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Paradise, Glenorchy, Otago, New Zealand 
-            </td>   
+                Glenorchy, Otago, New Zealand
+            </td>
                 <td class="table__cell">
                 -44.85, 168.38333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Te Anau, Southland District, Southland, New Zealand 
-            </td>   
+                Te Anau, Southland, New Zealand
+            </td>
                 <td class="table__cell">
                 -45.41667, 167.71667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lake Alta, The Remarkables, Nelson, South Island, New Zealand 
-            </td>   
+                Nelson, Nelson, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.29306, 173.23806
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Closeburn, Southern Lakes, South Island, New Zealand 
-            </td>   
+                Southern, Iceland
+            </td>
                 <td class="table__cell">
                 63.93306, -20.99694
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Abel Tasman National Park, South Island, Tasman Region, New Zealand 
-            </td>   
+                Abel Tasman National Park, Takaka, Tasman, New Zealand
+            </td>
                 <td class="table__cell">
                 -40.96466, 173.047404
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Otaki Gorge Road, Kapiti Coast District, North Island, New Zealand 
-            </td>   
+                Gorge Road, Invercargill, Southland, New Zealand
+            </td>
                 <td class="table__cell">
                 -46.540031, 168.724828
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Takaka Hill, Nelson, South Island, New Zealand 
-            </td>   
+                Nelson, Nelson, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.29306, 173.23806
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kepler Mire, Te Anau, South Island, New Zealand 
-            </td>   
+                Te Anau, Southland, New Zealand
+            </td>
                 <td class="table__cell">
                 -45.41667, 167.71667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mount Owen, Tasman district, Nelson, South Island, New Zealand 
-            </td>   
+                Tasman, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.5, 172.8
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Paradise, Glenorchy, Otago, New Zealand 
-            </td>   
+                Glenorchy, Otago, New Zealand
+            </td>
                 <td class="table__cell">
                 -44.85, 168.38333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fort Dorset, Miramar, Wellington, New Zealand 
-            </td>   
+                Wellington, Wellington, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.28889, 174.77722
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hutt Valley, Wellington, New Zealand 
-            </td>   
+                Wellington, Wellington, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.28889, 174.77722
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Whakapapa Skifield, Mount Ruapehu, Tongariro National Park, New Zealand 
-            </td>   
+                Whakapapa Skifield, Bruce Rd, Owhango, Manawatu-Wanganui 3989, New Zealand
+            </td>
                 <td class="table__cell">
                 -39.236999999999995, 175.55656
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Keeling Farm, Manakau, Horowhenua District, North Island, New Zealand 
-            </td>   
+                Manakau, Levin, Manawatu-Wanganui, New Zealand
+            </td>
                 <td class="table__cell">
                 -40.7149, 175.2165
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Waitarere Forest, Horowhenua District, North Island, New Zealand 
-            </td>   
+                New Zealand
+            </td>
                 <td class="table__cell">
                 -41.8388752215127, 171.779900195937
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mount Olympus, Nelson, South Island, New Zealand 
-            </td>   
+                Nelson, Nelson, New Zealand
+            </td>
                 <td class="table__cell">
                 -41.29306, 173.23806
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Upper Waiau River, Fiordland National Park, South Island, New Zealand 
-            </td>   
+                Waiau, Canterbury, New Zealand
+            </td>
                 <td class="table__cell">
                 -42.65444, 173.0425
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Chicago, Illinois, USA
-            </td>   
-                <td class="table__cell">
-                41.8756, -87.6244
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[-45.4235751, 168.0792459], [-45.41667, 167.71667], [-45.41667, 167.71667]], "data": [{"lat": -41.28889, "lon": 174.77722, "name": "Wellington, Wellington, New Zealand"}, {"lat": -37.8529654, "lon": 175.7575813, "name": "Hinuera Road, Matamata, Matamata 3472, New Zealand"}, {"lat": -41.066716, "lon": 175.196501, "name": "Kaitoke Regional Park, Waterworks Road, Upper Hutt, Wellington 5018, New Zealand"}, {"lat": -45.03023, "lon": 168.66271, "name": "Queenstown, Otago, New Zealand"}, {"lat": -44.495032, "lon": 168.083297, "name": "Fiordland National Park, Te Anau, Southland, New Zealand"}, {"lat": -37.3913, "lon": 174.7173, "name": "Port Waikato, Tuakau, Waikato, New Zealand"}, {"lat": -41.11667, "lon": 175.31667, "name": "Featherston, Wellington, New Zealand"}, {"lat": -39.1309, "lon": 175.8088, "name": "Rangipo, Turangi, Waikato, New Zealand"}, {"lat": -40.1879954, "lon": 175.38772705000002, "name": "Rangit\u012bkei River Bridge, Bulls, Bulls 4818, New Zealand"}, {"lat": -39.2, "lon": 175.54, "name": "Tongariro National Park, Owhango, Manawatu-Wanganui, New Zealand"}, {"lat": -45.034472, "lon": 168.659878, "name": "Lake Wakatipu, Lake Esp, Queenstown, Otago 9300, New Zealand"}, {"lat": -45.4235751, "lon": 168.0792459, "name": "Mavora Lakes Road, The Key, Te Anau 9672, New Zealand"}, {"lat": -44.8332, "lon": 169.4248, "name": "Tarras, Cromwell, Otago, New Zealand"}, {"lat": -43.6, "lon": 172, "name": "Canterbury, New Zealand"}, {"lat": -41.13333, "lon": 175.05, "name": "Upper Hutt, Wellington, New Zealand"}, {"lat": -41.288888, "lon": 174.00042, "name": "The South Island, Picton, Marlborough 7220, New Zealand"}, {"lat": -41.102233, "lon": 175.094225, "name": "Harcourt Park, Upper Hutt, Wellington 5018, New Zealand"}, {"lat": -41.13333, "lon": 175.05, "name": "Upper Hutt, Wellington, New Zealand"}, {"lat": -41.3066553, "lon": 174.8254519, "name": "Camperdown Road, Miramar, Wellington 6022, New Zealand"}, {"lat": -44.25, "lon": 170.1, "name": "Twizel, Canterbury, New Zealand"}, {"lat": -44.9406, "lon": 168.8351, "name": "Arrowtown, Arrowtown, Otago, New Zealand"}, {"lat": -44.85, "lon": 168.38333, "name": "Glenorchy, Otago, New Zealand"}, {"lat": -45.41667, "lon": 167.71667, "name": "Te Anau, Southland, New Zealand"}, {"lat": -41.29306, "lon": 173.23806, "name": "Nelson, Nelson, New Zealand"}, {"lat": 63.93306, "lon": -20.99694, "name": "Southern, Iceland"}, {"lat": -40.96466, "lon": 173.047404, "name": "Abel Tasman National Park, Takaka, Tasman, New Zealand"}, {"lat": -46.540031, "lon": 168.724828, "name": "Gorge Road, Invercargill, Southland, New Zealand"}, {"lat": -41.29306, "lon": 173.23806, "name": "Nelson, Nelson, New Zealand"}, {"lat": -45.41667, "lon": 167.71667, "name": "Te Anau, Southland, New Zealand"}, {"lat": -41.5, "lon": 172.8, "name": "Tasman, New Zealand"}, {"lat": -44.85, "lon": 168.38333, "name": "Glenorchy, Otago, New Zealand"}, {"lat": -41.28889, "lon": 174.77722, "name": "Wellington, Wellington, New Zealand"}, {"lat": -41.28889, "lon": 174.77722, "name": "Wellington, Wellington, New Zealand"}, {"lat": -39.236999999999995, "lon": 175.55656, "name": "Whakapapa Skifield, Bruce Rd, Owhango, Manawatu-Wanganui 3989, New Zealand"}, {"lat": -40.7149, "lon": 175.2165, "name": "Manakau, Levin, Manawatu-Wanganui, New Zealand"}, {"lat": -41.8388752215127, "lon": 171.779900195937, "name": "New Zealand"}, {"lat": -41.29306, "lon": 173.23806, "name": "Nelson, Nelson, New Zealand"}, {"lat": -42.65444, "lon": 173.0425, "name": "Waiau, Canterbury, New Zealand"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

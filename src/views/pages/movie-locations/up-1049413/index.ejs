@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,80 +16,155 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Up</h3>
-                        <p class="card-text">
-                          78-year-old Carl Fredricksen travels to Paradise Falls in his house equipped with balloons, inadvertently taking a young stowaway.
+                      <h3 class="card-title">Up</h3>
+          <p class="card-text mb-0">
+
+
+  <span > 78-year-old Carl Fredricksen travels to Paradise Falls in his house equipped with balloons, inadvertently taking a young stowaway.  </span>
+                          <span > As a boy, Carl Fredricksen wanted to explore South America and find the forbidden Paradise Falls. About 64 years later he gets to begin his journey along with Boy Scout Russell by lifting his house with thousands of balloons. On their journey, they make many new friends including a talking dog, and figure out that someone has evil plans. Carl soon realizes that this evildoer is his childhood idol.  </span>
+                          <span > 78-year-old balloon salesman Carl Fredricksen is about to fulfill a lifelong dream. Tying thousands of balloons to his house, he flies away to the South American wilderness. But curmudgeonly Carl's worst nightmare comes true when he discovers a stowaway aboard: a Boy Scout named Russell. -Jwelch5742.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Determined to save his home and keep the promise he made to his wife, widower Carl Fredricksen embarks on a journey to the mysterious Paradise Falls in an airship of his own invention. Along the way he meets his childhood hero, forms a bond with a boy who has an absent father, and realizes the preciousness of the life he lived as well as the one he now lives. -David J. Rizzo.  </span>
+    <span class="additional-information" > After his wife's death and an incident at home, elderly Carl Fredricksen is forced into a retirement home, but he still wants to go on the South American adventure he and his wife had planned. Ultimately, the adventure involves a flying house, a young boy, a talking dog, and a large, strange bird. -grantss.  </span>
+    <span class="additional-information" > Little Carl Fredricksen is a dreamer who idolizes the adventurer Charles Muntz. When he meets Ellie, who also worships Muntz, they become close friends. However Charles Muntz falls into disgrace, accused of forging the skeleton of the monster of Paradise Falls. He travels in his blimp to South America to bring the monster back alive but is never seen again. Eventually Carl grows up and marries Ellie. They promise each other that they will travel together to Paradise Falls and build a house there. Many years later, Ellie dies and lonely Carl refuses to move from their home despite an offer from the owner of a construction company. When Carl accidentally hits a worker who damaged his mailbox, he is sentenced to move to a retirement home. However, he uses many balloons to float his house in order to travel to Paradise Falls. Adventure ensues. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMTk3NDE2NzI4NF5BMl5BanBnXkFtZTgwNzE1MzEyMTE@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Up"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
-            </td>   
+                1200 Park Avenue, San Jacinto, California 92583, United States
+            </td>
                 <td class="table__cell">
-                33.763315, -116.941071
-                    </td>   
-          </tr> 
+                33.763345, -116.941164
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Animation Studios   2100 Riverside Drive, Burbank, California, USA
-            </td>   
+                Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States
+            </td>
                 <td class="table__cell">
                 34.155243, -118.323675
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
-            </td>   
+                500 South Buena Vista Street, Hemet, California 92543, United States
+            </td>
                 <td class="table__cell">
                 33.7403, -116.967278
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 34.155243, "lon": -118.323675, "name": "Walt Disney Animation Studios, 2100 W Riverside Dr, Burbank, California 91506, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

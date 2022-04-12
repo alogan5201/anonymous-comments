@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,232 +16,305 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Matrix</h3>
-                        <p class="card-text">
-                          When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.
+                      <h3 class="card-title">The Matrix</h3>
+          <p class="card-text mb-0">
+
+
+  <span > When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.  </span>
+                          <span > Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. As a rebel against the machines, Neo must confront the agents: super-powerful computer programs devoted to stopping Neo and the entire human rebellion. -redcommander27.  </span>
+                          <span > Have you ever had a dream that you were so sure was real? What if you couldn't awaken? How would you know the difference between dream and reality? When a beautiful stranger (Carrie-Anne Moss) leads computer hacker Neo (Keanu Reeves) to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence. Neo joins legendary and dangerous rebel warrior Morpheus (Laurence Fishburne in the battle to destroy the illusion enslaving humanity.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > During the year 1999, a man named Thomas Anderson (also known as Neo), lives an ordinary life. A software techie by day and a computer hacker by night, he sits alone at home by his monitor, waiting for a sign, a signal - from what or whom he doesn't know - until one night, a mysterious woman named Trinity seeks him out and introduces him to that faceless character he has been waiting for: Morpheus. A messiah of sorts, Morpheus presents Neo with the truth about his world by shedding light on the dark secrets that have troubled him for so long. -Anthony Pereyra {hypersonic91@yahoo.com}.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Matrix"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Nashville, Tennessee, USA 
-            </td>   
+                Nashville, Tennessee, United States
+            </td>
                 <td class="table__cell">
                 36.1622, -86.7744
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Sydney, New South Wales, Australia
-            </td>   
+            </td>
                 <td class="table__cell">
                 -33.868, 151.21
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Redfern, Sydney, New South Wales, Australia 
-            </td>   
+                Redfern, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.89334, 151.20461
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Francisco, California, USA 
-            </td>   
+                San Francisco, California, United States
+            </td>
                 <td class="table__cell">
                 37.7648, -122.463
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sydney Central Business District, Sydney, New South Wales, Australia
-            </td>   
+                Valuelabs, Sydney, New South Wales 2000, Australia
+            </td>
                 <td class="table__cell">
                 -33.865711, 151.211617
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Colonial State Bank Centre, Martin Place, Sydney, New South Wales, Australia 
-            </td>   
+                Sydney, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.868, 151.21
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Westin Hotel, Martin Place, Sydney, New South Wales, Australia 
-            </td>   
+                Martin Place, Mortdale New South Wales 2223, Australia
+            </td>
                 <td class="table__cell">
-                -33.8677115, 151.21011149999998
-                    </td>   
-          </tr> 
+                -33.9710544, 151.077457
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fox Studios, Moore Park, Sydney, New South Wales, Australia 
-            </td>   
+                Chifley Tower, 2 Chifley Sq, Sydney, New South Wales 2000, Australia
+            </td>
+                <td class="table__cell">
+                -33.8658715, 151.211714
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia
+            </td>
                 <td class="table__cell">
                 -33.892398, 151.226592
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Forty One Restaurant, Chifley Tower, Sydney, New South Wales, Australia 
-            </td>   
-                <td class="table__cell">
-                -33.96257, 151.2459
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                AON Tower, Kent Street, Sydney, New South Wales, Australia 
-            </td>   
-                <td class="table__cell">
-                -33.906331, 151.2581882
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                BT Tower, Market Street, Sydney, New South Wales, Australia 
-            </td>   
+                Market Street, Randwick New South Wales 2031, Australia
+            </td>
                 <td class="table__cell">
                 -33.9056746, 151.2463298
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Corner of Pitt, O'Connell and Hunter Streets, Sydney, New South Wales, Australia 
-            </td>   
+                Sydney, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.868, 151.21
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hickson Road, Millers Point, Sydney, New South Wales, Australia 
-            </td>   
+                Hickson Road, Millers Point New South Wales 2000, Australia
+            </td>
                 <td class="table__cell">
                 -33.8571872, 151.20515805
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rozelle, Sydney, New South Wales, Australia 
-            </td>   
+                Rozelle, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.8649, 151.167
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Waterloo, Sydney, New South Wales, Australia 
-            </td>   
+                Waterloo, New South Wales, Australia
+            </td>
                 <td class="table__cell">
-                -33.9004, 151.20664
-                    </td>   
-          </tr> 
+                -33.9, 151.2
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                White Bay Studios, Balmain, Sydney, New South Wales, Australia 
-            </td>   
+                White Street, Balmain New South Wales 2041, Australia
+            </td>
                 <td class="table__cell">
-                -33.861325, 151.281734
-                    </td>   
-          </tr> 
+                -33.8546419, 151.1722072
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Museum Underground Station, Hyde Park, Sydney, New South Wales, Australia 
-            </td>   
+                Hyde Park, Elizabeth St, Sydney, New South Wales 2000, Australia
+            </td>
                 <td class="table__cell">
                 -33.873447, 151.21119850000002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Martin Place Fountain, Martin Place, Sydney, New South Wales, Australia 
-            </td>   
+                Martin Place Fountain, Martin Pl., Sydney, New South Wales 2000, Australia
+            </td>
                 <td class="table__cell">
                 -33.867764, 151.210526
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pittwater, Broken Bay, New South Wales, Australia
-            </td>   
+                Pittwater, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.59, 151.32
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Surry Hills, Sydney, New South Wales, Australia
-            </td>   
+                Surry Hills, New South Wales, Australia
+            </td>
                 <td class="table__cell">
-                -33.884423, 151.206742
-                    </td>   
-          </tr> 
+                -33.88611, 151.21111
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Allianz Building, Market Street, Sydney, New South Wales, Australia 
-            </td>   
+                Kent Street, Waverley New South Wales 2024, Australia
+            </td>
+                <td class="table__cell">
+                -33.906331, 151.2581882
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Market Street, Randwick New South Wales 2031, Australia
+            </td>
                 <td class="table__cell">
                 -33.9056746, 151.2463298
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chippendale, Sydney, New South Wales, Australia
-            </td>   
+                Chippendale, New South Wales, Australia
+            </td>
                 <td class="table__cell">
                 -33.8863, 151.2
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[-33.9710544, 151.077457], [-33.906331, 151.2581882], [-33.9056746, 151.2463298]], "data": [{"lat": 36.1622, "lon": -86.7744, "name": "Nashville, Tennessee, United States"}, {"lat": -33.868, "lon": 151.21, "name": "Sydney, New South Wales, Australia"}, {"lat": -33.89334, "lon": 151.20461, "name": "Redfern, New South Wales, Australia"}, {"lat": 37.7648, "lon": -122.463, "name": "San Francisco, California, United States"}, {"lat": -33.865711, "lon": 151.211617, "name": "Valuelabs, Sydney, New South Wales 2000, Australia"}, {"lat": -33.868, "lon": 151.21, "name": "Sydney, New South Wales, Australia"}, {"lat": -33.9710544, "lon": 151.077457, "name": "Martin Place, Mortdale New South Wales 2223, Australia"}, {"lat": -33.8658715, "lon": 151.211714, "name": "Chifley Tower, 2 Chifley Sq, Sydney, New South Wales 2000, Australia"}, {"lat": -33.892398, "lon": 151.226592, "name": "Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia"}, {"lat": -33.9056746, "lon": 151.2463298, "name": "Market Street, Randwick New South Wales 2031, Australia"}, {"lat": -33.868, "lon": 151.21, "name": "Sydney, New South Wales, Australia"}, {"lat": -33.8571872, "lon": 151.20515805, "name": "Hickson Road, Millers Point New South Wales 2000, Australia"}, {"lat": -33.8649, "lon": 151.167, "name": "Rozelle, New South Wales, Australia"}, {"lat": -33.9, "lon": 151.2, "name": "Waterloo, New South Wales, Australia"}, {"lat": -33.8546419, "lon": 151.1722072, "name": "White Street, Balmain New South Wales 2041, Australia"}, {"lat": -33.873447, "lon": 151.21119850000002, "name": "Hyde Park, Elizabeth St, Sydney, New South Wales 2000, Australia"}, {"lat": -33.867764, "lon": 151.210526, "name": "Martin Place Fountain, Martin Pl., Sydney, New South Wales 2000, Australia"}, {"lat": -33.59, "lon": 151.32, "name": "Pittwater, New South Wales, Australia"}, {"lat": -33.88611, "lon": 151.21111, "name": "Surry Hills, New South Wales, Australia"}, {"lat": -33.906331, "lon": 151.2581882, "name": "Kent Street, Waverley New South Wales 2024, Australia"}, {"lat": -33.9056746, "lon": 151.2463298, "name": "Market Street, Randwick New South Wales 2031, Australia"}, {"lat": -33.8863, "lon": 151.2, "name": "Chippendale, New South Wales, Australia"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

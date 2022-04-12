@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -33,7 +33,7 @@
                       <div class="card-body">
                         <h3 class="card-title">Witness for the Prosecution</h3>
                         <p class="card-text">
-                          A veteran British barrister must defend his client in a murder trial that has surprise after surprise.
+                          A veteran British barrister must defend his client in a murder trial that has surprise after surprise. Ailing barrister Sir Wilfrid Robarts is thrust back into the courtroom in what becomes one of the most unusual and eventful murder case of the lawyer's career when he finds himself defending Leonard Vole, a man being tried for the murder of a wealthy woman. With Robarts choosing to represent him, the two find themselves up against Leonard's cold-hearted wife, Christine - who, in a surprising turn of events, chooses to appear in court against her husband.::Kyle Perez When Leonard Vole is arrested for the sensational murder of a rich, middle-aged widow, the famous Sir Wilfrid Robarts agrees to appear on his behalf. Sir Wilfrid, recovering from a near-fatal heart attack, is *supposed* to be on a diet of bland, civil suits. But the lure of the criminal courts is too much for him, especially when the case is so difficult: Vole's only alibi witness is his wife, the calm and coldly calculating Christine Vole. Sir Wilfrid's task becomes even more impossible when Christine agrees to be a witness not for the defence but for the prosecution.::A.L.Beneteau <albl@inforamp.net> Leonard Vole is an unemployed inventor, his latest contraption being a new-fangled egg beater. He is married but through a chance encounter, became friendly with a rich widow, Emily French. When Vole is accused of her murder, his solicitor refers the case to a brilliant barrister, Sir Wilfrid Robarts to lead the defense. Robarts believes his client to be innocent but his alibi rests on the testimony of Vole's wife, Christine. As the jury would expect a wife to defend her husband, he decides not to call her as a witness. He is surprised however when she is called as a witness for the prosecution. As luck would have it, he comes into possession of letters that seriously discredits her testimony. There is, however, a far more devious plot being hatched, one that even the great Robarts cannot fathom.::garykmcd When the efficient but bitter and stubborn barrister Sir Wilfrid Robarts returns to his office in London recovering from a heart attack, he is invited to defend Leonard Stephen Vole, who is the prime suspect in a murder case. Leonard is a former soldier that fought in World War II and is married with his beloved German wife Christine Helm Vole. He is unemployed and accused of seducing and murdering the wealthy middle-aged single woman Emily French to inherit 80,000 pounds. His unique alibi would be the testimony of Christine, which would not be accepted by the court, since she is his wife. Along the trial, Christine is surprisingly called to testify in court by the prosecution, when secrets about their lives are disclosed.::Claudio Carvalho, Rio de Janeiro, Brazil
                         </p>
                       </div>
                     </div>
@@ -48,7 +48,18 @@
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+         
  <table class="table">
           <tr class="table__header">
             
@@ -57,11 +68,11 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Metro Goldwyn Mayer Studios   10202 W. Washington Blvd., Culver City, California, USA
+                10202 West Washington Boulevard, Culver City, California 90232, United States
             </td>   
                 <td class="table__cell">
                 34.017275, -118.402347
-                    </td>   
+            </td>   
           </tr> 
           </tr>
         
@@ -75,5 +86,40 @@
 
       
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

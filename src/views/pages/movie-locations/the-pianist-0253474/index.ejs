@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,206 +16,283 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Pianist</h3>
-                        <p class="card-text">
-                          A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.
+                      <h3 class="card-title">The Pianist</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.  </span>
+                          <span > In this adaptation of the autobiography "The Pianist: The Extraordinary True Story of One Man's Survival in Warsaw, 1939-1945," Wladyslaw Szpilman, a Polish Jewish radio station pianist, sees Warsaw change gradually as World War II begins. Szpilman is forced into the Warsaw Ghetto, but is later separated from his family during Operation Reinhard. From this time until the concentration camp prisoners are released, Szpilman hides in various locations among the ruins of Warsaw. -Jwelch5742.  </span>
+                          <span > Filmmaker Roman Polanski, who as a boy growing up in Poland watched while the Nazis devastated his country during World War II, directed this downbeat drama based on the story of a privileged musician who spent five years struggling against the Nazi occupation of Warsaw. Wladyslaw Szpilman (Adrien Brody) is a gifted classical pianist born to a wealthy Jewish family in Poland. The Szpilmans have a large and comfortable flat in Warsaw which Wladyslaw shares with his mother and father (Maureen Lipman and Frank Finlay), his sisters Halina and Regina (Jessica Kate Meyer and Julia Rayner), and his brother, Henryk (Ed Stoppard). While Wladyslaw and his family are aware of the looming presence of German forces and Hitler's designs on Poland, they're convinced that the Nazis are a menace which will pass, and that England and France will step forward to aid Poland in the event of a real crisis. Wladyslaw's naivete is shattered when a German bomb rips through a radio studio while he performs a recital for broadcast. During the early stages of the Nazi occupation, as a respected artist, he still imagines himself above the danger, using his pull to obtain employment papers for his father and landing a supposedly safe job playing piano in a restaurant. But as the German grip tightens upon Poland, Wladyslaw and his family are selected for deportation to a Nazi concentration camp. Refusing to face a certain death, Wladyslaw goes into hiding in a comfortable apartment provided by a friend. However, when his benefactor goes missing, Wladyslaw is left to fend for himself and he spends the next several years dashing from one abandoned home to another, desperate to avoid capture by German occupation troops.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > A Jewish pianist named Wladislaw Szpilman was playing the piano on the radio station when an explosion occurred outside. It was the beginning of German Nazi occupation in Polland. When he returned home, his family was arguing over how they could keep the rest of their money so the German's couldn't see it. When they looked out the window, they saw their area was fenced. Since then, their life has become in a difficult situation. The German's deported his family and forcibly took on train way to concentration camp. Szpilman was left behind in the Warsaw Ghetto and struggled alone for survival. -judytrinidad.  </span>
+    <span class="additional-information" > A brilliant pianist, a Polish Jew, witnesses the restrictions Germans place on Jews in the Polish capital, from restricted access to the building of the Warsaw ghetto. As his family is rounded up to be shipped off to the German Nazi labor camps, he escapes deportation and eludes capture by living in the ruins of Warsaw. -Anonymous.  </span>
+    <span class="additional-information" > The true story of Wladyslaw Szpilman who, in the 1930s, was known as the most accomplished piano player in all of Poland, if not Europe. At the outbreak of the Second World War, however, Szpilman becomes subject to the anti-Jewish laws imposed by the conquering Germans. By the start of the 1940s, Szpilman has seen his world go from piano concert halls to the Jewish Ghetto of Warsaw and then must suffer the tragedy of his family deported to a German concentration camps, while Szpilman is conscripted into a forced German Labor Compound. At last deciding to escape, Szpilman goes into hiding as a Jewish refugee where he is witness to the Warsaw Ghetto Uprising (April 19, 1943 - May 16, 1943) and the Warsaw Uprising (1 August to 2 October 1944) -Anthony Hughes .  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Pianist"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Instalatorów, Ochota, Warsaw, Mazowieckie, Poland 
-            </td>   
+                Instalatorów, 02-237 Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.1977874, 20.9596328
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Krakowskie Przedmiescie, Sródmiescie, Warsaw, Mazowieckie, Poland
-            </td>   
+                Krakowskie Przedmieście, 00-325 Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.2422587, 21.0156274
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Zabkowska, Praga Pólnoc, Warsaw, Mazowieckie, Poland
-            </td>   
+                Ząbkowska, Targowa 45, Warsaw, Masovian Voivodeship 03-733, Poland
+            </td>
                 <td class="table__cell">
                 52.2518735, 21.0382635
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Beelitz, Brandenburg, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 52.23333, 12.96667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kozia, Sródmiescie, Warsaw, Mazowieckie, Poland
-            </td>   
+                Kozia, 05-075 Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.2422355, 21.2288247
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mala, Praga Pólnoc, Warsaw, Mazowieckie, Poland
-            </td>   
+                Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.21667, 21.03333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Norblin Factory, Wola, Warsaw, Mazowieckie, Poland
-            </td>   
+                TVN, Wiertnicza 166, Warsaw, Masovian Voivodeship 02-981, Poland
+            </td>
                 <td class="table__cell">
                 52.179715, 21.073216
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stalowa, Praga Pólnoc, Warsaw, Mazowieckie, Poland
-            </td>   
+                Stalowa, 03-425 Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.2610068, 21.0426464
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hotel Saski, Plac Bankowy, Sródmiescie, Warsaw, Mazowieckie, Poland
-            </td>   
+                Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.21667, 21.03333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kobylka, Mazowieckie, Poland
-            </td>   
+                Kobyłka, Kobyłka, Masovian Voivodeship 05-230, Poland
+            </td>
                 <td class="table__cell">
                 52.3361935, 21.2142455
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rembertów, Warsaw, Mazowieckie, Poland
-            </td>   
+                Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.21667, 21.03333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Warsaw, Mazowieckie, Poland
-            </td>   
+                Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.21667, 21.03333
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Babelsberg, Potsdam, Brandenburg, Germany
-            </td>   
+                Babelsberg Nord, Potsdam, Brandenburg, Germany
+            </td>
                 <td class="table__cell">
                 52.396806, 13.102277
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
                 Jüterbog, Brandenburg, Germany
-            </td>   
+            </td>
                 <td class="table__cell">
                 51.99333, 13.07278
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Konopacka, Praga Pólnoc, Warsaw, Mazowieckie, Poland
-            </td>   
+                Konopacka, 03-428 Warsaw, Masovian Voivodeship, Poland
+            </td>
                 <td class="table__cell">
                 52.2595952, 21.0384765
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Potsdam, Brandenburg, Germany 
-            </td>   
+                Potsdam, Brandenburg, Germany
+            </td>
                 <td class="table__cell">
                 52.4, 13.06667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                
-            </td>   
+                Poland
+            </td>
                 <td class="table__cell">
-                </td>   
-          </tr> 
+                52.1246099075455, 19.30063630556
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Studio Babelsberg, Potsdam, Brandenburg, Germany 
-            </td>   
+                Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany
+            </td>
                 <td class="table__cell">
                 52.387806, 13.120573
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                
-            </td>   
+                Germany
+            </td>
                 <td class="table__cell">
-                </td>   
-          </tr> 
+                51.1334813439932, 10.0183432948567
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[52.179715, 21.073216], [52.1977874, 20.9596328], [52.21667, 21.03333]], "data": [{"lat": 52.1977874, "lon": 20.9596328, "name": "Instalator\u00f3w, 02-237 Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.2422587, "lon": 21.0156274, "name": "Krakowskie Przedmie\u015bcie, 00-325 Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.2518735, "lon": 21.0382635, "name": "Z\u0105bkowska, Targowa 45, Warsaw, Masovian Voivodeship 03-733, Poland"}, {"lat": 52.23333, "lon": 12.96667, "name": "Beelitz, Brandenburg, Germany"}, {"lat": 52.2422355, "lon": 21.2288247, "name": "Kozia, 05-075 Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.21667, "lon": 21.03333, "name": "Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.179715, "lon": 21.073216, "name": "TVN, Wiertnicza 166, Warsaw, Masovian Voivodeship 02-981, Poland"}, {"lat": 52.2610068, "lon": 21.0426464, "name": "Stalowa, 03-425 Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.21667, "lon": 21.03333, "name": "Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.3361935, "lon": 21.2142455, "name": "Koby\u0142ka, Koby\u0142ka, Masovian Voivodeship 05-230, Poland"}, {"lat": 52.21667, "lon": 21.03333, "name": "Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.21667, "lon": 21.03333, "name": "Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.396806, "lon": 13.102277, "name": "Babelsberg Nord, Potsdam, Brandenburg, Germany"}, {"lat": 51.99333, "lon": 13.07278, "name": "J\u00fcterbog, Brandenburg, Germany"}, {"lat": 52.2595952, "lon": 21.0384765, "name": "Konopacka, 03-428 Warsaw, Masovian Voivodeship, Poland"}, {"lat": 52.4, "lon": 13.06667, "name": "Potsdam, Brandenburg, Germany"}, {"lat": 52.1246099075455, "lon": 19.30063630556, "name": "Poland"}, {"lat": 52.387806, "lon": 13.120573, "name": "Studio Babelsberg, August-Bebel-Str. 26-53, Potsdam, Brandenburg 14482, Germany"}, {"lat": 51.1334813439932, "lon": 10.0183432948567, "name": "Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

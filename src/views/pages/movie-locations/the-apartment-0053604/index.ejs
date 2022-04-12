@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,120 +16,201 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Apartment</h3>
-                        <p class="card-text">
-                          A Manhattan insurance clerk tries to rise in his company by letting its executives use his apartment for trysts, but complications and a romance of his own ensue.
+                      <h3 class="card-title">The Apartment</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A Manhattan insurance clerk tries to rise in his company by letting its executives use his apartment for trysts, but complications and a romance of his own ensue.  </span>
+                          <span > As of November 1, 1959, mild mannered C.C. Baxter has been working at Consolidated Life, an insurance company, for close to four years, and is one of close to thirty-two thousand employees located in their Manhattan head office. To distinguish himself from all the other lowly cogs in the company in the hopes of moving up the corporate ladder, he often works late, but only because he can't get into his apartment, located off of Central Park West, since he has provided it to a handful of company executives - Mssrs. Dobisch, Kirkeby, Vanderhoff and Eichelberger - on a rotating basis for their extramarital liaisons in return for a good word to the personnel director, Jeff D. Sheldrake. When Baxter is called into Sheldrake's office for the first time, he learns that it isn't just to be promoted as he expects, but also to add married Sheldrake to the list to who he will lend his apartment. Dobisch, Kirkeby, Vanderhoff and Eichelberger are now feeling neglected as Baxter no longer needs their assistance in moving up. -Huggo.  </span>
+                          <span > Of all the ways to climb the corporate ladder, C.C. Baxter, a loyal, resourceful, and cooperative clerk in a giant Manhattan insurance firm, has come up with the fastest: lend the key of his convenient bachelor apartment to his womanising bosses. Indeed, Baxter's strategy is infallible, and as the meek but ambitious employee is starting to enjoy the fruit of his labour, he catches the eye of the company's philandering big boss, Jeff D. Sheldrake, who, of course, wants a piece of the action. Now, Baxter can really give his career a boost; however, is there any room left for his blossoming love life? -Nick Riganas.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Bud Baxter is a struggling clerk in a huge New York insurance company. He's discovered a quick way to climb the corporate ladder - by lending out his apartment to the executives as a place to take their mistresses. He often has to deal with the aftermath of their visits and one night he's left with a major problem to solve. -Col Needham .  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BNzkwODFjNzItMmMwNi00MTU5LWE2MzktM2M4ZDczZGM1MmViXkEyXkFqcGdeQXVyNDY2MTk1ODk@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Apartment"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Majestic Theater, 247 West 44th Street, Manhattan, New York City, New York, USA
-            </td>   
+                New York Water Taxi - Pier 84, 557 12th Ave, New York, New York 10036, United States
+            </td>
                 <td class="table__cell">
                 40.763491, -74.001022
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                The Lot   1041 N. Formosa Avenue, West Hollywood, California, USA 
-            </td>   
+                1041 North Formosa Avenue, West Hollywood, California 90046, United States
+            </td>
                 <td class="table__cell">
                 34.08977, -118.34745
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                2 Broadway, Manhattan, New York City, New York, USA 
-            </td>   
+                2 Broadway, New York, New York 10004, United States
+            </td>
                 <td class="table__cell">
                 40.70457, -74.01313
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                205 Columbus Avenue, New York City, New York, USA
-            </td>   
+                205 Columbus Avenue, New York, New York 10023, United States
+            </td>
                 <td class="table__cell">
                 40.77555, -73.97993
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                59th Street, Manhattan, New York City, New York, USA
-            </td>   
+                Nespresso Boutique at Bloomingdale's, 1000 3rd Avenue, Bloomingdale's 59th Street (6th Floor), New York, New York 10022, United States
+            </td>
                 <td class="table__cell">
                 40.762039, -73.967257
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New York City, New York, USA
-            </td>   
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
+            </td>
                 <td class="table__cell">
                 40.751296, -73.984819
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Manhattan, New York City, New York, USA
-            </td>   
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
+            </td>
                 <td class="table__cell">
                 40.68917359673309, -73.9826731487689
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New York, USA
-            </td>   
+                New York, New York, United States
+            </td>
                 <td class="table__cell">
                 40.7306, -73.9866
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[40.68917359673309, -73.9826731487689], [40.70457, -74.01313], [40.7306, -73.9866]], "data": [{"lat": 40.763491, "lon": -74.001022, "name": "New York Water Taxi - Pier 84, 557 12th Ave, New York, New York 10036, United States"}, {"lat": 34.08977, "lon": -118.34745, "name": "1041 North Formosa Avenue, West Hollywood, California 90046, United States"}, {"lat": 40.70457, "lon": -74.01313, "name": "2 Broadway, New York, New York 10004, United States"}, {"lat": 40.77555, "lon": -73.97993, "name": "205 Columbus Avenue, New York, New York 10023, United States"}, {"lat": 40.762039, "lon": -73.967257, "name": "Nespresso Boutique at Bloomingdale\u0027s, 1000 3rd Avenue, Bloomingdale\u0027s 59th Street (6th Floor), New York, New York 10022, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

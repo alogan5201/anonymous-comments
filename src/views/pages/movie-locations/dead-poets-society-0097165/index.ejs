@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,112 +16,168 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Dead Poets Society</h3>
-                        <p class="card-text">
-                          Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression.
+                      <h3 class="card-title">Dead Poets Society</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression.  </span>
+                          <span > Painfully shy Todd Anderson has been sent to the school where his popular older brother was valedictorian. His roommate, Neil Perry, although exceedingly bright and popular, is very much under the thumb of his overbearing father. The two, along with their other friends, meet Professor Keating, their new English teacher, who tells them of the Dead Poets Society, and encourages them to go against the status quo. Each does so in his own way, and is changed for life. -Liz Jordan .  </span>
+                          <span > A new English teacher, John Keating, is introduced to an all-boys preparatory school that is known for its ancient traditions and high standards. He uses unorthodox methods to reach out to his students, who face enormous pressures from their parents and the school. With Keating's help, students Neil Perry, Todd Anderson and others learn to break out of their shells, pursue their dreams and seize the day. -Jwelch5742.  </span>
+                          
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BOGYwYWNjMzgtNGU4ZC00NWQ2LWEwZjUtMzE1Zjc3NjY3YTU1XkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Dead Poets Society"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St. Andrew's School   350 Noxontown Road, Middletown, Delaware, USA 
-            </td>   
+                Middletown, Delaware, United States
+            </td>
                 <td class="table__cell">
                 39.4496, -75.7163
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Everett Theatre   47 West Main Street, Middletown, Delaware, USA 
-            </td>   
+                47 West Main Street, Middletown, Delaware 19709, United States
+            </td>
                 <td class="table__cell">
                 39.44983, -75.71821
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New Castle, Delaware, USA
-            </td>   
+                New Castle, Delaware, United States
+            </td>
                 <td class="table__cell">
                 39.6621, -75.5663
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Middletown, Delaware, USA
-            </td>   
+                Middletown, Delaware, United States
+            </td>
                 <td class="table__cell">
                 39.4496, -75.7163
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Westover Hills, New Castle, Delaware, USA 
-            </td>   
+                Westover Hills, Wilmington, Delaware, United States
+            </td>
                 <td class="table__cell">
                 39.7634, -75.5908
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Wolf Cave, Delaware, USA 
-            </td>   
+                Wolf Avenue, Medford, New Jersey 08055, United States
+            </td>
                 <td class="table__cell">
                 39.8514, -74.84986
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rockland, Delaware, USA
-            </td>   
+                Rockland, Delaware, United States
+            </td>
                 <td class="table__cell">
                 39.790828, -75.575903
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[39.4496, -75.7163], [39.4496, -75.7163], [39.44983, -75.71821]], "data": [{"lat": 39.4496, "lon": -75.7163, "name": "Middletown, Delaware, United States"}, {"lat": 39.44983, "lon": -75.71821, "name": "47 West Main Street, Middletown, Delaware 19709, United States"}, {"lat": 39.6621, "lon": -75.5663, "name": "New Castle, Delaware, United States"}, {"lat": 39.4496, "lon": -75.7163, "name": "Middletown, Delaware, United States"}, {"lat": 39.7634, "lon": -75.5908, "name": "Westover Hills, Wilmington, Delaware, United States"}, {"lat": 39.8514, "lon": -74.84986, "name": "Wolf Avenue, Medford, New Jersey 08055, United States"}, {"lat": 39.790828, "lon": -75.575903, "name": "Rockland, Delaware, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,72 +16,148 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Finding Nemo</h3>
-                        <p class="card-text">
-                          After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.
+                      <h3 class="card-title">Finding Nemo</h3>
+          <p class="card-text mb-0">
+
+
+  <span > After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.  </span>
+                          <span > A clown fish named Marlin lives in the Great Barrier Reef and loses his son, Nemo, after he ventures into the open sea, despite his father's constant warnings about many of the ocean's dangers. Nemo is abducted by a boat and netted up and sent to a dentist's office in Sydney. While Marlin ventures off to try to retrieve Nemo, Marlin meets a fish named Dory, a blue tang suffering from short-term memory loss. The companions travel a great distance, encountering various dangerous sea creatures such as sharks, anglerfish and jellyfish, in order to rescue Nemo from the dentist's office, which is situated by Sydney Harbour. While the two are searching the ocean far and wide, Nemo and the other sea animals in the dentist's fish tank plot a way to return to the sea to live their lives free again. -David Morris.  </span>
+                          <span > Marlin, a clown fish, is overly cautious with his son, Nemo, who has a foreshortened fin. When Nemo swims too close to the surface to prove himself, he is caught by a diver, and horrified Marlin must set out to find him. A blue reef fish named Dory -- who has a really short memory -- joins Marlin and complicates the encounters with sharks, jellyfish, and a host of ocean dangers. Meanwhile, Nemo plots his escape from a dentist's fish tank. -Jwelch5742.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > A young clownfish named Nemo is captured by underwater sea divers and taken to a dentist office located in a wonderful city called Sydney Harbour! Marlon, Nemos father is out on a journey to retrieve Nemo and bring him back home. Marlon meets a dim-witted and memory losing fish named Dory who tries to help Marlon along the way. Nemo and the other fish in the fish tank plan an escape attempting to finally get back into the fresh open water. -Steve Shedloski.  </span>
+    <span class="additional-information" > When his son, Nemo is taken from him by a diver, Marlin the clown fish sets off on a journey to rescue him. Together with Dory, a blue tang fish with short term memory loss, they set off through the oceans, whilst joining a club with sharks, dodging jellyfish, and hooking a ride with turtles. Whilst this is happening, Nemo and his new tank friends hatch a plan to escape from their new home. -FilmFanUk.  </span>
+    <span class="additional-information" > Marlin (a clown fish) is a widower who only has his son Nemo left of his family after a predator attack. Years later, on Nemo's first day of school, he's captured by a scuba diver and taken to live in a dentist office's fish tank. Marlin and his new absent-minded friend Dory set off across the ocean to find Nemo, while Nemo and his tank mates scheme on how to get out of the tank before he becomes the dentist's niece's new pet. -TonyB.  </span>
+    <span class="additional-information" > A tale which follows the comedic and eventful journeys of two fish, the fretful Marlin and his young son Nemo, who are separated from each other in the Great Barrier Reef when Nemo is unexpectedly taken from his home and thrust into a fish tank in a dentist's office overlooking Sydney Harbor. Buoyed by the companionship of a friendly but forgetful fish named Dory, the overly cautious Marlin embarks on a dangerous trek and finds himself the unlikely hero of an epic journey to rescue his son. Meanwhile, the young Nemo hatches a few daring plans of his own to return home safely. -Sujit R. Varma.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BZTAzNWZlNmUtZDEzYi00ZjA5LWIwYjEtZGM1NWE1MjE4YWRhXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Finding Nemo"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pixar Animation Studios   1200 Park Avenue, Emeryville, California, USA
-            </td>   
+                1200 Park Avenue, San Jacinto, California 92583, United States
+            </td>
                 <td class="table__cell">
-                33.763315, -116.941071
-                    </td>   
-          </tr> 
+                33.763345, -116.941164
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walt Disney Feature Animation   500 S. Buena Vista Street, Burbank, California, USA
-            </td>   
+                500 South Buena Vista Street, Hemet, California 92543, United States
+            </td>
                 <td class="table__cell">
                 33.7403, -116.967278
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 33.763345, "lon": -116.941164, "name": "1200 Park Avenue, San Jacinto, California 92583, United States"}, {"lat": 33.7403, "lon": -116.967278, "name": "500 South Buena Vista Street, Hemet, California 92543, United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

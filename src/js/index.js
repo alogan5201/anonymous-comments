@@ -21,7 +21,7 @@ import {
 
 import "picturefill";
 import "utils/errors";
-
+import orderByDistance from 'geolib/es/orderByDistance';
 let url = window.location.href;
 
 var firebaseConfig = {
@@ -131,6 +131,79 @@ if (window.location.href.includes("login")) {
     }
   );
 }
+
+/*
+if($('body').hasClass('film-location')){
+
+
+ let map = L.map('map').setView([0, 0], 5);;
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
+            foo: 'bar',
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+
+           function extractData () {
+              let table = document.querySelector('.table')
+
+              const results = []
+              const markers = []
+              const allcoords = []
+            for (let index = 1; index < table.rows.length; index++) {
+              const row = table.rows[index];
+              let location = row.cells[0].innerText
+              let coordinates = row.cells[1]
+              let lat = coordinates.firstElementChild.innerText
+              let lon = coordinates.lastElementChild.innerText
+              let coords = [lat, lon]
+              allcoords.push(coords)
+              let marker = L.marker([lat, lon]);
+              marker.bindPopup(location);
+              marker.addTo(map);
+
+              /*
+              if (index < 4){
+              markers.push([lat,lon])
+              let marker = L.marker([lat, lon]);
+              marker.bindPopup(location);
+              marker.addTo(map);
+              }
+              else {
+
+
+              // /console.log(lat, lon)
+              let marker = L.marker([lat, lon]);
+              marker.bindPopup(location);
+              marker.addTo(map);
+              }
+
+}
+//console.log(allcoords)
+const firstC = allcoords[0]
+const ordered = orderByDistance(firstC, allcoords);
+
+//console.log(ordered)
+if (ordered.length > 3){
+  let newArr = ordered.slice(0,3)
+  console.log(newArr)
+  map.fitBounds([newArr])
+  map.zoomOut(5)
+
+}
+else if (ordered.length < 3){
+  map.fitBounds([ordered])
+  map.zoomOut(5)
+}
+
+
+//map.fitBounds(result)
+
+}
+extractData()
+
+};
+*/
+
 
 window.addEventListener("DOMContentLoaded", (event) => {
   $("#testBtn").on("click", function () {

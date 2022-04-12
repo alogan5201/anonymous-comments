@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,152 +16,234 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">12 Years a Slave</h3>
-                        <p class="card-text">
-                          In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.
+                      <h3 class="card-title">12 Years a Slave</h3>
+          <p class="card-text mb-0">
+
+
+  <span > In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.  </span>
+                          <span > Based on an incredible true story of one man's fight for survival and freedom. In the pre-Civil War United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery. Facing cruelty personified by a malevolent slave owner, as well as unexpected kindnesses, Solomon struggles not only to stay alive, but to retain his dignity. In the twelfth year of his unforgettable odyssey, Solomon's chance meeting with a Canadian abolitionist will forever alter his life. -Fox Searchlight.  </span>
+                          <span > In 1841, the Afro-American violinist Solomon Northup is a free man, living with his wife and children in Saratoga Springs, New York. He is hired by two men for a two-week tour in Washington with their theatrical company. However Solomon is kidnapped and sold as a slave in New Orleans with the nickname Platt. Along twelve years, he works in the plantations and has abusive treatment of his masters, until the day he meets the Canadian abolitionist Bass that promises to send a letter to his family. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > In 1841, African American Solomon Northup, a free man, is kidnapped and forced into slavery under the name 'Platt' for 12 years. He faces the hardships of being a slave under the hands of a few different slave owners. Through faith, will power, and courage Northup must survive and endure those 12 years as a slave. -James Pasier.  </span>
+    <span class="additional-information" > In the years before the Civil War, Solomon Northup, a free black man from upstate New York, is kidnapped and sold into slavery in the South. Subjected to the cruelty of one malevolent owner, he also finds unexpected kindness from another, as he struggles continually to survive and maintain some of his dignity. Then in the 12th year of the disheartening ordeal, a chance meeting with an abolitionist from Canada changes Solomon's life forever. -Jwelch5742.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMjExMTEzODkyN15BMl5BanBnXkFtZTcwNTU4NTc4OQ@@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="12 Years a Slave"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Madame John's Legacy, the French Quarter, New Orleans, Louisiana, USA 
-            </td>   
+                Madame John's Legacy, 632 Dumaine St, New Orleans, Louisiana 70116, United States
+            </td>
                 <td class="table__cell">
                 29.95916, -90.063002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Felicity Plantation, Vacherie, Louisiana, USA 
-            </td>   
+                Felicite Road, Vacherie, Louisiana 70090, United States
+            </td>
                 <td class="table__cell">
                 30.00351, -90.7669
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Magnolia Plantation   Highway 311, Schriever, Louisiana, USA 
-            </td>   
+                Magnolia Plantation, Schriever, Louisiana, United States
+            </td>
                 <td class="table__cell">
                 29.7144, -90.8173
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St. Joseph Plantation, Louisiana, USA
-            </td>   
+                St. Joseph Plantation, 3535 Highway 18, Vacherie, Louisiana 70090, United States
+            </td>
                 <td class="table__cell">
                 30.005972, -90.771785
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Audubon Park, New Orleans, Louisiana, USA
-            </td>   
+                Audubon Park, 6500 Magazine St, New Orleans, Louisiana 70118, United States
+            </td>
                 <td class="table__cell">
                 29.9287525, -90.1271815
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bocage Plantation, Darrow, Louisiana, USA 
-            </td>   
+                Bocage, Baton Rouge, Louisiana, United States
+            </td>
                 <td class="table__cell">
                 30.428, -91.1118
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New Orleans, Louisiana, USA 
-            </td>   
+                New Orleans, Louisiana, United States
+            </td>
                 <td class="table__cell">
                 29.9499, -90.0701
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Urbania, Lower Garden District, New Orleans, Louisiana, USA 
-            </td>   
+                Urania Street, New Orleans, Louisiana 70130, United States
+            </td>
                 <td class="table__cell">
                 29.93494, -90.07588
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Columns Hotel   3811 St Charles Avenue, New Orleans, Louisiana, USA 
-            </td>   
+                Saint Charles Ave, New Orleans, Louisiana 70115, United States
+            </td>
                 <td class="table__cell">
                 29.92476, -90.11078
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Destrehan, Louisiana, USA 
-            </td>   
+                Destrehan, Louisiana, United States
+            </td>
                 <td class="table__cell">
                 29.943, -90.3517
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Magnolia Lane Plantation   2141 River Rd, Bridge City, Louisiana, USA 
-            </td>   
+                Bridge City, Louisiana, United States
+            </td>
                 <td class="table__cell">
                 29.9333, -90.1701
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Louisiana, USA
-            </td>   
+                Louisiana, United States
+            </td>
                 <td class="table__cell">
                 30.93749930159, -92.305998069584
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                United States
+            </td>
+                <td class="table__cell">
+                39.3812661305678, -97.9222112121185
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[29.7144, -90.8173], [29.92476, -90.11078], [29.9287525, -90.1271815]], "data": [{"lat": 29.95916, "lon": -90.063002, "name": "Madame John\u0027s Legacy, 632 Dumaine St, New Orleans, Louisiana 70116, United States"}, {"lat": 30.00351, "lon": -90.7669, "name": "Felicite Road, Vacherie, Louisiana 70090, United States"}, {"lat": 29.7144, "lon": -90.8173, "name": "Magnolia Plantation, Schriever, Louisiana, United States"}, {"lat": 30.005972, "lon": -90.771785, "name": "St. Joseph Plantation, 3535 Highway 18, Vacherie, Louisiana 70090, United States"}, {"lat": 29.9287525, "lon": -90.1271815, "name": "Audubon Park, 6500 Magazine St, New Orleans, Louisiana 70118, United States"}, {"lat": 30.428, "lon": -91.1118, "name": "Bocage, Baton Rouge, Louisiana, United States"}, {"lat": 29.9499, "lon": -90.0701, "name": "New Orleans, Louisiana, United States"}, {"lat": 29.93494, "lon": -90.07588, "name": "Urania Street, New Orleans, Louisiana 70130, United States"}, {"lat": 29.92476, "lon": -90.11078, "name": "Saint Charles Ave, New Orleans, Louisiana 70115, United States"}, {"lat": 29.943, "lon": -90.3517, "name": "Destrehan, Louisiana, United States"}, {"lat": 29.9333, "lon": -90.1701, "name": "Bridge City, Louisiana, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

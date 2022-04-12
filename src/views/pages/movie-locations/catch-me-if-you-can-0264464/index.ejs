@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,288 +16,504 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">Catch Me If You Can</h3>
-                        <p class="card-text">
-                          Barely 21 yet, Frank is a skilled forger who has passed as a doctor, lawyer and pilot. FBI agent Carl becomes obsessed with tracking down the con man, who only revels in the pursuit.
+                      <h3 class="card-title">Catch Me If You Can</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Barely 21 yet, Frank is a skilled forger who has passed as a doctor, lawyer and pilot. FBI agent Carl becomes obsessed with tracking down the con man, who only revels in the pursuit.  </span>
+                          <span > A true story about Frank Abagnale Jr. who, before his 19th birthday, successfully conned millions of dollars worth of checks as a Pan Am pilot, doctor, and legal prosecutor. An FBI agent makes it his mission to put him behind bars. But Frank not only eludes capture, he revels in the pursuit. -yusufpiskin.  </span>
+                          <span > New Rochelle, the 1960s. High schooler Frank Abagnale Jr. idolizes his father, who's in trouble with the IRS. When his parents separate, Frank runs away to Manhattan with $25 in his checking account, vowing to regain dad's losses and get his parents back together. Just a few years later, the FBI tracks him down in France; he's extradited, tried, and jailed for passing more than $4,000,000 in bad checks. Along the way, he's posed as a Pan Am pilot, a pediatrician, and an attorney. And, from nearly the beginning of this life of crime, he's been pursued by a dour FBI agent, Carl Hanraty What starts as cat and mouse becomes something akin to father and son. -.  </span>
+                          
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMTY5MzYzNjc5NV5BMl5BanBnXkFtZTYwNTUyNTc2.jpg"
                                       class="img-fluid rounded-start"
                                       alt="Catch Me If You Can"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Alcatraz Prison, Alcatraz Island, San Francisco Bay, California, USA
-            </td>   
+                San Francisco, California, United States
+            </td>
                 <td class="table__cell">
                 37.7648, -122.463
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Montréal, Québec, Canada 
-            </td>   
+                Montréal, Quebec, Canada
+            </td>
                 <td class="table__cell">
                 45.497216, -73.610364
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Notre Dame des Victoires, Québec City, Québec, Canada 
-            </td>   
+                Église de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Québec, Quebec G1K 3Z3, Canada
+            </td>
                 <td class="table__cell">
                 46.8129585, -71.202756
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Québec City, Québec, Canada 
-            </td>   
+                Église de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Québec, Quebec G1K 3Z3, Canada
+            </td>
                 <td class="table__cell">
                 46.8129585, -71.202756
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                3077 East California Boulevard, Pasadena, California, USA 
-            </td>   
+                3077 East California Boulevard, Pasadena, California 91107, United States
+            </td>
                 <td class="table__cell">
                 34.136465, -118.086945
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Altadena, California, USA 
-            </td>   
+                Altadena, California, United States
+            </td>
                 <td class="table__cell">
                 34.1863, -118.1352
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ambassador Hotel   3400 Wilshire Boulevard, Los Angeles, California, USA 
-            </td>   
+                Wilshire, Santa Monica, California, United States
+            </td>
                 <td class="table__cell">
-                34.039747, -118.472854
-                    </td>   
-          </tr> 
+                34.0268, -118.5017
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ontario International Airport   2900 E. Airport Drive, Ontario, California, USA 
-            </td>   
+                Ontario, California, United States
+            </td>
                 <td class="table__cell">
                 34.0658, -117.6484
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Orange, New Jersey, USA
-            </td>   
+                Orange, New Jersey, United States
+            </td>
                 <td class="table__cell">
                 40.7707, -74.2326
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Boeing Aerospace Facility, Rockwell Defense Plant   Bellflower & Imperial Highway, Downey, California, USA 
-            </td>   
+                Downey, California, United States
+            </td>
                 <td class="table__cell">
                 33.94, -118.1326
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Downtown, Los Angeles, California, USA
-            </td>   
+                Downtown, Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.05, -118.23
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Québec, Canada
-            </td>   
+                Québec, Quebec, Canada
+            </td>
                 <td class="table__cell">
                 46.82596, -71.235223
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Santa Ana, California, USA
-            </td>   
+                Santa Ana, California, United States
+            </td>
                 <td class="table__cell">
                 33.7495, -117.8732
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tropicana Bar, Hollywood Roosevelt Hotel   7000 Hollywood Blvd., Hollywood, Los Angeles, California, USA 
-            </td>   
+                Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.0544, -118.2439
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Buena Vista Avenue, Yonkers, New York, USA 
-            </td>   
+                Buena Vista Avenue, Yonkers, New York 10701, United States
+            </td>
                 <td class="table__cell">
                 40.930745, -73.9029175
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Compton, California, USA
-            </td>   
+                Compton, California, United States
+            </td>
                 <td class="table__cell">
                 33.8949, -118.226
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hollywood Roosevelt Hotel   7000 Hollywood Blvd., Hollywood, Los Angeles, California, USA 
-            </td>   
+                Canada
+            </td>
+                <td class="table__cell">
+                55.5859012851966, -105.750595856519
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Roosevelt, California, United States
+            </td>
                 <td class="table__cell">
                 34.7194, -118.0056
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lionel Groulx Metro Station, Montréal, Québec, Canada
-            </td>   
+                STM Station Lionel-Groulx, Station Lionel-Groulx, Montréal, Quebec H4C 2G6, Canada
+            </td>
                 <td class="table__cell">
                 45.482751, -73.5798195
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Manhattan, New York City, New York, USA
-            </td>   
+                Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States
+            </td>
                 <td class="table__cell">
                 40.68917359673309, -73.9826731487689
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Union Station   800 N. Alameda Street, Downtown, Los Angeles, California, USA 
-            </td>   
+                Los Angeles, California, United States
+            </td>
                 <td class="table__cell">
                 34.0544, -118.2439
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Waldorf Astoria Hotel   301 Park Avenue, Manhattan, New York City, New York, USA
-            </td>   
+                301 Park Place, Brooklyn, New York 11238, United States
+            </td>
                 <td class="table__cell">
                 40.67663, -73.96777
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Burbank, California, USA
-            </td>   
+                Burbank, California, United States
+            </td>
                 <td class="table__cell">
                 34.1816, -118.3259
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Jamaica, Queens, New York City, New York, USA
-            </td>   
+                Jamaica, New York, New York, United States
+            </td>
                 <td class="table__cell">
                 40.6915, -73.8057
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Old Orange County Courthouse   211 West Santa Ana Boulevard, Santa Ana, California, USA
-            </td>   
+                211 East Santa Ana Boulevard, Santa Ana, California 92701, United States
+            </td>
                 <td class="table__cell">
                 33.750057, -117.86352
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Place Royale, Québec City, Québec, Canada 
-            </td>   
+                Place Royale, Place Royale, Québec, Quebec G1K 4E9, Canada
+            </td>
                 <td class="table__cell">
                 46.8131195, -71.20281299999999
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bellarmine Jefferson High School, Burbank, California, USA 
-            </td>   
+                Bellarmine-Jefferson Catholic High School, 465 E Olive Ave, Burbank, California 91501, United States
+            </td>
                 <td class="table__cell">
                 34.184303, -118.306404
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Borough Hall   Downtown Brooklyn, Brooklyn, New York City, New York, USA 
-            </td>   
+                Borough Hall Plaza, Court St, New York, New York 11201, United States
+            </td>
                 <td class="table__cell">
                 40.694712625, -73.99038825
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Brooklyn, New York City, New York, USA
-            </td>   
+                Brooklyn, New York, United States
+            </td>
                 <td class="table__cell">
                 40.6501, -73.9496
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Launderland Laundromat   151 Lake Avenue, Yonkers, New York, USA 
-            </td>   
+                151 Lake Avenue, Yonkers, New York 10703, United States
+            </td>
                 <td class="table__cell">
                 40.946895, -73.885765
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                John F. Kennedy International Airport (JFK), JFK Expy, New York, New York 11430, United States
+            </td>
+                <td class="table__cell">
+                40.642421999999996, -73.781749
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                2186 East Crary Street, Pasadena, California 91104, United States
+            </td>
+                <td class="table__cell">
+                34.17232, -118.10564
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                843 South El Molino Avenue, Pasadena, California 91106, United States
+            </td>
+                <td class="table__cell">
+                34.131355, -118.137175
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                743 South Lucerne Boulevard, Los Angeles, California 90005, United States
+            </td>
+                <td class="table__cell">
+                34.06071, -118.32483
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Yonkers, New York, United States
+            </td>
+                <td class="table__cell">
+                40.9312, -73.8987
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
+            </td>
+                <td class="table__cell">
+                40.751296, -73.984819
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Park Avenue, New York, New York 10457, United States
+            </td>
+                <td class="table__cell">
+                40.80436, -73.93893
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Pasadena, California, United States
+            </td>
+                <td class="table__cell">
+                34.1476, -118.1445
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Pasadena, California, United States
+            </td>
+                <td class="table__cell">
+                34.1476, -118.1445
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                San Pedro Street, Carson, California 90746, United States
+            </td>
+                <td class="table__cell">
+                33.88105, -118.26406
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Lucerne, Culver City, California, United States
+            </td>
+                <td class="table__cell">
+                34.023436, -118.385189
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Yonkers, New York, United States
+            </td>
+                <td class="table__cell">
+                40.9312, -73.8987
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States
+            </td>
+                <td class="table__cell">
+                34.095884, -118.370965
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles, California, United States
+            </td>
+                <td class="table__cell">
+                34.0544, -118.2439
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Los Angeles, California, United States
+            </td>
+                <td class="table__cell">
+                34.0544, -118.2439
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Queens, New York, United States
+            </td>
+                <td class="table__cell">
+                40.7498, -73.7976
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Downey, California, United States
+            </td>
+                <td class="table__cell">
+                33.94, -118.1326
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Dr. David Sussman, 1 Hanson Pl, New York, New York 11217, United States
+            </td>
+                <td class="table__cell">
+                40.685513, -73.977721
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Église de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Québec, Quebec G1K 3Z3, Canada
+            </td>
+                <td class="table__cell">
+                46.8129585, -71.202756
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[33.7495, -117.8732], [33.750057, -117.86352], [33.88105, -118.26406]], "data": [{"lat": 37.7648, "lon": -122.463, "name": "San Francisco, California, United States"}, {"lat": 45.497216, "lon": -73.610364, "name": "Montr\u00e9al, Quebec, Canada"}, {"lat": 46.8129585, "lon": -71.202756, "name": "\u00c9glise de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Qu\u00e9bec, Quebec G1K 3Z3, Canada"}, {"lat": 46.8129585, "lon": -71.202756, "name": "\u00c9glise de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Qu\u00e9bec, Quebec G1K 3Z3, Canada"}, {"lat": 34.136465, "lon": -118.086945, "name": "3077 East California Boulevard, Pasadena, California 91107, United States"}, {"lat": 34.1863, "lon": -118.1352, "name": "Altadena, California, United States"}, {"lat": 34.0268, "lon": -118.5017, "name": "Wilshire, Santa Monica, California, United States"}, {"lat": 34.0658, "lon": -117.6484, "name": "Ontario, California, United States"}, {"lat": 40.7707, "lon": -74.2326, "name": "Orange, New Jersey, United States"}, {"lat": 33.94, "lon": -118.1326, "name": "Downey, California, United States"}, {"lat": 34.05, "lon": -118.23, "name": "Downtown, Los Angeles, California, United States"}, {"lat": 46.82596, "lon": -71.235223, "name": "Qu\u00e9bec, Quebec, Canada"}, {"lat": 33.7495, "lon": -117.8732, "name": "Santa Ana, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 40.930745, "lon": -73.9029175, "name": "Buena Vista Avenue, Yonkers, New York 10701, United States"}, {"lat": 33.8949, "lon": -118.226, "name": "Compton, California, United States"}, {"lat": 55.5859012851966, "lon": -105.750595856519, "name": "Canada"}, {"lat": 34.7194, "lon": -118.0056, "name": "Roosevelt, California, United States"}, {"lat": 45.482751, "lon": -73.5798195, "name": "STM Station Lionel-Groulx, Station Lionel-Groulx, Montr\u00e9al, Quebec H4C 2G6, Canada"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 40.67663, "lon": -73.96777, "name": "301 Park Place, Brooklyn, New York 11238, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 40.6915, "lon": -73.8057, "name": "Jamaica, New York, New York, United States"}, {"lat": 33.750057, "lon": -117.86352, "name": "211 East Santa Ana Boulevard, Santa Ana, California 92701, United States"}, {"lat": 46.8131195, "lon": -71.20281299999999, "name": "Place Royale, Place Royale, Qu\u00e9bec, Quebec G1K 4E9, Canada"}, {"lat": 34.184303, "lon": -118.306404, "name": "Bellarmine-Jefferson Catholic High School, 465 E Olive Ave, Burbank, California 91501, United States"}, {"lat": 40.694712625, "lon": -73.99038825, "name": "Borough Hall Plaza, Court St, New York, New York 11201, United States"}, {"lat": 40.6501, "lon": -73.9496, "name": "Brooklyn, New York, United States"}, {"lat": 40.946895, "lon": -73.885765, "name": "151 Lake Avenue, Yonkers, New York 10703, United States"}, {"lat": 40.642421999999996, "lon": -73.781749, "name": "John F. Kennedy International Airport (JFK), JFK Expy, New York, New York 11430, United States"}, {"lat": 34.17232, "lon": -118.10564, "name": "2186 East Crary Street, Pasadena, California 91104, United States"}, {"lat": 34.131355, "lon": -118.137175, "name": "843 South El Molino Avenue, Pasadena, California 91106, United States"}, {"lat": 34.06071, "lon": -118.32483, "name": "743 South Lucerne Boulevard, Los Angeles, California 90005, United States"}, {"lat": 40.9312, "lon": -73.8987, "name": "Yonkers, New York, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.80436, "lon": -73.93893, "name": "Park Avenue, New York, New York 10457, United States"}, {"lat": 34.1476, "lon": -118.1445, "name": "Pasadena, California, United States"}, {"lat": 34.1476, "lon": -118.1445, "name": "Pasadena, California, United States"}, {"lat": 33.88105, "lon": -118.26406, "name": "San Pedro Street, Carson, California 90746, United States"}, {"lat": 34.023436, "lon": -118.385189, "name": "Lucerne, Culver City, California, United States"}, {"lat": 40.9312, "lon": -73.8987, "name": "Yonkers, New York, United States"}, {"lat": 34.095884, "lon": -118.370965, "name": "Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 40.7498, "lon": -73.7976, "name": "Queens, New York, United States"}, {"lat": 33.94, "lon": -118.1326, "name": "Downey, California, United States"}, {"lat": 40.685513, "lon": -73.977721, "name": "Dr. David Sussman, 1 Hanson Pl, New York, New York 11217, United States"}, {"lat": 46.8129585, "lon": -71.202756, "name": "\u00c9glise de Notre-Dame-des-Victoires, 32 rue Sous-le-Fort, Qu\u00e9bec, Quebec G1K 3Z3, Canada"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

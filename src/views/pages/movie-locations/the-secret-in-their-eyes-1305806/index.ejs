@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,96 +16,169 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Secret in Their Eyes</h3>
-                        <p class="card-text">
-                          A retired legal counselor writes a novel hoping to find closure for one of his past unresolved homicide cases and for his unreciprocated love with his superior - both of which still haunt him decades later.
+                      <h3 class="card-title">The Secret in Their Eyes</h3>
+          <p class="card-text mb-0">
+
+
+  <span > A retired legal counselor writes a novel hoping to find closure for one of his past unresolved homicide cases and for his unreciprocated love with his superior - both of which still haunt him decades later.  </span>
+                          <span > In 1999, retired Argentinian federal justice agent Benjamín Espósito is writing a novel, using an old closed case as the source material. That case is the brutal rape and murder of Liliana Coloto. In addition to seeing the extreme grief of the victim's husband Ricardo Morales, Benjamín, his assistant Pablo Sandoval, and newly hired department chief Irene Menéndez-Hastings were personally affected by the case as Benjamín and Pablo tracked the killer, hence the reason why the unsatisfactory ending to the case has always bothered him. Despite the department already having two other suspects, Benjamín and Pablo ultimately were certain that a man named Isidoro Gómez is the real killer. Although he is aware that historical accuracy is not paramount for the novel, the process of revisiting the case is more an issue of closure for him. He tries to speak to the key players in the case, most specifically Irene, who still works in the justice department and who he has always been attracted to but never pursued due to the differences in their ages and social classes. The other issue is that Gómez is still at large, no one aware if he is alive or dead. But as Pablo at the time mentioned that passion is one thing that cannot be changed in behavior, Benjamín learns now that that premise still holds true. -Huggo.  </span>
+                          <span > The retired justice officer Benjamín Espósito decides to write a novel based on the Morales Case of twenty-five years ago and has difficulties to find the right beginning. He visits his former chief Irene Menéndez-Hastings in the tribunal to show his draft. In the 70's, Benjamín has an unrequited love for his new-hired chief Irene that belongs to an upper-class. Benjamin is assigned to investigate the murder of Liliana Coloto, a beautiful woman recently married with Ricardo Morales that had been brutally raped and murdered. Benjamin and his alcoholic partner Pablo Sandoval feel touched with the grief of Ricardo and go further in their investigation. Benjamin observes that a man named Isidoro Gómez is staring Liliana in many pictures and he becomes the prime-suspect. Meanwhile the tension between Ricardo and Irene increases along the days but Ricardo does not understand the signs of her eyes. Twenty five years later, Ricardo is still haunted by his love for Irene and for the unsatisfactory resolution of the Morales Case. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > For nearly twenty-five long years, the horrendous unresolved rape and murder case of the young Liliana Coloto is still haunting the retired Buenos Aires criminal investigator, Benjamín Espósito. Obsessed with the perplexing mystery, Benjamín sets out to write a book with the aid of a former colleague, the beautiful prosecutor and the secret object of his desire, Irene Menéndez Hastings, hopeful of putting the pieces together. Little by little, as the team flashes back to 1970s Argentina, and then, back to the present, a furious search for the truth will eventually unravel a nightmare which spans more than two decades of secrets. But are they really prepared to face the truth? -Nick Riganas.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BY2FhZGI5M2QtZWFiZS00NjkwLWE4NWQtMzg3ZDZjNjdkYTJiXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Secret in Their Eyes"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Estación Retiro, Retiro, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tomás Adolfo Ducó Stadium, Parque Patricios, Capital Federal, Argentina 
-            </td>   
+                Parque Patricios, C1437, Comuna 04, Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.637482, -58.401239
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chivilcoy, Buenos Aires Province, Argentina
-            </td>   
+                Chivilcoy, Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.9, -60.01667
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Palacio de Justicia de la Nación   550 Talcahuano, San Nicolás, Buenos Aires, Federal District, Argentina 
-            </td>   
+                Palacio de Justicia de la Nación, Talcahuano 550, Comuna 01, Buenos Aires C1013, Argentina
+            </td>
                 <td class="table__cell">
                 -34.60220375, -58.38487325
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Buenos Aires, Federal District, Argentina
-            </td>   
+                Buenos Aires, Argentina
+            </td>
                 <td class="table__cell">
                 -34.59972, -58.38194
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[-34.637482, -58.401239], [-34.60220375, -58.38487325], [-34.59972, -58.38194]], "data": [{"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}, {"lat": -34.637482, "lon": -58.401239, "name": "Parque Patricios, C1437, Comuna 04, Buenos Aires, Argentina"}, {"lat": -34.9, "lon": -60.01667, "name": "Chivilcoy, Buenos Aires, Argentina"}, {"lat": -34.60220375, "lon": -58.38487325, "name": "Palacio de Justicia de la Naci\u00f3n, Talcahuano 550, Comuna 01, Buenos Aires C1013, Argentina"}, {"lat": -34.59972, "lon": -58.38194, "name": "Buenos Aires, Argentina"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,207 +16,282 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Shawshank Redemption</h3>
-                        <p class="card-text">
-                          Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.
+                      <h3 class="card-title">The Shawshank Redemption</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.  </span>
+                          <span > Chronicles the experiences of a formerly successful banker as a prisoner in the gloomy jailhouse of Shawshank after being found guilty of a crime he did not commit. The film portrays the man's unique way of dealing with his new, torturous life; along the way he befriends a number of fellow prisoners, most notably a wise long-term inmate named Red. -J-S-Golden.  </span>
+                          <span > After the murder of his wife, hotshot banker Andrew Dufresne is sent to Shawshank Prison, where the usual unpleasantness occurs. Over the years, he retains hope and eventually gains the respect of his fellow inmates, especially longtime convict "Red" Redding, a black marketeer, and becomes influential within the prison. Eventually, Andrew achieves his ends on his own terms. -Reid Gagle.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Andy Dufresne is sent to Shawshank Prison for the murder of his wife and her secret lover. He is very isolated and lonely at first, but realizes there is something deep inside your body that people can't touch or get to....'HOPE'. Andy becomes friends with prison 'fixer' Red, and Andy epitomizes why it is crucial to have dreams. His spirit and determination lead us into a world full of imagination, one filled with courage and desire. Will Andy ever realize his dreams? -Andy Haque.  </span>
+    <span class="additional-information" > Bank Merchant Andy Dufresne is convicted of the murder of his wife and her lover, and sentenced to life imprisonment at Shawshank prison. Life seems to have taken a turn for the worse, but fortunately Andy befriends some of the other inmates, in particular a character known only as Red. Over time Andy finds ways to live out life with relative ease as one can in a prison, leaving a message for all that while the body may be locked away in a cell, the spirit can never be truly imprisoned. -Dave Moody.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Shawshank Redemption"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                127A Smithfield Road, Frederiksted, Virgin Islands 
-            </td>   
+                127A Smithfield Rd, Frederiksted, Saint Croix 00840, US Virgin Islands
+            </td>
                 <td class="table__cell">
                 17.70913, -64.87986
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mansfield Reformatory   100 Reformatory Road, Mansfield, Ohio, USA 
-            </td>   
+                100 Reformatory Road, Mansfield, Ohio 44905, United States
+            </td>
                 <td class="table__cell">
                 40.78247, -82.5032
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Butler, Ohio, USA 
-            </td>   
+                Butler, Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.5884, -82.4249
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sandy Point, St. Croix, U.S. Virgin Islands 
-            </td>   
+                Saint Croix, US Virgin Islands
+            </td>
                 <td class="table__cell">
                 17.7789, -64.7455
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Malabar Farm State Park   4050 Bromfield Road, Lucas, Ohio, USA 
-            </td>   
+                Malabar Farm State Park, 4050 Bromfield Rd, Lucas, Ohio 44843, United States
+            </td>
                 <td class="table__cell">
                 40.651991, -82.397852
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mansfield, Ohio, USA 
-            </td>   
+                Mansfield, Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.7584, -82.5154
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Wyandot County Courthouse, Upper Sandusky, Ohio, USA 
-            </td>   
+                Wyandot County Courthouse, 109 S Sandusky Ave, Upper Sandusky, Ohio 43351, United States
+            </td>
                 <td class="table__cell">
                 40.827135, -83.280731
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ashland, Ohio, USA 
-            </td>   
+                Ashland, Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.8687, -82.3182
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                193 North Main Street, Mansfield, Ohio, USA 
-            </td>   
+                193 North Main Street, Mansfield, Ohio 44902, United States
+            </td>
                 <td class="table__cell">
                 40.76362, -82.51545
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Upper Sandusky, Ohio, USA 
-            </td>   
+                Upper Sandusky, Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.8273, -83.2813
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Snyder Road and Hagerman Road, Bellville, Ohio, USA 
-            </td>   
+                Snyder Road and Hagerman Road, Bellville, Ohio 44822, United States
+            </td>
                 <td class="table__cell">
                 40.6164545, -82.4290092
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Yuma, Arizona, USA 
-            </td>   
+                Yuma, Arizona, United States
+            </td>
                 <td class="table__cell">
                 32.7253, -114.6244
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rod Bay, St Croix, USVI 
-            </td>   
+                Saint Croix, US Virgin Islands
+            </td>
                 <td class="table__cell">
                 17.7789, -64.7455
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                301 E 5th Street, Mansfield, Ohio, USA 
-            </td>   
+                301 East 5th Street, Mansfield, Ohio 44902, United States
+            </td>
                 <td class="table__cell">
                 40.762573, -82.505421
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bellville, Ohio, USA
-            </td>   
+                Bellville, Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.6201, -82.5107
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sandusky, Ohio, USA 
-            </td>   
+                Sandusky, Ohio, United States
+            </td>
                 <td class="table__cell">
                 41.4489, -82.708
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Arizona, USA
-            </td>   
+                Arizona, United States
+            </td>
                 <td class="table__cell">
                 34.2202611707, -111.422127989113
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ohio, USA
-            </td>   
+                Ohio, United States
+            </td>
                 <td class="table__cell">
                 40.4174201146, -82.7114488167578
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                
-            </td>   
+                United States
+            </td>
                 <td class="table__cell">
-                </td>   
-          </tr> 
+                39.3812661305678, -97.9222112121185
+            </td>
           </tr>
-        
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[17.70913, -64.87986], [17.7789, -64.7455], [17.7789, -64.7455]], "data": [{"lat": 17.70913, "lon": -64.87986, "name": "127A Smithfield Rd, Frederiksted, Saint Croix 00840, US Virgin Islands"}, {"lat": 40.78247, "lon": -82.5032, "name": "100 Reformatory Road, Mansfield, Ohio 44905, United States"}, {"lat": 40.5884, "lon": -82.4249, "name": "Butler, Ohio, United States"}, {"lat": 17.7789, "lon": -64.7455, "name": "Saint Croix, US Virgin Islands"}, {"lat": 40.651991, "lon": -82.397852, "name": "Malabar Farm State Park, 4050 Bromfield Rd, Lucas, Ohio 44843, United States"}, {"lat": 40.7584, "lon": -82.5154, "name": "Mansfield, Ohio, United States"}, {"lat": 40.827135, "lon": -83.280731, "name": "Wyandot County Courthouse, 109 S Sandusky Ave, Upper Sandusky, Ohio 43351, United States"}, {"lat": 40.8687, "lon": -82.3182, "name": "Ashland, Ohio, United States"}, {"lat": 40.76362, "lon": -82.51545, "name": "193 North Main Street, Mansfield, Ohio 44902, United States"}, {"lat": 40.8273, "lon": -83.2813, "name": "Upper Sandusky, Ohio, United States"}, {"lat": 40.6164545, "lon": -82.4290092, "name": "Snyder Road and Hagerman Road, Bellville, Ohio 44822, United States"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 17.7789, "lon": -64.7455, "name": "Saint Croix, US Virgin Islands"}, {"lat": 40.762573, "lon": -82.505421, "name": "301 East 5th Street, Mansfield, Ohio 44902, United States"}, {"lat": 40.6201, "lon": -82.5107, "name": "Bellville, Ohio, United States"}, {"lat": 41.4489, "lon": -82.708, "name": "Sandusky, Ohio, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 40.4174201146, "lon": -82.7114488167578, "name": "Ohio, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>

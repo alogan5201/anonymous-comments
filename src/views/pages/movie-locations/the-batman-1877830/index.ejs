@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/homeHead`, {pageTitle: 'Film Locations'}); -%>
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
 
   <body class="film-location">
     <!--[if lt IE 8]>
@@ -16,200 +16,246 @@
     </noscript>
 
     <%- include(`${partials}/nav`); -%>
- 
-    <main class="mb-4 mt-5"> 
-  
-   
-   
-   
+
+     <main class="mb-4 mt-5">
+
+
+
+
         <div class="container px-4 px-lg-5">
-          
-       
+
+
             <div class="row align-items-md-stretch">
-                <div class="col-md-12">
-                <div class="card mb-3">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
                   <div class="row g-0">
                     <div class="col-md-8 px-3 py-3">
                       <div class="card-body">
-                        <h3 class="card-title">The Batman</h3>
-                        <p class="card-text">
-                          When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.
+                      <h3 class="card-title">The Batman</h3>
+          <p class="card-text mb-0">
+
+
+  <span > When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.  </span>
+                          
+
                         </p>
                       </div>
                     </div>
-                    <div class="col-md-4 justify-self-end">
+                      <div class="col-md-4 justify-self-end">
                       <img
                                       src="https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@.jpg"
                                       class="img-fluid rounded-start"
                                       alt="The Batman"
                                     />
                     </div>
-                  </div>
+                     </div>
                 </div>
               </div>
             </div>
-            <div class="folium-map" id="map_c2fc6f29f61843ba8f8a5d75e124e563" ></div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
  <table class="table">
           <tr class="table__header">
-            
+
             <th class="table__cell">Location</th>
            <th class="table__cell">Coordiantes</th>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St. George's Hall, Liverpool, England, UK 
-            </td>   
+                St George's Hall, St George's Pl, Liverpool, England L1 1JJ, United Kingdom
+            </td>
                 <td class="table__cell">
                 53.4086245, -2.980103
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Necropolis Cemetery, Glasgow, Scotland, UK 
-            </td>   
+                Glasgow Necropolis, Wishart St, Glasgow, Scotland G31 2AA, United Kingdom
+            </td>
                 <td class="table__cell">
                 55.862627, -4.232136499999999
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                N Wells St & W Kinzie St, Chicago, Illinois, USA 
-            </td>   
+                Surrey Quays Road, Southwark, London, SE16 7BG, United Kingdom
+            </td>
                 <td class="table__cell">
-                41.8891546, -87.6340145
-                    </td>   
-          </tr> 
+                51.497144, -0.050757
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hartwood Psychiatric Hospital, Shotts, Scotland, UK 
-            </td>   
+                Hartwood, North Lanarkshire, Scotland, United Kingdom
+            </td>
                 <td class="table__cell">
                 55.8113, -3.8387
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Anfield Cemetery, Liverpool, England, UK 
-            </td>   
-                <td class="table__cell">
-                53.4378575, -2.9580735000000002
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Waterloo Monument, William Brown St, Liverpool, England, UK 
-            </td>   
-                <td class="table__cell">
-                52.38145972, -0.676181762467007
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                County Sessions House, Liverpool, England, UK 
-            </td>   
+                Liverpool, Merseyside, England, United Kingdom
+            </td>
                 <td class="table__cell">
                 53.407154, -2.991665
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Walker Art Gallery, Liverpool, England, UK 
-            </td>   
+                Walker Art Gallery, William Brown St, Liverpool, England L3 8EL, United Kingdom
+            </td>
                 <td class="table__cell">
                 53.409957, -2.9795730000000002
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Printworks Nightclub, Surrey Quays Rd, London, England, UK 
-            </td>   
+                England, United Kingdom
+            </td>
                 <td class="table__cell">
-                51.530899, 0.073583
-                    </td>   
-          </tr> 
+                52.38145972, -0.676181762467007
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Royal Liver Building, Liverpool, England, UK 
-            </td>   
-                <td class="table__cell">
-                53.405811, -2.99608
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Kingsway Tram Tunnel, Southampton Row, London, England, UK 
-            </td>   
+                London, Greater London, England, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.507321899999994, -0.12764739999999997
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Leavesden Studios, Leavesden, Hertfordshire, England, UK 
-            </td>   
+                Anfield Cemetery, Priory Rd., Liverpool, England L4 2SL, United Kingdom
+            </td>
                 <td class="table__cell">
-                51.69323, -0.4184505
-                    </td>   
-          </tr> 
+                53.4378575, -2.9580735000000002
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cardington Airship Hangars, Bedfordshire, England, UK 
-            </td>   
+                Royal Liver Building, Pier Head, Liverpool, England L3 1PY, United Kingdom
+            </td>
+                <td class="table__cell">
+                53.405811, -2.99608
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Airship Hangar, Farnborough, England GU14 7JP, United Kingdom
+            </td>
                 <td class="table__cell">
                 51.28478, -0.760758
-                    </td>   
-          </tr> 
+            </td>
+          </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Two Temple Place, London, England, UK 
-            </td>   
-                <td class="table__cell">
-                51.5115615, -0.112318
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                Central Saint Martins, 1 Granary Square, London, England, UK 
-            </td>   
-                <td class="table__cell">
-                51.2781407, 1.0948644
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                91 Wishart St, Glasgow, Scotland, UK 
-            </td>   
-                <td class="table__cell">
-                55.864935, -4.230782
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                The O2, North Greenwich, London, England, UK 
-            </td>   
-                <td class="table__cell">
-                51.502822125, 0.0032571874999999997
-                    </td>   
-          </tr> 
-          <tr class="table__row">
-            <td class="table__cell">
-                230 S LaSelle St, Chicago, Illinois, USA 
-            </td>   
+                230 S La Salle St, Chicago, Illinois 60604, United States
+            </td>
                 <td class="table__cell">
                 41.8785, -87.632696
-                    </td>   
-          </tr> 
+            </td>
           </tr>
-        
+          <tr class="table__row">
+            <td class="table__cell">
+                Two Temple Place, 2 Temple Pl, London, England WC2R 3BD, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.5115615, -0.112318
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Wishart Street, Glasgow, G31 2HT, United Kingdom
+            </td>
+                <td class="table__cell">
+                55.864935, -4.230782
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.69323, -0.4184505
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                St. Martin's, CT1 1PY, Canterbury, Kent, England, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.2781407, 1.0948644
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+                O2, Units 1.02 & 1.03 The O2 Millennium Way, London, England SE10 0DY, United Kingdom
+            </td>
+                <td class="table__cell">
+                51.502822125, 0.0032571874999999997
+            </td>
+          </tr>
+          </tr>
+
         </table>
           </div>
         </div>
-    
-       
+
+
     </main>
 
 
-      
+
      <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[51.28478, -0.760758], [51.497144, -0.050757], [51.502822125, 0.0032571874999999997]], "data": [{"lat": 53.4086245, "lon": -2.980103, "name": "St George\u0027s Hall, St George\u0027s Pl, Liverpool, England L1 1JJ, United Kingdom"}, {"lat": 55.862627, "lon": -4.232136499999999, "name": "Glasgow Necropolis, Wishart St, Glasgow, Scotland G31 2AA, United Kingdom"}, {"lat": 51.497144, "lon": -0.050757, "name": "Surrey Quays Road, Southwark, London, SE16 7BG, United Kingdom"}, {"lat": 55.8113, "lon": -3.8387, "name": "Hartwood, North Lanarkshire, Scotland, United Kingdom"}, {"lat": 53.407154, "lon": -2.991665, "name": "Liverpool, Merseyside, England, United Kingdom"}, {"lat": 53.409957, "lon": -2.9795730000000002, "name": "Walker Art Gallery, William Brown St, Liverpool, England L3 8EL, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 53.4378575, "lon": -2.9580735000000002, "name": "Anfield Cemetery, Priory Rd., Liverpool, England L4 2SL, United Kingdom"}, {"lat": 53.405811, "lon": -2.99608, "name": "Royal Liver Building, Pier Head, Liverpool, England L3 1PY, United Kingdom"}, {"lat": 51.28478, "lon": -0.760758, "name": "Airship Hangar, Farnborough, England GU14 7JP, United Kingdom"}, {"lat": 41.8785, "lon": -87.632696, "name": "230 S La Salle St, Chicago, Illinois 60604, United States"}, {"lat": 51.5115615, "lon": -0.112318, "name": "Two Temple Place, 2 Temple Pl, London, England WC2R 3BD, United Kingdom"}, {"lat": 55.864935, "lon": -4.230782, "name": "Wishart Street, Glasgow, G31 2HT, United Kingdom"}, {"lat": 51.69323, "lon": -0.4184505, "name": "Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom"}, {"lat": 51.2781407, "lon": 1.0948644, "name": "St. Martin\u0027s, CT1 1PY, Canterbury, Kent, England, United Kingdom"}, {"lat": 51.502822125, "lon": 0.0032571874999999997, "name": "O2, Units 1.02 \u0026 1.03 The O2 Millennium Way, London, England SE10 0DY, United Kingdom"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
   </body>
 </html>
