@@ -191,27 +191,41 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const db = getDatabase();
 
   if (document.getElementById("comment-form")){
+
+    function extractReplies(replies){
+      let response = []
+      
+      const map = new Map(Object.entries(replies));
+      for (const [key, value] of map.entries()) { 
+      
+         let newObject= {
+          "id": key,
+          "name": value.name,
+          "message": value.message,
+          "date": value.date,
+          "recipient": value.recipient
+        }
+        
+        response.push(newObject)
+      }
+    
+      return response
+    }
     const mostViewedPosts = query(ref(db, 'messages'), orderByValue());
     const messageRef= ref(db, 'messages/'  );
     get(messageRef).then((snapshot) => {
       if (snapshot.exists()) {
-        console.log(snapshot.val());
+        
         const data = snapshot.val();
       const map = new Map(Object.entries(data));
 
       for (const [key, value] of map.entries()) {
        const dateinfo = value.date ? value.date : ""
-        let newObject= {
-          "id": key,
-          "name": value.name,
-          "message": value.message
-        }
-        if (!value.replies){
-          $( "#comment-section" ).append( `<div class="row d-flex justify-content-center mt-5 comment-box bg-light">
+          $( "#comment-section" ).append( `<div class="row d-flex justify-content-center mt-1 ms-0 me-0 comment-box ">
 
           <div class="col-md-12 col-lg-12 col-xl-12">
-          <div class="card border-0 ">
-            <div class="card-body" id = "${key}">
+          <div class="card border-0 " id = "${key}" style="background-color: transparent" >
+             <div class="card-body" >
               <div class="d-flex flex-start align-items-center border-bottom">
 
 
@@ -242,24 +256,56 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
               </div>
             </div>
-            <div class="card-footer py-3 border-0  row justify-content-end" style="background-color: #f8f9fa;">
-            <div class = "other-comments">s
+            <div class="card-footer py-3 border-0  row " style = "background-color: transparent !important">
+            <div class = "other-comments">
 
             </div>
             </div>
           </div>
         </div>
         </div>` );
+        if(value.replies){
+          let ex = extractReplies(value.replies)
 
+
+          for (let index = 0; index < ex.length; index++) {
+          const element = ex[index];
+          let recipient = $(`#${element.recipient} .other-comments`)
+          $(recipient[0]).append(
+`  <div class="col-md-11 p-3 mb-3" >
+      <div class="row ">
+      <div class="col-lg-12 border-start">
+         <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h6 class="fw-bold text-primary mb-1 ">${element.name}</h6>
+        <p class="text-muted small m-0">
+         ${element.date}
+        </p>
+
+        
+        </div>
+        <p class="mt-3 mb-0 pb-2">
+        ${element.message}
+        </p>
+      </div>
+      </div>
+     
+        </div>
+
+    
+`
+            
+          )
+      }
         }
-        else {
-          console.log('theres replies')
-        }
+       
+
+
+
 
       }
 
       } else {
-        console.log("No data available");
+        
       }
     }).catch((error) => {
       console.error(error);
@@ -268,7 +314,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     onValue(messageRef, (snapshot) => {
       const data = snapshot.val();
       const map = new Map(Object.entries(data));
-      //console.log(map); // Map(2) {"foo" => "bar", "baz" => 42}
+      //
       for (const [key, value] of map.entries()) {
 
         let newObject= {
@@ -295,20 +341,21 @@ window.addEventListener("DOMContentLoaded", (event) => {
 $("#comment-btn").disabled = true;
       let name = e.currentTarget[0].value;
       let message = e.currentTarget[1].value;
-      console.log(name)
+      
       let commentSection = document.getElementById("comment-section")
 
       if(name && message){
       let cleanMessage=  dompurify.sanitize(message)
       let cleanName = dompurify.sanitize(name)
-      console.log(cleanMessage)
-      console.log(cleanName)
+      
+      
         const postListRef = ref(db, 'messages');
         const newPostRef = push(postListRef);
         set(newPostRef, {
            name: cleanName,
            message: cleanMessage,
            date: prettyDate
+
         });
         $( "#comment-section" ).append( `<div class="d-flex comment-box">
 
@@ -335,11 +382,11 @@ $("#comment-btn").disabled = true;
     });
     $('#comment-section').on('click', '.reply-btn', function (e) {
       e.preventDefault()
-      console.log(e.target)
+      
 let siblings = $(this).parent().parent().siblings()
 let otherComments = siblings[0]
 
-console.log(  $(this).closest("div.other-comments"))
+
 
 
       //var parentTag = $(this).parent().parent().attr('id');
@@ -348,33 +395,32 @@ console.log(  $(this).closest("div.other-comments"))
       let footer =   $(this).parent().parent().parent().children().last()
       let replySection = $(this).parent().parent().parent().children().last().children()
       $(replySection).addClass('d-none')
-      console.log(footer)
+      
 
   $(footer).append(`
 
   <form class="reply-form">
-    <div class="d-flex flex-start w-100 justify-content-end">
-      <div class="col-md-11" >
+    <div class="d-flex flex-start w-100 ">
+        <div class="col-md-11 p-3 mb-3">
        <div class="form-outline w-100">
 
-         <div class="mb-3" >
+         <div class="mb-3">
 
            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="replyName" placeholder="Name (Optional)">
 
 
          </div>
 
-         <textarea class="form-control" id="textAreaExample" rows="4"
-           style="background: #fff;" placeholder="Write a comment."></textarea>
+         <textarea class="form-control" id="textAreaExample" rows="4" style="background: #fff;" placeholder="Write a comment."></textarea>
 
        </div>
+
+       <button type="submit" class="btn btn-primary btn-sm mt-3">Send <i class="far fa-paper-plane"></i></button>
       </div>
 
        </div>
 
-       <div class="float-end mt-2 pt-1">
-        <button type="submit" class="btn btn-primary btn-sm">Send <i class="far fa-paper-plane"></i></button>
-      </div>
+     
   </form>
 
 
@@ -384,7 +430,7 @@ console.log(  $(this).closest("div.other-comments"))
   $('.reply-form').on('submit', function (e) {
       e.preventDefault()
       let inputs = e.target.elements
-      //console.log(e.target.elements)
+      //
       let name = inputs[0].value.length > 0 ? inputs[0].value: "Anonymous"
 
       let message = inputs[1]
@@ -393,24 +439,32 @@ console.log(  $(this).closest("div.other-comments"))
 
       let otherComments = siblings[1]
 
-console.log($(this).parent())
-console.log($(this).siblings())
+     let cleanMessage=  dompurify.sanitize(message.value)
+      let cleanName = dompurify.sanitize(name)
+      const docId = $(this).parent().parent().attr('id')
 
       $(this).animate({opacity: 0}, 1000,function(){
       $(this).css('display','none');
         $(siblings[0]).removeClass("d-none")
       $(siblings[0]).append(
         `
-        <div class="col-md-11 p-3" style = "background-color: white !important">
-        <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-        <h6 class="fw-bold text-primary mb-1 ">${name}</h6>
+          <div class="col-md-11 p-3 mb-3" >
+      <div class="row ">
+      <div class="col-lg-12 border-start">
+         <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h6 class="fw-bold text-primary mb-1 ">${cleanName}</h6>
         <p class="text-muted small m-0">
-        ${prettyDate}
+         ${prettyDate}
         </p>
+
+        
         </div>
         <p class="mt-3 mb-0 pb-2">
-        ${message.value}
+        ${cleanMessage}
         </p>
+      </div>
+      </div>
+     
         </div>
         `
             );
@@ -418,15 +472,21 @@ console.log($(this).siblings())
 
      // $('#one').animate({opacity: 1}, 500);
     });
-
-
+  const postListRef = ref(db, `messages/${docId}/replies`);
+const newPostRef = push(postListRef);
+  set(newPostRef, {
+             name: cleanName,
+             message: cleanMessage,
+             date: prettyDate,
+             recipient: docId
+          });
 /*
 setTimeout(() => {
   $(otherComments).append(
     `
 
 
-    <div class="col-md-11 p-3" style = "background-color: white !important">
+    <div class="col-md-11 p-3" >
 
 
     <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
@@ -443,7 +503,7 @@ setTimeout(() => {
     `
 
         );
-        console.log($(otherComments).removeClass('d-none'))
+        
 }, 5000);
 */
 

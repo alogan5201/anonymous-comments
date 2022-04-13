@@ -196,7 +196,7 @@ const inp = input.value.toLowerCase()
 
 if(inp == "the" || inp =="the "){
 
-  console.log('error')
+  
 }
 else{
 
@@ -216,7 +216,7 @@ else{
       window.location.href = `/movie-locations/${newslug}`
     }
     else {
-      console.log('no results')
+      
     }
 
 }
@@ -230,7 +230,7 @@ else{
 
 else {
 
-  console.log(event.target.getAttribute("data-link"))
+  
   let x = event.target.getAttribute("data-link")
   window.location.replace(x)
 }
@@ -246,7 +246,7 @@ searchButton.setAttribute("data-link", "")
 
 }
 function myBlurFunction() {
-  console.log('blur ')
+  
   const classes= document.getElementById("form2_complete").classList.length
   setTimeout(() => {
  if (classes == 1){
