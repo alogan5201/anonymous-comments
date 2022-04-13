@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "geotools-bc75a"
-  }
+    "default": "geotools-bc75a",
+    "staging": "geotools-bc75a"
+  },
+  "targets": {}
 }
