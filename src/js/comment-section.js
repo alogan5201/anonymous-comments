@@ -19,8 +19,10 @@
    onAuthStateChanged,
    connectAuthEmulator,
  } from "firebase/auth";
+ import { Modal} from 'bootstrap/dist/js/bootstrap.esm.min.js'
+
  //import 'bootstrap/dist/js/bootstrap.bundle';
- import { Modal, Dropdown} from 'bootstrap/dist/js/bootstrap.esm.min.js'
+
 
  Date.prototype.toShortFormat = function() {
 
@@ -56,7 +58,7 @@ const app = initializeApp({
 //const functions = getFunctions(app);
 const auth = getAuth();
 // Get a reference to the database service
-
+const db = getDatabase();
 const googleProvider = new GoogleAuthProvider();
 
  const functions = getFunctions(app);
@@ -165,7 +167,10 @@ keyboard: false
 let filterCommentFail = new Modal(document.getElementById('filterCommentFail'), {
 keyboard: false
 })
-     const messageRef= ref(db, 'messages/'  );
+
+console.log(window.location.pathname)
+const path = window.location.pathname
+     const messageRef= ref(db, `messages/${path}/`  );
  get(messageRef).then((snapshot) => {
    if (snapshot.exists()) {
 
