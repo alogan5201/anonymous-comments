@@ -1,4 +1,4 @@
-/** Variables available in all js files:
+/** letiables available in all js files:
  * all the exported constants from globals.js
  */
 
@@ -8,8 +8,8 @@
 
 import dompurify from "dompurify";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get,  onValue, push, query, orderByValue } from "firebase/database";
-
+import { getDatabase, ref, set, get,  onValue, push, query, orderByValue, increment } from "firebase/database";
+ import { getFunctions, httpsCallable , connectFunctionsEmulator} from 'firebase/functions';
 import {
   getAuth,
   signInWithRedirect,
@@ -19,10 +19,15 @@ import {
   onAuthStateChanged,
   connectAuthEmulator,
 } from "firebase/auth";
+import 'bootstrap/dist/js/bootstrap.bundle';
 
+import { Modal } from 'bootstrap'
 import "picturefill";
 import "utils/errors";
 import { result } from "lodash";
+
+
+
 let url = window.location.href;
 Date.prototype.toShortFormat = function() {
 
@@ -49,7 +54,8 @@ let today = new Date();
 
 const prettyDate = today.toShortFormat()
 
-var firebaseConfig = {
+
+ const app = initializeApp({
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
   authDomain: "geotools-bc75a.firebaseapp.com",
   projectId: "geotools-bc75a",
@@ -57,20 +63,20 @@ var firebaseConfig = {
   messagingSenderId: "106157954659",
   appId: "1:106157954659:web:3e189110236a2138438a56",
   measurementId: "G-Z6GK19K3L0",
-};
-
-const app = initializeApp(firebaseConfig);
+});
+//const functions = getFunctions(app);
 const auth = getAuth();
 // Get a reference to the database service
 
 const googleProvider = new GoogleAuthProvider();
 
-/*
+ const functions = getFunctions(app);
 if (location.hostname === "localhost") {
-  // Point to the RTDB emulator running on localhost.
+
+connectFunctionsEmulator(functions, "localhost", 5001);
 connectAuthEmulator(auth, "http://localhost:9099");
 }
-*/
+
 if (window.location.href.includes("login")) {
   const App = function _App() {
     return `
@@ -192,12 +198,20 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   if (document.getElementById("comment-form")){
 
+let filterCommentSuccess = new bootstrap.Modal(document.getElementById('filterCommentSuccess'), {
+  keyboard: false
+})
+let filterCommentFail = new bootstrap.Modal(document.getElementById('filterCommentFail'), {
+  keyboard: false
+})
+
+
     function extractReplies(replies){
       let response = []
-      
+
       const map = new Map(Object.entries(replies));
-      for (const [key, value] of map.entries()) { 
-      
+      for (const [key, value] of map.entries()) {
+
          let newObject= {
           "id": key,
           "name": value.name,
@@ -205,49 +219,49 @@ window.addEventListener("DOMContentLoaded", (event) => {
           "date": value.date,
           "recipient": value.recipient
         }
-        
+
         response.push(newObject)
       }
-    
+
       return response
     }
     const mostViewedPosts = query(ref(db, 'messages'), orderByValue());
     const messageRef= ref(db, 'messages/'  );
     get(messageRef).then((snapshot) => {
       if (snapshot.exists()) {
-        
+
         const data = snapshot.val();
       const map = new Map(Object.entries(data));
 
       for (const [key, value] of map.entries()) {
+        let likes = value.likes && value.likes.likes ? value.likes.likes : ''
+        let dislikes = value.dislikes && value.dislikes.dislikes ? value.dislikes.dislikes : ''
+
        const dateinfo = value.date ? value.date : ""
-          $( "#comment-section" ).append( `<div class="row d-flex justify-content-center mt-1 ms-0 me-0 comment-box ">
+        $( "#comment-section" ).append( `  <div class="col-md-12 col-lg-12 col-xl-12">
+          <div class="card border-0 "  id=${key} style="background-color: transparent" >
+             <div class="card-body"  >
+             <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h6 class="fw-bold text-primary mb-1 ">${value.name}</h6>
+        <p class="text-muted small m-0">
+          ${dateinfo}
+        </p>
 
-          <div class="col-md-12 col-lg-12 col-xl-12">
-          <div class="card border-0 " id = "${key}" style="background-color: transparent" >
-             <div class="card-body" >
-              <div class="d-flex flex-start align-items-center border-bottom">
 
+        </div>
 
-                  <h6 class="fw-bold text-primary mb-1">${value.name}</h6>
-                  <p class="text-muted small mb-0">
-                   ${dateinfo}
-                  </p>
-
-              </div>
 
               <p class="mt-3 mb-0 pb-2">
-             ${value.message}
+           ${value.message}
               </p>
 
               <div class="small d-flex justify-content-start">
-                <a href="#!" class="d-flex align-items-center me-3">
-                  <i class="far fa-thumbs-up me-2"></i>
-
+                <a href="#!" id="thumbs-up" class="d-flex align-items-center me-3">
+                  <i class="far fa-thumbs-up me-2"></i> <span id="count">${likes}</span>
                 </a>
-                <a href="#!" class="d-flex align-items-center me-3">
+                <a href="#!" id="thumbs-down" class="d-flex align-items-center me-3">
                   <i class="far fa-thumbs-down me-2"></i>
-
+      <span id="count">${dislikes}</span>
                 </a>
                 <a href="#!" class="d-flex align-items-center me-3 reply-btn">
                   <i class="far fa-comment-dots me-2"></i>
@@ -262,7 +276,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
             </div>
             </div>
           </div>
-        </div>
         </div>` );
         if(value.replies){
           let ex = extractReplies(value.replies)
@@ -281,23 +294,23 @@ window.addEventListener("DOMContentLoaded", (event) => {
          ${element.date}
         </p>
 
-        
+
         </div>
         <p class="mt-3 mb-0 pb-2">
         ${element.message}
         </p>
       </div>
       </div>
-     
+
         </div>
 
-    
+
 `
-            
+
           )
       }
         }
-       
+
 
 
 
@@ -305,51 +318,63 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
 
       } else {
-        
+        console.log('no data')
       }
     }).catch((error) => {
       console.error(error);
     });
-    /*
-    onValue(messageRef, (snapshot) => {
-      const data = snapshot.val();
-      const map = new Map(Object.entries(data));
-      //
-      for (const [key, value] of map.entries()) {
 
-        let newObject= {
-          "id": key,
-          "name": value.name,
-          "message": value.message
-        }
-        $( "#comment-section" ).append( `<div class="d-flex">
-
-        <div id = "${key}" class="ms-3">
-          <div class="fw-bold">${value.name}</div>
-          ${value.message}
-        </div>
-      </div>` );
-
-      }
-    });
-    */
 
     $("#comment-form").on("submit", function (e) {
 
       e.preventDefault();
-
+const inputs = $('#comment-form :input')
+    let children = $(this).children()
 $("#comment-btn").disabled = true;
-      let name = e.currentTarget[0].value;
+ $("#comment-btn").html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Verifying..`)
+      let name = e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
       let message = e.currentTarget[1].value;
-      
-      let commentSection = document.getElementById("comment-section")
 
-      if(name && message){
+      let commentSection = document.getElementById("comment-section")
       let cleanMessage=  dompurify.sanitize(message)
       let cleanName = dompurify.sanitize(name)
-      
-      
-        const postListRef = ref(db, 'messages');
+
+      const addMessage = httpsCallable(functions, 'addMessage');
+      let messageText = `${cleanName} ${cleanMessage}`
+        addMessage({text: messageText}).then(function(result) {
+    // Read result of the Cloud Function.
+    let sanitizedMessage = result.data.text;
+  console.log(messageText)
+
+    if (messageText !== sanitizedMessage) {
+
+      setTimeout(() => {
+          filterCommentFail.toggle()
+    $("#comment-btn").disabled = false
+    $("#comment-btn").html('Submit')
+       for (let index = 0; index < inputs.length; index++) {
+                const element = inputs[index];
+               element.value = ''
+
+            }
+      }, 500);
+
+
+    }
+    else {
+      setTimeout(() => {
+
+
+        $("#comment-btn").disabled = false
+    $("#comment-btn").html('Submit')
+       for (let index = 0; index < inputs.length; index++) {
+                const element = inputs[index];
+               element.value = ''
+
+            }
+             filterCommentSuccess.toggle()
+             const postListRef = ref(db, 'messages');
         const newPostRef = push(postListRef);
         set(newPostRef, {
            name: cleanName,
@@ -357,45 +382,142 @@ $("#comment-btn").disabled = true;
            date: prettyDate
 
         });
-        $( "#comment-section" ).append( `<div class="d-flex comment-box">
+        $( "#comment-section" ).append( `  <div class="col-md-12 col-lg-12 col-xl-12">
+          <div class="card border-0 "  style="background-color: transparent" >
+             <div class="card-body" >
+             <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+        <h6 class="fw-bold text-primary mb-1 ">${cleanName}</h6>
+        <p class="text-muted small m-0">
+         ${prettyDate}
+        </p>
 
-        <div class="ms-3 ">
-          <div class="fw-bold">${cleanName}</div>
-          ${cleanMessage}
+
         </div>
-      </div>` );
-      }
 
-      else if(!name && message) {
-          let guest = 'Guest'
-          let cleanMessage = dompurify.sanitize(message)
-          const postListRef = ref(db, 'messages');
-          const newPostRef = push(postListRef);
 
-          set(newPostRef, {
-             name: guest,
-             message: cleanMessage
-          });
+              <p class="mt-3 mb-0 pb-2">
+             ${cleanMessage}
+              </p>
 
-      }
+              <div class="small d-flex justify-content-start">
+                <a href="#!" id="thumbs-up" class="d-flex align-items-center me-3">
+                  <i class="far fa-thumbs-up me-2"></i>
+              <span id="count"></span>
+                </a>
+                <a href="#!" id="thumbs-down" class="d-flex align-items-center me-3">
+                  <i class="far fa-thumbs-down me-2"></i>
+      <span id="count"></span>
+                </a>
+                <a href="#!" class="d-flex align-items-center me-3 reply-btn">
+                  <i class="far fa-comment-dots me-2"></i>
+                  <p class="m-0">Reply</p>
+                </a>
+
+              </div>
+            </div>
+            <div class="card-footer py-3 border-0  row " style = "background-color: transparent !important">
+            <div class = "other-comments">
+
+            </div>
+            </div>
+          </div>
+        </div>` );
+  $("#comment-btn").disabled = false;
+
+
+      }, 500);
+
+    }
+
+
+  }).catch(function(error) {
+    // Getting the Error details.
+    let code = error.code;
+    let message = error.message;
+    let details = error.details;
+    console.error('There was an error when calling the Cloud Function', error);
+    window.alert('There was an error when calling the Cloud Function:\n\nError Code: '
+        + code + '\nError Message:' + message + '\nError Details:' + details);
+    addMessageButton.disabled = false;
+  });
+
+
+
 
     });
+// TODO figure out why comment appears with "undefined as name and message" ----p.s. its something to do with replies
+
+const addLike = async (id) => {
+
+    await set(ref(db, `messages/${id}/likes`), {
+         likes: increment(1)
+    });
+  }
+
+
+const addDislike = async (id) => {
+
+    await set(ref(db, `messages/${id}/dislikes`), {
+         dislikes: increment(1)
+    });
+  }
+
+
+ $('#comment-section').on('click', '#thumbs-up', function (e) {
+e.preventDefault()
+let t = $(this)
+let anchor = t[0]
+let countText = $(this).children().last().text()
+ let parentTag = $(this).parent().parent().parent().attr('id')
+
+addLike(parentTag)
+
+let newCount = parseInt(countText) + 1 || 1
+$(this).children().first().removeClass('far fa-thumbs-up me-2').addClass('fas fa-thumbs-up me-2')
+$(this).children().first().css('color', '#0085A1')
+
+console.log($(this).children().last().text())
+$(this).children().last().html(newCount)
+
+
+ })
+
+ $('#comment-section').on('click', '#thumbs-down', function (e) {
+e.preventDefault()
+let t = $(this)
+let anchor = t[0]
+let countText = $(this).children().last().text()
+ let parentTag = $(this).parent().parent().parent().attr('id')
+
+addDislike(parentTag)
+console.log($(this).children())
+let newCount = parseInt(countText) + 1 || 1
+$(this).children().first().removeClass('far fa-thumbs-down me-2').addClass('fas fa-thumbs-down me-2')
+$(this).children().first().css('color', '#0085A1')
+$(this).children().last().html(newCount)
+
+ })
+
+
+
+
+
     $('#comment-section').on('click', '.reply-btn', function (e) {
       e.preventDefault()
-      
+
 let siblings = $(this).parent().parent().siblings()
 let otherComments = siblings[0]
 
 
 
 
-      //var parentTag = $(this).parent().parent().attr('id');
-      var parentTag = $(this).parent().parent().attr('id')
-      var grandFather = $(this).parent().parent().parent().children().last().children()
+      //let parentTag = $(this).parent().parent().attr('id');
+      let parentTag = $(this).parent().parent().attr('id')
+      let grandFather = $(this).parent().parent().parent().children().last().children()
       let footer =   $(this).parent().parent().parent().children().last()
       let replySection = $(this).parent().parent().parent().children().last().children()
       $(replySection).addClass('d-none')
-      
+
 
   $(footer).append(`
 
@@ -415,12 +537,12 @@ let otherComments = siblings[0]
 
        </div>
 
-       <button type="submit" class="btn btn-primary btn-sm mt-3">Send <i class="far fa-paper-plane"></i></button>
+       <button type="submit" id="reply-btn" class="btn btn-primary btn-sm mt-3">Send <i class="far fa-paper-plane"></i></button>
       </div>
 
        </div>
 
-     
+
   </form>
 
 
@@ -429,12 +551,13 @@ let otherComments = siblings[0]
 
   $('.reply-form').on('submit', function (e) {
       e.preventDefault()
-      let inputs = e.target.elements
-      //
-      let name = inputs[0].value.length > 0 ? inputs[0].value: "Anonymous"
+      const inputs = $('.reply-form :input')
+
+      $("#reply-btn").disabled = true
+      let name = inputs[0].value.length > 0 ? inputs[0].value: "Guest"
 
       let message = inputs[1]
-      var parent = $(this).parent()
+      let parent = $(this).parent()
       let siblings = $(this).siblings()
 
       let otherComments = siblings[1]
@@ -442,11 +565,43 @@ let otherComments = siblings[0]
      let cleanMessage=  dompurify.sanitize(message.value)
       let cleanName = dompurify.sanitize(name)
       const docId = $(this).parent().parent().attr('id')
+    let messageText = `${cleanName} ${cleanMessage}`
+    let replyForm = $(this)
+    let otherSiblings = siblings[0]
 
-      $(this).animate({opacity: 0}, 1000,function(){
-      $(this).css('display','none');
-        $(siblings[0]).removeClass("d-none")
-      $(siblings[0]).append(
+     const addMessage = httpsCallable(functions, 'addMessage');
+
+           addMessage({text: messageText}).then(function(result) {
+    // Read result of the Cloud Function.
+    let sanitizedMessage = result.data.text;
+  console.log(messageText)
+
+    if (messageText !== sanitizedMessage) {
+
+      setTimeout(() => {
+          filterCommentFail.toggle()
+    $("#reply-btn").disabled = false
+    $("#reply-btn").html('Send')
+       for (let index = 0; index < inputs.length; index++) {
+                const element = inputs[index];
+               element.value = ''
+
+                }
+      }, 500);
+
+
+    }
+    else {
+
+
+
+      setTimeout(() => {
+
+
+             $(replyForm).animate({opacity: 0}, function(){
+      $(replyForm).css('display','none');
+        $(otherSiblings).removeClass("d-none")
+      $(otherSiblings).append(
         `
           <div class="col-md-11 p-3 mb-3" >
       <div class="row ">
@@ -457,61 +612,53 @@ let otherComments = siblings[0]
          ${prettyDate}
         </p>
 
-        
+
         </div>
         <p class="mt-3 mb-0 pb-2">
         ${cleanMessage}
         </p>
       </div>
       </div>
-     
+
         </div>
         `
             );
             $(otherComments).animate({opacity: 1}, 500);
 
-     // $('#one').animate({opacity: 1}, 500);
+ filterCommentSuccess.toggle()
     });
-  const postListRef = ref(db, `messages/${docId}/replies`);
-const newPostRef = push(postListRef);
-  set(newPostRef, {
-             name: cleanName,
-             message: cleanMessage,
-             date: prettyDate,
-             recipient: docId
-          });
-/*
-setTimeout(() => {
-  $(otherComments).append(
-    `
 
 
-    <div class="col-md-11 p-3" >
 
 
-    <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
 
-    <h6 class="fw-bold text-primary mb-1 ">${name}</h6>
-    <p class="text-muted small m-0">
-    ${prettyDate}
-    </p>
-    </div>
-    <p class="mt-3 mb-0 pb-2">
-    ${message.value}
-    </p>
-    </div>
-    `
+      }, 500);
 
-        );
-        
-}, 5000);
-*/
+    }
+
+
+  }).catch(function(error) {
+    // Getting the Error details.
+    let code = error.code;
+    let message = error.message;
+    let details = error.details;
+    console.error('There was an error when calling the Cloud Function', error);
+    window.alert('There was an error when calling the Cloud Function:\n\nError Code: '
+        + code + '\nError Message:' + message + '\nError Details:' + details);
+    addMessageButton.disabled = false;
+  });
+
+
+
+
+
+
 
   });
   });
   }
   $("#testBtn").on("click", function () {
-    var myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));
+    let myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));
     myModal.toggle();
   });
 
@@ -529,7 +676,7 @@ setTimeout(() => {
     e.preventDefault();
     signOut(auth)
       .then(() => {
-        var myModal = new bootstrap.Modal(
+        let myModal = new bootstrap.Modal(
           document.getElementById("modalSignOut")
         );
         myModal.toggle();

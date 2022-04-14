@@ -18,8 +18,8 @@
     <%- include(`${partials}/nav`); -%>
 
      <main class="mb-4 mt-5">
-
-
+test
+122343432
 
 
         <div class="container px-4 px-lg-5">
@@ -96,74 +96,92 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Oświęcim, Powiat Oświęcimski, Lesser Poland Voivodeship, Poland
+             <a href="#">Oświęcim, Powiat Oświęcimski, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.03333, 19.23333
+                <a href="#"><span class="lat">50.03333</span>, <span class="lon">19.23333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kraków, Lesser Poland Voivodeship, Poland
+             <a href="#">Kraków, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.06667, 19.95
+                <a href="#"><span class="lat">50.06667</span>, <span class="lon">19.95</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Łaszów, Powiat Proszowicki, Lesser Poland Voivodeship, Poland
+             <a href="#">Łaszów, Powiat Proszowicki, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.281, 20.339
+                <a href="#"><span class="lat">50.281</span>, <span class="lon">20.339</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Szeroka, 31-053 Kraków, Lesser Poland Voivodeship, Poland
+             <a href="#">Szeroka, 31-053 Kraków, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.0522791, 19.9479472
+                <a href="#"><span class="lat">50.0522791</span>, <span class="lon">19.9479472</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kraków, Lesser Poland Voivodeship, Poland
+             <a href="#">Kraków, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.06667, 19.95
+                <a href="#"><span class="lat">50.06667</span>, <span class="lon">19.95</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Józefa, 31-056 Kraków, Lesser Poland Voivodeship, Poland
+             <a href="#">Józefa, 31-056 Kraków, Lesser Poland Voivodeship, Poland </a>
+               
             </td>
                 <td class="table__cell">
-                50.0507477, 19.9454284
+                <a href="#"><span class="lat">50.0507477</span>, <span class="lon">19.9454284</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Jerusalem, Jerusalem District, Israel
+             <a href="#">Jerusalem, Jerusalem District, Israel </a>
+               
             </td>
                 <td class="table__cell">
-                31.77331512, 35.18679028
+                <a href="#"><span class="lat">31.77331512</span>, <span class="lon">35.18679028</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Poland
+             <a href="#">Poland </a>
+               
             </td>
                 <td class="table__cell">
-                52.1246099075455, 19.30063630556
+                <a href="#"><span class="lat">52.1246099075455</span>, <span class="lon">19.30063630556</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Israel
+             <a href="#">Israel </a>
+               
             </td>
                 <td class="table__cell">
-                31.8472608144505, 34.8419985253627
+                <a href="#"><span class="lat">31.8472608144505</span>, <span class="lon">34.8419985253627</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -188,6 +206,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -202,7 +263,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

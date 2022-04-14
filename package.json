@@ -50,6 +50,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "bootpag": "^1.0.7",
     "bootstrap": "^5.1.3",
     "dompurify": "^2.2.6",
@@ -63,7 +64,8 @@
     "leaflet.locatecontrol": "^0.76.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
-    "picturefill": "^3.0.3"
+    "picturefill": "^3.0.3",
+    "uuid": "^8.3.2"
   },
   "browserslist": [
     "> 1%"
