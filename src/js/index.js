@@ -52,11 +52,6 @@ Date.prototype.toShortFormat = function() {
   return `${monthName} ${year}`;
 }
 
-// Now any Date object can be declared
-let anyDate = new Date(1528578000000);
-
-// and it can represent itself in the custom format defined above.
-
 let today = new Date();
 
 const prettyDate = today.toShortFormat()
@@ -168,19 +163,6 @@ if (window.location.href.includes("login")) {
     }
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const db = getDatabase();

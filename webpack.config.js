@@ -13,7 +13,7 @@ module.exports = (env = {}) => {
       app: ['./src/js/index.js'],
       autocomplete: ['./src/js/autocomplete.js'],
       latlonDistance: ['./src/js/latlonDistance.js'],
-      latlonToAddress: ['./src/js/latlonToAddress.js'],
+      latlonToAddress: ['./src/js/latlonToAddress.js', './src/js/comment-section.js'],
       latlonToDMS: ['./src/js/latlonToDMS.js'],
       addressDistance: ['./src/js/addressDistance.js'],
       DMSlatlon: ['./src/js/DMSlatlon.js'],
