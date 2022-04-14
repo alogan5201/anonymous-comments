@@ -19,14 +19,18 @@ import {
   onAuthStateChanged,
   connectAuthEmulator,
 } from "firebase/auth";
-import 'bootstrap/dist/js/bootstrap.bundle';
+//import 'bootstrap/dist/js/bootstrap.bundle';
+import { Modal, Dropdown} from 'bootstrap/dist/js/bootstrap.esm.min.js'
 
 
 
 import "picturefill";
 import "utils/errors";
 
-
+var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+  return new Dropdown(dropdownToggleEl)
+})
 
 
 
@@ -278,10 +282,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
       return response
     }
 
-let filterCommentSuccess = new bootstrap.Modal(document.getElementById('filterCommentSuccess'), {
+let filterCommentSuccess = new Modal(document.getElementById('filterCommentSuccess'), {
   keyboard: false
 })
-let filterCommentFail = new bootstrap.Modal(document.getElementById('filterCommentFail'), {
+let filterCommentFail = new Modal(document.getElementById('filterCommentFail'), {
   keyboard: false
 })
         const messageRef= ref(db, 'messages/'  );
@@ -769,7 +773,7 @@ set(newPostRef, {
 
 
   $("#testBtn").on("click", function () {
-    let myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));
+    let myModal = new Modal(document.getElementById("modalSignOut"));
     myModal.toggle();
   });
 
@@ -787,7 +791,7 @@ set(newPostRef, {
     e.preventDefault();
     signOut(auth)
       .then(() => {
-        let myModal = new bootstrap.Modal(
+        let myModal = new Modal(
           document.getElementById("modalSignOut")
         );
         myModal.toggle();
