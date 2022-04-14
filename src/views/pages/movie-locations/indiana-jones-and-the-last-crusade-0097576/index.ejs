@@ -564,6 +564,14 @@ const box = locations[0].bbox
   map.fitBounds(box)
 map.zoomOut(1);
 }
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
 layer.on('load', function (event) {
      document.getElementById('loader').classList.add('d-none')
 
