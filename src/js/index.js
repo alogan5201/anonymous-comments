@@ -180,7 +180,10 @@ if (window.location.href.includes("login")) {
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const db = getDatabase();
-
+ let body = document.querySelector("body")
+ let bodyClass = body.classList[0]
+ console.log(` body class is ${bodyClass}`)
+ console.log(window.location.pathname)
   if (document.getElementById("comment-form")){
      function commentReply( name, id, date, message) {
 

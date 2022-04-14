@@ -106,20 +106,7 @@ const authenticatedUserMessage = {
   }
  const messagePayload = context.auth ? authenticatedUserMessage : anonymousUserMessage
 
-  return admin.database().ref("/messages").push(messagePayload).then(() => {
-
-
-
-
-    // Returning the sanitized message to the client.
-    return { text: sanitizedMessage, id: anonymousUid };
-  })
-  // [END returnMessageAsync]
-    .catch((error) => {
-
-    // Re-throwing the error as an HttpsError so that the client gets the error details.
-      throw new functions.https.HttpsError("unknown", error.message, error);
-    });
+ return { text: sanitizedMessage, id: anonymousUid }
   // [END_EXCLUDE]
 });
 // [END messageFunctionTrigger]
