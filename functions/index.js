@@ -18,6 +18,7 @@
 const functions = require('firebase-functions');
 const sanitizer = require('./sanitizer');
 const admin = require('firebase-admin');
+const { v4: uuidv4 } = require('uuid');
 admin.initializeApp();
 
 // [START allAdd]
@@ -88,7 +89,7 @@ exports.addMessage = functions.https.onCall((data, context) => {
   const picture =  context.auth ? context.auth.token.picture || null : null;
   const email = context.auth ? context.auth.token.email || null : null;
   // [END authIntegration]
-
+  const anonymousUid = uuidv4();
 
   // [START returnMessageAsync]
   // Saving the new message to the Realtime Database.
@@ -101,14 +102,15 @@ const authenticatedUserMessage = {
 
   const anonymousUserMessage = {
     text: sanitizedMessage,
-
+    id: anonymousUid
   }
  const messagePayload = context.auth ? authenticatedUserMessage : anonymousUserMessage
 
   return admin.database().ref('/messages').push(messagePayload).then(() => {
     console.log('New Message written');
+
     // Returning the sanitized message to the client.
-    return { text: sanitizedMessage };
+    return { text: sanitizedMessage, id: anonymousUid };
   })
   // [END returnMessageAsync]
     .catch((error) => {
