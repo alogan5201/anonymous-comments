@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,82 +94,102 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Via Delle Case Rosse, 00131 Roma Rome, Italy
+             <a href="#">Via Delle Case Rosse, 00131 Roma Rome, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.92883, 12.6382925
+                <a href="#"><span class="lat">41.92883</span>, <span class="lon">12.6382925</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Anzio, Rome, Italy
+             <a href="#">Anzio, Rome, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.493228, 12.615393
+                <a href="#"><span class="lat">41.493228</span>, <span class="lon">12.615393</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Canale Monterano, Rome, Italy
+             <a href="#">Canale Monterano, Rome, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                42.13333, 12.1
+                <a href="#"><span class="lat">42.13333</span>, <span class="lon">12.1</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Piazza Lazio, 03100 Frosinone Frosinone, Italy
+             <a href="#">Piazza Lazio, 03100 Frosinone Frosinone, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.6188768575, 13.318966225
+                <a href="#"><span class="lat">41.6188768575</span>, <span class="lon">13.318966225</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Durango, Durango, Mexico
+             <a href="#">Durango, Durango, Mexico </a>
+               
             </td>
                 <td class="table__cell">
-                23.911273, -104.919807
+                <a href="#"><span class="lat">23.911273</span>, <span class="lon">-104.919807</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                10202 West Washington Boulevard, Culver City, California 90232, United States
+             <a href="#">10202 West Washington Boulevard, Culver City, California 90232, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.017275, -118.402347
+                <a href="#"><span class="lat">34.017275</span>, <span class="lon">-118.402347</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Teatro 5 - Cinecittà Studios, Via Tuscolana 1055, Roma, Rome 00173, Italy
+             <a href="#">Teatro 5 - Cinecittà Studios, Via Tuscolana 1055, Roma, Rome 00173, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.851995, 12.576729
+                <a href="#"><span class="lat">41.851995</span>, <span class="lon">12.576729</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cinecittà Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy
+             <a href="#">Cinecittà Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.852854, 12.575212
+                <a href="#"><span class="lat">41.852854</span>, <span class="lon">12.575212</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Via Arcinazzo Romano, 00012 Guidonia Montecelio Rome, Italy
+             <a href="#">Via Arcinazzo Romano, 00012 Guidonia Montecelio Rome, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.962069, 12.653132
+                <a href="#"><span class="lat">41.962069</span>, <span class="lon">12.653132</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fogliano, Latina, Latina, Italy
+             <a href="#">Fogliano, Latina, Latina, Italy </a>
+               
             </td>
                 <td class="table__cell">
-                41.396864, 12.915584
+                <a href="#"><span class="lat">41.396864</span>, <span class="lon">12.915584</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -195,6 +214,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -209,7 +271,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

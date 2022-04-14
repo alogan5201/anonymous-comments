@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -97,74 +96,92 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cottage Grove, Oregon, United States
+             <a href="#">Cottage Grove, Oregon, United States </a>
+               
             </td>
                 <td class="table__cell">
-                43.7975, -123.0589
+                <a href="#"><span class="lat">43.7975</span>, <span class="lon">-123.0589</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Eugene, Oregon, United States
+             <a href="#">Eugene, Oregon, United States </a>
+               
             </td>
                 <td class="table__cell">
-                44.0505, -123.0951
+                <a href="#"><span class="lat">44.0505</span>, <span class="lon">-123.0951</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                McKenzie River, Eugene, Oregon 97408, United States
+             <a href="#">McKenzie River, Eugene, Oregon 97408, United States </a>
+               
             </td>
                 <td class="table__cell">
-                44.111624, -123.045701
+                <a href="#"><span class="lat">44.111624</span>, <span class="lon">-123.045701</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Row River Road, Cottage Grove, Oregon 97424, United States
+             <a href="#">Row River Road, Cottage Grove, Oregon 97424, United States </a>
+               
             </td>
                 <td class="table__cell">
-                43.74838, -122.89136
+                <a href="#"><span class="lat">43.74838</span>, <span class="lon">-122.89136</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                34560 Row River Road, Cottage Grove, Oregon 97424, United States
+             <a href="#">34560 Row River Road, Cottage Grove, Oregon 97424, United States </a>
+               
             </td>
                 <td class="table__cell">
-                43.79135, -122.97944
+                <a href="#"><span class="lat">43.79135</span>, <span class="lon">-122.97944</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Santa Monica, California, United States
+             <a href="#">Santa Monica, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0196, -118.487
+                <a href="#"><span class="lat">34.0196</span>, <span class="lon">-118.487</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Oregon, United States
+             <a href="#">Oregon, United States </a>
+               
             </td>
                 <td class="table__cell">
-                44.0328841608, -120.281411696945
+                <a href="#"><span class="lat">44.0328841608</span>, <span class="lon">-120.281411696945</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                California, United States
+             <a href="#">California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -189,6 +206,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -203,7 +263,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

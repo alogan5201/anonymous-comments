@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,98 +95,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Juneau, Alaska, United States
+             <a href="#">Juneau, Alaska, United States </a>
+               
             </td>
                 <td class="table__cell">
-                58.3019, -134.4197
+                <a href="#"><span class="lat">58.3019</span>, <span class="lon">-134.4197</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kimberley, British Columbia, Canada
+             <a href="#">Kimberley, British Columbia, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                49.685088, -115.981948
+                <a href="#"><span class="lat">49.685088</span>, <span class="lon">-115.981948</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stewart, British Columbia, Canada
+             <a href="#">Stewart, British Columbia, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                55.938309, -129.991176
+                <a href="#"><span class="lat">55.938309</span>, <span class="lon">-129.991176</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                British Columbia, Canada
+             <a href="#">British Columbia, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                55.1712152811, -125.022796545935
+                <a href="#"><span class="lat">55.1712152811</span>, <span class="lon">-125.022796545935</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tongass National Forest, Juneau, Alaska 99801, United States
+             <a href="#">Tongass National Forest, Juneau, Alaska 99801, United States </a>
+               
             </td>
                 <td class="table__cell">
-                58.400557, -134.556855
+                <a href="#"><span class="lat">58.400557</span>, <span class="lon">-134.556855</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                100 Universal City Plz, Los Angeles, California 91608, United States
+             <a href="#">100 Universal City Plz, Los Angeles, California 91608, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.14138, -118.35659
+                <a href="#"><span class="lat">34.14138</span>, <span class="lon">-118.35659</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Salmo, British Columbia, Canada
+             <a href="#">Salmo, British Columbia, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                49.193443, -117.278705
+                <a href="#"><span class="lat">49.193443</span>, <span class="lon">-117.278705</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hyder, Alaska, United States
+             <a href="#">Hyder, Alaska, United States </a>
+               
             </td>
                 <td class="table__cell">
-                55.848181, -130.29301
+                <a href="#"><span class="lat">55.848181</span>, <span class="lon">-130.29301</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Universal City, Los Angeles, California, United States
+             <a href="#">Universal City, Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1389, -118.3534
+                <a href="#"><span class="lat">34.1389</span>, <span class="lon">-118.3534</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Alaska, United States
+             <a href="#">Alaska, United States </a>
+               
             </td>
                 <td class="table__cell">
-                64.6358675746, -153.180996665583
+                <a href="#"><span class="lat">64.6358675746</span>, <span class="lon">-153.180996665583</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -212,6 +235,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -226,7 +292,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

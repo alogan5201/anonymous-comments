@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -94,90 +93,112 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sierra, Nevada, United States
+             <a href="#">Sierra, Nevada, United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.63, -119.9
+                <a href="#"><span class="lat">39.63</span>, <span class="lon">-119.9</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                California, United States
+             <a href="#">California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Colorado, United States
+             <a href="#">Colorado, United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.190245999, -105.604997408086
+                <a href="#"><span class="lat">39.190245999</span>, <span class="lon">-105.604997408086</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                1 Iverson Lane, Chatsworth, California 91311, United States
+             <a href="#">1 Iverson Lane, Chatsworth, California 91311, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.276, -118.60976
+                <a href="#"><span class="lat">34.276</span>, <span class="lon">-118.60976</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sacramento, California, United States
+             <a href="#">Sacramento, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.581021, -121.4939328
+                <a href="#"><span class="lat">38.581021</span>, <span class="lon">-121.4939328</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Truckee, California, United States
+             <a href="#">Truckee, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.328, -120.1833
+                <a href="#"><span class="lat">39.328</span>, <span class="lon">-120.1833</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chatsworth, California, United States
+             <a href="#">Chatsworth, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.2596, -118.6023
+                <a href="#"><span class="lat">34.2596</span>, <span class="lon">-118.6023</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States
+             <a href="#">San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.251081, -118.518444
+                <a href="#"><span class="lat">34.251081</span>, <span class="lon">-118.518444</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stockton, California, United States
+             <a href="#">Stockton, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.9577, -121.2908
+                <a href="#"><span class="lat">37.9577</span>, <span class="lon">-121.2908</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -202,6 +223,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -216,7 +280,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

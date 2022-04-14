@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,74 +95,92 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Royal Oak, Michigan, United States
+             <a href="#">Royal Oak, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.4895, -83.1446
+                <a href="#"><span class="lat">42.4895</span>, <span class="lon">-83.1446</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Grosse Pointe Park, Michigan, United States
+             <a href="#">Grosse Pointe Park, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.3759, -82.9374
+                <a href="#"><span class="lat">42.3759</span>, <span class="lon">-82.9374</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Center Line, Michigan, United States
+             <a href="#">Center Line, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.485, -83.0277
+                <a href="#"><span class="lat">42.485</span>, <span class="lon">-83.0277</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Highland Park, Michigan, United States
+             <a href="#">Highland Park, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.4057, -83.0969
+                <a href="#"><span class="lat">42.4057</span>, <span class="lon">-83.0969</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                238 Rhode Island Avenue, Highland Park, Michigan 48203, United States
+             <a href="#">238 Rhode Island Avenue, Highland Park, Michigan 48203, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.40006, -83.08332
+                <a href="#"><span class="lat">42.40006</span>, <span class="lon">-83.08332</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Grosse Pointe, Michigan, United States
+             <a href="#">Grosse Pointe, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.3861, -82.9119
+                <a href="#"><span class="lat">42.3861</span>, <span class="lon">-82.9119</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Detroit, Michigan, United States
+             <a href="#">Detroit, Michigan, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.3487, -83.0567
+                <a href="#"><span class="lat">42.3487</span>, <span class="lon">-83.0567</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                204 West 11 Mile Road, Royal Oak, Michigan 48067, United States
+             <a href="#">204 West 11 Mile Road, Royal Oak, Michigan 48067, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.48995, -83.14586
+                <a href="#"><span class="lat">42.48995</span>, <span class="lon">-83.14586</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                13140 Charlevoix Street, Detroit, Michigan 48215, United States
+             <a href="#">13140 Charlevoix Street, Detroit, Michigan 48215, United States </a>
+               
             </td>
                 <td class="table__cell">
-                42.38045, -82.95702
+                <a href="#"><span class="lat">42.38045</span>, <span class="lon">-82.95702</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -188,6 +205,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -202,7 +262,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

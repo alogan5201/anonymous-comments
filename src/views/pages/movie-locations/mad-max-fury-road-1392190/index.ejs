@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,58 +95,72 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica
+             <a href="#">Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica </a>
+               
             </td>
                 <td class="table__cell">
-                10.151559, -85.452172
+                <a href="#"><span class="lat">10.151559</span>, <span class="lon">-85.452172</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stadion Green Point, South Africa, Cape Town, Western Cape 8005, South Africa
+             <a href="#">Stadion Green Point, South Africa, Cape Town, Western Cape 8005, South Africa </a>
+               
             </td>
                 <td class="table__cell">
-                -33.907111, 18.409741
+                <a href="#"><span class="lat">-33.907111</span>, <span class="lon">18.409741</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sydney, New South Wales, Australia
+             <a href="#">Sydney, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.868, 151.21
+                <a href="#"><span class="lat">-33.868</span>, <span class="lon">151.21</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Swakopmund, Erongo, Namibia
+             <a href="#">Swakopmund, Erongo, Namibia </a>
+               
             </td>
                 <td class="table__cell">
-                -22.696565, 14.539054
+                <a href="#"><span class="lat">-22.696565</span>, <span class="lon">14.539054</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Potts Hill, New South Wales, Australia
+             <a href="#">Potts Hill, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.89, 151.03
+                <a href="#"><span class="lat">-33.89</span>, <span class="lon">151.03</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Penrith, New South Wales, Australia
+             <a href="#">Penrith, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.7511, 150.6942
+                <a href="#"><span class="lat">-33.7511</span>, <span class="lon">150.6942</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia
+             <a href="#">Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.892398, 151.226592
+                <a href="#"><span class="lat">-33.892398</span>, <span class="lon">151.226592</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -172,6 +185,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -186,7 +242,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

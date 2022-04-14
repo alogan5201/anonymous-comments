@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,82 +95,102 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Baler, Aurora, Philippines
+             <a href="#">Baler, Aurora, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                15.75833, 121.5625
+                <a href="#"><span class="lat">15.75833</span>, <span class="lon">121.5625</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Baler, Aurora, Philippines
+             <a href="#">Baler, Aurora, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                15.75833, 121.5625
+                <a href="#"><span class="lat">15.75833</span>, <span class="lon">121.5625</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pagsanjan, Laguna, Philippines
+             <a href="#">Pagsanjan, Laguna, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                14.26667, 121.45
+                <a href="#"><span class="lat">14.26667</span>, <span class="lon">121.45</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Iba, Zambales, Philippines
+             <a href="#">Iba, Zambales, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                15.33333, 119.98333
+                <a href="#"><span class="lat">15.33333</span>, <span class="lon">119.98333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pagsanjan, Laguna, Philippines
+             <a href="#">Pagsanjan, Laguna, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                14.26667, 121.45
+                <a href="#"><span class="lat">14.26667</span>, <span class="lon">121.45</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Laguna, Philippines
+             <a href="#">Laguna, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                14.16667, 121.33333
+                <a href="#"><span class="lat">14.16667</span>, <span class="lon">121.33333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Manila, Philippines
+             <a href="#">Manila, Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                14.58333, 121
+                <a href="#"><span class="lat">14.58333</span>, <span class="lon">121</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Philippines
+             <a href="#">Philippines </a>
+               
             </td>
                 <td class="table__cell">
-                14.58678841, 120.98177916
+                <a href="#"><span class="lat">14.58678841</span>, <span class="lon">120.98177916</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                La Romana, La Romana, Dominican Republic
+             <a href="#">La Romana, La Romana, Dominican Republic </a>
+               
             </td>
                 <td class="table__cell">
-                18.43, -68.97
+                <a href="#"><span class="lat">18.43</span>, <span class="lon">-68.97</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Las Alcobas, 1915 Main St, Saint Helena, California 94574, United States
+             <a href="#">Las Alcobas, 1915 Main St, Saint Helena, California 94574, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.509364500000004, -122.47841600000001
+                <a href="#"><span class="lat">38.509364500000004</span>, <span class="lon">-122.47841600000001</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -196,6 +215,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -210,7 +272,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

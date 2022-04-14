@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,106 +95,132 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Samaná, Samaná, Dominican Republic
+             <a href="#">Samaná, Samaná, Dominican Republic </a>
+               
             </td>
                 <td class="table__cell">
-                19.20528, -69.33639
+                <a href="#"><span class="lat">19.20528</span>, <span class="lon">-69.33639</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Saint Vincent and the Grenadines
+             <a href="#">Saint Vincent and the Grenadines </a>
+               
             </td>
                 <td class="table__cell">
-                13.2548078283631, -61.1937651880492
+                <a href="#"><span class="lat">13.2548078283631</span>, <span class="lon">-61.1937651880492</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Saint Vincent and the Grenadines
+             <a href="#">Saint Vincent and the Grenadines </a>
+               
             </td>
                 <td class="table__cell">
-                13.2548078283631, -61.1937651880492
+                <a href="#"><span class="lat">13.2548078283631</span>, <span class="lon">-61.1937651880492</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kingstown, Saint George, Saint Vincent and the Grenadines
+             <a href="#">Kingstown, Saint George, Saint Vincent and the Grenadines </a>
+               
             </td>
                 <td class="table__cell">
-                13.161647, -61.221612
+                <a href="#"><span class="lat">13.161647</span>, <span class="lon">-61.221612</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Dominican Republic
+             <a href="#">Dominican Republic </a>
+               
             </td>
                 <td class="table__cell">
-                18.6062576970524, -70.1067224933053
+                <a href="#"><span class="lat">18.6062576970524</span>, <span class="lon">-70.1067224933053</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                100 Universal City Plz, Los Angeles, California 91608, United States
+             <a href="#">100 Universal City Plz, Los Angeles, California 91608, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.14138, -118.35659
+                <a href="#"><span class="lat">34.14138</span>, <span class="lon">-118.35659</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Long Beach, California, United States
+             <a href="#">Long Beach, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.7775, -118.1885
+                <a href="#"><span class="lat">33.7775</span>, <span class="lon">-118.1885</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                6610 Palos Verdes Drive South, Rancho Palos Verdes, California 90275, United States
+             <a href="#">6610 Palos Verdes Drive South, Rancho Palos Verdes, California 90275, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.73948, -118.40028
+                <a href="#"><span class="lat">33.73948</span>, <span class="lon">-118.40028</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                100 Universal City Plz, Los Angeles, California 91608, United States
+             <a href="#">100 Universal City Plz, Los Angeles, California 91608, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.14138, -118.35659
+                <a href="#"><span class="lat">34.14138</span>, <span class="lon">-118.35659</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Burbank, California, United States
+             <a href="#">Burbank, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1816, -118.3259
+                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                500 S Buena Vista St, Burbank, California 91521, United States
+             <a href="#">500 S Buena Vista St, Burbank, California 91521, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.19026, -118.30795
+                <a href="#"><span class="lat">34.19026</span>, <span class="lon">-118.30795</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                100 Universal City Plz, Los Angeles, California 91608, United States
+             <a href="#">100 Universal City Plz, Los Angeles, California 91608, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.14138, -118.35659
+                <a href="#"><span class="lat">34.14138</span>, <span class="lon">-118.35659</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -220,6 +245,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -234,7 +302,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

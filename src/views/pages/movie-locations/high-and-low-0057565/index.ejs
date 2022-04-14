@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,74 +94,92 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                東宝スタジオ (TOHO STUDIOS), 成城1-4-1, 東京都, Tokyo Prefecture 157-0066, Japan
+             <a href="#">東宝スタジオ (TOHO STUDIOS), 成城1-4-1, 東京都, Tokyo Prefecture 157-0066, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.634654999999995, 139.604309
+                <a href="#"><span class="lat">35.634654999999995</span>, <span class="lon">139.604309</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                江の島 (Enoshima), 江の島, 藤沢市, Kanagawa 251-0036, Japan
+             <a href="#">江の島 (Enoshima), 江の島, 藤沢市, Kanagawa 251-0036, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.299736, 139.47992299999999
+                <a href="#"><span class="lat">35.299736</span>, <span class="lon">139.47992299999999</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ja'me Masjid, 早渕1-31-13, 横浜市, Kanagawa 224-0025, Japan
+             <a href="#">Ja'me Masjid, 早渕1-31-13, 横浜市, Kanagawa 224-0025, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.544209, 139.601238
+                <a href="#"><span class="lat">35.544209</span>, <span class="lon">139.601238</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Japan, Kanagawa鎌倉市
+             <a href="#">Japan, Kanagawa鎌倉市 </a>
+               
             </td>
                 <td class="table__cell">
-                35.31583, 139.55028
+                <a href="#"><span class="lat">35.31583</span>, <span class="lon">139.55028</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kanagawa, Japan
+             <a href="#">Kanagawa, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.44751, 139.64234
+                <a href="#"><span class="lat">35.44751</span>, <span class="lon">139.64234</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Japan, Kanagawa横浜市西区
+             <a href="#">Japan, Kanagawa横浜市西区 </a>
+               
             </td>
                 <td class="table__cell">
-                35.4564, 139.6308
+                <a href="#"><span class="lat">35.4564</span>, <span class="lon">139.6308</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Kanagawa, Japan
+             <a href="#">Kanagawa, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.44751, 139.64234
+                <a href="#"><span class="lat">35.44751</span>, <span class="lon">139.64234</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ja'me Masjid, 早渕1-31-13, 横浜市, Kanagawa 224-0025, Japan
+             <a href="#">Ja'me Masjid, 早渕1-31-13, 横浜市, Kanagawa 224-0025, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.544209, 139.601238
+                <a href="#"><span class="lat">35.544209</span>, <span class="lon">139.601238</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                有楽町駅 (Yurakucho Sta.), 有楽町, 東京都, Tokyo Prefecture 100-0006, Japan
+             <a href="#">有楽町駅 (Yurakucho Sta.), 有楽町, 東京都, Tokyo Prefecture 100-0006, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.674856500000004, 139.7633635
+                <a href="#"><span class="lat">35.674856500000004</span>, <span class="lon">139.7633635</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -187,6 +204,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -201,7 +261,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

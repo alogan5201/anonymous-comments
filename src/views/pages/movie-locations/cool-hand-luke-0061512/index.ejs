@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,82 +95,102 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Jacksonville, Florida, United States
+             <a href="#">Jacksonville, Florida, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.3322, -81.6557
+                <a href="#"><span class="lat">30.3322</span>, <span class="lon">-81.6557</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Stockton, California, United States
+             <a href="#">Stockton, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.9577, -121.2908
+                <a href="#"><span class="lat">37.9577</span>, <span class="lon">-121.2908</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Joaquin River, Fresno, California 93722, United States
+             <a href="#">San Joaquin River, Fresno, California 93722, United States </a>
+               
             </td>
                 <td class="table__cell">
-                36.834202, -119.919535
+                <a href="#"><span class="lat">36.834202</span>, <span class="lon">-119.919535</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Tavares, Florida, United States
+             <a href="#">Tavares, Florida, United States </a>
+               
             </td>
                 <td class="table__cell">
-                28.8042, -81.7256
+                <a href="#"><span class="lat">28.8042</span>, <span class="lon">-81.7256</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Joaquin, California, United States
+             <a href="#">San Joaquin, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                36.6066, -120.189
+                <a href="#"><span class="lat">36.6066</span>, <span class="lon">-120.189</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lodi, California, United States
+             <a href="#">Lodi, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.1302, -121.2724
+                <a href="#"><span class="lat">38.1302</span>, <span class="lon">-121.2724</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                San Joaquin Valley College, 27270 Madison Ave, Temecula, California 92590, United States
+             <a href="#">San Joaquin Valley College, 27270 Madison Ave, Temecula, California 92590, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.525867, -117.166415
+                <a href="#"><span class="lat">33.525867</span>, <span class="lon">-117.166415</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                4000 Warner Boulevard, Burbank, California 91522, United States
+             <a href="#">4000 Warner Boulevard, Burbank, California 91522, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.150955, -118.339232
+                <a href="#"><span class="lat">34.150955</span>, <span class="lon">-118.339232</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Burbank, California, United States
+             <a href="#">Burbank, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1816, -118.3259
+                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Burbank, California, United States
+             <a href="#">Burbank, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1816, -118.3259
+                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -196,6 +215,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -210,7 +272,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -77,50 +76,62 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Brooks, Alberta, Canada
+             <a href="#">Brooks, Alberta, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                50.571027, -111.893005
+                <a href="#"><span class="lat">50.571027</span>, <span class="lon">-111.893005</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rancho Sonora Estates, Sonora, California, United States
+             <a href="#">Rancho Sonora Estates, Sonora, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.993775, -120.403806
+                <a href="#"><span class="lat">37.993775</span>, <span class="lon">-120.403806</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Longview, Longview, Alberta T0L 1H0, Canada
+             <a href="#">Longview, Longview, Alberta T0L 1H0, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                50.532983, -114.23104699999999
+                <a href="#"><span class="lat">50.532983</span>, <span class="lon">-114.23104699999999</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Calgary, Alberta, Canada
+             <a href="#">Calgary, Alberta, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                51.046095, -114.065465
+                <a href="#"><span class="lat">51.046095</span>, <span class="lon">-114.065465</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                High River, Alberta, Canada
+             <a href="#">High River, Alberta, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                50.579708, -113.856921
+                <a href="#"><span class="lat">50.579708</span>, <span class="lon">-113.856921</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Drumheller, Alberta, Canada
+             <a href="#">Drumheller, Alberta, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                51.466279, -112.704664
+                <a href="#"><span class="lat">51.466279</span>, <span class="lon">-112.704664</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -145,6 +156,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -159,7 +213,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

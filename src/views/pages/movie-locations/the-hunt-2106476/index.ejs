@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -77,18 +76,22 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Høje Taastrup St., Banestrøget 5, Taastrup, Capital RegionDenmark 2630, Denmark
+             <a href="#">Høje Taastrup St., Banestrøget 5, Taastrup, Capital RegionDenmark 2630, Denmark </a>
+               
             </td>
                 <td class="table__cell">
-                55.648779, 12.26962
+                <a href="#"><span class="lat">55.648779</span>, <span class="lon">12.26962</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Denmark
+             <a href="#">Denmark </a>
+               
             </td>
                 <td class="table__cell">
-                55.9633978748347, 10.0462968058278
+                <a href="#"><span class="lat">55.9633978748347</span>, <span class="lon">10.0462968058278</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -113,6 +116,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -127,7 +173,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

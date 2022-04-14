@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -77,58 +76,72 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Cloverhlll Prison, Clondalkin, County Dublin D22, Ireland
+             <a href="#">Cloverhlll Prison, Clondalkin, County Dublin D22, Ireland </a>
+               
             </td>
                 <td class="table__cell">
-                53.342054, -6.387231
+                <a href="#"><span class="lat">53.342054</span>, <span class="lon">-6.387231</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bray, Wicklow, Ireland
+             <a href="#">Bray, Wicklow, Ireland </a>
+               
             </td>
                 <td class="table__cell">
-                53.2028, -6.1083
+                <a href="#"><span class="lat">53.2028</span>, <span class="lon">-6.1083</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Dublin, County Dublin, Ireland
+             <a href="#">Dublin, County Dublin, Ireland </a>
+               
             </td>
                 <td class="table__cell">
-                53.4258, -6.2568
+                <a href="#"><span class="lat">53.4258</span>, <span class="lon">-6.2568</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Liverpool, Merseyside, England, United Kingdom
+             <a href="#">Liverpool, Merseyside, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                53.407154, -2.991665
+                <a href="#"><span class="lat">53.407154</span>, <span class="lon">-2.991665</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Upper Thames Street, City of London, London, EC4R 3UE, United Kingdom
+             <a href="#">Upper Thames Street, City of London, London, EC4R 3UE, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.510159, -0.089614
+                <a href="#"><span class="lat">51.510159</span>, <span class="lon">-0.089614</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                100 Huskisson Street, Liverpool, L8 7NS, United Kingdom
+             <a href="#">100 Huskisson Street, Liverpool, L8 7NS, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                53.397741, -2.963969
+                <a href="#"><span class="lat">53.397741</span>, <span class="lon">-2.963969</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                London, Greater London, England, United Kingdom
+             <a href="#">London, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -153,6 +166,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -167,7 +223,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

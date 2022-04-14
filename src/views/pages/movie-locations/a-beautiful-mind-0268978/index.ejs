@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -94,98 +93,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Princeton, New Jersey, United States
+             <a href="#">Princeton, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.3493, -74.6593
+                <a href="#"><span class="lat">40.3493</span>, <span class="lon">-74.6593</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Manhattan College Parkway, Bronx, New York 10471, United States
+             <a href="#">Manhattan College Parkway, Bronx, New York 10471, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.890535, -73.903015
+                <a href="#"><span class="lat">40.890535</span>, <span class="lon">-73.903015</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Belleville, New Jersey, United States
+             <a href="#">Belleville, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.7937, -74.1501
+                <a href="#"><span class="lat">40.7937</span>, <span class="lon">-74.1501</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Newark, New Jersey, United States
+             <a href="#">Newark, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.7357, -74.1724
+                <a href="#"><span class="lat">40.7357</span>, <span class="lon">-74.1724</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Madison, New Jersey, United States
+             <a href="#">Madison, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.7598, -74.4171
+                <a href="#"><span class="lat">40.7598</span>, <span class="lon">-74.4171</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fordham, New York, New York, United States
+             <a href="#">Fordham, New York, New York, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.8593, -73.8985
+                <a href="#"><span class="lat">40.8593</span>, <span class="lon">-73.8985</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Jersey City, New Jersey, United States
+             <a href="#">Jersey City, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.7282, -74.0776
+                <a href="#"><span class="lat">40.7282</span>, <span class="lon">-74.0776</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bayonne, New Jersey, United States
+             <a href="#">Bayonne, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.6687, -74.1143
+                <a href="#"><span class="lat">40.6687</span>, <span class="lon">-74.1143</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bronx, New York, United States
+             <a href="#">Bronx, New York, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.8501, -73.8662
+                <a href="#"><span class="lat">40.8501</span>, <span class="lon">-73.8662</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                East Orange, New Jersey, United States
+             <a href="#">East Orange, New Jersey, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.7673, -74.2049
+                <a href="#"><span class="lat">40.7673</span>, <span class="lon">-74.2049</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States
+             <a href="#">Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.751296, -73.984819
+                <a href="#"><span class="lat">40.751296</span>, <span class="lon">-73.984819</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Yonkers, New York, United States
+             <a href="#">Yonkers, New York, United States </a>
+               
             </td>
                 <td class="table__cell">
-                40.9312, -73.8987
+                <a href="#"><span class="lat">40.9312</span>, <span class="lon">-73.8987</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -210,6 +233,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -224,7 +290,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

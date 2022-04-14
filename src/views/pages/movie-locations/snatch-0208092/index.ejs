@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -77,98 +76,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bunhill Fields, City Rd, London, England EC1Y 2BG, United Kingdom
+             <a href="#">Bunhill Fields, City Rd, London, England EC1Y 2BG, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.523609500000006, -0.088375
+                <a href="#"><span class="lat">51.523609500000006</span>, <span class="lon">-0.088375</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Brightbox Marketing, 112-114 North Acton Road, London, England NW10 6QH, United Kingdom
+             <a href="#">Brightbox Marketing, 112-114 North Acton Road, London, England NW10 6QH, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.530469, -0.259987
+                <a href="#"><span class="lat">51.530469</span>, <span class="lon">-0.259987</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                The Jolly Gardeners, 61-63 Lacy Rd, London, England SW15 1NT, United Kingdom
+             <a href="#">The Jolly Gardeners, 61-63 Lacy Rd, London, England SW15 1NT, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.46463, -0.218567
+                <a href="#"><span class="lat">51.46463</span>, <span class="lon">-0.218567</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Streatham Hill, Lambeth, London, SW2 4TX, United Kingdom
+             <a href="#">Streatham Hill, Lambeth, London, SW2 4TX, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.440057, -0.125729
+                <a href="#"><span class="lat">51.440057</span>, <span class="lon">-0.125729</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bethnal Green, E2 9RD, Tower Hamlets, London, Greater London, England, United Kingdom
+             <a href="#">Bethnal Green, E2 9RD, Tower Hamlets, London, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.5303456, -0.0561633
+                <a href="#"><span class="lat">51.5303456</span>, <span class="lon">-0.0561633</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Perivale Middlesex, Ealing, Greenford, UB6 8TW, United Kingdom
+             <a href="#">Perivale Middlesex, Ealing, Greenford, UB6 8TW, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.532266, -0.325234
+                <a href="#"><span class="lat">51.532266</span>, <span class="lon">-0.325234</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bethnal Green Road, Tower Hamlets, London, E2 0HG, United Kingdom
+             <a href="#">Bethnal Green Road, Tower Hamlets, London, E2 0HG, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.527149, -0.058469
+                <a href="#"><span class="lat">51.527149</span>, <span class="lon">-0.058469</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St Albans, Hertfordshire, England, United Kingdom
+             <a href="#">St Albans, Hertfordshire, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.7492956, -0.34225259999999996
+                <a href="#"><span class="lat">51.7492956</span>, <span class="lon">-0.34225259999999996</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom
+             <a href="#">Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <a href="#"><span class="lat">51.5483805</span>, <span class="lon">-0.5348885</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                England, United Kingdom
+             <a href="#">England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United Kingdom
+             <a href="#">United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                54.2379333607472, -2.36966957036279
+                <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                London, Greater London, England, United Kingdom
+             <a href="#">London, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -193,6 +216,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -207,7 +273,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

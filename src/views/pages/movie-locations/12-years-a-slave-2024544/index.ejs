@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,106 +94,132 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Madame John's Legacy, 632 Dumaine St, New Orleans, Louisiana 70116, United States
+             <a href="#">Madame John's Legacy, 632 Dumaine St, New Orleans, Louisiana 70116, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.95916, -90.063002
+                <a href="#"><span class="lat">29.95916</span>, <span class="lon">-90.063002</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Felicite Road, Vacherie, Louisiana 70090, United States
+             <a href="#">Felicite Road, Vacherie, Louisiana 70090, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.00351, -90.7669
+                <a href="#"><span class="lat">30.00351</span>, <span class="lon">-90.7669</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Magnolia Plantation, Schriever, Louisiana, United States
+             <a href="#">Magnolia Plantation, Schriever, Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.7144, -90.8173
+                <a href="#"><span class="lat">29.7144</span>, <span class="lon">-90.8173</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St. Joseph Plantation, 3535 Highway 18, Vacherie, Louisiana 70090, United States
+             <a href="#">St. Joseph Plantation, 3535 Highway 18, Vacherie, Louisiana 70090, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.005972, -90.771785
+                <a href="#"><span class="lat">30.005972</span>, <span class="lon">-90.771785</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Audubon Park, 6500 Magazine St, New Orleans, Louisiana 70118, United States
+             <a href="#">Audubon Park, 6500 Magazine St, New Orleans, Louisiana 70118, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.9287525, -90.1271815
+                <a href="#"><span class="lat">29.9287525</span>, <span class="lon">-90.1271815</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bocage, Baton Rouge, Louisiana, United States
+             <a href="#">Bocage, Baton Rouge, Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.428, -91.1118
+                <a href="#"><span class="lat">30.428</span>, <span class="lon">-91.1118</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                New Orleans, Louisiana, United States
+             <a href="#">New Orleans, Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.9499, -90.0701
+                <a href="#"><span class="lat">29.9499</span>, <span class="lon">-90.0701</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Urania Street, New Orleans, Louisiana 70130, United States
+             <a href="#">Urania Street, New Orleans, Louisiana 70130, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.93494, -90.07588
+                <a href="#"><span class="lat">29.93494</span>, <span class="lon">-90.07588</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Saint Charles Ave, New Orleans, Louisiana 70115, United States
+             <a href="#">Saint Charles Ave, New Orleans, Louisiana 70115, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.92476, -90.11078
+                <a href="#"><span class="lat">29.92476</span>, <span class="lon">-90.11078</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Destrehan, Louisiana, United States
+             <a href="#">Destrehan, Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.943, -90.3517
+                <a href="#"><span class="lat">29.943</span>, <span class="lon">-90.3517</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Bridge City, Louisiana, United States
+             <a href="#">Bridge City, Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.9333, -90.1701
+                <a href="#"><span class="lat">29.9333</span>, <span class="lon">-90.1701</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Louisiana, United States
+             <a href="#">Louisiana, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.93749930159, -92.305998069584
+                <a href="#"><span class="lat">30.93749930159</span>, <span class="lon">-92.305998069584</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -219,6 +244,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -233,7 +301,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

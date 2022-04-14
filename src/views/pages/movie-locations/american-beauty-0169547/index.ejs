@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,98 +95,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sacramento, California, United States
+             <a href="#">Sacramento, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.581021, -121.4939328
+                <a href="#"><span class="lat">38.581021</span>, <span class="lon">-121.4939328</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                20105 Saticoy Street, Canoga Park, California 91306, United States
+             <a href="#">20105 Saticoy Street, Canoga Park, California 91306, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.20848, -118.57133
+                <a href="#"><span class="lat">34.20848</span>, <span class="lon">-118.57133</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pacific Coast Highway, Lomita, California, United States
+             <a href="#">Pacific Coast Highway, Lomita, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.7892, -118.3134
+                <a href="#"><span class="lat">33.7892</span>, <span class="lon">-118.3134</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                1880 Academy Drive, Los Angeles, California 90012, United States
+             <a href="#">1880 Academy Drive, Los Angeles, California 90012, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.08269, -118.24139
+                <a href="#"><span class="lat">34.08269</span>, <span class="lon">-118.24139</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                11388 Homedale Street, Los Angeles, California 90049, United States
+             <a href="#">11388 Homedale Street, Los Angeles, California 90049, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.06803, -118.4657
+                <a href="#"><span class="lat">34.06803</span>, <span class="lon">-118.4657</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Alameda Avenue, Burbank, California 91201, United States
+             <a href="#">Alameda Avenue, Burbank, California 91201, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1757, -118.29902
+                <a href="#"><span class="lat">34.1757</span>, <span class="lon">-118.29902</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Long Beach, California, United States
+             <a href="#">Long Beach, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.7775, -118.1885
+                <a href="#"><span class="lat">33.7775</span>, <span class="lon">-118.1885</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                330 South Windsor Boulevard, Los Angeles, California 90020, United States
+             <a href="#">330 South Windsor Boulevard, Los Angeles, California 90020, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.06794, -118.321
+                <a href="#"><span class="lat">34.06794</span>, <span class="lon">-118.321</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chatsworth, California, United States
+             <a href="#">Chatsworth, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.2596, -118.6023
+                <a href="#"><span class="lat">34.2596</span>, <span class="lon">-118.6023</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                University Foot and Ankle Institute, 5230 Pacific Concourse Dr. Suite 100, Inglewood, California 90045, United States
+             <a href="#">University Foot and Ankle Institute, 5230 Pacific Concourse Dr. Suite 100, Inglewood, California 90045, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.928197499999996, -118.373356
+                <a href="#"><span class="lat">33.928197499999996</span>, <span class="lon">-118.373356</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                North Hollywood, California, United States
+             <a href="#">North Hollywood, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.1729, -118.374
+                <a href="#"><span class="lat">34.1729</span>, <span class="lon">-118.374</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                4000 Warner Boulevard, Burbank, California 91522, United States
+             <a href="#">4000 Warner Boulevard, Burbank, California 91522, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.150955, -118.339232
+                <a href="#"><span class="lat">34.150955</span>, <span class="lon">-118.339232</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -212,6 +235,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -226,7 +292,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

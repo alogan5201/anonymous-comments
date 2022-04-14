@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -97,98 +96,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia
+             <a href="#">Fox Studios, Driver Ave., Sydney, New South Wales 2021, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.892398, 151.226592
+                <a href="#"><span class="lat">-33.892398</span>, <span class="lon">151.226592</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sydney, New South Wales, Australia
+             <a href="#">Sydney, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.868, 151.21
+                <a href="#"><span class="lat">-33.868</span>, <span class="lon">151.21</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pisgah National Forest, Old Fort, North Carolina 28762, United States
+             <a href="#">Pisgah National Forest, Old Fort, North Carolina 28762, United States </a>
+               
             </td>
                 <td class="table__cell">
-                35.635269, -82.185465
+                <a href="#"><span class="lat">35.635269</span>, <span class="lon">-82.185465</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Camden, New South Wales, Australia
+             <a href="#">Camden, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -34.0532, 150.6962
+                <a href="#"><span class="lat">-34.0532</span>, <span class="lon">150.6962</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Centennial Park, New South Wales, Australia
+             <a href="#">Centennial Park, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.9011, 151.23
+                <a href="#"><span class="lat">-33.9011</span>, <span class="lon">151.23</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Southern Highlands, Bowral - Mittagong, New South Wales 2575, Australia
+             <a href="#">Southern Highlands, Bowral - Mittagong, New South Wales 2575, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -34.450663, 150.449784
+                <a href="#"><span class="lat">-34.450663</span>, <span class="lon">150.449784</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Newington Armory, Olympic Park, Sydney, New South Wales 2127, Australia
+             <a href="#">Newington Armory, Olympic Park, Sydney, New South Wales 2127, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.827476000000004, 151.0631035
+                <a href="#"><span class="lat">-33.827476000000004</span>, <span class="lon">151.0631035</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Richmond, New South Wales, Australia
+             <a href="#">Richmond, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.601, 150.7496
+                <a href="#"><span class="lat">-33.601</span>, <span class="lon">150.7496</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Australia
+             <a href="#">Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -25.7349684916223, 134.489562606981
+                <a href="#"><span class="lat">-25.7349684916223</span>, <span class="lon">134.489562606981</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Manly, New South Wales, Australia
+             <a href="#">Manly, New South Wales, Australia </a>
+               
             </td>
                 <td class="table__cell">
-                -33.79667, 151.2875
+                <a href="#"><span class="lat">-33.79667</span>, <span class="lon">151.2875</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                North Carolina, United States
+             <a href="#">North Carolina, United States </a>
+               
             </td>
                 <td class="table__cell">
-                35.5568849207, -79.3896838690365
+                <a href="#"><span class="lat">35.5568849207</span>, <span class="lon">-79.3896838690365</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -213,6 +236,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -227,7 +293,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

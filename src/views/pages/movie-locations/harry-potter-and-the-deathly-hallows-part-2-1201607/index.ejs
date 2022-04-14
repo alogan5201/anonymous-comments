@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -94,66 +93,82 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Freshwater West, Freshwater Water, Pembroke, Wales SA71 5AH, United Kingdom
+             <a href="#">Freshwater West, Freshwater Water, Pembroke, Wales SA71 5AH, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.654558, -5.05785
+                <a href="#"><span class="lat">51.654558</span>, <span class="lon">-5.05785</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+             <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.407444, -0.465177
+                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Airship Hangar, Farnborough, England GU14 7JP, United Kingdom
+             <a href="#">Airship Hangar, Farnborough, England GU14 7JP, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.28478, -0.760758
+                <a href="#"><span class="lat">51.28478</span>, <span class="lon">-0.760758</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                London, Greater London, England, United Kingdom
+             <a href="#">London, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Swinley Forest, Bracknell, England RG12 7QW, United Kingdom
+             <a href="#">Swinley Forest, Bracknell, England RG12 7QW, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.38761, -0.740717
+                <a href="#"><span class="lat">51.38761</span>, <span class="lon">-0.740717</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom
+             <a href="#">Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.69323, -0.4184505
+                <a href="#"><span class="lat">51.69323</span>, <span class="lon">-0.4184505</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom
+             <a href="#">Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.5483805, -0.5348885
+                <a href="#"><span class="lat">51.5483805</span>, <span class="lon">-0.5348885</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Ashridge Business School, Ashridge, Berkhamsted, England HP4 1NS, United Kingdom
+             <a href="#">Ashridge Business School, Ashridge, Berkhamsted, England HP4 1NS, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.798993874999994, -0.560344
+                <a href="#"><span class="lat">51.798993874999994</span>, <span class="lon">-0.560344</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -178,6 +193,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -192,7 +250,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,66 +94,82 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                6525 West Sunset Boulevard, Los Angeles, California 90028, United States
+             <a href="#">6525 West Sunset Boulevard, Los Angeles, California 90028, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.09834, -118.33204
+                <a href="#"><span class="lat">34.09834</span>, <span class="lon">-118.33204</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Venice, California, United States
+             <a href="#">Venice, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                33.995, -118.4669
+                <a href="#"><span class="lat">33.995</span>, <span class="lon">-118.4669</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States
+             <a href="#">Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.095884, -118.370965
+                <a href="#"><span class="lat">34.095884</span>, <span class="lon">-118.370965</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Las Vegas, Nevada, United States
+             <a href="#">Las Vegas, Nevada, United States </a>
+               
             </td>
                 <td class="table__cell">
-                36.1663, -115.1492
+                <a href="#"><span class="lat">36.1663</span>, <span class="lon">-115.1492</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                West Sunset Boulevard, West Hollywood, California 90028, United States
+             <a href="#">West Sunset Boulevard, West Hollywood, California 90028, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0911, -118.38136
+                <a href="#"><span class="lat">34.0911</span>, <span class="lon">-118.38136</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                4000 Warner Boulevard, Burbank, California 91522, United States
+             <a href="#">4000 Warner Boulevard, Burbank, California 91522, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.150955, -118.339232
+                <a href="#"><span class="lat">34.150955</span>, <span class="lon">-118.339232</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -179,6 +194,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -193,7 +251,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

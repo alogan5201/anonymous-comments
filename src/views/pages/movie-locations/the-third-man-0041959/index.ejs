@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,82 +95,102 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Schreyvogelgasse 8, 1010 Innere Stadt, Austria
+             <a href="#">Schreyvogelgasse 8, 1010 Innere Stadt, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.212149, 16.362752
+                <a href="#"><span class="lat">48.212149</span>, <span class="lon">16.362752</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hotel Sacher, Philharmonikerstr. 4, Innere Stadt, Vienna 1010, Austria
+             <a href="#">Hotel Sacher, Philharmonikerstr. 4, Innere Stadt, Vienna 1010, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.2038435, 16.369573000000003
+                <a href="#"><span class="lat">48.2038435</span>, <span class="lon">16.369573000000003</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Simmeringer Hauptstraße, 1110 Simmering, Austria
+             <a href="#">Simmeringer Hauptstraße, 1110 Simmering, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.16329005, 16.42808725
+                <a href="#"><span class="lat">48.16329005</span>, <span class="lon">16.42808725</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Neuer Markt, Neuer Markt, Innere Stadt, Vienna 1010, Austria
+             <a href="#">Neuer Markt, Neuer Markt, Innere Stadt, Vienna 1010, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.2060995, 16.370687500000003
+                <a href="#"><span class="lat">48.2060995</span>, <span class="lon">16.370687500000003</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Palais Pallavicini, Josefsplatz 5, Innere Stadt, Vienna 1010, Austria
+             <a href="#">Palais Pallavicini, Josefsplatz 5, Innere Stadt, Vienna 1010, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.2068175, 16.3674165
+                <a href="#"><span class="lat">48.2068175</span>, <span class="lon">16.3674165</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Reichsbrücke, Reichsbrücke, Donaustadt, Vienna 1220, Austria
+             <a href="#">Reichsbrücke, Reichsbrücke, Donaustadt, Vienna 1220, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.2282515, 16.4097055
+                <a href="#"><span class="lat">48.2282515</span>, <span class="lon">16.4097055</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Morzinplatz, Morzinplatz, Innere Stadt, Vienna 1010, Austria
+             <a href="#">Morzinplatz, Morzinplatz, Innere Stadt, Vienna 1010, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.212917000000004, 16.374419000000003
+                <a href="#"><span class="lat">48.212917000000004</span>, <span class="lon">16.374419000000003</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Vienna, Austria
+             <a href="#">Vienna, Austria </a>
+               
             </td>
                 <td class="table__cell">
-                48.20833, 16.37306
+                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom
+             <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.407444, -0.465177
+                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Isleworth, Greater London, England, United Kingdom
+             <a href="#">Isleworth, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.4666, -0.3363
+                <a href="#"><span class="lat">51.4666</span>, <span class="lon">-0.3363</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -196,6 +215,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -210,7 +272,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

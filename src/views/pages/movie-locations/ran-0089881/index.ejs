@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -77,74 +76,92 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Japan, Kumamoto阿蘇市
+             <a href="#">Japan, Kumamoto阿蘇市 </a>
+               
             </td>
                 <td class="table__cell">
-                32.95222, 131.12139
+                <a href="#"><span class="lat">32.95222</span>, <span class="lon">131.12139</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                姫路城 (Himeji Castle), 本町68, 姫路市, Hyōgo 670-0012, Japan
+             <a href="#">姫路城 (Himeji Castle), 本町68, 姫路市, Hyōgo 670-0012, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                34.839389499999996, 134.6939435
+                <a href="#"><span class="lat">34.839389499999996</span>, <span class="lon">134.6939435</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                熊本城 馬具櫓, 中央区本丸1, 熊本市, Kumamoto 860-0002, Japan
+             <a href="#">熊本城 馬具櫓, 中央区本丸1, 熊本市, Kumamoto 860-0002, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                32.803135, 130.70481
+                <a href="#"><span class="lat">32.803135</span>, <span class="lon">130.70481</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Japan, Shizuoka御殿場市
+             <a href="#">Japan, Shizuoka御殿場市 </a>
+               
             </td>
                 <td class="table__cell">
-                35.30861, 138.935
+                <a href="#"><span class="lat">35.30861</span>, <span class="lon">138.935</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Japan, Ōita玖珠郡九重町
+             <a href="#">Japan, Ōita玖珠郡九重町 </a>
+               
             </td>
                 <td class="table__cell">
-                33.188326, 131.210333
+                <a href="#"><span class="lat">33.188326</span>, <span class="lon">131.210333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                二馬力, 梶野町1-5-41, 小金井市, Tokyo Prefecture 184-0002, Japan
+             <a href="#">二馬力, 梶野町1-5-41, 小金井市, Tokyo Prefecture 184-0002, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.703183, 139.528087
+                <a href="#"><span class="lat">35.703183</span>, <span class="lon">139.528087</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                名古屋城 (Nagoya Castle), 中区本丸1-1, 名古屋市, Aichi 460-0031, Japan
+             <a href="#">名古屋城 (Nagoya Castle), 中区本丸1-1, 名古屋市, Aichi 460-0031, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.1855555, 136.89885349999997
+                <a href="#"><span class="lat">35.1855555</span>, <span class="lon">136.89885349999997</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                庄内空港 (Shonai Airport - SYO/RJSY), 浜中字村東30-3, 酒田市, Yamagata 998-0112, Japan
+             <a href="#">庄内空港 (Shonai Airport - SYO/RJSY), 浜中字村東30-3, 酒田市, Yamagata 998-0112, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                38.814088999999996, 139.7874955
+                <a href="#"><span class="lat">38.814088999999996</span>, <span class="lon">139.7874955</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                東宝スタジオ (TOHO STUDIOS), 成城1-4-1, 東京都, Tokyo Prefecture 157-0066, Japan
+             <a href="#">東宝スタジオ (TOHO STUDIOS), 成城1-4-1, 東京都, Tokyo Prefecture 157-0066, Japan </a>
+               
             </td>
                 <td class="table__cell">
-                35.634654999999995, 139.604309
+                <a href="#"><span class="lat">35.634654999999995</span>, <span class="lon">139.604309</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -169,6 +186,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -183,7 +243,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

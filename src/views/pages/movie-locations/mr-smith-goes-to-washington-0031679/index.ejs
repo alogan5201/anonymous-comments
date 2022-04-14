@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,50 +94,62 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States
+             <a href="#">Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.8892725, -77.0501525
+                <a href="#"><span class="lat">38.8892725</span>, <span class="lon">-77.0501525</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Union Station, Washington, District of Columbia, United States
+             <a href="#">Union Station, Washington, District of Columbia, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.897446, -77.005234
+                <a href="#"><span class="lat">38.897446</span>, <span class="lon">-77.005234</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                545 7th Street Southeast, Washington, District of Columbia 20003, United States
+             <a href="#">545 7th Street Southeast, Washington, District of Columbia 20003, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.881515, -76.996415
+                <a href="#"><span class="lat">38.881515</span>, <span class="lon">-76.996415</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Washington, District of Columbia, United States
+             <a href="#">Washington, District of Columbia, United States </a>
+               
             </td>
                 <td class="table__cell">
-                38.895, -77.0366
+                <a href="#"><span class="lat">38.895</span>, <span class="lon">-77.0366</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -163,6 +174,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -177,7 +231,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

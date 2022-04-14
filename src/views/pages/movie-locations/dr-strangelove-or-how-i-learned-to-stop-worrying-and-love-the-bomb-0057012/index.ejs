@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -95,106 +94,132 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada
+             <a href="#">Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                51.177996, -115.570995
+                <a href="#"><span class="lat">51.177996</span>, <span class="lon">-115.570995</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Québec, Quebec, Canada
+             <a href="#">Québec, Quebec, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                46.82596, -71.235223
+                <a href="#"><span class="lat">46.82596</span>, <span class="lon">-71.235223</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Arctic, West Warwick, Rhode Island, United States
+             <a href="#">Arctic, West Warwick, Rhode Island, United States </a>
+               
             </td>
                 <td class="table__cell">
-                41.71, -71.52
+                <a href="#"><span class="lat">41.71</span>, <span class="lon">-71.52</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Iceland
+             <a href="#">Iceland </a>
+               
             </td>
                 <td class="table__cell">
-                64.9975884448459, -18.6054668169534
+                <a href="#"><span class="lat">64.9975884448459</span>, <span class="lon">-18.6054668169534</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Rocky Mountains, Evergreen, Colorado 80439, United States
+             <a href="#">Rocky Mountains, Evergreen, Colorado 80439, United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.735612, -105.423783
+                <a href="#"><span class="lat">39.735612</span>, <span class="lon">-105.423783</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom
+             <a href="#">Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.396334, -0.453109
+                <a href="#"><span class="lat">51.396334</span>, <span class="lon">-0.453109</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Greenland
+             <a href="#">Greenland </a>
+               
             </td>
                 <td class="table__cell">
-                74.7209117556808, -41.3894770446402
+                <a href="#"><span class="lat">74.7209117556808</span>, <span class="lon">-41.3894770446402</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Northwest Territories, Canada
+             <a href="#">Northwest Territories, Canada </a>
+               
             </td>
                 <td class="table__cell">
-                63.6963550874, -118.540250478607
+                <a href="#"><span class="lat">63.6963550874</span>, <span class="lon">-118.540250478607</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Okaloosa County, Navarre, Florida 32566, United States
+             <a href="#">Okaloosa County, Navarre, Florida 32566, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.40967, -86.816359
+                <a href="#"><span class="lat">30.40967</span>, <span class="lon">-86.816359</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Exeter Rd, Hillingdon, Hounslow, TW6 2PL, United Kingdom
+             <a href="#">Exeter Rd, Hillingdon, Hounslow, TW6 2PL, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.47271, -0.428711
+                <a href="#"><span class="lat">51.47271</span>, <span class="lon">-0.428711</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                London, Greater London, England, United Kingdom
+             <a href="#">London, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.507321899999994, -0.12764739999999997
+                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                England, United Kingdom
+             <a href="#">England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                52.38145972, -0.676181762467007
+                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Hounslow, Greater London, England, United Kingdom
+             <a href="#">Hounslow, Greater London, England, United Kingdom </a>
+               
             </td>
                 <td class="table__cell">
-                51.4668, -0.3507
+                <a href="#"><span class="lat">51.4668</span>, <span class="lon">-0.3507</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -219,6 +244,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -233,7 +301,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

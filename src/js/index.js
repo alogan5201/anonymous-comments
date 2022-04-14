@@ -8,7 +8,7 @@
 
 import dompurify from "dompurify";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get,  onValue, push, query, orderByValue, increment } from "firebase/database";
+import { getDatabase, ref, set, get,  onValue, push, query, orderByValue, increment, orderByChild } from "firebase/database";
  import { getFunctions, httpsCallable , connectFunctionsEmulator} from 'firebase/functions';
 import {
   getAuth,
@@ -21,10 +21,13 @@ import {
 } from "firebase/auth";
 import 'bootstrap/dist/js/bootstrap.bundle';
 
+
 import { Modal } from 'bootstrap'
 import "picturefill";
 import "utils/errors";
+
 import { result } from "lodash";
+
 
 
 
@@ -162,35 +165,58 @@ if (window.location.href.includes("login")) {
   );
 }
 
-function extractObjValues(obj){
-      const result = []
 
-  for (const property in obj) {
-  let object = {
-   key: property,
-    value: obj[property]
+const mainCard =  (id, name, date, message, likes, dislikes) => {
 
-  }
-  result.push(object)
+  let data = `
+  <div class="col-md-12 col-lg-12 col-xl-12">
+    <div class="card border-0 " id=${id} style="background-color: transparent">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+          <h6 class="fw-bold text-primary mb-1 ">${name}</h6>
+          <p class="text-muted small m-0">
+            ${date}
+          </p>
+        </div>
+        <p class="mt-3 mb-0 pb-2">
+          ${message}
+        </p>
 
-  }
-  return result
+        <div class="small d-flex justify-content-start">
+          <a href="#!" id="thumbs-up" class="d-flex align-items-center me-3">
+            <i class="far fa-thumbs-up me-2"></i> <span id="count">${likes}</span>
+          </a>
+          <a href="#!" id="thumbs-down" class="d-flex align-items-center me-3">
+            <i class="far fa-thumbs-down me-2"></i>
+            <span id="count">${dislikes}</span>
+          </a>
+          <a href="#!" class="d-flex align-items-center me-3 reply-btn">
+            <i class="far fa-comment-dots me-2"></i>
+            <p class="m-0">Reply</p>
+          </a>
+
+        </div>
+      </div>
+      <div class="card-footer py-3 border-0  row " style="background-color: transparent !important">
+        <div class="other-comments">
+
+        </div>
+      </div>
+    </div>
+  </div>`
+
+  return data
+
 }
 
-/*
 
- mainForm.on('submit', e => {
-        e.preventDefault()
 
-        $('#submitted-message').innerHTML = `<b>Sanitized Message</b>: ${dompurify.sanitize(mainForm.message.value)}`
 
-        import(/* webpackChunkName: "lazy-module.lazy"  './lazy-module').then(module => {
-          const foo = module.default
 
-          foo()
-      })
-  })
-*/
+let test = mainCard(123, 'andrew', '12-14', 'hello there', '1', '2')
+
+
+
 
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -198,13 +224,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   if (document.getElementById("comment-form")){
 
-let filterCommentSuccess = new bootstrap.Modal(document.getElementById('filterCommentSuccess'), {
-  keyboard: false
-})
-let filterCommentFail = new bootstrap.Modal(document.getElementById('filterCommentFail'), {
-  keyboard: false
-})
-
+      import(/* webpackChunkName: "lazy-module.cards" */ "./html-components/cards").then(
+    (module) => {
+      const cards = module.default;
+    const replyCard = cards.commentReply
+    //commentReply( name, id, date, message)
+    const commentCard = cards.commentCard
+     //function commentCard (id, name, date, message, likes, dislikes)
 
     function extractReplies(replies){
       let response = []
@@ -225,8 +251,14 @@ let filterCommentFail = new bootstrap.Modal(document.getElementById('filterComme
 
       return response
     }
-    const mostViewedPosts = query(ref(db, 'messages'), orderByValue());
-    const messageRef= ref(db, 'messages/'  );
+
+let filterCommentSuccess = new bootstrap.Modal(document.getElementById('filterCommentSuccess'), {
+  keyboard: false
+})
+let filterCommentFail = new bootstrap.Modal(document.getElementById('filterCommentFail'), {
+  keyboard: false
+})
+        const messageRef= ref(db, 'messages/'  );
     get(messageRef).then((snapshot) => {
       if (snapshot.exists()) {
 
@@ -236,54 +268,17 @@ let filterCommentFail = new bootstrap.Modal(document.getElementById('filterComme
       for (const [key, value] of map.entries()) {
         let likes = value.likes && value.likes.likes ? value.likes.likes : ''
         let dislikes = value.dislikes && value.dislikes.dislikes ? value.dislikes.dislikes : ''
-
+        console.log(likes)
        const dateinfo = value.date ? value.date : ""
-        $( "#comment-section" ).append( `  <div class="col-md-12 col-lg-12 col-xl-12">
-          <div class="card border-0 "  id=${key} style="background-color: transparent" >
-             <div class="card-body"  >
-             <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-        <h6 class="fw-bold text-primary mb-1 ">${value.name}</h6>
-        <p class="text-muted small m-0">
-          ${dateinfo}
-        </p>
 
-
-        </div>
-
-
-              <p class="mt-3 mb-0 pb-2">
-           ${value.message}
-              </p>
-
-              <div class="small d-flex justify-content-start">
-                <a href="#!" id="thumbs-up" class="d-flex align-items-center me-3">
-                  <i class="far fa-thumbs-up me-2"></i> <span id="count">${likes}</span>
-                </a>
-                <a href="#!" id="thumbs-down" class="d-flex align-items-center me-3">
-                  <i class="far fa-thumbs-down me-2"></i>
-      <span id="count">${dislikes}</span>
-                </a>
-                <a href="#!" class="d-flex align-items-center me-3 reply-btn">
-                  <i class="far fa-comment-dots me-2"></i>
-                  <p class="m-0">Reply</p>
-                </a>
-
-              </div>
-            </div>
-            <div class="card-footer py-3 border-0  row " style = "background-color: transparent !important">
-            <div class = "other-comments">
-
-            </div>
-            </div>
-          </div>
-        </div>` );
+       let commentsList = commentCard( value.id, value.name, dateinfo, value.message, likes, dislikes)
+        $( "#comment-section" ).append(commentsList );
         if(value.replies){
           let ex = extractReplies(value.replies)
-
-
           for (let index = 0; index < ex.length; index++) {
           const element = ex[index];
           let recipient = $(`#${element.recipient} .other-comments`)
+          let replies = replyCard(element.name, element.id, element.date, element.message)
           $(recipient[0]).append(
 `  <div class="col-md-11 p-3 mb-3" >
       <div class="row ">
@@ -293,15 +288,12 @@ let filterCommentFail = new bootstrap.Modal(document.getElementById('filterComme
         <p class="text-muted small m-0">
          ${element.date}
         </p>
-
-
         </div>
         <p class="mt-3 mb-0 pb-2">
         ${element.message}
         </p>
       </div>
       </div>
-
         </div>
 
 
@@ -345,7 +337,9 @@ $("#comment-btn").disabled = true;
         addMessage({text: messageText}).then(function(result) {
     // Read result of the Cloud Function.
     let sanitizedMessage = result.data.text;
-  console.log(messageText)
+    let anonymousUid = result.data.id
+    console.log(anonymousUid)
+
 
     if (messageText !== sanitizedMessage) {
 
@@ -378,12 +372,13 @@ $("#comment-btn").disabled = true;
         const newPostRef = push(postListRef);
         set(newPostRef, {
            name: cleanName,
+           id: anonymousUid,
            message: cleanMessage,
            date: prettyDate
 
         });
-        $( "#comment-section" ).append( `  <div class="col-md-12 col-lg-12 col-xl-12">
-          <div class="card border-0 "  style="background-color: transparent" >
+        $( "#comment-section" ).append( `  <div class="col-md-12 col-lg-12 col-xl-12" >
+          <div class="card border-0 "  style="background-color: transparent" id=${anonymousUid} >
              <div class="card-body" >
              <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
         <h6 class="fw-bold text-primary mb-1 ">${cleanName}</h6>
@@ -445,23 +440,33 @@ $("#comment-btn").disabled = true;
 
 
     });
-// TODO figure out why comment appears with "undefined as name and message" ----p.s. its something to do with replies
-
 const addLike = async (id) => {
 
     await set(ref(db, `messages/${id}/likes`), {
          likes: increment(1)
     });
   }
-
-
 const addDislike = async (id) => {
 
     await set(ref(db, `messages/${id}/dislikes`), {
          dislikes: increment(1)
     });
   }
+const addReply = async () => {
 
+const dbRef = ref(db, 'messages');
+
+  onValue(dbRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const childKey = childSnapshot.key;
+    const childData = childSnapshot.val();
+    console.log(childKey, childData)
+  });
+}, {
+  onlyOnce: true
+});
+
+  }
 
  $('#comment-section').on('click', '#thumbs-up', function (e) {
 e.preventDefault()
@@ -470,7 +475,29 @@ let anchor = t[0]
 let countText = $(this).children().last().text()
  let parentTag = $(this).parent().parent().parent().attr('id')
 
-addLike(parentTag)
+const dbRef = ref(db, 'messages');
+            onValue(dbRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const childKey = childSnapshot.key;
+    const childData = childSnapshot.val();
+   // console.log(childKey, childData)
+
+    if(childData.id == parentTag){
+
+const postListRef = ref(db, `messages/${childKey}/likes`);
+
+
+const newPostRef = push(postListRef);
+set(ref(db, `messages/${childKey}/likes`), {
+         likes: increment(1)
+    });
+
+    }
+
+  });
+}, {
+  onlyOnce: true
+});
 
 let newCount = parseInt(countText) + 1 || 1
 $(this).children().first().removeClass('far fa-thumbs-up me-2').addClass('fas fa-thumbs-up me-2')
@@ -489,7 +516,29 @@ let anchor = t[0]
 let countText = $(this).children().last().text()
  let parentTag = $(this).parent().parent().parent().attr('id')
 
-addDislike(parentTag)
+const dbRef = ref(db, 'messages');
+            onValue(dbRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const childKey = childSnapshot.key;
+    const childData = childSnapshot.val();
+   // console.log(childKey, childData)
+
+    if(childData.id == parentTag){
+
+const postListRef = ref(db, `messages/${childKey}/likes`);
+
+
+const newPostRef = push(postListRef);
+set(ref(db, `messages/${childKey}/dislikes`), {
+         dislikes: increment(1)
+    });
+
+    }
+
+  });
+}, {
+  onlyOnce: true
+});
 console.log($(this).children())
 let newCount = parseInt(countText) + 1 || 1
 $(this).children().first().removeClass('far fa-thumbs-down me-2').addClass('fas fa-thumbs-down me-2')
@@ -498,19 +547,10 @@ $(this).children().last().html(newCount)
 
  })
 
-
-
-
-
     $('#comment-section').on('click', '.reply-btn', function (e) {
       e.preventDefault()
-
 let siblings = $(this).parent().parent().siblings()
 let otherComments = siblings[0]
-
-
-
-
       //let parentTag = $(this).parent().parent().attr('id');
       let parentTag = $(this).parent().parent().attr('id')
       let grandFather = $(this).parent().parent().parent().children().last().children()
@@ -565,6 +605,16 @@ let otherComments = siblings[0]
      let cleanMessage=  dompurify.sanitize(message.value)
       let cleanName = dompurify.sanitize(name)
       const docId = $(this).parent().parent().attr('id')
+
+const dbRef = ref(db, 'messages');
+
+
+
+
+
+
+
+
     let messageText = `${cleanName} ${cleanMessage}`
     let replyForm = $(this)
     let otherSiblings = siblings[0]
@@ -574,7 +624,7 @@ let otherComments = siblings[0]
            addMessage({text: messageText}).then(function(result) {
     // Read result of the Cloud Function.
     let sanitizedMessage = result.data.text;
-  console.log(messageText)
+  let id = result.data.id
 
     if (messageText !== sanitizedMessage) {
 
@@ -593,6 +643,38 @@ let otherComments = siblings[0]
     }
     else {
 
+
+
+            onValue(dbRef, (snapshot) => {
+  snapshot.forEach((childSnapshot) => {
+    const childKey = childSnapshot.key;
+    const childData = childSnapshot.val();
+   // console.log(childKey, childData)
+
+    if(childData.id == docId){
+const postData = {
+  name: cleanName,
+           id: id,
+           message: cleanMessage,
+           date: prettyDate}
+const postListRef = ref(db, `messages/${childKey}/replies`);
+
+console.log(childKey, childData)
+const newPostRef = push(postListRef);
+set(newPostRef, {
+ name: cleanName,
+           id: id,
+           message: cleanMessage,
+           date: prettyDate,
+            recipient: childData.id
+});
+
+    }
+
+  });
+}, {
+  onlyOnce: true
+});
 
 
       setTimeout(() => {
@@ -627,17 +709,9 @@ let otherComments = siblings[0]
 
  filterCommentSuccess.toggle()
     });
-
-
-
-
-
       }, 500);
 
-    }
-
-
-  }).catch(function(error) {
+    } }).catch(function(error) {
     // Getting the Error details.
     let code = error.code;
     let message = error.message;
@@ -649,14 +723,26 @@ let otherComments = siblings[0]
   });
 
 
-
-
-
-
-
   });
   });
+
+
+
+
+
+    }
+
+  );
+
+
+
+
+
+
   }
+
+
+
   $("#testBtn").on("click", function () {
     let myModal = new bootstrap.Modal(document.getElementById("modalSignOut"));
     myModal.toggle();

@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,98 +95,122 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Lompoc, California, United States
+             <a href="#">Lompoc, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.6392, -120.4579
+                <a href="#"><span class="lat">34.6392</span>, <span class="lon">-120.4579</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Marfa, Texas, United States
+             <a href="#">Marfa, Texas, United States </a>
+               
             </td>
                 <td class="table__cell">
-                30.3135, -104.0217
+                <a href="#"><span class="lat">30.3135</span>, <span class="lon">-104.0217</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                8601 North Thorne Lane Southwest, Lakewood, Washington 98498, United States
+             <a href="#">8601 North Thorne Lane Southwest, Lakewood, Washington 98498, United States </a>
+               
             </td>
                 <td class="table__cell">
-                47.130295, -122.55136
+                <a href="#"><span class="lat">47.130295</span>, <span class="lon">-122.55136</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                El Mirage Dry Lake, 20471 Mountain View Rd, Adelanto, California 92301, United States
+             <a href="#">El Mirage Dry Lake, 20471 Mountain View Rd, Adelanto, California 92301, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.624683, -117.547873
+                <a href="#"><span class="lat">34.624683</span>, <span class="lon">-117.547873</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Los Angeles, California, United States
+             <a href="#">Los Angeles, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0544, -118.2439
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Beverly Hills, California, United States
+             <a href="#">Beverly Hills, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.0736, -118.4004
+                <a href="#"><span class="lat">34.0736</span>, <span class="lon">-118.4004</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Santa Clarita, California, United States
+             <a href="#">Santa Clarita, California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                34.42, -118.54
+                <a href="#"><span class="lat">34.42</span>, <span class="lon">-118.54</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Shafter, Texas, United States
+             <a href="#">Shafter, Texas, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.8202, -104.3033
+                <a href="#"><span class="lat">29.8202</span>, <span class="lon">-104.3033</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                California, United States
+             <a href="#">California, United States </a>
+               
             </td>
                 <td class="table__cell">
-                37.0743595873, -119.699375153073
+                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                United States
+             <a href="#">United States </a>
+               
             </td>
                 <td class="table__cell">
-                39.3812661305678, -97.9222112121185
+                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Texas, United States
+             <a href="#">Texas, United States </a>
+               
             </td>
                 <td class="table__cell">
-                31.8039734986, -98.8223185136653
+                <a href="#"><span class="lat">31.8039734986</span>, <span class="lon">-98.8223185136653</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Presidio, 911 W 11th St, Houston, Texas 77008, United States
+             <a href="#">Presidio, 911 W 11th St, Houston, Texas 77008, United States </a>
+               
             </td>
                 <td class="table__cell">
-                29.790724, -95.406735
+                <a href="#"><span class="lat">29.790724</span>, <span class="lon">-95.406735</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -212,6 +235,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -226,7 +292,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }

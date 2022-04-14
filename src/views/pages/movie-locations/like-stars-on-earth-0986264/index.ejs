@@ -21,7 +21,6 @@
 
 
 
-
         <div class="container px-4 px-lg-5">
 
 
@@ -96,106 +95,132 @@
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Panchgani, Maharashtra, India
+             <a href="#">Panchgani, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                17.918044, 73.799756
+                <a href="#"><span class="lat">17.918044</span>, <span class="lon">73.799756</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mumbai, Maharashtra, India
+             <a href="#">Mumbai, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                18.96667, 72.83333
+                <a href="#"><span class="lat">18.96667</span>, <span class="lon">72.83333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                St Xaviers High School, Lokmanya Tilak Marg, Mumbai, Maharashtra, India
+             <a href="#">St Xaviers High School, Lokmanya Tilak Marg, Mumbai, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                18.944321, 72.829906
+                <a href="#"><span class="lat">18.944321</span>, <span class="lon">72.829906</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India
+             <a href="#">Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                19.032711, 72.891125
+                <a href="#"><span class="lat">19.032711</span>, <span class="lon">72.891125</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India
+             <a href="#">Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                19.032711, 72.891125
+                <a href="#"><span class="lat">19.032711</span>, <span class="lon">72.891125</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Trombay Club, BPCL Colony, Chembur, Mumbai, Maharashtra, India
+             <a href="#">Trombay Club, BPCL Colony, Chembur, Mumbai, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                19.035169, 72.897258
+                <a href="#"><span class="lat">19.035169</span>, <span class="lon">72.897258</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India
+             <a href="#">Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                19.05871, 72.89969
+                <a href="#"><span class="lat">19.05871</span>, <span class="lon">72.89969</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Parel, Mumbai, Mumbai City, Maharashtra, India
+             <a href="#">Parel, Mumbai, Mumbai City, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                18.998234, 72.843157
+                <a href="#"><span class="lat">18.998234</span>, <span class="lon">72.843157</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Mumbai, Maharashtra, India
+             <a href="#">Mumbai, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                18.96667, 72.83333
+                <a href="#"><span class="lat">18.96667</span>, <span class="lon">72.83333</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                The Acres Club, 411-B, Sindhi Society, Mumbai, Maharashtra, India
+             <a href="#">The Acres Club, 411-B, Sindhi Society, Mumbai, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                19.052128, 72.892529
+                <a href="#"><span class="lat">19.052128</span>, <span class="lon">72.892529</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Panchgani, Maharashtra, India
+             <a href="#">Panchgani, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                17.918044, 73.799756
+                <a href="#"><span class="lat">17.918044</span>, <span class="lon">73.799756</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Sydney Point, Panchgani, Panchgani, Maharashtra, India
+             <a href="#">Sydney Point, Panchgani, Panchgani, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                17.934397, 73.805594
+                <a href="#"><span class="lat">17.934397</span>, <span class="lon">73.805594</span></a>
+                
             </td>
           </tr>
           <tr class="table__row">
             <td class="table__cell">
-                Il Palazzo Hotel, Panchgani, Maharashtra, India
+             <a href="#">Il Palazzo Hotel, Panchgani, Maharashtra, India </a>
+               
             </td>
                 <td class="table__cell">
-                17.925178, 73.802047
+                <a href="#"><span class="lat">17.925178</span>, <span class="lon">73.802047</span></a>
+                
             </td>
           </tr>
           </tr>
@@ -220,6 +245,49 @@ const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
 const coords = []
     for (let index = 0; index < locations[0].data.length; index++) {
   const element = locations[0].data[index];
@@ -234,7 +302,7 @@ marker.addTo(map);
 if(locations[0].bbox){
 
 const box = locations[0].bbox
-  
+  console.log(JSON.stringify(box))
   map.fitBounds(box)
 map.zoomOut(1);
 }
