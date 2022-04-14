@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
-
-const functions = require('firebase-functions');
-const sanitizer = require('./sanitizer');
-const admin = require('firebase-admin');
-const { v4: uuidv4 } = require('uuid');
+"use-scrict";
+// projects/660236032468/secrets/mapbox/versions/1
+const functions = require("firebase-functions");
+const sanitizer = require("./sanitizer");
+const admin = require("firebase-admin");
+const { v4: uuidv4 } = require("uuid");
 admin.initializeApp();
 
 // [START allAdd]
@@ -36,8 +36,8 @@ exports.addNumbers = functions.https.onCall((data) => {
   // Checking that attributes are present and are numbers.
   if (!Number.isFinite(firstNumber) || !Number.isFinite(secondNumber)) {
     // Throwing an HttpsError so that the client gets the error details.
-    throw new functions.https.HttpsError('invalid-argument', 'The function must be called with ' +
-        'two arguments "firstNumber" and "secondNumber" which must both be numbers.');
+    throw new functions.https.HttpsError("invalid-argument", "The function must be called with " +
+        "two arguments 'firstNumber' and 'secondNumber' which must both be numbers.");
   }
   // [END addHttpsError]
 
@@ -46,7 +46,7 @@ exports.addNumbers = functions.https.onCall((data) => {
   return {
     firstNumber: firstNumber,
     secondNumber: secondNumber,
-    operator: '+',
+    operator: "+",
     operationResult: firstNumber + secondNumber,
   };
   // [END returnAddData]
@@ -63,10 +63,10 @@ exports.addMessage = functions.https.onCall((data, context) => {
   // [END readMessageData]
   // [START messageHttpsErrors]
   // Checking attribute.
- if (!(typeof text === 'string') || text.length === 0) {
+ if (!(typeof text === "string") || text.length === 0) {
     // Throwing an HttpsError so that the client gets the error details.
-    throw new functions.https.HttpsError('invalid-argument', 'The function must be called with ' +
-        'one arguments "text" containing the message text to add.');
+    throw new functions.https.HttpsError("invalid-argument", "The function must be called with " +
+        "one arguments 'text' containing the message text to add.");
   }
   /* // TODO Decide whether to allow anonymous users to post messages(code to allow below)
   if (!(typeof text === 'string') || text.length === 0) {
@@ -106,7 +106,9 @@ const authenticatedUserMessage = {
   }
  const messagePayload = context.auth ? authenticatedUserMessage : anonymousUserMessage
 
-  return admin.database().ref('/messages').push(messagePayload).then(() => {
+  return admin.database().ref("/messages").push(messagePayload).then(() => {
+
+
 
 
     // Returning the sanitized message to the client.
@@ -116,7 +118,7 @@ const authenticatedUserMessage = {
     .catch((error) => {
 
     // Re-throwing the error as an HttpsError so that the client gets the error details.
-      throw new functions.https.HttpsError('unknown', error.message, error);
+      throw new functions.https.HttpsError("unknown", error.message, error);
     });
   // [END_EXCLUDE]
 });

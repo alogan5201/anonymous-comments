@@ -23,7 +23,6 @@ module.exports.Dir = {
   css: resolve(__dirname, "src", "css"),
   js: resolve(__dirname, "src", "js"),
   utils: resolve(__dirname, "src", "js", "utils"),
-
   leafletlocate: resolve(
     __dirname,
     "src",
