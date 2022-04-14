@@ -168,9 +168,9 @@ let filterCommentFail = new Modal(document.getElementById('filterCommentFail'), 
 keyboard: false
 })
 
-console.log(window.location.pathname)
+
 const path = window.location.pathname
-     const messageRef= ref(db, `messages/${path}/`  );
+     const messageRef= ref(db, `messages${path}`  );
  get(messageRef).then((snapshot) => {
    if (snapshot.exists()) {
 
@@ -281,7 +281,7 @@ Verifying..`)
 
          }
           filterCommentSuccess.toggle()
-          const postListRef = ref(db, 'messages');
+          const postListRef = ref(db, `messages${path}`);
      const newPostRef = push(postListRef);
      set(newPostRef, {
         name: cleanName,
@@ -355,19 +355,19 @@ $("#comment-btn").disabled = false;
  });
 const addLike = async (id) => {
 
- await set(ref(db, `messages/${id}/likes`), {
+ await set(ref(db, `messages${path}${id}/likes`), {
       likes: increment(1)
  });
 }
 const addDislike = async (id) => {
 
- await set(ref(db, `messages/${id}/dislikes`), {
+ await set(ref(db, `messages${path}${id}/dislikes`), {
       dislikes: increment(1)
  });
 }
 const addReply = async () => {
 
-const dbRef = ref(db, 'messages');
+const dbRef = ref(db, `messages${path}`);
 
 onValue(dbRef, (snapshot) => {
 snapshot.forEach((childSnapshot) => {
@@ -388,7 +388,7 @@ let anchor = t[0]
 let countText = $(this).children().last().text()
 let parentTag = $(this).parent().parent().parent().attr('id')
 
-const dbRef = ref(db, 'messages');
+const dbRef = ref(db, `messages${path}`);
          onValue(dbRef, (snapshot) => {
 snapshot.forEach((childSnapshot) => {
  const childKey = childSnapshot.key;
@@ -397,11 +397,11 @@ snapshot.forEach((childSnapshot) => {
 
  if(childData.id == parentTag){
 
-const postListRef = ref(db, `messages/${childKey}/likes`);
+const postListRef = ref(db, `messages${path}${childKey}/likes`);
 
 
 const newPostRef = push(postListRef);
-set(ref(db, `messages/${childKey}/likes`), {
+set(ref(db, `messages${path}${childKey}/likes`), {
       likes: increment(1)
  });
 
@@ -429,7 +429,7 @@ let anchor = t[0]
 let countText = $(this).children().last().text()
 let parentTag = $(this).parent().parent().parent().attr('id')
 
-const dbRef = ref(db, 'messages');
+const dbRef = ref(db, `messages${path}`);
          onValue(dbRef, (snapshot) => {
 snapshot.forEach((childSnapshot) => {
  const childKey = childSnapshot.key;
@@ -438,11 +438,11 @@ snapshot.forEach((childSnapshot) => {
 
  if(childData.id == parentTag){
 
-const postListRef = ref(db, `messages/${childKey}/likes`);
+const postListRef = ref(db, `messages${path}${childKey}/likes`);
 
 
 const newPostRef = push(postListRef);
-set(ref(db, `messages/${childKey}/dislikes`), {
+set(ref(db, `messages${path}${childKey}/dislikes`), {
       dislikes: increment(1)
  });
 
@@ -519,7 +519,7 @@ $('.reply-form').on('submit', function (e) {
    let cleanName = dompurify.sanitize(name)
    const docId = $(this).parent().parent().attr('id')
 
-const dbRef = ref(db, 'messages');
+const dbRef = ref(db, `messages${path}`);
 
 
 
@@ -570,7 +570,7 @@ name: cleanName,
         id: id,
         message: cleanMessage,
         date: prettyDate}
-const postListRef = ref(db, `messages/${childKey}/replies`);
+const postListRef = ref(db, `messages${path}${childKey}/replies`);
 
 console.log(childKey, childData)
 const newPostRef = push(postListRef);
