@@ -343,7 +343,7 @@ $("#comment-btn").disabled = true;
 
     if (messageText !== sanitizedMessage) {
 
-      setTimeout(() => {
+
           filterCommentFail.toggle()
     $("#comment-btn").disabled = false
     $("#comment-btn").html('Submit')
@@ -352,12 +352,12 @@ $("#comment-btn").disabled = true;
                element.value = ''
 
             }
-      }, 500);
+
 
 
     }
     else {
-      setTimeout(() => {
+
 
 
         $("#comment-btn").disabled = false
@@ -420,7 +420,7 @@ $("#comment-btn").disabled = true;
   $("#comment-btn").disabled = false;
 
 
-      }, 500);
+
 
     }
 
