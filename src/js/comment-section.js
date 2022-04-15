@@ -61,14 +61,14 @@ const auth = getAuth();
 const db = getDatabase();
 const googleProvider = new GoogleAuthProvider();
 
- const functions = getFunctions(app);
+const functions = getFunctions(app);
 if (location.hostname === "localhost") {
 
 connectFunctionsEmulator(functions, "localhost", 5001);
 connectAuthEmulator(auth, "http://localhost:9099");
 }
 
-  function commentReply( name, id, date, message) {
+function commentReply( name, id, date, message) {
 
    let data = `  <div class="col-md-11 p-3 mb-3" id=${id} >
        <div class="row ">
@@ -170,7 +170,7 @@ keyboard: false
 
 
 const path = window.location.pathname
-     const messageRef= ref(db, `messages${path}`  );
+const messageRef= ref(db, `messages${path}`);
  get(messageRef).then((snapshot) => {
    if (snapshot.exists()) {
 
@@ -215,11 +215,6 @@ const path = window.location.pathname
        )
    }
      }
-
-
-
-
-
    }
 
    } else {
@@ -233,7 +228,7 @@ const path = window.location.pathname
  $("#comment-form").on("submit", function (e) {
 
    e.preventDefault();
-   alert('hello')
+
 const inputs = $('#comment-form :input')
  let children = $(this).children()
 $("#comment-btn").disabled = true;
