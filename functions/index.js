@@ -55,58 +55,44 @@ exports.addNumbers = functions.https.onCall((data) => {
 
 // [START messageFunctionTrigger]
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
-exports.addMessage = functions.https.onCall((data, context) => {
-  // [START_EXCLUDE]
-  // [START readMessageData]
-  // Message text passed from the client.
+exports.addComment= functions.https.onCall((data, context) => {
+
   const text = data.text;
-  // [END readMessageData]
-  // [START messageHttpsErrors]
-  // Checking attribute.
+  const name = data.name
+const uid = data.uid
+const page = data.page
  if (!(typeof text === "string") || text.length === 0) {
     // Throwing an HttpsError so that the client gets the error details.
     throw new functions.https.HttpsError("invalid-argument", "The function must be called with " +
         "one arguments 'text' containing the message text to add.");
   }
-  /* // TODO Decide whether to allow anonymous users to post messages(code to allow below)
-  if (!(typeof text === 'string') || text.length === 0) {
-    // Throwing an HttpsError so that the client gets the error details.
-    throw new functions.https.HttpsError('invalid-argument', 'The function must be called with ' +
-        'one arguments "text" containing the message text to add.');
-  }
-  // Checking that the user is authenticated.
-  if (!context.auth) {
-    // Throwing an HttpsError so that the client gets the error details.
-    throw new functions.https.HttpsError('failed-precondition', 'The function must be called ' +
-        'while authenticated.');
-  }*/
-  // [END messageHttpsErrors]
 
-  // [START authIntegration]
-  // Authentication / user information is automatically added to the request.
-  const uid = context.auth ? context.auth.uid : null;
-  const name = context.auth ? context.auth.token.name || null : null;
-  const picture =  context.auth ? context.auth.token.picture || null : null;
-  const email = context.auth ? context.auth.token.email || null : null;
+  const authenticated = context.auth ? context.auth.uid : null;
+
   // [END authIntegration]
-  const anonymousUid = uuidv4();
+
 
   // [START returnMessageAsync]
   // Saving the new message to the Realtime Database.
+   // Sanitize the message.
+
+  const sanitizedName = sanitizer.sanitizeText(name);
+
+
   const sanitizedMessage = sanitizer.sanitizeText(text); // Sanitize the message.
-
-const authenticatedUserMessage = {
+  return admin.database().ref(`/messages${page}`).push({
     text: sanitizedMessage,
-    author: { uid, name, picture, email },
-  }
-
-  const anonymousUserMessage = {
-    text: sanitizedMessage,
-    id: anonymousUid
-  }
- const messagePayload = context.auth ? authenticatedUserMessage : anonymousUserMessage
-
- return { text: sanitizedMessage, id: anonymousUid }
+    author: { uid, name},
+  }).then(() => {
+    console.log('New Message written');
+    // Returning the sanitized message to the client.
+    return { text: sanitizedMessage, name: sanitizedName, uid: uid };
+  })
+  // [END returnMessageAsync]
+    .catch((error) => {
+    // Re-throwing the error as an HttpsError so that the client gets the error details.
+      throw new functions.https.HttpsError('unknown', error.message, error);
+    });
   // [END_EXCLUDE]
 });
 // [END messageFunctionTrigger]

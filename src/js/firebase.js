@@ -11,8 +11,10 @@ import {
 
   signInAnonymously,
 
+ connectAuthEmulator,
 } from 'firebase/auth'
 import { stubString } from 'lodash'
+  import { getFunctions, connectFunctionsEmulator} from 'firebase/functions';
 
 const app = initializeApp({
   apiKey: 'AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo',
@@ -25,6 +27,13 @@ const app = initializeApp({
 })
 const auth = getAuth()
 const db = getDatabase()
+ const functions = getFunctions(app);
+if (location.hostname === "localhost") {
+
+connectFunctionsEmulator(functions, "localhost", 5001);
+connectAuthEmulator(auth, "http://localhost:9099");
+}
+
 
 async function getIp () {
   const query = await fetch(
