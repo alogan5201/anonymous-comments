@@ -1,7 +1,5 @@
 /*jshint esversion: 8 */
-function test(e) {
-  e.preventDefault();
-}
+
 
 async function convertLatLon(lat, lon) {
   const query = await fetch(

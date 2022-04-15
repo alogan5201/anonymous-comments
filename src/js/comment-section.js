@@ -233,6 +233,7 @@ const path = window.location.pathname
  $("#comment-form").on("submit", function (e) {
 
    e.preventDefault();
+   alert('hello')
 const inputs = $('#comment-form :input')
  let children = $(this).children()
 $("#comment-btn").disabled = true;

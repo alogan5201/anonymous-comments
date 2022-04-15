@@ -9,13 +9,13 @@ module.exports = (env = {}) => {
 
   return {
     entry: {
-      vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation', 'firebase/app', 'firebase/database', 'firebase/auth'],
+      vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation', 'firebase/app', 'firebase/database', 'firebase/auth', './src/js/firebase.js'],
       app: ['./src/js/index.js'],
       autocomplete: ['./src/js/autocomplete.js'],
       latlonDistance: ['./src/js/latlonDistance.js',  './src/js/comment-section.js'],
       latlonToAddress: ['./src/js/latlonToAddress.js', './src/js/comment-section.js'],
       latlonToDMS: ['./src/js/latlonToDMS.js',  './src/js/comment-section.js'],
-      addressToLatLon: ['./src/js/addressToLatLon.js', './src/js/comment-section.js'],
+      addressToLatLon: ['./src/js/firebase.js', './src/js/addressToLatLon.js'],
       addressDistance: ['./src/js/addressDistance.js',  './src/js/comment-section.js'],
       DMSlatlon: ['./src/js/DMSlatlon.js',  './src/js/comment-section.js'],
       travel: ['./src/js/travel.js',  './src/js/comment-section.js'],
