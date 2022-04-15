@@ -9,25 +9,36 @@ module.exports = (env = {}) => {
 
   return {
     entry: {
-      vendor: ['lodash.throttle', 'lodash.debounce', 'dompurify', 'picturefill', 'jquery', 'haversine-geolocation', 'firebase/app', 'firebase/database', 'firebase/auth', './src/js/firebase.js'],
+      vendor: [
+        'lodash.throttle',
+        'lodash.debounce',
+        'dompurify',
+        'picturefill',
+        'jquery',
+        'haversine-geolocation',
+        'firebase/app',
+        'firebase/database',
+        'firebase/auth',
+        './src/js/firebase.js'
+      ],
       app: ['./src/js/index.js'],
       autocomplete: ['./src/js/autocomplete.js'],
-      latlonDistance: ['./src/js/latlonDistance.js',  './src/js/comment-section.js'],
-      latlonToAddress: ['./src/js/latlonToAddress.js', './src/js/comment-section.js'],
-      latlonToDMS: ['./src/js/latlonToDMS.js',  './src/js/comment-section.js'],
+      latlonDistance: ['./src/js/firebase.js', './src/js/latlonDistance.js'],
+      latlonToAddress: ['./src/js/firebase.js', './src/js/latlonToAddress.js'],
+      latlonToDMS: ['./src/js/firebase.js', './src/js/latlonToDMS.js'],
       addressToLatLon: ['./src/js/firebase.js', './src/js/addressToLatLon.js'],
-      addressDistance: ['./src/js/addressDistance.js',  './src/js/comment-section.js'],
-      DMSlatlon: ['./src/js/DMSlatlon.js',  './src/js/comment-section.js'],
-      travel: ['./src/js/travel.js',  './src/js/comment-section.js'],
-      weather: ['./src/js/weather.js',  './src/js/comment-section.js'],
+      addressDistance: ['./src/js/firebase.js', './src/js/addressDistance.js'],
+      DMSlatlon: ['./src/js/firebase.js', './src/js/DMSlatlon.js'],
+      travel: ['./src/js/firebase.js', './src/js/travel.js'],
+      weather: ['./src/js/firebase.js', './src/js/weather.js'],
       login: ['./src/js/login.js'],
-      newConverter: ['./src/js/newConverter.js']
+      newConverter: ['./src/js/firebase.js', './src/js/newConverter.js']
     },
     output: {
       filename: isProduction ? '[name].[chunkhash].js' : '[name].js',
       chunkFilename: isProduction ? '[name].[chunkhash].js' : '[name].js',
       path: path.resolve(__dirname, 'dist', 'js'),
-      publicPath: `${globals.PP}/js/`,
+      publicPath: `${globals.PP}/js/`
     },
     module: {
       rules: [
@@ -41,18 +52,18 @@ module.exports = (env = {}) => {
                   [
                     '@babel/env',
                     {
-                      modules: false,
-                    },
-                  ],
-                ],
-              },
-            },
+                      modules: false
+                    }
+                  ]
+                ]
+              }
+            }
           ],
           parser: {
-            system: true,
-          },
-        },
-      ],
+            system: true
+          }
+        }
+      ]
     },
     plugins: [
       new webpack.DefinePlugin({
@@ -62,10 +73,8 @@ module.exports = (env = {}) => {
         SITE_URL: JSON.stringify(globals.SITE_URL),
         DEVELOPER_NAME: JSON.stringify(globals.DEVELOPER_NAME),
         DEVELOPER_URL: JSON.stringify(globals.DEVELOPER_URL),
-        GOOGLE_ANALYTICS_ID: JSON.stringify(globals.GOOGLE_ANALYTICS_ID),
-
-
-      }),
+        GOOGLE_ANALYTICS_ID: JSON.stringify(globals.GOOGLE_ANALYTICS_ID)
+      })
     ],
     optimization: {
       splitChunks: {
@@ -73,10 +82,10 @@ module.exports = (env = {}) => {
           commons: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendor',
-            chunks: 'all',
-          },
-        },
-      },
+            chunks: 'all'
+          }
+        }
+      }
     },
     resolve: {
       alias: {
@@ -92,10 +101,10 @@ module.exports = (env = {}) => {
         vendor: globals.Dir.vendor,
         views: globals.Dir.views,
         pages: globals.Dir.pages,
-        partials: globals.Dir.partials,
+        partials: globals.Dir.partials
       },
-      symlinks: false,
+      symlinks: false
     },
-    devtool: isProduction ? '' : 'eval',
+    devtool: isProduction ? '' : 'eval'
   }
 }

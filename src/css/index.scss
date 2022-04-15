@@ -812,3 +812,13 @@ body.films-locations table td.table__cell a:hover {
   color: #0085A1 !important;
   text-decoration: underline !important;
 }
+
+#thumbs-up.btn:disabled   {
+opacity: 1 !important;
+ color: #0085A1 !important;
+}
+
+#thumbs-down.btn:disabled   {
+opacity: 1 !important;
+ color: #0085A1 !important;
+}

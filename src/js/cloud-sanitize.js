@@ -48,7 +48,7 @@ FunctionsQuickstart.prototype.addNumbers = function() {
   addNumbersButton.disabled = true;
   var sendNotification = firebase.functions().httpsCallable('addNumbers');
   sendNotification({firstNumber: firstNumber, secondNumber: secondNumber}).then(function(result) {
-    console.log('Cloud Function called successfully.', result);
+
     // Read results of the Cloud Function.
     var firstNumber = result.data.firstNumber;
     var secondNumber = result.data.secondNumber;

@@ -74,17 +74,17 @@ let userData = JSON.stringify(userInfo)
     .catch(error => {
       const errorCode = error.code
       const errorMessage = error.message
-      console.log(error)
+
     })
 }
 
 onAuthStateChanged(auth, user => {
   const userData = localStorage.getItem('userData')
   if (user || userData) {
-    console.log('user signed in')
+
     if(userData){
     let parsed = JSON.parse(userData)
-      console.log(parsed.uid)
+
     }
 
   } else {

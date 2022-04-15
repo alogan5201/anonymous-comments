@@ -2641,3 +2641,145 @@ INFO: Detected non-HTTP/2 connection.
 [debug] [2022-04-15T18:34:08.908Z] Apr 15, 2022 2:34:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
 INFO: Detected non-HTTP/2 connection.
  {"metadata":{"emulator":{"name":"firestore"},"message":"Apr 15, 2022 2:34:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2022-04-15T22:01:06.002Z] ----------------------------------------------------------------------
+[debug] [2022-04-15T22:01:06.004Z] Command:       /usr/local/bin/firebase /home/a/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase functions:shell
+[debug] [2022-04-15T22:01:06.004Z] CLI Version:   10.2.2
+[debug] [2022-04-15T22:01:06.004Z] Platform:      linux
+[debug] [2022-04-15T22:01:06.004Z] Node Version:  v12.18.1
+[debug] [2022-04-15T22:01:06.004Z] Time:          Fri Apr 15 2022 18:01:06 GMT-0400 (Eastern Daylight Time)
+[debug] [2022-04-15T22:01:06.005Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-15T22:01:06.063Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-15T22:01:06.063Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[debug] [2022-04-15T22:01:06.064Z] [iam] checking project geotools-bc75a for permissions ["firebase.projects.get"]
+[debug] [2022-04-15T22:01:06.065Z] > refreshing access token with scopes: []
+[debug] [2022-04-15T22:01:06.065Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-04-15T22:01:06.210Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Fri, 15 Apr 2022 22:01:06 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-04-15T22:01:06.222Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions [none]
+[debug] [2022-04-15T22:01:06.222Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-04-15T22:01:06.401Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions 200
+[debug] [2022-04-15T22:01:06.402Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/geotools-bc75a:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-04-15T22:01:06.405Z] >>> HTTP REQUEST GET http://localhost:4400/emulators  
+ 
+[debug] [2022-04-15T22:01:06.409Z] <<< HTTP RESPONSE 200 {"x-powered-by":"Express","vary":"Origin","content-type":"application/json; charset=utf-8","content-length":"506","etag":"W/\"1fa-wx5KmGsswiGdujuSafGLwrlobI4\"","date":"Fri, 15 Apr 2022 22:01:06 GMT","connection":"keep-alive"}
+[debug] [2022-04-15T22:01:06.409Z] Running emulators:  {"hub":{"name":"hub","host":"localhost","port":4400},"ui":{"name":"ui","host":"localhost","port":5002,"pid":137582},"logging":{"name":"logging","host":"localhost","port":4500},"auth":{"name":"auth","host":"localhost","port":9099},"functions":{"name":"functions","host":"localhost","port":5001},"firestore":{"name":"firestore","host":"localhost","port":8081,"pid":137507},"database":{"name":"database","host":"localhost","port":9001,"pid":137529},"hosting":{"name":"hosting","host":"localhost","port":5000}}
+[warn] ⚠  functions: You are already running the Cloud Functions emulator on port 5001. Running the emulator and the Functions shell simultaenously can result in unexpected behavior. 
+[warn] ⚠  Your requested "node" version "16" doesn't match your global version "12". Using node@12 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"12\". Using node@12 from host."}}
+[debug] [2022-04-15T22:01:06.429Z] defaultcredentials: writing to file /home/a/.config/firebase/andrewthomaslogan_gmail_com_application_default_credentials.json
+[debug] [2022-04-15T22:01:06.434Z] DEBUG: Setting GAC to /home/a/.config/firebase/andrewthomaslogan_gmail_com_application_default_credentials.json
+[debug] [2022-04-15T22:01:06.435Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig [none]
+[debug] [2022-04-15T22:01:06.664Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig 200
+[debug] [2022-04-15T22:01:06.664Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig {"projectId":"geotools-bc75a","databaseURL":"https://geotools-bc75a-default-rtdb.firebaseio.com","storageBucket":"geotools-bc75a.appspot.com","locationId":"us-central"}
+[debug] [2022-04-15T22:01:06.678Z] [functions] Watching "/home/a/Desktop/new-geo-front-end/geo-front-end/functions" for Cloud Functions...
+[debug] [2022-04-15T22:01:06.682Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2022-04-15T22:01:08.290Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
+    "bad-words": "^3.0.4",
+    "capitalize-sentence": "^0.1.5",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-04-15T22:01:08.290Z] Building nodejs source
+[debug] [2022-04-15T22:01:08.291Z] Analyzing nodejs backend spec
+[debug] [2022-04-15T22:01:08.505Z] [functions[us-central1-addNumbers]] http function initialized (http://localhost:5003/geotools-bc75a/us-central1/addNumbers).
+[debug] [2022-04-15T22:01:08.505Z] [functions[us-central1-addComment]] http function initialized (http://localhost:5003/geotools-bc75a/us-central1/addComment).
+[info] i  functions: Loaded functions: addNumbers, addComment 
+[info] i  functions: Connected to running firestore emulator at localhost:8081, calls to this service will affect the emulator 
+[info] i  functions: Connected to running database emulator at localhost:9001, calls to this service will affect the emulator 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: pubsub, storage 
+[debug] [2022-04-15T22:13:51.006Z] DEBUG: File /home/a/Desktop/new-geo-front-end/geo-front-end/functions/index.js changed, reloading triggers
+[debug] [2022-04-15T22:13:52.008Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2022-04-15T22:13:54.015Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
+    "bad-words": "^3.0.4",
+    "capitalize-sentence": "^0.1.5",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-04-15T22:13:54.016Z] Building nodejs source
+[debug] [2022-04-15T22:13:54.016Z] Analyzing nodejs backend spec
+[debug] [2022-04-15T22:13:54.025Z] DEBUG: File /home/a/Desktop/new-geo-front-end/geo-front-end/functions/index.js changed, reloading triggers
+[debug] [2022-04-15T22:13:54.535Z] [functions[us-central1-accessSecret]] http function initialized (http://localhost:5003/geotools-bc75a/us-central1/accessSecret).
+[debug] [2022-04-15T22:13:55.026Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2022-04-15T22:13:57.000Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
+    "bad-words": "^3.0.4",
+    "capitalize-sentence": "^0.1.5",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-04-15T22:13:57.002Z] Building nodejs source
+[debug] [2022-04-15T22:13:57.002Z] Analyzing nodejs backend spec

@@ -14,6 +14,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
     "bad-words": "^3.0.4",
     "capitalize-sentence": "^0.1.5",
     "firebase-admin": "^10.0.2",

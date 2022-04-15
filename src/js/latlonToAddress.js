@@ -1,133 +1,133 @@
-/*jshint esversion: 8 */
-import {  Dropdown} from 'bootstrap/dist/js/bootstrap.esm.min.js'
-
-
-var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+/* jshint esversion: 8 */
+import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import 'utils/commentscript.js'
+var dropdownElementList = [].slice.call(
+  document.querySelectorAll('.dropdown-toggle')
+)
 const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new Dropdown(dropdownToggleEl)
 })
 
-console.log(dropdownList)
-function test(e) {
-  e.preventDefault();
+function test (e) {
+  e.preventDefault()
 }
-window.addEventListener("DOMContentLoaded", () => {
-  let scrollPos = 0;
-  const mainNav = document.getElementById("mainNav");
-  const headerHeight = mainNav.clientHeight;
-});
+window.addEventListener('DOMContentLoaded', () => {
+  let scrollPos = 0
+  const mainNav = document.getElementById('mainNav')
+  const headerHeight = mainNav.clientHeight
+})
 
-$(document).ready(function() {
-  function DDtoDMS(lat, lon) {
+$(document).ready(function () {
+  function DDtoDMS (lat, lon) {
     //
 
-    let latitude = Math.abs(lat);
-    let longitude = Math.abs(lon);
-    let dLat = Math.floor(latitude);
-    let mLat = Math.floor((latitude - dLat) * 60);
+    let latitude = Math.abs(lat)
+    let longitude = Math.abs(lon)
+    let dLat = Math.floor(latitude)
+    let mLat = Math.floor((latitude - dLat) * 60)
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3;
-    dLon = Math.floor(longitude);
-    mLon = Math.floor((longitude - dLon) * 60);
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3;
-    let degreesLatitude = dLat;
-    let minutesLatitude = mLat;
-    let secondsLatitude = sLat;
-    let degreesLongitude = dLon;
-    let minutesLongitude = mLon;
-    let secondsLongitude = sLon;
+    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    dLon = Math.floor(longitude)
+    mLon = Math.floor((longitude - dLon) * 60)
+    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+    let degreesLatitude = dLat
+    let minutesLatitude = mLat
+    let secondsLatitude = sLat
+    let degreesLongitude = dLon
+    let minutesLongitude = mLon
+    let secondsLongitude = sLon
 
-    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`;
+    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`
 
-    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`;
-    let result = { lat: latResult, lon: lonResult };
-    return result;
+    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`
+    let result = { lat: latResult, lon: lonResult }
+    return result
   }
-  function check(elm) {
-    document.getElementById(elm).checked = true;
+  function check (elm) {
+    document.getElementById(elm).checked = true
   }
 
-  const convertLocationData = document.getElementById("convertLocationData");
-  const latInputField = document.getElementById("latInputField");
-  const lonInputField = document.getElementById("lonInputField");
-  const latlonGeocoderBtn = document.getElementById("latlonGeocoderBtn");
+  const convertLocationData = document.getElementById('convertLocationData')
+  const latInputField = document.getElementById('latInputField')
+  const lonInputField = document.getElementById('lonInputField')
+  const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
-  const CoordsApp = function _CoordsApp() {
+  const CoordsApp = function _CoordsApp () {
     return `
    <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
    <h1>Destination State = [${CoordsApp.state.destination}] </h1>
    <h1>User Location = [${CoordsApp.state.userLocation}] </h1>
    <h1>trackingUser =  ${CoordsApp.state.trackingUser}</h1>
-  `;
-  };
+  `
+  }
 
   const myhandler = {
-    set: function(obj, prop, value) {
-      obj[prop] = value;
+    set: function (obj, prop, value) {
+      obj[prop] = value
     }
-  };
+  }
 
   CoordsApp.state = new Proxy(
     { origin: [], destination: [], userLocation: [], trackingUser: false },
     myhandler
-  );
+  )
 
   L.mapbox.accessToken =
-    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
-  const map = L.mapbox.map("map").setView([37.9, -77], 6);
+    'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
+  const map = L.mapbox.map('map').setView([37.9, -77], 6)
 
-  L.mapbox.styleLayer("mapbox://styles/mapbox/streets-v11").addTo(map); // add your tiles to the map
+  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
 
   // L.marker is a low-level marker constructor in Leaflet.
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
-      "marker-size": "large",
+      'marker-size': 'large',
 
-      "marker-color": "blue"
+      'marker-color': 'blue'
     })
-  }).addTo(map);
+  }).addTo(map)
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: "fas fa-map-marker-alt", // follow the user's location
+      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
       remainActive: false
     })
-    .addTo(map);
-  async function findAddress(lat, lon) {
+    .addTo(map)
+  async function findAddress (lat, lon) {
     const query = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: "GET" }
-    );
+      { method: 'GET' }
+    )
     if (query.status !== 200) {
-      return;
+      return
     }
-    const data = await query.json();
+    const data = await query.json()
 
-    return data;
+    return data
   }
-  map.on("locationfound", async function(e) {
-    let lat = e.latitude;
-    let lon = e.longitude;
-    var radius = e.accuracy;
+  map.on('locationfound', async function (e) {
+    let lat = e.latitude
+    let lon = e.longitude
+    var radius = e.accuracy
 
-    localStorage.setItem("userLatLon", `${lat}, ${lon}`);
+    localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
-    locationControl.stop();
-    const result = await findAddress(lat, lon);
+    locationControl.stop()
+    const result = await findAddress(lat, lon)
 
-    const address = result.features[0].place_name;
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
-    $("#addressInput").val(address);
+    const address = result.features[0].place_name
+    $('#latInputField').val(lat)
+    $('#lonInputField').val(lon)
+    $('#addressInput').val(address)
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
-    });
+    })
 
-    const dmsCalculated = DDtoDMS(lat, lon);
+    const dmsCalculated = DDtoDMS(lat, lon)
     marker
       .setLatLng([lat, lon])
       .bindPopup(
@@ -161,115 +161,115 @@ $(document).ready(function() {
 
       `
       )
-      .openPopup();
-  });
-  map.on("locationerror", function() {
-    alert("Position could not be found");
-  });
-  const coordinatesGeocoder = function(query) {
+      .openPopup()
+  })
+  map.on('locationerror', function () {
+    alert('Position could not be found')
+  })
+  const coordinatesGeocoder = function (query) {
     // Match anything which looks like
     // decimal degrees coordinate pair.
     const matches = query.match(
       /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    );
+    )
     if (!matches) {
-      return null;
+      return null
     }
 
-    function coordinateFeature(lng, lat) {
+    function coordinateFeature (lng, lat) {
       return {
         center: [lng, lat],
         geometry: {
-          type: "Point",
+          type: 'Point',
           coordinates: [lng, lat]
         },
-        place_name: "Lat: " + lat + " Lng: " + lng,
-        place_type: ["coordinate"],
+        place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+        place_type: ['coordinate'],
         properties: {},
-        type: "Feature"
-      };
+        type: 'Feature'
+      }
     }
 
-    const coord1 = Number(matches[1]);
-    const coord2 = Number(matches[2]);
-    const geocodes = [];
+    const coord1 = Number(matches[1])
+    const coord2 = Number(matches[2])
+    const geocodes = []
 
     if (coord1 < -90 || coord1 > 90) {
       // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2));
+      geocodes.push(coordinateFeature(coord1, coord2))
     }
 
     if (coord2 < -90 || coord2 > 90) {
       // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1));
+      geocodes.push(coordinateFeature(coord2, coord1))
     }
 
     if (geocodes.length === 0) {
       // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2));
-      geocodes.push(coordinateFeature(coord2, coord1));
+      geocodes.push(coordinateFeature(coord1, coord2))
+      geocodes.push(coordinateFeature(coord2, coord1))
     }
 
-    return geocodes;
-  };
+    return geocodes
+  }
 
-  async function getElevation(lon, lat) {
+  async function getElevation (lon, lat) {
     // Construct the API request
     const query = await fetch(
       `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: "GET" }
-    );
-    if (query.status !== 200) return;
-    const data = await query.json();
+      { method: 'GET' }
+    )
+    if (query.status !== 200) return
+    const data = await query.json()
     // Display the longitude and latitude values
 
     // Get all the returned features
-    const allFeatures = data.features;
+    const allFeatures = data.features
     // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map(feature => feature.properties.ele);
+    const elevations = allFeatures.map(feature => feature.properties.ele)
     // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    $(".altitude").html(`<div> ${highestElevation} meters </div>`);
+    const highestElevation = Math.max(...elevations)
+    $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
-  $(document).on("click", "#getAltitude", function(e) {
-    e.preventDefault();
-    let lat = $(".lat").html();
-    let lon = $(".lon").html();
-    getElevation(lon, lat);
-  });
+  $(document).on('click', '#getAltitude', function (e) {
+    e.preventDefault()
+    let lat = $('.lat').html()
+    let lon = $('.lon').html()
+    getElevation(lon, lat)
+  })
 
   // Clear results container when search is cleared.
 
-  function format(time) {
+  function format (time) {
     // Hours, minutes and seconds
-    var hrs = ~~(time / 3600);
-    var mins = ~~((time % 3600) / 60);
+    var hrs = ~~(time / 3600)
+    var mins = ~~((time % 3600) / 60)
 
     let result = {
       hours: hrs,
       minutes: mins
-    };
+    }
     // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result;
+    return result
   }
 
-  $("#latlonForm").on("submit", async function(e) {
-    e.preventDefault();
+  $('#latlonForm').on('submit', async function (e) {
+    e.preventDefault()
 
-    let latInput = document.getElementById("latInputField");
-    let lonInput = document.getElementById("lonInputField");
-    const lat = latInput.value;
-    const lon = lonInput.value;
+    let latInput = document.getElementById('latInputField')
+    let lonInput = document.getElementById('lonInputField')
+    const lat = latInput.value
+    const lon = lonInput.value
 
-    const parsedLat = parseFloat(lat);
-    const parsedLon = parseFloat(lon);
+    const parsedLat = parseFloat(lat)
+    const parsedLon = parseFloat(lon)
 
-    const result = await findAddress(lat, lon);
-    const dmsCalculated = DDtoDMS(lat, lon);
+    const result = await findAddress(lat, lon)
+    const dmsCalculated = DDtoDMS(lat, lon)
 
     let address =
-      result.features.length > 0 ? result.features[0].place_name : "";
-    $("#addressInput").val(address);
+      result.features.length > 0 ? result.features[0].place_name : ''
+    $('#addressInput').val(address)
 
     const alertMessage = `
     <div class="alert alert-warning d-flex align-items-center" role="alert">
@@ -281,12 +281,12 @@ $(document).ready(function() {
     </div>
     </div>
 
-    `;
-    let alertHtml = result.features.length > 0 ? "" : alertMessage;
-    $(".alerts").html(alertHtml);
+    `
+    let alertHtml = result.features.length > 0 ? '' : alertMessage
+    $('.alerts').html(alertHtml)
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
-    });
+    })
 
     marker
       .setLatLng([lat, lon])
@@ -321,14 +321,14 @@ $(document).ready(function() {
 
         `
       )
-      .openPopup();
-  });
+      .openPopup()
+  })
 
-  const title = $("title").html();
+  const title = $('title').html()
 
-  const pageTitle = title.slice(11);
+  const pageTitle = title.slice(11)
 
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
-  }).addTo(map);
-});
+  }).addTo(map)
+})
