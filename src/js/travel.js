@@ -1,5 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
+import { getLatLon , getAddress, getElevation, getMatrix} from 'utils/geocoder'
 let geojson = {
   type: 'FeatureCollection',
   features: [
@@ -49,18 +50,15 @@ function inputFocus (x) {
 
   //
 }
-
+/***
+ *
+ *  TODO: FIX POPUP
+ */
 window.addEventListener('DOMContentLoaded', () => {
   async function convertLatLon (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
+    const d = await getAddress(lat, lon)
+    const data = d.data
 
-    const data = await query.json()
     if (data.features.length == 0) {
       $('.alert-warning')
         .removeClass('invisible')
@@ -77,18 +75,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   async function convertAddress (city) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      alert(query.status)
-      return
-    }
 
-    const data = await query.json()
-
-    return data
+    const data  = await getLatLon(city)
+    return data.data
   }
 
   let scrollPos = 0
@@ -350,12 +339,9 @@ window.addEventListener('DOMContentLoaded', () => {
     return result
   }
 
-  function callMatrix (first, second) {
-    fetch(
-      `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
-    )
-      .then(response => response.json())
-      .then(json => {
+  async function callMatrix (first, second) {
+    const data  = await getMatrix(first, second)
+    const json =  data.data
         const durations = json.durations[0]
         const travelTime = durations[1]
         const result = format(travelTime)
@@ -411,7 +397,7 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('travel-time-one', `${result.hours}hour(s)${result.minutes}`);
    }
                */
-      })
+
   }
 
   var locationControl = L.control
@@ -427,11 +413,12 @@ window.addEventListener('DOMContentLoaded', () => {
     .addTo(map)
 
   map.on('locationfound', async function (e) {
+    let lat = e.latitude
+    let lon = e.longitude
+
     map.fitBounds(e.bounds)
 
-    let lat = e.latlng.lat
 
-    let lon = e.latlng.lng
 
     geojson.features[0].geometry.coordinates = [lon, lat]
 

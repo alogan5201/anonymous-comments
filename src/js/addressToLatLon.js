@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 ///Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
 import 'utils/commentscript'
-import { getLatLon } from 'utils/geocoder'
+import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
 import {
   comment,
   commentReply,
@@ -24,12 +24,13 @@ import {
   increment,
   orderByChild
 } from 'firebase/database'
-async function getLatitudeLongitude (){
-let latlon = await getLatLon('Birmingham, AL')
+async function getAddressData (){
+let latlon = await getAddress('33.0393', '-85.0313')
 
-console.log(latlon)
+console.log(latlon.data)
+
 }
-getLatitudeLongitude()
+
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
 let filterCommentSuccess = new Modal(
@@ -90,15 +91,10 @@ $(function () {
    * -------------------------------------------------------------------
    */
   async function convertLatLon (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
 
-    const data = await query.json()
+const d = await getAddress(lat, lon)
+    const data = d.data
+    console.log(data)
     if (data.features.length == 0) {
       $('.alert-warning')
         .removeClass('invisible')
@@ -115,9 +111,9 @@ $(function () {
   }
 
   async function convertAddress (city) {
-    const data = await getLatLon(city)
 
-    return data
+    const data  = await getLatLon(city)
+    return data.data
   }
   const outputInputField = document.getElementById('output-field-input')
   const latInputField = document.getElementById('latInputField')
@@ -319,14 +315,11 @@ $(function () {
     return geocodes
   }
 
-  async function getElevation (lon, lat) {
+  async function getElevationData (lon, lat) {
     // Construct the API request
-    const query = await fetch(
-      `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) return
-    const data = await query.json()
+    const elvevationResponse = await getElevation(lat, lon)
+    const data = elvevationResponse.data
+
     // Display the longitude and latitude values
 
     // Get all the returned features
@@ -341,7 +334,7 @@ $(function () {
     e.preventDefault()
     let lat = $('.lat').html()
     let lon = $('.lon').html()
-    getElevation(lon, lat)
+    getElevationData(lon, lat)
   })
 
   $('#getTravelForm').on('submit', async function (e) {

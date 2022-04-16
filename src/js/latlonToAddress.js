@@ -1,6 +1,8 @@
 /* jshint esversion: 8 */
+import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'
+
 var dropdownElementList = [].slice.call(
   document.querySelectorAll('.dropdown-toggle')
 )
@@ -19,17 +21,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 $(document).ready(function () {
   function DDtoDMS (lat, lon) {
-    //
+    //fe
 
     let latitude = Math.abs(lat)
     let longitude = Math.abs(lon)
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+   let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+   let dLon = Math.floor(longitude)
+  let  mLon = Math.floor((longitude - dLon) * 60)
+  let  sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
     let degreesLatitude = dLat
     let minutesLatitude = mLat
     let secondsLatitude = sLat
@@ -98,15 +100,8 @@ $(document).ready(function () {
     })
     .addTo(map)
   async function findAddress (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
-
+    const d = await getAddress(lat, lon)
+    const data = d.data
     return data
   }
   map.on('locationfound', async function (e) {
@@ -213,17 +208,11 @@ $(document).ready(function () {
     return geocodes
   }
 
-  async function getElevation (lon, lat) {
+  async function getElevationData (lon, lat) {
     // Construct the API request
-    const query = await fetch(
-      `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) return
-    const data = await query.json()
-    // Display the longitude and latitude values
+    const elvevationResponse = await getElevation(lat, lon)
+    const data = elvevationResponse.data
 
-    // Get all the returned features
     const allFeatures = data.features
     // For each returned feature, add elevation data to the elevations array
     const elevations = allFeatures.map(feature => feature.properties.ele)
@@ -235,7 +224,7 @@ $(document).ready(function () {
     e.preventDefault()
     let lat = $('.lat').html()
     let lon = $('.lon').html()
-    getElevation(lon, lat)
+    getElevationData(lon, lat)
   })
 
   // Clear results container when search is cleared.

@@ -1,6 +1,9 @@
 /* jshint esversion: 8 */
 import HaversineGeolocation from 'haversine-geolocation'
+
 import 'utils/commentscript.js'
+import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -130,14 +133,8 @@ map.on('locationfound', function (e) {
 })
 
 async function setOrigin (lat, lon) {
-  const query = await fetch(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNsMGh4MjRxajBjeGYzam95dWFqcmh3N2MifQ.QEKn6_4BpAy6ekkJoIWPIA`,
-    { method: 'GET' }
-  )
-  if (query.status !== 200) {
-    return
-  }
-  const data = await query.json()
+  const d = await getAddress(lat, lon)
+  const data = d.data
   if (data.features.length > 0) {
     $('#addressInputFieldOrigin').val(data.features[0].place_name)
 
@@ -373,68 +370,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // Output like "1:01" or "4:03:59" or "123:03:59"
     return result
   }
-  const getAddress = async (lat, lon) => {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
 
-    return data
-  }
-  function callMatrix (first, second) {
-    fetch(
-      `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
-    )
-      .then(response => response.json())
-      .then(json => {
-        const durations = json.durations[0]
-        const travelTime = durations[1]
-        const result = format(travelTime)
-        // //
-
-        var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        var alertTrigger = document.getElementById('liveAlertBtn')
-
-        function postLog (message) {
-          var wrapper = document.createElement('div')
-          wrapper.innerHTML = `
-    <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
-     <div class="alertMessage">
-       ${message}
-     </div>
-
-
-   </div>`
-
-          alertPlaceholder.append(wrapper)
-        }
-        if (alertPlaceholder.childElementCount == 0) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 1) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 2) {
-          $('#liveAlertPlaceholder').empty()
-          setTimeout(() => {
-            postLog(`${result.hours} hour(s) and ${result.minutes}`)
-          }, 200)
-        }
-      })
-  }
   async function convertAddressToCoordinates (address) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
 
-    return data
+  const data  = await getLatLon(address)
+    return data.data
+
   }
 
   $('#getDistanceForm').on('submit', async function (e) {

@@ -1,6 +1,8 @@
 /* jshint esversion: 8 */
 import HaversineGeolocation from 'haversine-geolocation'
+
 import 'utils/commentscript.js'
+import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -339,45 +341,7 @@ window.addEventListener('DOMContentLoaded', () => {
     return result
   }
 
-  function callMatrix (first, second) {
-    fetch(
-      `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
-    )
-      .then(response => response.json())
-      .then(json => {
-        const durations = json.durations[0]
-        const travelTime = durations[1]
-        const result = format(travelTime)
-        // //
 
-        var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        var alertTrigger = document.getElementById('liveAlertBtn')
-
-        function postLog (message) {
-          var wrapper = document.createElement('div')
-          wrapper.innerHTML = `
-    <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
-     <div class="alertMessage">
-       ${message}
-     </div>
-
-
-   </div>`
-
-          alertPlaceholder.append(wrapper)
-        }
-        if (alertPlaceholder.childElementCount == 0) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 1) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 2) {
-          $('#liveAlertPlaceholder').empty()
-          setTimeout(() => {
-            postLog(`${result.hours} hour(s) and ${result.minutes}`)
-          }, 200)
-        }
-      })
-  }
 
   $('#latlonForm').on('submit', function (e) {
     e.preventDefault()

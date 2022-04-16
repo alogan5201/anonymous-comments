@@ -28,21 +28,23 @@ const { SecretManagerServiceClient } = require('@google-cloud/secret-manager')
 
 // Instantiates a client
 const client = new SecretManagerServiceClient()
-async function convertAddress (city) {
-  const query = await fetch(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
-    { method: 'GET' }
-  )
-  if (query.status !== 200) {
-    alert(query.status)
+async function fetchAddress(lat, lon) {
+
+  const [version] = await client.accessSecretVersion({
+    name: name
+  })
+
+  // Extract the payload as a string.
+  const payload = version.payload.data.toString()
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${payload}`,  { method: 'GET' });
+  if (response.status !== 200) {
+    console.log(response.status)
     return
   }
-
-  const data = await query.json()
-
+  const data= await response.json()
   return data
 }
-async function accessSecretVersion (city) {
+async function fetchLatLon (city) {
 
   const [version] = await client.accessSecretVersion({
     name: name
@@ -56,18 +58,74 @@ async function accessSecretVersion (city) {
     return
   }
 
-  const data = await response.json()
+  const data= await response.json()
 
   return data
   // WARNING: Do not print the secret in a production environment - this
   // snippet is showing how to access the secret material.
 
 }
+async function fetchElevation (lat, lon) {
+
+  const [version] = await client.accessSecretVersion({
+    name: name
+  })
+
+  // Extract the payload as a string.
+  const payload = version.payload.data.toString()
+  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${payload}`,  { method: 'GET' });
+  if (response.status !== 200) {
+    console.log(response.status)
+    return
+  }
+
+  const data= await response.json()
+
+  return data
+  // WARNING: Do not print the secret in a production environment - this
+  // snippet is showing how to access the secret material.
+
+}
+async function fetchMatrix(first, second) {
+
+  const [version] = await client.accessSecretVersion({
+    name: name
+  })
 
 
+  const payload = version.payload.data.toString()
+  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${payload}`,  { method: 'GET' });
+  if (response.status !== 200) {
+    console.log(response.status)
+    return
+  }
+  const data= await response.json()
+  return data
+}
+exports.getMatrix = functions.https.onCall(data => {
+  const first = data.first
+  const second = data.second
+  const result = fetchMatrix(first, second)
+  return result
+    // [END returnAddData]
+  })
+exports.getElevation = functions.https.onCall(data => {
+  const lat = data.lat
+  const lon = data.lon
+  const result = fetchElevation(lat, lon)
+  return result
+    // [END returnAddData]
+  })
+exports.getAddress = functions.https.onCall(data => {
+  const lat = data.lat
+  const lon = data.lon
+  const result = fetchAddress(lat, lon)
+  return result
+    // [END returnAddData]
+  })
 exports.getLatLon = functions.https.onCall(data => {
-
-  const result = accessSecretVersion()
+const city = data.city
+  const result = fetchLatLon(city)
 
 return result
   // [END returnAddData]

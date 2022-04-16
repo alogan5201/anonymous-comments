@@ -1,5 +1,7 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
+import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+
 function test (e) {
   e.preventDefault()
 }
@@ -43,10 +45,10 @@ $(document).ready(function () {
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+   let dLon = Math.floor(longitude)
+  let  mLon = Math.floor((longitude - dLon) * 60)
+   let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
     let degreesLatitude = dLat
     let minutesLatitude = mLat
     let secondsLatitude = sLat
@@ -127,14 +129,9 @@ $(document).ready(function () {
     })
     .addTo(map)
   async function findAddress (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
+    const d = await getAddress(lat, lon)
+    const data = d.data
+
 
     return data
   }
@@ -249,22 +246,11 @@ $(document).ready(function () {
     return geocodes
   }
 
-  async function getElevation (lon, lat) {
-    // Construct the API request
-    const query = await fetch(
-      `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) return
-    const data = await query.json()
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
+  async function getElevationData (lon, lat) {
+    const elvevationResponse = await getElevation(lat, lon)
+    const data = elvevationResponse.data
     const allFeatures = data.features
-    // For each returned feature, add elevation data to the elevations array
     const elevations = allFeatures.map(feature => feature.properties.ele)
-    // In the elevations array, find the largest value
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
@@ -272,7 +258,7 @@ $(document).ready(function () {
     e.preventDefault()
     let lat = $('.lat').html()
     let lon = $('.lon').html()
-    getElevation(lon, lat)
+    getElevationData(lon, lat)
   })
 
   // Clear results container when search is cleared.
