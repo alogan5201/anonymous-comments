@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 $(document).ready(function () {
   function DDtoDMS (lat, lon) {
-    //fe
+
 
     let latitude = Math.abs(lat)
     let longitude = Math.abs(lon)
@@ -108,7 +108,9 @@ $(document).ready(function () {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
-
+    const submitText =  $('form :submit').first().text()
+    console.log(  $('form :submit').first().parent())
+    $('form :submit').first().html(`${submitText}`)
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
     locationControl.stop()
@@ -320,4 +322,12 @@ $(document).ready(function () {
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
   }).addTo(map)
+
+  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
+    const submit = $('form :submit').first()
+    const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+  });
 })

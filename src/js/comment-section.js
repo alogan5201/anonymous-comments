@@ -1,11 +1,3 @@
-/** letiables available in all js files:
- * all the exported constants from globals.js
- */
-
-/** Directories available as aliases
- * all the paths within Dir in globals.js
- */
-
 import dompurify from 'dompurify'
 import { initializeApp } from 'firebase/app'
 import {

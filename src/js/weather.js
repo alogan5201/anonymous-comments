@@ -170,20 +170,28 @@ window.addEventListener('DOMContentLoaded', () => {
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+}
     })
     .addTo(map)
-
+/**
+ *
+ * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
+ */
   map.on('locationfound', function (e) {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy;
 
+
     (async () => {
       const address = await convertLatLon(lat, lon)
-
+      const submitText =  $('form :submit').first().text()
+      console.log(  $('form :submit').first().parent())
+      $('form :submit').first().html(`${submitText}`)
       if (address.features[0]) {
         $('input')
           .first()
@@ -832,4 +840,12 @@ ${currentWeather} and ${temp}°F`)
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
   }).addTo(map)
+
+  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
+    const submit = $('form :submit').first()
+    const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+  });
 })

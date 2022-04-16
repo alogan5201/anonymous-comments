@@ -16,10 +16,7 @@ module.exports = (env = {}) => {
         'picturefill',
         'jquery',
         'haversine-geolocation',
-        'firebase/app',
-        'firebase/database',
-        'firebase/auth',
-        './src/js/firebase.js'
+
       ],
       app: ['./src/js/index.js'],
       autocomplete: ['./src/js/autocomplete.js'],
@@ -94,7 +91,6 @@ module.exports = (env = {}) => {
         css: globals.Dir.css,
         js: globals.Dir.js,
         utils: globals.Dir.utils,
-        leafletlocate: globals.Dir.leafletlocate,
         static: globals.Dir.static,
         images: globals.Dir.images,
         videos: globals.Dir.images,

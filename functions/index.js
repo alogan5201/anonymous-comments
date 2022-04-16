@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 'use-scrict'
+require('dotenv').config()
 // projects/660236032468/secrets/mapbox/versions/1
 const functions = require('firebase-functions')
 const sanitizer = require('./sanitizer')
@@ -22,7 +23,7 @@ const { v4: uuidv4 } = require('uuid')
 admin.initializeApp()
 const name = 'projects/660236032468/secrets/mapbox/versions/2'
 const fetch = require('node-fetch');
-
+const mapboxToken = process.env.MAPBOX_TOKEN
 // Imports the Secret Manager library
 const { SecretManagerServiceClient } = require('@google-cloud/secret-manager')
 
@@ -30,13 +31,8 @@ const { SecretManagerServiceClient } = require('@google-cloud/secret-manager')
 const client = new SecretManagerServiceClient()
 async function fetchAddress(lat, lon) {
 
-  const [version] = await client.accessSecretVersion({
-    name: name
-  })
 
-  // Extract the payload as a string.
-  const payload = version.payload.data.toString()
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${payload}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,  { method: 'GET' });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -46,13 +42,8 @@ async function fetchAddress(lat, lon) {
 }
 async function fetchLatLon (city) {
 
-  const [version] = await client.accessSecretVersion({
-    name: name
-  })
 
-  // Extract the payload as a string.
-  const payload = version.payload.data.toString()
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${payload}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapboxToken}`,  { method: 'GET' });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -67,13 +58,8 @@ async function fetchLatLon (city) {
 }
 async function fetchElevation (lat, lon) {
 
-  const [version] = await client.accessSecretVersion({
-    name: name
-  })
 
-  // Extract the payload as a string.
-  const payload = version.payload.data.toString()
-  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${payload}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,  { method: 'GET' });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -88,13 +74,7 @@ async function fetchElevation (lat, lon) {
 }
 async function fetchMatrix(first, second) {
 
-  const [version] = await client.accessSecretVersion({
-    name: name
-  })
-
-
-  const payload = version.payload.data.toString()
-  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${payload}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,  { method: 'GET' });
   if (response.status !== 200) {
     console.log(response.status)
     return

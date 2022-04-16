@@ -1,13 +1,12 @@
 /* jshint esversion: 8 */
-import { initializeApp } from 'firebase/app'
-
+import { handleComment } from '../firebase'
 import {
   comment,
   commentReply,
   extractReplies,
   replyForm
 } from 'utils/comments'
-import { Modal } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import { toggleModal } from './helpers'
 import dompurify from 'dompurify'
 import { httpsCallable, getFunctions } from 'firebase/functions'
 import { getAuth } from 'firebase/auth'
@@ -25,18 +24,14 @@ import {
 } from 'firebase/database'
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
-let filterCommentSuccess = new Modal(
-  document.getElementById('filterCommentSuccess'),
-  {
-    keyboard: false
-  }
-)
-let filterCommentFail = new Modal(
-  document.getElementById('filterCommentFail'),
-  {
-    keyboard: false
-  }
-)
+
+$('.modal-close-btn').on('click', function (e) {
+  e.preventDefault()
+  const modalId = $(this).parent().parent().parent().parent().attr('id')
+  let modal = modalId == "filterCommentSuccess" ? "success" : "fail"
+toggleModal(modal)
+});
+
 Date.prototype.toShortFormat = function () {
   let monthNames = [
     'Jan',
@@ -78,46 +73,7 @@ setTimeout(() => {
 
 const commentRef = ref(db, `messages${path}`)
 
-$('#testButton').on('click', function (e) {
-  e.preventDefault()
 
-  const getLatLon = httpsCallable(functions, 'getLatLon')
-  setTimeout(() => {
-    const userData = JSON.parse(localStorage.getItem('userData'))
-
-    const uid = userData.uid
-
-    getLatLon({
-     city: 'Atlanta'
-
-    })
-      .then(function (result) {
-
-   console.log(result)
-
-      })
-      .catch(function (error) {
-        // Getting the Error details.
-        let code = error.code
-        let message = error.message
-        let details = error.details
-        console.error(
-          'There was an error when calling the Cloud Function',
-          error
-        )
-        window.alert(
-          'There was an error when calling the Cloud Function:\n\nError Code: ' +
-            code +
-            '\nError Message:' +
-            message +
-            '\nError Details:' +
-            details
-        )
-        addCommentButton.disabled = false
-      })
-  }, 2000)
-
-})
 
 /**
  *---------------------------------------------------------------------
@@ -213,82 +169,9 @@ Verifying..`)
   let message = e.currentTarget[1].value
   let cleanMessage = dompurify.sanitize(message)
   let cleanName = dompurify.sanitize(name)
+  const userData = JSON.parse(localStorage.getItem('userData'))
 
-  const addComment = httpsCallable(functions, 'addComment')
-  setTimeout(() => {
-    const userData = JSON.parse(localStorage.getItem('userData'))
-
-    const uid = userData.uid
-
-    addComment({
-      text: cleanMessage,
-      name: cleanName,
-      uid: userData,
-      page: path
-    })
-      .then(function (result) {
-        // Read result of the Cloud Function.
-        let sanitizedMessage = result.data.text
-        let sanitizedName = result.data.name
-        const documentId = result.data.id
-
-        if (cleanMessage !== sanitizedMessage && cleanName !== sanitizedName) {
-          filterCommentFail.toggle()
-          $('#comment-btn').disabled = false
-          $('#comment-btn').html('Submit')
-          for (let index = 0; index < inputs.length; index++) {
-            const element = inputs[index]
-            element.value = ''
-          }
-        } else {
-          const newCommentData = {
-            id: documentId,
-            name: sanitizedName,
-            date: prettyDate,
-            message: sanitizedMessage
-          }
-          const newComment = push(commentRef)
-          set(newComment, newCommentData)
-          $('#comment-btn').disabled = false
-          $('#comment-btn').html('Submit')
-          for (let index = 0; index < inputs.length; index++) {
-            const element = inputs[index]
-            element.value = ''
-          }
-
-          let commentComponent = comment(
-            documentId,
-            sanitizedName,
-            prettyDate,
-            sanitizedMessage,
-            '',
-            ''
-          )
-          filterCommentSuccess.toggle()
-          $('#comment-section').append(commentComponent)
-          $('#comment-btn').disabled = false
-        }
-      })
-      .catch(function (error) {
-        // Getting the Error details.
-        let code = error.code
-        let message = error.message
-        let details = error.details
-        console.error(
-          'There was an error when calling the Cloud Function',
-          error
-        )
-        window.alert(
-          'There was an error when calling the Cloud Function:\n\nError Code: ' +
-            code +
-            '\nError Message:' +
-            message +
-            '\nError Details:' +
-            details
-        )
-        addCommentButton.disabled = false
-      })
-  }, 2000)
+  handleComment(cleanMessage, cleanName, userData, path)
 })
 /**
  *---------------------------------------------------------------------

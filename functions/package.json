@@ -17,6 +17,7 @@
     "@google-cloud/secret-manager": "^3.12.0",
     "bad-words": "^3.0.4",
     "capitalize-sentence": "^0.1.5",
+    "dotenv": "^16.0.0",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
     "node-fetch": "^2.0.0",

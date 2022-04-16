@@ -194,17 +194,27 @@ const d = await getAddress(lat, lon)
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+}
     })
     .addTo(map)
-
+$('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
+  const submit = $('form :submit').first()
+  const submitText =  $('form :submit').first().text()
+console.log(  $('form :submit').first().parent())
+$('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+${submitText}`)
+});
   map.on('locationfound', async function (e) {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
-
+    const submitText =  $('form :submit').first().text()
+    console.log(  $('form :submit').first().parent())
+    $('form :submit').first().html(`${submitText}`)
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
     const address = await convertLatLon(lat, lon)
@@ -263,9 +273,7 @@ const d = await getAddress(lat, lon)
         .openPopup()
     }, 500)
     locationControl.stop()
-    // geocoder.query(`${lat}, ${lon}`);
 
-    // map.stopLocate();
   })
 
   const coordinatesGeocoder = function (query) {

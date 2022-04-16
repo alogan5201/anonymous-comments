@@ -343,4 +343,12 @@ $(document).ready(function () {
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
   }).addTo(map)
+
+  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
+    const submit = $('form :submit').first()
+    const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+  });
 })
