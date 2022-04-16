@@ -81,8 +81,42 @@ const commentRef = ref(db, `messages${path}`)
 $('#testButton').on('click', function (e) {
   e.preventDefault()
 
-  const accessSecret = httpsCallable(functions, 'accessSecret')
-  accessSecret()
+  const getLatLon = httpsCallable(functions, 'getLatLon')
+  setTimeout(() => {
+    const userData = JSON.parse(localStorage.getItem('userData'))
+
+    const uid = userData.uid
+
+    getLatLon({
+     city: 'Atlanta'
+
+    })
+      .then(function (result) {
+
+   console.log(result)
+
+      })
+      .catch(function (error) {
+        // Getting the Error details.
+        let code = error.code
+        let message = error.message
+        let details = error.details
+        console.error(
+          'There was an error when calling the Cloud Function',
+          error
+        )
+        window.alert(
+          'There was an error when calling the Cloud Function:\n\nError Code: ' +
+            code +
+            '\nError Message:' +
+            message +
+            '\nError Details:' +
+            details
+        )
+        addCommentButton.disabled = false
+      })
+  }, 2000)
+
 })
 
 /**

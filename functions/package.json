@@ -19,6 +19,7 @@
     "capitalize-sentence": "^0.1.5",
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.18.0",
+    "node-fetch": "^2.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

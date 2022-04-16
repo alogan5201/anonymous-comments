@@ -20,33 +20,57 @@ const sanitizer = require('./sanitizer')
 const admin = require('firebase-admin')
 const { v4: uuidv4 } = require('uuid')
 admin.initializeApp()
-const name = 'projects/660236032468/secrets/mapbox/versions/1'
+const name = 'projects/660236032468/secrets/mapbox/versions/2'
+const fetch = require('node-fetch');
 
 // Imports the Secret Manager library
 const { SecretManagerServiceClient } = require('@google-cloud/secret-manager')
 
 // Instantiates a client
 const client = new SecretManagerServiceClient()
+async function convertAddress (city) {
+  const query = await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
+    { method: 'GET' }
+  )
+  if (query.status !== 200) {
+    alert(query.status)
+    return
+  }
 
-async function accessSecretVersion () {
+  const data = await query.json()
+
+  return data
+}
+async function accessSecretVersion (city) {
+
   const [version] = await client.accessSecretVersion({
     name: name
   })
 
   // Extract the payload as a string.
   const payload = version.payload.data.toString()
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${payload}`,  { method: 'GET' });
+  if (response.status !== 200) {
+    console.log(response.status)
+    return
+  }
 
+  const data = await response.json()
+
+  return data
   // WARNING: Do not print the secret in a production environment - this
   // snippet is showing how to access the secret material.
-  console.info(`Payload: ${payload}`)
+
 }
 
-exports.accessSecret = functions.https.onCall((request, response) => {
-  console.log("Hello console! I'm trying to access a secret...")
-  accessSecretVersion().catch(console.error)
-  response.send(
-    "Secret access running asynchronously! The data will be printed to the console when it's done."
-  )
+
+exports.getLatLon = functions.https.onCall(data => {
+
+  const result = accessSecretVersion()
+
+return result
+  // [END returnAddData]
 })
 // [START allAdd]
 // [START addFunctionTrigger]

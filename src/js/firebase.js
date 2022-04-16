@@ -24,7 +24,7 @@ const db = getDatabase()
 const functions = getFunctions(app)
 if (location.hostname === 'localhost') {
   connectFunctionsEmulator(functions, 'localhost', 5001)
-  connectAuthEmulator(auth, 'http://localhost:9099')
+
 }
 function writeUserData (userId, userInfo) {
 
