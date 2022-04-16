@@ -13,26 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use-scrict'
-require('dotenv').config()
+"use-scrict"
+require("dotenv").config()
 // projects/660236032468/secrets/mapbox/versions/1
-const functions = require('firebase-functions')
-const sanitizer = require('./sanitizer')
-const admin = require('firebase-admin')
-const { v4: uuidv4 } = require('uuid')
+const functions = require("firebase-functions")
+const sanitizer = require("./sanitizer")
+const admin = require("firebase-admin")
+const { v4: uuidv4 } = require("uuid")
 admin.initializeApp()
-const name = 'projects/660236032468/secrets/mapbox/versions/2'
-const fetch = require('node-fetch');
+
+const fetch = require("node-fetch");
 const mapboxToken = process.env.MAPBOX_TOKEN
 // Imports the Secret Manager library
-const { SecretManagerServiceClient } = require('@google-cloud/secret-manager')
+
 
 // Instantiates a client
-const client = new SecretManagerServiceClient()
+
 async function fetchAddress(lat, lon) {
-
-
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -43,7 +41,7 @@ async function fetchAddress(lat, lon) {
 async function fetchLatLon (city) {
 
 
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapboxToken}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -59,7 +57,7 @@ async function fetchLatLon (city) {
 async function fetchElevation (lat, lon) {
 
 
-  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -74,7 +72,7 @@ async function fetchElevation (lat, lon) {
 }
 async function fetchMatrix(first, second) {
 
-  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,  { method: 'GET' });
+  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
     console.log(response.status)
     return
@@ -126,9 +124,9 @@ exports.addNumbers = functions.https.onCall(data => {
   if (!Number.isFinite(firstNumber) || !Number.isFinite(secondNumber)) {
     // Throwing an HttpsError so that the client gets the error details.
     throw new functions.https.HttpsError(
-      'invalid-argument',
-      'The function must be called with ' +
-        'two arguments "firstNumber" and "secondNumber" which must both be numbers.'
+      "invalid-argument",
+      "The function must be called with " +
+        "two arguments firstnumber and secondNumber which must both be numbers."
     )
   }
   // [END addHttpsError]
@@ -138,7 +136,7 @@ exports.addNumbers = functions.https.onCall(data => {
   return {
     firstNumber: firstNumber,
     secondNumber: secondNumber,
-    operator: '+',
+    operator: "+",
     operationResult: firstNumber + secondNumber
   }
   // [END returnAddData]
@@ -159,8 +157,8 @@ exports.addNumbers = functions.https.onCall(data => {
   if (!Number.isFinite(firstNumber) || !Number.isFinite(secondNumber)) {
     // Throwing an HttpsError so that the client gets the error details.
     throw new functions.https.HttpsError(
-      'invalid-argument',
-      'The function must be called with ' +
+      "invalid-argument",
+      "The function must be called with " +
         "two arguments 'firstNumber' and 'secondNumber' which must both be numbers."
     )
   }
@@ -171,7 +169,7 @@ exports.addNumbers = functions.https.onCall(data => {
   return {
     firstNumber: firstNumber,
     secondNumber: secondNumber,
-    operator: '+',
+    operator: "+",
     operationResult: firstNumber + secondNumber
   }
   // [END returnAddData]
@@ -180,22 +178,22 @@ exports.addNumbers = functions.https.onCall(data => {
 
 // [START messageFunctionTrigger]
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
-exports.addComment = functions.https.onCall((data, context) => {
+exports.addComment = functions.https.onCall((data) => {
   const text = data.text
   const name = data.name
   const uid = data.uid
   const documentId = uuidv4()
 
-  if (!(typeof text === 'string') || text.length === 0) {
+  if (!(typeof text === "string") || text.length === 0) {
     // Throwing an HttpsError so that the client gets the error details.
     throw new functions.https.HttpsError(
-      'invalid-argument',
-      'The function must be called with ' +
+      "invalid-argument",
+      "The function must be called with " +
         "one arguments 'text' containing the message text to add."
     )
   }
 
-  const authenticated = context.auth ? context.auth.uid : null
+
 
   // [END authIntegration]
 
