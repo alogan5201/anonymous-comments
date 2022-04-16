@@ -1,20 +1,14 @@
 import { initializeApp } from 'firebase/app'
-import {
-  getDatabase,
-
-} from 'firebase/database'
+import { getDatabase } from 'firebase/database'
 
 import {
   getAuth,
-
   onAuthStateChanged,
-
   signInAnonymously,
-
- connectAuthEmulator,
+  connectAuthEmulator
 } from 'firebase/auth'
 import { stubString } from 'lodash'
-  import { getFunctions, connectFunctionsEmulator} from 'firebase/functions';
+import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 
 const app = initializeApp({
   apiKey: 'AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo',
@@ -27,19 +21,18 @@ const app = initializeApp({
 })
 const auth = getAuth()
 const db = getDatabase()
- const functions = getFunctions(app);
-if (location.hostname === "localhost") {
+const functions = getFunctions(app)
+if (location.hostname === 'localhost') {
+  connectFunctionsEmulator(functions, 'localhost', 5001)
+  connectAuthEmulator(auth, 'http://localhost:9099')
+}
+function writeUserData (userId, userInfo) {
 
-connectFunctionsEmulator(functions, "localhost", 5001);
-connectAuthEmulator(auth, "http://localhost:9099");
+ return set(ref(db, 'anonymousUsers'), userInfo)
 }
 
-
 async function getIp () {
-  const query = await fetch(
-    `https://ipapi.co/json`,
-    { method: 'GET' }
-  )
+  const query = await fetch(`https://ipapi.co/json`, { method: 'GET' })
   if (query.status !== 200) {
     alert(query.status)
     return
@@ -55,45 +48,37 @@ async function createRandomUser () {
 
   signInAnonymously(auth)
     .then(data => {
-
-      let ip = ipAddress ? ipAddress : null
+      let ip = ipAddress || null
 
       let userInfo = {
-"uid": data.user.uid,
-"emailVerified": data.user.emailVerified,
-  "isAnonymous": data.user.isAnonymous,
-  "providerData": data.user.providerData,
-    "createdAt": data.user.createdAt,
-    "lastLoginAt": data.user.lastLoginAt,
-  "ip": ip
-}
-let userData = JSON.stringify(userInfo)
+        uid: data.user.uid,
+        emailVerified: data.user.emailVerified,
+        isAnonymous: data.user.isAnonymous,
+        providerData: data.user.providerData,
+        createdAt: data.user.createdAt,
+        lastLoginAt: data.user.lastLoginAt,
+        ip: ip
+      }
+      let userData = JSON.stringify(userInfo)
       localStorage.setItem('userData', userData)
 
+      writeUserData(userInfo)
     })
     .catch(error => {
       const errorCode = error.code
       const errorMessage = error.message
-
     })
 }
 
 onAuthStateChanged(auth, user => {
   const userData = localStorage.getItem('userData')
   if (user || userData) {
-
-    if(userData){
-    let parsed = JSON.parse(userData)
-
+    if (userData) {
+      let parsed = JSON.parse(userData)
     }
-
   } else {
     if (!userData) {
       createRandomUser()
     }
   }
 })
-
-
-
-
