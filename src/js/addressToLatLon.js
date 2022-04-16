@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
-///Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
+/// Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
 import 'utils/commentscript'
-import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import { getLatLon, getAddress, getElevation } from 'utils/geocoder'
 import {
   comment,
   commentReply,
@@ -24,11 +24,10 @@ import {
   increment,
   orderByChild
 } from 'firebase/database'
-async function getAddressData (){
-let latlon = await getAddress('33.0393', '-85.0313')
+async function getAddressData () {
+  let latlon = await getAddress('33.0393', '-85.0313')
 
-console.log(latlon.data)
-
+  console.log(latlon.data)
 }
 
 // commentReply( name, id, date, message)
@@ -79,11 +78,8 @@ const db = getDatabase()
 const auth = getAuth()
 const path = window.location.pathname
 
-
-
 $(function () {
   const commentRef = ref(db, `messages${path}`)
-
 
   /**
    *---------------------------------------------------------------------
@@ -91,8 +87,7 @@ $(function () {
    * -------------------------------------------------------------------
    */
   async function convertLatLon (lat, lon) {
-
-const d = await getAddress(lat, lon)
+    const d = await getAddress(lat, lon)
     const data = d.data
     console.log(data)
     if (data.features.length == 0) {
@@ -111,8 +106,7 @@ const d = await getAddress(lat, lon)
   }
 
   async function convertAddress (city) {
-
-    const data  = await getLatLon(city)
+    const data = await getLatLon(city)
     return data.data
   }
   const outputInputField = document.getElementById('output-field-input')
@@ -127,7 +121,7 @@ const d = await getAddress(lat, lon)
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-   let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
     let dLon = Math.floor(longitude)
     let mLon = Math.floor((longitude - dLon) * 60)
     let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
@@ -198,46 +192,60 @@ const d = await getAddress(lat, lon)
       remainActive: false,
       locateOptions: {
         enableHighAccuracy: true
-}
+      }
     })
     .addTo(map)
-$('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-  const submit = $('form :submit').first()
-  const submitText =  $('form :submit').first().text()
-console.log(  $('form :submit').first().parent())
-$('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
+    const submit = $('form :submit').first()
+    const submitText = $('form :submit')
+      .first()
+      .text()
+    console.log(
+      $('form :submit')
+        .first()
+        .parent()
+    )
+    $(
+      'form :submit'
+    ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
 ${submitText}`)
-});
+  })
   map.on('locationfound', async function (e) {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
-    const submitText =  $('form :submit').first().text()
-    console.log(  $('form :submit').first().parent())
-    $('form :submit').first().html(`${submitText}`)
-    localStorage.setItem('userLatLon', `${lat}, ${lon}`)
+    const submitText = $('form :submit')
+      .first()
+      .text()
+    console.log(
+      $('form :submit')
+        .first()
+        .parent()
+    )
 
     const address = await convertLatLon(lat, lon)
-    setTimeout(() => {
-      if (address.features.length > 0) {
-        $('form')
-          .first()
-          .find('input:eq(0)')
-          .val(address.features[0].place_name)
 
-        $('#latlonForm')
-          .find('input:eq(0)')
-          .val(lat)
-        $('#latlonForm')
-          .find('input:eq(1)')
-          .val(lon)
-      }
+    if (address.features.length > 0) {
+      $('form')
+        .first()
+        .find('input:eq(0)')
+        .val(address.features[0].place_name)
 
-      map.fitBounds([[lat, lon]], { padding: [50, 50] })
+      $('#latlonForm')
+        .find('input:eq(0)')
+        .val(lat)
+      $('#latlonForm')
+        .find('input:eq(1)')
+        .val(lon)
+    }
+    $('form :submit')
+      .first()
+      .html(`${submitText}`)
+    map.fitBounds([[lat, lon]], { padding: [50, 50] })
 
-      const dmsCalculated = DDtoDMS(lat, lon)
+    const dmsCalculated = DDtoDMS(lat, lon)
 
-      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
             <div class="row">
             <div class="col">
               <div class="card">
@@ -267,13 +275,20 @@ ${submitText}`)
 
           `)
 
-      marker
-        .setLatLng([lat, lon])
-        .bindPopup(popup)
-        .openPopup()
-    }, 500)
-    locationControl.stop()
+    marker
+      .setLatLng([lat, lon])
+      .on('popupopen', () => {
+        document.getElementById('getAltitude').addEventListener('click', e => {
+          e.preventDefault()
+          let lat = $('.lat').html()
+          let lon = $('.lon').html()
+          getElevationData(lon, lat)
+        })
+      })
+      .bindPopup(popup)
+      .openPopup()
 
+    locationControl.stop()
   })
 
   const coordinatesGeocoder = function (query) {
@@ -338,12 +353,14 @@ ${submitText}`)
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
+
+  /*
   $(document).on('click', '#getAltitude', function (e) {
     e.preventDefault()
     let lat = $('.lat').html()
     let lon = $('.lon').html()
     getElevationData(lon, lat)
-  })
+  }) */
 
   $('#getTravelForm').on('submit', async function (e) {
     e.preventDefault()

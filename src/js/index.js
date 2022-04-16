@@ -156,7 +156,7 @@ if (window.location.href.includes("login")) {
   });
 
   import(/* webpackChunkName: "lazy-module.login" */ "./lazy-module").then(
-    (module) => {
+  (module) => {
       const login = module.default;
 
       login();
