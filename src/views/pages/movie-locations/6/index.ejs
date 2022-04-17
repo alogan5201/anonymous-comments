@@ -20,8 +20,9 @@
 
        <main class="mb-4 mt-5">
       <div class="container px-4 px-lg-5">
+        <%- include(`${partials}/autocomplete`); -%>
         <div class="row justify-content-center">
-         
+
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 text-center g-3">
 <div class="col-sm-4 d-flex align-items-stretch">
@@ -230,9 +231,9 @@
           </div>
 </div>
                 <div class="row justify-content-center mt-3">
-         
+
           <nav aria-label="Movie Locations Top 250">
- 
+
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <a class="page-link" href="/movie-locations/5" aria-label="Previous">Previous <span
@@ -258,14 +259,13 @@
                     aria-hidden="true">&raquo;</span></a>
               </li>
             </ul>
-   
+
           </nav>
-          
+
         </div>
       </div>
     </main>
- <%- include(`${partials}/footer`); -%> <%-
-    include(`${partials}/homeScripts`); -%>
+ <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 </body>
 
 </html>
