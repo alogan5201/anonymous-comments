@@ -263,13 +263,14 @@ Verifying..`)
         page: path
       })
         .then(function (result) {
+          console.log(result)
+
           // Read result of the Cloud Function.
           let sanitizedMessage = result.data.text
           let sanitizedName = result.data.name
 
           if (
-            cleanMessage !== sanitizedMessage &&
-            cleanName !== sanitizedName
+            cleanMessage !== sanitizedMessage
           ) {
             filterCommentFail.toggle()
             $('#reply-btn').disabled = false

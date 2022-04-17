@@ -126,8 +126,9 @@ onAuthStateChanged(auth, user => {
         let sanitizedName = result.data.name
         const documentId = result.data.id
 
-        if (message !== sanitizedMessage && name !== sanitizedName) {
+        if (message !== sanitizedMessage) {
           toggleModal("fail")
+
           $('#comment-btn').disabled = false
           $('#comment-btn').html('Submit')
           for (let index = 0; index < commentFormInputs.length; index++) {
