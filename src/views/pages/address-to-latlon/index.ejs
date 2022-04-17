@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
 
-  <body class="address-to-latlon">
+  <body class="address-to-latlon ">
     <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -14,18 +14,17 @@
       <h3>Please enable JavaScript in order to view this site properly.</h3>
     </noscript>
     <%- include(`${partials}/nav`); -%>
-   <div class="text-center">
 
-	<!-- Button HTML (to Trigger Modal) -->
-
-</div>
     <!--   !! MAIN -------------------------->
     <!-- Main Content-->
-    <main class="mb-4 mt-5">
+     <main class="flex-shrink-0 mt-2">
 
-      <div class="container  ">
-
-        <div class="row gx-5 align-items-center justify-content-center">
+      <div class="container  px-4 px-lg-5 pb-5 ">
+        <div class=" py-3 pb-md-4 mx-auto text-left">
+          <h3 class=" fw-normal">Address to Latitude Longitude</h3>
+          <p class="fs-5 text-muted">Quickly convert any address to longitude and latitude coordinates.</p>
+        </div>
+        <div class="row gx-5 align-items-center justify-content-center mb-5">
           <div class="col-lg-5" style="position: relative;">
             <h5 class="text-start mb-4">Address</h5>
             <form
@@ -139,7 +138,7 @@
                 </div>
               </div>
             </form>
-            <hr class="mb-4" />
+
 
             <div class="row mb-3">
               <div id="liveAlertPlaceholder">

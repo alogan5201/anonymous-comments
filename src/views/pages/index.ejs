@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="h-100">
+<html lang="en" dir="ltr" >
   <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column ">
       <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -12,18 +12,16 @@
         <h3>Please enable JavaScript in order to view this site properly.</h3>
       </noscript>
       <%- include(`${partials}/nav`); -%>
-        <header>
-          <nav></nav>
-        </header>
+
 
         <!-- Main Content-->
 
-        <main class="flex-shrink-0 mt-5">
-          <div class="container px-4 px-lg-5">
+         <main class="flex-shrink-0 mt-2">
+          <div class="container px-4 px-lg-5 pb-5">
             <%- include(`${partials}/modal`); -%>
 
               <div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-5">
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="address-to-latlon/" class="stretched-link">
@@ -37,7 +35,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="<%= PP %>lat-lon-to-address/"
@@ -51,7 +49,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="<%= PP %>latlon-to-dms/"
@@ -65,7 +63,7 @@
                 </div>
               </div>
               <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="dms-to-latlon/" class="stretched-link">
@@ -79,12 +77,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="address-distance/" class="stretched-link">
                         <h5 class="card-title">
-                          Distance Calculator between Locations
+                          Address Distance
                         </h5></a>
                       <p class="card-text mt-1">
                         Find distance between two locations
@@ -92,12 +90,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="col shadow-sm rounded">
+                <div class="col-lg-4 d-flex align-items-stretch">
                   <div class="card py-5">
                     <div class="card-body py-5">
                       <a href="lat-lon-distance/" class="stretched-link">
                         <h5 class="card-title">
-                          Distance Calculator between Latitude and Longitude
+                           Latitude and Longitude Distance
                         </h5></a>
                       <p class="card-text mt-1">
                         Calculate the distance between coordinates.

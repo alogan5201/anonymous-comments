@@ -15,8 +15,12 @@
     </noscript>
     <%- include(`${partials}/nav`); -%>
     <!--   !! MAIN -------------------------->
-    <main class="mb-4 mt-5">
-      <div class="container px-4 px-lg-5">
+     <main class="flex-shrink-0 mt-2">
+      <div class="container px-4 px-lg-5 pb-5">
+        <div class=" py-3 pb-md-4 mx-auto text-left">
+          <h3 class=" fw-normal">Latitude Longitude to Address</h3>
+          <p class="fs-5 text-muted">Quickly find an Address from a set of coordinates.</p>
+        </div>
         <div
           class="row g-3 align-items-center justify-content-center pb-4 mb-4"
         >
@@ -86,7 +90,7 @@
               </div>
             </div>
 
-            <hr class="mb-4" />
+
           </div>
           <div class="col-lg-6 align-self-start">
             <h4 class="travel-time"></h4>
@@ -101,7 +105,7 @@
           </div>
         </div>
         <%- include(`${partials}/comment-section.ejs`); -%>
- 
+
       </div>
     </main>
 
