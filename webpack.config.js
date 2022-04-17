@@ -19,7 +19,7 @@ module.exports = (env = {}) => {
 
       ],
       app: ['./src/js/index.js'],
-      autocomplete: ['./src/js/autocomplete.js'],
+      movies: ['./src/js/movies.js'],
       latlonDistance: ['./src/js/firebase.js', './src/js/latlonDistance.js'],
       latlonToAddress: ['./src/js/firebase.js', './src/js/latlonToAddress.js'],
       latlonToDMS: ['./src/js/firebase.js', './src/js/latlonToDMS.js'],

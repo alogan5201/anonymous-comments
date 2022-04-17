@@ -141,14 +141,9 @@
 
 
 
-export default function() {
+export function autocompleteInit (data) {
 
-  import(/* webpackChunkName: "lazy-module.autocompleteData" */ './autocompletedata').then(module => {
-            const list = module.default
-
-           const data = list.data
-
-
+console.log(data)
     set_autocomplete('searchInput', 'form2_complete', data);
 
 
@@ -196,7 +191,7 @@ const inp = input.value.toLowerCase()
 
 if(inp == "the" || inp =="the "){
 
-  
+
 }
 else{
 
@@ -216,7 +211,7 @@ else{
       window.location.href = `/movie-locations/${newslug}`
     }
     else {
-      
+
     }
 
 }
@@ -230,7 +225,7 @@ else{
 
 else {
 
-  
+
   let x = event.target.getAttribute("data-link")
   window.location.replace(x)
 }
@@ -246,7 +241,7 @@ searchButton.setAttribute("data-link", "")
 
 }
 function myBlurFunction() {
-  
+
   const classes= document.getElementById("form2_complete").classList.length
   setTimeout(() => {
  if (classes == 1){
@@ -258,7 +253,7 @@ function myBlurFunction() {
 
 }
 
-        })
+
 
 
 
@@ -266,3 +261,4 @@ function myBlurFunction() {
  }
 
 
+export default {autocompleteInit}
