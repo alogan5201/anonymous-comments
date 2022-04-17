@@ -30,9 +30,9 @@ const mapboxToken = process.env.MAPBOX_TOKEN
 // Instantiates a client
 
 async function fetchAddress(lat, lon) {
+
   const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
-    console.log(response.status)
     return
   }
   const data= await response.json()
@@ -40,10 +40,10 @@ async function fetchAddress(lat, lon) {
 }
 async function fetchLatLon (city) {
 
-
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?access_token=${mapboxToken}`,  { method: "GET" });
+  const cityQuery = encodeURIComponent(city)
+  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityQuery}.json?access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
-    console.log(response.status)
+
     return
   }
 
@@ -59,8 +59,12 @@ async function fetchElevation (lat, lon) {
 
   const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
-    console.log(response.status)
-    return
+      throw new functions.https.HttpsError(
+      "invalid-argument",
+      "The function must be called with " +
+        "two arguments firstnumber and secondNumber which must both be numbers."
+    )
+
   }
 
   const data= await response.json()
@@ -71,13 +75,16 @@ async function fetchElevation (lat, lon) {
 
 }
 async function fetchMatrix(first, second) {
+const firstQuery= encodeURIComponent(first)
+const secondQuery= encodeURIComponent(second)
 
-  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,  { method: "GET" });
+  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${firstQuery};${secondQuery}?&access_token=${mapboxToken}`,  { method: "GET" });
   if (response.status !== 200) {
     console.log(response.status)
     return
   }
   const data= await response.json()
+  console.info(data)
   return data
 }
 exports.getMatrix = functions.https.onCall(data => {

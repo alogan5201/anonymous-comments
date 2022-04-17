@@ -94,9 +94,11 @@ $(document).ready(function () {
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+      }
     })
     .addTo(map)
   async function findAddress (lat, lon) {

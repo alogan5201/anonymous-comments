@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="h-100">
   <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
-    <body>
+    <body class="d-flex flex-column h-100">
       <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -18,7 +18,7 @@
 
         <!-- Main Content-->
 
-        <main class="mb-4 mt-5">
+        <main class="flex-shrink-0 mt-5">
           <div class="container px-4 px-lg-5">
             <%- include(`${partials}/modal`); -%>
 
@@ -28,7 +28,7 @@
                     <div class="card-body py-5">
                       <a href="address-to-latlon/" class="stretched-link">
                         <h5 class="card-title">
-                        
+
                           Address to Latitude and Longitude
                         </h5></a>
                       <p class="card-text mt-1">

@@ -2,7 +2,7 @@
 import HaversineGeolocation from 'haversine-geolocation'
 
 import 'utils/commentscript.js'
-import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import { getLatLon , getAddress, getElevation, getGeojson} from 'utils/geocoder'
 
 const geojson = {
   type: 'FeatureCollection',
@@ -43,23 +43,11 @@ L.mapbox.accessToken =
 const layer = L.mapbox
   .styleLayer('mapbox://styles/mapbox/streets-v11')
   .addTo(map)
-  .on('load', finishedLoading) // add your tiles to the map
+   // add your tiles to the map
 
-startLoading()
-function startLoading () {
-  loader.className = ''
-}
-function finishedLoading () {
-  // first, toggle the class 'done', which makes the loading screen
-  // fade out
-  loader.className = 'done'
-  setTimeout(function () {
-    // then, after a half-second, add the class 'hide', which hides
-    // it completely and ensures that the user can interact with the
-    // map again.
-    loader.className = 'd-none'
-  }, 500)
-}
+
+
+
 // L.marker is a low-level marker constructor in Leaflet.
 
 var featureLayer = L.mapbox.featureLayer().addTo(map)
@@ -71,16 +59,17 @@ map.on('layeradd', function (e) {
   }
 })
 var locationControl = L.control
-  .locate({
-    circleStyle: { opacity: 0 },
-    followCircleStyle: { opacity: 0 },
-    drawCircle: false,
-    follow: false,
-    icon: 'fas fa-map-marker-alt',
-
-    setView: false,
-    remainActive: false
-  })
+    .locate({
+      circleStyle: { opacity: 0 },
+      followCircleStyle: { opacity: 0 },
+      drawCircle: false,
+      follow: false,
+      setView: false,
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+      }
+    })
   .addTo(map)
 const LocationState = function _LocationState () {
   let data = {
@@ -115,9 +104,9 @@ map.on('locationfound', function (e) {
   let lon = e.latlng.lng
 
   setOrigin(lat, lon)
-  geojson.features[0].geometry.coordinates = [lon, lat]
+ // geojson.features[0].geometry.coordinates = [lon, lat]
 
-  featureLayer.setGeoJSON(geojson)
+
 
   var inputs = document.getElementById('getDistanceForm').elements
 
@@ -134,10 +123,21 @@ map.on('locationfound', function (e) {
 
 async function setOrigin (lat, lon) {
   const d = await getAddress(lat, lon)
+
   const data = d.data
   if (data.features.length > 0) {
     $('#addressInputFieldOrigin').val(data.features[0].place_name)
-
+const origin = data.features[0]
+let originLatLon = data.features[0].geometry.coordinates
+  let originLat = originLatLon[1]
+      let originLon = originLatLon[0]
+let originResults = {
+  title: origin.place_name,
+  lat: originLat,
+  lon: originLon,
+}
+ const geojsonData = getGeojson(originResults)
+  featureLayer.setGeoJSON(geojsonData)
     $('#lonInputField').focus()
   } else if (data.features.length == 0) {
     alert('No Address found from your location')
@@ -268,108 +268,6 @@ window.addEventListener('DOMContentLoaded', () => {
     myhandler
   )
 
-  function addRoute () {
-    App.state.count++
-
-    const origin = CoordsApp.state.origin
-
-    const destination = CoordsApp.state.destination
-
-    // map.flyTo([centerLat, centerLon])
-    /* map.panInsideBounds([
-         [origin[1] , origin[0] ], // southwestern corner of the bounds
-         [destination[1] , destination[0], {padding: [50,50]} ] // northeastern corner of the bounds
-       ]);
-       //
-
-      geojson.features[0].geometry.coordinates = [origin[0], origin[1]];
-      geojson.features[1].geometry.coordinates = [destination[0], destination[1]]
-
-  */
-    //
-    let latD = destination[1]
-    let lonD = destination[0]
-    let latO = origin[1]
-    let lonO = origin[0]
-    geojson.features[0].geometry.coordinates = [lonO, latO]
-    geojson.features[1].geometry.coordinates = [lonD, latD]
-    //
-    featureLayer.setGeoJSON(geojson)
-
-    // featureLayer.setGeoJSON(geojson).addTo(map);
-
-    /*
-      map.fitBounds(featureLayer.getBounds(), {
-  padding: [50,50]
-
-      });
-      map.zoomOut()
-  */
-
-    let latOrigin = origin[1]
-    let lonOrigin = origin[0]
-    let latDest = destination[1]
-    let lonDest = destination[0]
-    //
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDest, lonDest]
-      ],
-      { padding: [50, 50] }
-    )
-  }
-
-  function addNewRoute () {
-    const origin = CoordsApp.state.origin
-
-    const destination = CoordsApp.state.destination
-    let latD = destination[1]
-    let lonD = destination[0]
-    let latO = origin[1]
-    let lonO = origin[0]
-    geojson.features[0].geometry.coordinates = [lonO, latO]
-    geojson.features[1].geometry.coordinates = [lonD, latD]
-
-    featureLayer.setGeoJSON(geojson)
-    // A simple line from origin to destination.
-
-    // A single point that animates along the route.
-    // Coordinates are initially set to origin.
-
-    // Calculate the distance in kilometers between route start/end point.
-
-    // animate(counter);
-    featureLayer.setGeoJSON(geojson)
-
-    let latOrigin = origin[1]
-    let lonOrigin = origin[0]
-    let latDest = destination[1]
-    let lonDest = destination[0]
-    //
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDest, lonDest]
-      ],
-      {
-        padding: [50, 50]
-      }
-    )
-  }
-
-  function format (time) {
-    // Hours, minutes and seconds
-    var hrs = ~~(time / 3600)
-    var mins = ~~((time % 3600) / 60)
-
-    let result = {
-      hours: hrs,
-      minutes: mins
-    }
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result
-  }
 
   async function convertAddressToCoordinates (address) {
 
@@ -392,25 +290,44 @@ window.addEventListener('DOMContentLoaded', () => {
       e.currentTarget[1].value
     )
 
-    let latOrigin = coordsOrigin.features[0].center[1]
-    let lonOrigin = coordsOrigin.features[0].center[0]
+    const result = await Promise.all([coordsOrigin, coordsDestination])
 
-    let latDestination = coordsDestination.features[0].center[1]
-    let lonDestination = coordsDestination.features[0].center[0]
-    geojson.features[0].geometry.coordinates = [lonOrigin, latOrigin]
-    geojson.features[1].geometry.coordinates = [lonDestination, latDestination]
-    featureLayer.setGeoJSON(geojson)
+  const origin = result[0].features[0]
+let originLatLon = result[0].features[0].geometry.coordinates
+  let originLat = originLatLon[1]
+      let originLon = originLatLon[0]
+
+
+let originResults = {
+  title: origin.place_name,
+  lat: originLat,
+  lon: originLon,
+}
+
+
+const destination = result[1].features[0]
+let destinationLatLon = result[1].features[0].geometry.coordinates
+  let destinationLat = destinationLatLon[1]
+      let destinationLon = destinationLatLon[0]
+
+
+let destinationResults = {
+  title: destination.place_name,
+  lat: destinationLat,
+  lon: destinationLon,
+}
+
     const points = [
       {
-        latitude: latOrigin,
-        longitude: lonOrigin
+        latitude: originLat,
+        longitude: originLon
       },
       {
-        latitude: latDestination,
-        longitude: lonDestination
+        latitude: destinationLat,
+        longitude: destinationLon
       }
     ]
-
+const geoJsondata = getGeojson(originResults, destinationResults)
     const distance = HaversineGeolocation.getDistanceBetween(
       points[0],
       points[1],
@@ -419,13 +336,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     $('#distanceInput').val(`${distance} miles`)
     $('#distanceInput').focus()
+featureLayer.setGeoJSON(geoJsondata)
     map.fitBounds(
       [
-        [latOrigin, lonOrigin],
-        [latDestination, lonDestination]
+        [originLat, originLon],
+        [destinationLat, destinationLon]
       ],
       { padding: [50, 50] }
+
     )
+
     // geojson.features[1].geometry.coordinates = [lonD, latD]
     // featureLayer.setGeoJSON(geojson)
     /*

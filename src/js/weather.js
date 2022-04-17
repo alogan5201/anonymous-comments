@@ -395,7 +395,7 @@ window.addEventListener('DOMContentLoaded', () => {
       let lat = coords[1]
       let lon = coords[0]
 
-      CoordsApp.state.origin = coords
+
 
       await fetchWeather(lat, lon)
     } else {

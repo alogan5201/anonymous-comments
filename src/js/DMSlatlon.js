@@ -1,5 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
+import {  getElevation } from 'utils/geocoder'
 function test (e) {
   e.preventDefault()
 }
@@ -58,10 +59,10 @@ $(document).ready(function () {
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+   let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let dLon = Math.floor(longitude)
+    let mLon = Math.floor((longitude - dLon) * 60)
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
     let degreesLatitude = dLat
     let minutesLatitude = mLat
     let secondsLatitude = sLat
@@ -121,14 +122,16 @@ $(document).ready(function () {
   const map = L.mapbox.map('map').setView([37.9, -77], 6)
 
   L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
+const popup = L.popup()
+     // L.marker is a low-level marker constructor in Leaflet.
 
-  // L.marker is a low-level marker constructor in Leaflet.
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
       'marker-size': 'large',
 
       'marker-color': 'blue'
     })
+
   }).addTo(map)
   var locationControl = L.control
     .locate({
@@ -136,9 +139,11 @@ $(document).ready(function () {
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+      }
     })
     .addTo(map)
   async function findAddress (lat, lon) {
@@ -157,7 +162,7 @@ $(document).ready(function () {
     const submitText =  $('form :submit').first().text()
     console.log(  $('form :submit').first().parent())
     $('form :submit').first().html(`${submitText}`)
-    localStorage.setItem('userLatLon', `${lat}, ${lon}`)
+
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
@@ -184,7 +189,7 @@ $(document).ready(function () {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
+    popup.setContent(`
     <div class="row">
     <div class="col">
       <div class="card">
@@ -202,7 +207,7 @@ $(document).ready(function () {
         </div>
           </p>
           <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
+          <button class="btn btn-primary btn-sm getAltitude-btn" id="getAltitude" role="button ">
               Get Altitude
           </button>
       </div>
@@ -215,7 +220,9 @@ $(document).ready(function () {
   `)
     marker
       .setLatLng([lat, lon])
-      .bindPopup(popup)
+         .on('popupopen', () => {
+
+      }).bindPopup(popup)
       .openPopup()
   })
   map.on('locationerror', function () {
@@ -268,31 +275,26 @@ $(document).ready(function () {
     return geocodes
   }
 
-  async function getElevation (lon, lat) {
+  async function getElevationData (lon, lat) {
     // Construct the API request
-    const query = await fetch(
-      `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) return
-    const data = await query.json()
 
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features
+      try {
+          const elvevationResponse = await getElevation(lat, lon)
+      const data = elvevationResponse.data
+           const allFeatures = data.features
     // For each returned feature, add elevation data to the elevations array
     const elevations = allFeatures.map(feature => feature.properties.ele)
     // In the elevations array, find the largest value
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
+
+  } catch(err) {
+    alert(err); // TypeError: failed to fetch
   }
-  $(document).on('click', '#getAltitude', function (e) {
-    e.preventDefault()
-    let lat = $('.lat').html()
-    let lon = $('.lon').html()
-    getElevation(lon, lat)
-  })
+
+
+  }
+
 
   // Clear results container when search is cleared.
 
@@ -335,17 +337,50 @@ $(document).ready(function () {
     let lon = ConvertDMSToDD(lonField)
     // let lon = ConvertDMStoDD(lonField)
 
-    lonReduced = lon.toFixed(8)
-    latReduced = lat.toFixed(8)
+    let lonReduced = lon.toFixed(8)
+    let latReduced = lat.toFixed(8)
 
-    setTimeout(() => {
+
       map.fitBounds([[lat, lon]], {
         padding: [100, 100]
       })
-      marker
-        .setLatLng([lat, lon])
-        .bindPopup(
-          `
+  const popupContent = `    <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+
+          <p class="card-text">
+
+
+
+          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
+          Longitude:</strong> <span class="lon">${lon}</span> </span>
+          <br>
+          <div class= "mt-1">
+          ${latField[0]}° ${latField[1]}' ${latField[2]}
+          ${lonField[0]}° ${lonField[1]}' ${lonField[2]}
+        </div>
+          </p>
+          <div class=" mt-2 altitude">
+          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
+              Get Altitude
+          </button>
+      </div>
+        </div>
+      </div>
+    </div>
+</div>`
+    const check = popup.isOpen()
+    console.log(check)
+    if(check){
+      map.closePopup()
+       marker.setLatLng([lat, lon]).bindPopup(popupContent).openPopup()
+      latlonForm.elements[0].value = latReduced
+      latlonForm.elements[1].value = lonReduced
+    }
+
+/*
+          popup.setPopupContent(`
     <div class="row">
     <div class="col">
       <div class="card">
@@ -374,12 +409,22 @@ $(document).ready(function () {
 </div>
 
 
-  `
-        )
-        .openPopup()
-      latlonForm.elements[0].value = latReduced
-      latlonForm.elements[1].value = lonReduced
-    }, 200)
+              .on('popupopen', () => {
+        document.getElementById('getAltitude').addEventListener('click',  function(e){
+          e.preventDefault()
+          $('#getAltitude')
+            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+Get Altitude`)
+ getElevationData(lon, lat)
+
+
+
+        })
+      })
+
+  `)*/
+
+
   })
 
   const title = $('title').html()
@@ -396,4 +441,17 @@ $(document).ready(function () {
   $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
   });
+$('#map').on('click', '.trigger', function() {
+    alert('Hello from Toronto!');
+});
+
+  $('#map').on('click', '#getAltitude', function (e) {
+  e.preventDefault()
+   $('#getAltitude')
+            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+Get Altitude`)
+const markerLocation = marker.getLatLng()
+console.log(markerLocation)
+ getElevationData(markerLocation.lng, markerLocation.lat)
+});
 })

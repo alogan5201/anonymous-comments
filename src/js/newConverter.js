@@ -1,5 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
+import { getLatLon, getAddress, getElevation } from 'utils/geocoder'
 function test (e) {
   e.preventDefault()
 }
@@ -73,10 +74,10 @@ $(document).ready(function () {
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let dLon = Math.floor(longitude)
+    let mLon = Math.floor((longitude - dLon) * 60)
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
     let degreesLatitude = dLat
     let minutesLatitude = mLat
     let secondsLatitude = sLat
@@ -146,27 +147,24 @@ $(document).ready(function () {
     })
   }).addTo(map)
   var locationControl = L.control
-    .locate({
+     .locate({
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+      }
     })
     .addTo(map)
-  async function findAddress (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
 
-    return data
+  async function findAddress (lat, lon) {
+    const d = await getAddress(lat, lon)
+    const data = d.data
+
+return data
   }
 
   map.on('locationfound', async function (e) {
@@ -174,9 +172,11 @@ $(document).ready(function () {
     let lon = e.longitude
     var radius = e.accuracy
     const result = await findAddress(lat, lon)
-    let address =
-      result.features.length > 0 ? result.features[0].place_name : ''
+
+    let address = result.features.length > 0 ? result.features[0].place_name : ''
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
+
+    console.log(result)
     $('#searchInput').val(address)
     const alertMessage = `
     <div class="alert alert-primary d-flex align-items-center" role="alert">
@@ -295,14 +295,10 @@ $(document).ready(function () {
     return geocodes
   }
 
-  async function getElevation (lon, lat) {
+  async function getElevationData (lon, lat) {
     // Construct the API request
-    const query = await fetch(
-      `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) return
-    const data = await query.json()
+  const elvevationResponse = await getElevation(lat, lon)
+    const data = elvevationResponse.data
 
     // Display the longitude and latitude values
 
@@ -314,12 +310,15 @@ $(document).ready(function () {
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
-  $(document).on('click', '#getAltitude', function (e) {
-    e.preventDefault()
-    let lat = $('.lat').html()
-    let lon = $('.lon').html()
-    getElevation(lon, lat)
-  })
+  $('#map').on('click', '#getAltitude', function (e) {
+  e.preventDefault()
+   $('#getAltitude')
+            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+Get Altitude`)
+const markerLocation = marker.getLatLng()
+console.log(markerLocation)
+ getElevationData(markerLocation.lng, markerLocation.lat)
+});
 
   // Clear results container when search is cleared.
 
@@ -347,6 +346,7 @@ $(document).ready(function () {
   $('#addressForm').on('submit', async function (e) {
     e.preventDefault()
 
+   $('.alerts').html("");
     const value = $(this)
       .find('input:eq(0)')
       .val()
@@ -414,7 +414,7 @@ $(document).ready(function () {
   //! ! Second Form
   $('#latlonForm').on('submit', async function (e) {
     e.preventDefault()
-
+  $('.alerts').html("");
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
     const lat = e.currentTarget[0].value
@@ -495,7 +495,7 @@ $(document).ready(function () {
   $('#myDmsForm').on('submit', async function (e) {
     e.preventDefault()
 
-    // Iterate over the form controls
+  $('.alerts').html("");    // Iterate over the form controls
 
     let latRadio = north.checked ? 'N' : 'S'
     let lonRadio = west.checked ? 'W' : 'E'
@@ -517,8 +517,8 @@ $(document).ready(function () {
     let lon = ConvertDMSToDD(lonField)
     // let lon = ConvertDMStoDD(lonField)
 
-    lonReduced = lon.toFixed(8)
-    latReduced = lat.toFixed(8)
+   let  lonReduced = lon.toFixed(8)
+    let latReduced = lat.toFixed(8)
     const result = await findAddress(lat, lon)
 
     latlonForm.elements[0].value = latReduced

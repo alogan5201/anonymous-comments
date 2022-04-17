@@ -41,23 +41,17 @@
     background: transparent;
 
     .navbar-brand {
-      color: $white;
+      color:rgb(33, 37, 41);
 
-      &:focus,
-      &:hover {
-        color: fade-out($white, 0.2);
-      }
+
     }
 
     .navbar-nav {
       > li.nav-item {
         > a.nav-link {
-          color: $white;
+          color: rgb(33, 37, 41);
 
-          &:focus,
-          &:hover {
-            color: fade-out($white, 0.2);
-          }
+
         }
       }
     }
@@ -100,7 +94,7 @@
       .navbar-nav {
         > li.nav-item {
           > a {
-            color: $body-color;
+            color: rgb(33, 37, 41);
 
             &:focus,
             &:hover {

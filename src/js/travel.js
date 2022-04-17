@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
-import { getLatLon , getAddress, getElevation, getMatrix} from 'utils/geocoder'
+import { getLatLon, getAddress, getGeojson, getMatrix } from 'utils/geocoder'
 let geojson = {
   type: 'FeatureCollection',
   features: [
@@ -54,6 +54,18 @@ function inputFocus (x) {
  *
  *  TODO: FIX POPUP
  */
+
+   const App = function _App () {
+     return App.state.count
+  }
+
+  const handler = {
+    set: function (obj, prop, value) {
+      obj[prop] = value
+    }
+  }
+
+  App.state = new Proxy({ count: 0 }, handler)
 window.addEventListener('DOMContentLoaded', () => {
   async function convertLatLon (lat, lon) {
     const d = await getAddress(lat, lon)
@@ -75,8 +87,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   async function convertAddress (city) {
-
-    const data  = await getLatLon(city)
+    const data = await getLatLon(city)
     return data.data
   }
 
@@ -147,19 +158,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const latInputField = document.getElementById('latInputField')
   const lonInputField = document.getElementById('lonInputField')
 
-  const App = function _App () {
-    return `
- <h1>Global State = [${App.state.count}] </h1>
-`
-  }
 
-  const handler = {
-    set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
-
-  App.state = new Proxy({ count: 0 }, handler)
 
   // Initial Loading of the App
 
@@ -340,19 +339,20 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   async function callMatrix (first, second) {
-    const data  = await getMatrix(first, second)
-    const json =  data.data
-        const durations = json.durations[0]
-        const travelTime = durations[1]
-        const result = format(travelTime)
-        // //
+    const data = await getMatrix(first, second)
 
-        var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        var alertTrigger = document.getElementById('liveAlertBtn')
+    const json = data.data
+    const durations = json.durations[0]
+    const travelTime = durations[1]
+    const result = format(travelTime)
+    // //
 
-        function postLog (message) {
-          var wrapper = document.createElement('div')
-          wrapper.innerHTML = `
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    var alertTrigger = document.getElementById('liveAlertBtn')
+
+    function postLog (message) {
+      var wrapper = document.createElement('div')
+      wrapper.innerHTML = `
   <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
    <div class="alertMessage">
      ${message}
@@ -361,20 +361,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
  </div>`
 
-          alertPlaceholder.appendChild(wrapper)
-        }
-        if (alertPlaceholder.childElementCount == 0) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 1) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 2) {
-          $('#liveAlertPlaceholder').empty()
-          setTimeout(() => {
-            postLog(`${result.hours} hour(s) and ${result.minutes}`)
-          }, 200)
-        }
+      alertPlaceholder.appendChild(wrapper)
+    }
+    if (alertPlaceholder.childElementCount == 0) {
+      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
+    } else if (alertPlaceholder.childElementCount == 1) {
+      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
+    } else if (alertPlaceholder.childElementCount == 2) {
+      $('#liveAlertPlaceholder').empty()
+      setTimeout(() => {
+        postLog(`${result.hours} hour(s) and ${result.minutes}`)
+      }, 200)
+    }
 
-        /*
+    /*
    if(localStorage.getItem('travel-time-two')){
     $(".first").addClass("fadeOut").removeClass("first")
     $(".second").addClass("fadeOut").removeClass("second")
@@ -397,18 +397,19 @@ window.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('travel-time-one', `${result.hours}hour(s)${result.minutes}`);
    }
                */
-
   }
 
   var locationControl = L.control
-    .locate({
+     .locate({
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
       follow: false,
-      icon: 'fas fa-map-marker-alt', // follow the user's location
       setView: false,
-      remainActive: false
+      remainActive: false,
+      locateOptions: {
+        enableHighAccuracy: true
+      }
     })
     .addTo(map)
 
@@ -418,19 +419,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
     map.fitBounds(e.bounds)
 
-
-
     geojson.features[0].geometry.coordinates = [lon, lat]
 
-    featureLayer.setGeoJSON(geojson)
-    const address = await convertLatLon(lat, lon)
 
-    setTimeout(() => {
-      $('form')
+    const result = await convertLatLon(lat, lon)
+      console.log(result)
+const origin = result.features[0]
+let originLatLon = result.features[0].geometry.coordinates
+  let originLat = originLatLon[1]
+      let originLon = originLatLon[0]
+let originResults = {
+  title: origin.place_name,
+  lat: originLat,
+  lon: originLon,
+}
+const blank = {lat: 0, lon: 0, title: ""}
+  const geojsonData = getGeojson(originResults)
+  featureLayer.setGeoJSON(geojsonData)
+  $('form')
         .first()
         .find('input:eq(0)')
-        .val(address.features[0].place_name)
-    }, 200)
+        .val(result.features[0].place_name)
+
+
 
     locationControl.stop()
 
@@ -458,21 +469,25 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   const addRouteTest = async locationData => {
-    App.state.count++
+
     let latOrigin = locationData.origin.lat
     let lonOrigin = locationData.origin.lon
     let latDestination = locationData.destination.lat
     let lonDestination = locationData.destination.lon
+
 
     const query1 = `${lonOrigin},${latOrigin}`
     const query2 = `${lonDestination},${latDestination}`
     //  destinationMarker.setLatLng(origin[1], origin[0])
     await callMatrix(query1, query2)
 
-    geojson.features[0].geometry.coordinates = [lonOrigin, latOrigin]
-    geojson.features[1].geometry.coordinates = [lonDestination, latDestination]
 
-    featureLayer.setGeoJSON(geojson)
+    let origin = locationData.origin
+    let destination = locationData.destination
+    const geoJsondata = getGeojson(origin, destination)
+    console.log(geoJsondata)
+
+    featureLayer.setGeoJSON(geoJsondata)
 
     map.fitBounds(
       [
@@ -494,47 +509,52 @@ window.addEventListener('DOMContentLoaded', () => {
       .find('input:eq(1)')
       .val()
 
-    const originFetch = convertAddress(originInput)
-    const destinationFetch = convertAddress(destinationInput)
+    const originFetch = await convertAddress(originInput)
+    const destinationFetch = await convertAddress(destinationInput)
 
     const result = await Promise.all([originFetch, destinationFetch])
 
-    setTimeout(() => {
-      if (result && App.state.count == 0) {
-        let origin = result[0].features[0].geometry.coordinates
-        let originLat = result[0].features[0].geometry.coordinates[1]
-        let originLon = result[0].features[0].geometry.coordinates[0]
-        let destination = result[1].features[1].geometry.coordinates
-        let destinationLat = result[1].features[0].geometry.coordinates[1]
-        let destinationLon = result[1].features[0].geometry.coordinates[0]
+  const origin = result[0].features[0]
+let originLatLon = result[0].features[0].geometry.coordinates
+  let originLat = originLatLon[1]
+      let originLon = originLatLon[0]
 
-        CoordsApp.state.origin = origin
-        CoordsApp.state.destination = destination
-        // ✅
 
-        //  const createRoute = addRoute();
+let originResults = {
+  title: origin.place_name,
+  lat: originLat,
+  lon: originLon,
+}
 
-        const locationData = {
-          origin: { lat: originLat, lon: originLon },
-          destination: { lat: destinationLat, lon: destinationLon }
-        }
-        addRouteTest(locationData)
-      } else if (result && App.state.count > 0) {
-        let origin = result[0].features[0].geometry.coordinates
-        let originLat = result[0].features[0].geometry.coordinates[1]
-        let originLon = result[0].features[0].geometry.coordinates[0]
-        let destination = result[1].features[1].geometry.coordinates
-        let destinationLat = result[1].features[0].geometry.coordinates[1]
-        let destinationLon = result[1].features[0].geometry.coordinates[0]
-        const locationData = {
-          origin: { lat: originLat, lon: originLon },
-          destination: { lat: destinationLat, lon: destinationLon }
-        }
-        const newRoute = addNewRoute(locationData)
 
-        return newRoute
+const destination = result[1].features[0]
+let destinationLatLon = result[1].features[0].geometry.coordinates
+  let destinationLat = destinationLatLon[1]
+      let destinationLon = destinationLatLon[0]
+
+
+let destinationResults = {
+  title: destination.place_name,
+  lat: destinationLat,
+  lon: destinationLon,
+}
+
+
+
+      // ✅
+
+      //  const createRoute = addRoute();
+
+      const locationData = {
+        origin: originResults,
+        destination: destinationResults
       }
-    }, 200)
+      addRouteTest(locationData)
+
+
+
+
+
   })
 
   let bookmarkControl = new L.Control.Bookmarks().addTo(map)

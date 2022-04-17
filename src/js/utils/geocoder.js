@@ -74,6 +74,7 @@ export async function getElevation(lat, lon) {
           return result
       })
       .catch(function (error) {
+
         // Getting the Error details.
         let code = error.code
         let message = error.message
@@ -94,7 +95,7 @@ export async function getElevation(lat, lon) {
 
 }
 export async function getMatrix(first, second) {
-  const getMatrixData = httpsCallable(functions, 'getElevation')
+  const getMatrixData = httpsCallable(functions, 'getMatrix')
   return  getMatrixData({
    first: first,
    second: second
@@ -122,4 +123,47 @@ export async function getMatrix(first, second) {
       })
 
 }
-export default {getLatLon, getAddress, getElevation, getMatrix}
+
+export function getGeojson(first, second){
+
+  const blank = {lat: 0, lon: 0, title: ""}
+  const destination = second ? second : blank
+
+
+  const geojson = {
+  type: 'FeatureCollection',
+  features: [
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [first.lon, first.lat]
+      },
+      properties: {
+        title: "Origin",
+        description: first.title,
+        'marker-color': '#35A2D1',
+        'marker-size': 'large',
+        'marker-symbol': '1'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [destination.lon, destination.lat]
+      },
+      properties: {
+        title: "Destination",
+        description: destination.title,
+        'marker-color': '#fc4353',
+        'marker-size': 'large',
+        'marker-symbol': '2'
+      }
+    }
+  ]
+}
+
+return geojson
+}
+export default {getLatLon, getAddress, getElevation, getMatrix, getGeojson}

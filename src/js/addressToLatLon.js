@@ -280,8 +280,21 @@ ${submitText}`)
       .on('popupopen', () => {
         document.getElementById('getAltitude').addEventListener('click', e => {
           e.preventDefault()
+          console.log('popup opened')
           let lat = $('.lat').html()
           let lon = $('.lon').html()
+          const submitText = $('form :submit')
+            .first()
+            .text()
+          console.log(
+            $('#getAltitude')
+              .first()
+              .parent()
+          )
+          $('#getAltitude')
+            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+Get Altitude`)
+
           getElevationData(lon, lat)
         })
       })
@@ -340,6 +353,7 @@ ${submitText}`)
 
   async function getElevationData (lon, lat) {
     // Construct the API request
+
     const elvevationResponse = await getElevation(lat, lon)
     const data = elvevationResponse.data
 
@@ -351,7 +365,9 @@ ${submitText}`)
     const elevations = allFeatures.map(feature => feature.properties.ele)
     // In the elevations array, find the largest value
     const highestElevation = Math.max(...elevations)
-    $('.altitude').html(`<div> ${highestElevation} meters </div>`)
+    setTimeout(() => {
+      $('.altitude').html(`<strong>${highestElevation} meters</strong>  `)
+    }, 500)
   }
 
   /*
