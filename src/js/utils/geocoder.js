@@ -17,12 +17,15 @@ for (i = 0; i < inputs.length; i++) {
 
 }
 export function popupContent (input) {
+let weather = input.weather ? `  <li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">${input.weather.currentWeather}  </li><li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">  <span>   <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${input.weather.imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span><span>${input.weather.temp}°F </span></li>` : ""
+let name = input.name ? ` <li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">     <p class="card-title mb-0 fs-6 mt-0">${input.name}</p></li>` : ""
+
   let data = `   <div class="row">
             <div class="col p-0">
 
                 <div class="card-body px-3 pt-2 pb-1">
                 <ul class="list-group border-0">
-  <li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">     <p class="card-title mb-0 fs-6 mt-0">${input.name}</p></li>
+ ${name} ${weather}
   <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> <span><strong> Latitude: </strong> <span class="lat">${input.lat} </span></span></li>
   <li class="list-group-item border-0 px-1 fs-6 py-0"><span> <strong>
                   Longitude: <span class="lon">${input.lon}</span></strong> </span></li>

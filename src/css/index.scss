@@ -1099,3 +1099,6 @@ button.btn.btn-outline-primary.bookmark-btn:disabled {
 .map-spinner {
   margin-top: 7px;
 }
+.leaflet-bar.leaflet-bookmarks-control.leaflet-control{
+  display: none;
+}

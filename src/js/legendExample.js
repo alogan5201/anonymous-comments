@@ -14552,5 +14552,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-  map.legendControl.addLegend(document.getElementById("legend").innerHTML);
 });

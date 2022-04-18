@@ -461,36 +461,15 @@ $('#mapTestbtn').on('click', function (e) {
         const dmsCalculated = DDtoDMS(lat, lon)
 
         map.fitBounds([[lat, lon]], { padding: [50, 50] })
+        const data = {
+          name: value,
+          lat: lat,
+          lon: lon,
+          dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+              }
 
-        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
-    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${value}</h5>
-          <p class="card-text">
-
-
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude: <span class="lon">${lon}</span></strong> </span>
-          <br>
-          <div class= "mt-1">
-          ${dmsCalculated.lat} ${dmsCalculated.lon}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-  `)
+          const p = popupContent(data)
+        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
         marker
           .setLatLng([lat, lon])
@@ -548,37 +527,15 @@ $('#mapTestbtn').on('click', function (e) {
     map.fitBounds([[lat, lon]], { padding: [50, 50] })
 
     const dmsCalculated = DDtoDMS(lat, lon)
+    const data = {
+      name: address.features[0].place_name,
+      lat: lat,
+      lon: lon,
+      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+          }
 
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
-            <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">${address.features[0].place_name}</h5>
-                  <p class="card-text">
-
-
-
-                  <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-                  Longitude: <span class="lon">${lon}</span></strong> </span>
-                  <br>
-                  <div class= "mt-1">
-                  ${dmsCalculated.lat} ${dmsCalculated.lon}
-                </div>
-                  </p>
-                  <div class=" mt-2 altitude">
-                  <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-                      Get Altitude
-                  </button>
-              </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-
-          `)
-
+      const p = popupContent(data)
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
     marker
       .setLatLng([lat, lon])
       .bindPopup(popup)

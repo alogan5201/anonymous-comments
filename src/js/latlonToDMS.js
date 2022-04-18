@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
-import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import { popupContent, getLatLon , getAddress, getElevation} from 'utils/geocoder'
 
 function test (e) {
   e.preventDefault()
@@ -145,12 +145,7 @@ $(document).ready(function () {
      let icon = locationControl._icon
     $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     var radius = e.accuracy
-       const submitText = $('form :submit')
-      .first()
-      .text()
-  $('form :submit')
-      .first()
-      .html(`${submitText}`)
+
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
     locationControl.stop()
@@ -173,35 +168,15 @@ $(document).ready(function () {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
-    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+    const data = {
+      lat: lat,
+      lon: lon,
+      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+          }
 
-          <p class="card-text">
+      const p = popupContent(data)
 
-
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude: <span class="lon">${lon}</span></strong> </span>
-          <br>
-          <div class= "mt-1">
-          ${dmsCalculated.popupMessage.lat} ${dmsCalculated.popupMessage.lon}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-  `)
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
     marker
       .setLatLng([lat, lon])
       .bindPopup(popup)
@@ -318,39 +293,16 @@ $(document).ready(function () {
     $('#minutes-lon').val(dmsCalculated.lon.minutes)
     $('#seconds-lon').val(dmsCalculated.lon.seconds)
     //  ${dmsCalculated.lat} ${dmsCalculated.lon}
+    const data = {
+      lat: lat,
+      lon: lon,
+      dms: {lat:dmsCalculated.popupMessage.lat, lon: dmsCalculated.popupMessage.lon}
+          }
+
+      const p = popupContent(data)
     marker
       .setLatLng([lat, lon])
-      .bindPopup(
-        `
-        <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-
-              <p class="card-text">
-
-
-
-              <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-              Longitude: <span class="lon">${lon}</span></strong> </span>
-              <br>
-              <div class= "mt-1">
-              ${dmsCalculated.popupMessage.lat} ${dmsCalculated.popupMessage.lon}
-            </div>
-              </p>
-              <div class=" mt-2 altitude">
-              <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-                  Get Altitude
-              </button>
-          </div>
-            </div>
-          </div>
-        </div>
-  </div>
-
-
-      `
-      )
+      .bindPopup(p)
       .openPopup()
   })
   const title = $('title').html()
@@ -360,11 +312,5 @@ $(document).ready(function () {
     name: pageTitle
   }).addTo(map)
 
-  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-    const submit = $('form :submit').first()
-    const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
-  });
+
 })

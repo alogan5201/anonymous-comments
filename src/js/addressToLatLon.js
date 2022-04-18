@@ -163,23 +163,59 @@ $(function () {
     { origin: [], destination: [], userLocation: [], trackingUser: false },
     myhandler
   )
+  function startLoading() {
+    loader.className = '';
+}
 
-  const finishedLoading = () => {
-    setTimeout(function () {
-      // then, after a half-second, add the class 'hide', which hides
-      // it completely and ensures that the user can interact with the
-    }, 500)
-  }
+
+
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox.map('map').setView([37.9, -77], 4)
 
   L.mapbox
     .styleLayer('mapbox://styles/mapbox/streets-v11')
     .addTo(map) // add your tiles to the map
     .on('load', finishedLoading)
 
+    var bounds = [
+      5.539274788807716,
+      -136.89688546668822,
+      60.20153056328073,
+      -51.81876046668821
+  ];
+
+  var size = [750, 400];
+
+// Calculate a zoom level and centerpoint for this map.
+var vp = geoViewport.viewport(bounds, size);
+    /*
+
+    {
+    "_southWest": {
+        "lat": 5.539274788807716,
+        "lng": -136.89688546668822
+    },
+    "_northEast": {
+        "lat": 60.20153056328073,
+        "lng": -51.81876046668821
+    }
+}
+    */
+
+    function finishedLoading() {
+      // first, toggle the class 'done', which makes the loading screen
+      // fade out
+    console.log("loaded")
+
+  }
+  $('#mapTest').on('click', function (e) {
+    e.preventDefault()
+    console.log(map.getBounds())
+    console.log(map.getZoom())
+
+  });
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
       'marker-size': 'large',
@@ -187,23 +223,32 @@ $(function () {
       'marker-color': 'blue'
     })
   }).addTo(map)
-  var locationControl = L.control
-    .locate({
-      circleStyle: { opacity: 0 },
-      followCircleStyle: { opacity: 0 },
-      drawCircle: false,
-      follow: false,
-      setView: false,
-      iconLoading: 'spinner-border spinner-border-sm map-spinner',
-      remainActive: false,
-      icon: 'my-geo-icon',
-
-    })
-    .addTo(map)
 
 
 
 
+
+
+$('#map').on('click', 'locate-button.leaflet-bar.leaflet-control', function (e) {
+  console.log(e)
+});
+
+
+var locationControl = L.control
+.locate({
+  circleStyle: { opacity: 0 },
+  followCircleStyle: { opacity: 0 },
+  drawCircle: false,
+    follow: false,
+  setView: false,
+  iconLoading: 'spinner-border spinner-border-sm map-spinner',
+  remainActive: false,
+  icon: 'my-geo-icon',
+  locateOptions: {
+    enableHighAccuracy: true
+  }
+})
+.addTo(map)
   map.on('locationfound', async function (e) {
 
 
@@ -248,9 +293,9 @@ dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
     }
 
 const p = popupContent(data)
-
+var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 // # TODO: ADD to all converts
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+
 
     marker
       .setLatLng([lat, lon])
@@ -480,7 +525,12 @@ const p = popupContent(data)
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
   }).addTo(map)
-
+document.getElementById('static-map').src =
+    'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/' +
+    vp.center.join(',') + ',' +
+    vp.zoom + '/' +
+    size.join('x') +
+    '?access_token=' + L.mapbox.accessToken;
   $('#comment-form').on('submit', function (e) {
     e.preventDefault()
 

@@ -88,6 +88,8 @@ $(document).ready(function () {
       'marker-color': 'blue'
     })
   }).addTo(map)
+
+
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -98,11 +100,12 @@ $(document).ready(function () {
       iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
+
       locateOptions: {
         enableHighAccuracy: true
       }
-    })
-    .addTo(map)
+    }).addTo(map)
+
   async function findAddress (lat, lon) {
     const d = await getAddress(lat, lon)
     const data = d.data
@@ -114,12 +117,9 @@ $(document).ready(function () {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
-    const submitText =  $('form :submit').first().text()
-    console.log(  $('form :submit').first().parent())
-    $('form :submit').first().html(`${submitText}`)
-    localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
-    locationControl.stop()
+
+
     const result = await findAddress(lat, lon)
 
     const address = result.features[0].place_name
@@ -131,40 +131,20 @@ $(document).ready(function () {
     })
 
     const dmsCalculated = DDtoDMS(lat, lon)
+    const data = {
+      name: address,
+      lat: lat,
+      lon: lon,
+      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+          }
+
+      const p = popupContent(data)
     marker
       .setLatLng([lat, lon])
-      .bindPopup(
-        `
-        <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${address}</h5>
-              <p class="card-text">
-
-
-
-              <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-              Longitude: <span class="lon">${lon}</span></strong> </span>
-              <br>
-              <div class= "mt-1">
-              ${dmsCalculated.lat} ${dmsCalculated.lon}
-            </div>
-              </p>
-              <div class=" mt-2 altitude">
-              <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-                  Get Altitude
-              </button>
-          </div>
-            </div>
-          </div>
-        </div>
-  </div>
-
-
-      `
-      )
+      .bindPopup(p)
       .openPopup()
+
+
   })
   map.on('locationerror', function () {
     alert('Position could not be found')
@@ -254,7 +234,7 @@ $(document).ready(function () {
     e.preventDefault()
  let icon = locationControl._icon
     $(icon).css('background-color', 'black')
-    console.log(icon)
+
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
     const lat = latInput.value
@@ -286,40 +266,17 @@ $(document).ready(function () {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
+    const data = {
+      name: address,
+      lat: lat,
+      lon: lon,
+      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+          }
 
+      const p = popupContent(data)
     marker
       .setLatLng([lat, lon])
-      .bindPopup(
-        `
-          <div class="row">
-          <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">${address}</h5>
-                <p class="card-text">
-
-
-
-                <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-                Longitude: <span class="lon">${lon}</span></strong> </span>
-                <br>
-                <div class= "mt-1">
-                ${dmsCalculated.lat} ${dmsCalculated.lon}
-              </div>
-                </p>
-                <div class=" mt-2 altitude">
-                <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-                    Get Altitude
-                </button>
-            </div>
-              </div>
-            </div>
-          </div>
-    </div>
-
-
-        `
-      )
+      .bindPopup(p)
       .openPopup()
   })
 
@@ -331,13 +288,10 @@ $(document).ready(function () {
     name: pageTitle
   }).addTo(map)
 
-  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-    const submit = $('form :submit').first()
-    const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
-  });
+$('#map').on('click','.leaflet-bar-part.leaflet-bar-part-single', function (e) {
+  e.preventDefault()
+  console.log(e)
+});
 
 
 })

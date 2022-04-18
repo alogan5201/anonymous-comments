@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
-import {  getElevation } from 'utils/geocoder'
+import {  popupContent, getElevation } from 'utils/geocoder'
 function test (e) {
   e.preventDefault()
 }
@@ -122,7 +122,7 @@ $(document).ready(function () {
   const map = L.mapbox.map('map').setView([37.9, -77], 6)
 
   L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
-const popup = L.popup()
+
      // L.marker is a low-level marker constructor in Leaflet.
 
   const marker = L.marker([0, 0], {
@@ -173,7 +173,7 @@ const popup = L.popup()
 
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
-    locationControl.stop()
+
     $('#latInputField').val(lat)
     $('#lonInputField').val(lon)
 
@@ -193,41 +193,23 @@ const popup = L.popup()
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
-    popup.setContent(`
-    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+    const data = {
+      lat: lat,
+      lon: lon,
+      dms: {lat: `${dmsCalculated.lat.degrees}° ${dmsCalculated.lat.minutes}'${dmsCalculated.lat.seconds}''`, lon: `${dmsCalculoned.lon.degrees}° ${dmsCalculoned.lon.minutes}'${dmsCalculoned.lon.seconds}''`}
+          }
 
-          <p class="card-text">
-
-
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude:</strong> <span class="lon">${lon}</span> </span>
-          <br>
-          <div class= "mt-1">
-          ${dmsCalculated.popupMessage.lat} ${dmsCalculated.popupMessage.lon}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm getAltitude-btn" id="getAltitude" role="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-  `)
+      const p = popupContent(data)
+   const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+    popup.setContent(popup)
     marker
       .setLatLng([lat, lon])
-         .on('popupopen', () => {
-
-      }).bindPopup(popup)
+      .bindPopup(popup)
       .openPopup()
+
+      setTimeout(() => {
+        locationControl.stop()
+      }, 500);
   })
   map.on('locationerror', function () {
     alert('Position could not be found')
@@ -319,8 +301,7 @@ const popup = L.popup()
     e.preventDefault()
    const submitText =  $('form :submit').first().text()
   console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
+  $('form :submit').first().html(submitText)
     var inputs = document.getElementById('myDmsForm').elements
     // Iterate over the form controls
 
@@ -343,6 +324,7 @@ const popup = L.popup()
     let lat = ConvertDMSToDD(latField)
     let lon = ConvertDMSToDD(lonField)
     // let lon = ConvertDMStoDD(lonField)
+console.log(lat, lon)
 
     let lonReduced = lon.toFixed(8)
     let latReduced = lat.toFixed(8)
@@ -351,86 +333,20 @@ const popup = L.popup()
       map.fitBounds([[lat, lon]], {
         padding: [100, 100]
       })
-       $('form :submit').first().html(submitText)
-  const popupContent = `    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
+      const data = {
 
-          <p class="card-text">
+        lat: lat,
+        lon: lon,
+        dms: {lat: `${latField[0]}° ${latField[1]}' ${latField[2]}`, lon: `${lonField[0]}° ${lonField[1]}' ${lonField[2]}`}
+            }
 
-
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude:</strong> <span class="lon">${lon}</span> </span>
-          <br>
-          <div class= "mt-1">
-          ${latField[0]}° ${latField[1]}' ${latField[2]}
-          ${lonField[0]}° ${lonField[1]}' ${lonField[2]}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>`
-    const check = popup.isOpen()
-    console.log(check)
-    if(check){
-      map.closePopup()
-       marker.setLatLng([lat, lon]).bindPopup(popupContent).openPopup()
-      latlonForm.elements[0].value = latReduced
-      latlonForm.elements[1].value = lonReduced
-    }
-
-/*
-          popup.setPopupContent(`
-    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-
-          <p class="card-text">
+        const p = popupContent(data)
+         const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
 
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude:</strong> <span class="lon">${lon}</span> </span>
-          <br>
-          <div class= "mt-1">
-          ${latField[0]}° ${latField[1]}' ${latField[2]}
-          ${lonField[0]}° ${lonField[1]}' ${lonField[2]}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-              .on('popupopen', () => {
-        document.getElementById('getAltitude').addEventListener('click',  function(e){
-          e.preventDefault()
-          $('#getAltitude')
-            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Get Altitude`)
- getElevationData(lon, lat)
-
-
-
-        })
-      })
-
-  `)*/
+marker.setLatLng([lat, lon]).bindPopup(popup).openPopup()
+latlonForm.elements[0].value = latReduced
+latlonForm.elements[1].value = lonReduced
 
 
   })
