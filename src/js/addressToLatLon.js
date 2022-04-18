@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 /// Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
 import 'utils/commentscript'
-import { getLatLon, getAddress, getElevation } from 'utils/geocoder'
+import { getLatLon, getAddress, getElevation, popupContent } from 'utils/geocoder'
 import {
   comment,
   commentReply,
@@ -24,6 +24,9 @@ import {
   increment,
   orderByChild
 } from 'firebase/database'
+import { v4 as uuidv4 } from 'uuid';
+
+const uid = uuidv4();
 async function getAddressData () {
   let latlon = await getAddress('33.0393', '-85.0313')
 
@@ -72,7 +75,7 @@ Date.prototype.toShortFormat = function () {
 
 let today = new Date()
 const prettyDate = today.toShortFormat()
-
+const siteTitle = $('#site-title').text()
 const functions = getFunctions()
 const db = getDatabase()
 const auth = getAuth()
@@ -89,7 +92,7 @@ $(function () {
   async function convertLatLon (lat, lon) {
     const d = await getAddress(lat, lon)
     const data = d.data
-    console.log(data)
+
     if (data.features.length == 0) {
       $('.alert-warning')
         .removeClass('invisible')
@@ -190,6 +193,7 @@ $(function () {
       follow: false,
       setView: false,
       remainActive: false,
+      icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
       }
@@ -200,11 +204,7 @@ $(function () {
     const submitText = $('form :submit')
       .first()
       .text()
-    console.log(
-      $('form :submit')
-        .first()
-        .parent()
-    )
+
     $(
       'form :submit'
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -217,11 +217,10 @@ ${submitText}`)
     const submitText = $('form :submit')
       .first()
       .text()
-    console.log(
-      $('form :submit')
-        .first()
-        .parent()
-    )
+
+    //hsl(217deg 93% 60%)
+    let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
 
     const address = await convertLatLon(lat, lon)
 
@@ -245,59 +244,20 @@ ${submitText}`)
 
     const dmsCalculated = DDtoDMS(lat, lon)
 
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
-            <div class="row">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">${address.features[0].place_name}</h5>
-                  <p class="card-text">
+    const data = {
+name: address.features[0].place_name,
+lat: lat,
+lon: lon,
+dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+    }
 
+const p = popupContent(data)
 
-
-                  <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-                  Longitude: <span class="lon">${lon}</span></strong> </span>
-                  <br>
-                  <div class= "mt-1">
-                  ${dmsCalculated.lat} ${dmsCalculated.lon}
-                </div>
-                  </p>
-                  <div class=" mt-2 altitude">
-                  <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-                      Get Altitude
-                  </button>
-              </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-
-          `)
+// # TODO: ADD to all converts
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
     marker
       .setLatLng([lat, lon])
-      .on('popupopen', () => {
-        document.getElementById('getAltitude').addEventListener('click', e => {
-          e.preventDefault()
-          console.log('popup opened')
-          let lat = $('.lat').html()
-          let lon = $('.lon').html()
-          const submitText = $('form :submit')
-            .first()
-            .text()
-          console.log(
-            $('#getAltitude')
-              .first()
-              .parent()
-          )
-          $('#getAltitude')
-            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Get Altitude`)
-
-          getElevationData(lon, lat)
-        })
-      })
       .bindPopup(popup)
       .openPopup()
 
@@ -370,22 +330,102 @@ Get Altitude`)
     }, 500)
   }
 
-  /*
-  $(document).on('click', '#getAltitude', function (e) {
+  $('#map').on('click', '#getAltitude', function (e) {
     e.preventDefault()
-    let lat = $('.lat').html()
-    let lon = $('.lon').html()
-    getElevationData(lon, lat)
-  }) */
+    let coords = marker.getLatLng()
 
+    $(this).parent().html(`<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>`)
+    getElevationData(coords.lng, coords.lat)
+  })
+  $('#map').on('click', '.bookmark-btn', function (e) {
+    e.preventDefault()
+ $(this).prop("disabled",true);
+$(this).children().last().removeClass("far").addClass("fas")
+
+ let btn = $(this).parent().children(":input").is(":checked")
+let pressed = $(this).attr("aria-pressed")
+
+const allItems = $(this).parent().parent().parent().parent().children()
+let first = $(this).parent().parent().parent().parent().children().first()
+let second = $(first).next('span.lat')
+let allButlast = allItems.length -1
+
+let name
+let dms
+for (let index = 0; index < allButlast; index++) {
+  const element = allItems[index];
+
+
+
+if($(element).hasClass("location-name") ){
+    let text = $(element).text()
+
+name = text
+
+}
+else if($(element).hasClass('dms')){
+  let text = $(element).text()
+dms = text
+
+}
+
+
+}
+
+let coords = marker.getLatLng()
+name = name.replace(/^\s+|\s+$/gm,'');
+
+
+
+const obj = {
+name: name,
+latlng: [coords.lat, coords.lng],
+lat: coords.lat,
+lon: coords.lon,
+dms: dms,
+path: path,
+key: uid,
+
+}
+ let parsed = JSON.stringify([obj])
+let localItem = localStorage.getItem(siteTitle)
+
+addEntry(obj)
+
+
+
+
+/*
+    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
+*/
+
+  })
+
+  //bookmark-btn
+function addEntry(data) {
+let allEntries = data.path
+let entryItem = data.key
+    // Parse any JSON previously stored in allEntries
+    var existingEntries = JSON.parse(localStorage.getItem(allEntries));
+    if(existingEntries == null) existingEntries = [];
+   const entry = data
+    localStorage.setItem(entryItem, JSON.stringify(entry));
+    // Save allEntries back to local storage
+    existingEntries.push(entry);
+    localStorage.setItem(allEntries, JSON.stringify(existingEntries));
+};
   $('#getTravelForm').on('submit', async function (e) {
     e.preventDefault()
-    //
+ $(locationControl._icon).css("background-color", "black")
+
     const value = $(this)
       .find('input:eq(0)')
       .val()
     const fetchResponse = await convertAddress(value)
-
+console.log(value)
     setTimeout(() => {
       if (fetchResponse.features.length > 0) {
         let lat = fetchResponse.features[0].geometry.coordinates[1]
@@ -401,36 +441,16 @@ Get Altitude`)
         const dmsCalculated = DDtoDMS(lat, lon)
 
         map.fitBounds([[lat, lon]], { padding: [50, 50] })
+// # TODO: ADD to all converts
+    const data = {
+name: value,
+lat: lat,
+lon: lon,
+dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+    }
 
-        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(`
-    <div class="row">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${value}</h5>
-          <p class="card-text">
-
-
-
-          <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span> <span> <strong>
-          Longitude: <span class="lon">${lon}</span></strong> </span>
-          <br>
-          <div class= "mt-1">
-          ${dmsCalculated.lat} ${dmsCalculated.lon}
-        </div>
-          </p>
-          <div class=" mt-2 altitude">
-          <button class="btn btn-primary btn-sm" id="getAltitude" type="button ">
-              Get Altitude
-          </button>
-      </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-  `)
+const p = popupContent(data)
+        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
         marker
           .setLatLng([lat, lon])
