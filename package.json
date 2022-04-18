@@ -69,8 +69,13 @@
     "lint": "^0.7.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
+    "node-fetch": "^2.0.0",
+    "nodemw": "^0.16.0",
     "picturefill": "^3.0.3",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "wikibase-sdk": "^7.15.0",
+    "wikidata-sdk": "^7.14.4",
+    "wikidatanpm": "^1.1.0"
   },
   "browserslist": [
     "> 1%"

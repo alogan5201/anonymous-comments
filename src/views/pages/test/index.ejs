@@ -14,15 +14,40 @@
       <h3>Please enable JavaScript in order to view this site properly.</h3>
     </noscript>
     <%- include(`${partials}/nav`); -%>
+<style>
 
+.located-animation {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #2a93ee;
+  animation: border-pulse 2s infinite;
+}
+
+@keyframes border-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+
+</style>
     <!--   !! MAIN -------------------------->
     <!-- Main Content-->
      <main class="flex-shrink-0 mt-2">
 
       <div class="container  px-4 px-lg-5 pb-5 ">
         <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 id="site-title"class=" fw-normal">Address to Latitude Longitude</h3>
-          <p class="fs-5 text-muted">Quickly convert any address to longitude and latitude coordinates.</p>
+          <h3 class=" fw-normal">Test</h3>
         </div>
         <div class="row gx-5 align-items-center justify-content-center mb-5">
           <div class="col-lg-5" style="position: relative;">
@@ -148,6 +173,7 @@
             </div>
           </div>
           <div class="col-lg-7 align-self-start">
+          <button id= "mapTestbtn" class="btn btn-primary" role>Test</button>
             <h4 class="travel-time"></h4>
             <div class="map-container"><div id="map"></div></div>
           </div>
@@ -159,7 +185,7 @@
     <!-- Footer-->
 
     <%- include(`${partials}/footer`); -%>
-    <%-include(`${partials}/page-scripts/address-to-lat-lon-script`); -%>
+    <%-include(`${partials}/page-scripts/test-scripts`); -%>
 
   </body>
 </html>

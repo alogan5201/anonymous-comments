@@ -2,7 +2,7 @@
 import HaversineGeolocation from 'haversine-geolocation'
 
 import 'utils/commentscript.js'
-import { getLatLon , getAddress, getElevation, getGeojson} from 'utils/geocoder'
+import {popupContent,  getLatLon , getAddress, getElevation, getGeojson} from 'utils/geocoder'
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -54,9 +54,11 @@ var locationControl = L.control
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-      follow: false,
+        follow: false,
       setView: false,
       remainActive: false,
+      icon: 'my-geo-icon',
+      icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
       }

@@ -122,9 +122,10 @@ $(document).ready(function () {
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-      follow: false,
+        follow: false,
       setView: false,
       remainActive: false,
+      icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
       }

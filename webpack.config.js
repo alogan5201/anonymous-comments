@@ -29,7 +29,10 @@ module.exports = (env = {}) => {
       travel: ['./src/js/firebase.js', './src/js/travel.js'],
       weather: ['./src/js/firebase.js', './src/js/weather.js'],
       login: ['./src/js/login.js'],
-      newConverter: ['./src/js/firebase.js', './src/js/newConverter.js']
+      newConverter: ['./src/js/firebase.js', './src/js/newConverter.js'],
+      test: ['./src/js/firebase.js', './src/js/test.js']
+
+
     },
     output: {
       filename: isProduction ? '[name].[chunkhash].js' : '[name].js',

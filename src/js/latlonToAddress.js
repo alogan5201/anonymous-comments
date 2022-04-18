@@ -1,5 +1,5 @@
 /* jshint esversion: 8 */
-import { getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import {popupContent,  getLatLon , getAddress, getElevation} from 'utils/geocoder'
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'
 
@@ -93,9 +93,10 @@ $(document).ready(function () {
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-      follow: false,
+        follow: false,
       setView: false,
       remainActive: false,
+      icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
       }

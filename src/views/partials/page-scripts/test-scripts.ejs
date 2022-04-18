@@ -2,25 +2,25 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
 <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.css" />
+
 <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.76.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-<link type="text/css" rel="stylesheet" href="/path/to/leaflet.bookmarks.css">
 
 <script src="<%= PP %>/leaflet-bookmarks/dist/L.Control.Bookmarks.min.js"></script>
+
 
 <% if(filenameMap) { %>
   <script src="<%= PP %>/js/<%= filenameMap['vendor.js'] %>"></script>
 
-  <script src="<%= PP %>/js/<%= filenameMap['addressDistance.js'] %>"></script>
+  <script src="<%= PP %>/js/<%= filenameMap['test.js'] %>"></script>
 
   <% } else { %>
     <script src="<%= PP %>/js/vendor.js"></script>
 
-    <script src="<%= PP %>/js/addressDistance.js"></script>
+    <script src="<%= PP %>/js/test.js"></script>
 
     <% } %>
       <% if(GOOGLE_ANALYTICS_ID) { %>
-        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. /home/a/Desktop/new-geo-front-end/geo-front-end/src/views/partials/page-scripts/test-scripts.ejs -->
         <script>
           window.ga = function () {
             ga.q.push(arguments)

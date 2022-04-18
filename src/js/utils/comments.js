@@ -1,3 +1,37 @@
+
+export function popupContent (data){
+
+let result = `  <div class="row">
+
+            <div class="col">
+
+
+     <div class="modal-content rounded-6 shadow">
+
+      <div class="modal-body py-3">
+
+
+        <p>This is a modal sheet, a variation of the modal that docs itself to the bottom of the viewport like the newer share sheets in iOS.</p>
+      </div>
+      <div class="modal-footer flex-column border-top-0">
+
+   <button type="button" id="getAltitude"class="btn btn-primary">Get Altitude</button>
+
+
+  <button type="button" class="btn  bookmark-btn  btn-light text-primary border-primary"> Bookmark <i class="far fa-bookmark"></i></button>
+
+
+
+
+      </div>
+    </div>
+            </div>
+        </div>`
+
+return result
+
+}
+
 export function commentReply (name, id, date, message) {
   let data = `  <div class="col-md-11 p-3 mb-3" id=${id} >
        <div class="row ">
