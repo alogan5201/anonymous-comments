@@ -171,6 +171,7 @@ window.addEventListener('DOMContentLoaded', () => {
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {
@@ -452,7 +453,10 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   $('#findWeatherAddressForm').on('submit', async function (e) {
     e.preventDefault()
-
+   const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
     const query = encodeURI(e.currentTarget[0].value)
     const latLon = await convertAddress(query)
 
@@ -463,6 +467,7 @@ window.addEventListener('DOMContentLoaded', () => {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
+     $('form :submit').first().html(submitText)
     const weather = await latLonWeather(lat, lon)
     const imgIcon = weather.weather[0].icon
     const currentWeather = weather.weather[0].main
@@ -842,11 +847,5 @@ ${currentWeather} and ${temp}°F`)
     name: pageTitle
   }).addTo(map)
 
-  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-    const submit = $('form :submit').first()
-    const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
-  });
+
 })

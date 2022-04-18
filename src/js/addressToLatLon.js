@@ -26,6 +26,8 @@ import {
 } from 'firebase/database'
 import { v4 as uuidv4 } from 'uuid';
 
+
+
 const uid = uuidv4();
 async function getAddressData () {
   let latlon = await getAddress('33.0393', '-85.0313')
@@ -192,25 +194,19 @@ $(function () {
       drawCircle: false,
       follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
-      locateOptions: {
-        enableHighAccuracy: true
-      }
+
     })
     .addTo(map)
-  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-    const submit = $('form :submit').first()
-    const submitText = $('form :submit')
-      .first()
-      .text()
 
-    $(
-      'form :submit'
-    ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-${submitText}`)
-  })
+
+
+
   map.on('locationfound', async function (e) {
+
+
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
@@ -261,7 +257,10 @@ const p = popupContent(data)
       .bindPopup(popup)
       .openPopup()
 
+
     locationControl.stop()
+
+
   })
 
   const coordinatesGeocoder = function (query) {
@@ -417,9 +416,19 @@ let entryItem = data.key
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
 };
+
   $('#getTravelForm').on('submit', async function (e) {
     e.preventDefault()
+
  $(locationControl._icon).css("background-color", "black")
+
+    const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+
+
+
 
     const value = $(this)
       .find('input:eq(0)')
@@ -441,6 +450,10 @@ console.log(value)
         const dmsCalculated = DDtoDMS(lat, lon)
 
         map.fitBounds([[lat, lon]], { padding: [50, 50] })
+
+
+
+  $('form :submit').first().html(submitText)
 // # TODO: ADD to all converts
     const data = {
 name: value,

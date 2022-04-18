@@ -56,8 +56,8 @@ var locationControl = L.control
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
-      icon: 'my-geo-icon',
       icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
@@ -86,7 +86,8 @@ LocationState.state = new Proxy({ lat: null, lon: null }, myhandler)
 const findLocation = () => {
   map.on('locationfound', function (e) {
     map.fitBounds(e.bounds)
-
+   let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     let lat = e.latlng.lat
 
     let lon = e.latlng.lng
@@ -250,8 +251,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
   $('#latlonForm').on('submit', function (e) {
     e.preventDefault()
+   const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
     let inputs = document.getElementById('latlonForm').elements
-
+  let icon = locationControl._icon
+    $(icon).css('background-color', 'black')
     let latOrigin = inputs[0].value
     let lonOrigin = inputs[1].value
     let latDestination = inputs[2].value
@@ -299,5 +305,6 @@ window.addEventListener('DOMContentLoaded', () => {
       ],
       { padding: [50, 50] }
     )
+     $('form :submit').first().html(submitText)
   })
 })

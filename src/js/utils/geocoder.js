@@ -3,7 +3,19 @@ import { v4 as uuidv4 } from 'uuid'
 
 let uid = uuidv4()
 const functions = getFunctions()
+export function clearForm(form){
 
+var inputs = form.elements;
+
+let i
+for (i = 0; i < inputs.length; i++) {
+  if (inputs[i].nodeName === "INPUT" ) {
+    // Update text input
+    inputs[i].value = ""
+  }
+}
+
+}
 export function popupContent (input) {
   let data = `   <div class="row">
             <div class="col p-0">

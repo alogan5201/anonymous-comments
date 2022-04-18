@@ -153,6 +153,7 @@ $(document).ready(function () {
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {

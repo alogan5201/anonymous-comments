@@ -140,8 +140,8 @@ const popup = L.popup()
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
-      icon: 'my-geo-icon',
       icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
@@ -160,7 +160,9 @@ const popup = L.popup()
 
     return data
   }
-  map.on('locationfound', async function (e) {
+   map.on('locationfound', async function (e) {
+    let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     const submitText =  $('form :submit').first().text()
     console.log(  $('form :submit').first().parent())
     $('form :submit').first().html(`${submitText}`)
@@ -315,7 +317,10 @@ const popup = L.popup()
 
   $('#myDmsForm').on('submit', function (e) {
     e.preventDefault()
-
+   const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
     var inputs = document.getElementById('myDmsForm').elements
     // Iterate over the form controls
 
@@ -346,6 +351,7 @@ const popup = L.popup()
       map.fitBounds([[lat, lon]], {
         padding: [100, 100]
       })
+       $('form :submit').first().html(submitText)
   const popupContent = `    <div class="row">
     <div class="col">
       <div class="card">
@@ -436,16 +442,7 @@ Get Altitude`)
     name: pageTitle
   }).addTo(map)
 
-  $('.leaflet-bar-part.leaflet-bar-part-single').on('click', function () {
-    const submit = $('form :submit').first()
-    const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
-  });
-$('#map').on('click', '.trigger', function() {
-    alert('Hello from Toronto!');
-});
+
 
   $('#map').on('click', '#getAltitude', function (e) {
   e.preventDefault()

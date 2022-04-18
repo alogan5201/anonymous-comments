@@ -95,6 +95,7 @@ $(document).ready(function () {
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {
@@ -108,6 +109,8 @@ $(document).ready(function () {
     return data
   }
   map.on('locationfound', async function (e) {
+    let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy
@@ -249,7 +252,9 @@ $(document).ready(function () {
 
   $('#latlonForm').on('submit', async function (e) {
     e.preventDefault()
-
+ let icon = locationControl._icon
+    $(icon).css('background-color', 'black')
+    console.log(icon)
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
     const lat = latInput.value
@@ -333,4 +338,6 @@ $(document).ready(function () {
   $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
   });
+
+
 })

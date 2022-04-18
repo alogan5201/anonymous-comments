@@ -124,6 +124,7 @@ $(document).ready(function () {
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {
@@ -141,6 +142,8 @@ $(document).ready(function () {
   map.on('locationfound', async function (e) {
     let lat = e.latitude
     let lon = e.longitude
+     let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     var radius = e.accuracy
        const submitText = $('form :submit')
       .first()
@@ -285,7 +288,12 @@ $(document).ready(function () {
   }
   $('#latlonForm').on('submit', function (e) {
     e.preventDefault()
-
+       const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+  let icon = locationControl._icon
+    $(icon).css('background-color', 'black')
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
     const lat = e.currentTarget[0].value
@@ -302,7 +310,7 @@ $(document).ready(function () {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
-
+ $('form :submit').first().html(submitText)
     $('#degrees-lat').val(dmsCalculated.lat.degrees)
     $('#minutes-lat').val(dmsCalculated.lat.minutes)
     $('#seconds-lat').val(dmsCalculated.lat.seconds)

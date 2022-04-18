@@ -4,6 +4,17 @@ import HaversineGeolocation from 'haversine-geolocation'
 import 'utils/commentscript.js'
 import {popupContent,  getLatLon , getAddress, getElevation, getGeojson} from 'utils/geocoder'
 
+
+function init(){
+setTimeout(() => {
+  console.log(locationControl._event)
+  console.log(marker.getLatLng())
+}, 1000);
+
+}
+
+
+
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -65,8 +76,8 @@ var locationControl = L.control
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
-      icon: 'my-geo-icon',
       icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
@@ -100,7 +111,8 @@ $(document).on('click', '.leaflet-bar-part.leaflet-bar-part-single', function (
 
 map.on('locationfound', function (e) {
   map.fitBounds(e.bounds)
-
+ let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
   let lat = e.latlng.lat
 
   let lon = e.latlng.lng
@@ -280,6 +292,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   $('#getDistanceForm').on('submit', async function (e) {
     e.preventDefault()
+     let icon = locationControl._icon
+    $(icon).css('background-color', 'black')
     $('#loader')
       .removeClass('d-none')
       .addClass('loading')
@@ -376,4 +390,6 @@ featureLayer.setGeoJSON(geoJsondata)
       {padding: [50, 50]}
     ) */
   })
+  console.log(map)
 })
+

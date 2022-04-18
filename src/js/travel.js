@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
-import { getLatLon, getAddress, getGeojson, getMatrix } from 'utils/geocoder'
+import { getLatLon, getAddress, getGeojson, getMatrix, clearForm } from 'utils/geocoder'
 let geojson = {
   type: 'FeatureCollection',
   features: [
@@ -406,8 +406,8 @@ window.addEventListener('DOMContentLoaded', () => {
       drawCircle: false,
         follow: false,
       setView: false,
+      iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
-      icon: 'my-geo-icon',
       icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
@@ -418,7 +418,11 @@ window.addEventListener('DOMContentLoaded', () => {
   map.on('locationfound', async function (e) {
     let lat = e.latitude
     let lon = e.longitude
-
+   let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
+    let x = document.querySelectorAll("form")
+    let form = x[0]
+    clearForm(form)
     map.fitBounds(e.bounds)
 
     geojson.features[0].geometry.coordinates = [lon, lat]
@@ -498,12 +502,19 @@ const blank = {lat: 0, lon: 0, title: ""}
       ],
       { padding: [50, 50] }
     )
+       const submitText =  $('form :submit').first().text()
+     $('form :submit').first().html(submitText)
   }
   // ** NEW FORM   ------------------------------------------------->
 
   $('#getTravelForm').on('submit', async function (e) {
     e.preventDefault()
-
+       const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
+     let icon = locationControl._icon
+    $(icon).css('background-color', 'black')
     const originInput = $(this)
       .find('input:eq(0)')
       .val()
@@ -551,6 +562,7 @@ let destinationResults = {
         origin: originResults,
         destination: destinationResults
       }
+
       addRouteTest(locationData)
 
 
