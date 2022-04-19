@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import 'utils/commentscript.js'
-import { popupContent, getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import { popupContent, getLatLon , getAddress, getElevation, generateUID} from 'utils/geocoder'
 
 function test (e) {
   e.preventDefault()
@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const mainNav = document.getElementById('mainNav')
   const headerHeight = mainNav.clientHeight
 })
-
+const path = window.location.pathname
 $(document).ready(function () {
   function ConvertDMSToDD (degrees, minutes, seconds, direction) {
     var dd = degrees + minutes / 60 + seconds / (60 * 60)
@@ -20,6 +20,8 @@ $(document).ready(function () {
     } // Don't do anything for N or E
     return dd
   }
+
+  const uid = generateUID()
   const north = document.getElementById('north')
   const south = document.getElementById('south')
   const degreesLat = document.getElementById('degrees-lat')
@@ -105,10 +107,23 @@ $(document).ready(function () {
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 
-  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
+  L.mapbox
+    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .addTo(map) // add your tiles to the map
+    .once('load', finishedLoading)
 
+
+    function finishedLoading() {
+      // first, toggle the class 'done', which makes the loading screen
+      // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
+
+    }, 1000);
+
+  }
   // L.marker is a low-level marker constructor in Leaflet.
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
@@ -171,16 +186,20 @@ $(document).ready(function () {
     const data = {
       lat: lat,
       lon: lon,
-      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+      dms: {lat:`${ dmsCalculated.lat.degrees}, ${dmsCalculated.lat.minutes}, ${dmsCalculated.lat.seconds}`, lon: `${dmsCalculated.lon.degrees}, ${dmsCalculated.lon.minutes}, ${dmsCalculated.lon.seconds} `}
           }
 
       const p = popupContent(data)
 
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+     var popup = L.popup({ autoPan: true, keepInView:false }).setContent(p)
     marker
       .setLatLng([lat, lon])
       .bindPopup(popup)
       .openPopup()
+
+      setTimeout(() => {
+         $(icon).css('background-color', 'black')
+      }, 1000);
   })
   map.on('locationerror', function () {
     alert('Position could not be found')
@@ -240,12 +259,7 @@ $(document).ready(function () {
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
-  $(document).on('click', '#getAltitude', function (e) {
-    e.preventDefault()
-    let lat = $('.lat').html()
-    let lon = $('.lon').html()
-    getElevationData(lon, lat)
-  })
+
 
   // Clear results container when search is cleared.
 
@@ -267,6 +281,7 @@ $(document).ready(function () {
   console.log(  $('form :submit').first().parent())
   $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
+
   let icon = locationControl._icon
     $(icon).css('background-color', 'black')
     let latInput = document.getElementById('latInputField')
@@ -312,5 +327,92 @@ $(document).ready(function () {
     name: pageTitle
   }).addTo(map)
 
+  $('#map').on('click', '#getAltitude', function (e) {
+    e.preventDefault()
+    let coords = marker.getLatLng()
 
+    $(this).parent().html(`<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading
+</button>`)
+    getElevationData(coords.lng, coords.lat)
+  })
+
+    $('#map').on('click', '.bookmark-btn', function (e) {
+    e.preventDefault()
+    $(this).children().last().removeClass("far").addClass("fas")
+ $(this).prop("disabled",true);
+
+
+ let btn = $(this).parent().children(":input").is(":checked")
+let pressed = $(this).attr("aria-pressed")
+
+const allItems = $(this).parent().parent().parent().parent().children()
+let first = $(this).parent().parent().parent().parent().children().first()
+let second = $(first).next('span.lat')
+let allButlast = allItems.length -1
+
+let name
+let dms
+for (let index = 0; index < allButlast; index++) {
+  const element = allItems[index];
+
+
+
+if($(element).hasClass("location-name") ){
+    let text = $(element).text()
+
+name = text
+
+}
+else if($(element).hasClass('dms')){
+  let text = $(element).text()
+dms = text
+
+}
+
+
+}
+
+let coords = marker.getLatLng()
+
+
+
+
+const obj = {
+name: name,
+latlng: [coords.lat, coords.lng],
+lat: coords.lat,
+lon: coords.lon,
+dms: dms,
+path: path,
+key: uid,
+
+}
+
+
+addEntry(obj)
+
+
+
+
+/*
+    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
+*/
+
+  })
+
+  //bookmark-btn
+function addEntry(data) {
+let allEntries = data.path
+let entryItem = data.key
+    // Parse any JSON previously stored in allEntries
+    var existingEntries = JSON.parse(localStorage.getItem(allEntries));
+    if(existingEntries == null) existingEntries = [];
+   const entry = data
+    localStorage.setItem(entryItem, JSON.stringify(entry));
+    // Save allEntries back to local storage
+    existingEntries.push(entry);
+    localStorage.setItem(allEntries, JSON.stringify(existingEntries));
+};
 })

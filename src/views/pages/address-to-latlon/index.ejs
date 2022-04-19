@@ -89,6 +89,9 @@
         left:50%;
         top:50%;
     }
+
+
+
       </style>
 
     <!--   !! MAIN -------------------------->
@@ -101,7 +104,7 @@
           <p class="fs-5 text-muted">Quickly convert any address to longitude and latitude coordinates.</p>
         </div>
         <div class="row gx-5 align-items-center justify-content-center mb-5">
-          <div class="col-lg-5" style="position: relative;">
+          <div class="col-md-5" style="position: relative;">
             <h5 class="text-start mb-4">Address</h5>
             <form
               class="row justify-content-between align-items-center"
@@ -223,12 +226,20 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-7 align-self-start">
-            <button class="btn btn-primary" id="mapTest">Test</button>
+          <div class="col-md-7  align-self-start">
+
+ <div id="map-container" class="map-container">
+
+                  <div id="map" class="invisible"></div>
+                  <div id="static"></div>
+
+
+              </div>
+
+
             <h4 class="travel-time"></h4>
-            <div class="map-container">
-<img id="static-map" alt="">
-        <div id="map"></div></div>
+
+
           </div>
         </div>
         <%- include(`${partials}/comment-section.ejs`); -%>

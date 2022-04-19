@@ -1,13 +1,8 @@
 /* jshint esversion: 8 */
 /// Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
 import 'utils/commentscript'
-import { getLatLon, getAddress, getElevation, popupContent } from 'utils/geocoder'
-import {
-  comment,
-  commentReply,
-  extractReplies,
-  replyForm
-} from 'utils/comments'
+import { getLatLon, getAddress, getElevation, popupContent, generateUID } from 'utils/geocoder'
+
 import { Modal } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import dompurify from 'dompurify'
 import { httpsCallable, getFunctions } from 'firebase/functions'
@@ -15,20 +10,13 @@ import { getAuth } from 'firebase/auth'
 import {
   getDatabase,
   ref,
-  set,
-  get,
-  onValue,
-  push,
-  query,
-  orderByValue,
-  increment,
-  orderByChild
+
 } from 'firebase/database'
 import { v4 as uuidv4 } from 'uuid';
 
 
 
-const uid = uuidv4();
+const uid = generateUID()
 async function getAddressData () {
   let latlon = await getAddress('33.0393', '-85.0313')
 
@@ -172,48 +160,29 @@ $(function () {
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map').setView([37.9, -77], 4)
+  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 
   L.mapbox
     .styleLayer('mapbox://styles/mapbox/streets-v11')
     .addTo(map) // add your tiles to the map
-    .on('load', finishedLoading)
+    .once('load', finishedLoading)
 
-    var bounds = [
-      5.539274788807716,
-      -136.89688546668822,
-      60.20153056328073,
-      -51.81876046668821
-  ];
 
-  var size = [750, 400];
-
-// Calculate a zoom level and centerpoint for this map.
-var vp = geoViewport.viewport(bounds, size);
-    /*
-
-    {
-    "_southWest": {
-        "lat": 5.539274788807716,
-        "lng": -136.89688546668822
-    },
-    "_northEast": {
-        "lat": 60.20153056328073,
-        "lng": -51.81876046668821
-    }
-}
-    */
 
     function finishedLoading() {
       // first, toggle the class 'done', which makes the loading screen
       // fade out
-    console.log("loaded")
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
+
+    }, 1000);
 
   }
   $('#mapTest').on('click', function (e) {
     e.preventDefault()
     console.log(map.getBounds())
     console.log(map.getZoom())
+  console.log(map.getCenter())
 
   });
   const marker = L.marker([0, 0], {
@@ -229,9 +198,6 @@ var vp = geoViewport.viewport(bounds, size);
 
 
 
-$('#map').on('click', 'locate-button.leaflet-bar.leaflet-control', function (e) {
-  console.log(e)
-});
 
 
 var locationControl = L.control
@@ -245,10 +211,13 @@ var locationControl = L.control
   remainActive: false,
   icon: 'my-geo-icon',
   locateOptions: {
-    enableHighAccuracy: true
+    enableHighAccuracy: false ,
+    timeout: 1
   }
 })
 .addTo(map)
+
+
   map.on('locationfound', async function (e) {
 
 
@@ -305,6 +274,84 @@ var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
     locationControl.stop()
 
+
+  })
+
+  setTimeout(() => {
+    let userData = localStorage.getItem("userData")
+
+let parsed = JSON.parse(userData)
+let lat = parsed.ip.latitude
+let lon = parsed.ip.longitude
+
+console.log(lat,lon)
+  }, 2000);
+
+    map.on('locationerror',  async function (e) {
+
+
+if (e.message == "Geolocation error: Timeout expired.") {
+
+ let userData = localStorage.getItem("userData")
+if (userData){
+
+let parsed = JSON.parse(userData)
+let lat = parsed.ip.latitude
+let lon = parsed.ip.longitude
+    const submitText = $('form :submit')
+      .first()
+      .text()
+
+    //hsl(217deg 93% 60%)
+    let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
+
+    const address = await convertLatLon(lat, lon)
+
+    if (address.features.length > 0) {
+      $('form')
+        .first()
+        .find('input:eq(0)')
+        .val(address.features[0].place_name)
+
+      $('#latlonForm')
+        .find('input:eq(0)')
+        .val(lat)
+      $('#latlonForm')
+        .find('input:eq(1)')
+        .val(lon)
+    }
+    $('form :submit')
+      .first()
+      .html(`${submitText}`)
+    map.fitBounds([[lat, lon]], { padding: [50, 50] })
+
+    const dmsCalculated = DDtoDMS(lat, lon)
+
+    const data = {
+name: address.features[0].place_name,
+lat: lat,
+lon: lon,
+dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
+    }
+
+const p = popupContent(data)
+var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+// # TODO: ADD to all converts
+
+
+    marker
+      .setLatLng([lat, lon])
+      .bindPopup(popup)
+      .openPopup()
+}
+
+}
+
+    let lat = e.latitude
+    let lon = e.longitude
+
+  console.log(e)
 
   })
 
@@ -374,20 +421,12 @@ var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
     }, 500)
   }
 
-  $('#map').on('click', '#getAltitude', function (e) {
-    e.preventDefault()
-    let coords = marker.getLatLng()
 
-    $(this).parent().html(`<button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading...
-</button>`)
-    getElevationData(coords.lng, coords.lat)
-  })
   $('#map').on('click', '.bookmark-btn', function (e) {
     e.preventDefault()
+    $(this).children().last().removeClass("far").addClass("fas")
  $(this).prop("disabled",true);
-$(this).children().last().removeClass("far").addClass("fas")
+
 
  let btn = $(this).parent().children(":input").is(":checked")
 let pressed = $(this).attr("aria-pressed")
@@ -525,18 +564,28 @@ const p = popupContent(data)
   let bookmarkControl = new L.Control.Bookmarks({
     name: pageTitle
   }).addTo(map)
-document.getElementById('static-map').src =
-    'https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/' +
-    vp.center.join(',') + ',' +
-    vp.zoom + '/' +
-    size.join('x') +
-    '?access_token=' + L.mapbox.accessToken;
-  $('#comment-form').on('submit', function (e) {
+
+
+$('#toggle-map').on('click', function (e) {
+  e.preventDefault()
+
+$('#map').toggleClass("invisible", "visible");
+});
+
+$('#toggle-image').on('click', function (e) {
+  e.preventDefault()
+
+$('#static').toggleClass("invisible", "visible");
+});
+  $('#map').on('click', '#getAltitude', function (e) {
     e.preventDefault()
+    let coords = marker.getLatLng()
 
-    let name = e.currentTarget[0].value
-    let message = e.currentTarget[1].value
-
-    $('#comment-btn').disabled = true
+    $(this).parent().html(`<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>`)
+    getElevationData(coords.lng, coords.lat)
   })
+
 })

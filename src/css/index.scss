@@ -78,7 +78,9 @@ main {
 
 .map-container {
   position: relative;
-  min-height: 400px;
+
+  max-width: 560px;
+  max-height: 400px;
 }
 
 #map {
@@ -194,29 +196,9 @@ main {
   opacity: 0;
 }
 
-.map-container {
-  position: relative;
-  min-height: 400px;
-}
 
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 2;
-}
 
-#static {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background-image: url("../images/600x400.png");
-  width: 100%;
-  background-repeat: none;
-  z-index: 1;
-  background-position: center;
-}
+
 @-webkit-keyframes pulsate {
   0% {
     transform: scale(0.1, 0.1);
@@ -1085,11 +1067,11 @@ body {
     mask-position: center;
 }
 .leaflet-top .leaflet-control {
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
 .leaflet-left .leaflet-control {
-    margin-left: 18px;
+    margin-left: 10px;
 }
 button.btn.btn-outline-primary.bookmark-btn:disabled {
   color: white !important;
@@ -1101,4 +1083,41 @@ button.btn.btn-outline-primary.bookmark-btn:disabled {
 }
 .leaflet-bar.leaflet-bookmarks-control.leaflet-control{
   display: none;
+}
+
+
+.map-container {
+  position: relative;
+  padding-bottom: 26.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  height: 400px;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width:600px;
+ height: 400px;
+  z-index: 2;
+}
+#static {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+   max-width: 600px;
+background-repeat: no-repeat;
+  background-image: url("../images/map.png");
+  background-position: center;
+}
+.leaflet-touch .leaflet-bar a {
+    width: 30px !important;
+    height: 29px !important;
+    line-height: 24px;
+    border-radius: 8px;
 }

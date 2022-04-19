@@ -1,15 +1,15 @@
 /* jshint esversion: 8 */
-import {popupContent,  getLatLon , getAddress, getElevation} from 'utils/geocoder'
+import {popupContent,  getLatLon , getAddress, getElevation, generateUID} from 'utils/geocoder'
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'
-
+const uid = generateUID()
 var dropdownElementList = [].slice.call(
   document.querySelectorAll('.dropdown-toggle')
 )
 const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new Dropdown(dropdownToggleEl)
 })
-
+const path = window.location.pathname
 function test (e) {
   e.preventDefault()
 }
@@ -76,9 +76,12 @@ $(document).ready(function () {
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 
-  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
+  L.mapbox
+    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .addTo(map) // add your tiles to the map
+    .once('load', finishedLoading)// add your tiles to the map
 
   // L.marker is a low-level marker constructor in Leaflet.
   const marker = L.marker([0, 0], {
@@ -89,7 +92,15 @@ $(document).ready(function () {
     })
   }).addTo(map)
 
+    function finishedLoading() {
+      // first, toggle the class 'done', which makes the loading screen
+      // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
 
+    }, 1000);
+
+  }
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -112,6 +123,7 @@ $(document).ready(function () {
     return data
   }
   map.on('locationfound', async function (e) {
+     $('.alerts').html("")
     let icon = locationControl._icon
     $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     let lat = e.latitude
@@ -143,8 +155,11 @@ $(document).ready(function () {
       .setLatLng([lat, lon])
       .bindPopup(p)
       .openPopup()
+locationControl.stop()
+setTimeout(() => {
+    $(icon).css('background-color', 'black')
 
-
+}, 1000);
   })
   map.on('locationerror', function () {
     alert('Position could not be found')
@@ -233,8 +248,12 @@ $(document).ready(function () {
   $('#latlonForm').on('submit', async function (e) {
     e.preventDefault()
  let icon = locationControl._icon
+    $('.alerts').html("")
     $(icon).css('background-color', 'black')
-
+    const submitText =  $('form :submit').first().text()
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`)
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
     const lat = latInput.value
@@ -266,6 +285,9 @@ $(document).ready(function () {
     map.fitBounds([[lat, lon]], {
       padding: [100, 100]
     })
+
+  console.log(  $('form :submit').first().parent())
+  $('form :submit').first().html(`${submitText}`)
     const data = {
       name: address,
       lat: lat,
@@ -293,5 +315,80 @@ $('#map').on('click','.leaflet-bar-part.leaflet-bar-part-single', function (e) {
   console.log(e)
 });
 
+  $('#map').on('click', '.bookmark-btn', function (e) {
+    e.preventDefault()
+ $(this).prop("disabled",true);
+$(this).children().last().removeClass("far").addClass("fas")
+
+ let btn = $(this).parent().children(":input").is(":checked")
+let pressed = $(this).attr("aria-pressed")
+
+const allItems = $(this).parent().parent().parent().parent().children()
+let first = $(this).parent().parent().parent().parent().children().first()
+let second = $(first).next('span.lat')
+let allButlast = allItems.length -1
+
+let name
+let dms
+for (let index = 0; index < allButlast; index++) {
+  const element = allItems[index];
+
+
+
+if($(element).hasClass("location-name") ){
+    let text = $(element).text()
+
+name = text
+
+}
+else if($(element).hasClass('dms')){
+  let text = $(element).text()
+dms = text
+
+}
+
+
+}
+
+let coords = marker.getLatLng()
+name = name.replace(/^\s+|\s+$/gm,'');
+
+
+
+const obj = {
+name: name,
+latlng: [coords.lat, coords.lng],
+lat: coords.lat,
+lon: coords.lon,
+dms: dms,
+path: path,
+key: uid,
+
+}
+
+
+addEntry(obj)
+
+
+
+
+/*
+    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
+*/
+
+  })
+
+  function addEntry(data) {
+let allEntries = data.path
+let entryItem = data.key
+    // Parse any JSON previously stored in allEntries
+    var existingEntries = JSON.parse(localStorage.getItem(allEntries));
+    if(existingEntries == null) existingEntries = [];
+   const entry = data
+    localStorage.setItem(entryItem, JSON.stringify(entry));
+    // Save allEntries back to local storage
+    existingEntries.push(entry);
+    localStorage.setItem(allEntries, JSON.stringify(existingEntries));
+};
 
 })

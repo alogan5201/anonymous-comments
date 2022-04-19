@@ -1,7 +1,10 @@
 import { httpsCallable, getFunctions } from 'firebase/functions'
 import { v4 as uuidv4 } from 'uuid'
 
-let uid = uuidv4()
+export function generateUID(){
+const uid = uuidv4()
+return uid
+}
 const functions = getFunctions()
 export function clearForm(form){
 
@@ -213,4 +216,4 @@ export function getGeojson (first, second) {
 
   return geojson
 }
-export default { getLatLon, getAddress, getElevation, getMatrix, getGeojson }
+export default { getLatLon, getAddress, getElevation, getMatrix, getGeojson, generateUID}

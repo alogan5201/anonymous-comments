@@ -23,7 +23,7 @@
           <p class="fs-5 text-muted">Quickly convert a set of coordinates to DMS.</p>
         </div>
         <div class="row g-3 align-items-center justify-content-center">
-          <div class="col-lg-6" style="position: relative;">
+           <div class="col-md-5" style="position: relative;">
             <h5 class="text-start mb-4">Latitude and Longitude</h5>
             <form
               class="row g-3 mb-3 justify-content-between align-items-center"
@@ -185,9 +185,10 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 align-self-start">
+        <div class="col-md-7  align-self-start">
             <h4 class="travel-time"></h4>
-            <div class="map-container"><div id="map"></div></div>
+            <div class="map-container"> <div id="map" class="invisible"></div>
+                  <div id="static"></div></div>
           </div>
         </div>
        <%- include(`${partials}/comment-section.ejs`); -%>

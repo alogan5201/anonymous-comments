@@ -47,18 +47,27 @@ const geojson = {
   ]
 }
 var loader = document.getElementById('loader')
-const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 L.mapbox.accessToken =
   'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
 
 const layer = L.mapbox
   .styleLayer('mapbox://styles/mapbox/streets-v11')
   .addTo(map)
+  .once('load', finishedLoading)
    // add your tiles to the map
 
 
 
+    function finishedLoading() {
+      // first, toggle the class 'done', which makes the loading screen
+      // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
 
+    }, 1000);
+
+  }
 // L.marker is a low-level marker constructor in Leaflet.
 
 var featureLayer = L.mapbox.featureLayer().addTo(map)

@@ -43,8 +43,16 @@ L.mapbox.accessToken =
 
 const layer = L.mapbox
   .styleLayer('mapbox://styles/mapbox/streets-v11')
-  .addTo(map) // add your tiles to the map
+  .addTo(map)
+   .once('load', finishedLoading)
+ // add your tiles to the map
+  function finishedLoading() {
+      // first, toggle the class 'done', which makes the loading screen
+      // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
 
+    }, 1000);
 // L.marker is a low-level marker constructor in Leaflet.
 
 var featureLayer = L.mapbox.featureLayer().addTo(map)
