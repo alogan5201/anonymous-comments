@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import HaversineGeolocation from 'haversine-geolocation'
 
 import 'utils/commentscript.js'

@@ -1,3 +1,4 @@
+import "./firebase"
 import { googleSignin, getUser } from "./firebase";
 
 let url = window.location.href;

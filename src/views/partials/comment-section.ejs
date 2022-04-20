@@ -3,32 +3,31 @@
     <div class="card-body">
       <!-- Comment form-->
       <form id="comment-form" class="mb-3">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Share your comment</label
-          >
-          <div id="emailHelp" class="form-text">
+     <div class="accordion" id="myCollapsible">
+
+  <div class="accordion-item border-0 bg-transparent  mb-5 border-0">
+     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse border-0 name-box " aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body px-0 py-1 pb-09">
+      <div id="emailHelp" class="form-text">
             Name (Optional)
           </div>
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div class="mb-3">
-          <textarea
-            class="form-control"
-            rows="3"
-            placeholder="Join the discussion and leave a comment!"
-            required
-          ></textarea>
-        </div>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+    </div>
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne bg-transparent py-1 border-0" >
+      <button id= "my-comment-text-btn" class="accordion-button bg-transparent px-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" data-bs-toggle = "false">
 
-        <button type="submit" id="comment-btn" class="btn btn-primary">
+             <textarea class="form-control border-0" rows="3" id="comment-text-field" placeholder="Add a comment..." required=""></textarea>
+<button type="submit" id="comment-btn" class="btn btn-primary">
           Submit
         </button>
+
+      </button>
+    </h2>
+
+  </div>
+
+</div>
       </form>
 <div id="comment-section" >
 

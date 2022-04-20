@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import 'utils/commentscript.js'
 import { getLatLon, getAddress, getGeojson, getMatrix, clearForm } from 'utils/geocoder'
 let geojson = {

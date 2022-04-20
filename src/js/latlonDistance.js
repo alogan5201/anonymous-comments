@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import HaversineGeolocation from "haversine-geolocation";
 
 import "utils/commentscript.js";
@@ -59,7 +60,7 @@ function finishedLoading() {
     $("#map").removeClass("invisible");
   }, 1000);
   // L.marker is a low-level marker constructor in Leaflet.
-
+}
   var featureLayer = L.mapbox.featureLayer().addTo(map);
 
   var locationControl = L.control
@@ -98,6 +99,7 @@ function finishedLoading() {
 
   const findLocation = () => {
     map.on("locationfound", function (e) {
+      console.log(e)
       map.fitBounds(e.bounds);
       let icon = locationControl._icon;
       $(icon).css("background-color", "hsl(217deg 93% 60%)");
@@ -106,7 +108,7 @@ function finishedLoading() {
       let lon = e.latlng.lng;
 
       geojson.features[0].geometry.coordinates = [lon, lat];
-
+  console.log(geojson)
       featureLayer.setGeoJSON(geojson);
 
       var inputs = document.getElementById("latlonForm").elements;
@@ -116,10 +118,11 @@ function finishedLoading() {
         inputs[0].value = lat;
         inputs[1].value = lon;
       }
-
+  locationControl.stop();
       setTimeout(() => {
-        locationControl.stop();
-      }, 500);
+        $(icon).css('background-color', 'black')
+
+      }, 1000);
     });
   };
   const title = $("title").html();
@@ -315,4 +318,4 @@ function finishedLoading() {
       $("form :submit").first().html(submitText);
     });
   });
-}
+

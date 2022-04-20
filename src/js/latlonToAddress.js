@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import {popupContent,  getLatLon , getAddress, getElevation, generateUID} from 'utils/geocoder'
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'

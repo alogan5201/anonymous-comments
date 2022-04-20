@@ -20,7 +20,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
   signOut,
-    connectAuthEmulator
+
 } from "firebase/auth";
 import { stubString } from "lodash";
 import {
@@ -55,7 +55,7 @@ const functions = getFunctions(app);
 
 if (location.hostname === "localhost") {
   connectFunctionsEmulator(functions, "localhost", 5001);
-    connectAuthEmulator(auth, 'http://localhost:9099')
+
 }
 const path = window.location.pathname;
 const commentRef = ref(db, `messages${path}`);
@@ -107,7 +107,7 @@ async function getIp() {
 
   return data;
 }
- function googleSignin() {
+ export function googleSignin() {
   signInWithRedirect(auth, googleProvider);
 }
  function googleSignOut() {
@@ -180,7 +180,7 @@ let msg = "Promise complete"
 
 
 }
- async function createRandomUser() {
+ export async function createRandomUser() {
   const ipAddress = await getIp();
 
  return signInAnonymously(auth)
@@ -208,7 +208,7 @@ let msg = "Promise complete"
     });
 }
 
- async function handleComment(message, name, userData, path) {
+ export async function handleComment(message, name, userData, path) {
   const addComment = httpsCallable(functions, "addComment");
   const prettyDate = getDate();
 
@@ -298,6 +298,8 @@ let msg = "Promise complete"
    localStorage.setItem("page-history", window.location.href)
    window.location.replace("/login")
   });
+
+
 setTimeout(() => {
 
 if($("#mainNav")){
@@ -342,11 +344,130 @@ else {
 
 }
 
+if($('.name-box')){
+if(auth.currentUser){
 
+$('.name-box').addClass("d-none")
+
+}
+
+
+}
 
 
 }, 1000);
+export function addCommentMessage(cleanMessage, cleanName){
+const path = window.location.pathname;
+    const addComment = httpsCallable(functions, "addComment");
+        const userData = JSON.parse(localStorage.getItem("userData"));
 
+      const uid = userData.uid;
+      addComment({
+        text: cleanMessage,
+        name: cleanName,
+        uid: userData,
+        page: path,
+      })
+        .then(function (result) {
+          console.log(result);
+
+          // Read result of the Cloud Function.
+          let sanitizedMessage = result.data.text;
+          let sanitizedName = result.data.name;
+
+          if (cleanMessage !== sanitizedMessage) {
+            filterCommentFail.toggle();
+            $("#reply-btn").disabled = false;
+            $("#reply-btn").html("Send");
+            for (let index = 0; index < formElements.length; index++) {
+              const element = formElements[index];
+              element.value = "";
+            }
+          } else {
+            console.log("test");
+            get(commentRef)
+              .then((snapshot) => {
+                if (snapshot.exists()) {
+                  const data = snapshot.val();
+                  const map = new Map(Object.entries(data));
+
+                  for (const [key, value] of map.entries()) {
+                    if (value.id == docId) {
+                      const postListRef = ref(
+                        db,
+                        `messages${path}${key}/replies`
+                      );
+
+                      const newPostRef = push(postListRef);
+                      return set(newPostRef, {
+                        name: sanitizedName,
+                        id: uid,
+                        message: sanitizedMessage,
+                        date: prettyDate,
+                        recipient: value.id,
+                      });
+                    }
+                  }
+                } else {
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+
+            setTimeout(() => {
+              $(replyForm).animate({ opacity: 0 }, function () {
+                $(replyForm).css("display", "none");
+                $(otherSiblings).removeClass("d-none");
+                $(otherSiblings).append(
+                  `
+       <div class="col-md-11 p-3 mb-3" >
+   <div class="row ">
+   <div class="col-lg-12 border-start">
+      <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+     <h6 class="fw-bold text-primary mb-1 ">${cleanName}</h6>
+     <p class="text-muted small m-0">
+      ${prettyDate}
+     </p>
+
+
+     </div>
+     <p class="mt-3 mb-0 pb-2">
+     ${cleanMessage}
+     </p>
+   </div>
+   </div>
+
+     </div>
+     `
+                );
+                $(otherComments).animate({ opacity: 1 }, 500);
+
+                filterCommentSuccess.toggle();
+              });
+            }, 500);
+          }
+        })
+        .catch(function (error) {
+          // Getting the Error details.
+          let code = error.code;
+          let message = error.message;
+          let details = error.details;
+          console.error(
+            "There was an error when calling the Cloud Function",
+            error
+          );
+          window.alert(
+            "There was an error when calling the Cloud Function:\n\nError Code: " +
+              code +
+              "\nError Message:" +
+              message +
+              "\nError Details:" +
+              details
+          );
+          addCommentButton.disabled = false;
+        });
+}
 
   $("#user-profile").on("click", "#sign-out", function (e) {
     e.preventDefault();
@@ -359,3 +480,4 @@ else {
       .catch((error) => {});
   });
 
+export default {addCommentMessage, googleSignin, createRandomUser}

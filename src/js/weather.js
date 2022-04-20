@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import 'utils/commentscript.js'
 let geojson = {
   type: 'FeatureCollection',

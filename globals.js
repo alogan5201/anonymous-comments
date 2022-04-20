@@ -16,7 +16,7 @@ module.exports.GOOGLE_ANALYTICS_ID = "";
 module.exports.CLIENT_ID =
   "106157954659-7lbsq0rvthktblg442hoav3tjajnnebb.apps.googleusercontent.com";
 module.exports.TEST = [1, 2, 3, 4];
-
+//dist: resolve(__dirname, "dist"),
 module.exports.Dir = {
   dist: resolve(__dirname, "dist"),
   src: resolve(__dirname, "src"),

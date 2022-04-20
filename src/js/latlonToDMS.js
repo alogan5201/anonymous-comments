@@ -1,4 +1,5 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import 'utils/commentscript.js'
 import { popupContent, getLatLon , getAddress, getElevation, generateUID} from 'utils/geocoder'
 

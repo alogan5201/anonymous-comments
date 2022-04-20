@@ -62,13 +62,13 @@ Date.prototype.toShortFormat = function () {
 let today = new Date();
 const prettyDate = today.toShortFormat();
 const siteTitle = $("#site-title").text();
-const functions = getFunctions();
-const db = getDatabase();
-const auth = getAuth();
+
+
+
 const path = window.location.pathname;
 
 $(function () {
-  const commentRef = ref(db, `messages${path}`);
+
 
   /**
    *---------------------------------------------------------------------

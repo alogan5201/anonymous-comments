@@ -1117,3 +1117,39 @@ button.btn.btn-outline-primary.bookmark-btn:disabled {
   line-height: 24px;
   border-radius: 8px;
 }
+    .accordion-button:not(.collapsed)::after {
+    background-image: none;
+    transform: rotate(-180deg);
+}
+.accordion-button::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+}
+.accordion-button:focus {
+    z-index: 3;
+    /* border-color: #86b7fe; */
+    outline: 0;
+     box-shadow: none
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: #e7f1ff;
+    box-shadow: none
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+    display: none;
+}
+.accordion-button::after {
+    background-image: none;
+    display: none;
+}
