@@ -20,7 +20,7 @@ const functions = require("firebase-functions");
 const sanitizer = require("./sanitizer");
 const admin = require("firebase-admin");
 const { v4: uuidv4 } = require("uuid");
-
+//const cors = require("cors")({origin: true});
 admin.initializeApp();
 
 const fetch = require("node-fetch");
