@@ -1,11 +1,13 @@
 /* jshint esversion: 8 */
-import { handleComment } from "../firebase";
+import { handleComment, getUser, createRandomUser } from "../firebase";
+
 import {
   comment,
   commentReply,
   extractReplies,
   replyForm,
 } from "utils/comments";
+import { toggleModal } from "utils/helpers";
 
 import dompurify from "dompurify";
 import { httpsCallable, getFunctions } from "firebase/functions";
@@ -22,15 +24,10 @@ import {
   increment,
   orderByChild,
 } from "firebase/database";
+
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
-function toggleModal(id) {
-  const modal =
-    id == "success"
-      ? filterCommentSuccess.toggle()
-      : filterCommentFail.toggle();
-  return modal;
-}
+
 $(".modal-close-btn").on("click", function (e) {
   e.preventDefault();
   const modalId = $(this).parent().parent().parent().parent().attr("id");
@@ -157,8 +154,15 @@ displayComments();
  * !! COMMENT SUBMIT
  * -------------------------------------------------------------------
  */
-$("#comment-form").on("submit", function (e) {
+$("#comment-form").on("submit", async function (e) {
   e.preventDefault();
+  let userCheck = getUser();
+
+  console.log(userCheck);
+  if (!userCheck) {
+    console.log("no user on frontend");
+    createRandomUser();
+  }
 
   $("#comment-btn").disabled = true;
   const inputs = $("#comment-form :input");

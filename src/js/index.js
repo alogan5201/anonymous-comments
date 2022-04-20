@@ -45,7 +45,7 @@ import "utils/errors";
 const firebaseConfig = {
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
   authDomain: "geotools-bc75a.firebaseapp.com",
-  databaseURL: "https://geotools-bc75a-e8221.firebaseio.com",
+  databaseURL: "https://geotools-bc75a-default-rtdb.firebaseio.com",
   projectId: "geotools-bc75a",
   storageBucket: "geotools-bc75a.appspot.com",
   messagingSenderId: "106157954659",

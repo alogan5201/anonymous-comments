@@ -1,11 +1,7 @@
-01:07:50.328 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-01:07:50.602 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9001
-01:17:21.869 [Thread-1] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-01:17:21.885 [NamespaceSystem-akka.actor.default-dispatcher-18] INFO com.firebase.core.namespace.Terminator$Terminator - 3 actors left to terminate: geotools-bc75a, geotools-bc75a-e8221, geotools-bc75a-default-rtdb
-01:17:21.896 [NamespaceSystem-akka.actor.default-dispatcher-20] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for geotools-bc75a-default-rtdb
-01:17:21.896 [NamespaceSystem-akka.actor.default-dispatcher-17] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for geotools-bc75a-e8221
-01:17:21.896 [NamespaceSystem-akka.actor.default-dispatcher-21] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for geotools-bc75a
-01:17:21.898 [NamespaceSystem-akka.actor.default-dispatcher-21] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for geotools-bc75a
-01:17:21.898 [NamespaceSystem-akka.actor.default-dispatcher-20] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for geotools-bc75a-default-rtdb
-01:17:21.898 [NamespaceSystem-akka.actor.default-dispatcher-17] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for geotools-bc75a-e8221
-01:17:21.906 [Thread-1] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+11:44:53.273 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+11:44:53.724 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9001
+12:10:41.309 [Thread-1] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+12:10:41.331 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: geotools-bc75a-default-rtdb
+12:10:41.361 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for geotools-bc75a-default-rtdb
+12:10:41.364 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for geotools-bc75a-default-rtdb
+12:10:41.376 [Thread-1] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

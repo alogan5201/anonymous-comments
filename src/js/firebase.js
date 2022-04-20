@@ -8,7 +8,7 @@ import {
   onValue,
   increment,
 } from "firebase/database";
-import { getDatel } from "utils/helpers";
+import { getDate, toggleModal } from "utils/helpers";
 import {
   getAuth,
   onAuthStateChanged,
@@ -32,18 +32,26 @@ import {
 } from "utils/comments";
 import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
-const app = initializeApp({
+const firebaseConfig = {
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
   authDomain: "geotools-bc75a.firebaseapp.com",
+  databaseURL: "https://geotools-bc75a-default-rtdb.firebaseio.com",
   projectId: "geotools-bc75a",
   storageBucket: "geotools-bc75a.appspot.com",
   messagingSenderId: "106157954659",
   appId: "1:106157954659:web:3e189110236a2138438a56",
   measurementId: "G-Z6GK19K3L0",
-});
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase();
 const functions = getFunctions(app);
+
+if (location.hostname === "localhost") {
+  connectFunctionsEmulator(functions, "localhost", 5001);
+}
 const path = window.location.pathname;
 const commentRef = ref(db, `messages${path}`);
 const commentFormInputs = $("#comment-form :input");
@@ -53,23 +61,24 @@ onAuthStateChanged(auth, (user) => {
   const userData = localStorage.getItem("userData");
   if (user) {
     console.log(user);
+    /*
     if (user.isAnonymous) {
       checkIfAnonymousUserExists(user);
     } else {
       checkIfUserExists(user);
-    }
+    }*/
 
     //  writeUsertoDatabase(user)
   } else {
     console.log("no user");
-    if (!userData) {
+    /*   if (!userData) {
       createRandomUser();
-    }
+    }*/
   }
 });
 
 function writeUserData(userId, userInfo) {
-  return set(ref(db, "anonymousUsers"), userInfo);
+  return set(ref(db, "users"), userInfo);
 }
 
 async function getIp() {
@@ -136,16 +145,27 @@ function checkIfAnonymousUserExists() {
 }
 
 async function writeUsertoDatabase(data) {
-  const dbCategory = data.isAnonymous == true ? "anonymousUsers" : "users";
-  const userListRef = ref(db, dbCategory);
+  get(db, `users/${data.uid}`).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val());
+  } else {
+   const userListRef = ref(db, `users/${data.uid}`);
 
   const newPostRef = push(userListRef);
-  return set(newPostRef, {
-    id: data.uid,
-    isAnonymous: data.isAnonymous,
+return   set(newPostRef, data);
+  }
+}).catch((error) => {
+  console.error(error);
+  return error
+})  .finally(() => {
+let msg = "Promise complete"
+    console.log('Promise completed');
+    return msg
   });
+ 
+  
 }
-async function createRandomUser() {
+export async function createRandomUser() {
   const ipAddress = await getIp();
 
   signInAnonymously(auth)
@@ -156,15 +176,15 @@ async function createRandomUser() {
         uid: data.user.uid,
         emailVerified: data.user.emailVerified,
         isAnonymous: data.user.isAnonymous,
-        providerData: data.user.providerData,
-        createdAt: data.user.createdAt,
-        lastLoginAt: data.user.lastLoginAt,
+        metadata: data.user.metadata,
         ip: ip,
       };
       let userData = JSON.stringify(userInfo);
       localStorage.setItem("userData", userData);
+      console.log(userInfo);
 
-      writeUserData(userInfo);
+     
+    await  writeUserData(userInfo);
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -172,17 +192,10 @@ async function createRandomUser() {
     });
 }
 
-export function handleComment(message, name, userData, path) {
-  function toggleModal(id) {
-    const modal =
-      id == "success"
-        ? filterCommentSuccess.toggle()
-        : filterCommentFail.toggle();
-    return modal;
-  }
-
+export async function handleComment(message, name, userData, path) {
   const addComment = httpsCallable(functions, "addComment");
   const prettyDate = getDate();
+
   addComment({
     text: message,
     name: name,
@@ -254,4 +267,8 @@ export function handleComment(message, name, userData, path) {
     });
 }
 
-export default { handleComment, googleSignin, googleSignOut };
+export function getUser() {
+  let result = auth.currentUser ? auth.currentUser : null;
+  return result;
+}
+export default { handleComment, googleSignin, googleSignOut, getUser };

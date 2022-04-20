@@ -15,40 +15,19 @@
  */
 "use-scrict";
 require("dotenv").config();
-// projects/660236032468/secrets/mapbox/versions/1
+// geotools-bc75a-a690ac1866bf.json
 const functions = require("firebase-functions");
 const sanitizer = require("./sanitizer");
 const admin = require("firebase-admin");
 const { v4: uuidv4 } = require("uuid");
-var serviceAccount = require("/home/a/geotools-bc75a-firebase-adminsdk-ju941-345b7135b5.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://geotools-bc75a-e8221.firebaseio.com",
-});
+admin.initializeApp();
 
 const fetch = require("node-fetch");
 const mapboxToken = process.env.MAPBOX_TOKEN;
 // Imports the Secret Manager library
 
 // Instantiates a client
-exports.writeDB = functions.https.onCall((data) => {
-  console.log(data);
-  console.log("Hello console! I'm trying to write to the realtime db...");
-  return admin
-    .database()
-    .ref("/users")
-    .push(data)
-    .then(() => {
-      console.log("New User created");
-      // Returning the sanitized message to the client.
-      return data;
-    })
-    .catch((error) => {
-      // Re-throwing the error as an HttpsError so that the client gets the error details.
-      throw new functions.https.HttpsError("unknown", error.message, error);
-    });
-});
 
 async function fetchAddress(lat, lon) {
   const response = await fetch(
