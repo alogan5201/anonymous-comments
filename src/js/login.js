@@ -1,4 +1,4 @@
-import { googleSignin } from "./firebase";
+import { googleSignin, getUser } from "./firebase";
 
 let url = window.location.href;
 Date.prototype.toShortFormat = function () {
@@ -33,6 +33,9 @@ const prettyDate = today.toShortFormat();
 
 window.addEventListener("DOMContentLoaded", (event) => {
   console.log("test");
+
+  setTimeout(() => {
+
   $("#spinner-box").addClass("d-none");
   $("main").removeClass("d-none");
 
@@ -43,5 +46,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     $("#spinner-box").removeClass("d-none");
     googleSignin();
+
   });
+
+
+
+  }, 2000);
+
+
+
+
+
+
+
+
+
 });

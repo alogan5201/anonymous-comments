@@ -57,25 +57,35 @@ const commentRef = ref(db, `messages${path}`);
 const commentFormInputs = $("#comment-form :input");
 const googleProvider = new GoogleAuthProvider();
 
+
+
 onAuthStateChanged(auth, (user) => {
   const userData = localStorage.getItem("userData");
   if (user) {
-    console.log(user);
-    /*
-    if (user.isAnonymous) {
-      checkIfAnonymousUserExists(user);
-    } else {
-      checkIfUserExists(user);
-    }*/
 
-    //  writeUsertoDatabase(user)
-  } else {
-    console.log("no user");
-    /*   if (!userData) {
-      createRandomUser();
-    }*/
+
+    if(window.location.href.includes("login")){
+
+   console.log("login", window.location)
+    console.log(user);
+let history = localStorage.getItem("page-history") || "/"
+window.location.replace(history)
+    }
+
   }
 });
+
+function loginNav (){
+
+  console.log('login nav user login')
+}
+
+function logoutNav (){
+
+    console.log('login nav user already logged in')
+
+}
+
 
 function writeUserData(userId, userInfo) {
   return set(ref(db, "users"), userInfo);
@@ -162,13 +172,13 @@ let msg = "Promise complete"
     console.log('Promise completed');
     return msg
   });
- 
-  
+
+
 }
 export async function createRandomUser() {
   const ipAddress = await getIp();
 
-  signInAnonymously(auth)
+ return signInAnonymously(auth)
     .then((data) => {
       let ip = ipAddress || null;
 
@@ -183,12 +193,13 @@ export async function createRandomUser() {
       localStorage.setItem("userData", userData);
       console.log(userInfo);
 
-     
-    await  writeUserData(userInfo);
+      return userInfo
+
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      return error
     });
 }
 
@@ -268,7 +279,78 @@ export async function handleComment(message, name, userData, path) {
 }
 
 export function getUser() {
-  let result = auth.currentUser ? auth.currentUser : null;
-  return result;
+
+    let result = auth.currentUser ? auth.currentUser : null;
+
+ return result
+
+
+
+
 }
+  $("#login-link-icon").on("click", function (e) {
+    e.preventDefault();
+   localStorage.setItem("page-history", window.location.href)
+   window.location.replace("/login")
+  });
+setTimeout(() => {
+
+if($("#mainNav")){
+if(auth.currentUser){
+
+  console.log(auth.currentUser.uid)
+  let logoutNav = `    <div class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="login-link-icon"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+              <path
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+              /></svg
+          ></a>
+          <ul class="dropdown-menu" aria-labelledby="login-link-icon">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a id="sign-out" class="dropdown-item" href="#">Sign out</a>
+            </li>
+          </ul>
+        </div>`
+  $("#user-profile").html(logoutNav);
+}
+else {
+
+  console.log("no user timed")
+}
+
+
+
+}
+
+
+
+
+}, 1000);
+
+
+  $("#user-profile").on("click", "#sign-out", function (e) {
+    e.preventDefault();
+    console.log(e)
+    signOut(auth)
+      .then(() => {
+        let myModal = new Modal(document.getElementById("modalSignOut"));
+        myModal.toggle();
+      })
+      .catch((error) => {});
+  });
 export default { handleComment, googleSignin, googleSignOut, getUser };

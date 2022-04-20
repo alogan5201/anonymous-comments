@@ -35,9 +35,7 @@ import {
   onAuthStateChanged,
   connectAuthEmulator,
 } from "firebase/auth";
-
-//import 'bootstrap/dist/js/bootstrap.bundle';
-import { Modal, Dropdown } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 import "picturefill";
 import "utils/errors";
@@ -55,14 +53,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+/*
 var dropdownElementList = [].slice.call(
-  document.querySelectorAll(".dropdown-toggle")
+  document.querySelectorAll(".nav-bar-toggle")
 );
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new Dropdown(dropdownToggleEl);
 });
-
+*/
 let url = window.location.href;
 Date.prototype.toShortFormat = function () {
   let monthNames = [
@@ -145,9 +143,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
       .catch((error) => {});
   });
 
-  $("#user-btn").on("click", function (e) {
+  $("#login-link-icon").on("click", function (e) {
     e.preventDefault();
+   localStorage.setItem("page-history", window.location.href)
+   window.location.replace("/login")
   });
+
 
   // Movie Directory
 });

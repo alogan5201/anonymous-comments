@@ -159,18 +159,32 @@ $("#comment-form").on("submit", async function (e) {
   let userCheck = getUser();
 
   console.log(userCheck);
-  if (!userCheck) {
-    console.log("no user on frontend");
-    createRandomUser();
-  }
-
-  $("#comment-btn").disabled = true;
+   $("#comment-btn").disabled = true;
   const inputs = $("#comment-form :input");
   const children = $(this).children();
   $(
     "#comment-btn"
   ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
 Verifying..`);
+  if (!userCheck) {
+    console.log("no user on frontend");
+   const newUser = await  createRandomUser();
+console.log(newUser)
+
+  let name =
+    e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
+  let message = e.currentTarget[1].value;
+  let cleanMessage = dompurify.sanitize(message);
+  let cleanName = dompurify.sanitize(name);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  handleComment(cleanMessage, cleanName, newUser.uid, path);
+
+  }
+
+  else {
+
+
 
   let name =
     e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
@@ -180,6 +194,12 @@ Verifying..`);
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   handleComment(cleanMessage, cleanName, userData, path);
+
+  }
+
+
+
+
 });
 /**
  *---------------------------------------------------------------------
