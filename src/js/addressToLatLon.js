@@ -1,5 +1,5 @@
-/* jshint esversion: 8 */
-/// Users/andrewlogan/Desktop/geo-front-end/src/js/utils/commentscript.js
+
+import "./firebase"
 import "utils/commentscript";
 import {
   getLatLon,
@@ -10,11 +10,7 @@ import {
 } from "utils/geocoder";
 
 import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
-import dompurify from "dompurify";
-import { httpsCallable, getFunctions } from "firebase/functions";
-import { getAuth } from "firebase/auth";
-import { getDatabase, ref } from "firebase/database";
-import { v4 as uuidv4 } from "uuid";
+
 
 const uid = generateUID();
 async function getAddressData() {

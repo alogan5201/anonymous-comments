@@ -1,31 +1,5 @@
 import dompurify from 'dompurify'
-import { initializeApp } from 'firebase/app'
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  onValue,
-  push,
-  query,
-  orderByValue,
-  increment,
-  orderByChild
-} from 'firebase/database'
-import {
-  getFunctions,
-  httpsCallable,
-  connectFunctionsEmulator
-} from 'firebase/functions'
-import {
-  getAuth,
-  signInWithRedirect,
-  getRedirectResult,
-  signOut,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  connectAuthEmulator
-} from 'firebase/auth'
+
 import { Modal } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 
 // import 'bootstrap/dist/js/bootstrap.bundle';

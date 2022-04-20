@@ -18,11 +18,12 @@ module.exports = (env = {}) => {
         "haversine-geolocation",
       ],
       app: ["./src/js/index.js"],
+       addressToLatLon: ["./src/js/addressToLatLon.js"],
       movies: ["./src/js/movies.js"],
       latlonDistance: ["./src/js/firebase.js", "./src/js/latlonDistance.js"],
       latlonToAddress: ["./src/js/firebase.js", "./src/js/latlonToAddress.js"],
       latlonToDMS: ["./src/js/firebase.js", "./src/js/latlonToDMS.js"],
-      addressToLatLon: ["./src/js/firebase.js", "./src/js/addressToLatLon.js"],
+
       addressDistance: ["./src/js/firebase.js", "./src/js/addressDistance.js"],
       DMSlatlon: ["./src/js/firebase.js", "./src/js/DMSlatlon.js"],
       travel: ["./src/js/firebase.js", "./src/js/travel.js"],

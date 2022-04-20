@@ -1,12 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {
   getDatabase,
-  push,
   ref,
   set,
   get,
   onValue,
+  push,
+  query,
+  orderByValue,
   increment,
+  orderByChild
 } from "firebase/database";
 import { getDate, toggleModal } from "utils/helpers";
 import {
@@ -17,6 +20,7 @@ import {
   signInWithRedirect,
   GoogleAuthProvider,
   signOut,
+    connectAuthEmulator
 } from "firebase/auth";
 import { stubString } from "lodash";
 import {
@@ -51,6 +55,7 @@ const functions = getFunctions(app);
 
 if (location.hostname === "localhost") {
   connectFunctionsEmulator(functions, "localhost", 5001);
+    connectAuthEmulator(auth, 'http://localhost:9099')
 }
 const path = window.location.pathname;
 const commentRef = ref(db, `messages${path}`);
@@ -102,10 +107,10 @@ async function getIp() {
 
   return data;
 }
-export function googleSignin() {
+ function googleSignin() {
   signInWithRedirect(auth, googleProvider);
 }
-export function googleSignOut() {
+ function googleSignOut() {
   signOut(auth);
 }
 
@@ -175,7 +180,7 @@ let msg = "Promise complete"
 
 
 }
-export async function createRandomUser() {
+ async function createRandomUser() {
   const ipAddress = await getIp();
 
  return signInAnonymously(auth)
@@ -203,7 +208,7 @@ export async function createRandomUser() {
     });
 }
 
-export async function handleComment(message, name, userData, path) {
+ async function handleComment(message, name, userData, path) {
   const addComment = httpsCallable(functions, "addComment");
   const prettyDate = getDate();
 
@@ -278,7 +283,7 @@ export async function handleComment(message, name, userData, path) {
     });
 }
 
-export function getUser() {
+ function getUser() {
 
     let result = auth.currentUser ? auth.currentUser : null;
 
@@ -353,4 +358,4 @@ else {
       })
       .catch((error) => {});
   });
-export default { handleComment, googleSignin, googleSignOut, getUser };
+

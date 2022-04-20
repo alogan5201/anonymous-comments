@@ -1,5 +1,4 @@
 /* jshint esversion: 8 */
-import { handleComment, getUser, createRandomUser } from "../firebase";
 
 import {
   comment,
@@ -10,20 +9,8 @@ import {
 import { toggleModal } from "utils/helpers";
 
 import dompurify from "dompurify";
-import { httpsCallable, getFunctions } from "firebase/functions";
-import { getAuth } from "firebase/auth";
-import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  onValue,
-  push,
-  query,
-  orderByValue,
-  increment,
-  orderByChild,
-} from "firebase/database";
+
+
 
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
