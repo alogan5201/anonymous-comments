@@ -8,8 +8,24 @@
 
 import dompurify from "dompurify";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, get,  onValue, push, query, orderByValue, increment, orderByChild } from "firebase/database";
- import { getFunctions, httpsCallable , connectFunctionsEmulator} from 'firebase/functions';
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  onValue,
+  push,
+  query,
+  orderByValue,
+  increment,
+  orderByChild,
+  connectDatabaseEmulator,
+} from "firebase/database";
+import {
+  getFunctions,
+  httpsCallable,
+  connectFunctionsEmulator,
+} from "firebase/functions";
 import {
   getAuth,
   signInWithRedirect,
@@ -19,28 +35,50 @@ import {
   onAuthStateChanged,
   connectAuthEmulator,
 } from "firebase/auth";
+
 //import 'bootstrap/dist/js/bootstrap.bundle';
-import { Modal, Dropdown} from 'bootstrap/dist/js/bootstrap.esm.min.js'
-
-
+import { Modal, Dropdown } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 import "picturefill";
 import "utils/errors";
 
-var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+const firebaseConfig = {
+  apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
+  authDomain: "geotools-bc75a.firebaseapp.com",
+  databaseURL: "https://geotools-bc75a-e8221.firebaseio.com",
+  projectId: "geotools-bc75a",
+  storageBucket: "geotools-bc75a.appspot.com",
+  messagingSenderId: "106157954659",
+  appId: "1:106157954659:web:3e189110236a2138438a56",
+  measurementId: "G-Z6GK19K3L0",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+var dropdownElementList = [].slice.call(
+  document.querySelectorAll(".dropdown-toggle")
+);
 var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-  return new Dropdown(dropdownToggleEl)
-})
-
-
-
+  return new Dropdown(dropdownToggleEl);
+});
 
 let url = window.location.href;
-Date.prototype.toShortFormat = function() {
-
-  let monthNames =["Jan","Feb","Mar","Apr",
-                    "May","Jun","Jul","Aug",
-                    "Sep", "Oct","Nov","Dec"];
+Date.prototype.toShortFormat = function () {
+  let monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
   let day = this.getDate();
 
@@ -50,128 +88,41 @@ Date.prototype.toShortFormat = function() {
   let year = this.getFullYear();
 
   return `${monthName} ${year}`;
-}
+};
 
 let today = new Date();
 
-const prettyDate = today.toShortFormat()
+const prettyDate = today.toShortFormat();
 
-
- const app = initializeApp({
-  apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
-  authDomain: "geotools-bc75a.firebaseapp.com",
-  projectId: "geotools-bc75a",
-  storageBucket: "geotools-bc75a.appspot.com",
-  messagingSenderId: "106157954659",
-  appId: "1:106157954659:web:3e189110236a2138438a56",
-  measurementId: "G-Z6GK19K3L0",
-});
 //const functions = getFunctions(app);
 const auth = getAuth();
 // Get a reference to the database service
-
+const db = getDatabase();
 const googleProvider = new GoogleAuthProvider();
 
- const functions = getFunctions(app);
+const functions = getFunctions(app);
 if (location.hostname === "localhost") {
-
-connectFunctionsEmulator(functions, "localhost", 5001);
-connectAuthEmulator(auth, "http://localhost:9099");
-}
-
-if (window.location.href.includes("login")) {
-  const App = function _App() {
-    return `
-
-       <div class="container w-100 h-100 position-relative ${_App.state.class}" style="    min-width: 100vw !important;
-    min-height: 100vh !important; ">
-    <div class="spinner-container position-absolute top-50
-                left-50" style= "width: 100%; text-align: center">
-
-       <div class="spinner-grow text-primary " role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-
-    </div>
-
-        </div>
-
-
-    `;
-  };
-  App.state = {
-    loading: false,
-    class: "d-none",
-    count: 0,
-    toggleState: () => {
-      setState(() => {
-        App.state.loading = App.state.loading ? false : true;
-      });
-    },
-  };
-
-  function toggleLoading() {
-    if (App.state.loading == true) {
-      App.state.loading = false;
-      App.state.class = "d-none";
-    } else {
-      App.state.loading = true;
-      App.state.class = "";
-    }
-  }
-
-  $("#google-sign-in").on("click", function (e) {
-    e.preventDefault();
-
-    $("main").addClass("d-none");
-
-    $("#spinner-box").removeClass("d-none");
-    signInWithRedirect(auth, googleProvider);
-  });
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      getRedirectResult(auth)
-        .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const user = result.user;
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.email;
-          // The AuthCredential type that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
-          // ...
-        })
-        .finally(() => {
-          window.location.replace("/");
-        });
-    } else {
-      $("#spinner-box").addClass("d-none");
-      $("main").removeClass("d-none");
-    }
-  });
-
-  import(/* webpackChunkName: "lazy-module.login" */ "./lazy-module").then(
-  (module) => {
-      const login = module.default;
-
-      login();
-    }
-  );
+  connectFunctionsEmulator(functions, "localhost", 5001);
+  connectAuthEmulator(auth, "http://localhost:9099");
+  connectDatabaseEmulator(db, "localhost", 9000);
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
-
-
-
-
-  $("#testBtn").on("click", function () {
-    let myModal = new Modal(document.getElementById("modalSignOut"));
-    myModal.toggle();
+  $("#createUser").on("click", function (e) {
+    e.preventDefault();
+    const createUser = httpsCallable(functions, "writeDB");
+    createUser({
+      nina: {
+        date_of_birth: "December 9, 1906",
+        full_name: "Nina Tchirkova",
+      },
+    })
+      .then(function (result) {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 
   onAuthStateChanged(auth, (user) => {
@@ -188,9 +139,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     e.preventDefault();
     signOut(auth)
       .then(() => {
-        let myModal = new Modal(
-          document.getElementById("modalSignOut")
-        );
+        let myModal = new Modal(document.getElementById("modalSignOut"));
         myModal.toggle();
       })
       .catch((error) => {});

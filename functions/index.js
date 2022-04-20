@@ -13,117 +13,142 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-"use-scrict"
-require("dotenv").config()
+"use-scrict";
+require("dotenv").config();
 // projects/660236032468/secrets/mapbox/versions/1
-const functions = require("firebase-functions")
-const sanitizer = require("./sanitizer")
-const admin = require("firebase-admin")
-const { v4: uuidv4 } = require("uuid")
-admin.initializeApp()
+const functions = require("firebase-functions");
+const sanitizer = require("./sanitizer");
+const admin = require("firebase-admin");
+const { v4: uuidv4 } = require("uuid");
+var serviceAccount = require("/home/a/geotools-bc75a-firebase-adminsdk-ju941-345b7135b5.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://geotools-bc75a-e8221.firebaseio.com",
+});
 
 const fetch = require("node-fetch");
-const mapboxToken = process.env.MAPBOX_TOKEN
+const mapboxToken = process.env.MAPBOX_TOKEN;
 // Imports the Secret Manager library
 
-
 // Instantiates a client
+exports.writeDB = functions.https.onCall((data) => {
+  console.log(data);
+  console.log("Hello console! I'm trying to write to the realtime db...");
+  return admin
+    .database()
+    .ref("/users")
+    .push(data)
+    .then(() => {
+      console.log("New User created");
+      // Returning the sanitized message to the client.
+      return data;
+    })
+    .catch((error) => {
+      // Re-throwing the error as an HttpsError so that the client gets the error details.
+      throw new functions.https.HttpsError("unknown", error.message, error);
+    });
+});
 
 async function fetchAddress(lat, lon) {
-
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,  { method: "GET" });
+  const response = await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=${mapboxToken}`,
+    { method: "GET" }
+  );
   if (response.status !== 200) {
-    return
+    return;
   }
-  const data= await response.json()
-  return data
+  const data = await response.json();
+  return data;
 }
-async function fetchLatLon (city) {
-
-  const cityQuery = encodeURIComponent(city)
-  const response = await fetch( `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityQuery}.json?access_token=${mapboxToken}`,  { method: "GET" });
+async function fetchLatLon(city) {
+  const cityQuery = encodeURIComponent(city);
+  const response = await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityQuery}.json?access_token=${mapboxToken}`,
+    { method: "GET" }
+  );
   if (response.status !== 200) {
-
-    return
+    return;
   }
 
-  const data= await response.json()
+  const data = await response.json();
 
-  return data
+  return data;
   // WARNING: Do not print the secret in a production environment - this
   // snippet is showing how to access the secret material.
-
 }
-async function fetchElevation (lat, lon) {
-
-
-  const response = await fetch( `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,  { method: "GET" });
+async function fetchElevation(lat, lon) {
+  const response = await fetch(
+    `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=${mapboxToken}`,
+    { method: "GET" }
+  );
   if (response.status !== 200) {
-      throw new functions.https.HttpsError(
+    throw new functions.https.HttpsError(
       "invalid-argument",
       "The function must be called with " +
         "two arguments firstnumber and secondNumber which must both be numbers."
-    )
-
+    );
   }
 
-  const data= await response.json()
+  const data = await response.json();
 
-  return data
+  return data;
   // WARNING: Do not print the secret in a production environment - this
   // snippet is showing how to access the secret material.
-
 }
 async function fetchMatrix(first, second) {
-const firstQuery= encodeURIComponent(first)
-const secondQuery= encodeURIComponent(second)
+  const firstQuery = encodeURIComponent(first);
+  const secondQuery = encodeURIComponent(second);
 
-  const response = await fetch( `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${firstQuery};${secondQuery}?&access_token=${mapboxToken}`,  { method: "GET" });
+  const response = await fetch(
+    `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${firstQuery};${secondQuery}?&access_token=${mapboxToken}`,
+    { method: "GET" }
+  );
   if (response.status !== 200) {
-    console.log(response.status)
-    return
+    console.log(response.status);
+    return;
   }
-  const data= await response.json()
-  console.info(data)
-  return data
+  const data = await response.json();
+  console.info(data);
+  return data;
 }
-exports.getMatrix = functions.https.onCall(data => {
-  const first = data.first
-  const second = data.second
-  const result = fetchMatrix(first, second)
-  return result
-    // [END returnAddData]
-  })
-exports.getElevation = functions.https.onCall(data => {
-  const lat = data.lat
-  const lon = data.lon
-  const result = fetchElevation(lat, lon)
-  return result
-    // [END returnAddData]
-  })
-exports.getAddress = functions.https.onCall(data => {
-  const lat = data.lat
-  const lon = data.lon
-  const result = fetchAddress(lat, lon)
-  return result
-    // [END returnAddData]
-  })
-exports.getLatLon = functions.https.onCall(data => {
-const city = data.city
-  const result = fetchLatLon(city)
-
-return result
+exports.getMatrix = functions.https.onCall((data) => {
+  const first = data.first;
+  const second = data.second;
+  const result = fetchMatrix(first, second);
+  return result;
   // [END returnAddData]
-})
+});
+exports.getElevation = functions.https.onCall((data) => {
+  const lat = data.lat;
+  const lon = data.lon;
+  const result = fetchElevation(lat, lon);
+  return result;
+  // [END returnAddData]
+});
+exports.getAddress = functions.https.onCall((data) => {
+  const lat = data.lat;
+  const lon = data.lon;
+  const result = fetchAddress(lat, lon);
+  return result;
+  // [END returnAddData]
+});
+exports.getLatLon = functions.https.onCall((data) => {
+  const city = data.city;
+  const result = fetchLatLon(city);
+
+  return result;
+  // [END returnAddData]
+});
 // [START allAdd]
 // [START addFunctionTrigger]
 // Adds two numbers to each other.
-exports.addNumbers = functions.https.onCall(data => {
+exports.addNumbers = functions.https.onCall((data) => {
   // [END addFunctionTrigger]
   // [START readAddData]
   // Numbers passed from the client.
-  const firstNumber = data.firstNumber
-  const secondNumber = data.secondNumber
+  const firstNumber = data.firstNumber;
+  const secondNumber = data.secondNumber;
   // [END readAddData]
 
   // [START addHttpsError]
@@ -134,7 +159,7 @@ exports.addNumbers = functions.https.onCall(data => {
       "invalid-argument",
       "The function must be called with " +
         "two arguments firstnumber and secondNumber which must both be numbers."
-    )
+    );
   }
   // [END addHttpsError]
 
@@ -144,19 +169,19 @@ exports.addNumbers = functions.https.onCall(data => {
     firstNumber: firstNumber,
     secondNumber: secondNumber,
     operator: "+",
-    operationResult: firstNumber + secondNumber
-  }
+    operationResult: firstNumber + secondNumber,
+  };
   // [END returnAddData]
-})
+});
 // [START allAdd]
 // [START addFunctionTrigger]
 // Adds two numbers to each other.
-exports.addNumbers = functions.https.onCall(data => {
+exports.addNumbers = functions.https.onCall((data) => {
   // [END addFunctionTrigger]
   // [START readAddData]
   // Numbers passed from the client.
-  const firstNumber = data.firstNumber
-  const secondNumber = data.secondNumber
+  const firstNumber = data.firstNumber;
+  const secondNumber = data.secondNumber;
   // [END readAddData]
 
   // [START addHttpsError]
@@ -167,7 +192,7 @@ exports.addNumbers = functions.https.onCall(data => {
       "invalid-argument",
       "The function must be called with " +
         "two arguments 'firstNumber' and 'secondNumber' which must both be numbers."
-    )
+    );
   }
   // [END addHttpsError]
 
@@ -177,19 +202,19 @@ exports.addNumbers = functions.https.onCall(data => {
     firstNumber: firstNumber,
     secondNumber: secondNumber,
     operator: "+",
-    operationResult: firstNumber + secondNumber
-  }
+    operationResult: firstNumber + secondNumber,
+  };
   // [END returnAddData]
-})
+});
 // [END allAdd]
 
 // [START messageFunctionTrigger]
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
 exports.addComment = functions.https.onCall((data) => {
-  const text = data.text
-  const name = data.name
-  const uid = data.uid
-  const documentId = uuidv4()
+  const text = data.text;
+  const name = data.name;
+  const uid = data.uid;
+  const documentId = uuidv4();
 
   if (!(typeof text === "string") || text.length === 0) {
     // Throwing an HttpsError so that the client gets the error details.
@@ -197,10 +222,8 @@ exports.addComment = functions.https.onCall((data) => {
       "invalid-argument",
       "The function must be called with " +
         "one arguments 'text' containing the message text to add."
-    )
+    );
   }
-
-
 
   // [END authIntegration]
 
@@ -208,15 +231,15 @@ exports.addComment = functions.https.onCall((data) => {
   // Saving the new message to the Realtime Database.
   // Sanitize the message.
 
-  const sanitizedName = sanitizer.sanitizeText(name)
+  const sanitizedName = sanitizer.sanitizeText(name);
 
-  const sanitizedMessage = sanitizer.sanitizeText(text) // Sanitize the message.
+  const sanitizedMessage = sanitizer.sanitizeText(text); // Sanitize the message.
   return {
     text: sanitizedMessage,
     name: sanitizedName,
     uid: uid,
-    id: documentId
-  }
+    id: documentId,
+  };
   // [END_EXCLUDE]
-})
+});
 // [END messageFunctionTrigger]

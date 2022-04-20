@@ -41,17 +41,13 @@
     background: transparent;
 
     .navbar-brand {
-      color:rgb(33, 37, 41);
-
-
+      color: rgb(33, 37, 41);
     }
 
     .navbar-nav {
       > li.nav-item {
         > a.nav-link {
           color: rgb(33, 37, 41);
-
-
         }
       }
     }
@@ -71,9 +67,6 @@
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-
-
-
 
     &.is-fixed {
       /* when the user scrolls down, we hide the header right above the viewport */

@@ -1,87 +1,153 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'Home'}); -%>
-    <body>
-      <!--[if lt IE 8]>
+  <%- include(`${partials}/homeHead`, {pageTitle: 'Home'}); -%>
+  <body class="d-flex flex-column">
+    <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-      <noscript>
-        <h3>Please enable JavaScript in order to view this site properly.</h3>
-      </noscript>
-      <div id="spinner-box" class="container w-100 h-100 position-relative"
-        style="min-width:
-        100vw !important;
-        min-height: 100vh !important;">
-        <div class="spinner-container position-absolute top-50
-          left-50" style="width: 100%; text-align: center">
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
 
-          <div class="spinner-grow text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-
+    <!-- Main Content-->
+    <div
+      id="spinner-box"
+      class="container w-100 h-100 position-relative"
+      style="min-width: 100vw !important; min-height: 100vh !important;"
+    >
+      <div
+        class="spinner-container position-absolute top-50 left-50"
+        style="width: 100%; text-align: center;"
+      >
+        <div class="spinner-grow text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
-
       </div>
-      <main class="form-signin d-none">
-        <section class="vh-100 gradient-custom">
-          <div class="container h-100">
+    </div>
+    <main class="form-signin d-none">
+      <section class="vh-100 gradient-custom">
+        <div class="container h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
             <div
-              class="row d-flex justify-content-center align-items-center
-              h-100">
+              class="col-12 col-md-8 col-lg-6 col-xl-6 position-relative"
+              id="login-container"
+            >
+              <div
+                id="login-form"
+                class="card bg-dark text-white"
+                style="border-radius: 1rem;"
+              >
+                <div class="card-body p-5 text-center">
+                  <div class="mb-md-5 mt-md-4 pb-5">
+                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                    <p class="text-white-50 mb-5">
+                      Please enter your login and password!
+                    </p>
 
-              <div class="col-12 col-md-8 col-lg-6 col-xl-6 position-relative"
-                id="login-container">
-                <div id="login-form"
-                  class="card bg-dark text-white"
-                  style="border-radius: 1rem;">
-                  <div class="card-body p-5 text-center">
-                    <div class="mb-md-5 mt-md-4 pb-5">
-                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                      <p class="text-white-50 mb-5">
-                        Please enter your login and password!
-                      </p>
-
-                      <div class="vstack gap-2 mx-auto">
-                        <button
-                          class="btn btn-outline-light btn-lg px-5 mb-2"
-                          type="submit">
-                          Sign in With Email
-                        </button>
-                        <button id="google-sign-in" class="btn btn-outline-light
-                          btn-lg px-5" type="button">
-
-                          <i class="fab fa-google fa-lg"></i>
-                        </button>
-                      </div>
-
-
-
+                    <div class="vstack gap-2 mx-auto">
+                      <button
+                        class="btn btn-outline-light btn-lg px-5 mb-2"
+                        type="submit"
+                      >
+                        Sign in With Email
+                      </button>
+                      <button
+                        id="google-sign-in"
+                        class="btn btn-outline-light btn-lg px-5"
+                        type="button"
+                      >
+                        <i class="fab fa-google fa-lg"></i>
+                      </button>
                     </div>
+                  </div>
 
-                    <div>
-                      <p class="mb-0">
-                        Don't have an account?
-                        <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-                      </p>
-                    </div>
+                  <div>
+                    <p class="mb-0">
+                      Don't have an account?
+                      <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+      <div class="d-none">
+        <!-- Modal HTML -->
+        <div id="filterCommentSuccess" class="modal fade" tabindex="-1">
+          <div
+            class="modal-dialog modal-confirm success modal-dialog-centered my-0 mx-auto"
+          >
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="icon-box">
+                  <i class="fas fa-check"></i>
+                </div>
+                <h4 class="modal-title w-100">Awesome!</h4>
+              </div>
+              <div class="modal-body">
+                <p class="text-center">Your Comment has been approved</p>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <button
+                  id="modal-close-btn"
+                  type="button"
+                  class="btn btn-secondary modal-close-btn"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <%- include(`${partials}/scripts.ejs`); -%>
+        <div
+          class="modal fade"
+          id="filterCommentFail"
+          tabindex="-1"
+          aria-labelledby="filterCommentFailLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-confirm modal-dialog-centered failure">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="icon-box">
+                  <i class="fas fa-times"></i>
+                </div>
+                <h4 class="modal-title w-100">Oops!</h4>
+              </div>
+              <div class="modal-body">
+                <p class="text-center">
+                  The content of your message was flagged inappropriate.<br />Please
+                  try again.
+                </p>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <div class="modal-footer justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-secondary modal-close-btn"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-        <script>
-
-
-
-    </script>
-      </body>
-    </html>
+    <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/login-scripts`); -%>
+  </body>
+</html>

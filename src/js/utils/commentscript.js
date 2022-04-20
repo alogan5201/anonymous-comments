@@ -1,15 +1,15 @@
 /* jshint esversion: 8 */
-import { handleComment } from '../firebase'
+import { handleComment } from "../firebase";
 import {
   comment,
   commentReply,
   extractReplies,
-  replyForm
-} from 'utils/comments'
-import { toggleModal } from './helpers'
-import dompurify from 'dompurify'
-import { httpsCallable, getFunctions } from 'firebase/functions'
-import { getAuth } from 'firebase/auth'
+  replyForm,
+} from "utils/comments";
+
+import dompurify from "dompurify";
+import { httpsCallable, getFunctions } from "firebase/functions";
+import { getAuth } from "firebase/auth";
 import {
   getDatabase,
   ref,
@@ -20,81 +20,85 @@ import {
   query,
   orderByValue,
   increment,
-  orderByChild
-} from 'firebase/database'
+  orderByChild,
+} from "firebase/database";
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
-
-$('.modal-close-btn').on('click', function (e) {
-  e.preventDefault()
-  const modalId = $(this).parent().parent().parent().parent().attr('id')
-  let modal = modalId == "filterCommentSuccess" ? "success" : "fail"
-toggleModal(modal)
+function toggleModal(id) {
+  const modal =
+    id == "success"
+      ? filterCommentSuccess.toggle()
+      : filterCommentFail.toggle();
+  return modal;
+}
+$(".modal-close-btn").on("click", function (e) {
+  e.preventDefault();
+  const modalId = $(this).parent().parent().parent().parent().attr("id");
+  let modal = modalId == "filterCommentSuccess" ? "success" : "fail";
+  toggleModal(modal);
 });
 
 Date.prototype.toShortFormat = function () {
   let monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
 
-  let day = this.getDate()
+  let day = this.getDate();
 
-  let monthIndex = this.getMonth()
-  let monthName = monthNames[monthIndex]
+  let monthIndex = this.getMonth();
+  let monthName = monthNames[monthIndex];
 
-  let year = this.getFullYear()
+  let year = this.getFullYear();
 
-  return `${monthName} ${year}`
-}
+  return `${monthName} ${year}`;
+};
 
-let today = new Date()
-const prettyDate = today.toShortFormat()
+let today = new Date();
+const prettyDate = today.toShortFormat();
 
-const functions = getFunctions()
-const db = getDatabase()
-const auth = getAuth()
-const path = window.location.pathname
+const functions = getFunctions();
+const db = getDatabase();
+const auth = getAuth();
+const path = window.location.pathname;
 
 setTimeout(() => {
   if (auth.currentUser) {
   }
-}, 1000)
+}, 1000);
 
-const commentRef = ref(db, `messages${path}`)
-
-
+const commentRef = ref(db, `messages${path}`);
 
 /**
  *---------------------------------------------------------------------
  * !! DISPLAY COMMENTS
  * -------------------------------------------------------------------
  */
-function displayComments () {
+function displayComments() {
   get(commentRef)
-    .then(snapshot => {
+    .then((snapshot) => {
       if (snapshot.exists()) {
-        const data = snapshot.val()
-        const map = new Map(Object.entries(data))
+        const data = snapshot.val();
+        const map = new Map(Object.entries(data));
 
         for (const [key, value] of map.entries()) {
-          let likes = value.likes && value.likes.likes ? value.likes.likes : ''
+          let likes = value.likes && value.likes.likes ? value.likes.likes : "";
           let dislikes =
             value.dislikes && value.dislikes.dislikes
               ? value.dislikes.dislikes
-              : ''
+              : "";
 
-          const dateinfo = value.date ? value.date : ''
+          const dateinfo = value.date ? value.date : "";
 
           const commentsList = comment(
             value.id,
@@ -103,20 +107,20 @@ function displayComments () {
             value.message,
             likes,
             dislikes
-          )
-          $('#comment-section').append(commentsList)
+          );
+          $("#comment-section").append(commentsList);
           if (value.replies) {
-            let ex = extractReplies(value.replies)
+            let ex = extractReplies(value.replies);
             for (let index = 0; index < ex.length; index++) {
-              const element = ex[index]
-              let recipient = $(`#${element.recipient} .other-comments`)
+              const element = ex[index];
+              let recipient = $(`#${element.recipient} .other-comments`);
 
               let replies = commentReply(
                 element.name,
                 element.id,
                 element.date,
                 element.message
-              )
+              );
               $(recipient[0]).append(
                 `  <div class="col-md-11 p-3 mb-3" >
    <div class="row ">
@@ -136,185 +140,169 @@ function displayComments () {
 
 
 `
-              )
+              );
             }
           }
         }
       } else {
       }
     })
-    .catch(error => {
-      console.error(error)
-    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
-displayComments()
+displayComments();
 /**
  *---------------------------------------------------------------------
  * !! COMMENT SUBMIT
  * -------------------------------------------------------------------
  */
-$('#comment-form').on('submit', function (e) {
-  e.preventDefault()
+$("#comment-form").on("submit", function (e) {
+  e.preventDefault();
 
-  $('#comment-btn').disabled = true
-  const inputs = $('#comment-form :input')
-  const children = $(this).children()
+  $("#comment-btn").disabled = true;
+  const inputs = $("#comment-form :input");
+  const children = $(this).children();
   $(
-    '#comment-btn'
+    "#comment-btn"
   ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Verifying..`)
+Verifying..`);
 
   let name =
-    e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : 'Guest'
-  let message = e.currentTarget[1].value
-  let cleanMessage = dompurify.sanitize(message)
-  let cleanName = dompurify.sanitize(name)
-  const userData = JSON.parse(localStorage.getItem('userData'))
+    e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
+  let message = e.currentTarget[1].value;
+  let cleanMessage = dompurify.sanitize(message);
+  let cleanName = dompurify.sanitize(name);
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
-  handleComment(cleanMessage, cleanName, userData, path)
-})
+  handleComment(cleanMessage, cleanName, userData, path);
+});
 /**
  *---------------------------------------------------------------------
  * !! COMMENT REPLY SUBMIT
  * -------------------------------------------------------------------
  */
-$('#comment-section').on('click', '.reply-btn', function (e) {
-  e.preventDefault()
-  let item = $(this)
-  let btn = item[0]
+$("#comment-section").on("click", ".reply-btn", function (e) {
+  e.preventDefault();
+  let item = $(this);
+  let btn = item[0];
 
-  let siblings = $(this)
-    .parent()
-    .parent()
-    .siblings()
-  let otherComments = siblings[0]
+  let siblings = $(this).parent().parent().siblings();
+  let otherComments = siblings[0];
   // let parentTag = $(this).parent().parent().attr('id');
-  let parentTag = $(this)
-    .parent()
-    .parent()
-    .attr('id')
+  let parentTag = $(this).parent().parent().attr("id");
   let grandFather = $(this)
     .parent()
     .parent()
     .parent()
     .children()
     .last()
-    .children()
-  let footer = $(this)
-    .parent()
-    .parent()
-    .parent()
-    .children()
-    .last()
+    .children();
+  let footer = $(this).parent().parent().parent().children().last();
   let replySection = $(this)
     .parent()
     .parent()
     .parent()
     .children()
     .last()
-    .children()
+    .children();
 
-  console.log(btn)
-  const replyFormComponent = replyForm()
-  $(footer).append(replyFormComponent)
-  $(replySection).addClass('d-none')
-  btn.disabled = true
-  $('.reply-form').on('submit', function (e) {
-    e.preventDefault()
+  console.log(btn);
+  const replyFormComponent = replyForm();
+  $(footer).append(replyFormComponent);
+  $(replySection).addClass("d-none");
+  btn.disabled = true;
+  $(".reply-form").on("submit", function (e) {
+    e.preventDefault();
 
-    let elem = $(this)
-    let buttonElm = e.target[2]
-    let formElements = e.target
-    buttonElm.disabled = true
+    let elem = $(this);
+    let buttonElm = e.target[2];
+    let formElements = e.target;
+    buttonElm.disabled = true;
     $(
       buttonElm
     ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Verifying..`)
+Verifying..`);
 
     let name =
-      formElements[0].value.length > 0 ? formElements[0].value : 'Guest'
+      formElements[0].value.length > 0 ? formElements[0].value : "Guest";
 
-    let message = formElements[1]
-    let parent = $(this).parent()
-    let siblings = $(this).siblings()
+    let message = formElements[1];
+    let parent = $(this).parent();
+    let siblings = $(this).siblings();
 
-    let otherComments = siblings[1]
+    let otherComments = siblings[1];
 
-    let cleanMessage = dompurify.sanitize(message.value)
-    let cleanName = dompurify.sanitize(name)
-    const docId = $(this)
-      .parent()
-      .parent()
-      .attr('id')
+    let cleanMessage = dompurify.sanitize(message.value);
+    let cleanName = dompurify.sanitize(name);
+    const docId = $(this).parent().parent().attr("id");
 
-    let messageText = `${cleanName} ${cleanMessage}`
-    let replyForm = $(this)
-    let otherSiblings = siblings[0]
+    let messageText = `${cleanName} ${cleanMessage}`;
+    let replyForm = $(this);
+    let otherSiblings = siblings[0];
 
-    const addComment = httpsCallable(functions, 'addComment')
+    const addComment = httpsCallable(functions, "addComment");
     setTimeout(() => {
-      const userData = JSON.parse(localStorage.getItem('userData'))
+      const userData = JSON.parse(localStorage.getItem("userData"));
 
-      const uid = userData.uid
+      const uid = userData.uid;
       addComment({
         text: cleanMessage,
         name: cleanName,
         uid: userData,
-        page: path
+        page: path,
       })
         .then(function (result) {
-          console.log(result)
+          console.log(result);
 
           // Read result of the Cloud Function.
-          let sanitizedMessage = result.data.text
-          let sanitizedName = result.data.name
+          let sanitizedMessage = result.data.text;
+          let sanitizedName = result.data.name;
 
-          if (
-            cleanMessage !== sanitizedMessage
-          ) {
-            filterCommentFail.toggle()
-            $('#reply-btn').disabled = false
-            $('#reply-btn').html('Send')
+          if (cleanMessage !== sanitizedMessage) {
+            filterCommentFail.toggle();
+            $("#reply-btn").disabled = false;
+            $("#reply-btn").html("Send");
             for (let index = 0; index < formElements.length; index++) {
-              const element = formElements[index]
-              element.value = ''
+              const element = formElements[index];
+              element.value = "";
             }
           } else {
-            console.log('test')
+            console.log("test");
             get(commentRef)
-              .then(snapshot => {
+              .then((snapshot) => {
                 if (snapshot.exists()) {
-                  const data = snapshot.val()
-                  const map = new Map(Object.entries(data))
+                  const data = snapshot.val();
+                  const map = new Map(Object.entries(data));
 
                   for (const [key, value] of map.entries()) {
                     if (value.id == docId) {
                       const postListRef = ref(
                         db,
                         `messages${path}${key}/replies`
-                      )
+                      );
 
-                      const newPostRef = push(postListRef)
+                      const newPostRef = push(postListRef);
                       return set(newPostRef, {
                         name: sanitizedName,
                         id: uid,
                         message: sanitizedMessage,
                         date: prettyDate,
-                        recipient: value.id
-                      })
+                        recipient: value.id,
+                      });
                     }
                   }
                 } else {
                 }
               })
-              .catch(error => {
-                console.error(error)
-              })
+              .catch((error) => {
+                console.error(error);
+              });
 
             setTimeout(() => {
               $(replyForm).animate({ opacity: 0 }, function () {
-                $(replyForm).css('display', 'none')
-                $(otherSiblings).removeClass('d-none')
+                $(replyForm).css("display", "none");
+                $(otherSiblings).removeClass("d-none");
                 $(otherSiblings).append(
                   `
        <div class="col-md-11 p-3 mb-3" >
@@ -336,153 +324,127 @@ Verifying..`)
 
      </div>
      `
-                )
-                $(otherComments).animate({ opacity: 1 }, 500)
+                );
+                $(otherComments).animate({ opacity: 1 }, 500);
 
-                filterCommentSuccess.toggle()
-              })
-            }, 500)
+                filterCommentSuccess.toggle();
+              });
+            }, 500);
           }
         })
         .catch(function (error) {
           // Getting the Error details.
-          let code = error.code
-          let message = error.message
-          let details = error.details
+          let code = error.code;
+          let message = error.message;
+          let details = error.details;
           console.error(
-            'There was an error when calling the Cloud Function',
+            "There was an error when calling the Cloud Function",
             error
-          )
+          );
           window.alert(
-            'There was an error when calling the Cloud Function:\n\nError Code: ' +
+            "There was an error when calling the Cloud Function:\n\nError Code: " +
               code +
-              '\nError Message:' +
+              "\nError Message:" +
               message +
-              '\nError Details:' +
+              "\nError Details:" +
               details
-          )
-          addCommentButton.disabled = false
-        })
-    }, 2000)
-  })
-})
+          );
+          addCommentButton.disabled = false;
+        });
+    }, 2000);
+  });
+});
 /**
  *---------------------------------------------------------------------
  * !! THUMBS UP
  * -------------------------------------------------------------------
  */
 
-$('#comment-section').on('click', '#thumbs-up', function (e) {
-  e.preventDefault()
-  let btn = $(this)
-  btn[0].disabled = true
-  let t = $(this)
-  let anchor = t[0]
-  let countText = $(this)
-    .children()
-    .last()
-    .text()
-  let parentTag = $(this)
-    .parent()
-    .parent()
-    .parent()
-    .attr('id')
+$("#comment-section").on("click", "#thumbs-up", function (e) {
+  e.preventDefault();
+  let btn = $(this);
+  btn[0].disabled = true;
+  let t = $(this);
+  let anchor = t[0];
+  let countText = $(this).children().last().text();
+  let parentTag = $(this).parent().parent().parent().attr("id");
 
   onValue(
     commentRef,
-    snapshot => {
-      snapshot.forEach(childSnapshot => {
-        const childKey = childSnapshot.key
-        const childData = childSnapshot.val()
+    (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
         //
 
         if (childData.id == parentTag) {
-          const postListRef = ref(db, `messages${path}${childKey}/likes`)
+          const postListRef = ref(db, `messages${path}${childKey}/likes`);
 
-          const newPostRef = push(postListRef)
+          const newPostRef = push(postListRef);
           set(ref(db, `messages${path}${childKey}/likes`), {
-            likes: increment(1)
-          })
+            likes: increment(1),
+          });
         }
-      })
+      });
     },
     {
-      onlyOnce: true
+      onlyOnce: true,
     }
-  )
+  );
 
-  let newCount = parseInt(countText) + 1 || 1
+  let newCount = parseInt(countText) + 1 || 1;
   $(this)
     .children()
     .first()
-    .removeClass('far fa-thumbs-up me-2')
-    .addClass('fas fa-thumbs-up me-2')
-  $(this)
-    .children()
-    .first()
-    .css('color', '#0085A1')
+    .removeClass("far fa-thumbs-up me-2")
+    .addClass("fas fa-thumbs-up me-2");
+  $(this).children().first().css("color", "#0085A1");
 
-  $(this)
-    .children()
-    .last()
-    .html(newCount)
-})
+  $(this).children().last().html(newCount);
+});
 /**
  *---------------------------------------------------------------------
  * !! THUMBS DOWN
  * -------------------------------------------------------------------
  */
-$('#comment-section').on('click', '#thumbs-down', function (e) {
-  e.preventDefault()
-  let t = $(this)
+$("#comment-section").on("click", "#thumbs-down", function (e) {
+  e.preventDefault();
+  let t = $(this);
 
-  t[0].disabled = true
-  let anchor = t[0]
-  let countText = $(this)
-    .children()
-    .last()
-    .text()
-  let parentTag = $(this)
-    .parent()
-    .parent()
-    .parent()
-    .attr('id')
+  t[0].disabled = true;
+  let anchor = t[0];
+  let countText = $(this).children().last().text();
+  let parentTag = $(this).parent().parent().parent().attr("id");
 
   onValue(
     commentRef,
-    snapshot => {
-      snapshot.forEach(childSnapshot => {
-        const childKey = childSnapshot.key
-        const childData = childSnapshot.val()
+    (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
         //
 
         if (childData.id == parentTag) {
-          const postListRef = ref(db, `messages${path}${childKey}/likes`)
+          const postListRef = ref(db, `messages${path}${childKey}/likes`);
 
-          const newPostRef = push(postListRef)
+          const newPostRef = push(postListRef);
           set(ref(db, `messages${path}${childKey}/dislikes`), {
-            dislikes: increment(1)
-          })
+            dislikes: increment(1),
+          });
         }
-      })
+      });
     },
     {
-      onlyOnce: true
+      onlyOnce: true,
     }
-  )
+  );
 
-  let newCount = parseInt(countText) + 1 || 1
+  let newCount = parseInt(countText) + 1 || 1;
   $(this)
     .children()
     .first()
-    .removeClass('far fa-thumbs-down me-2')
-    .addClass('fas fa-thumbs-down me-2')
-  $(this)
-    .children()
-    .first()
-    .css('color', '#0085A1')
-  $(this)
-    .children()
-    .last()
-    .html(newCount)
-})
+    .removeClass("far fa-thumbs-down me-2")
+    .addClass("fas fa-thumbs-down me-2");
+  $(this).children().first().css("color", "#0085A1");
+  $(this).children().last().html(newCount);
+});

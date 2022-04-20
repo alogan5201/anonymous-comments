@@ -1,7 +1,5 @@
-
-export function popupContent (data){
-
-let result = `  <div class="row">
+export function popupContent(data) {
+  let result = `  <div class="row">
 
             <div class="col">
 
@@ -26,13 +24,12 @@ let result = `  <div class="row">
       </div>
     </div>
             </div>
-        </div>`
+        </div>`;
 
-return result
-
+  return result;
 }
 
-export function commentReply (name, id, date, message) {
+export function commentReply(name, id, date, message) {
   let data = `  <div class="col-md-11 p-3 mb-3" id=${id} >
        <div class="row ">
        <div class="col-lg-12 border-start">
@@ -47,12 +44,12 @@ export function commentReply (name, id, date, message) {
          </p>
        </div>
        </div>
-         </div>`
+         </div>`;
 
-  return data
+  return data;
 }
 
-export function comment (id, name, date, message, likes, dislikes) {
+export function comment(id, name, date, message, likes, dislikes) {
   let data = `
    <div class="col-md-12 col-lg-12 col-xl-12">
      <div class="card border-0 " id=${id} style="background-color: transparent">
@@ -71,8 +68,8 @@ export function comment (id, name, date, message, likes, dislikes) {
            <button  id="thumbs-up" role="button" class="d-flex align-items-center me-3 btn btn-link  border-0" style="background-color: transparent !important; padding-left: 0 !important; margin-right: 0.25rem  !important">
              <i class="far fa-thumbs-up me-2"></i> <span id="count">${likes}</span>
            </button>
-             <button  id="thumbs-up" role="button" class="d-flex align-items-center me-3 btn btn-link  border-0" style="background-color: transparent !important; padding-left: 0 !important; margin-right: 0.25rem  !important">
-             <i class="far fa-thumbs-up me-2"></i> <span id="count">${dislikes}</span>
+             <button  id="thumbs-down" role="button" class="d-flex align-items-center me-3 btn btn-link  border-0" style="background-color: transparent !important; padding-left: 0 !important; margin-right: 0.25rem  !important">
+             <i class="far fa-thumbs-down me-2"></i> <span id="count">${dislikes}</span>
            </button>
            <button id= "reply-btn" class="d-flex align-items-center me-3 reply-btn btn btn-link  border-0" style="background-color: transparent !important; padding-left: 0 !important; margin-right: 0.25rem  !important">
              <i class="far fa-comment-dots me-2"></i>
@@ -87,12 +84,12 @@ export function comment (id, name, date, message, likes, dislikes) {
          </div>
        </div>
      </div>
-   </div>`
+   </div>`;
 
-  return data
+  return data;
 }
 
-export function replyForm () {
+export function replyForm() {
   let data = `<form class="reply-form">
  <div class="d-flex flex-start w-100 ">
      <div class="col-md-11 p-3 mb-3">
@@ -115,31 +112,31 @@ export function replyForm () {
     </div>
 
 
-</form>`
+</form>`;
 
-  return data
+  return data;
 }
-export function extractReplies (replies) {
-  let response = []
+export function extractReplies(replies) {
+  let response = [];
 
-  const map = new Map(Object.entries(replies))
+  const map = new Map(Object.entries(replies));
   for (const [key, value] of map.entries()) {
     let newObject = {
       id: key,
       name: value.name,
       message: value.message,
       date: value.date,
-      recipient: value.recipient
-    }
+      recipient: value.recipient,
+    };
 
-    response.push(newObject)
+    response.push(newObject);
   }
 
-  return response
+  return response;
 }
 
 export default {
   comment,
   commentReply,
-  extractReplies
-}
+  extractReplies,
+};

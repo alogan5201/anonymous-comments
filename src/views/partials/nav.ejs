@@ -1,21 +1,26 @@
-<nav id="mainNav" class="navbar navbar-expand-lg ">
+<nav id="mainNav" class="navbar navbar-expand-lg">
   <div class="container-fluid px-4 py-3 py-0 border-bottom">
-
-        <div class="hstack gap-1 ms-1">
-<div class="position-relative ms-2 me-2">
-    <div class='pin'></div>
-<div class='pulse'></div>
-</div>
-<a href="/" class="navbar-brand d-flex align-items-center">
-<span class="fs-4">GeoTools</span>
-
-
+    <div class="hstack gap-1 ms-1">
+      <div class="position-relative ms-2 me-2">
+        <div class="pin"></div>
+        <div class="pulse"></div>
+      </div>
+      <a href="/" class="navbar-brand d-flex align-items-center">
+        <span class="fs-4">GeoTools</span>
       </a>
-</div>
-<button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-    <div class="collapse navbar-collapse "  id="navbarNav">
+    </div>
+    <button
+      class="navbar-toggler text-white"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a
@@ -28,7 +33,10 @@
           >
             Tools
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarDarkDropdownMenuLink"
+          >
             <li>
               <a class="dropdown-item" href="/">
                 <svg
@@ -228,11 +236,7 @@
             <hr class="dropdown-divider" />
 
             <li>
-              <a
-                href="/converter"
-                class="dropdown-item"
-                aria-current="page"
-              >
+              <a href="/converter" class="dropdown-item" aria-current="page">
                 <svg
                   class="bi me-2"
                   width="16"
@@ -267,9 +271,40 @@
         <li class="nav-item">
           <a class="nav-link" href="/movie-locations/1">Movies</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" id="login-link-text" href="/login">Login</a>
+        </li>
       </ul>
 
-
+      <div class="dropdown text-end d-flex" id="user-profile">
+        <div class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="login-link-icon"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+              <path
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+              /></svg
+          ></a>
+          <ul class="dropdown-menu" aria-labelledby="login-link-icon">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a id="sign-out" class="dropdown-item" href="#">Sign out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
