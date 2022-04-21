@@ -1,2 +1,7 @@
 22:08:07.268 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
 22:08:07.419 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9001
+01:12:28.227 [Thread-1] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
+01:12:28.260 [NamespaceSystem-akka.actor.default-dispatcher-9] INFO com.firebase.core.namespace.Terminator$Terminator - 1 actors left to terminate: geotools-bc75a-default-rtdb
+01:12:28.270 [NamespaceSystem-akka.actor.default-dispatcher-12] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for geotools-bc75a-default-rtdb
+01:12:28.271 [NamespaceSystem-akka.actor.default-dispatcher-12] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for geotools-bc75a-default-rtdb
+01:12:28.277 [Thread-1] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.

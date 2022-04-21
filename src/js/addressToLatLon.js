@@ -220,8 +220,6 @@ $(function () {
       $("#latlonForm").find("input:eq(0)").val(lat);
       $("#latlonForm").find("input:eq(1)").val(lon);
 
-
-
     }
     $("form :submit").first().html(`${submitText}`);
     map.fitBounds([[lat, lon]], { padding: [50, 50] });
