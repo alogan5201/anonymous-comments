@@ -1,6 +1,11 @@
 /* jshint esversion: 8 */
-import "./firebase"
+import './firebase'
+import {
+
+  generateUID,
+} from "utils/geocoder";
 import 'utils/commentscript.js'
+
 let geojson = {
   type: 'FeatureCollection',
   features: [
@@ -20,7 +25,7 @@ let geojson = {
     }
   ]
 }
-
+const uid = generateUID();
 function inputFocus (x) {
   if ($('#secondOutput').hasClass('second')) {
     $('#secondOutput')
@@ -138,21 +143,22 @@ window.addEventListener('DOMContentLoaded', () => {
   )
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-
-  const finishedLoading = () => {
-    setTimeout(function () {
-      // then, after a half-second, add the class 'hide', which hides
-      // it completely and ensures that the user can interact with the
-      // map again.
-    }, 500)
-  }
-
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox
+    .map('map', null, { zoomControl: false })
+    .setView([38.25004425273146, -85.75576792471112], 11)
 
   L.mapbox
     .styleLayer('mapbox://styles/mapbox/streets-v11')
     .addTo(map) // add your tiles to the map
-    .on('load', finishedLoading)
+    .once('load', finishedLoading)
+
+  function finishedLoading () {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
+    setTimeout(() => {
+      $('#map').removeClass('invisible')
+    }, 1000)
+  }
 
   // var myLayer = L.mapbox.featureLayer().addTo(map);
   const marker = L.marker([0, 0], {
@@ -170,31 +176,38 @@ window.addEventListener('DOMContentLoaded', () => {
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-        follow: false,
+      follow: false,
       setView: false,
       iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {
         enableHighAccuracy: true
-}
+      }
     })
     .addTo(map)
-/**
- *
- * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
- */
+  /**
+   *
+   * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
+   */
   map.on('locationfound', function (e) {
     let lat = e.latitude
     let lon = e.longitude
     var radius = e.accuracy;
 
-
     (async () => {
       const address = await convertLatLon(lat, lon)
-      const submitText =  $('form :submit').first().text()
-      console.log(  $('form :submit').first().parent())
-      $('form :submit').first().html(`${submitText}`)
+      const submitText = $('form :submit')
+        .first()
+        .text()
+      console.log(
+        $('form :submit')
+          .first()
+          .parent()
+      )
+      $('form :submit')
+        .first()
+        .html(`${submitText}`)
       if (address.features[0]) {
         $('input')
           .first()
@@ -281,6 +294,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   async function fetchWeather (lat, lon) {
+
     const query = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
       { method: 'GET' }
@@ -289,33 +303,53 @@ window.addEventListener('DOMContentLoaded', () => {
       return
     }
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [50, 50]
     })
+       let addressField = $('#searchInput')
+    let latlonField = `<li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span></li> <li class="list-group-item border-0 px-1 fs-6 py-0"><span> <strong>
+                  Longitude: <span class="lon">${lon}</span> </span></li>`
+    let location = addressField.length > 0 ? `<li class="list-group-item border-0 px-1 fs-6 py-0 address">${addressField[0].value}</li>` : ""
     const data = await query.json()
     const imgIcon = data.weather[0].icon
     const currentWeather = data.weather[0].main
     const temp = data.main.temp
     $('#latInputField').val(lat)
     $('#lonInputField').val(lon)
-    var popup = L.popup({ autoPan: true, keepInView: true })
-      .setContent(`<div class="row" >
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${currentWeather}</h5>
-          <p class="card-text">
 
-            <span>   <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span>
+    console.log(addressField[0].value)
+    let popupContent = `<div class="row">
+            <div class="col p-0">
 
-            <span>
-              ${temp}°F </span>
+   <div class="card-body px-3 pt-2 pb-1">
+     <ul class="list-group border-0">
+            <li class="list-group-item border-0 px-1 fs-6 py-0"> <div class="hstack gap-3">
+  <div class = "weather" > ${currentWeather}</div>
+  <div class=""><span> <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span></div>
+  <div class="temp">${temp}°F</div>
+</div></li>
+     ${location} ${latlonField}
+       <li class="list-group-item border-0 px-1 fs-6 py-0 pb-1 pt-2 border-top">
+         <div class="hstack gap-3">
+           <div class="  altitude">
+             <button class="btn btn-primary btn-sm btn-sm" id="getAltitude" type="button ">
+               Get Altitude
+             </button>
+           </div>
+           <div class=" border ms-auto">
+             <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
+           </div>
+         </div>
+       </li>
+     </ul>
 
-          </p>
+   </div>
 
-        </div>
-      </div>
-    </div>
-    </div>`)
+
+ </div>
+ </div>`
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(
+      popupContent
+    )
 
     marker
       .setLatLng([lat, lon])
@@ -398,8 +432,6 @@ window.addEventListener('DOMContentLoaded', () => {
       let lat = coords[1]
       let lon = coords[0]
 
-
-
       await fetchWeather(lat, lon)
     } else {
       $('.alert-warning')
@@ -454,9 +486,17 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   $('#findWeatherAddressForm').on('submit', async function (e) {
     e.preventDefault()
-   const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    const submitText = $('form :submit')
+      .first()
+      .text()
+    console.log(
+      $('form :submit')
+        .first()
+        .parent()
+    )
+    $(
+      'form :submit'
+    ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
     const query = encodeURI(e.currentTarget[0].value)
     const latLon = await convertAddress(query)
@@ -466,9 +506,11 @@ window.addEventListener('DOMContentLoaded', () => {
     $('#latInputField').val(lat)
     $('#lonInputField').val(lon)
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [50, 50]
     })
-     $('form :submit').first().html(submitText)
+    $('form :submit')
+      .first()
+      .html(submitText)
     const weather = await latLonWeather(lat, lon)
     const imgIcon = weather.weather[0].icon
     const currentWeather = weather.weather[0].main
@@ -848,5 +890,85 @@ ${currentWeather} and ${temp}°F`)
     name: pageTitle
   }).addTo(map)
 
+  $('#map').on('click', '.bookmark-btn', function (e) {
+    e.preventDefault()
+    $(this)
+      .children()
+      .last()
+      .removeClass('far')
+      .addClass('fas')
+    $(this).prop('disabled', true)
 
+    let btn = $(this)
+      .parent()
+      .children(':input')
+      .is(':checked')
+    let pressed = $(this).attr('aria-pressed')
+
+    const allItems = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .children()
+    let first = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .children()
+      .first()
+
+    let second = $(first).next('span.lat')
+    let allButlast = allItems.length - 1
+console.log($("div.weather"))
+    let name
+    let temp
+    let weather
+    for (let index = 0; index < allButlast; index++) {
+      const element = allItems[index]
+    console.log(element)
+      if ($(element).hasClass('address')) {
+        let text = $(element).text()
+
+        name = text
+      } else if ($(element).hasClass('temp')) {
+        let text = $(element).text()
+        temp = text
+      }
+      else if ($(element).hasClass('weather')) {
+        let text = $(element).text()
+        weather= text
+      }
+    }
+
+ /*
+    let coords = marker.getLatLng()
+    name = name.replace(/^\s+|\s+$/gm, '')
+
+    const obj = {
+      name: name,
+      latlng: [coords.lat, coords.lng],
+      lat: coords.lat,
+      lon: coords.lon,
+      weather: weather,
+      temp: temp,
+      path: path,
+      key: uid
+    }
+    let parsed = JSON.stringify([obj])
+    let localItem = localStorage.getItem(siteTitle)
+
+    addEntry(obj)
+
+
+    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
+*/
+  })
+  map.on('popupopen', function (e) {
+    var px = map.project(e.target._popup._latlng) // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight / 2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true }) // pan to new center
+  })
 })

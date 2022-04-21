@@ -96,7 +96,7 @@ function writeUserData(userId, userInfo) {
   return set(ref(db, "users"), userInfo);
 }
 
-async function getIp() {
+ export async function getIp() {
   const query = await fetch(`https://ipapi.co/json`, { method: "GET" });
   if (query.status !== 200) {
     alert(query.status);
@@ -480,4 +480,4 @@ const path = window.location.pathname;
       .catch((error) => {});
   });
 
-export default {addCommentMessage, googleSignin, createRandomUser}
+export default {addCommentMessage, googleSignin, createRandomUser, getIp}

@@ -44,14 +44,16 @@ const geojson = {
   ],
 };
 
-const map = L.mapbox.map("map").setView([37.9, -77], 6);
-L.mapbox.accessToken =
-  "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
+  L.mapbox.accessToken =
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
+  const map = L.mapbox
+    .map("map", null, { zoomControl: false })
+    .setView([38.25004425273146, -85.75576792471112], 11);
 
-const layer = L.mapbox
-  .styleLayer("mapbox://styles/mapbox/streets-v11")
-  .addTo(map)
-  .once("load", finishedLoading);
+  L.mapbox
+    .styleLayer("mapbox://styles/mapbox/streets-v11")
+    .addTo(map) // add your tiles to the map
+    .once("load", finishedLoading);
 // add your tiles to the map
 function finishedLoading() {
   // first, toggle the class 'done', which makes the loading screen
@@ -317,5 +319,11 @@ function finishedLoading() {
       );
       $("form :submit").first().html(submitText);
     });
+
+    map.on('popupopen', function(e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
   });
 

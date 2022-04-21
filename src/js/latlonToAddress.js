@@ -366,9 +366,9 @@ path: path,
 key: uid,
 
 }
+let key = "bookmarks"
 
-
-addEntry(obj)
+addEntry(key, obj)
 
 
 
@@ -379,8 +379,8 @@ addEntry(obj)
 
   })
 
-  function addEntry(data) {
-let allEntries = data.path
+  function addEntry(key, data) {
+let allEntries = key
 let entryItem = data.key
     // Parse any JSON previously stored in allEntries
     var existingEntries = JSON.parse(localStorage.getItem(allEntries));
@@ -391,5 +391,9 @@ let entryItem = data.key
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
 };
-
+map.on('popupopen', function(e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
 })

@@ -28,7 +28,7 @@
         >
 
 
-          <div class="col-lg-6" style="position: relative;">
+          <div class="col-md-5" style="position: relative;">
           <h5>Origin</h5>
             <form
               class="row g-3 mb-3 justify-content-between align-items-center"
@@ -138,8 +138,14 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 align-self-start">
-            <div class="map-container"><div id="map"></div></div>
+          <div class="col-md-7 align-self-start">
+           <div id="map-container" class="map-container">
+
+                  <div id="map" class="invisible"></div>
+                  <div id="static"></div>
+
+
+              </div>
           </div>
         </div>
        <%- include(`${partials}/comment-section.ejs`); -%>

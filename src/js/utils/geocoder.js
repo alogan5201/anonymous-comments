@@ -20,6 +20,19 @@ for (i = 0; i < inputs.length; i++) {
 
 }
 export function popupContent (input) {
+let weatherData = input.weather ? input.weather : ""
+let nameData = input.name ? input.name : null
+
+let storedData = {
+name : nameData,
+lat: input.lat,
+lon: input.lon,
+dmslat: input.dms.lat,
+dmslon: input.dms.lon
+}
+
+console.log(storedData)
+console.log(window.location.pathname)
 let weather = input.weather ? `  <li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">${input.weather.currentWeather}  </li><li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">  <span>   <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${input.weather.imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span><span>${input.weather.temp}°F </span></li>` : ""
 let name = input.name ? ` <li class="list-group-item border-0 pt-2 px-1 border-bottom location-name">     <p class="card-title mb-0 fs-6 mt-0">${input.name}</p></li>` : ""
 

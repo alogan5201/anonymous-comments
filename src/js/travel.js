@@ -185,19 +185,26 @@ window.addEventListener('DOMContentLoaded', () => {
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
 
-  const finishedLoading = () => {
-    setTimeout(function () {
-      // then, after a half-second, add the class 'hide', which hides
-      // it completely and ensures that the user can interact with the
-      // map again.
-    }, 500)
-  }
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+
+
+  L.mapbox.accessToken =
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
+  const map = L.mapbox
+    .map("map", null, { zoomControl: false })
+    .setView([38.25004425273146, -85.75576792471112], 11);
 
   L.mapbox
-    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .styleLayer("mapbox://styles/mapbox/streets-v11")
     .addTo(map) // add your tiles to the map
-    .on('load', finishedLoading)
+    .once("load", finishedLoading);
+
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible");
+    }, 1000);
+  }
   // L.marker is a low-level marker constructor in Leaflet.
 
   var featureLayer = L.mapbox.featureLayer().addTo(map)
@@ -573,4 +580,10 @@ let destinationResults = {
   })
 
   let bookmarkControl = new L.Control.Bookmarks().addTo(map)
+
+  map.on('popupopen', function(e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
 })

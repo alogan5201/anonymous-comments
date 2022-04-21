@@ -22,7 +22,7 @@
           </div>
           <div class="row gx-5 align-items-center justify-content-center mb-5">
 
-            <div class="col-lg-6 align-self-start" style="position: relative">
+           <div class="col-md-5" style="position: relative;">
 
 
               <h5 class="text-start mb-4">Find Travel Time</h5>
@@ -86,15 +86,20 @@
               </div>
               <ul class="list-group" id="addressHistory"></ul>
             </div>
-            <div class="col-lg-6 align-self-start">
-              <div class="row-mb-3 align-items-start">
-                <div class="col">
+            <div class="col-md-7  align-self-start">
+
+
                   <h4 class="travel-time"></h4>
-                  <div class="map-container">
-                    <div id="map"></div>
-                  </div>
-                </div>
+
+ <div id="map-container" class="map-container">
+
+                  <div id="map" class="invisible"></div>
+                  <div id="static"></div>
+
+
               </div>
+
+
             </div>
           </div>
         <%- include(`${partials}/comment-section.ejs`); -%>
