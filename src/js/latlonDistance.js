@@ -139,7 +139,7 @@ window.addEventListener("DOMContentLoaded", () => {
       inputs[1].value = lon;
     }
     const data = {
-      name: "Origin",
+
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -244,14 +244,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     let originResults = {
-      name: "Origin",
+
       lat: originLat,
       lon: originLon,
       dms: { lat: originDMSCalculated.lat, lon: originDMSCalculated.lon },
       origin: true,
     };
     let destinationResults = {
-      name: "Destination",
+
       lat: destinationLat,
       lon: destinationLon,
       dms: { lat: destinationDMSCalculated.lat, lon: destinationDMSCalculated.lon },
@@ -304,15 +304,48 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  $("#map").on("click", ".bookmark-btn", function (e) {
+  $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("location-data")
-    let parsed = JSON.parse(cachedData)
-    let coords = marker1.getLatLng();
+    let cachedData = localStorage.getItem("origin-data")
+    const data = JSON.parse(cachedData)
+
+
     name = name.replace(/^\s+|\s+$/gm, "");
+
+    console.log("bookmark is origin")
+    let popup = marker1.getPopup()
     $(this).prop("disabled", true)
     $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark(parsed)
+    addBookmark("origin-data")
+
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html()
+
+    marker1.setPopupContent(newPopupContent)
+
+
+  });
+  $("#map").on("click", ".destination.bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("destination-data")
+    let parsed = JSON.parse(cachedData)
+    console.log(parsed)
+
+    name = name.replace(/^\s+|\s+$/gm, "");
+
+    console.log("bookmark is origin")
+    let popup = marker2.getPopup()
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    debugger
+    addBookmark("destination-data")
+
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html()
+
+    marker2.setPopupContent(newPopupContent)
+
+
   });
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

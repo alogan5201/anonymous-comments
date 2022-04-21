@@ -9,9 +9,28 @@ import {
   getAddress,
   getElevation,
   getGeojson,
+  addBookmark
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
+  async function getElevationData(lon, lat) {
+    // Construct the API request
+
+    const elvevationResponse = await getElevation(lat, lon);
+    const data = elvevationResponse.data;
+
+    // Display the longitude and latitude values
+
+    // Get all the returned features
+    const allFeatures = data.features;
+    // For each returned feature, add elevation data to the elevations array
+    const elevations = allFeatures.map((feature) => feature.properties.ele);
+    // In the elevations array, find the largest value
+    const highestElevation = Math.max(...elevations);
+    setTimeout(() => {
+      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
+    }, 500);
+  }
   var loader = document.getElementById("loader");
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
@@ -68,7 +87,7 @@ window.addEventListener("DOMContentLoaded", () => {
       remainActive: false,
       icon: "my-geo-icon",
       locateOptions: {
-        enableHighAccuracy: false,
+        enableHighAccuracy: true,
         timeout: 3000,
       },
     })
@@ -223,6 +242,8 @@ window.addEventListener("DOMContentLoaded", () => {
     if (popupCheck) {
 
       marker1.closePopup()
+
+
     }
     const coordsOrigin = await convertAddressToCoordinates(
       e.currentTarget[0].value
@@ -256,6 +277,7 @@ window.addEventListener("DOMContentLoaded", () => {
         longitude: destinationLon,
       },
     ];
+
     const originDMS = DDtoDMS(originLat, originLon);
     const destinationDMS = DDtoDMS(destinationLat, destinationLon)
 
@@ -282,13 +304,16 @@ window.addEventListener("DOMContentLoaded", () => {
       destination: true
     };
 
-
+    const markerCoords = marker1.getLatLng()
+    const markerContent = marker1.getPopup()
 
     const originPopup = popupContent(originResults);
     const destinationPopup = popupContent(destinationResults)
 
     const popup1 = L.popup().setContent(originPopup);
     const popup2 = L.popup().setContent(destinationPopup);
+
+
     marker1
       .setLatLng([originLat, originLon])
       .bindPopup(popup1)
@@ -315,29 +340,75 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
-    e.preventDefault();
-    let coords = marker1.getLatLng();
-    // TODO update marker altitude (transitions from geojson to markers)
     $(
       this
-    ).parent().html(`<button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading...
-</button>`);
-    getElevationData(coords.lng, coords.lat);
+    ).parent().html(`<button class="btn btn-outline-primary border-0 text-center my-auto" type="button" disabled="">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  </button>`);
+    e.preventDefault();
+    if ($(this).hasClass("origin")) {
+      console.log("has class origin")
+
+      let originCoords = marker1.getLatLng()
+      getElevationData(originCoords.lng, originCoords.lat);
+    }
+    else {
+      let destinationCoords = marker2.getLatLng()
+      getElevationData(destinationCoords.lng, destinationCoords.lat);
+    }
   });
-
-  /*
-    map.on("popupopen", function (e) {
-      console.log("popup is open");
-
-
-      var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-      px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-      map.panTo(map.unproject(px), { animate: true }); // pan to new center
+  $("#map").on("click", ".origin.bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("origin-data")
+    const data = JSON.parse(cachedData)
 
 
-    });
+    name = name.replace(/^\s+|\s+$/gm, "");
 
-    */
+    console.log("bookmark is origin")
+    let popup = marker1.getPopup()
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    addBookmark("origin-data")
+
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html()
+
+    marker1.setPopupContent(newPopupContent)
+
+
+  });
+  $("#map").on("click", ".destination.bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("destination-data")
+    let parsed = JSON.parse(cachedData)
+    console.log(parsed)
+
+    name = name.replace(/^\s+|\s+$/gm, "");
+
+    console.log("bookmark is origin")
+    let popup = marker2.getPopup()
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    debugger
+    addBookmark("destination-data")
+
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html()
+
+    marker2.setPopupContent(newPopupContent)
+
+
+  });
+  map.on('popupopen', function (e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true });
+    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    // TODO update
+  });
+  map.on('popupclose', function (e) {
+    // TODO update
+    $('.leaflet-top.leaflet-left').css('opacity', '1');
+  });
 });

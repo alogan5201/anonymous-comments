@@ -72,12 +72,15 @@ export function popupContent(input) {
 
   if (input.origin || input.destination) {
     saveOriginDestination(input)
+
   }
 
 
   let distance = input.distance ? createElement(input.distance, "distance") : "";
   let origin = input.origin ? "origin" : ""
+  let originTitle = input.origin ? createElement("Origin", "origin-title fs-6") : ""
   let destination = input.destination ? "destination" : ""
+  let destinationTitle = input.destination ? createElement("Destination", "destination-title fs-6") : ""
   let weather = input.weather
     ? `  ${createElement(
       input.weather.currentWeather,
@@ -88,12 +91,12 @@ export function popupContent(input) {
     : "";
   let name = input.name ? ` ${createElement(input.name, "name fs-6")}` : "";
 
-  let data = `  <div class="row">
+  let data = `  <div id = "popupContent" class="row popupContent">
   <div class="col p-0">
 
     <div class="card-body px-3 pt-2 pb-1">
       <ul class="list-group border-0">
-        ${name} ${weather}
+      ${destinationTitle} ${originTitle} ${name} ${weather}
         <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
               class="lat">${input.lat} </span></li>
         <li class="list-group-item border-0 px-1 fs-6 py-0">
@@ -109,7 +112,7 @@ export function popupContent(input) {
               </button>
             </div>
             <div class=" border ms-auto">
-              <button type="button" class="btn btn-outline-primary  btn-sm text-right ${origin} ${destination} bookmark-btn"
+              <button type="button"  class="btn btn-outline-primary  btn-sm text-right ${origin} ${destination} bookmark-btn"
                 data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
             </div>
         </li>
@@ -159,14 +162,14 @@ function saveOriginDestination(input) {
   }
 }
 
-export function addBookmark(data) {
+export function addBookmark(entryKey) {
   let allEntries = "bookmarks"
 
 
   // Parse any JSON previously stored in allEntries
   var existingEntries = JSON.parse(localStorage.getItem(allEntries));
   if (existingEntries == null) existingEntries = [];
-  const entry = JSON.parse(localStorage.getItem("location-data"));
+  const entry = JSON.parse(localStorage.getItem(entryKey));
 
   // Save allEntries back to local storage
   existingEntries.push(entry);
