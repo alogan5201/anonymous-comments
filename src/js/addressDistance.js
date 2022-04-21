@@ -47,6 +47,10 @@ const geojson = {
     }
   ]
 }
+
+
+window.addEventListener('DOMContentLoaded', () => {
+
 var loader = document.getElementById('loader')
   const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 L.mapbox.accessToken =
@@ -59,7 +63,21 @@ const layer = L.mapbox
    // add your tiles to the map
 
 
+  const marker1 = L.marker([0, 0], {
+    icon: L.mapbox.marker.icon({
+      "marker-size": "large",
 
+      "marker-color": "blue",
+    }),
+  }).addTo(map);
+
+    const marker2 = L.marker([0, 0], {
+    icon: L.mapbox.marker.icon({
+      "marker-size": "large",
+
+      "marker-color": "blue",
+    }),
+  }).addTo(map);
     function finishedLoading() {
       // first, toggle the class 'done', which makes the loading screen
       // fade out
@@ -94,32 +112,9 @@ var locationControl = L.control
       }
     })
   .addTo(map)
-const LocationState = function _LocationState () {
-  let data = {
-    origin: {
-      lat: LocationState.state.lat
-    },
-    destination: {
-      lon: LocationState.state.lon
-    }
-  }
-  return data
-}
-const myhandler = {
-  set: function (obj, prop, value) {
-    obj[prop] = value
-  }
-}
 
-LocationState.state = new Proxy({ lat: null, lon: null }, myhandler)
-$(document).on('click', '.leaflet-bar-part.leaflet-bar-part-single', function (
-  e
-) {
-  e.preventDefault()
-  alert('clicked')
-})
 
-map.on('locationfound', function (e) {
+map.on('locationfound', async function (e) {
   map.fitBounds(e.bounds)
  let icon = locationControl._icon
     $(icon).css('background-color', 'hsl(217deg 93% 60%)')
@@ -129,19 +124,31 @@ map.on('locationfound', function (e) {
  let obj = {lat: lat, lon: lon}
     localStorage.setItem("userlocation", `${JSON.stringify(obj)}`)
 
+  const d = await getAddress(lat, lon)
+    const data = d.data
+  let addressName = data.features.length > 0 ? data.features[0].place_name : null
+  if (data.features.length > 0) {
+    console.log($("form").first().find("input:eq(0)"))
+ console.log(data)
+   $('#addressInputFieldOrigin').val(data.features[0].place_name)
 
-  setOrigin(lat, lon)
- // geojson.features[0].geometry.coordinates = [lon, lat]
-
-
-
-  var inputs = document.getElementById('getDistanceForm').elements
-
-  if (inputs[0].nodeName === 'INPUT' && inputs[0].type === 'number') {
-    // Update text input
-    inputs[0].value = lat
-    inputs[1].value = lon
   }
+
+    const dmsCalculated = DDtoDMS(lat, lon);
+    console.log(dmsCalculated)
+
+    const allData = {
+      name: addressName,
+      lat: lat,
+      lon: lon,
+      dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
+    };
+
+    const p = popupContent(allData);
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+
+
+    marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
  locationControl.stop()
   setTimeout(() => {
        $(icon).css("background-color", "black");
@@ -195,9 +202,33 @@ function inputFocus (x) {
   //
 }
 
-window.addEventListener('DOMContentLoaded', () => {
 
 
+  function DDtoDMS(lat, lon) {
+    //
+
+    let latitude = Math.abs(lat);
+    let longitude = Math.abs(lon);
+    let dLat = Math.floor(latitude);
+    let mLat = Math.floor((latitude - dLat) * 60);
+
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3;
+    let dLon = Math.floor(longitude);
+    let mLon = Math.floor((longitude - dLon) * 60);
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3;
+    let degreesLatitude = dLat;
+    let minutesLatitude = mLat;
+    let secondsLatitude = sLat;
+    let degreesLongitude = dLon;
+    let minutesLongitude = mLon;
+    let secondsLongitude = sLon;
+
+    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`;
+
+    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`;
+    let result = { lat: latResult, lon: lonResult };
+    return result;
+  }
   const App = function _App () {
     return `
    <h1>Global State = [${App.state.count}] </h1>
@@ -214,25 +245,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Initial Loading of the App
 
-  const CoordsApp = function _CoordsApp () {
-    return `
-   <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
-   <h1>Destination State = [${CoordsApp.state.destination}] </h1>
-   <h1>User Location = [${CoordsApp.state.userLocation}] </h1>
-   <h1>trackingUser =  ${CoordsApp.state.trackingUser}</h1>
-  `
-  }
-
-  const myhandler = {
-    set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
-
-  CoordsApp.state = new Proxy(
-    { origin: [], destination: [], userLocation: [] },
-    myhandler
-  )
 
 
   async function convertAddressToCoordinates (address) {
@@ -318,6 +330,19 @@ featureLayer.setGeoJSON(geoJsondata)
 
 
   })
+
+    $("#map").on("click", "#getAltitude", function (e) {
+    e.preventDefault();
+    let coords = marker1.getLatLng();
+// TODO update marker altitude (transitions from geojson to markers)
+    $(
+      this
+    ).parent().html(`<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>`);
+    getElevationData(coords.lng, coords.lat);
+  });
 map.on('popupopen', function(e) {
   console.log("popup is open")
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
