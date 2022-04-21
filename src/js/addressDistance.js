@@ -126,6 +126,9 @@ map.on('locationfound', function (e) {
   let lat = e.latlng.lat
 
   let lon = e.latlng.lng
+ let obj = {lat: lat, lon: lon}
+    localStorage.setItem("userlocation", `${JSON.stringify(obj)}`)
+
 
   setOrigin(lat, lon)
  // geojson.features[0].geometry.coordinates = [lon, lat]
@@ -139,10 +142,10 @@ map.on('locationfound', function (e) {
     inputs[0].value = lat
     inputs[1].value = lon
   }
-
+ locationControl.stop()
   setTimeout(() => {
-    locationControl.stop()
-  }, 500)
+       $(icon).css("background-color", "black");
+  }, 1000)
 })
 
 async function setOrigin (lat, lon) {
@@ -193,68 +196,7 @@ function inputFocus (x) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const north = document.getElementById('north')
-  const south = document.getElementById('south')
-  const degreesLat = document.getElementById('degrees-lat')
-  const minutesLat = document.getElementById('minutes-lat')
-  const secondsLat = document.getElementById('seconds-lat')
 
-  const degreesLon = document.getElementById('degrees-lon')
-  const minutesLon = document.getElementById('minutes-lon')
-  const secondsLon = document.getElementById('seconds-lon')
-  const east = document.getElementById('east')
-  const west = document.getElementById('west')
-  const outputInputField = document.getElementById('output-field-input')
-  const dmsBtn = document.getElementById('dmsBtn')
-  const dmsForm = document.getElementById('dms')
-
-  const latlonForm = document.getElementById('latlonForm')
-
-  function DDtoDMS (lat, lon) {
-    //
-
-    let latitude = Math.abs(lat)
-    let longitude = Math.abs(lon)
-    let dLat = Math.floor(latitude)
-    let mLat = Math.floor((latitude - dLat) * 60)
-
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
-    let degreesLatitude = dLat
-    let minutesLatitude = mLat
-    let secondsLatitude = sLat
-    let degreesLongitude = dLon
-    let minutesLongitude = mLon
-    let secondsLongitude = sLon
-
-    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`
-
-    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`
-    let result = {
-      lat: {
-        degrees: degreesLatitude,
-        minutes: minutesLatitude,
-        seconds: secondsLatitude
-      },
-      lon: {
-        degrees: degreesLongitude,
-        minutes: minutesLongitude,
-        seconds: secondsLongitude
-      },
-      popupMessage: { lat: latResult, lon: lonResult }
-    }
-    return result
-  }
-  function check (elm) {
-    document.getElementById(elm).checked = true
-  }
-
-  const convertLocationData = document.getElementById('convertLocationData')
-  const latInputField = document.getElementById('latInputField')
-  const lonInputField = document.getElementById('lonInputField')
-  const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
   const App = function _App () {
     return `
@@ -360,6 +302,8 @@ const geoJsondata = getGeojson(originResults, destinationResults)
       'mi'
     )
 
+
+
     $('#distanceInput').val(`${distance} miles`)
     $('#distanceInput').focus()
 featureLayer.setGeoJSON(geoJsondata)
@@ -372,34 +316,13 @@ featureLayer.setGeoJSON(geoJsondata)
 
     )
 
-    // geojson.features[1].geometry.coordinates = [lonD, latD]
-    // featureLayer.setGeoJSON(geojson)
-    /*
-    let origin = [latO, lonD]
-    let destination = [latD, lonD]
-    const points = [
-      {
-        latitude: latO,
-        longitude: lonO,
-      },
-      {
-        latitude: latD,
-        longitude: lonD,
-      },
-    ]
 
-    const distance = HaversineGeolocation.getDistanceBetween(points[0], points[1], 'mi')
-
-    $('#distanceInput').val(`${distance} miles`)
-    $('#distanceInput').focus()
-    map.fitBounds(
-      [
-        [latO, lonO],
-        [latD, lonD],
-      ],
-      {padding: [50, 50]}
-    ) */
   })
-  console.log(map)
+map.on('popupopen', function(e) {
+  console.log("popup is open")
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
 })
 
