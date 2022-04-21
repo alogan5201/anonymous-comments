@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import "./firebase"
-import {popupContent,  getLatLon , getAddress, getElevation, generateUID} from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress, getElevation, generateUID, addBookmark } from 'utils/geocoder'
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'
 const uid = generateUID()
@@ -11,7 +11,7 @@ const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new Dropdown(dropdownToggleEl)
 })
 const path = window.location.pathname
-function test (e) {
+function test(e) {
   e.preventDefault()
 }
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 $(document).ready(function () {
-  function DDtoDMS (lat, lon) {
+  function DDtoDMS(lat, lon) {
 
 
     let latitude = Math.abs(lat)
@@ -29,10 +29,10 @@ $(document).ready(function () {
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-   let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-   let dLon = Math.floor(longitude)
-  let  mLon = Math.floor((longitude - dLon) * 60)
-  let  sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let dLon = Math.floor(longitude)
+    let mLon = Math.floor((longitude - dLon) * 60)
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
     let degreesLatitude = dLat
     let minutesLatitude = mLat
     let secondsLatitude = sLat
@@ -46,7 +46,7 @@ $(document).ready(function () {
     let result = { lat: latResult, lon: lonResult }
     return result
   }
-  function check (elm) {
+  function check(elm) {
     document.getElementById(elm).checked = true
   }
 
@@ -55,7 +55,7 @@ $(document).ready(function () {
   const lonInputField = document.getElementById('lonInputField')
   const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
-  const CoordsApp = function _CoordsApp () {
+  const CoordsApp = function _CoordsApp() {
     return `
    <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
    <h1>Destination State = [${CoordsApp.state.destination}] </h1>
@@ -77,7 +77,7 @@ $(document).ready(function () {
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
+  const map = L.mapbox.map('map', null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 
   L.mapbox
     .styleLayer('mapbox://styles/mapbox/streets-v11')
@@ -93,9 +93,9 @@ $(document).ready(function () {
     })
   }).addTo(map)
 
-    function finishedLoading() {
-      // first, toggle the class 'done', which makes the loading screen
-      // fade out
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
     setTimeout(() => {
       $("#map").removeClass("invisible")
 
@@ -107,7 +107,7 @@ $(document).ready(function () {
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-        follow: false,
+      follow: false,
       setView: false,
       iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
@@ -118,13 +118,13 @@ $(document).ready(function () {
       }
     }).addTo(map)
 
-  async function findAddress (lat, lon) {
+  async function findAddress(lat, lon) {
     const d = await getAddress(lat, lon)
     const data = d.data
     return data
   }
   map.on('locationfound', async function (e) {
-     $('.alerts').html("")
+    $('.alerts').html("")
     let icon = locationControl._icon
     $(icon).css('background-color', 'hsl(217deg 93% 60%)')
     let lat = e.latitude
@@ -143,24 +143,25 @@ $(document).ready(function () {
       padding: [100, 100]
     })
 
+
     const dmsCalculated = DDtoDMS(lat, lon)
     const data = {
       name: address,
       lat: lat,
       lon: lon,
-      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
-          }
+      dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon }
+    }
 
-      const p = popupContent(data)
+    const p = popupContent(data)
     marker
       .setLatLng([lat, lon])
       .bindPopup(p)
       .openPopup()
-locationControl.stop()
-setTimeout(() => {
-    $(icon).css('background-color', 'black')
+    locationControl.stop()
+    setTimeout(() => {
+      $(icon).css('background-color', 'black')
 
-}, 1000);
+    }, 1000);
   })
   map.on('locationerror', function () {
     alert('Position could not be found')
@@ -175,7 +176,7 @@ setTimeout(() => {
       return null
     }
 
-    function coordinateFeature (lng, lat) {
+    function coordinateFeature(lng, lat) {
       return {
         center: [lng, lat],
         geometry: {
@@ -212,7 +213,7 @@ setTimeout(() => {
     return geocodes
   }
 
-  async function getElevationData (lon, lat) {
+  async function getElevationData(lon, lat) {
     // Construct the API request
     const elvevationResponse = await getElevation(lat, lon)
     const data = elvevationResponse.data
@@ -233,7 +234,7 @@ setTimeout(() => {
 
   // Clear results container when search is cleared.
 
-  function format (time) {
+  function format(time) {
     // Hours, minutes and seconds
     var hrs = ~~(time / 3600)
     var mins = ~~((time % 3600) / 60)
@@ -248,12 +249,12 @@ setTimeout(() => {
 
   $('#latlonForm').on('submit', async function (e) {
     e.preventDefault()
- let icon = locationControl._icon
+    let icon = locationControl._icon
     $('.alerts').html("")
     $(icon).css('background-color', 'black')
-    const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+    const submitText = $('form :submit').first().text()
+    console.log($('form :submit').first().parent())
+    $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
     let latInput = document.getElementById('latInputField')
     let lonInput = document.getElementById('lonInputField')
@@ -287,16 +288,16 @@ setTimeout(() => {
       padding: [100, 100]
     })
 
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(`${submitText}`)
+    console.log($('form :submit').first().parent())
+    $('form :submit').first().html(`${submitText}`)
     const data = {
       name: address,
       lat: lat,
       lon: lon,
-      dms: {lat: dmsCalculated.lat, lon: dmsCalculated.lon}
-          }
+      dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon }
+    }
 
-      const p = popupContent(data)
+    const p = popupContent(data)
     marker
       .setLatLng([lat, lon])
       .bindPopup(p)
@@ -311,89 +312,44 @@ setTimeout(() => {
     name: pageTitle
   }).addTo(map)
 
-$('#map').on('click','.leaflet-bar-part.leaflet-bar-part-single', function (e) {
-  e.preventDefault()
-  console.log(e)
-});
-
-  $('#map').on('click', '.bookmark-btn', function (e) {
+  $('#map').on('click', '.leaflet-bar-part.leaflet-bar-part-single', function (e) {
     e.preventDefault()
- $(this).prop("disabled",true);
-$(this).children().last().removeClass("far").addClass("fas")
-
- let btn = $(this).parent().children(":input").is(":checked")
-let pressed = $(this).attr("aria-pressed")
-
-const allItems = $(this).parent().parent().parent().parent().children()
-let first = $(this).parent().parent().parent().parent().children().first()
-let second = $(first).next('span.lat')
-let allButlast = allItems.length -1
-
-let name
-let dms
-for (let index = 0; index < allButlast; index++) {
-  const element = allItems[index];
+    console.log(e)
+  });
 
 
-
-if($(element).hasClass("location-name") ){
-    let text = $(element).text()
-
-name = text
-
-}
-else if($(element).hasClass('dms')){
-  let text = $(element).text()
-dms = text
-
-}
-
-
-}
-
-let coords = marker.getLatLng()
-name = name.replace(/^\s+|\s+$/gm,'');
-
-
-
-const obj = {
-name: name,
-latlng: [coords.lat, coords.lng],
-lat: coords.lat,
-lon: coords.lon,
-dms: dms,
-path: path,
-key: uid,
-
-}
-let key = "bookmarks"
-
-addEntry(key, obj)
-
-
-
-
-/*
-    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
-*/
-
-  })
 
   function addEntry(key, data) {
-let allEntries = key
-let entryItem = data.key
+    let allEntries = key
+    let entryItem = data.key
     // Parse any JSON previously stored in allEntries
     var existingEntries = JSON.parse(localStorage.getItem(allEntries));
-    if(existingEntries == null) existingEntries = [];
-   const entry = data
+    if (existingEntries == null) existingEntries = [];
+    const entry = data
     localStorage.setItem(entryItem, JSON.stringify(entry));
     // Save allEntries back to local storage
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
-};
-map.on('popupopen', function(e) {
+  };
+  $("#map").on("click", ".bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("location-data")
+    let parsed = JSON.parse(cachedData)
+    let coords = marker.getLatLng();
+    name = name.replace(/^\s+|\s+$/gm, "");
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    addBookmark(parsed)
+  });
+  map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true });
+    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    // TODO update
+  });
+  map.on('popupclose', function (e) {
+    // TODO update
+    $('.leaflet-top.leaflet-left').css('opacity', '1');
+  });
 })

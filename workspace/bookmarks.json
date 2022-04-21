@@ -1,0 +1,79 @@
+[
+    {
+        "name": "Origin",
+        "lat": 34.0384278,
+        "lon": -84.5838136,
+        "dmslat": "34° 2' 18.34''",
+        "dmslon": "84° 35' 1.728''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "c60bd08a-db7e-4440-9252-fa318fec9951",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Destination",
+        "lat": "40",
+        "lon": "84",
+        "dmslat": "40° 0' 0''",
+        "dmslon": "84° 0' 0''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "47ba6ab8-88fd-4e47-ad35-548c67e3104e",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Destination",
+        "lat": "39",
+        "lon": "-84",
+        "dmslat": "39° 0' 0''",
+        "dmslon": "84° 0' 0''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "8633065d-1fa5-4713-a4ad-5dc2b19e1cd5",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Origin",
+        "lat": 34.0384274,
+        "lon": -84.5838155,
+        "dmslat": "34° 2' 18.339''",
+        "dmslon": "84° 35' 1.735''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "c2d61a0a-3c9c-41d7-a63d-d9f6dc8c9afb",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Destination",
+        "lat": "34.0384227",
+        "lon": "-85.5838124",
+        "dmslat": "34° 2' 18.322''",
+        "dmslon": "85° 35' 1.724''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "9b9496c2-fb53-410b-9dc5-2a043159acd8",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Origin",
+        "lat": 34.0384332,
+        "lon": -84.5838114,
+        "dmslat": "34° 2' 18.36''",
+        "dmslon": "84° 35' 1.721''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "69018043-fbf5-4c93-a516-9414a71bf022",
+        "date": "Apr 2022"
+    },
+    {
+        "name": "Destination",
+        "lat": "34.0384332",
+        "lon": "-82.5838114",
+        "dmslat": "34° 2' 18.36''",
+        "dmslon": "82° 35' 1.721''",
+        "weather": null,
+        "path": "/lat-lon-distance/",
+        "uid": "b3340cf5-2bca-42ee-9de6-1b87663ab948",
+        "date": "Apr 2022"
+    }
+]

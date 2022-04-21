@@ -1,67 +1,29 @@
 /* jshint esversion: 8 */
-import "./firebase"
-import HaversineGeolocation from 'haversine-geolocation'
+import "./firebase";
+import HaversineGeolocation from "haversine-geolocation";
 
-import 'utils/commentscript.js'
-import {popupContent,  getLatLon , getAddress, getElevation, getGeojson} from 'utils/geocoder'
+import "utils/commentscript.js";
+import {
+  popupContent,
+  getLatLon,
+  getAddress,
+  getElevation,
+  getGeojson,
+} from "utils/geocoder";
 
+window.addEventListener("DOMContentLoaded", () => {
+  var loader = document.getElementById("loader");
+  const map = L.mapbox
+    .map("map", null, { zoomControl: false })
+    .setView([38.25004425273146, -85.75576792471112], 11);
+  L.mapbox.accessToken =
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
 
-function init(){
-setTimeout(() => {
-  console.log(locationControl._event)
-  console.log(marker.getLatLng())
-}, 1000);
-
-}
-
-
-
-const geojson = {
-  type: 'FeatureCollection',
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [0, 0]
-      },
-      properties: {
-        'marker-color': 'blue',
-        'marker-size': 'large',
-        'marker-symbol': '1'
-      }
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [0, 0]
-      },
-      properties: {
-        title: 'Mapbox SF',
-        description: '155 9th St, San Francisco',
-        'marker-color': '#fc4353',
-        'marker-size': 'large',
-        'marker-symbol': '2'
-      }
-    }
-  ]
-}
-
-
-window.addEventListener('DOMContentLoaded', () => {
-
-var loader = document.getElementById('loader')
-  const map = L.mapbox.map('map',  null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
-L.mapbox.accessToken =
-  'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-
-const layer = L.mapbox
-  .styleLayer('mapbox://styles/mapbox/streets-v11')
-  .addTo(map)
-  .once('load', finishedLoading)
-   // add your tiles to the map
-
+  const layer = L.mapbox
+    .styleLayer("mapbox://styles/mapbox/streets-v11")
+    .addTo(map)
+    .once("load", finishedLoading);
+  // add your tiles to the map
 
   const marker1 = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
@@ -71,138 +33,138 @@ const layer = L.mapbox
     }),
   }).addTo(map);
 
-    const marker2 = L.marker([0, 0], {
+  const marker2 = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
       "marker-size": "large",
 
-      "marker-color": "blue",
+      "marker-color": "red",
     }),
   }).addTo(map);
-    function finishedLoading() {
-      // first, toggle the class 'done', which makes the loading screen
-      // fade out
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
     setTimeout(() => {
-      $("#map").removeClass("invisible")
-
+      $("#map").removeClass("invisible");
     }, 1000);
-
   }
-// L.marker is a low-level marker constructor in Leaflet.
+  // L.marker is a low-level marker constructor in Leaflet.
 
-var featureLayer = L.mapbox.featureLayer().addTo(map)
-map.on('layeradd', function (e) {
-  if ($('#loader').hasClass('loading')) {
-    $('#loader')
-      .removeClass('loading')
-      .addClass('d-none')
-  }
-})
-var locationControl = L.control
+  var featureLayer = L.mapbox.featureLayer().addTo(map);
+  map.on("layeradd", function (e) {
+    if ($("#loader").hasClass("loading")) {
+      $("#loader")
+        .removeClass("loading")
+        .addClass("d-none");
+    }
+  });
+  var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-        follow: false,
+      follow: false,
       setView: false,
-      iconLoading: 'spinner-border spinner-border-sm map-spinner',
+      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: 'my-geo-icon',
+      icon: "my-geo-icon",
       locateOptions: {
-        enableHighAccuracy: true
-      }
+        enableHighAccuracy: false,
+        timeout: 3000,
+      },
     })
-  .addTo(map)
+    .addTo(map);
 
+  map.on("locationfound", async function (e) {
+    map.fitBounds(e.bounds);
+    let icon = locationControl._icon;
+    $(icon).css("background-color", "hsl(217deg 93% 60%)");
+    let lat = e.latlng.lat;
 
-map.on('locationfound', async function (e) {
-  map.fitBounds(e.bounds)
- let icon = locationControl._icon
-    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
-  let lat = e.latlng.lat
+    let lon = e.latlng.lng;
+    let obj = { lat: lat, lon: lon };
+    localStorage.setItem("userlocation", `${JSON.stringify(obj)}`);
 
-  let lon = e.latlng.lng
- let obj = {lat: lat, lon: lon}
-    localStorage.setItem("userlocation", `${JSON.stringify(obj)}`)
-
-  const d = await getAddress(lat, lon)
-    const data = d.data
-  let addressName = data.features.length > 0 ? data.features[0].place_name : null
-  if (data.features.length > 0) {
-    console.log($("form").first().find("input:eq(0)"))
- console.log(data)
-   $('#addressInputFieldOrigin').val(data.features[0].place_name)
-
-  }
+    const d = await getAddress(lat, lon);
+    const data = d.data;
+    let addressName =
+      data.features.length > 0 ? data.features[0].place_name : null;
+    if (data.features.length > 0) {
+      console.log(
+        $("form")
+          .first()
+          .find("input:eq(0)")
+      );
+      console.log(data);
+      $("#addressInputFieldOrigin").val(data.features[0].place_name);
+    }
 
     const dmsCalculated = DDtoDMS(lat, lon);
-    console.log(dmsCalculated)
 
     const allData = {
       name: addressName,
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
+      origin: true
     };
 
     const p = popupContent(allData);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
-
-    marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
- locationControl.stop()
-  setTimeout(() => {
-       $(icon).css("background-color", "black");
-  }, 1000)
-})
-
-async function setOrigin (lat, lon) {
-  const d = await getAddress(lat, lon)
-
-  const data = d.data
-  if (data.features.length > 0) {
-    $('#addressInputFieldOrigin').val(data.features[0].place_name)
-const origin = data.features[0]
-let originLatLon = data.features[0].geometry.coordinates
-  let originLat = originLatLon[1]
-      let originLon = originLatLon[0]
-let originResults = {
-  title: origin.place_name,
-  lat: originLat,
-  lon: originLon,
-}
- const geojsonData = getGeojson(originResults)
-  featureLayer.setGeoJSON(geojsonData)
-    $('#lonInputField').focus()
-  } else if (data.features.length == 0) {
-    alert('No Address found from your location')
-  }
-}
-const title = $('title').html()
-
-const pageTitle = title.slice(11)
-
-let bookmarkControl = new L.Control.Bookmarks({
-  name: pageTitle
-}).addTo(map)
-
-function inputFocus (x) {
-  if ($('#secondOutput').hasClass('second')) {
-    $('#secondOutput')
-      .removeClass('second')
-      .addClass('fadeOut')
-    $('#firstOutput')
-      .removeClass('first')
-      .addClass('fadeOut')
+    marker1
+      .setLatLng([lat, lon])
+      .bindPopup(popup)
+      .openPopup();
+    locationControl.stop();
     setTimeout(() => {
-      $('#secondOutput').addClass('d-none')
-      $('#firstOutput').addClass('d-none')
-    }, 2000)
+      $(icon).css("background-color", "black");
+    }, 1000);
+  });
+
+  async function setOrigin(lat, lon) {
+    const d = await getAddress(lat, lon);
+
+    const data = d.data;
+    if (data.features.length > 0) {
+      $("#addressInputFieldOrigin").val(data.features[0].place_name);
+      const origin = data.features[0];
+      let originLatLon = data.features[0].geometry.coordinates;
+      let originLat = originLatLon[1];
+      let originLon = originLatLon[0];
+      let originResults = {
+        title: origin.place_name,
+        lat: originLat,
+        lon: originLon,
+      };
+      const geojsonData = getGeojson(originResults);
+      featureLayer.setGeoJSON(geojsonData);
+      $("#lonInputField").focus();
+    } else if (data.features.length == 0) {
+      alert("No Address found from your location");
+    }
   }
+  const title = $("title").html();
 
-  //
-}
+  const pageTitle = title.slice(11);
 
 
+
+  function inputFocus(x) {
+    if ($("#secondOutput").hasClass("second")) {
+      $("#secondOutput")
+        .removeClass("second")
+        .addClass("fadeOut");
+      $("#firstOutput")
+        .removeClass("first")
+        .addClass("fadeOut");
+      setTimeout(() => {
+        $("#secondOutput").addClass("d-none");
+        $("#firstOutput").addClass("d-none");
+      }, 2000);
+    }
+
+    //
+  }
 
   function DDtoDMS(lat, lon) {
     //
@@ -229,112 +191,133 @@ function inputFocus (x) {
     let result = { lat: latResult, lon: lonResult };
     return result;
   }
-  const App = function _App () {
+  const App = function _App() {
     return `
    <h1>Global State = [${App.state.count}] </h1>
-  `
-  }
+  `;
+  };
 
   const handler = {
     set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
+      obj[prop] = value;
+    },
+  };
 
-  App.state = new Proxy({ count: 0 }, handler)
+  App.state = new Proxy({ count: 0 }, handler);
 
   // Initial Loading of the App
 
-
-
-  async function convertAddressToCoordinates (address) {
-
-  const data  = await getLatLon(address)
-    return data.data
-
+  async function convertAddressToCoordinates(address) {
+    const data = await getLatLon(address);
+    return data.data;
   }
 
-  $('#getDistanceForm').on('submit', async function (e) {
-    e.preventDefault()
-     let icon = locationControl._icon
-    $(icon).css('background-color', 'black')
-    $('#loader')
-      .removeClass('d-none')
-      .addClass('loading')
+  $("#getDistanceForm").on("submit", async function (e) {
+    e.preventDefault();
+    let icon = locationControl._icon;
+    $(icon).css("background-color", "black");
+    $("#loader")
+      .removeClass("d-none")
+      .addClass("loading");
+    const popupCheck = marker1.isPopupOpen()
+    if (popupCheck) {
 
+      marker1.closePopup()
+    }
     const coordsOrigin = await convertAddressToCoordinates(
       e.currentTarget[0].value
-    )
+    );
 
     const coordsDestination = await convertAddressToCoordinates(
       e.currentTarget[1].value
-    )
+    );
 
-    const result = await Promise.all([coordsOrigin, coordsDestination])
+    const result = await Promise.all([coordsOrigin, coordsDestination]);
 
-  const origin = result[0].features[0]
-let originLatLon = result[0].features[0].geometry.coordinates
-  let originLat = originLatLon[1]
-      let originLon = originLatLon[0]
-
-
-let originResults = {
-  title: origin.place_name,
-  lat: originLat,
-  lon: originLon,
-}
+    const origin = result[0].features[0];
+    let originLatLon = result[0].features[0].geometry.coordinates;
+    let originLat = originLatLon[1];
+    let originLon = originLatLon[0];
 
 
-const destination = result[1].features[0]
-let destinationLatLon = result[1].features[0].geometry.coordinates
-  let destinationLat = destinationLatLon[1]
-      let destinationLon = destinationLatLon[0]
 
-
-let destinationResults = {
-  title: destination.place_name,
-  lat: destinationLat,
-  lon: destinationLon,
-}
+    const destination = result[1].features[0];
+    let destinationLatLon = result[1].features[0].geometry.coordinates;
+    let destinationLat = destinationLatLon[1];
+    let destinationLon = destinationLatLon[0];
 
     const points = [
       {
         latitude: originLat,
-        longitude: originLon
+        longitude: originLon,
       },
       {
         latitude: destinationLat,
-        longitude: destinationLon
-      }
-    ]
-const geoJsondata = getGeojson(originResults, destinationResults)
+        longitude: destinationLon,
+      },
+    ];
+    const originDMS = DDtoDMS(originLat, originLon);
+    const destinationDMS = DDtoDMS(destinationLat, destinationLon)
+
+
     const distance = HaversineGeolocation.getDistanceBetween(
       points[0],
       points[1],
-      'mi'
-    )
+      "mi"
+    );
+    let originResults = {
+      name: origin.place_name,
+      lat: originLat,
+      lon: originLon,
+      dms: { lat: originDMS.lat, lon: originDMS.lon },
+      origin: true,
+    };
+
+    let destinationResults = {
+      name: destination.place_name,
+      lat: destinationLat,
+      lon: destinationLon,
+      dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
+      distance: `${distance} miles`,
+      destination: true
+    };
 
 
 
-    $('#distanceInput').val(`${distance} miles`)
-    $('#distanceInput').focus()
-featureLayer.setGeoJSON(geoJsondata)
+    const originPopup = popupContent(originResults);
+    const destinationPopup = popupContent(destinationResults)
+
+    const popup1 = L.popup().setContent(originPopup);
+    const popup2 = L.popup().setContent(destinationPopup);
+    marker1
+      .setLatLng([originLat, originLon])
+      .bindPopup(popup1)
+
+
+
+    marker2
+      .setLatLng([destinationLat, destinationLon])
+      .bindPopup(popup2)
+
+
+
+    $("#distanceInput").val(`${distance} miles`);
+    $("#distanceInput").focus();
     map.fitBounds(
       [
         [originLat, originLon],
-        [destinationLat, destinationLon]
+        [destinationLat, destinationLon],
       ],
       { padding: [50, 50] }
+    );
 
-    )
 
+  });
 
-  })
-
-    $("#map").on("click", "#getAltitude", function (e) {
+  $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
     let coords = marker1.getLatLng();
-// TODO update marker altitude (transitions from geojson to markers)
+    // TODO update marker altitude (transitions from geojson to markers)
     $(
       this
     ).parent().html(`<button class="btn btn-primary" type="button" disabled>
@@ -343,11 +326,18 @@ featureLayer.setGeoJSON(geoJsondata)
 </button>`);
     getElevationData(coords.lng, coords.lat);
   });
-map.on('popupopen', function(e) {
-  console.log("popup is open")
-    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
-})
 
+  /*
+    map.on("popupopen", function (e) {
+      console.log("popup is open");
+
+
+      var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+      px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+      map.panTo(map.unproject(px), { animate: true }); // pan to new center
+
+
+    });
+
+    */
+});

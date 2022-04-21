@@ -1,40 +1,20 @@
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import { initializeApp } from "firebase/app";
 import {
-  getDatabase,
-  ref,
-  set,
-  get,
-  onValue,
-  push,
-  query,
-  orderByValue,
-  increment,
-  orderByChild
-} from "firebase/database";
-import { getDate, toggleModal } from "utils/helpers";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signInAnonymously,
-  connectAuthEmulator,
-  signInWithRedirect,
-  GoogleAuthProvider,
-  signOut,
-
+  getAuth, GoogleAuthProvider, onAuthStateChanged,
+  signInAnonymously, signInWithRedirect, signOut
 } from "firebase/auth";
-import { stubString } from "lodash";
 import {
-  httpsCallable,
-  getFunctions,
-  connectFunctionsEmulator,
+  get, getDatabase, push, ref,
+  set
+} from "firebase/database";
+import {
+  connectFunctionsEmulator, getFunctions, httpsCallable
 } from "firebase/functions";
 import {
-  comment,
-  commentReply,
-  extractReplies,
-  replyForm,
+  comment, replyForm
 } from "utils/comments";
-import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import { getDate, toggleModal } from "utils/helpers";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
@@ -69,25 +49,25 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
 
 
-    if(window.location.href.includes("login")){
+    if (window.location.href.includes("login")) {
 
-   console.log("login", window.location)
-    console.log(user);
-let history = localStorage.getItem("page-history") || "/"
-window.location.replace(history)
+      console.log("login", window.location)
+      console.log(user);
+      let history = localStorage.getItem("page-history") || "/"
+      window.location.replace(history)
     }
 
   }
 });
 
-function loginNav (){
+function loginNav() {
 
   console.log('login nav user login')
 }
 
-function logoutNav (){
+function logoutNav() {
 
-    console.log('login nav user already logged in')
+  console.log('login nav user already logged in')
 
 }
 
@@ -96,7 +76,7 @@ function writeUserData(userId, userInfo) {
   return set(ref(db, "users"), userInfo);
 }
 
- export async function getIp() {
+export async function getIp() {
   const query = await fetch(`https://ipapi.co/json`, { method: "GET" });
   if (query.status !== 200) {
     alert(query.status);
@@ -104,13 +84,17 @@ function writeUserData(userId, userInfo) {
   }
 
   const data = await query.json();
+  let lat = data.latitude
+  let lon = data.longitude
+  let obj = { lat: lat, lon: lon }
+  localStorage.setItem("userlocation", `${JSON.stringify(obj)}`)
 
   return data;
 }
- export function googleSignin() {
+export function googleSignin() {
   signInWithRedirect(auth, googleProvider);
 }
- function googleSignOut() {
+function googleSignOut() {
   signOut(auth);
 }
 
@@ -161,29 +145,29 @@ function checkIfAnonymousUserExists() {
 
 async function writeUsertoDatabase(data) {
   get(db, `users/${data.uid}`).then((snapshot) => {
-  if (snapshot.exists()) {
-    console.log(snapshot.val());
-  } else {
-   const userListRef = ref(db, `users/${data.uid}`);
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+    } else {
+      const userListRef = ref(db, `users/${data.uid}`);
 
-  const newPostRef = push(userListRef);
-return   set(newPostRef, data);
-  }
-}).catch((error) => {
-  console.error(error);
-  return error
-})  .finally(() => {
-let msg = "Promise complete"
+      const newPostRef = push(userListRef);
+      return set(newPostRef, data);
+    }
+  }).catch((error) => {
+    console.error(error);
+    return error
+  }).finally(() => {
+    let msg = "Promise complete"
     console.log('Promise completed');
     return msg
   });
 
 
 }
- export async function createRandomUser() {
+export async function createRandomUser() {
   const ipAddress = await getIp();
 
- return signInAnonymously(auth)
+  return signInAnonymously(auth)
     .then((data) => {
       let ip = ipAddress || null;
 
@@ -208,7 +192,7 @@ let msg = "Promise complete"
     });
 }
 
- export async function handleComment(message, name, userData, path) {
+export async function handleComment(message, name, userData, path) {
   const addComment = httpsCallable(functions, "addComment");
   const prettyDate = getDate();
 
@@ -273,40 +257,40 @@ let msg = "Promise complete"
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-          code +
-          "\nError Message:" +
-          message +
-          "\nError Details:" +
-          details
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
       );
       addCommentButton.disabled = false;
     });
 }
 
- function getUser() {
+function getUser() {
 
-    let result = auth.currentUser ? auth.currentUser : null;
+  let result = auth.currentUser ? auth.currentUser : null;
 
- return result
+  return result
 
 
 
 
 }
-  $("#login-link-icon").on("click", function (e) {
-    e.preventDefault();
-   localStorage.setItem("page-history", window.location.href)
-   window.location.replace("/login")
-  });
+$("#login-link-icon").on("click", function (e) {
+  e.preventDefault();
+  localStorage.setItem("page-history", window.location.href)
+  window.location.replace("/login")
+});
 
 
 setTimeout(() => {
 
-if($("#mainNav")){
-if(auth.currentUser){
+  if ($("#mainNav")) {
+    if (auth.currentUser) {
 
-  console.log(auth.currentUser.uid)
-  let logoutNav = `    <div class="nav-item dropdown">
+      console.log(auth.currentUser.uid)
+      let logoutNav = `    <div class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -333,94 +317,94 @@ if(auth.currentUser){
             </li>
           </ul>
         </div>`
-  $("#user-profile").html(logoutNav);
-}
-else {
+      $("#user-profile").html(logoutNav);
+    }
+    else {
 
-  console.log("no user timed")
-}
-
-
-
-}
-
-if($('.name-box')){
-if(auth.currentUser){
-
-$('.name-box').addClass("d-none")
-
-}
+      console.log("no user timed")
+    }
 
 
-}
+
+  }
+
+  if ($('.name-box')) {
+    if (auth.currentUser) {
+
+      $('.name-box').addClass("d-none")
+
+    }
+
+
+  }
 
 
 }, 1000);
-export function addCommentMessage(cleanMessage, cleanName){
-const path = window.location.pathname;
-    const addComment = httpsCallable(functions, "addComment");
-        const userData = JSON.parse(localStorage.getItem("userData"));
+export function addCommentMessage(cleanMessage, cleanName) {
+  const path = window.location.pathname;
+  const addComment = httpsCallable(functions, "addComment");
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
-      const uid = userData.uid;
-      addComment({
-        text: cleanMessage,
-        name: cleanName,
-        uid: userData,
-        page: path,
-      })
-        .then(function (result) {
-          console.log(result);
+  const uid = userData.uid;
+  addComment({
+    text: cleanMessage,
+    name: cleanName,
+    uid: userData,
+    page: path,
+  })
+    .then(function (result) {
+      console.log(result);
 
-          // Read result of the Cloud Function.
-          let sanitizedMessage = result.data.text;
-          let sanitizedName = result.data.name;
+      // Read result of the Cloud Function.
+      let sanitizedMessage = result.data.text;
+      let sanitizedName = result.data.name;
 
-          if (cleanMessage !== sanitizedMessage) {
-            filterCommentFail.toggle();
-            $("#reply-btn").disabled = false;
-            $("#reply-btn").html("Send");
-            for (let index = 0; index < formElements.length; index++) {
-              const element = formElements[index];
-              element.value = "";
-            }
-          } else {
-            console.log("test");
-            get(commentRef)
-              .then((snapshot) => {
-                if (snapshot.exists()) {
-                  const data = snapshot.val();
-                  const map = new Map(Object.entries(data));
+      if (cleanMessage !== sanitizedMessage) {
+        filterCommentFail.toggle();
+        $("#reply-btn").disabled = false;
+        $("#reply-btn").html("Send");
+        for (let index = 0; index < formElements.length; index++) {
+          const element = formElements[index];
+          element.value = "";
+        }
+      } else {
+        console.log("test");
+        get(commentRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const data = snapshot.val();
+              const map = new Map(Object.entries(data));
 
-                  for (const [key, value] of map.entries()) {
-                    if (value.id == docId) {
-                      const postListRef = ref(
-                        db,
-                        `messages${path}${key}/replies`
-                      );
+              for (const [key, value] of map.entries()) {
+                if (value.id == docId) {
+                  const postListRef = ref(
+                    db,
+                    `messages${path}${key}/replies`
+                  );
 
-                      const newPostRef = push(postListRef);
-                      return set(newPostRef, {
-                        name: sanitizedName,
-                        id: uid,
-                        message: sanitizedMessage,
-                        date: prettyDate,
-                        recipient: value.id,
-                      });
-                    }
-                  }
-                } else {
+                  const newPostRef = push(postListRef);
+                  return set(newPostRef, {
+                    name: sanitizedName,
+                    id: uid,
+                    message: sanitizedMessage,
+                    date: prettyDate,
+                    recipient: value.id,
+                  });
                 }
-              })
-              .catch((error) => {
-                console.error(error);
-              });
+              }
+            } else {
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
 
-            setTimeout(() => {
-              $(replyForm).animate({ opacity: 0 }, function () {
-                $(replyForm).css("display", "none");
-                $(otherSiblings).removeClass("d-none");
-                $(otherSiblings).append(
-                  `
+        setTimeout(() => {
+          $(replyForm).animate({ opacity: 0 }, function () {
+            $(replyForm).css("display", "none");
+            $(otherSiblings).removeClass("d-none");
+            $(otherSiblings).append(
+              `
        <div class="col-md-11 p-3 mb-3" >
    <div class="row ">
    <div class="col-lg-12 border-start">
@@ -440,44 +424,44 @@ const path = window.location.pathname;
 
      </div>
      `
-                );
-                $(otherComments).animate({ opacity: 1 }, 500);
+            );
+            $(otherComments).animate({ opacity: 1 }, 500);
 
-                filterCommentSuccess.toggle();
-              });
-            }, 500);
-          }
-        })
-        .catch(function (error) {
-          // Getting the Error details.
-          let code = error.code;
-          let message = error.message;
-          let details = error.details;
-          console.error(
-            "There was an error when calling the Cloud Function",
-            error
-          );
-          window.alert(
-            "There was an error when calling the Cloud Function:\n\nError Code: " +
-              code +
-              "\nError Message:" +
-              message +
-              "\nError Details:" +
-              details
-          );
-          addCommentButton.disabled = false;
-        });
+            filterCommentSuccess.toggle();
+          });
+        }, 500);
+      }
+    })
+    .catch(function (error) {
+      // Getting the Error details.
+      let code = error.code;
+      let message = error.message;
+      let details = error.details;
+      console.error(
+        "There was an error when calling the Cloud Function",
+        error
+      );
+      window.alert(
+        "There was an error when calling the Cloud Function:\n\nError Code: " +
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
+      );
+      addCommentButton.disabled = false;
+    });
 }
 
-  $("#user-profile").on("click", "#sign-out", function (e) {
-    e.preventDefault();
-    console.log(e)
-    signOut(auth)
-      .then(() => {
-        let myModal = new Modal(document.getElementById("modalSignOut"));
-        myModal.toggle();
-      })
-      .catch((error) => {});
-  });
+$("#user-profile").on("click", "#sign-out", function (e) {
+  e.preventDefault();
+  console.log(e)
+  signOut(auth)
+    .then(() => {
+      let myModal = new Modal(document.getElementById("modalSignOut"));
+      myModal.toggle();
+    })
+    .catch((error) => { });
+});
 
-export default {addCommentMessage, googleSignin, createRandomUser, getIp}
+export default { addCommentMessage, googleSignin, createRandomUser, getIp }

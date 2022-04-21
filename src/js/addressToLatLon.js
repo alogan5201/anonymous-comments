@@ -1,15 +1,12 @@
 
-import "./firebase"
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript";
 import {
-  getLatLon,
-  getAddress,
-  getElevation,
-  popupContent,
-  generateUID,
+  generateUID, getAddress,
+  getElevation, getLatLon, popupContent, addBookmark
 } from "utils/geocoder";
-import {getIp} from "./firebase"
-import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import "./firebase";
+import { getIp } from "./firebase";
 
 
 const uid = generateUID();
@@ -90,9 +87,7 @@ $(function () {
     const data = await getLatLon(city);
     return data.data;
   }
-  const outputInputField = document.getElementById("output-field-input");
-  const latInputField = document.getElementById("latInputField");
-  const lonInputField = document.getElementById("lonInputField");
+
 
   function DDtoDMS(lat, lon) {
     //
@@ -120,28 +115,8 @@ $(function () {
     return result;
   }
 
-  const CoordsApp = function _CoordsApp() {
-    return `
-     <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
-     <h1>Destination State = [${CoordsApp.state.destination}] </h1>
-     <h1>User Location = [${CoordsApp.state.userLocation}] </h1>
-     <h1>trackingUser =  ${CoordsApp.state.trackingUser}</h1>
-    `;
-  };
 
-  const myhandler = {
-    set: function (obj, prop, value) {
-      obj[prop] = value;
-    },
-  };
 
-  CoordsApp.state = new Proxy(
-    { origin: [], destination: [], userLocation: [], trackingUser: false },
-    myhandler
-  );
-  function startLoading() {
-    loader.className = "";
-  }
 
   L.mapbox.accessToken =
     "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
@@ -157,13 +132,9 @@ $(function () {
   function finishedLoading() {
     // first, toggle the class 'done', which makes the loading screen
     // fade out
-     let location =   localStorage.getItem("userlocation")
     setTimeout(() => {
       $("#map").removeClass("invisible");
-      if (location){
-          localStorage.setItem("userlocation", "")
-     // # TODO:UPDATE other pages
-      }
+
     }, 1000);
   }
   $("#mapTest").on("click", function (e) {
@@ -201,15 +172,13 @@ $(function () {
     let lat = e.latitude;
     let lon = e.longitude;
     var radius = e.accuracy;
-    let obj = {lat: lat, lon: lon}
-    localStorage.setItem("userlocation", `${JSON.stringify(obj)}`) // TODO UPDATE other pages with ip address fallback
 
     const submitText = $("form :submit").first().text();
     let markerLocation = marker.getLatLng()
 
     //hsl(217deg 93% 60%)
     let icon = locationControl._icon;
-    $(icon).css("background-color", "hsl(217deg 93% 60%)");
+    // $(icon).css("background-color", "hsl(217deg 93% 60%)");
 
     const address = await convertLatLon(lat, lon);
 
@@ -244,65 +213,65 @@ $(function () {
     locationControl.stop();
 
     setTimeout(() => {
-       $(icon).css("background-color", "black");
+      $(icon).css("background-color", "black");
     }, 1000);
   });
 
   map.on("locationerror", async function (e) {
-    if (e.message == "Geolocation error: Timeout expired.") {
-   let location =   localStorage.getItem("userlocation")
-// TODO UPDATE other pages with ip address fallback
-       let icon = locationControl._icon;
-         $(icon).css("background-color", "hsl(217deg 93% 60%)");
-     const ip = await getIp()
-     let lat = ip.latitude
-     let lon = ip.longitude
 
-      if (location != "") {
+    locationControl.stop();
+    // TODO UPDATE other pages with ip address fallback
+    let icon = locationControl._icon;
+    $(icon).css("background-color", "hsl(217deg 93% 60%)");
+    const ip = await getIp()
 
 
-        const submitText = $("form :submit").first().text();
+    if (ip.latitude) {
+      let parsed = JSON.parse(location)
+      let lat = parsed.lat
+      let lon = parsed.lon
 
-        //hsl(217deg 93% 60%)
-        let icon = locationControl._icon;
-        $(icon).css("background-color", "hsl(217deg 93% 60%)");
+      const submitText = $("form :submit").first().text();
 
-        const address = await convertLatLon(lat, lon);
+      //hsl(217deg 93% 60%)
+      let icon = locationControl._icon;
+      $(icon).css("background-color", "hsl(217deg 93% 60%)");
 
-        if (address.features.length > 0) {
-          $("form")
-            .first()
-            .find("input:eq(0)")
-            .val(address.features[0].place_name);
+      const address = await convertLatLon(lat, lon);
 
-          $("#latlonForm").find("input:eq(0)").val(lat);
-          $("#latlonForm").find("input:eq(1)").val(lon);
-        }
-        $("form :submit").first().html(`${submitText}`);
-        map.fitBounds([[lat, lon]], { padding: [50, 50] });
+      if (address.features.length > 0) {
+        $("form")
+          .first()
+          .find("input:eq(0)")
+          .val(address.features[0].place_name);
 
-        const dmsCalculated = DDtoDMS(lat, lon);
-
-        const data = {
-          name: address.features[0].place_name,
-          lat: lat,
-          lon: lon,
-          dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
-        };
-
-        const p = popupContent(data);
-        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-        // # TODO: ADD to all converts
-
-        marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
-          setTimeout(() => {
-       $(icon).css("background-color", "black");
-    }, 1000);
+        $("#latlonForm").find("input:eq(0)").val(lat);
+        $("#latlonForm").find("input:eq(1)").val(lon);
       }
+      $("form :submit").first().html(`${submitText}`);
+      map.fitBounds([[lat, lon]], { padding: [50, 50] });
+
+      const dmsCalculated = DDtoDMS(lat, lon);
+
+      const data = {
+        name: address.features[0].place_name,
+        lat: lat,
+        lon: lon,
+        dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
+      };
+
+      const p = popupContent(data);
+      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+      // # TODO: ADD to all converts
+
+      marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
+      setTimeout(() => {
+        $(icon).css("background-color", "black");
+      }, 1000);
     }
 
-    let lat = e.latitude;
-    let lon = e.longitude;
+
+
 
 
   });
@@ -373,79 +342,13 @@ $(function () {
     }, 500);
   }
 
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-    $(this).children().last().removeClass("far").addClass("fas");
-    $(this).prop("disabled", true);
 
-    let btn = $(this).parent().children(":input").is(":checked");
-    let pressed = $(this).attr("aria-pressed");
-
-    const allItems = $(this).parent().parent().parent().parent().children();
-    let first = $(this).parent().parent().parent().parent().children().first();
-    let second = $(first).next("span.lat");
-    let allButlast = allItems.length - 1;
-
-    let name;
-    let dms;
-    for (let index = 0; index < allButlast; index++) {
-      const element = allItems[index];
-
-      if ($(element).hasClass("location-name")) {
-        let text = $(element).text();
-
-        name = text;
-      } else if ($(element).hasClass("dms")) {
-        let text = $(element).text();
-        dms = text;
-      }
-    }
-
-    let coords = marker.getLatLng();
-    name = name.replace(/^\s+|\s+$/gm, "");
-
-    const obj = {
-      name: name,
-      latlng: [coords.lat, coords.lng],
-      lat: coords.lat,
-      lon: coords.lon,
-      dms: dms,
-      path: path,
-      key: uid,
-    };
-    let parsed = JSON.stringify([obj]);
-    let localItem = localStorage.getItem(siteTitle);
-
-
-let key = "bookmarks"
-
-addBookmark(obj)
-    /*
-    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
-*/
-  });
 
   //bookmark-btn
-  function addBookmark( data) {
-    let allEntries = "bookmarks"
-    let entryItem = data.key;
-    // Parse any JSON previously stored in allEntries
-    var existingEntries = JSON.parse(localStorage.getItem(allEntries));
-    if (existingEntries == null) existingEntries = [];
-    const entry = data;
-    localStorage.setItem(entryItem, JSON.stringify(entry));
-    // Save allEntries back to local storage
-    existingEntries.push(entry);
-    localStorage.setItem(allEntries, JSON.stringify(existingEntries));
-  }
+
 
   $("#getTravelForm").on("submit", async function (e) {
     e.preventDefault();
-  let userlocation = localStorage.getItem("userlocation")
-   if (userlocation){
-    localStorage.setItem("userlocation", "")
-     console.log(userlocation)
-   }
 
     $(locationControl._icon).css("background-color", "black");
 
@@ -519,11 +422,28 @@ addBookmark(obj)
 </button>`);
     getElevationData(coords.lng, coords.lat);
   });
-  map.on('popupopen', function(e) {
+
+  $("#map").on("click", ".bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("location-data")
+    let parsed = JSON.parse(cachedData)
+    let coords = marker.getLatLng();
+    name = name.replace(/^\s+|\s+$/gm, "");
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    addBookmark(parsed)
+  });
+  map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true });
+    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    // TODO update
+  });
+  map.on('popupclose', function (e) {
+    // TODO update
+    $('.leaflet-top.leaflet-left').css('opacity', '1');
+  });
 
 
 });
