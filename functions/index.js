@@ -80,7 +80,7 @@ async function fetchMatrix(first, second) {
   const secondQuery = encodeURIComponent(second);
 
   const response = await fetch(
-    `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${firstQuery};${secondQuery}?&access_token=${mapboxToken}`,
+    `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,
     { method: "GET" }
   );
   if (response.status !== 200) {

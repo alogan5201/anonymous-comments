@@ -9,7 +9,7 @@ import {
   getAddress,
   getElevation,
   getGeojson,
-  addBookmark
+  addBookmark,
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -71,9 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
   var featureLayer = L.mapbox.featureLayer().addTo(map);
   map.on("layeradd", function (e) {
     if ($("#loader").hasClass("loading")) {
-      $("#loader")
-        .removeClass("loading")
-        .addClass("d-none");
+      $("#loader").removeClass("loading").addClass("d-none");
     }
   });
   var locationControl = L.control
@@ -108,11 +106,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let addressName =
       data.features.length > 0 ? data.features[0].place_name : null;
     if (data.features.length > 0) {
-      console.log(
-        $("form")
-          .first()
-          .find("input:eq(0)")
-      );
+      console.log($("form").first().find("input:eq(0)"));
       console.log(data);
       $("#addressInputFieldOrigin").val(data.features[0].place_name);
     }
@@ -124,16 +118,13 @@ window.addEventListener("DOMContentLoaded", () => {
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
-      origin: true
+      origin: true,
     };
 
     const p = popupContent(allData);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
-    marker1
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup();
+    marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
     locationControl.stop();
     setTimeout(() => {
       $(icon).css("background-color", "black");
@@ -166,16 +157,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const pageTitle = title.slice(11);
 
-
-
   function inputFocus(x) {
     if ($("#secondOutput").hasClass("second")) {
-      $("#secondOutput")
-        .removeClass("second")
-        .addClass("fadeOut");
-      $("#firstOutput")
-        .removeClass("first")
-        .addClass("fadeOut");
+      $("#secondOutput").removeClass("second").addClass("fadeOut");
+      $("#firstOutput").removeClass("first").addClass("fadeOut");
       setTimeout(() => {
         $("#secondOutput").addClass("d-none");
         $("#firstOutput").addClass("d-none");
@@ -235,15 +220,10 @@ window.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     let icon = locationControl._icon;
     $(icon).css("background-color", "black");
-    $("#loader")
-      .removeClass("d-none")
-      .addClass("loading");
-    const popupCheck = marker1.isPopupOpen()
+    $("#loader").removeClass("d-none").addClass("loading");
+    const popupCheck = marker1.isPopupOpen();
     if (popupCheck) {
-
-      marker1.closePopup()
-
-
+      marker1.closePopup();
     }
     const coordsOrigin = await convertAddressToCoordinates(
       e.currentTarget[0].value
@@ -259,8 +239,6 @@ window.addEventListener("DOMContentLoaded", () => {
     let originLatLon = result[0].features[0].geometry.coordinates;
     let originLat = originLatLon[1];
     let originLon = originLatLon[0];
-
-
 
     const destination = result[1].features[0];
     let destinationLatLon = result[1].features[0].geometry.coordinates;
@@ -279,8 +257,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ];
 
     const originDMS = DDtoDMS(originLat, originLon);
-    const destinationDMS = DDtoDMS(destinationLat, destinationLon)
-
+    const destinationDMS = DDtoDMS(destinationLat, destinationLon);
 
     const distance = HaversineGeolocation.getDistanceBetween(
       points[0],
@@ -301,30 +278,21 @@ window.addEventListener("DOMContentLoaded", () => {
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
       distance: `${distance} miles`,
-      destination: true
+      destination: true,
     };
 
-    const markerCoords = marker1.getLatLng()
-    const markerContent = marker1.getPopup()
+    const markerCoords = marker1.getLatLng();
+    const markerContent = marker1.getPopup();
 
     const originPopup = popupContent(originResults);
-    const destinationPopup = popupContent(destinationResults)
+    const destinationPopup = popupContent(destinationResults);
 
     const popup1 = L.popup().setContent(originPopup);
     const popup2 = L.popup().setContent(destinationPopup);
 
+    marker1.setLatLng([originLat, originLon]).bindPopup(popup1);
 
-    marker1
-      .setLatLng([originLat, originLon])
-      .bindPopup(popup1)
-
-
-
-    marker2
-      .setLatLng([destinationLat, destinationLon])
-      .bindPopup(popup2)
-
-
+    marker2.setLatLng([destinationLat, destinationLon]).bindPopup(popup2);
 
     $("#distanceInput").val(`${distance} miles`);
     $("#distanceInput").focus();
@@ -335,8 +303,6 @@ window.addEventListener("DOMContentLoaded", () => {
       ],
       { padding: [50, 50] }
     );
-
-
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
@@ -347,68 +313,60 @@ window.addEventListener("DOMContentLoaded", () => {
   </button>`);
     e.preventDefault();
     if ($(this).hasClass("origin")) {
-      console.log("has class origin")
+      console.log("has class origin");
 
-      let originCoords = marker1.getLatLng()
+      let originCoords = marker1.getLatLng();
       getElevationData(originCoords.lng, originCoords.lat);
-    }
-    else {
-      let destinationCoords = marker2.getLatLng()
+    } else {
+      let destinationCoords = marker2.getLatLng();
       getElevationData(destinationCoords.lng, destinationCoords.lat);
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("origin-data")
-    const data = JSON.parse(cachedData)
-
+    let cachedData = localStorage.getItem("origin-data");
+    const data = JSON.parse(cachedData);
 
     name = name.replace(/^\s+|\s+$/gm, "");
 
-    console.log("bookmark is origin")
-    let popup = marker1.getPopup()
-    $(this).prop("disabled", true)
-    $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark("origin-data")
+    console.log("bookmark is origin");
+    let popup = marker1.getPopup();
+    $(this).prop("disabled", true);
+    $(this).children().last().removeClass("far").addClass("fas");
+    addBookmark("origin-data");
 
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
 
-    let newPopupContent = $(this).parents("div.popupContent").parent().html()
-
-    marker1.setPopupContent(newPopupContent)
-
-
+    marker1.setPopupContent(newPopupContent);
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("destination-data")
-    let parsed = JSON.parse(cachedData)
-    console.log(parsed)
+    let cachedData = localStorage.getItem("destination-data");
+    let parsed = JSON.parse(cachedData);
+    console.log(parsed);
 
     name = name.replace(/^\s+|\s+$/gm, "");
 
-    console.log("bookmark is origin")
-    let popup = marker2.getPopup()
-    $(this).prop("disabled", true)
-    $(this).children().last().removeClass("far").addClass("fas")
-    debugger
-    addBookmark("destination-data")
+    console.log("bookmark is origin");
+    let popup = marker2.getPopup();
+    $(this).prop("disabled", true);
+    $(this).children().last().removeClass("far").addClass("fas");
+    debugger;
+    addBookmark("destination-data");
 
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
 
-    let newPopupContent = $(this).parents("div.popupContent").parent().html()
-
-    marker2.setPopupContent(newPopupContent)
-
-
+    marker2.setPopupContent(newPopupContent);
   });
-  map.on('popupopen', function (e) {
+  map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     map.panTo(map.unproject(px), { animate: true });
-    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    $(".leaflet-top.leaflet-left").css("opacity", "0");
     // TODO update
   });
-  map.on('popupclose', function (e) {
+  map.on("popupclose", function (e) {
     // TODO update
-    $('.leaflet-top.leaflet-left').css('opacity', '1');
+    $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
 });

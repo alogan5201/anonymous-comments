@@ -45,9 +45,8 @@ export function clearForm(form) {
   }
 }
 
-
 export function popupContent(input) {
-  const uid = generateUID()
+  const uid = generateUID();
   function createElement(field, className) {
     let output = `<li class="list-group-item border-0 pt-2 px-1 border-bottom location-name ${className}"> ${field}</li>`;
     return output;
@@ -65,29 +64,34 @@ export function popupContent(input) {
     path: window.location.pathname,
     uid: uid,
     date: prettyDate,
-
   };
 
   localStorage.setItem("location-data", JSON.stringify(storedData));
 
   if (input.origin || input.destination) {
-    saveOriginDestination(input)
-
+    saveOriginDestination(input);
   }
 
-
-  let distance = input.distance ? createElement(input.distance, "distance") : "";
-  let origin = input.origin ? "origin" : ""
-  let originTitle = input.origin ? createElement("Origin", "origin-title fs-6") : ""
-  let destination = input.destination ? "destination" : ""
-  let destinationTitle = input.destination ? createElement("Destination", "destination-title fs-6") : ""
+  let distance = input.distance
+    ? createElement(input.distance, "distance")
+    : "";
+  let origin = input.origin ? "origin" : "";
+  let originTitle = input.origin
+    ? createElement("Origin", "origin-title fs-6")
+    : "";
+  let destination = input.destination ? "destination" : "";
+  let destinationTitle = input.destination
+    ? createElement("Destination", "destination-title fs-6")
+    : "";
   let weather = input.weather
     ? `  ${createElement(
-      input.weather.currentWeather,
-      "weather"
-    )}  <span><img style="max-width: 50px" src="http://openweathermap.org/img/wn/${input.weather.imgIcon
-    }@2x.png" class="img-fluid rounded-start" alt="..."></span><span>${input.weather.temp
-    }°F </span>`
+        input.weather.currentWeather,
+        "weather"
+      )}  <span><img style="max-width: 50px" src="http://openweathermap.org/img/wn/${
+        input.weather.imgIcon
+      }@2x.png" class="img-fluid rounded-start" alt="..."></span><span>${
+        input.weather.temp
+      }°F </span>`
     : "";
   let name = input.name ? ` ${createElement(input.name, "name fs-6")}` : "";
 
@@ -106,7 +110,7 @@ export function popupContent(input) {
         ${distance}
         <li class="list-group-item border-0 px-1 fs-6 py-0 pb-1 pt-2 border-top">
           <div class="hstack gap-3">
-            <div class="  altitude mx-auto">
+            <div class="  altitude me-auto">
               <button class="btn btn-primary btn-sm btn-sm ${origin}${destination}  getAltitude" id="getAltitude" type="button">
                 Get Altitude
               </button>
@@ -124,7 +128,7 @@ export function popupContent(input) {
   return data;
 }
 function saveOriginDestination(input) {
-  const uid = generateUID()
+  const uid = generateUID();
   if (input.origin) {
     let originData = {
       name: input.name,
@@ -135,17 +139,10 @@ function saveOriginDestination(input) {
       origin: true,
       uid: uid,
       date: prettyDate,
-      path: window.location.pathname
-
-    }
+      path: window.location.pathname,
+    };
     localStorage.setItem("origin-data", JSON.stringify(originData));
-
-  }
-
-
-
-  else if (input.destination) {
-
+  } else if (input.destination) {
     let destinationData = {
       name: input.name,
       lat: input.lat,
@@ -156,15 +153,13 @@ function saveOriginDestination(input) {
       uid: uid,
       date: prettyDate,
       path: window.location.pathname,
-
-    }
+    };
     localStorage.setItem("destination-data", JSON.stringify(destinationData));
   }
 }
 
 export function addBookmark(entryKey) {
-  let allEntries = "bookmarks"
-
+  let allEntries = "bookmarks";
 
   // Parse any JSON previously stored in allEntries
   var existingEntries = JSON.parse(localStorage.getItem(allEntries));
@@ -195,11 +190,11 @@ export async function getLatLon(city) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -224,11 +219,11 @@ export async function getAddress(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -252,11 +247,11 @@ export async function getElevation(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -280,11 +275,11 @@ export async function getMatrix(first, second) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -336,5 +331,5 @@ export default {
   getMatrix,
   getGeojson,
   generateUID,
-  addBookmark
+  addBookmark,
 };
