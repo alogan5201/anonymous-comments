@@ -22,9 +22,9 @@
           <p class="fs-5 text-muted">Quickly convert Addresses, coordinates, and DMS data.</p>
         </div>
         <div class="row gx-5 align-items-center justify-content-center mb-5">
-          <div class="col-lg-6 align-self-start">
+          <div id="all-forms" class="col-md-5" style="position: relative;">
             <h5 class="text-start mb-4">Address</h5>
-            <form
+            <form role="form"
               class="row justify-content-between align-items-center"
               autocomplete="off"
               id="addressForm"
@@ -58,7 +58,7 @@
             </form>
 
             <h5 class="text-start mb-4">Latitude and Longitude</h5>
-            <form
+            <form role="form"
               class="row g-3 mb-3 justify-content-between align-items-center"
               id="latlonForm"
             >
@@ -105,7 +105,7 @@
                 </button>
               </div>
             </form>
-            <form class="row g-3 mb-3" id="myDmsForm">
+            <form role= "form" class="row g-3 mb-3" id="myDmsForm">
               <h5 class="text-start mb-4">DMS (degrees, minutes, seconds)*</h5>
               <div class="input-group mb-3" id="lat-dms-field">
                 <legend
@@ -229,9 +229,15 @@
             </form>
           </div>
 
-          <div class="col-lg-6 align-self-start" style="position: relative;">
+          <div class="col-md-7  align-self-start">
             <h4 class="travel-time"></h4>
-            <div class="map-container"><div id="map"></div></div>
+            <div id="map-container" class="map-container">
+
+              <div id="map" class="invisible"></div>
+              <div id="static"></div>
+
+
+          </div>
 
             <div class="row mb-3">
               <div id="liveAlertPlaceholder">

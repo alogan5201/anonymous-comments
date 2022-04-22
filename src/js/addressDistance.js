@@ -10,6 +10,7 @@ import {
   getElevation,
   getGeojson,
   addBookmark,
+
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -86,7 +87,7 @@ window.addEventListener("DOMContentLoaded", () => {
       icon: "my-geo-icon",
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 3000,
+        timeout: 5000,
       },
     })
     .addTo(map);
@@ -94,7 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
   map.on("locationfound", async function (e) {
     map.fitBounds(e.bounds);
     let icon = locationControl._icon;
-    $(icon).css("background-color", "hsl(217deg 93% 60%)");
     let lat = e.latlng.lat;
 
     let lon = e.latlng.lng;
@@ -218,8 +218,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
-    let icon = locationControl._icon;
-    $(icon).css("background-color", "black");
+
     $("#loader").removeClass("d-none").addClass("loading");
     const popupCheck = marker1.isPopupOpen();
     if (popupCheck) {
@@ -306,18 +305,26 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
-    $(
-      this
-    ).parent().html(`<button class="btn btn-outline-primary border-0 text-center my-auto" type="button" disabled="">
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  </button>`);
     e.preventDefault();
+    let width = $(this).width()
+    let hstack = $(this).parent().parent()
+
+    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+    $(hstack).children().first().html(`
+   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
+   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>
+ `)
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+
     if ($(this).hasClass("origin")) {
       console.log("has class origin");
-
+      marker1.setPopupContent(newPopupContent)
       let originCoords = marker1.getLatLng();
       getElevationData(originCoords.lng, originCoords.lat);
     } else {
+      marker2.setPopupContent(newPopupContent)
       let destinationCoords = marker2.getLatLng();
       getElevationData(destinationCoords.lng, destinationCoords.lat);
     }
@@ -351,12 +358,13 @@ window.addEventListener("DOMContentLoaded", () => {
     let popup = marker2.getPopup();
     $(this).prop("disabled", true);
     $(this).children().last().removeClass("far").addClass("fas");
-    debugger;
+
     addBookmark("destination-data");
 
     let newPopupContent = $(this).parents("div.popupContent").parent().html();
 
     marker2.setPopupContent(newPopupContent);
+
   });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

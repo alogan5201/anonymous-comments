@@ -144,8 +144,8 @@ $(document).ready(function () {
       remainActive: false,
       icon: "my-geo-icon",
       locateOptions: {
-        enableHighAccuracy: false,
-        timeout: 3000,
+        enableHighAccuracy: true,
+        timeout: 5000,
       },
     })
     .addTo(map)
@@ -345,20 +345,27 @@ $(document).ready(function () {
   const title = $('title').html()
 
   const pageTitle = title.slice(11)
-  let bookmarkControl = new L.Control.Bookmarks({
-    name: pageTitle
-  }).addTo(map)
 
-  $('#map').on('click', '#getAltitude', function (e) {
-    e.preventDefault()
-    let coords = marker.getLatLng()
 
-    $(this).parent().html(`<button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading
-</button>`)
-    getElevationData(coords.lng, coords.lat)
-  })
+  $("#map").on("click", "#getAltitude", function (e) {
+    e.preventDefault();
+    let width = $(this).width()
+    let hstack = $(this).parent().parent()
+
+    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+    $(hstack).children().first().html(`
+   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
+   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>
+ `)
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+    console.log("has class origin");
+    marker.setPopupContent(newPopupContent)
+    let coords = marker.getLatLng();
+    getElevationData(coords.lng, coords.lat);
+
+  });
 
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
@@ -368,10 +375,11 @@ $(document).ready(function () {
     name = name.replace(/^\s+|\s+$/gm, "");
     $(this).prop("disabled", true)
     $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark(parsed)
+    addBookmark("location-data")
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+    marker.setPopupContent(newPopupContent);
+
   });
-
-
 
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

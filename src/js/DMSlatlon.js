@@ -144,8 +144,9 @@ $(document).ready(function () {
       remainActive: false,
       icon: 'my-geo-icon',
       locateOptions: {
-        enableHighAccuracy: true
-      }
+        enableHighAccuracy: true,
+        timeout: 5000,
+      },
     })
     .addTo(map)
   async function findAddress (lat, lon) {

@@ -160,11 +160,11 @@ $(function () {
       remainActive: false,
       icon: "my-geo-icon",
       locateOptions: {
-        enableHighAccuracy: false,
-        timeout: 3000,
+        enableHighAccuracy: true,
+        timeout: 5000,
       },
     })
-    .addTo(map);
+    .addTo(map)
 
   map.on("locationfound", async function (e) {
 
@@ -202,8 +202,6 @@ $(function () {
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
     };
 
-
-
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
@@ -227,9 +225,9 @@ $(function () {
 
 
     if (ip.latitude) {
-      let parsed = JSON.parse(location)
-      let lat = parsed.lat
-      let lon = parsed.lon
+
+      let lat = ip.latitude
+      let lon = ip.longitude
 
       const submitText = $("form :submit").first().text();
 
@@ -350,10 +348,9 @@ $(function () {
   $("#getTravelForm").on("submit", async function (e) {
     e.preventDefault();
 
-    $(locationControl._icon).css("background-color", "black");
+
 
     const submitText = $("form :submit").first().text();
-    console.log($("form :submit").first().parent());
     $(
       "form :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -412,15 +409,22 @@ $(function () {
   });
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    let coords = marker.getLatLng();
+    let width = $(this).width()
+    let hstack = $(this).parent().parent()
 
-    $(
-      this
-    ).parent().html(`<button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading...
-</button>`);
+    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+    $(hstack).children().first().html(`
+   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
+   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>
+ `)
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+    console.log("has class origin");
+    marker.setPopupContent(newPopupContent)
+    let coords = marker.getLatLng();
     getElevationData(coords.lng, coords.lat);
+
   });
 
   $("#map").on("click", ".bookmark-btn", function (e) {
@@ -431,7 +435,9 @@ $(function () {
     name = name.replace(/^\s+|\s+$/gm, "");
     $(this).prop("disabled", true)
     $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark(parsed)
+    addBookmark("location-data")
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+    marker.setPopupContent(newPopupContent);
   });
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

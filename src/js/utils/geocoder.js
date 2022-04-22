@@ -13,7 +13,7 @@ Date.prototype.toShortFormat = function () {
     "Sep",
     "Oct",
     "Nov",
-    "Dec",
+    "Dec"
   ];
 
   let day = this.getDate();
@@ -44,7 +44,17 @@ export function clearForm(form) {
     }
   }
 }
-
+export function altitudeLoading() {
+  let data = ` <div class="  altitude mx-auto">
+  <button class="btn btn-outline-primary border-0 text-center my-auto" type="button" disabled="">
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+</button>
+</div>
+<div class=" border ms-auto">
+  <button type="button" class="btn btn-outline-primary  btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
+</div>`;
+  return data;
+}
 export function popupContent(input) {
   const uid = generateUID();
   function createElement(field, className) {
@@ -63,7 +73,7 @@ export function popupContent(input) {
     weather: weatherData,
     path: window.location.pathname,
     uid: uid,
-    date: prettyDate,
+    date: prettyDate
   };
 
   localStorage.setItem("location-data", JSON.stringify(storedData));
@@ -84,14 +94,12 @@ export function popupContent(input) {
     ? createElement("Destination", "destination-title fs-6")
     : "";
   let weather = input.weather
-    ? `  ${createElement(
-        input.weather.currentWeather,
-        "weather"
-      )}  <span><img style="max-width: 50px" src="http://openweathermap.org/img/wn/${
-        input.weather.imgIcon
-      }@2x.png" class="img-fluid rounded-start" alt="..."></span><span>${
-        input.weather.temp
-      }°F </span>`
+    ? `    <li class="list-group-item border-0 px-1 fs-6 py-0">
+    <div class="hstack gap-3">
+<div class = "weather" > ${input.weather.currentWeather}</div>
+<div class=""><span> <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${input.weather.imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span></div>
+<div class="temp">${input.weather.temp}°F</div>
+</div></li>`
     : "";
   let name = input.name ? ` ${createElement(input.name, "name fs-6")}` : "";
 
@@ -100,7 +108,7 @@ export function popupContent(input) {
 
     <div class="card-body px-3 pt-2 pb-1">
       <ul class="list-group border-0">
-      ${destinationTitle} ${originTitle} ${name} ${weather}
+      ${destinationTitle} ${originTitle} ${weather} ${name}
         <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
               class="lat">${input.lat} </span></li>
         <li class="list-group-item border-0 px-1 fs-6 py-0">
@@ -109,7 +117,7 @@ export function popupContent(input) {
         <li class="list-group-item border-0 px-1 fs-6 py-0 dms"> ${input.dms.lat} ${input.dms.lon}</li>
         ${distance}
         <li class="list-group-item border-0 px-1 fs-6 py-0 pb-1 pt-2 border-top">
-          <div class="hstack gap-3">
+          <div class="hstack">
             <div class="  altitude me-auto">
               <button class="btn btn-primary btn-sm btn-sm ${origin}${destination}  getAltitude" id="getAltitude" type="button">
                 Get Altitude
@@ -139,7 +147,7 @@ function saveOriginDestination(input) {
       origin: true,
       uid: uid,
       date: prettyDate,
-      path: window.location.pathname,
+      path: window.location.pathname
     };
     localStorage.setItem("origin-data", JSON.stringify(originData));
   } else if (input.destination) {
@@ -152,7 +160,7 @@ function saveOriginDestination(input) {
       destination: true,
       uid: uid,
       date: prettyDate,
-      path: window.location.pathname,
+      path: window.location.pathname
     };
     localStorage.setItem("destination-data", JSON.stringify(destinationData));
   }
@@ -173,7 +181,7 @@ export function addBookmark(entryKey) {
 export async function getLatLon(city) {
   const getLatLonData = httpsCallable(functions, "getLatLon");
   return getLatLonData({
-    city: city,
+    city: city
   })
     .then(function (result) {
       let data = JSON.stringify(result);
@@ -190,11 +198,11 @@ export async function getLatLon(city) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-          code +
-          "\nError Message:" +
-          message +
-          "\nError Details:" +
-          details
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
       );
     });
 }
@@ -203,7 +211,7 @@ export async function getAddress(lat, lon) {
   const getLatLonData = httpsCallable(functions, "getAddress");
   return getLatLonData({
     lat: lat,
-    lon: lon,
+    lon: lon
   })
     .then(function (result) {
       return result;
@@ -219,11 +227,11 @@ export async function getAddress(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-          code +
-          "\nError Message:" +
-          message +
-          "\nError Details:" +
-          details
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
       );
     });
 }
@@ -231,7 +239,7 @@ export async function getElevation(lat, lon) {
   const getElevationData = httpsCallable(functions, "getElevation");
   return getElevationData({
     lat: lat,
-    lon: lon,
+    lon: lon
   })
     .then(function (result) {
       return result;
@@ -247,11 +255,11 @@ export async function getElevation(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-          code +
-          "\nError Message:" +
-          message +
-          "\nError Details:" +
-          details
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
       );
     });
 }
@@ -259,7 +267,7 @@ export async function getMatrix(first, second) {
   const getMatrixData = httpsCallable(functions, "getMatrix");
   return getMatrixData({
     first: first,
-    second: second,
+    second: second
   })
     .then(function (result) {
       return result;
@@ -275,11 +283,11 @@ export async function getMatrix(first, second) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-          code +
-          "\nError Message:" +
-          message +
-          "\nError Details:" +
-          details
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
       );
     });
 }
@@ -295,31 +303,31 @@ export function getGeojson(first, second) {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [first.lon, first.lat],
+          coordinates: [first.lon, first.lat]
         },
         properties: {
           title: "Origin",
           description: first.title,
           "marker-color": "#35A2D1",
           "marker-size": "large",
-          "marker-symbol": "1",
-        },
+          "marker-symbol": "1"
+        }
       },
       {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [destination.lon, destination.lat],
+          coordinates: [destination.lon, destination.lat]
         },
         properties: {
           title: "Destination",
           description: destination.title,
           "marker-color": "#fc4353",
           "marker-size": "large",
-          "marker-symbol": "2",
-        },
-      },
-    ],
+          "marker-symbol": "2"
+        }
+      }
+    ]
   };
 
   return geojson;
@@ -332,4 +340,5 @@ export default {
   getGeojson,
   generateUID,
   addBookmark,
+  altitudeLoading
 };

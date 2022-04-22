@@ -1,10 +1,7 @@
 /* jshint esversion: 8 */
 import HaversineGeolocation from "haversine-geolocation";
 import "utils/commentscript.js";
-import {
-  generateUID, getAddress,
-  getElevation, getLatLon, popupContent, addBookmark
-} from "utils/geocoder";
+import { addBookmark, getElevation, popupContent } from "utils/geocoder";
 import "./firebase";
 
 
@@ -30,6 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const elevations = allFeatures.map((feature) => feature.properties.ele);
     // In the elevations array, find the largest value
     const highestElevation = Math.max(...elevations);
+
     setTimeout(() => {
       $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
     }, 500);
@@ -108,7 +106,7 @@ window.addEventListener("DOMContentLoaded", () => {
       icon: "my-geo-icon",
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 3000,
+        timeout: 5000,
       },
     })
     .addTo(map);
@@ -285,20 +283,27 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   $("#map").on("click", "#getAltitude", function (e) {
-    $(
-      this
-    ).parent().html(`<button class="btn btn-outline-primary border-0 text-center my-auto" type="button" disabled="">
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  </button>`);
     e.preventDefault();
-    if ($(this).hasClass("origin")) {
-      console.log("has class origin")
+    let width = $(this).width()
+    let hstack = $(this).parent().parent()
 
-      let originCoords = marker1.getLatLng()
+    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+    $(hstack).children().first().html(`
+   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
+   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>
+ `)
+
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+
+    if ($(this).hasClass("origin")) {
+      console.log("has class origin");
+      marker1.setPopupContent(newPopupContent)
+      let originCoords = marker1.getLatLng();
       getElevationData(originCoords.lng, originCoords.lat);
-    }
-    else {
-      let destinationCoords = marker2.getLatLng()
+    } else {
+      marker2.setPopupContent(newPopupContent)
+      let destinationCoords = marker2.getLatLng();
       getElevationData(destinationCoords.lng, destinationCoords.lat);
     }
   });

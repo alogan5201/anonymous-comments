@@ -1,32 +1,17 @@
 /* jshint esversion: 8 */
 import './firebase'
 import {
-
+  popupContent,
+  getElevation,
   generateUID,
+  addBookmark,
+  altitudeLoading
 } from "utils/geocoder";
 import 'utils/commentscript.js'
+import { getIp } from "./firebase";
 
-let geojson = {
-  type: 'FeatureCollection',
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [0, 0]
-      },
-      properties: {
-        currentWeather: '',
-        temp: '',
-        image: '',
-        'marker-color': '#35A2D1',
-        'marker-size': 'large'
-      }
-    }
-  ]
-}
 const uid = generateUID();
-function inputFocus (x) {
+function inputFocus(x) {
   if ($('#secondOutput').hasClass('second')) {
     $('#secondOutput')
       .removeClass('second')
@@ -44,11 +29,29 @@ function inputFocus (x) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
+  async function getElevationData(lon, lat) {
+    // Construct the API request
+
+    const elvevationResponse = await getElevation(lat, lon);
+    const data = elvevationResponse.data;
+
+    // Display the longitude and latitude values
+
+    // Get all the returned features
+    const allFeatures = data.features;
+    // For each returned feature, add elevation data to the elevations array
+    const elevations = allFeatures.map((feature) => feature.properties.ele);
+    // In the elevations array, find the largest value
+    const highestElevation = Math.max(...elevations);
+    setTimeout(() => {
+      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
+    }, 500);
+  }
   let scrollPos = 0
   const mainNav = document.getElementById('mainNav')
   const headerHeight = mainNav.clientHeight
 
-  function ConvertDMSToDD (degrees, minutes, seconds, direction) {
+  function ConvertDMSToDD(degrees, minutes, seconds, direction) {
     var dd = degrees + minutes / 60 + seconds / (60 * 60)
 
     if (direction == 'S' || direction == 'W') {
@@ -56,49 +59,34 @@ window.addEventListener('DOMContentLoaded', () => {
     } // Don't do anything for N or E
     return dd
   }
-  const north = document.getElementById('north')
-  const south = document.getElementById('south')
-  const degreesLat = document.getElementById('degrees-lat')
-  const minutesLat = document.getElementById('minutes-lat')
-  const secondsLat = document.getElementById('seconds-lat')
 
-  const degreesLon = document.getElementById('degrees-lon')
-  const minutesLon = document.getElementById('minutes-lon')
-  const secondsLon = document.getElementById('seconds-lon')
-  const east = document.getElementById('east')
-  const west = document.getElementById('west')
-  const outputInputField = document.getElementById('output-field-input')
-  const dmsBtn = document.getElementById('dmsBtn')
-  const dmsForm = document.getElementById('dms')
 
-  const latlonForm = document.getElementById('latlonForm')
-
-  function DDtoDMS (lat, lon) {
+  function DDtoDMS(lat, lon) {
     //
 
-    let latitude = Math.abs(lat)
-    let longitude = Math.abs(lon)
-    let dLat = Math.floor(latitude)
-    let mLat = Math.floor((latitude - dLat) * 60)
+    let latitude = Math.abs(lat);
+    let longitude = Math.abs(lon);
+    let dLat = Math.floor(latitude);
+    let mLat = Math.floor((latitude - dLat) * 60);
 
-    sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    dLon = Math.floor(longitude)
-    mLon = Math.floor((longitude - dLon) * 60)
-    sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
-    let degreesLatitude = dLat
-    let minutesLatitude = mLat
-    let secondsLatitude = sLat
-    let degreesLongitude = dLon
-    let minutesLongitude = mLon
-    let secondsLongitude = sLon
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3;
+    let dLon = Math.floor(longitude);
+    let mLon = Math.floor((longitude - dLon) * 60);
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3;
+    let degreesLatitude = dLat;
+    let minutesLatitude = mLat;
+    let secondsLatitude = sLat;
+    let degreesLongitude = dLon;
+    let minutesLongitude = mLon;
+    let secondsLongitude = sLon;
 
-    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`
+    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`;
 
-    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`
-    let result = { lat: latResult, lon: lonResult }
-    return result
+    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`;
+    let result = { lat: latResult, lon: lonResult };
+    return result;
   }
-  function check (elm) {
+  function check(elm) {
     document.getElementById(elm).checked = true
   }
 
@@ -106,7 +94,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const latInputField = document.getElementById('latInputField')
   const lonInputField = document.getElementById('lonInputField')
 
-  const App = function _App () {
+  const App = function _App() {
     return `
    <h1>Global State = [${App.state.count}] </h1>
   `
@@ -122,7 +110,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Initial Loading of the App
 
-  const CoordsApp = function _CoordsApp () {
+  const CoordsApp = function _CoordsApp() {
     return `
    <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
    <h1>Destination State = [${CoordsApp.state.destination}] </h1>
@@ -152,12 +140,13 @@ window.addEventListener('DOMContentLoaded', () => {
     .addTo(map) // add your tiles to the map
     .once('load', finishedLoading)
 
-  function finishedLoading () {
+
+  function finishedLoading() {
     // first, toggle the class 'done', which makes the loading screen
     // fade out
     setTimeout(() => {
-      $('#map').removeClass('invisible')
-    }, 1000)
+      $("#map").removeClass("invisible");
+    }, 1000);
   }
 
   // var myLayer = L.mapbox.featureLayer().addTo(map);
@@ -170,7 +159,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }).addTo(map)
 
   // L.marker is a low-level marker constructor in Leaflet.
-
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -178,14 +166,15 @@ window.addEventListener('DOMContentLoaded', () => {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: 'spinner-border spinner-border-sm map-spinner',
+      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: 'my-geo-icon',
+      icon: "my-geo-icon",
       locateOptions: {
-        enableHighAccuracy: true
-      }
+        enableHighAccuracy: true,
+        timeout: 5000,
+      },
     })
-    .addTo(map)
+    .addTo(map);
   /**
    *
    * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
@@ -222,56 +211,51 @@ window.addEventListener('DOMContentLoaded', () => {
     // map.stopLocate();
   })
 
-  map.on('locationerror', function () {
-    alert('Position could not be found')
-  })
+  map.on("locationerror", async function (e) {
 
-  const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
-    const matches = query.match(
-      /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    )
-    if (!matches) {
-      return null
+    locationControl.stop();
+    // TODO UPDATE other pages with ip address fallback
+    let icon = locationControl._icon;
+    const ip = await getIp()
+
+
+    if (ip.latitude) {
+
+
+
+      (async () => {
+        let lat = ip.latitude
+        let lon = ip.longitude
+        const address = await convertLatLon(lat, lon)
+        const submitText = $('form :submit')
+          .first()
+          .text()
+        console.log(
+          $('form :submit')
+            .first()
+            .parent()
+        )
+        $('form :submit')
+          .first()
+          .html(`${submitText}`)
+        if (address.features[0]) {
+          $('input')
+            .first()
+            .val(address.features[0].place_name)
+        }
+        await fetchWeather(lat, lon)
+      })().catch(err => {
+        console.error(err)
+      })
     }
 
-    function coordinateFeature (lng, lat) {
-      return {
-        center: [lng, lat],
-        geometry: {
-          type: 'Point',
-          coordinates: [lng, lat]
-        },
-        place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-        place_type: ['coordinate'],
-        properties: {},
-        type: 'Feature'
-      }
-    }
 
-    const coord1 = Number(matches[1])
-    const coord2 = Number(matches[2])
-    const geocodes = []
 
-    if (coord1 < -90 || coord1 > 90) {
-      // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2))
-    }
 
-    if (coord2 < -90 || coord2 > 90) {
-      // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
 
-    if (geocodes.length === 0) {
-      // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2))
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
+  });
 
-    return geocodes
-  }
+
 
   const results = document.getElementById('destinationResult')
   const originResult = document.getElementById('originResult')
@@ -279,7 +263,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Clear results container when search is cleared.
   // 83.653482  -71.383935
 
-  async function convertAddress (city) {
+  async function convertAddress(city) {
     const query = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=neighborhood,address,place&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
       { method: 'GET' }
@@ -292,8 +276,32 @@ window.addEventListener('DOMContentLoaded', () => {
     const data = await query.json()
     return data
   }
+  function DDtoDMS(lat, lon) {
 
-  async function fetchWeather (lat, lon) {
+
+    let latitude = Math.abs(lat)
+    let longitude = Math.abs(lon)
+    let dLat = Math.floor(latitude)
+    let mLat = Math.floor((latitude - dLat) * 60)
+
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let dLon = Math.floor(longitude)
+    let mLon = Math.floor((longitude - dLon) * 60)
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
+    let degreesLatitude = dLat
+    let minutesLatitude = mLat
+    let secondsLatitude = sLat
+    let degreesLongitude = dLon
+    let minutesLongitude = mLon
+    let secondsLongitude = sLon
+
+    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`
+
+    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`
+    let result = { lat: latResult, lon: lonResult }
+    return result
+  }
+  async function fetchWeather(lat, lon) {
 
     const query = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
@@ -305,51 +313,31 @@ window.addEventListener('DOMContentLoaded', () => {
     map.fitBounds([[lat, lon]], {
       padding: [50, 50]
     })
-       let addressField = $('#searchInput')
+    let addressField = $('#searchInput')
     let latlonField = `<li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span></li> <li class="list-group-item border-0 px-1 fs-6 py-0"><span> <strong>
                   Longitude: <span class="lon">${lon}</span> </span></li>`
-    let location = addressField.length > 0 ? `<li class="list-group-item border-0 px-1 fs-6 py-0 address">${addressField[0].value}</li>` : ""
+    let location = addressField.length > 0 ? addressField[0].value : null
     const data = await query.json()
     const imgIcon = data.weather[0].icon
     const currentWeather = data.weather[0].main
     const temp = data.main.temp
     $('#latInputField').val(lat)
     $('#lonInputField').val(lon)
-
+    const dmsCalculated = DDtoDMS(lat, lon)
     console.log(addressField[0].value)
-    let popupContent = `<div class="row">
-            <div class="col p-0">
-
-   <div class="card-body px-3 pt-2 pb-1">
-     <ul class="list-group border-0">
-            <li class="list-group-item border-0 px-1 fs-6 py-0"> <div class="hstack gap-3">
-  <div class = "weather" > ${currentWeather}</div>
-  <div class=""><span> <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span></div>
-  <div class="temp">${temp}°F</div>
-</div></li>
-     ${location} ${latlonField}
-       <li class="list-group-item border-0 px-1 fs-6 py-0 pb-1 pt-2 border-top">
-         <div class="hstack gap-3">
-           <div class="  altitude">
-             <button class="btn btn-primary btn-sm btn-sm" id="getAltitude" type="button ">
-               Get Altitude
-             </button>
-           </div>
-           <div class=" border ms-auto">
-             <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
-           </div>
-         </div>
-       </li>
-     </ul>
-
-   </div>
+    const weatherdata = {
+      name: location,
+      lat: lat,
+      lon: lon,
+      dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
+      weather: { currentWeather: currentWeather, imgIcon: imgIcon, temp: temp }
+    }
 
 
- </div>
- </div>`
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(
-      popupContent
-    )
+    const p = popupContent(weatherdata)
+
+
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
     marker
       .setLatLng([lat, lon])
@@ -358,7 +346,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var alertPlaceholder = document.querySelector('.weather-alert-placeholder')
 
-    function postLog (icon, weather, temperature) {
+    function postLog(icon, weather, temperature) {
       let wrapper = document.createElement('div')
       wrapper.innerHTML = ` <div
         class="alert alert-light d-flex align-items-center"
@@ -460,7 +448,7 @@ window.addEventListener('DOMContentLoaded', () => {
     } */
   })
 
-  async function convertLatLon (lat, lon) {
+  async function convertLatLon(lat, lon) {
     const query = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?types=neighborhood,address,place&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
       { method: 'GET' }
@@ -543,7 +531,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var alertPlaceholder = document.querySelector('.weather-alert-placeholder')
 
-    function postLog (icon, weather, temperature) {
+    function postLog(icon, weather, temperature) {
       let wrapper = document.createElement('div')
       wrapper.innerHTML = ` <div
         class="alert alert-light d-flex align-items-center"
@@ -704,181 +692,9 @@ ${currentWeather} and ${temp}°F`)
     }, 500);
  */
   })
-  function addRoute () {
-    App.state.count++
-
-    const origin = CoordsApp.state.origin
-
-    const destination = CoordsApp.state.destination
-
-    // map.flyTo([centerLat, centerLon])
-    /* map.panInsideBounds([
-         [origin[1] , origin[0] ], // southwestern corner of the bounds
-         [destination[1] , destination[0], {padding: [50,50]} ] // northeastern corner of the bounds
-       ]);
-       //
-
-      geojson.features[0].geometry.coordinates = [origin[0], origin[1]];
-      geojson.features[1].geometry.coordinates = [destination[0], destination[1]]
-
-  */
-    //
-    let latD = destination[1]
-    let lonD = destination[0]
-    let latO = origin[1]
-    let lonO = origin[0]
-    geojson.features[0].geometry.coordinates = [lonO, latO]
-    geojson.features[1].geometry.coordinates = [lonD, latD]
-    //
-    featureLayer.setGeoJSON(geojson).addTo(map)
-
-    // featureLayer.setGeoJSON(geojson).addTo(map);
-
-    /*
-      map.fitBounds(featureLayer.getBounds(), {
-  padding: [50,50]
-
-      });
-      map.zoomOut()
-  */
-
-    let latOrigin = origin[1]
-    let lonOrigin = origin[0]
-    let latDest = destination[1]
-    let lonDest = destination[0]
-    //
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDest, lonDest]
-      ],
-      { padding: [50, 50] }
-    )
-  }
-
-  function addNewRoute () {
-    const origin = CoordsApp.state.origin
-
-    const destination = CoordsApp.state.destination
-    let latD = destination[1]
-    let lonD = destination[0]
-    let latO = origin[1]
-    let lonO = origin[0]
-    geojson.features[0].geometry.coordinates = [lonO, latO]
-    geojson.features[1].geometry.coordinates = [lonD, latD]
-
-    featureLayer.setGeoJSON(geojson)
-    // A simple line from origin to destination.
-
-    // A single point that animates along the route.
-    // Coordinates are initially set to origin.
-
-    // Calculate the distance in kilometers between route start/end point.
-
-    // animate(counter);
-    featureLayer.setGeoJSON(geojson)
-
-    let latOrigin = origin[1]
-    let lonOrigin = origin[0]
-    let latDest = destination[1]
-    let lonDest = destination[0]
-    //
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDest, lonDest]
-      ],
-      {
-        padding: [50, 50]
-      }
-    )
-  }
-
-  function format (time) {
-    // Hours, minutes and seconds
-    var hrs = ~~(time / 3600)
-    var mins = ~~((time % 3600) / 60)
-
-    let result = {
-      hours: hrs,
-      minutes: mins
-    }
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result
-  }
-
-  function callMatrix (first, second) {
-    fetch(
-      `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
-    )
-      .then(response => response.json())
-      .then(json => {
-        const durations = json.durations[0]
-        const travelTime = durations[1]
-        const result = format(travelTime)
-        // //
-
-        var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-        var alertTrigger = document.getElementById('liveAlertBtn')
-
-        function postLog (message) {
-          var wrapper = document.createElement('div')
-          wrapper.innerHTML = `
-    <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
-     <div class="alertMessage">
-       ${message}
-     </div>
 
 
-   </div>`
 
-          alertPlaceholder.append(wrapper)
-        }
-        if (alertPlaceholder.childElementCount == 0) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 1) {
-          postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
-        } else if (alertPlaceholder.childElementCount == 2) {
-          $('#liveAlertPlaceholder').empty()
-          setTimeout(() => {
-            postLog(`${result.hours} hour(s) and ${result.minutes}`)
-          }, 200)
-        }
-      })
-  }
-
-  function getUserLocation () {
-    if ('geolocation' in navigator) {
-      function success (position) {
-        let lat = position.coords.latitude
-
-        let lon = position.coords.longitude
-
-        //
-        map.flyTo([lat, lon], 11)
-
-        geojson.features[0].geometry.coordinates = [lon, lat]
-
-        //
-        featureLayer.setGeoJSON(geojson).addTo(map)
-        CoordsApp.state.userLocation = [lon, lat]
-        // alert(lat)
-      }
-
-      function error (err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`)
-      }
-      var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      }
-
-      navigator.geolocation.getCurrentPosition(success, error, options)
-    } else {
-      /// /
-    }
-  }
 
   // getUserLocation();
 
@@ -886,89 +702,46 @@ ${currentWeather} and ${temp}°F`)
 
   const pageTitle = title.slice(11)
 
-  let bookmarkControl = new L.Control.Bookmarks({
-    name: pageTitle
-  }).addTo(map)
 
-  $('#map').on('click', '.bookmark-btn', function (e) {
-    e.preventDefault()
-    $(this)
-      .children()
-      .last()
-      .removeClass('far')
-      .addClass('fas')
-    $(this).prop('disabled', true)
+  $("#map").on("click", "#getAltitude", function (e) {
+    e.preventDefault();
+    let width = $(this).width()
+    let hstack = $(this).parent().parent()
 
-    let btn = $(this)
-      .parent()
-      .children(':input')
-      .is(':checked')
-    let pressed = $(this).attr('aria-pressed')
+    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+    $(hstack).children().first().html(`
+   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
+   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+ </button>
+ `)
 
-    const allItems = $(this)
-      .parent()
-      .parent()
-      .parent()
-      .parent()
-      .parent()
-      .children()
-    let first = $(this)
-      .parent()
-      .parent()
-      .parent()
-      .parent()
-      .children()
-      .first()
+    let newPopupContent = $(this).parents("div.popupContent").parent().html();
+    console.log("has class origin");
+    marker.setPopupContent(newPopupContent)
+    let coords = marker.getLatLng();
+    getElevationData(coords.lng, coords.lat);
 
-    let second = $(first).next('span.lat')
-    let allButlast = allItems.length - 1
-console.log($("div.weather"))
-    let name
-    let temp
-    let weather
-    for (let index = 0; index < allButlast; index++) {
-      const element = allItems[index]
-    console.log(element)
-      if ($(element).hasClass('address')) {
-        let text = $(element).text()
-
-        name = text
-      } else if ($(element).hasClass('temp')) {
-        let text = $(element).text()
-        temp = text
-      }
-      else if ($(element).hasClass('weather')) {
-        let text = $(element).text()
-        weather= text
-      }
-    }
-
- /*
-    let coords = marker.getLatLng()
-    name = name.replace(/^\s+|\s+$/gm, '')
-
-    const obj = {
-      name: name,
-      latlng: [coords.lat, coords.lng],
-      lat: coords.lat,
-      lon: coords.lon,
-      weather: weather,
-      temp: temp,
-      path: path,
-      key: uid
-    }
-    let parsed = JSON.stringify([obj])
-    let localItem = localStorage.getItem(siteTitle)
-
-    addEntry(obj)
-
-
-    $(this).parent().html(`    <button type="button" class="btn btn-outline-primary  btn-sm ms-auto text-right bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`)
-*/
-  })
-  map.on('popupopen', function (e) {
-    var px = map.project(e.target._popup._latlng) // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight / 2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px), { animate: true }) // pan to new center
-  })
+  });
+  $("#map").on("click", ".bookmark-btn", function (e) {
+    e.preventDefault();
+    let cachedData = localStorage.getItem("location-data")
+    let parsed = JSON.parse(cachedData)
+    let coords = marker.getLatLng();
+    name = name.replace(/^\s+|\s+$/gm, "");
+    $(this).prop("disabled", true)
+    $(this).children().last().removeClass("far").addClass("fas")
+    addBookmark("location-data")
+    // TODO fix bookmark localstorage
+  });
+  map.on("popupopen", function (e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true });
+    $(".leaflet-top.leaflet-left").css("opacity", "0");
+    // TODO update
+  });
+  map.on("popupclose", function (e) {
+    // TODO update
+    $(".leaflet-top.leaflet-left").css("opacity", "1");
+  });
 })
