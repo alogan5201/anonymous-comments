@@ -68,7 +68,7 @@ const LocationState = function _LocationState() {
   return data;
 };
 const myhandler = {
-  set: function(obj, prop, value) {
+  set: function (obj, prop, value) {
     obj[prop] = value;
   }
 };
@@ -76,8 +76,8 @@ const myhandler = {
 LocationState.state = new Proxy({ lat: null, lon: null }, myhandler);
 
 const findLocation = () => {
-  map.on("locationfound", function(e) {
-    map.fitBounds(e.bounds);
+  map.on("locationfound", function (e) {
+    map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });
 
     let lat = e.latlng.lat;
 
@@ -197,7 +197,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   const handler = {
-    set: function(obj, prop, value) {
+    set: function (obj, prop, value) {
       obj[prop] = value;
     }
   };
@@ -216,7 +216,7 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 
   const myhandler = {
-    set: function(obj, prop, value) {
+    set: function (obj, prop, value) {
       obj[prop] = value;
     }
   };
@@ -226,13 +226,13 @@ window.addEventListener("DOMContentLoaded", () => {
     myhandler
   );
 
-  $("#originTest").click(function(e) {
+  $("#originTest").click(function (e) {
     e.preventDefault();
   });
-  $("#destinationTest").click(function(e) {
+  $("#destinationTest").click(function (e) {
     e.preventDefault();
   });
-  $("#switchTest").click(function(e) {
+  $("#switchTest").click(function (e) {
     e.preventDefault();
   });
   function addRoute() {
@@ -283,7 +283,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [latOrigin, lonOrigin],
         [latDest, lonDest]
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     );
   }
 
@@ -320,7 +320,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [latDest, lonDest]
       ],
       {
-        padding: [50, 50]
+        padding: [50, 50], maxZoom: 13
       }
     );
   }
@@ -378,7 +378,7 @@ window.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  $("#latlonForm").on("submit", function(e) {
+  $("#latlonForm").on("submit", function (e) {
     e.preventDefault();
     let inputs = document.getElementById("latlonForm").elements;
 
@@ -415,7 +415,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [latO, lonO],
         [latD, lonD]
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     );
   });
 

@@ -1,9 +1,9 @@
 /* jshint esversion: 8 */
 import "./firebase"
 import 'utils/commentscript.js'
-import { popupContent, getLatLon, getAddress, getAltitude, generateUID, addBookmark, toggleBookmark, toggleAltitude} from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress, getAltitude, generateUID, addBookmark, toggleBookmark, toggleAltitude } from 'utils/geocoder'
 import { getIp } from "./firebase";
-function test (e) {
+function test(e) {
   e.preventDefault()
 }
 window.addEventListener('DOMContentLoaded', () => {
@@ -21,19 +21,19 @@ $(document).ready(function () {
 
 
   const latlonForm = document.getElementById('latlonForm')
-  function ParseDMS (input) {
+  function ParseDMS(input) {
     var parts = input.split(/[^\d\w]+/)
     var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3])
     var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7])
   }
 
-  function ParseDMS (input) {
+  function ParseDMS(input) {
     var parts = input.split(/[^\d\w]+/)
     var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3])
     var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7])
   }
 
-  function ConvertDMSToDD (arr) {
+  function ConvertDMSToDD(arr) {
     let degrees = arr[0]
     let minutes = arr[1]
     let seconds = arr[2]
@@ -45,7 +45,7 @@ $(document).ready(function () {
     } // Don't do anything for N or E
     return dd
   }
-  function DDtoDMS (lat, lon) {
+  function DDtoDMS(lat, lon) {
     //
 
     let latitude = Math.abs(lat)
@@ -53,7 +53,7 @@ $(document).ready(function () {
     let dLat = Math.floor(latitude)
     let mLat = Math.floor((latitude - dLat) * 60)
 
-   let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
     let dLon = Math.floor(longitude)
     let mLon = Math.floor((longitude - dLon) * 60)
     let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
@@ -82,7 +82,7 @@ $(document).ready(function () {
     }
     return result
   }
-  function check (elm) {
+  function check(elm) {
     document.getElementById(elm).checked = true
   }
 
@@ -91,7 +91,7 @@ $(document).ready(function () {
   const lonInputField = document.getElementById('lonInputField')
   const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
-  const CoordsApp = function _CoordsApp () {
+  const CoordsApp = function _CoordsApp() {
     return `
      <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
      <h1>Destination State = [${CoordsApp.state.destination}] </h1>
@@ -131,7 +131,7 @@ $(document).ready(function () {
 
   }
 
-     // L.marker is a low-level marker constructor in Leaflet.
+  // L.marker is a low-level marker constructor in Leaflet.
 
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
@@ -146,7 +146,7 @@ $(document).ready(function () {
       circleStyle: { opacity: 0 },
       followCircleStyle: { opacity: 0 },
       drawCircle: false,
-        follow: false,
+      follow: false,
       setView: false,
       iconLoading: 'spinner-border spinner-border-sm map-spinner',
       remainActive: false,
@@ -158,14 +158,14 @@ $(document).ready(function () {
     })
     .addTo(map)
 
-   map.on('locationfound', async function (e) {
+  map.on('locationfound', async function (e) {
     let lat = e.latitude
     let lon = e.longitude
-await updateLocation(lat,lon)
+    await updateLocation(lat, lon)
 
   })
   map.on('locationerror', async function (e) {
-       if (e.message == "Geolocation error: Timeout expired.") {
+    if (e.message == "Geolocation error: Timeout expired.") {
 
       const ip = await getIp()
       let lat = ip.latitude
@@ -175,10 +175,10 @@ await updateLocation(lat,lon)
     }
   })
 
-  async function updateLocation(lat, lon){
+  async function updateLocation(lat, lon) {
 
-      const submitText =  $('form :submit').first().text()
-    console.log(  $('form :submit').first().parent())
+    const submitText = $('form :submit').first().text()
+    console.log($('form :submit').first().parent())
     $('form :submit').first().html(`${submitText}`)
 
 
@@ -203,16 +203,16 @@ await updateLocation(lat,lon)
     document.getElementById('seconds-lon').value = dmsCalculated.lon.seconds
 
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [50, 50], maxZoom: 13
     })
     const data = {
       lat: lat,
       lon: lon,
-      dms: {lat: `${dmsCalculated.lat.degrees}° ${dmsCalculated.lat.minutes}'${dmsCalculated.lat.seconds}''`, lon: `${dmsCalculated.lon.degrees}° ${dmsCalculated.lon.minutes}'${dmsCalculated.lon.seconds}''`}
-          }
+      dms: { lat: `${dmsCalculated.lat.degrees}° ${dmsCalculated.lat.minutes}'${dmsCalculated.lat.seconds}''`, lon: `${dmsCalculated.lon.degrees}° ${dmsCalculated.lon.minutes}'${dmsCalculated.lon.seconds}''` }
+    }
 
-      const p = popupContent(data)
-   const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+    const p = popupContent(data)
+    const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
 
 
@@ -221,9 +221,9 @@ await updateLocation(lat,lon)
       .bindPopup(popup)
       .openPopup()
 
-      setTimeout(() => {
-        locationControl.stop()
-      }, 500);
+    setTimeout(() => {
+      locationControl.stop()
+    }, 500);
   }
 
 
@@ -232,7 +232,7 @@ await updateLocation(lat,lon)
 
   // Clear results container when search is cleared.
 
-  function format (time) {
+  function format(time) {
     // Hours, minutes and seconds
     var hrs = ~~(time / 3600)
     var mins = ~~((time % 3600) / 60)
@@ -247,9 +247,9 @@ await updateLocation(lat,lon)
 
   $('#myDmsForm').on('submit', function (e) {
     e.preventDefault()
-   const submitText =  $('form :submit').first().text()
-  console.log(  $('form :submit').first().parent())
-  $('form :submit').first().html(submitText)
+    const submitText = $('form :submit').first().text()
+    console.log($('form :submit').first().parent())
+    $('form :submit').first().html(submitText)
     var inputs = document.getElementById('myDmsForm').elements
     // Iterate over the form controls
 
@@ -272,29 +272,29 @@ await updateLocation(lat,lon)
     let lat = ConvertDMSToDD(latField)
     let lon = ConvertDMSToDD(lonField)
     // let lon = ConvertDMStoDD(lonField)
-console.log(lat, lon)
+    console.log(lat, lon)
 
     let lonReduced = lon.toFixed(8)
     let latReduced = lat.toFixed(8)
 
 
-      map.fitBounds([[lat, lon]], {
-        padding: [100, 100]
-      })
-      const data = {
+    map.fitBounds([[lat, lon]], {
+      padding: [50, 50], maxZoom: 13
+    })
+    const data = {
 
-        lat: lat,
-        lon: lon,
-        dms: {lat: `${latField[0]}° ${latField[1]}' ${latField[2]}`, lon: `${lonField[0]}° ${lonField[1]}' ${lonField[2]}`}
-            }
+      lat: lat,
+      lon: lon,
+      dms: { lat: `${latField[0]}° ${latField[1]}' ${latField[2]}`, lon: `${lonField[0]}° ${lonField[1]}' ${lonField[2]}` }
+    }
 
-        const p = popupContent(data)
-         const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
+    const p = popupContent(data)
+    const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
 
 
-marker.setLatLng([lat, lon]).bindPopup(popup).openPopup()
-latlonForm.elements[0].value = latReduced
-latlonForm.elements[1].value = lonReduced
+    marker.setLatLng([lat, lon]).bindPopup(popup).openPopup()
+    latlonForm.elements[0].value = latReduced
+    latlonForm.elements[1].value = lonReduced
 
 
   })
@@ -304,16 +304,37 @@ latlonForm.elements[1].value = lonReduced
   const pageTitle = title.slice(11)
 
 
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
+    console.log(input)
+    console.log(input[0].value)
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`)
+    }
+    else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"))
+      locationData.name = input[0].value
+      console.log(locationData)
 
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+    }
+  });
 
   $('#map').on('click', '#getAltitude', function (e) {
-  e.preventDefault()
-  toggleAltitude(this, marker)
-});
+    e.preventDefault()
+    toggleAltitude(this, marker)
+  });
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
 
-toggleBookmark(this, marker)
+    toggleBookmark(this, marker)
 
   });
   map.on("popupopen", function (e) {

@@ -312,7 +312,7 @@ window.addEventListener('DOMContentLoaded', () => {
       return
     }
     map.fitBounds([[lat, lon]], {
-      padding: [50, 50]
+      padding: [50, 50], maxZoom: 13
     })
     let addressField = $('#searchInput')
     let latlonField = `<li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span></li> <li class="list-group-item border-0 px-1 fs-6 py-0"><span> <strong>
@@ -327,7 +327,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const dmsCalculated = DDtoDMS(lat, lon)
     console.log(addressField[0].value)
     const weatherdata = {
-      name: location,
+      address: location,
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -495,7 +495,7 @@ window.addEventListener('DOMContentLoaded', () => {
     $('#latInputField').val(lat)
     $('#lonInputField').val(lon)
     map.fitBounds([[lat, lon]], {
-      padding: [50, 50]
+      padding: [50, 50], maxZoom: 13
     })
     $('form :submit')
       .first()
@@ -718,7 +718,7 @@ ${currentWeather} and ${temp}°F`)
  </button>
  `)
 
-debugger
+    debugger
     let newPopupContent = $(this).parents("div.popupContent").parent().html();
     console.log("has class origin");
     marker.setPopupContent(newPopupContent)

@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const headerHeight = mainNav.clientHeight;
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   const north = document.getElementById("north");
   const south = document.getElementById("south");
 
@@ -115,7 +115,7 @@ $(document).ready(function() {
   };
 
   const myhandler = {
-    set: function(obj, prop, value) {
+    set: function (obj, prop, value) {
       obj[prop] = value;
     }
   };
@@ -175,12 +175,12 @@ $(document).ready(function() {
     return data;
   }
 
-  map.on("locationfound", async function(e) {
+  map.on("locationfound", async function (e) {
     let lat = e.latitude;
     let lon = e.longitude;
     await updateLocation(lat, lon);
   });
-  map.on("locationerror", async function(e) {
+  map.on("locationerror", async function (e) {
     if (e.message == "Geolocation error: Timeout expired.") {
       const ip = await getIp();
       let lat = ip.latitude;
@@ -230,7 +230,7 @@ $(document).ready(function() {
 
     let dmsLon = `${dmsCalculated.lon.degrees}° ${dmsCalculated.lon.minutes}' ${dmsCalculated.lon.seconds}''`;
     const data = {
-      name: result.features[0].place_name,
+      address: result.features[0].place_name,
       lat: lat,
       lon: lon,
       dms: { lat: dmsLat, lon: dmsLon }
@@ -238,14 +238,14 @@ $(document).ready(function() {
 
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-    map.fitBounds([[lat, lon]], { padding: [50, 50] });
+    map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
 
     marker
       .setLatLng([lat, lon])
       .bindPopup(popup)
       .openPopup();
   }
-  const coordinatesGeocoder = function(query) {
+  const coordinatesGeocoder = function (query) {
     // Match anything which looks like
     // decimal degrees coordinate pair.
     const matches = query.match(
@@ -307,7 +307,7 @@ $(document).ready(function() {
     const highestElevation = Math.max(...elevations);
     $(".altitude").html(`<div> ${highestElevation} meters </div>`);
   }
-  $("#map").on("click", "#getAltitude", function(e) {
+  $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
     $(this)
@@ -338,11 +338,9 @@ $(document).ready(function() {
   const title = $("title").html();
 
   const pageTitle = title.slice(11);
-  let bookmarkControl = new L.Control.Bookmarks({
-    name: pageTitle
-  }).addTo(map);
 
-  $("#all-forms").on("submit", async function(e) {
+
+  $("#all-forms").on("submit", async function (e) {
     e.preventDefault();
     console.log(e.target);
     let targetId = $(e.target).attr("id");
@@ -398,7 +396,7 @@ $(document).ready(function() {
         $("#seconds-lon").val(dmsCalculated.lon.seconds);
 
         const data = {
-          name: fetchResponse.features[0].place_name,
+          address: fetchResponse.features[0].place_name,
           lat: lat,
           lon: lon,
           dms: {
@@ -408,7 +406,7 @@ $(document).ready(function() {
         };
         const p = popupContent(data);
         var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-        map.fitBounds([[lat, lon]], { padding: [50, 50] });
+        map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
         marker
           .setLatLng([lat, lon])
           .bindPopup(popup)
@@ -464,7 +462,7 @@ $(document).ready(function() {
     $(".alerts").html(alertHtml);
     setTimeout(() => {
       map.fitBounds([[lat, lon]], {
-        padding: [100, 100]
+        padding: [100, 100], maxZoom: 13
       });
 
       $("#degrees-lat").val(dmsCalculated.lat.degrees);
@@ -474,7 +472,7 @@ $(document).ready(function() {
       $("#minutes-lon").val(dmsCalculated.lon.minutes);
       $("#seconds-lon").val(dmsCalculated.lon.seconds);
       const data = {
-        name: address,
+        address: address,
         lat: lat,
         lon: lon,
         dms: {
@@ -578,10 +576,10 @@ $(document).ready(function() {
     let alertHtml = result.features.length > 0 ? "" : alertMessage;
     $(".alerts").html(alertHtml);
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [100, 100], maxZoom: 13
     });
     const data = {
-      name: address,
+      address: address,
       lat: lat,
       lon: lon,
       dms: {
@@ -601,25 +599,47 @@ $(document).ready(function() {
       .first()
       .html(`${submitText}`);
   }
-  $("#map").on("click", "#getAltitude", function(e) {
+  $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-toggleAltitude(this, marker)
+    toggleAltitude(this, marker)
   });
 
-  $("#map").on("click", ".bookmark-btn", function(e) {
+  $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-  toggleBookmark(this, marker)
+    toggleBookmark(this, marker)
   });
 
-  map.on("popupopen", function(e) {
+  map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     map.panTo(map.unproject(px), { animate: true });
     $(".leaflet-top.leaflet-left").css("opacity", "0");
     // TODO update
   });
-  map.on("popupclose", function(e) {
+  map.on("popupclose", function (e) {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
+  });
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
+    console.log(input)
+    console.log(input[0].value)
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`)
+    }
+    else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"))
+      locationData.name = input[0].value
+      console.log(locationData)
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+    }
   });
 });

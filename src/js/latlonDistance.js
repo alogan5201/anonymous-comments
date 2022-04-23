@@ -2,7 +2,8 @@
 import "./firebase";
 import HaversineGeolocation from "haversine-geolocation";
 import "utils/commentscript.js";
-import { addBookmark, getElevation, popupContent, toggleBookmark,
+import {
+  addBookmark, getElevation, popupContent, toggleBookmark,
   toggleAltitude
 } from "utils/geocoder";
 
@@ -130,7 +131,8 @@ window.addEventListener("DOMContentLoaded", () => {
     let lat = e.latlng.lat;
 
     let lon = e.latlng.lng;
-    map.fitBounds([[lat, lon]], { padding: [50, 50] });
+    map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+
     const dmsCalculated = DDtoDMS(lat, lon);
 
     var inputs = document.getElementById("latlonForm").elements;
@@ -280,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
         [originLat, originLon],
         [destinationLat, destinationLon],
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     );
     $("form :submit").first().html(submitText);
   });
@@ -291,18 +293,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     if ($(this).hasClass("origin")) {
-        toggleAltitude(this, marker1)
+      toggleAltitude(this, marker1)
     } else {
-    toggleAltitude(this, marker2)
+      toggleAltitude(this, marker2)
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1)
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-   toggleBookmark(this, marker2)
+    toggleBookmark(this, marker2)
 
   });
   map.on('popupopen', function (e) {
@@ -317,7 +319,33 @@ toggleBookmark(this, marker1)
     $('.leaflet-top.leaflet-left').css('opacity', '1');
   });
 
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
 
+
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+  </div>`)
+    }
+    else {
+
+      const markerCheck = marker1.isPopupOpen()
+      const localData = markerCheck ? "origin-data" : "destination-data"
+      const marker = markerCheck ? marker1 : marker2
+      let locationData = JSON.parse(localStorage.getItem(localData))
+      locationData.name = input[0].value
+      console.log(localData)
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+
+    }
+  });
 
 });
 

@@ -64,27 +64,27 @@ export function popupContent(input) {
     return output;
   }
   let weatherData = input.weather ? input.weather : null;
-  let nameData = input.name ? input.name : null;
+  let address = input.address ? input.address : null;
+  let name = input.name ? input.name : null
 
   let storedData = {
-    name: null,
-    address: nameData,
+    name: name,
+    address: address,
     lat: input.lat,
     lon: input.lon,
-    dmslat: input.dms.lat,
-    dmslon: input.dms.lon,
+    dms: { lat: input.dms.lat, lon: input.dms.lon },
     weather: weatherData,
     path: window.location.pathname,
     uid: uid,
     date: prettyDate
   };
 
+  let nameElm = input.name ? createElement(input.name.charAt(0).toUpperCase() + input.name.slice(1), "bookmark-name fs-6") : ""
   localStorage.setItem("location-data", JSON.stringify(storedData));
-
   if (input.origin || input.destination) {
     saveOriginDestination(input);
   }
-
+  let addressElm = input.address ? createElement(input.address, "address fs-6") : ""
   let distance = input.distance
     ? createElement(input.distance, "distance")
     : "";
@@ -104,14 +104,15 @@ export function popupContent(input) {
 <div class="temp">${input.weather.temp}°F</div>
 </div></li>`
     : "";
-  let name = input.name ? ` ${createElement(input.name, "name fs-6")}` : "";
 
-  let data = `  <div id = "popupContent" class="row popupContent">
+  let bookmarked = input.name ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}  bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="fas fa-bookmark"></i></button>` : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`;
+
+  let data = `  <div id = "popupContent" class="row popupContent position-relative">
   <div class="col p-0 popup-content">
 
     <div class="card-body px-3 pt-2 pb-1">
       <ul class="list-group border-0">
-      ${destinationTitle} ${originTitle} ${weather} ${name}
+      ${destinationTitle} ${originTitle} ${weather} ${nameElm}${addressElm}
         <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
               class="lat">${input.lat} </span></li>
         <li class="list-group-item border-0 px-1 fs-6 py-0">
@@ -127,51 +128,66 @@ export function popupContent(input) {
               </button>
             </div>
             <div class=" border ms-auto">
-              <button type="button"  class="badge bg-transparent border border-primary text-primary btn-sm text-right ${origin} ${destination} bookmark-btn"
-                data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
+             ${bookmarked}
             </div>
         </li>
       </ul>
     </div>
 
   </div>
-</div> <div class="col p-0 d-none popup-bookmark" style="padding-top: 2rem;">
 
-    <div class="card-body ps-4 pe-4 pt-4 pb-3">
-      <ul class="list-group border-0" style="justify-content: end;">
-   <li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
-          <div class="hstack">
-
-            <div class=" border ms-auto">
-              <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
-            </div>
-        </div></li>
-           <div class="input-group ms-auto " style="margin-left: auto !important;">
-                  <input type="text" class="form-control bookmark-input" placeholder="Boomark Name" aria-label="Recipient's
-                    username" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">+</button>
-                </div>
-        <li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
-          <div class="hstack">
-
-            <div class=" border ms-auto">
-              <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
-            </div>
-        </div></li>
-      </ul>
-    </div>
-  </div></div>`;
+</div> `;
   return data;
 }
+let toast = `
+
+
+<div class="col p-0 popup-bookmark" style="padding-top: 2rem;">
+
+<div class="card-body ps-4 pe-4 pt-4 pb-3">
+  <ul class="list-group border-0" style="justify-content: end;">
+<li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
+      <div class="hstack">
+
+        <div class=" border ms-auto">
+          <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
+        </div>
+    </div></li>
+    <form class="bookmark-form" role="form">
+
+    <div class="input-group ms-auto " style="margin-left: auto !important;">
+    <input type="text" class="form-control bookmark-input" placeholder="Boomark Name" aria-label="Recipient's
+      username" aria-describedby="add-bookmark-btn" required>
+    <button class="btn btn-outline-secondary" type="submit" id="add-bookmark-btn">+</button>
+  </div>
+    </form>
+
+
+    <li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
+      <div class="hstack">
+
+        <div class=" border ms-auto">
+          <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
+        </div>
+    </div></li>
+  </ul>
+</div>
+</div>
+
+
+`
 function saveOriginDestination(input) {
   const uid = generateUID();
+  const address = input.address ? input.address : null
+  const name = input.name ? input.name : null
   if (input.origin) {
+
     let originData = {
-      name: input.name,
+      address: address,
+      name: name,
       lat: input.lat,
       lon: input.lon,
-      dmslat: input.dms.lat,
-      dmslon: input.dms.lon,
+      dms: { lat: input.dms.lat, lon: input.dms.lon },
       origin: true,
       uid: uid,
       date: prettyDate,
@@ -180,11 +196,11 @@ function saveOriginDestination(input) {
     localStorage.setItem("origin-data", JSON.stringify(originData));
   } else if (input.destination) {
     let destinationData = {
-      name: input.name,
+      address: address,
+      name: name,
       lat: input.lat,
       lon: input.lon,
-      dmslat: input.dms.lat,
-      dmslon: input.dms.lon,
+      dms: { lat: input.dms.lat, lon: input.dms.lon },
       destination: true,
       uid: uid,
       date: prettyDate,
@@ -265,7 +281,7 @@ export async function getAddress(lat, lon) {
 }
 
 
- async function getElevation(lat, lon) {
+async function getElevation(lat, lon) {
   const getElevationData = httpsCallable(functions, "getElevation");
   return getElevationData({
     lat: lat,
@@ -294,88 +310,67 @@ export async function getAddress(lat, lon) {
     });
 }
 
- async function getAltitude(lon, lat) {
-    // Construct the API request
+async function getAltitude(lon, lat) {
+  // Construct the API request
 
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
+  const elvevationResponse = await getElevation(lat, lon);
+  const data = elvevationResponse.data;
 
-    // Display the longitude and latitude values
+  // Display the longitude and latitude values
 
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
+  // Get all the returned features
+  const allFeatures = data.features;
+  // For each returned feature, add elevation data to the elevations array
+  const elevations = allFeatures.map((feature) => feature.properties.ele);
+  // In the elevations array, find the largest value
+  const highestElevation = Math.max(...elevations);
 
-    setTimeout(() => {
- $('.altitude').removeClass('mx-auto').addClass("me-auto");
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
-
-
-
-  export function toggleBookmark(item, marker){
-       $(item).prop("disabled", true)
-
-//popup-content
-//popup-bookmark
-       let containerElm = $(item).parents('div.popupContent').parent()
+  setTimeout(() => {
+    $('.altitude').removeClass('mx-auto').addClass("me-auto");
+    $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
+  }, 500);
+}
 
 
 
- $(item).parents("div.popupContent").html(toast)
-$("#map").on('click', "#button-addon2", function (e) {
-  e.preventDefault()
-
- $('#button-addon2').prop("disabled", true)
-      if($('.bookmark-input').val().length > 0){
-console.log($(item).parents("div.popupContent").parent().html())
+export function toggleBookmark(item, marker) {
+  $(item).prop("disabled", true)
+  $('#add-bookmark-btn').prop("disabled", true)
   $(item).removeClass("bg-transparent text-primary").addClass("bg-primary text-white")
-     $(item).children().last().removeClass("far").addClass("fas")
+  $(item).children().last().removeClass("far").addClass("fas")
 
-   let locationData = JSON.parse(localStorage.getItem("location-data"))
-    console.log(locationData)
-    locationData.name = $('.bookmark-input').val()
-    localStorage.setItem("location-data", JSON.stringify(locationData))
-
-
-    addBookmark("location-data")
-    let newPopupContent = $(item).parents("div.popupContent").parent().html();
-    marker.setPopupContent(newPopupContent);
-
-      }
+  let locationData = JSON.parse(localStorage.getItem("location-data"))
 
 
 
-});
+  //addBookmark("location-data")
+  let newPopupContent = $(item).parents("div.popupContent").parent().html();
+
+  //marker.setPopupContent(newPopupContent);
+  $(item).parents("div.popupContent").html(toast);
+}
 
 
+export async function toggleAltitude(item, marker) {
 
-  }
+  let width = $(item).width()
+  let hstack = $(item).parent().parent()
 
-  export async function toggleAltitude(item, marker){
-
-     let width = $(item).width()
-    let hstack = $(item).parent().parent()
-
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
+  $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+  $(hstack).children().first().html(`
    <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
  </button>
  `)
 
-    let newPopupContent = $(item).parents("div.popupContent").parent().html();
+  let newPopupContent = $(item).parents("div.popupContent").parent().html();
 
-    let coords = marker.getLatLng()
-    marker.setPopupContent(newPopupContent)
-   await getAltitude(coords.lng, coords.lat);
+  let coords = marker.getLatLng()
+  marker.setPopupContent(newPopupContent)
+  await getAltitude(coords.lng, coords.lat);
 
 
-  }
+}
 
 export async function getMatrix(first, second) {
   const getMatrixData = httpsCallable(functions, "getMatrix");
@@ -461,7 +456,7 @@ export function getGeojson(first, second) {
 export default {
   getLatLon,
   getAddress,
- getAltitude,
+  getAltitude,
   getMatrix,
   getGeojson,
   generateUID,

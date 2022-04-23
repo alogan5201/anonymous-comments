@@ -93,11 +93,14 @@ window.addEventListener("DOMContentLoaded", () => {
     .addTo(map);
 
   map.on("locationfound", async function (e) {
-    map.fitBounds(e.bounds);
+
+
+
     let icon = locationControl._icon;
     let lat = e.latlng.lat;
 
     let lon = e.latlng.lng;
+    map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
     let obj = { lat: lat, lon: lon };
     localStorage.setItem("userlocation", `${JSON.stringify(obj)}`);
 
@@ -106,15 +109,14 @@ window.addEventListener("DOMContentLoaded", () => {
     let addressName =
       data.features.length > 0 ? data.features[0].place_name : null;
     if (data.features.length > 0) {
-      console.log($("form").first().find("input:eq(0)"));
-      console.log(data);
+
       $("#addressInputFieldOrigin").val(data.features[0].place_name);
     }
 
     const dmsCalculated = DDtoDMS(lat, lon);
 
     const allData = {
-      name: addressName,
+      address: addressName,
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -219,10 +221,18 @@ window.addEventListener("DOMContentLoaded", () => {
   $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
 
-    $("#loader").removeClass("d-none").addClass("loading");
-    const popupCheck = marker1.isPopupOpen();
-    if (popupCheck) {
-      marker1.closePopup();
+    const submitText = $("form :submit").first().text();
+    $(
+      "form :submit"
+    ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`);
+
+    const popupCheck1 = marker1.isPopupOpen();
+    const popupCheck2 = marker2.isPopupOpen()
+    if (popupCheck1 || popupCheck2) {
+      console.log('a popup is open')
+      let marker = popupCheck1 ? marker1 : marker2;
+      marker.closePopup()
     }
     const coordsOrigin = await convertAddressToCoordinates(
       e.currentTarget[0].value
@@ -264,7 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
       "mi"
     );
     let originResults = {
-      name: origin.place_name,
+      address: origin.place_name,
       lat: originLat,
       lon: originLon,
       dms: { lat: originDMS.lat, lon: originDMS.lon },
@@ -272,7 +282,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     let destinationResults = {
-      name: destination.place_name,
+      address: destination.place_name,
       lat: destinationLat,
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
@@ -302,6 +312,8 @@ window.addEventListener("DOMContentLoaded", () => {
       ],
       { padding: [50, 50] }
     );
+    $("form :submit").first().html(submitText);
+
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
@@ -309,18 +321,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     if ($(this).hasClass("origin")) {
-        toggleAltitude(this, marker1)
+      toggleAltitude(this, marker1)
     } else {
-    toggleAltitude(this, marker2)
+      toggleAltitude(this, marker2)
     }
   });
+
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1)
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-   toggleBookmark(this, marker2)
+    toggleBookmark(this, marker2)
 
   });
   map.on("popupopen", function (e) {
@@ -333,5 +346,32 @@ toggleBookmark(this, marker1)
   map.on("popupclose", function (e) {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
+  });
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
+
+
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+  </div>`)
+    }
+    else {
+
+      const markerCheck = marker1.isPopupOpen()
+      const localData = markerCheck ? "origin-data" : "destination-data"
+      const marker = markerCheck ? marker1 : marker2
+      let locationData = JSON.parse(localStorage.getItem(localData))
+      locationData.name = input[0].value
+      console.log(localData)
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+
+    }
   });
 });

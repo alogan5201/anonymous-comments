@@ -68,7 +68,7 @@ export const LocationState = function _LocationState() {
   return data;
 };
 const myhandler = {
-  set: function(obj, prop, value) {
+  set: function (obj, prop, value) {
     obj[prop] = value;
   }
 };
@@ -76,8 +76,8 @@ const myhandler = {
 LocationState.state = new Proxy({ lat: null, lon: null }, myhandler);
 
 export const findLocation = () => {
-  map.on("locationfound", function(e) {
-    map.fitBounds(e.bounds);
+  map.on("locationfound", function (e) {
+    map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });;
 
     let lat = e.latlng.lat;
 

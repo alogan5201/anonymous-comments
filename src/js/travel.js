@@ -300,7 +300,7 @@ window.addEventListener('DOMContentLoaded', () => {
         [latOrigin, lonOrigin],
         [latDest, lonDest]
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     )
   }
 
@@ -326,7 +326,7 @@ window.addEventListener('DOMContentLoaded', () => {
         [latOrigin, lonOrigin],
         [latDestination, lonDestination]
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     )
   }
 
@@ -428,7 +428,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let x = document.querySelectorAll("form")
     let form = x[0]
     clearForm(form)
-    map.fitBounds(e.bounds)
+    map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });
     let obj = { lat: lat, lon: lon };
     localStorage.setItem("userlocation", `${JSON.stringify(obj)}`);
 
@@ -443,7 +443,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let originLat = originLatLon[1]
     let originLon = originLatLon[0]
     let originResults = {
-      name: origin.place_name,
+      address: origin.place_name,
       lat: originLat,
       lon: originLon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -519,7 +519,7 @@ window.addEventListener('DOMContentLoaded', () => {
         [latOrigin, lonOrigin],
         [latDestination, lonDestination]
       ],
-      { padding: [50, 50] }
+      { padding: [50, 50], maxZoom: 13 }
     )
     const submitText = $('form :submit').first().text()
     $('form :submit').first().html(submitText)
@@ -561,7 +561,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const destinationDMS = DDtoDMS(destinationLat, destinationLon);
 
     let originResults = {
-      name: origin.place_name,
+      address: origin.place_name,
       lat: originLat,
       lon: originLon,
       dms: { lat: originDMS.lat, lon: originDMS.lon },
@@ -569,7 +569,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     let destinationResults = {
-      name: destination.place_name,
+      address: destination.place_name,
       lat: destinationLat,
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
@@ -601,9 +601,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-   toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1)
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();

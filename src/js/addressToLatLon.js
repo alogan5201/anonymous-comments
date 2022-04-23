@@ -149,7 +149,13 @@ $(function () {
       "marker-color": "blue",
     }),
   }).addTo(map);
+  const bookmark = L.marker([0, 0], {
+    icon: L.mapbox.marker.icon({
+      "marker-size": "large",
 
+      "marker-color": "blue",
+    }),
+  }).addTo(map);
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -192,12 +198,12 @@ $(function () {
 
     }
     $("form :submit").first().html(`${submitText}`);
-    map.fitBounds([[lat, lon]], { padding: [50, 50] });
+    map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
 
     const dmsCalculated = DDtoDMS(lat, lon);
 
     const data = {
-      name: address.features[0].place_name,
+      address: address.features[0].place_name,
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -248,12 +254,13 @@ $(function () {
         $("#latlonForm").find("input:eq(1)").val(lon);
       }
       $("form :submit").first().html(`${submitText}`);
-      map.fitBounds([[lat, lon]], { padding: [50, 50] });
+      map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+
 
       const dmsCalculated = DDtoDMS(lat, lon);
 
       const data = {
-        name: address.features[0].place_name,
+        address: address.features[0].place_name,
         lat: lat,
         lon: lon,
         dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -370,12 +377,13 @@ $(function () {
 
         const dmsCalculated = DDtoDMS(lat, lon);
 
-        map.fitBounds([[lat, lon]], { padding: [50, 50] });
+        map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+
 
         $("form :submit").first().html(submitText);
         // # TODO: ADD to all converts
         const data = {
-          name: value,
+          address: value,
           lat: lat,
           lon: lon,
           dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
@@ -397,13 +405,43 @@ $(function () {
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-toggleAltitude(this, marker)
+    toggleAltitude(this, marker)
 
   });
 
+
+  $('#map').on('submit', '.bookmark-form', function (e) {
+    e.preventDefault()
+
+
+    let input = $(this).children().find("input")
+    console.log(input)
+    console.log(input[0].value)
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`)
+    }
+    else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"))
+      locationData.name = input[0].value
+      console.log(locationData)
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+    }
+  });
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
- toggleBookmark(this, marker)
+    toggleBookmark(this, marker)
+
+
+
+    // toggleBookmark(this, marker)
   });
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

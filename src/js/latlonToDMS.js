@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 import "./firebase"
 import 'utils/commentscript.js'
-import { popupContent, getLatLon, getAddress,  generateUID, addBookmark, toggleBookmark, getAltitude, toggleAltitude  } from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress, generateUID, addBookmark, toggleBookmark, getAltitude, toggleAltitude } from 'utils/geocoder'
 import { getIp } from "./firebase";
 
 function test(e) {
@@ -206,7 +206,7 @@ $(document).ready(function () {
     document.getElementById('seconds-lon').value = dmsCalculated.lon.seconds
 
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [50, 50], maxZoom: 13
     })
     const data = {
       lat: lat,
@@ -268,7 +268,7 @@ $(document).ready(function () {
     const dmsCalculated = DDtoDMS(lat, lon)
 
     map.fitBounds([[lat, lon]], {
-      padding: [100, 100]
+      padding: [50, 50], maxZoom: 13
     })
     $('form :submit').first().html(submitText)
     $('#degrees-lat').val(dmsCalculated.lat.degrees)
@@ -295,14 +295,14 @@ $(document).ready(function () {
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
- toggleAltitude(this, marker)
+    toggleAltitude(this, marker)
 
   });
 
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
 
-toggleBookmark(this, marker)
+    toggleBookmark(this, marker)
 
   });
 
@@ -317,5 +317,27 @@ toggleBookmark(this, marker)
     // TODO update
     $('.leaflet-top.leaflet-left').css('opacity', '1');
   });
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
 
+    let input = $(this).parent().children().first()
+    console.log(input)
+    console.log(input[0].value)
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`)
+    }
+    else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"))
+      locationData.name = input[0].value
+      console.log(locationData)
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+    }
+  });
 })

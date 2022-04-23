@@ -1,5 +1,5 @@
 import 'utils/commentscript.js'
-function test (e) {
+function test(e) {
   e.preventDefault()
 }
 window.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 $(document).ready(function () {
-  function ConvertDMSToDD (degrees, minutes, seconds, direction) {
+  function ConvertDMSToDD(degrees, minutes, seconds, direction) {
     var dd = degrees + minutes / 60 + seconds / (60 * 60)
 
     if (direction == 'S' || direction == 'W') {
@@ -34,7 +34,7 @@ $(document).ready(function () {
 
   const latlonForm = document.getElementById('latlonForm')
 
-  function DDtoDMS (lat, lon) {
+  function DDtoDMS(lat, lon) {
     //
 
     north.checked = lat >= 0
@@ -65,7 +65,7 @@ $(document).ready(function () {
     document.getElementById('minutes-lon').value = minutesLongitude
     document.getElementById('seconds-lon').value = secondsLongitude
   }
-  function check (elm) {
+  function check(elm) {
     document.getElementById(elm).checked = true
   }
 
@@ -74,7 +74,7 @@ $(document).ready(function () {
   const lonInputField = document.getElementById('lonInputField')
   const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
-  const CoordsApp = function _CoordsApp () {
+  const CoordsApp = function _CoordsApp() {
     return `
  <h1>Origin State = [${CoordsApp.state.origin}] </h1> </br>
  <h1>Destination State = [${CoordsApp.state.destination}] </h1>
@@ -150,7 +150,7 @@ $(document).ready(function () {
       return null
     }
 
-    function coordinateFeature (lng, lat) {
+    function coordinateFeature(lng, lat) {
       return {
         center: [lng, lat],
         geometry: {
@@ -196,7 +196,7 @@ $(document).ready(function () {
 
     reverseGeocode: true
   })
-  async function getElevation (lon, lat) {
+  async function getElevation(lon, lat) {
     // Construct the API request
     const query = await fetch(
       `https://api.mapbox.com/v4/mapbox.mapbox-terrain-v2/tilequery/${lon},${lat}.json?layers=contour&limit=50&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
@@ -243,7 +243,7 @@ $(document).ready(function () {
       $('#output-field-input').removeClass('is-invalid')
     }
     map.fitBounds([[latitude, longitude]], {
-      padding: [100, 100]
+      padding: [100, 100], maxZoom: 13
     })
     /*
     L.marker(e.latlng)
@@ -302,9 +302,9 @@ $(document).ready(function () {
       geocoder.setMinLength(5)
     }
   })
-  geocoder.on('error', e => {})
+  geocoder.on('error', e => { })
 
-  function format (time) {
+  function format(time) {
     // Hours, minutes and seconds
     var hrs = ~~(time / 3600)
     var mins = ~~((time % 3600) / 60)
@@ -316,7 +316,7 @@ $(document).ready(function () {
     // Output like "1:01" or "4:03:59" or "123:03:59"
     return result
   }
-  function callMatrix (first, second) {
+  function callMatrix(first, second) {
     fetch(
       `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
     )
@@ -332,9 +332,9 @@ $(document).ready(function () {
       })
   }
 
-  function getUserLocation () {
+  function getUserLocation() {
     if ('geolocation' in navigator) {
-      function success (position) {
+      function success(position) {
         let lat = position.coords.latitude
 
         let lon = position.coords.longitude
@@ -347,7 +347,7 @@ $(document).ready(function () {
         // alert(lat)
       }
 
-      function error (err) {
+      function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`)
       }
       var options = {
@@ -362,7 +362,7 @@ $(document).ready(function () {
     }
   }
 
-  async function handleConvertLocationDataBtn (e) {
+  async function handleConvertLocationDataBtn(e) {
     e.preventDefault()
 
     let inputValue = geocoder.inputString
@@ -481,7 +481,5 @@ $(document).ready(function () {
     }, 200)
   })
 
-  let bookmarkControl = new L.Control.Bookmarks({
-    name: 'converter'
-  }).addTo(map)
+
 })
