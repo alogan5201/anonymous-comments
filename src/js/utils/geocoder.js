@@ -116,7 +116,7 @@ export function popupContent(input) {
 
   let bookmarked = input.name
     ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}  bookmark-btn" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
-    : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`;
+    : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="modal" data-bs-target="#bookmarkModal" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
   let altitudeElm = altitude
     ? `<strong class="${origin}${destination}">${altitude}</strong>`
     : `<button class="badge bg-primary border-white  getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >
@@ -349,7 +349,7 @@ async function getAltitude(lon, lat) {
 
 export function toggleBookmark(item, marker) {
   $(item).prop("disabled", true);
-  $("#add-bookmark-btn").prop("disabled", true);
+
   $(item)
     .removeClass("bg-transparent text-primary")
     .addClass("bg-primary text-white");

@@ -151,6 +151,7 @@ $(function () {
       showPopup: false,
       locateOptions: {
         enableHighAccuracy: true,
+        timeout: 5000,
       },
     })
     .addTo(map);
@@ -176,7 +177,9 @@ $(function () {
     };
 
     const p = popupContent(data);
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+    var popup = L.popup({ autoClose: false, closeOnClick: false }).setContent(
+      p
+    );
 
     setTimeout(() => {
       map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
@@ -225,7 +228,9 @@ $(function () {
       };
 
       const p = popupContent(data);
-      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+      var popup = L.popup({ autoClose: false, closeOnClick: false }).setContent(
+        p
+      );
       // # TODO: ADD to all converts
 
       marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
@@ -269,7 +274,7 @@ $(function () {
         };
 
         const p = popupContent(data);
-        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+        var popup = L.popup().setContent(p);
 
         marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
       }
@@ -292,10 +297,77 @@ $(function () {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
+  let toast = `
+
+
+<div class="col p-0 popup-bookmark" style="padding-top: 2rem;">
+
+<div class="card-body ps-4 pe-4 pt-4 pb-3">
+  <ul class="list-group border-0" style="justify-content: end;">
+<li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
+      <div class="hstack">
+
+        <div class=" border ms-auto">
+          <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
+        </div>
+    </div></li>
+    <form class="bookmark-form" role="form">
+
+    <div class="input-group ms-auto " style="margin-left: auto !important;">
+    <input type="text" class="form-control bookmark-input" placeholder="Boomark Name" aria-label="Recipient's
+      username" aria-describedby="add-bookmark-btn" required>
+    <button class="btn btn-outline-secondary" type="submit" id="add-bookmark-btn">+</button>
+  </div>
+    </form>
+
+
+    <li class=" invisible list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top" style="padding-right: 0 !important;">
+      <div class="hstack">
+
+        <div class=" border ms-auto">
+          <button type="button" class="badge bg-transparent border border-secondary text-secondary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Cancel</button>
+        </div>
+    </div></li>
+  </ul>
+</div>
+</div>
+
+
+`;
+
+  /*
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker);
+    $(this).prop("disabled", true);
+    marker.closePopup();
+    let currentPopup = marker.getPopup();
+    currentPopup.setContent(toast);
+    currentPopup.openPopup();
   });
+  */
+
+  $("#bookmarkForm").on("submit", function (e) {
+    e.preventDefault();
+    console.log(e.target);
+  });
+  var bookmarkModal = document.getElementById("bookmarkModal");
+
+  $("#bookmarkModal").on("show.bs.modal", function (e) {
+    var button = event.relatedTarget;
+    // Extract info from data-bs-* attributes
+    var bookmarkId = button.getAttribute("data-bs-uid");
+    $("bookmarkForm").submit(function (e) {
+      e.preventDefault();
+    });
+    // If necessary, you could initiate an AJAX request here
+    // and then do the updating in a callback.
+    //
+    // Update the modal's content.
+    var modalTitle = bookmarkModal.querySelector(".modal-title");
+    var modalBodyInput = bookmarkModal.querySelector(".modal-body input");
+    console.log(bookmarkId);
+  });
+
   $("#map").on("click", "#add-bookmark-btn", function (e) {
     let input = $(this).parent().children().first();
 

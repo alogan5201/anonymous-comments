@@ -99,7 +99,11 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     const p = popupContent(allData);
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+    var popup = L.popup({
+      autoPan: true,
+      keepInView: true,
+      autoClose: false,
+    }).setContent(p);
 
     marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
     locationControl.stop();

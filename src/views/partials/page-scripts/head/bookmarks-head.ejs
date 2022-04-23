@@ -6,7 +6,15 @@
     name="viewport"
     content="initial-scale=1,maximum-scale=1,user-scalable=no"
   />
-
+  <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+    rel="stylesheet"
+  />
   <title>
     <%= SITE_TITLE %> | <%= pageTitle %>
   </title>
@@ -32,11 +40,6 @@
   <meta name="twitter:site" content="<%= SITE_URL %>" />
   <meta name="author" content="<%= DEVELOPER_NAME %>. <%= DEVELOPER_URL %>" />
 
-  <script src="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js"></script>
-  <link
-    href="https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css"
-    rel="stylesheet"
-  />
   <!-- favicons -->
   <link
     rel="apple-touch-icon"
@@ -71,10 +74,6 @@
     referrerpolicy="no-referrer"
   />
 
-  <link
-    href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
-    rel="stylesheet"
-  />
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -102,7 +101,7 @@
     href="<%= PP %>/js/<%= filenameMap['bookmarks.js'] %>"
     as="script"
   />
-  <link rel="prefetch" href="<%= PP %>/js/<%= filenameMap['book.js'] %>" />
+
   <% } else { %>
   <link rel="stylesheet" href="<%= PP %>/css/index.css" />
   <link rel="preload" href="<%= PP %>/js/vendor.js" as="script" />

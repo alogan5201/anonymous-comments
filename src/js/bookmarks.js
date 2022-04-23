@@ -174,39 +174,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   helloWorld();
-  let config = {
-    minZoom: 7,
-    maxZoom: 18,
-  };
-  // magnification with which the map will start
-  const zoom = 18;
-  // co-ordinates
-  const lat = 52.22977;
-  const lng = 21.01178;
+
   L.mapbox.accessToken =
     "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
-  const map = L.mapbox
-    .map("bookmark-map", null, { zoomControl: false })
-    .setView([38.24828117242986, -85.86822924379871], 11);
 
-  L.mapbox
-    .styleLayer("mapbox://styles/mapbox/streets-v11")
-    .addTo(map) // add your tiles to the map
-    .once("load", finishedLoading);
+  var mapboxTiles = L.tileLayer(
+    "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=" +
+      L.mapbox.accessToken,
+    {
+      attribution:
+        '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      tileSize: 512,
+      zoomOffset: -1,
+    }
+  );
 
-  function finishedLoading() {
-    // first, toggle the class 'done', which makes the loading screen
-    // fade out
-    setTimeout(() => {
-      console.log("map loaded");
-    }, 1000);
-  }
-
-  $("#test").on("click", function (e) {
-    e.preventDefault();
-    let center = map.getCenter();
-    console.log(center);
-    let bounds = JSON.stringify(map.getBounds());
-    console.log(`zoom is ${map.getZoom()} and bounds are ${bounds}`);
-  });
+  const map = L.map("map")
+    .addLayer(mapboxTiles)
+    .setView([42.361, -71.0587], 15);
 });
