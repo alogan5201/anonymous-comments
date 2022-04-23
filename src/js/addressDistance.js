@@ -99,11 +99,7 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     const p = popupContent(allData);
-    var popup = L.popup({
-      autoPan: true,
-      keepInView: true,
-      autoClose: false,
-    }).setContent(p);
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
     marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
     locationControl.stop();
@@ -272,9 +268,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const originPopup = popupContent(originResults);
     const destinationPopup = popupContent(destinationResults);
-
-    const popup1 = L.popup().setContent(originPopup);
-    const popup2 = L.popup().setContent(destinationPopup);
+ var popup = L.popup({ autoPan: true, keepInView: true })
+    const popup2 = L.popup({ autoPan: true, keepInView: true }).setContent(destinationPopup);
 
     marker1.setLatLng([originLat, originLon]).bindPopup(popup1);
 

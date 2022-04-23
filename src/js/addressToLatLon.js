@@ -8,6 +8,7 @@ import {
   popupContent,
   toggleAltitude,
   toggleBookmark,
+  closePopup
 } from "utils/geocoder";
 import "./firebase";
 import { getIp } from "./firebase";
@@ -177,7 +178,7 @@ $(function () {
     };
 
     const p = popupContent(data);
-    var popup = L.popup({ autoClose: false, closeOnClick: false }).setContent(
+   var popup = L.popup({ autoPan: true, keepInView: true }).setContent(
       p
     );
 
@@ -228,9 +229,7 @@ $(function () {
       };
 
       const p = popupContent(data);
-      var popup = L.popup({ autoClose: false, closeOnClick: false }).setContent(
-        p
-      );
+      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
       // # TODO: ADD to all converts
 
       marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
@@ -274,7 +273,7 @@ $(function () {
         };
 
         const p = popupContent(data);
-        var popup = L.popup().setContent(p);
+        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
         marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
       }
@@ -345,29 +344,32 @@ $(function () {
     currentPopup.openPopup();
   });
   */
+var bookmarkModal = new Modal(document.getElementById('bookmarkModal'), {
+  keyboard: false
+})
+  var bookmarkToggle = document.getElementById("bookmarkModal");
+// relatedTarget
 
+
+ 
+  
   $("#bookmarkForm").on("submit", function (e) {
     e.preventDefault();
-    console.log(e.target);
-  });
-  var bookmarkModal = document.getElementById("bookmarkModal");
 
-  $("#bookmarkModal").on("show.bs.modal", function (e) {
-    var button = event.relatedTarget;
-    // Extract info from data-bs-* attributes
-    var bookmarkId = button.getAttribute("data-bs-uid");
-    $("bookmarkForm").submit(function (e) {
-      e.preventDefault();
-    });
-    // If necessary, you could initiate an AJAX request here
-    // and then do the updating in a callback.
-    //
-    // Update the modal's content.
-    var modalTitle = bookmarkModal.querySelector(".modal-title");
-    var modalBodyInput = bookmarkModal.querySelector(".modal-body input");
-    console.log(bookmarkId);
-  });
+      let input = $(this).find("input:eq(0)");
+    console.log( e.target );
 
+      let locationData = JSON.parse(localStorage.getItem("location-data"));
+      locationData.name = input[0].value;
+
+      localStorage.setItem("location-data", JSON.stringify(locationData));
+      addBookmark("location-data");
+    bookmarkModal.hide( bookmarkToggle )
+     $(this).find("input:eq(0)").val("")
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
+   
+  });
   $("#map").on("click", "#add-bookmark-btn", function (e) {
     let input = $(this).parent().children().first();
 

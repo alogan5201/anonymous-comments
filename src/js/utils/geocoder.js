@@ -67,7 +67,7 @@ export function popupContent(input) {
   let weatherData = input.weather ? input.weather : null;
   let address = input.address ? input.address : null;
   let name = input.name ? input.name : null;
-
+let id = input.uid ? input.uid : uid
   let storedData = {
     name: name,
     address: address,
@@ -76,7 +76,7 @@ export function popupContent(input) {
     dms: { lat: input.dms.lat, lon: input.dms.lon },
     weather: weatherData,
     path: window.location.pathname,
-    uid: uid,
+    uid: id,
     date: prettyDate,
     altitude: altitude,
   };
@@ -363,7 +363,8 @@ export function toggleBookmark(item, marker) {
   $(item).parents("div.popupContent").html(toast);
 }
 
-export async function toggleAltitude(item, marker) {
+
+export async function toggleAltitude ( item, marker ) {
   let width = $(item).width();
   let hstack = $(item).parent().parent();
 
@@ -391,14 +392,34 @@ export async function toggleAltitude(item, marker) {
   setTimeout(() => {
     $(".altitude").removeClass("mx-auto").addClass("me-auto");
     $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    let locationData = JSON.parse(localStorage.getItem("bookmarks"));
-    let len = locationData.length;
+    let locationData = JSON.parse(localStorage.getItem("location-data"));
+    let len = locationData
     let last = locationData[len - 1];
-    last.altitude = `${highestElevation} meters`;
-    console.log(locationData);
-    localStorage.setItem("bookmarks", JSON.stringify(locationData));
-    let newPopupContent = $(item).parents("div.popupContent").parent().html();
-    marker.setPopupContent(newPopupContent);
+    locationData.altitude = `${highestElevation} meters`;
+    let bookmarks = JSON.parse(localStorage.getItem( "bookmarks" ))
+    localStorage.setItem("location-data", JSON.stringify(locationData));
+    if ( bookmarks )
+    {
+   
+   const contains = (arr, criteria) => arr.some((v) => criteria(v));
+      const bookmarkCheck = contains( bookmarks, ( v ) => v.uid == locationData.uid ); 
+      if ( bookmarkCheck )
+      {
+        const lastIndex = (arr, predicate) => arr.map((item) => predicate(item)).lastIndexOf(true);
+
+        let r = lastIndex(bookmarks, (i) => i.uid == locationData.uid); 
+        bookmarks[ r ].altitude = `${ highestElevation } meters`;
+        
+        localStorage.setItem( "bookmarks", JSON.stringify(bookmarks) )
+        
+      }
+    }
+    
+    let newPopupContent = $( item ).parents( "div.popupContent" ).parent().html();
+          marker.setPopupContent( newPopupContent );
+ 
+    
+
   }, 500);
 }
 
@@ -483,6 +504,14 @@ export function getGeojson(first, second) {
 
 
  */
+
+export function closePopup (marker) {
+  
+  const popupCheck = marker.isPopupOpen();
+    if (popupCheck) {
+      marker.closePopup();
+    }
+}
 export default {
   getLatLon,
   getAddress,
@@ -494,4 +523,5 @@ export default {
   altitudeLoading,
   toggleBookmark,
   toggleAltitude,
+  closePopup,
 };
