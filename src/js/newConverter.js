@@ -1,28 +1,31 @@
 /* jshint esversion: 8 */
-import "./firebase";
 import "utils/commentscript.js";
 import {
-  generateUID,
+  addBookmark,
   getAddress,
-  getElevation,
   getLatLon,
   popupContent,
-  addBookmark,
-  altitudeLoading, toggleBookmark,
-  toggleAltitude
+  toggleAltitude,
+  toggleBookmark,
 } from "utils/geocoder";
+import "./firebase";
 import { getIp } from "./firebase";
-import { computeDestinationPoint } from "geolib";
 function test(e) {
   e.preventDefault();
 }
-window.addEventListener("DOMContentLoaded", () => {
-  let scrollPos = 0;
-  const mainNav = document.getElementById("mainNav");
-  const headerHeight = mainNav.clientHeight;
-});
 
-$(document).ready(function () {
+window.addEventListener("DOMContentLoaded", () => {
+  const alertMessage = `
+  <div class="alert alert-primary d-flex align-items-center" role="alert">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </svg>
+  <div>
+  No Address Found
+  </div>
+  </div>
+
+  `;
   const north = document.getElementById("north");
   const south = document.getElementById("south");
 
@@ -85,14 +88,14 @@ $(document).ready(function () {
       lat: {
         degrees: degreesLatitude,
         minutes: minutesLatitude,
-        seconds: secondsLatitude
+        seconds: secondsLatitude,
       },
       lon: {
         degrees: degreesLongitude,
         minutes: minutesLongitude,
-        seconds: secondsLongitude
+        seconds: secondsLongitude,
       },
-      popupMessage: { lat: latResult, lon: lonResult }
+      popupMessage: { lat: latResult, lon: lonResult },
     };
     return result;
   }
@@ -117,7 +120,7 @@ $(document).ready(function () {
   const myhandler = {
     set: function (obj, prop, value) {
       obj[prop] = value;
-    }
+    },
   };
 
   CoordsApp.state = new Proxy(
@@ -148,8 +151,8 @@ $(document).ready(function () {
     icon: L.mapbox.marker.icon({
       "marker-size": "large",
 
-      "marker-color": "blue"
-    })
+      "marker-color": "blue",
+    }),
   }).addTo(map);
   var locationControl = L.control
     .locate({
@@ -196,17 +199,7 @@ $(document).ready(function () {
     localStorage.setItem("userLatLon", `${lat}, ${lon}`);
 
     $("#searchInput").val(address);
-    const alertMessage = `
-    <div class="alert alert-primary d-flex align-items-center" role="alert">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-    </svg>
-    <div>
-    No Address Found
-    </div>
-    </div>
 
-    `;
     let alertHtml = result.features.length > 0 ? "" : alertMessage;
     $(".alerts").html(alertHtml);
     locationControl.stop();
@@ -233,144 +226,35 @@ $(document).ready(function () {
       address: result.features[0].place_name,
       lat: lat,
       lon: lon,
-      dms: { lat: dmsLat, lon: dmsLon }
+      dms: { lat: dmsLat, lon: dmsLon },
     };
 
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
     map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
 
-    marker
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup();
+    marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
   }
-  const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
-    const matches = query.match(
-      /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    );
-    if (!matches) {
-      return null;
-    }
 
-    function coordinateFeature(lng, lat) {
-      return {
-        center: [lng, lat],
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat]
-        },
-        place_name: "Lat: " + lat + " Lng: " + lng,
-        place_type: ["coordinate"],
-        properties: {},
-        type: "Feature"
-      };
-    }
-
-    const coord1 = Number(matches[1]);
-    const coord2 = Number(matches[2]);
-    const geocodes = [];
-
-    if (coord1 < -90 || coord1 > 90) {
-      // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2));
-    }
-
-    if (coord2 < -90 || coord2 > 90) {
-      // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1));
-    }
-
-    if (geocodes.length === 0) {
-      // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2));
-      geocodes.push(coordinateFeature(coord2, coord1));
-    }
-
-    return geocodes;
-  };
-
-  async function getElevationData(lon, lat) {
-    // Construct the API request
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map(feature => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    $(".altitude").html(`<div> ${highestElevation} meters </div>`);
-  }
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-
-    $(this)
-      .parent()
-      .parent()
-      .html(altitudeLoading());
-
-    const markerLocation = marker.getLatLng();
-    console.log(markerLocation);
-    getElevationData(markerLocation.lng, markerLocation.lat);
-  });
-
-  // Clear results container when search is cleared.
-
-  function format(time) {
-    // Hours, minutes and seconds
-    var hrs = ~~(time / 3600);
-    var mins = ~~((time % 3600) / 60);
-
-    let result = {
-      hours: hrs,
-      minutes: mins
-    };
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result;
-  }
-
-  const title = $("title").html();
-
-  const pageTitle = title.slice(11);
-
-
-  $("#all-forms").on("submit", async function (e) {
-    e.preventDefault();
-    console.log(e.target);
-    let targetId = $(e.target).attr("id");
-    if (targetId == "addressForm") {
-      await firstForm();
-    } else if (targetId == "latlonForm") {
-      await secondForm();
-    } else if (targetId == "myDmsForm") {
-      await thirdForm();
-    } else {
-      alert("Error processing form");
-    }
+    toggleAltitude(this, marker);
   });
 
   // !! First Form
-  async function firstForm() {
-    const submitText = $("#addressForm :submit")
-      .first()
-      .text();
 
-    $(".alerts").html("");
-    const value = $("#addressForm")
-      .find("input:eq(0)")
-      .val();
-    console.log(value);
+  $("form#addressForm").submit(async function (e) {
+    e.preventDefault();
+    clearAlert();
+    $("form#addressForm :submit").prop("disabled", true);
+    const submitText = "Convert";
+
+    const value = $(this).find("input:eq(0)").val();
 
     $(
       "#addressForm :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-    ${submitText}`);
+  ${submitText}`);
 
     const fetchResponse = await convertAddress(value);
 
@@ -379,65 +263,56 @@ $(document).ready(function () {
 
     const dmsCalculated = DDtoDMS(lat, lon);
 
-    setTimeout(() => {
-      if (fetchResponse.features.length > 0) {
-        $("#latlonForm")
-          .find("input:eq(0)")
-          .val(lat);
-        $("#latlonForm")
-          .find("input:eq(1)")
-          .val(lon);
+    if (fetchResponse.features.length > 0) {
+      $("form#addressForm :submit").prop("disabled", false);
+      const data = {
+        address: fetchResponse.features[0].place_name,
+        lat: lat,
+        lon: lon,
+        dms: {
+          lat: dmsCalculated.popupMessage.lat,
+          lon: dmsCalculated.popupMessage.lon,
+        },
+      };
+      firstFormSuccess(data, dmsCalculated);
+    } else {
+      $("form#addressForm :submit").prop("disabled", false);
+      $(".alerts").html(alertMessage);
+    }
+  });
 
-        $("#degrees-lat").val(dmsCalculated.lat.degrees);
-        $("#minutes-lat").val(dmsCalculated.lat.minutes);
-        $("#seconds-lat").val(dmsCalculated.lat.seconds);
-        $("#degrees-lon").val(dmsCalculated.lon.degrees);
-        $("#minutes-lon").val(dmsCalculated.lon.minutes);
-        $("#seconds-lon").val(dmsCalculated.lon.seconds);
+  function firstFormSuccess(data, dmsCalculated) {
+    $("#latlonForm").find("input:eq(0)").val(data.lat);
+    $("#latlonForm").find("input:eq(1)").val(data.lon);
 
-        const data = {
-          address: fetchResponse.features[0].place_name,
-          lat: lat,
-          lon: lon,
-          dms: {
-            lat: dmsCalculated.popupMessage.lat,
-            lon: dmsCalculated.popupMessage.lon
-          }
-        };
-        const p = popupContent(data);
-        var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-        map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
-        marker
-          .setLatLng([lat, lon])
-          .bindPopup(popup)
-          .openPopup();
-        $("form :submit")
-          .first()
-          .html(submitText);
-      }
-    }, 200);
+    $("#degrees-lat").val(dmsCalculated.lat.degrees);
+    $("#minutes-lat").val(dmsCalculated.lat.minutes);
+    $("#seconds-lat").val(dmsCalculated.lat.seconds);
+    $("#degrees-lon").val(dmsCalculated.lon.degrees);
+    $("#minutes-lon").val(dmsCalculated.lon.minutes);
+    $("#seconds-lon").val(dmsCalculated.lon.seconds);
+
+    const p = popupContent(data);
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+    map.fitBounds([[data.lat, data.lon]], { padding: [50, 50], maxZoom: 13 });
+    marker.setLatLng([data.lat, data.lon]).bindPopup(popup).openPopup();
+    $("#getRoute").html("Convert");
   }
-
   //! ! Second Form
-  async function secondForm() {
-    $('#latlonForm input[type="submit"]').prop("disabled", true);
-    $(".alerts").html("");
-    let latInput = document.getElementById("latInputField");
-    let lonInput = document.getElementById("lonInputField");
-    const lat = $("#latlonForm")
-      .find("input:eq(0)")
-      .val();
-    const lon = $("#latlonForm")
-      .find("input:eq(1)")
-      .val();
+  $("form#latlonForm").submit(async function (e) {
+    e.preventDefault();
+    clearAlert();
+    const submitText = "Convert";
+    $("form#latlonForm :submit").prop("disabled", true);
 
-    const submitText = $("#latlonForm :submit")
-      .first()
-      .text();
     $(
-      "#latlonForm :submit"
+      "form#latlonForm :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
     ${submitText}`);
+
+    const lat = $(this).find("input:eq(0)").val();
+    const lon = $(this).find("input:eq(1)").val();
+
     north.checked = lat >= 0;
     south.check = lat < 0;
     east.checked = lon >= 0;
@@ -447,104 +322,72 @@ $(document).ready(function () {
     let address =
       result.features.length > 0 ? result.features[0].place_name : "";
     $("#searchInput").val(address);
-    const alertMessage = `
-      <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-      </svg>
-      <div>
-      No Address Found
-      </div>
-      </div>
-
-      `;
-    let alertHtml = result.features.length > 0 ? "" : alertMessage;
-    $(".alerts").html(alertHtml);
-    setTimeout(() => {
-      map.fitBounds([[lat, lon]], {
-        padding: [100, 100], maxZoom: 13
-      });
-
-      $("#degrees-lat").val(dmsCalculated.lat.degrees);
-      $("#minutes-lat").val(dmsCalculated.lat.minutes);
-      $("#seconds-lat").val(dmsCalculated.lat.seconds);
-      $("#degrees-lon").val(dmsCalculated.lon.degrees);
-      $("#minutes-lon").val(dmsCalculated.lon.minutes);
-      $("#seconds-lon").val(dmsCalculated.lon.seconds);
+    if (result.features.length > 0) {
       const data = {
         address: address,
         lat: lat,
         lon: lon,
         dms: {
           lat: dmsCalculated.popupMessage.lat,
-          lon: dmsCalculated.popupMessage.lon
-        }
+          lon: dmsCalculated.popupMessage.lon,
+        },
       };
-      const p = popupContent(data);
-      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+      $("form#latlonForm :submit").prop("disabled", false);
+      secondFormSuccess(data, dmsCalculated);
+    } else {
+      $("form#latlonForm :submit").prop("disabled", false);
+      $(".alerts").html(alertMessage);
+    }
+  });
 
-      marker
-        .setLatLng([lat, lon])
-        .bindPopup(popup)
-        .openPopup();
+  function secondFormSuccess(data, dmsCalculated) {
+    map.fitBounds([[data.lat, data.lon]], {
+      padding: [100, 100],
+      maxZoom: 13,
+    });
 
-      $("#latlonForm :submit")
-        .first()
-        .html(`${submitText}`);
-    }, 200);
+    $("#degrees-lat").val(dmsCalculated.lat.degrees);
+    $("#minutes-lat").val(dmsCalculated.lat.minutes);
+    $("#seconds-lat").val(dmsCalculated.lat.seconds);
+    $("#degrees-lon").val(dmsCalculated.lon.degrees);
+    $("#minutes-lon").val(dmsCalculated.lon.minutes);
+    $("#seconds-lon").val(dmsCalculated.lon.seconds);
+
+    const p = popupContent(data);
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+
+    marker.setLatLng([data.lat, data.lon]).bindPopup(popup).openPopup();
+
+    $("#latlonForm :submit").html("Convert");
   }
   //! ! Third Form
-  async function thirdForm() {
-    $(".alerts").html(""); // Iterate over the form controls
-    const submitText = $("#myDmsForm :submit")
-      .first()
-      .text();
+  $("form#myDmsForm").submit(async function (e) {
+    e.preventDefault();
+    clearAlert();
+    const submitText = "Convert";
+    $("form#myDmsForm :submit").prop("disabled", true);
+
     $(
-      "#myDmsForm :submit"
+      "form#myDmsForm :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
     ${submitText}`);
+
     let latRadio = north.checked ? "N" : "S";
     let lonRadio = west.checked ? "W" : "E";
-    let test = $("#myDmsForm")
-      .find("input:eq(2)")
-      .val();
+    let test = $(this).find("input:eq(2)").val();
     console.log(test);
 
     let latField = [
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(2)")
-          .val()
-      ),
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(3)")
-          .val()
-      ),
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(4)")
-          .val()
-      ),
-      latRadio
+      parseFloat($(this).find("input:eq(2)").val()),
+      parseFloat($(this).find("input:eq(3)").val()),
+      parseFloat($(this).find("input:eq(4)").val()),
+      latRadio,
     ];
     let lonField = [
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(7)")
-          .val()
-      ),
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(8)")
-          .val()
-      ),
-      parseFloat(
-        $("#myDmsForm")
-          .find("input:eq(9)")
-          .val()
-      ),
-      lonRadio
+      parseFloat($(this).find("input:eq(7)").val()),
+      parseFloat($(this).find("input:eq(8)").val()),
+      parseFloat($(this).find("input:eq(9)").val()),
+      lonRadio,
     ];
 
     let lat = ConvertDMSToDD(latField);
@@ -558,55 +401,46 @@ $(document).ready(function () {
     latlonForm.elements[0].value = latReduced;
     latlonForm.elements[1].value = lonReduced;
 
-    let address =
-      result.features.length > 0 ? result.features[0].place_name : "";
-    $("#searchInput").val(address);
+    if (result.features.length > 0) {
+      let address = result.features[0].place_name;
+      const data = {
+        address: address,
+        lat: lat,
+        lon: lon,
+        dms: {
+          lat: `${latField[0]}° ${latField[1]}' ${latField[2]}`,
+          lon: `${lonField[0]}° ${lonField[1]}' ${lonField[2]}`,
+        },
+      };
+      $("form#myDmsForm :submit").prop("disabled", false);
+      $("form#myDmsForm :submit").first().html(`${submitText}`);
+      thirdFormSuccess(data);
+    } else {
+      $("form#myDmsForm :submit").prop("disabled", false);
+      $(".alerts").html(alertMessage);
+    }
+  });
+  function thirdFormSuccess(data) {
+    $("#searchInput").val(data.address);
 
-    const alertMessage = `
-      <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-      </svg>
-      <div>
-      No Address Found
-      </div>
-      </div>
-
-      `;
-    let alertHtml = result.features.length > 0 ? "" : alertMessage;
-    $(".alerts").html(alertHtml);
-    map.fitBounds([[lat, lon]], {
-      padding: [100, 100], maxZoom: 13
+    map.fitBounds([[data.lat, data.lon]], {
+      padding: [100, 100],
+      maxZoom: 13,
     });
-    const data = {
-      address: address,
-      lat: lat,
-      lon: lon,
-      dms: {
-        lat: `${latField[0]}° ${latField[1]}' ${latField[2]}`,
-        lon: `${lonField[0]}° ${lonField[1]}' ${lonField[2]}`
-      }
-    };
+
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
-    marker
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup();
-
-    $("#myDmsForm :submit")
-      .first()
-      .html(`${submitText}`);
+    marker.setLatLng([data.lat, data.lon]).bindPopup(popup).openPopup();
   }
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    toggleAltitude(this, marker)
+    toggleAltitude(this, marker);
   });
 
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker)
+    toggleBookmark(this, marker);
   });
 
   map.on("popupopen", function (e) {
@@ -620,26 +454,35 @@ $(document).ready(function () {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-  $('#map').on('click', '#add-bookmark-btn', function (e) {
-    let input = $(this).parent().children().first()
-    console.log(input)
-    console.log(input[0].value)
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
+    console.log(input);
+    console.log(input[0].value);
     if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a name.
-    </div>`)
-    }
-    else {
-      let locationData = JSON.parse(localStorage.getItem("location-data"))
-      locationData.name = input[0].value
-      console.log(locationData)
+    </div>`);
+    } else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"));
+      locationData.name = input[0].value;
+      locationData.bookedmarked = true;
 
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-      addBookmark("location-data")
+      localStorage.setItem("location-data", JSON.stringify(locationData));
+      addBookmark("location-data");
 
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
     }
   });
+
+  function clearAlert() {
+    let alerts = document.querySelector(".alerts");
+    if (alerts.innerText.length > 1) {
+      alerts.innerText = "";
+    } else {
+      return;
+    }
+  }
 });

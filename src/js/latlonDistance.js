@@ -1,42 +1,13 @@
 /* jshint esversion: 8 */
-import "./firebase";
 import HaversineGeolocation from "haversine-geolocation";
 import "utils/commentscript.js";
 import {
-  addBookmark, getElevation, popupContent, toggleBookmark,
-  toggleAltitude
+  addBookmark, popupContent, toggleAltitude, toggleBookmark
 } from "utils/geocoder";
-
-
-
-
-
-
-
-
-
-
+import "./firebase";
 
 window.addEventListener("DOMContentLoaded", () => {
-  async function getElevationData(lon, lat) {
-    // Construct the API request
 
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-
-    setTimeout(() => {
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
   function DDtoDMS(lat, lon) {
 
     let latitude = Math.abs(lat);
@@ -149,6 +120,7 @@ window.addEventListener("DOMContentLoaded", () => {
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
       origin: true
     };
+
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
     marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
@@ -335,10 +307,14 @@ window.addEventListener("DOMContentLoaded", () => {
       const localData = markerCheck ? "origin-data" : "destination-data"
       const marker = markerCheck ? marker1 : marker2
       let locationData = JSON.parse(localStorage.getItem(localData))
+      let ldata = JSON.parse(localStorage.getItem("location-data"))
+      let altitude = ldata.altitude ? ldata.altitude : null
+      locationData.altitude = altitude
       locationData.name = input[0].value
-      console.log(localData)
+
 
       localStorage.setItem("location-data", JSON.stringify(locationData))
+
       addBookmark("location-data")
 
       let p = popupContent(locationData)

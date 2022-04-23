@@ -1,11 +1,7 @@
 
 import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript";
-import {
-  generateUID, getAddress,
-  getElevation, getLatLon, popupContent, addBookmark, toggleBookmark,
-  toggleAltitude
-} from "utils/geocoder";
+import { addBookmark, generateUID, getAddress, getLatLon, popupContent, toggleAltitude, toggleBookmark } from "utils/geocoder";
 import "./firebase";
 import { getIp } from "./firebase";
 
@@ -282,75 +278,6 @@ $(function () {
 
   });
 
-  const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
-    const matches = query.match(
-      /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    );
-    if (!matches) {
-      return null;
-    }
-
-    function coordinateFeature(lng, lat) {
-      return {
-        center: [lng, lat],
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat],
-        },
-        place_name: "Lat: " + lat + " Lng: " + lng,
-        place_type: ["coordinate"],
-        properties: {},
-        type: "Feature",
-      };
-    }
-
-    const coord1 = Number(matches[1]);
-    const coord2 = Number(matches[2]);
-    const geocodes = [];
-
-    if (coord1 < -90 || coord1 > 90) {
-      // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2));
-    }
-
-    if (coord2 < -90 || coord2 > 90) {
-      // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1));
-    }
-
-    if (geocodes.length === 0) {
-      // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2));
-      geocodes.push(coordinateFeature(coord2, coord1));
-    }
-
-    return geocodes;
-  };
-
-  async function getElevationData(lon, lat) {
-    // Construct the API request
-
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    setTimeout(() => {
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
-
-
-
-  //bookmark-btn
 
 
   $("#getTravelForm").on("submit", async function (e) {
@@ -397,12 +324,6 @@ $(function () {
     }, 200);
   });
 
-  const title = $("title").html();
-
-  const pageTitle = title.slice(11);
-
-
-
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
     toggleAltitude(this, marker)
@@ -410,39 +331,8 @@ $(function () {
   });
 
 
-  $('#map').on('submit', '.bookmark-form', function (e) {
-    e.preventDefault()
 
 
-    let input = $(this).children().find("input")
-    console.log(input)
-    console.log(input[0].value)
-    if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a name.
-    </div>`)
-    }
-    else {
-      let locationData = JSON.parse(localStorage.getItem("location-data"))
-      locationData.name = input[0].value
-      console.log(locationData)
-
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-      addBookmark("location-data")
-
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
-    }
-  });
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker)
-
-
-
-    // toggleBookmark(this, marker)
-  });
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -453,6 +343,32 @@ $(function () {
   map.on('popupclose', function (e) {
     // TODO update
     $('.leaflet-top.leaflet-left').css('opacity', '1');
+  });
+  $("#map").on("click", ".bookmark-btn", function (e) {
+    e.preventDefault();
+    toggleBookmark(this, marker)
+  });
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
+
+
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`)
+    }
+    else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"))
+      locationData.name = input[0].value
+
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+    }
   });
 
 

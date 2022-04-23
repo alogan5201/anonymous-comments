@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 import "./firebase"
 import {
-  popupContent, getLatLon, getAddress, getElevation, generateUID, addBookmark, toggleBookmark,
+  popupContent, getLatLon, getAddress, generateUID, addBookmark, toggleBookmark,
   toggleAltitude
 } from "utils/geocoder";
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
@@ -210,18 +210,6 @@ $(document).ready(function () {
     return geocodes
   }
 
-  async function getElevationData(lon, lat) {
-    // Construct the API request
-    const elvevationResponse = await getElevation(lat, lon)
-    const data = elvevationResponse.data
-
-    const allFeatures = data.features
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map(feature => feature.properties.ele)
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations)
-    $('.altitude').html(`<div> ${highestElevation} meters </div>`)
-  }
 
 
   // Clear results container when search is cleared.
@@ -233,7 +221,7 @@ $(document).ready(function () {
     $('.alerts').html("")
     $(icon).css('background-color', 'black')
     const submitText = $('form :submit').first().text()
-    console.log($('form :submit').first().parent())
+
     $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
     let latInput = document.getElementById('latInputField')
@@ -268,7 +256,7 @@ $(document).ready(function () {
       padding: [50, 50], maxZoom: 13
     })
 
-    console.log($('form :submit').first().parent())
+
     $('form :submit').first().html(`${submitText}`)
     const data = {
       address: address,
@@ -292,7 +280,7 @@ $(document).ready(function () {
 
   $('#map').on('click', '.leaflet-bar-part.leaflet-bar-part-single', function (e) {
     e.preventDefault()
-    console.log(e)
+
   });
 
 
@@ -319,8 +307,8 @@ $(document).ready(function () {
   });
   $('#map').on('click', '#add-bookmark-btn', function (e) {
     let input = $(this).parent().children().first()
-    console.log(input)
-    console.log(input[0].value)
+
+
     if (input[0].value.length < 1) {
       $(input).addClass('is-invalid')
       $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
@@ -330,7 +318,7 @@ $(document).ready(function () {
     else {
       let locationData = JSON.parse(localStorage.getItem("location-data"))
       locationData.name = input[0].value
-      console.log(locationData)
+
 
       localStorage.setItem("location-data", JSON.stringify(locationData))
       addBookmark("location-data")

@@ -1,37 +1,14 @@
 /* jshint esversion: 8 */
-import "./firebase";
 import HaversineGeolocation from "haversine-geolocation";
-
 import "utils/commentscript.js";
 import {
-  popupContent,
-  getLatLon,
-  getAddress,
-  getElevation,
-  getGeojson,
-  addBookmark, toggleBookmark,
-  toggleAltitude
+  addBookmark, getAddress, getGeojson, getLatLon, popupContent, toggleAltitude, toggleBookmark
 } from "utils/geocoder";
+import "./firebase";
+
 
 window.addEventListener("DOMContentLoaded", () => {
-  async function getElevationData(lon, lat) {
-    // Construct the API request
 
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    setTimeout(() => {
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
   var loader = document.getElementById("loader");
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
@@ -230,7 +207,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const popupCheck1 = marker1.isPopupOpen();
     const popupCheck2 = marker2.isPopupOpen()
     if (popupCheck1 || popupCheck2) {
-      console.log('a popup is open')
+
       let marker = popupCheck1 ? marker1 : marker2;
       marker.closePopup()
     }
@@ -286,7 +263,6 @@ window.addEventListener("DOMContentLoaded", () => {
       lat: destinationLat,
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
-      distance: `${distance} miles`,
       destination: true,
     };
 
@@ -364,8 +340,10 @@ window.addEventListener("DOMContentLoaded", () => {
       const marker = markerCheck ? marker1 : marker2
       let locationData = JSON.parse(localStorage.getItem(localData))
       locationData.name = input[0].value
-      console.log(localData)
 
+      let ldata = JSON.parse(localStorage.getItem("location-data"))
+      let altitude = ldata.altitude ? ldata.altitude : null
+      locationData.altitude = altitude
       localStorage.setItem("location-data", JSON.stringify(locationData))
       addBookmark("location-data")
 

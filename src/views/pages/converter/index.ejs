@@ -16,16 +16,19 @@
     <%- include(`${partials}/nav`); -%>
     <!--   !! MAIN -------------------------->
     <main class="flex-shrink-0 mt-2">
-      <div class="container  px-4 px-lg-5 pb-5 ">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Quick Tool</h3>
-          <p class="fs-5 text-muted">Quickly convert Addresses, coordinates, and DMS data.</p>
+      <div class="container px-4 px-lg-5 pb-5">
+        <div class="py-3 pb-md-4 mx-auto text-left">
+          <h3 class="fw-normal">Quick Tool</h3>
+          <p class="fs-5 text-muted">
+            Quickly convert Addresses, coordinates, and DMS data.
+          </p>
         </div>
         <div class="row gx-5 align-items-center justify-content-center mb-5">
           <div id="all-forms" class="col-md-5" style="position: relative;">
             <h5 class="text-start mb-4">Address</h5>
-            <form role="form"
-              class="row justify-content-between align-items-center"
+            <form
+              role="form"
+              class="row justify-content-between align-items-center addressForm"
               autocomplete="off"
               id="addressForm"
             >
@@ -58,7 +61,8 @@
             </form>
 
             <h5 class="text-start mb-4">Latitude and Longitude</h5>
-            <form role="form"
+            <form
+              role="form"
               class="row g-3 mb-3 justify-content-between align-items-center"
               id="latlonForm"
             >
@@ -105,7 +109,7 @@
                 </button>
               </div>
             </form>
-            <form role= "form" class="row g-3 mb-3" id="myDmsForm">
+            <form role="form" class="row g-3 mb-3" id="myDmsForm">
               <h5 class="text-start mb-4">DMS (degrees, minutes, seconds)*</h5>
               <div class="input-group mb-3" id="lat-dms-field">
                 <legend
@@ -229,15 +233,12 @@
             </form>
           </div>
 
-          <div class="col-md-7  align-self-start">
+          <div class="col-md-7 align-self-start">
             <h4 class="travel-time"></h4>
             <div id="map-container" class="map-container">
-
               <div id="map" class="invisible"></div>
               <div id="static"></div>
-
-
-          </div>
+            </div>
 
             <div class="row mb-3">
               <div id="liveAlertPlaceholder">
@@ -250,7 +251,7 @@
         <div class="row g-3 align-items=center justify-content-center">
           <div class="col-lg-12"></div>
         </div>
-       <%- include(`${partials}/comment-section.ejs`); -%>
+        <%- include(`${partials}/comment-section.ejs`); -%>
       </div>
     </main>
     <%- include(`${partials}/footer`); -%> <%-

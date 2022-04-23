@@ -1,13 +1,10 @@
 /* jshint esversion: 8 */
 import './firebase'
+import 'utils/commentscript.js';
 import {
-  popupContent,
-  getElevation,
-  generateUID,
-  addBookmark,
-  altitudeLoading
+  addBookmark, generateUID, popupContent
 } from "utils/geocoder";
-import 'utils/commentscript.js'
+import './firebase';
 import { getIp } from "./firebase";
 
 const uid = generateUID();
@@ -29,25 +26,7 @@ function inputFocus(x) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  async function getElevationData(lon, lat) {
-    // Construct the API request
 
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    setTimeout(() => {
-      $('.altitude').removeClass("mx-auto").addClass("me-auto")
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
   let scrollPos = 0
   const mainNav = document.getElementById('mainNav')
   const headerHeight = mainNav.clientHeight
@@ -87,13 +66,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let result = { lat: latResult, lon: lonResult };
     return result;
   }
-  function check(elm) {
-    document.getElementById(elm).checked = true
-  }
 
-  const convertLocationData = document.getElementById('convertLocationData')
-  const latInputField = document.getElementById('latInputField')
-  const lonInputField = document.getElementById('lonInputField')
+
+
 
   const App = function _App() {
     return `
@@ -695,36 +670,9 @@ ${currentWeather} and ${temp}°F`)
   })
 
 
-
-
-  // getUserLocation();
-
-  const title = $('title').html()
-
-  const pageTitle = title.slice(11)
-
-
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    let width = $(this).width()
-    let hstack = $(this).parent().parent()
-
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
-   <button class="badge bg-transparent mx-auto border-0 text-primary" type="button" disabled style = "width:${width}px !important">
-  <div class="spinner-border spinner-border-sm" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
- </button>
- `)
-
-    debugger
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-    console.log("has class origin");
-    marker.setPopupContent(newPopupContent)
-    let coords = marker.getLatLng();
-    getElevationData(coords.lng, coords.lat);
-
+    toggleAltitude(this, marker)
   });
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();

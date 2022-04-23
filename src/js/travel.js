@@ -97,19 +97,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const mainNav = document.getElementById('mainNav')
   const headerHeight = mainNav.clientHeight
 
-  function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-    var dd = degrees + minutes / 60 + seconds / (60 * 60)
-
-    if (direction == 'S' || direction == 'W') {
-      dd = dd * -1
-    } // Don't do anything for N or E
-    return dd
-  }
-  const north = document.getElementById('north')
-  const south = document.getElementById('south')
-  const east = document.getElementById('east')
-  const west = document.getElementById('west')
-
 
 
   function DDtoDMS(lat, lon) {
@@ -137,16 +124,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let result = { lat: latResult, lon: lonResult };
     return result;
   }
-  function check(elm) {
-    document.getElementById(elm).checked = true
-  }
-
-  const latInputField = document.getElementById('latInputField')
-  const lonInputField = document.getElementById('lonInputField')
-
-
-
-  // Initial Loading of the App
 
   const CoordsApp = function _CoordsApp() {
     return `
@@ -274,61 +251,7 @@ window.addEventListener('DOMContentLoaded', () => {
       .val('Mobile, AL')
   })
 
-  function addRoute() {
-    App.state.count++
 
-    const origin = CoordsApp.state.origin
-
-    const destination = CoordsApp.state.destination
-
-    let latD = destination[1]
-    let lonD = destination[0]
-    let latO = origin[1]
-    let lonO = origin[0]
-    geojson.features[0].geometry.coordinates = [lonO, latO]
-    geojson.features[1].geometry.coordinates = [lonD, latD]
-
-    featureLayer.setGeoJSON(geojson)
-
-    let latOrigin = origin[1]
-    let lonOrigin = origin[0]
-    let latDest = destination[1]
-    let lonDest = destination[0]
-    //
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDest, lonDest]
-      ],
-      { padding: [50, 50], maxZoom: 13 }
-    )
-  }
-
-  async function addNewRoute(locationData) {
-    let latOrigin = locationData.origin.lat
-    let lonOrigin = locationData.origin.lon
-    let latDestination = locationData.destination.lat
-    let lonDestination = locationData.destination.lon
-
-    const query1 = `${lonOrigin},${latOrigin}`
-    const query2 = `${lonDestination},${latDestination}`
-    //  destinationMarker.setLatLng(origin[1], origin[0])
-    await callMatrix(query1, query2)
-    geojson.features[0].geometry.coordinates = [lonOrigin, latOrigin]
-    geojson.features[1].geometry.coordinates = [lonDestination, latDestination]
-
-    featureLayer.setGeoJSON(geojson)
-
-    featureLayer.setGeoJSON(geojson)
-
-    map.fitBounds(
-      [
-        [latOrigin, lonOrigin],
-        [latDestination, lonDestination]
-      ],
-      { padding: [50, 50], maxZoom: 13 }
-    )
-  }
 
   function format(time) {
     // Hours, minutes and seconds
@@ -619,5 +542,37 @@ window.addEventListener('DOMContentLoaded', () => {
   map.on("popupclose", function (e) {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
+  });
+
+  $('#map').on('click', '#add-bookmark-btn', function (e) {
+    let input = $(this).parent().children().first()
+
+
+    if (input[0].value.length < 1) {
+      $(input).addClass('is-invalid')
+      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+  </div>`)
+    }
+    else {
+
+      const markerCheck = marker1.isPopupOpen()
+      const localData = markerCheck ? "origin-data" : "destination-data"
+      const marker = markerCheck ? marker1 : marker2
+      let locationData = JSON.parse(localStorage.getItem(localData))
+      let ldata = JSON.parse(localStorage.getItem("location-data"))
+      let altitude = ldata.altitude ? ldata.altitude : null
+      locationData.altitude = altitude
+      locationData.name = input[0].value
+
+
+      localStorage.setItem("location-data", JSON.stringify(locationData))
+
+      addBookmark("location-data")
+
+      let p = popupContent(locationData)
+      marker.setPopupContent(p)
+
+    }
   });
 })

@@ -178,7 +178,7 @@ $(document).ready(function () {
   async function updateLocation(lat, lon) {
 
     const submitText = $('form :submit').first().text()
-    console.log($('form :submit').first().parent())
+
     $('form :submit').first().html(`${submitText}`)
 
 
@@ -248,7 +248,7 @@ $(document).ready(function () {
   $('#myDmsForm').on('submit', function (e) {
     e.preventDefault()
     const submitText = $('form :submit').first().text()
-    console.log($('form :submit').first().parent())
+
     $('form :submit').first().html(submitText)
     var inputs = document.getElementById('myDmsForm').elements
     // Iterate over the form controls
@@ -272,7 +272,7 @@ $(document).ready(function () {
     let lat = ConvertDMSToDD(latField)
     let lon = ConvertDMSToDD(lonField)
     // let lon = ConvertDMStoDD(lonField)
-    console.log(lat, lon)
+
 
     let lonReduced = lon.toFixed(8)
     let latReduced = lat.toFixed(8)
@@ -306,8 +306,8 @@ $(document).ready(function () {
 
   $('#map').on('click', '#add-bookmark-btn', function (e) {
     let input = $(this).parent().children().first()
-    console.log(input)
-    console.log(input[0].value)
+
+
     if (input[0].value.length < 1) {
       $(input).addClass('is-invalid')
       $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
@@ -317,7 +317,7 @@ $(document).ready(function () {
     else {
       let locationData = JSON.parse(localStorage.getItem("location-data"))
       locationData.name = input[0].value
-      console.log(locationData)
+
 
       localStorage.setItem("location-data", JSON.stringify(locationData))
       addBookmark("location-data")

@@ -246,7 +246,7 @@ $(document).ready(function () {
   $('#latlonForm').on('submit', function (e) {
     e.preventDefault()
     const submitText = $('form :submit').first().text()
-    console.log($('form :submit').first().parent())
+
     $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
 
@@ -320,8 +320,8 @@ $(document).ready(function () {
   $('#map').on('click', '#add-bookmark-btn', function (e) {
 
     let input = $(this).parent().children().first()
-    console.log(input)
-    console.log(input[0].value)
+
+
     if (input[0].value.length < 1) {
       $(input).addClass('is-invalid')
       $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
@@ -331,7 +331,7 @@ $(document).ready(function () {
     else {
       let locationData = JSON.parse(localStorage.getItem("location-data"))
       locationData.name = input[0].value
-      console.log(locationData)
+
 
       localStorage.setItem("location-data", JSON.stringify(locationData))
       addBookmark("location-data")

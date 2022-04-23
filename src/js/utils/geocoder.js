@@ -1,6 +1,6 @@
 import { httpsCallable, getFunctions } from "firebase/functions";
 import { v4 as uuidv4 } from "uuid";
-import { Toast } from 'bootstrap/dist/js/bootstrap.esm.min.js'
+import { Toast } from "bootstrap/dist/js/bootstrap.esm.min.js";
 Date.prototype.toShortFormat = function () {
   let monthNames = [
     "Jan",
@@ -14,7 +14,7 @@ Date.prototype.toShortFormat = function () {
     "Sep",
     "Oct",
     "Nov",
-    "Dec"
+    "Dec",
   ];
 
   let day = this.getDate();
@@ -63,9 +63,10 @@ export function popupContent(input) {
     let output = `<li class="list-group-item border-0 pt-2 px-1 border-bottom location-name ${className}"> ${field}</li>`;
     return output;
   }
+  let altitude = input.altitude ? input.altitude : null;
   let weatherData = input.weather ? input.weather : null;
   let address = input.address ? input.address : null;
-  let name = input.name ? input.name : null
+  let name = input.name ? input.name : null;
 
   let storedData = {
     name: name,
@@ -76,17 +77,25 @@ export function popupContent(input) {
     weather: weatherData,
     path: window.location.pathname,
     uid: uid,
-    date: prettyDate
+    date: prettyDate,
+    altitude: altitude,
   };
 
-  let nameElm = input.name ? createElement(input.name.charAt(0).toUpperCase() + input.name.slice(1), "bookmark-name fs-6") : ""
+  let nameElm = input.name
+    ? createElement(
+        input.name.charAt(0).toUpperCase() + input.name.slice(1),
+        "bookmark-name fs-6"
+      )
+    : "";
   localStorage.setItem("location-data", JSON.stringify(storedData));
   if (input.origin || input.destination) {
     saveOriginDestination(input);
   }
-  let addressElm = input.address ? createElement(input.address, "address fs-6") : ""
+  let addressElm = input.address
+    ? createElement(input.address, "address fs-6")
+    : "";
   let distance = input.distance
-    ? createElement(input.distance, "distance")
+    ? createElement(input.distance, "distance fs-6")
     : "";
   let origin = input.origin ? "origin" : "";
   let originTitle = input.origin
@@ -105,9 +114,16 @@ export function popupContent(input) {
 </div></li>`
     : "";
 
-  let bookmarked = input.name ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}  bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="fas fa-bookmark"></i></button>` : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`;
+  let bookmarked = input.name
+    ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}  bookmark-btn" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
+    : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>`;
+  let altitudeElm = altitude
+    ? `<strong class="${origin}${destination}">${altitude}</strong>`
+    : `<button class="badge bg-primary border-white  getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >
+Get Altitude
+</button>`;
 
-  let data = `  <div id = "popupContent" class="row popupContent position-relative">
+  const data = `  <div id = "popupContent" class="row popupContent position-relative">
   <div class="col p-0 popup-content">
 
     <div class="card-body px-3 pt-2 pb-1">
@@ -123,9 +139,7 @@ export function popupContent(input) {
         <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
           <div class="hstack">
             <div class="  altitude me-auto">
-              <button class="badge bg-primary border-white  getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >
-                Get Altitude
-              </button>
+        ${altitudeElm}
             </div>
             <div class=" border ms-auto">
              ${bookmarked}
@@ -175,13 +189,14 @@ let toast = `
 </div>
 
 
-`
+`;
 function saveOriginDestination(input) {
   const uid = generateUID();
-  const address = input.address ? input.address : null
-  const name = input.name ? input.name : null
-  if (input.origin) {
+  const address = input.address ? input.address : null;
+  const name = input.name ? input.name : null;
+  const altitude = input.altitude ? input.altitude : null;
 
+  if (input.origin) {
     let originData = {
       address: address,
       name: name,
@@ -191,7 +206,8 @@ function saveOriginDestination(input) {
       origin: true,
       uid: uid,
       date: prettyDate,
-      path: window.location.pathname
+      path: window.location.pathname,
+      altitude: altitude,
     };
     localStorage.setItem("origin-data", JSON.stringify(originData));
   } else if (input.destination) {
@@ -204,7 +220,8 @@ function saveOriginDestination(input) {
       destination: true,
       uid: uid,
       date: prettyDate,
-      path: window.location.pathname
+      path: window.location.pathname,
+      altitude: altitude,
     };
     localStorage.setItem("destination-data", JSON.stringify(destinationData));
   }
@@ -217,7 +234,7 @@ export function addBookmark(entryKey) {
   var existingEntries = JSON.parse(localStorage.getItem(allEntries));
   if (existingEntries == null) existingEntries = [];
   const entry = JSON.parse(localStorage.getItem(entryKey));
-
+  entry.bookmarked = true;
   // Save allEntries back to local storage
   existingEntries.push(entry);
   localStorage.setItem(allEntries, JSON.stringify(existingEntries));
@@ -225,7 +242,7 @@ export function addBookmark(entryKey) {
 export async function getLatLon(city) {
   const getLatLonData = httpsCallable(functions, "getLatLon");
   return getLatLonData({
-    city: city
+    city: city,
   })
     .then(function (result) {
       let data = JSON.stringify(result);
@@ -242,11 +259,11 @@ export async function getLatLon(city) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -255,7 +272,7 @@ export async function getAddress(lat, lon) {
   const getLatLonData = httpsCallable(functions, "getAddress");
   return getLatLonData({
     lat: lat,
-    lon: lon
+    lon: lon,
   })
     .then(function (result) {
       return result;
@@ -271,21 +288,20 @@ export async function getAddress(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
-
 
 async function getElevation(lat, lon) {
   const getElevationData = httpsCallable(functions, "getElevation");
   return getElevationData({
     lat: lat,
-    lon: lon
+    lon: lon,
   })
     .then(function (result) {
       return result;
@@ -301,11 +317,11 @@ async function getElevation(lat, lon) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -326,57 +342,69 @@ async function getAltitude(lon, lat) {
   const highestElevation = Math.max(...elevations);
 
   setTimeout(() => {
-    $('.altitude').removeClass('mx-auto').addClass("me-auto");
+    $(".altitude").removeClass("mx-auto").addClass("me-auto");
     $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
   }, 500);
 }
 
-
-
 export function toggleBookmark(item, marker) {
-  $(item).prop("disabled", true)
-  $('#add-bookmark-btn').prop("disabled", true)
-  $(item).removeClass("bg-transparent text-primary").addClass("bg-primary text-white")
-  $(item).children().last().removeClass("far").addClass("fas")
+  $(item).prop("disabled", true);
+  $("#add-bookmark-btn").prop("disabled", true);
+  $(item)
+    .removeClass("bg-transparent text-primary")
+    .addClass("bg-primary text-white");
+  $(item).children().last().removeClass("far").addClass("fas");
+  $(item).text("Bookmarked");
+  let locationData = JSON.parse(localStorage.getItem("location-data"));
 
-  let locationData = JSON.parse(localStorage.getItem("location-data"))
-
-
-
-  //addBookmark("location-data")
   let newPopupContent = $(item).parents("div.popupContent").parent().html();
 
   //marker.setPopupContent(newPopupContent);
   $(item).parents("div.popupContent").html(toast);
 }
 
-
 export async function toggleAltitude(item, marker) {
+  let width = $(item).width();
+  let hstack = $(item).parent().parent();
 
-  let width = $(item).width()
-  let hstack = $(item).parent().parent()
-
-  $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
+  $(hstack).children().first().removeClass("me-auto").addClass("mx-auto");
   $(hstack).children().first().html(`
    <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
  </button>
- `)
+ `);
 
-  let newPopupContent = $(item).parents("div.popupContent").parent().html();
+  let coords = marker.getLatLng();
 
-  let coords = marker.getLatLng()
-  marker.setPopupContent(newPopupContent)
-  await getAltitude(coords.lng, coords.lat);
+  const elvevationResponse = await getElevation(coords.lat, coords.lng);
+  const data = elvevationResponse.data;
 
+  // Display the longitude and latitude values
 
+  // Get all the returned features
+  const allFeatures = data.features;
+  // For each returned feature, add elevation data to the elevations array
+  const elevations = allFeatures.map((feature) => feature.properties.ele);
+  // In the elevations array, find the largest value
+  const highestElevation = Math.max(...elevations);
+
+  setTimeout(() => {
+    $(".altitude").removeClass("mx-auto").addClass("me-auto");
+    $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
+
+    let locationData = JSON.parse(localStorage.getItem("location-data"));
+    locationData.altitude = `${highestElevation} meters`;
+    localStorage.setItem("location-data", JSON.stringify(locationData));
+    let newPopupContent = $(item).parents("div.popupContent").parent().html();
+    marker.setPopupContent(newPopupContent);
+  }, 500);
 }
 
 export async function getMatrix(first, second) {
   const getMatrixData = httpsCallable(functions, "getMatrix");
   return getMatrixData({
     first: first,
-    second: second
+    second: second,
   })
     .then(function (result) {
       return result;
@@ -392,11 +420,11 @@ export async function getMatrix(first, second) {
       );
       window.alert(
         "There was an error when calling the Cloud Function:\n\nError Code: " +
-        code +
-        "\nError Message:" +
-        message +
-        "\nError Details:" +
-        details
+          code +
+          "\nError Message:" +
+          message +
+          "\nError Details:" +
+          details
       );
     });
 }
@@ -412,31 +440,31 @@ export function getGeojson(first, second) {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [first.lon, first.lat]
+          coordinates: [first.lon, first.lat],
         },
         properties: {
           title: "Origin",
           description: first.title,
           "marker-color": "#35A2D1",
           "marker-size": "large",
-          "marker-symbol": "1"
-        }
+          "marker-symbol": "1",
+        },
       },
       {
         type: "Feature",
         geometry: {
           type: "Point",
-          coordinates: [destination.lon, destination.lat]
+          coordinates: [destination.lon, destination.lat],
         },
         properties: {
           title: "Destination",
           description: destination.title,
           "marker-color": "#fc4353",
           "marker-size": "large",
-          "marker-symbol": "2"
-        }
-      }
-    ]
+          "marker-symbol": "2",
+        },
+      },
+    ],
   };
 
   return geojson;
@@ -463,5 +491,5 @@ export default {
   addBookmark,
   altitudeLoading,
   toggleBookmark,
-  toggleAltitude
+  toggleAltitude,
 };
