@@ -1,45 +1,44 @@
 /* jshint esversion: 8 */
-import './firebase'
-import 'utils/commentscript.js';
+import "./firebase";
+import "utils/commentscript.js";
 import {
-  addBookmark, generateUID, popupContent
+  addBookmark,
+  generateUID,
+  getAddress,
+  getLatLon,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
 } from "utils/geocoder";
-import './firebase';
 import { getIp } from "./firebase";
 
 const uid = generateUID();
 function inputFocus(x) {
-  if ($('#secondOutput').hasClass('second')) {
-    $('#secondOutput')
-      .removeClass('second')
-      .addClass('fadeOut')
-    $('#firstOutput')
-      .removeClass('first')
-      .addClass('fadeOut')
+  if ($("#secondOutput").hasClass("second")) {
+    $("#secondOutput").removeClass("second").addClass("fadeOut");
+    $("#firstOutput").removeClass("first").addClass("fadeOut");
     setTimeout(() => {
-      $('#secondOutput').addClass('d-none')
-      $('#firstOutput').addClass('d-none')
-    }, 2000)
+      $("#secondOutput").addClass("d-none");
+      $("#firstOutput").addClass("d-none");
+    }, 2000);
   }
 
   //
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-
-  let scrollPos = 0
-  const mainNav = document.getElementById('mainNav')
-  const headerHeight = mainNav.clientHeight
+window.addEventListener("DOMContentLoaded", () => {
+  let scrollPos = 0;
+  const mainNav = document.getElementById("mainNav");
+  const headerHeight = mainNav.clientHeight;
 
   function ConvertDMSToDD(degrees, minutes, seconds, direction) {
-    var dd = degrees + minutes / 60 + seconds / (60 * 60)
+    var dd = degrees + minutes / 60 + seconds / (60 * 60);
 
-    if (direction == 'S' || direction == 'W') {
-      dd = dd * -1
+    if (direction == "S" || direction == "W") {
+      dd = dd * -1;
     } // Don't do anything for N or E
-    return dd
+    return dd;
   }
-
 
   function DDtoDMS(lat, lon) {
     //
@@ -67,22 +66,19 @@ window.addEventListener('DOMContentLoaded', () => {
     return result;
   }
 
-
-
-
   const App = function _App() {
     return `
    <h1>Global State = [${App.state.count}] </h1>
-  `
-  }
+  `;
+  };
 
   const handler = {
     set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
+      obj[prop] = value;
+    },
+  };
 
-  App.state = new Proxy({ count: 0 }, handler)
+  App.state = new Proxy({ count: 0 }, handler);
 
   // Initial Loading of the App
 
@@ -92,30 +88,29 @@ window.addEventListener('DOMContentLoaded', () => {
    <h1>Destination State = [${CoordsApp.state.destination}] </h1>
    <h1>User Location = [${CoordsApp.state.userLocation}] </h1>
    <h1>trackingUser =  ${CoordsApp.state.trackingUser}</h1>
-  `
-  }
+  `;
+  };
 
   const myhandler = {
     set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
+      obj[prop] = value;
+    },
+  };
 
   CoordsApp.state = new Proxy(
     { origin: [], destination: [], userLocation: [] },
     myhandler
-  )
+  );
   L.mapbox.accessToken =
-    'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
   const map = L.mapbox
-    .map('map', null, { zoomControl: false })
-    .setView([38.25004425273146, -85.75576792471112], 11)
+    .map("map", null, { zoomControl: false })
+    .setView([38.25004425273146, -85.75576792471112], 11);
 
   L.mapbox
-    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .styleLayer("mapbox://styles/mapbox/streets-v11")
     .addTo(map) // add your tiles to the map
-    .once('load', finishedLoading)
-
+    .once("load", finishedLoading);
 
   function finishedLoading() {
     // first, toggle the class 'done', which makes the loading screen
@@ -128,11 +123,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // var myLayer = L.mapbox.featureLayer().addTo(map);
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
-      'marker-size': 'large',
+      "marker-size": "large",
 
-      'marker-color': 'blue'
-    })
-  }).addTo(map)
+      "marker-color": "blue",
+    }),
+  }).addTo(map);
 
   // L.marker is a low-level marker constructor in Leaflet.
   var locationControl = L.control
@@ -155,86 +150,54 @@ window.addEventListener('DOMContentLoaded', () => {
    *
    * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
    */
-  map.on('locationfound', function (e) {
-    let lat = e.latitude
-    let lon = e.longitude
+  map.on("locationfound", function (e) {
+    let lat = e.latitude;
+    let lon = e.longitude;
     var radius = e.accuracy;
 
     (async () => {
-      const address = await convertLatLon(lat, lon)
-      const submitText = $('form :submit')
-        .first()
-        .text()
-      console.log(
-        $('form :submit')
-          .first()
-          .parent()
-      )
-      $('form :submit')
-        .first()
-        .html(`${submitText}`)
+      const address = await convertLatLon(lat, lon);
+      const submitText = $("form :submit").first().text();
+      console.log($("form :submit").first().parent());
+      $("form :submit").first().html(`${submitText}`);
       if (address.features[0]) {
-        $('input')
-          .first()
-          .val(address.features[0].place_name)
+        $("input").first().val(address.features[0].place_name);
       }
-      await fetchWeather(lat, lon)
-    })().catch(err => {
-      console.error(err)
-    })
-    locationControl.stop()
+      await fetchWeather(lat, lon);
+    })().catch((err) => {
+      console.error(err);
+    });
+    locationControl.stop();
 
     // map.stopLocate();
-  })
+  });
 
   map.on("locationerror", async function (e) {
-
     locationControl.stop();
     // TODO UPDATE other pages with ip address fallback
     let icon = locationControl._icon;
-    const ip = await getIp()
-
+    const ip = await getIp();
 
     if (ip.latitude) {
-
-
-
       (async () => {
-        let lat = ip.latitude
-        let lon = ip.longitude
-        const address = await convertLatLon(lat, lon)
-        const submitText = $('form :submit')
-          .first()
-          .text()
-        console.log(
-          $('form :submit')
-            .first()
-            .parent()
-        )
-        $('form :submit')
-          .first()
-          .html(`${submitText}`)
+        let lat = ip.latitude;
+        let lon = ip.longitude;
+        const address = await convertLatLon(lat, lon);
+        const submitText = $("form :submit").first().text();
+        console.log($("form :submit").first().parent());
+        $("form :submit").first().html(`${submitText}`);
         if (address.features[0]) {
-          $('input')
-            .first()
-            .val(address.features[0].place_name)
+          $("input").first().val(address.features[0].place_name);
         }
-        await fetchWeather(lat, lon)
-      })().catch(err => {
-        console.error(err)
-      })
+        await fetchWeather(lat, lon);
+      })().catch((err) => {
+        console.error(err);
+      });
     }
-
-
-
-
-
   });
 
-
-
-  const results = document.getElementById('destinationResult')
-  const originResult = document.getElementById('originResult')
+  const results = document.getElementById("destinationResult");
+  const originResult = document.getElementById("originResult");
 
   // Clear results container when search is cleared.
   // 83.653482  -71.383935
@@ -242,88 +205,81 @@ window.addEventListener('DOMContentLoaded', () => {
   async function convertAddress(city) {
     const query = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?types=neighborhood,address,place&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
-      { method: 'GET' }
-    )
+      { method: "GET" }
+    );
     if (query.status !== 200) {
-      alert(query.status)
-      return
+      alert(query.status);
+      return;
     }
 
-    const data = await query.json()
-    return data
+    const data = await query.json();
+    return data;
   }
   function DDtoDMS(lat, lon) {
+    let latitude = Math.abs(lat);
+    let longitude = Math.abs(lon);
+    let dLat = Math.floor(latitude);
+    let mLat = Math.floor((latitude - dLat) * 60);
 
+    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3;
+    let dLon = Math.floor(longitude);
+    let mLon = Math.floor((longitude - dLon) * 60);
+    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3;
+    let degreesLatitude = dLat;
+    let minutesLatitude = mLat;
+    let secondsLatitude = sLat;
+    let degreesLongitude = dLon;
+    let minutesLongitude = mLon;
+    let secondsLongitude = sLon;
 
-    let latitude = Math.abs(lat)
-    let longitude = Math.abs(lon)
-    let dLat = Math.floor(latitude)
-    let mLat = Math.floor((latitude - dLat) * 60)
+    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`;
 
-    let sLat = Math.round((latitude - dLat - mLat / 60) * 1e3 * 3600) / 1e3
-    let dLon = Math.floor(longitude)
-    let mLon = Math.floor((longitude - dLon) * 60)
-    let sLon = Math.floor((longitude - dLon - mLon / 60) * 1e3 * 3600) / 1e3
-    let degreesLatitude = dLat
-    let minutesLatitude = mLat
-    let secondsLatitude = sLat
-    let degreesLongitude = dLon
-    let minutesLongitude = mLon
-    let secondsLongitude = sLon
-
-    let latResult = `${degreesLatitude}° ${minutesLatitude}' ${secondsLatitude}''`
-
-    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`
-    let result = { lat: latResult, lon: lonResult }
-    return result
+    let lonResult = `${degreesLongitude}° ${minutesLongitude}' ${secondsLongitude}''`;
+    let result = { lat: latResult, lon: lonResult };
+    return result;
   }
   async function fetchWeather(lat, lon) {
-
     const query = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
-      { method: 'GET' }
-    )
+      { method: "GET" }
+    );
     if (query.status !== 200) {
-      return
+      return;
     }
     map.fitBounds([[lat, lon]], {
-      padding: [50, 50], maxZoom: 13
-    })
-    let addressField = $('#searchInput')
+      padding: [50, 50],
+      maxZoom: 13,
+    });
+    let addressField = $("#searchInput");
     let latlonField = `<li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> <span><strong> Latitude: </strong> <span class="lat">${lat} </span></span></li> <li class="list-group-item border-0 px-1 fs-6 py-0"><span> <strong>
-                  Longitude: <span class="lon">${lon}</span> </span></li>`
-    let location = addressField.length > 0 ? addressField[0].value : null
-    const data = await query.json()
-    const imgIcon = data.weather[0].icon
-    const currentWeather = data.weather[0].main
-    const temp = data.main.temp
-    $('#latInputField').val(lat)
-    $('#lonInputField').val(lon)
-    const dmsCalculated = DDtoDMS(lat, lon)
-    console.log(addressField[0].value)
+                  Longitude: <span class="lon">${lon}</span> </span></li>`;
+    let location = addressField.length > 0 ? addressField[0].value : null;
+    const data = await query.json();
+    const imgIcon = data.weather[0].icon;
+    const currentWeather = data.weather[0].main;
+    const temp = data.main.temp;
+    $("#latInputField").val(lat);
+    $("#lonInputField").val(lon);
+    const dmsCalculated = DDtoDMS(lat, lon);
+    console.log(addressField[0].value);
     const weatherdata = {
       address: location,
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
-      weather: { currentWeather: currentWeather, imgIcon: imgIcon, temp: temp }
-    }
+      weather: { currentWeather: currentWeather, imgIcon: imgIcon, temp: temp },
+    };
 
+    const p = popupContent(weatherdata);
 
-    const p = popupContent(weatherdata)
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
+    marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
 
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
-
-    marker
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup()
-
-    var alertPlaceholder = document.querySelector('.weather-alert-placeholder')
+    var alertPlaceholder = document.querySelector(".weather-alert-placeholder");
 
     function postLog(icon, weather, temperature) {
-      let wrapper = document.createElement('div')
+      let wrapper = document.createElement("div");
       wrapper.innerHTML = ` <div
         class="alert alert-light d-flex align-items-center"
         role="alert"
@@ -335,9 +291,9 @@ window.addEventListener('DOMContentLoaded', () => {
           srcset=""
         />
         ${currentWeather} and ${temp}°F
-        </div>`
+        </div>`;
 
-      alertPlaceholder.append(wrapper)
+      alertPlaceholder.append(wrapper);
     }
 
     if (alertPlaceholder.childElementCount == 0) {
@@ -347,7 +303,7 @@ window.addEventListener('DOMContentLoaded', () => {
     alt=""
     srcset=""
     />
-    ${currentWeather} and ${temp}°F`)
+    ${currentWeather} and ${temp}°F`);
     } else if (alertPlaceholder.childElementCount == 1) {
       postLog(` <img
     style="max-width: 50px"
@@ -355,9 +311,9 @@ window.addEventListener('DOMContentLoaded', () => {
     alt=""
     srcset=""
     />
-    ${currentWeather} and ${temp}°F`)
+    ${currentWeather} and ${temp}°F`);
     } else if (alertPlaceholder.childElementCount == 2) {
-      $('#liveAlertPlaceholder').empty()
+      $("#liveAlertPlaceholder").empty();
       setTimeout(() => {
         postLog(` <img
     style="max-width: 50px"
@@ -365,42 +321,34 @@ window.addEventListener('DOMContentLoaded', () => {
     alt=""
     srcset=""
     />
-    ${currentWeather} and ${temp}°F`)
-      }, 200)
+    ${currentWeather} and ${temp}°F`);
+      }, 200);
     }
 
-    if ($('#output-field-input').hasClass('is-invalid')) {
-      $('#output-field-input').removeClass('is-invalid')
+    if ($("#output-field-input").hasClass("is-invalid")) {
+      $("#output-field-input").removeClass("is-invalid");
     }
   }
 
-  $('#findWeatherForm').on('submit', async function (e) {
-    e.preventDefault()
-    let inputs = e.currentTarget.elements
+  $("#findWeatherForm").on("submit", async function (e) {
+    e.preventDefault();
+    let inputs = e.currentTarget.elements;
 
-    const result = await convertAddress(
-      $(this)
-        .find('input:eq(0)')
-        .val()
-    )
+    const result = await convertAddress($(this).find("input:eq(0)").val());
 
     //
     if (result.features[0]) {
-      if ($('.alert-warning').hasClass('visible')) {
-        $('.alert-warning')
-          .removeClass('visible')
-          .addClass('invisible')
+      if ($(".alert-warning").hasClass("visible")) {
+        $(".alert-warning").removeClass("visible").addClass("invisible");
       }
-      let coords = result.features[0].center
+      let coords = result.features[0].center;
 
-      let lat = coords[1]
-      let lon = coords[0]
+      let lat = coords[1];
+      let lon = coords[0];
 
-      await fetchWeather(lat, lon)
+      await fetchWeather(lat, lon);
     } else {
-      $('.alert-warning')
-        .removeClass('invisible')
-        .addClass('visible')
+      $(".alert-warning").removeClass("invisible").addClass("visible");
     }
 
     /*
@@ -422,63 +370,52 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     } */
-  })
+  });
 
   async function convertLatLon(lat, lon) {
     const query = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?types=neighborhood,address,place&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA`,
-      { method: 'GET' }
-    )
+      { method: "GET" }
+    );
     if (query.status !== 200) {
-      return
+      return;
     }
 
-    const data = await query.json()
+    const data = await query.json();
     if (data.features.length == 0) {
-      $('.alert-warning')
-        .removeClass('invisible')
-        .addClass('visible')
+      $(".alert-warning").removeClass("invisible").addClass("visible");
     } else if (
       data.features.length > 0 &&
-      $('.alert-warning').hasClass('visible')
+      $(".alert-warning").hasClass("visible")
     ) {
-      $('.alert-warning')
-        .removeClass('visible')
-        .addClass('invisible')
+      $(".alert-warning").removeClass("visible").addClass("invisible");
     }
-    return data
+    return data;
   }
-  $('#findWeatherAddressForm').on('submit', async function (e) {
-    e.preventDefault()
-    const submitText = $('form :submit')
-      .first()
-      .text()
-    console.log(
-      $('form :submit')
-        .first()
-        .parent()
-    )
+  $("#findWeatherAddressForm").on("submit", async function (e) {
+    e.preventDefault();
+    const submitText = $("form :submit").first().text();
+    console.log($("form :submit").first().parent());
     $(
-      'form :submit'
+      "form :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
-    const query = encodeURI(e.currentTarget[0].value)
-    const latLon = await convertAddress(query)
+  ${submitText}`);
+    const query = encodeURI(e.currentTarget[0].value);
+    const latLon = await convertAddress(query);
 
-    let lat = latLon.features[0].center[1]
-    let lon = latLon.features[0].center[0]
-    $('#latInputField').val(lat)
-    $('#lonInputField').val(lon)
+    let lat = latLon.features[0].center[1];
+    let lon = latLon.features[0].center[0];
+    $("#latInputField").val(lat);
+    $("#lonInputField").val(lon);
     map.fitBounds([[lat, lon]], {
-      padding: [50, 50], maxZoom: 13
-    })
-    $('form :submit')
-      .first()
-      .html(submitText)
-    const weather = await latLonWeather(lat, lon)
-    const imgIcon = weather.weather[0].icon
-    const currentWeather = weather.weather[0].main
-    const temp = weather.main.temp
+      padding: [50, 50],
+      maxZoom: 13,
+    });
+    $("form :submit").first().html(submitText);
+    const weather = await latLonWeather(lat, lon);
+    const imgIcon = weather.weather[0].icon;
+    const currentWeather = weather.weather[0].main;
+    const temp = weather.main.temp;
 
     var popup = L.popup({ autoPan: true, keepInView: true })
       .setContent(`<div class="row" >
@@ -498,17 +435,14 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-  </div>`)
+  </div>`);
 
-    marker
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup()
+    marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
 
-    var alertPlaceholder = document.querySelector('.weather-alert-placeholder')
+    var alertPlaceholder = document.querySelector(".weather-alert-placeholder");
 
     function postLog(icon, weather, temperature) {
-      let wrapper = document.createElement('div')
+      let wrapper = document.createElement("div");
       wrapper.innerHTML = ` <div
         class="alert alert-light d-flex align-items-center"
         role="alert"
@@ -520,9 +454,9 @@ window.addEventListener('DOMContentLoaded', () => {
           srcset=""
         />
         ${currentWeather} and ${temp}°F
-        </div>`
+        </div>`;
 
-      alertPlaceholder.append(wrapper)
+      alertPlaceholder.append(wrapper);
     }
 
     if (alertPlaceholder.childElementCount == 0) {
@@ -532,7 +466,7 @@ src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
 alt=""
 srcset=""
 />
-${currentWeather} and ${temp}°F`)
+${currentWeather} and ${temp}°F`);
     } else if (alertPlaceholder.childElementCount == 1) {
       postLog(` <img
 style="max-width: 50px"
@@ -540,9 +474,9 @@ src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
 alt=""
 srcset=""
 />
-${currentWeather} and ${temp}°F`)
+${currentWeather} and ${temp}°F`);
     } else if (alertPlaceholder.childElementCount == 2) {
-      $('#liveAlertPlaceholder').empty()
+      $("#liveAlertPlaceholder").empty();
       setTimeout(() => {
         postLog(` <img
   style="max-width: 50px"
@@ -550,23 +484,24 @@ ${currentWeather} and ${temp}°F`)
   alt=""
   srcset=""
 />
-${currentWeather} and ${temp}°F`)
-      }, 200)
+${currentWeather} and ${temp}°F`);
+      }, 200);
     }
-  })
+  });
 
-  $('#latlonForm').on('submit', async function (e) {
-    e.preventDefault()
-    let lat = e.currentTarget[0].value
-    let lon = e.currentTarget[1].value
-    const coords = await convertLatLon(lat, lon)
-    await fetchWeather(lat, lon)
+  $("#latlonForm").on("submit", async function (e) {
+    e.preventDefault();
+    let lat = e.currentTarget[0].value;
+    let lon = e.currentTarget[1].value;
+    const coords = await convertLatLon(lat, lon);
+    await fetchWeather(lat, lon);
 
     if (coords.features.length == 0) {
-      $('.target-address').val('')
+      $(".target-address").val("");
     } else if (coords.features.length > 0) {
-      $('.target-address').val(coords.features[0].place_name)
+      $(".target-address").val(coords.features[0].place_name);
     }
+
     /*
     setTimeout(() => {
       const alertMessage = `
@@ -667,23 +602,15 @@ ${currentWeather} and ${temp}°F`)
       }
     }, 500);
  */
-  })
-
+  });
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    toggleAltitude(this, marker)
+    toggleAltitude(this, marker);
   });
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("location-data")
-    let parsed = JSON.parse(cachedData)
-    let coords = marker.getLatLng();
-    name = name.replace(/^\s+|\s+$/gm, "");
-    $(this).prop("disabled", true)
-    $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark("location-data")
-    // TODO fix bookmark localstorage
+    toggleBookmark(this, marker);
   });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
@@ -696,4 +623,25 @@ ${currentWeather} and ${temp}°F`)
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-})
+
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
+
+    if (input[0].value.length < 1) {
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a name.
+    </div>`);
+    } else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"));
+      locationData.name = input[0].value;
+
+      localStorage.setItem("location-data", JSON.stringify(locationData));
+      addBookmark("location-data");
+
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
+    }
+  });
+});

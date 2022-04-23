@@ -1,13 +1,18 @@
-
 import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript";
-import { addBookmark, generateUID, getAddress, getLatLon, popupContent, toggleAltitude, toggleBookmark } from "utils/geocoder";
+import {
+  addBookmark,
+  generateUID,
+  getAddress,
+  getLatLon,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
+} from "utils/geocoder";
 import "./firebase";
 import { getIp } from "./firebase";
 
-
 const uid = generateUID();
-
 
 // commentReply( name, id, date, message)
 // comment (id, name, date, message, likes, dislikes)
@@ -53,13 +58,9 @@ let today = new Date();
 const prettyDate = today.toShortFormat();
 const siteTitle = $("#site-title").text();
 
-
-
 const path = window.location.pathname;
 
 $(function () {
-
-
   /**
    *---------------------------------------------------------------------
    * !! MAP SCRIPT START
@@ -84,7 +85,6 @@ $(function () {
     const data = await getLatLon(city);
     return data.data;
   }
-
 
   function DDtoDMS(lat, lon) {
     //
@@ -112,9 +112,6 @@ $(function () {
     return result;
   }
 
-
-
-
   L.mapbox.accessToken =
     "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
   const map = L.mapbox
@@ -131,12 +128,10 @@ $(function () {
     // fade out
     setTimeout(() => {
       $("#map").removeClass("invisible");
-
     }, 1000);
   }
   $("#mapTest").on("click", function (e) {
     e.preventDefault();
-
   });
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
@@ -167,37 +162,21 @@ $(function () {
         timeout: 5000,
       },
     })
-    .addTo(map)
+    .addTo(map);
 
   map.on("locationfound", async function (e) {
-
-
     let lat = e.latitude;
     let lon = e.longitude;
-    var radius = e.accuracy;
-
-    const submitText = $("form :submit").first().text();
-    let markerLocation = marker.getLatLng()
-
-    //hsl(217deg 93% 60%)
-    let icon = locationControl._icon;
-    // $(icon).css("background-color", "hsl(217deg 93% 60%)");
 
     const address = await convertLatLon(lat, lon);
-
 
     if (address.features.length > 0) {
       $("form").first().find("input:eq(0)").val(address.features[0].place_name);
 
       $("#latlonForm").find("input:eq(0)").val(lat);
       $("#latlonForm").find("input:eq(1)").val(lon);
-
     }
-    $("form :submit").first().html(`${submitText}`);
-    map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
-
     const dmsCalculated = DDtoDMS(lat, lon);
-
     const data = {
       address: address.features[0].place_name,
       lat: lat,
@@ -208,29 +187,23 @@ $(function () {
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
-
-    marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
-
-    locationControl.stop();
-
     setTimeout(() => {
-      $(icon).css("background-color", "black");
+      map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+      marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
+      locationControl.stop();
     }, 1000);
   });
 
   map.on("locationerror", async function (e) {
-
     locationControl.stop();
     // TODO UPDATE other pages with ip address fallback
     let icon = locationControl._icon;
     $(icon).css("background-color", "hsl(217deg 93% 60%)");
-    const ip = await getIp()
-
+    const ip = await getIp();
 
     if (ip.latitude) {
-
-      let lat = ip.latitude
-      let lon = ip.longitude
+      let lat = ip.latitude;
+      let lon = ip.longitude;
 
       const submitText = $("form :submit").first().text();
 
@@ -252,7 +225,6 @@ $(function () {
       $("form :submit").first().html(`${submitText}`);
       map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
 
-
       const dmsCalculated = DDtoDMS(lat, lon);
 
       const data = {
@@ -271,19 +243,10 @@ $(function () {
         $(icon).css("background-color", "black");
       }, 1000);
     }
-
-
-
-
-
   });
-
-
 
   $("#getTravelForm").on("submit", async function (e) {
     e.preventDefault();
-
-
 
     const submitText = $("form :submit").first().text();
     $(
@@ -306,7 +269,6 @@ $(function () {
 
         map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
 
-
         $("form :submit").first().html(submitText);
         // # TODO: ADD to all converts
         const data = {
@@ -326,50 +288,42 @@ $(function () {
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    toggleAltitude(this, marker)
-
+    toggleAltitude(this, marker);
   });
 
-
-
-
-  map.on('popupopen', function (e) {
+  map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     map.panTo(map.unproject(px), { animate: true });
-    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    $(".leaflet-top.leaflet-left").css("opacity", "0");
     // TODO update
   });
-  map.on('popupclose', function (e) {
+  map.on("popupclose", function (e) {
     // TODO update
-    $('.leaflet-top.leaflet-left').css('opacity', '1');
+    $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker)
+    toggleBookmark(this, marker);
   });
-  $('#map').on('click', '#add-bookmark-btn', function (e) {
-    let input = $(this).parent().children().first()
-
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
 
     if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a name.
-    </div>`)
-    }
-    else {
-      let locationData = JSON.parse(localStorage.getItem("location-data"))
-      locationData.name = input[0].value
+    </div>`);
+    } else {
+      let locationData = JSON.parse(localStorage.getItem("location-data"));
+      locationData.name = input[0].value;
 
+      localStorage.setItem("location-data", JSON.stringify(locationData));
+      addBookmark("location-data");
 
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-      addBookmark("location-data")
-
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
     }
   });
-
-
 });

@@ -6,7 +6,7 @@
  * all the paths within Dir in globals.js
  */
 
-import "./firebase"
+import "./firebase";
 
 import "picturefill";
 import "utils/errors";
@@ -53,74 +53,118 @@ const prettyDate = today.toShortFormat();
 
 //const functions = getFunctions(app);
 
-
-
-
 window.addEventListener("DOMContentLoaded", (event) => {
-console.log('index page loaded')
-const d= [
-  {
-    "name": "2232 Dunseath Avenue Northwest, Atlanta, Georgia 30318, United States",
-    "lat": 33.816576,
-    "lon": -84.4496896,
-    "dmslat": "33° 48' 59.674''",
-    "dmslon": "84° 26' 58.882''",
-    "weather": null,
-    "path": "/address-to-latlon/",
-    "uid": "0520b04b-282f-4419-baae-56fbd3f0d069",
-    "date": "Apr 2022"
-  },
-  {
-    "name": "2232 Dunseath Avenue Northwest, Atlanta, Georgia 30318, United States",
-    "lat": 33.816576,
-    "lon": -84.4496896,
-    "dmslat": "33° 48' 59.674''",
-    "dmslon": "84° 26' 58.882''",
-    "weather": null,
-    "path": "/lat-lon-to-address/",
-    "uid": "a97b7bf5-1e8d-4315-91db-74b66f4066ee",
-    "date": "Apr 2022"
-  },
-  {
-    "name": null,
-    "lat": 33.816576,
-    "lon": -84.4496896,
-    "dmslat": "33° 48'59.674''",
-    "dmslon": "84° 26'58.882''",
-    "weather": null,
-    "path": "/dms-to-latlon/",
-    "uid": "1a36cff5-bfb7-4e52-aabd-7cfbf6459761",
-    "date": "Apr 2022"
+  console.log("index page loaded");
+  const d = [
+    {
+      name: "s",
+      address:
+        "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
+      lat: 33.81418,
+      lon: -84.43854,
+      dms: {
+        lat: "33° 48' 50.812''",
+        lon: "84° 26' 19.529''",
+      },
+      weather: null,
+      path: "/travel/",
+      uid: "97e9b3b8-c9f9-4712-b292-a7c03a9caaf7",
+      date: "Apr 2022",
+      altitude: null,
+      bookmarked: true,
+    },
+    {
+      name: "s",
+      address:
+        "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
+      lat: 33.81418,
+      lon: -84.43854,
+      dms: {
+        lat: "33° 48' 50.791''",
+        lon: "84° 26' 19.602''",
+      },
+      weather: null,
+      path: "/travel/",
+      uid: "74d3b708-e377-4d1a-9960-03ad9e684453",
+      date: "Apr 2022",
+      altitude: "250 meters",
+      bookmarked: true,
+    },
+    {
+      name: "austin",
+      address: "Austin, Texas, United States",
+      lat: 30.2711,
+      lon: -97.7437,
+      dms: {
+        lat: "30° 16' 15.96''",
+        lon: "97° 44' 37.32''",
+      },
+      weather: null,
+      path: "/travel/",
+      uid: "438ca9ff-5862-42a1-8cdf-6d3809e7c363",
+      date: "Apr 2022",
+      altitude: "160 meters",
+      bookmarked: true,
+    },
+  ];
+
+  let x = {
+    name: "s",
+    address:
+      "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
+    lat: 33.81418,
+    lon: -84.43854,
+    dms: {
+      lat: "33° 48' 50.812''",
+      lon: "84° 26' 19.529''",
+    },
+    path: "/travel/",
+    uid: "97e9b3b8-c9f9-4712-b292-a7c03a9caaf7",
+    date: "Apr 2022",
+    bookmarked: true,
+  };
+  const removeNullUndefined = (obj) =>
+    Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+
+  function helloWorld() {
+    let arr = [];
+    for (let index = 0; index < d.length; index++) {
+      const element = d[index];
+      const newelm = removeNullUndefined(element);
+      arr.push(newelm);
+    }
+    console.log(arr);
+    const grid = new Grid({
+      search: true,
+      pagination: true,
+      columns: [
+        {
+          id: "name",
+          name: "Name",
+        },
+        {
+          id: "address",
+          name: "Address",
+        },
+        {
+          id: "date",
+          name: "date",
+        },
+        {
+          id: "lat",
+          name: "Latitude",
+        },
+        {
+          id: "lon",
+          name: "Longitude",
+        },
+      ],
+      data: arr,
+    }).render(document.getElementById("grid-wrapper"));
+
+    return grid;
   }
-]
 
-
-function helloWorld () {
-
-
-  const grid = new Grid({
-    search: true,
-  columns: [{
-     id: 'name',
-     name: 'Name'
-  }, {
-     id: 'email',
-     name: 'Email'
-  }, {
-     id: 'phoneNumber',
-     name: 'Phone Number'
-  }],
-  data: [
-    { name: 'John', email: 'john@example.com', phoneNumber: '(353) 01 222 3333' },
-    { name: 'Mark', email: 'mark@gmail.com', phoneNumber: '(01) 22 888 4444' },
-  ]
-})
-.render(document.getElementById("grid-wrapper"));
-
-
-   return grid;
-}
-
-helloWorld()
+  helloWorld();
   // Movie Directory
 });

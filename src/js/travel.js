@@ -1,52 +1,59 @@
 /* jshint esversion: 8 */
-import "./firebase"
-import 'utils/commentscript.js'
-import { getLatLon, getAddress, getGeojson, getMatrix, clearForm, popupContent, toggleAltitude, toggleBookmark, addBookmark, altitudeLoading } from 'utils/geocoder'
+import "./firebase";
+import "utils/commentscript.js";
+import {
+  getLatLon,
+  getAddress,
+  getGeojson,
+  getMatrix,
+  clearForm,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
+  addBookmark,
+  altitudeLoading,
+} from "utils/geocoder";
 let geojson = {
-  type: 'FeatureCollection',
+  type: "FeatureCollection",
   features: [
     {
-      type: 'Feature',
+      type: "Feature",
       geometry: {
-        type: 'Point',
-        coordinates: [0, 0]
+        type: "Point",
+        coordinates: [0, 0],
       },
       properties: {
-        title: 'Mapbox DC',
-        description: '1714 14th St NW, Washington DC',
-        'marker-color': '#35A2D1',
-        'marker-size': 'large',
-        'marker-symbol': '1'
-      }
+        title: "Mapbox DC",
+        description: "1714 14th St NW, Washington DC",
+        "marker-color": "#35A2D1",
+        "marker-size": "large",
+        "marker-symbol": "1",
+      },
     },
     {
-      type: 'Feature',
+      type: "Feature",
       geometry: {
-        type: 'Point',
-        coordinates: [0, 0]
+        type: "Point",
+        coordinates: [0, 0],
       },
       properties: {
-        title: 'Mapbox SF',
-        description: '155 9th St, San Francisco',
-        'marker-color': '#fc4353',
-        'marker-size': 'large',
-        'marker-symbol': '2'
-      }
-    }
-  ]
-}
+        title: "Mapbox SF",
+        description: "155 9th St, San Francisco",
+        "marker-color": "#fc4353",
+        "marker-size": "large",
+        "marker-symbol": "2",
+      },
+    },
+  ],
+};
 function inputFocus(x) {
-  if ($('#secondOutput').hasClass('second')) {
-    $('#secondOutput')
-      .removeClass('second')
-      .addClass('fadeOut')
-    $('#firstOutput')
-      .removeClass('first')
-      .addClass('fadeOut')
+  if ($("#secondOutput").hasClass("second")) {
+    $("#secondOutput").removeClass("second").addClass("fadeOut");
+    $("#firstOutput").removeClass("first").addClass("fadeOut");
     setTimeout(() => {
-      $('#secondOutput').addClass('d-none')
-      $('#firstOutput').addClass('d-none')
-    }, 2000)
+      $("#secondOutput").addClass("d-none");
+      $("#firstOutput").addClass("d-none");
+    }, 2000);
   }
 
   //
@@ -57,47 +64,40 @@ function inputFocus(x) {
  */
 
 const App = function _App() {
-  return App.state.count
-}
+  return App.state.count;
+};
 
 const handler = {
   set: function (obj, prop, value) {
-    obj[prop] = value
-  }
-}
+    obj[prop] = value;
+  },
+};
 
-App.state = new Proxy({ count: 0 }, handler)
-window.addEventListener('DOMContentLoaded', () => {
-
+App.state = new Proxy({ count: 0 }, handler);
+window.addEventListener("DOMContentLoaded", () => {
   async function convertLatLon(lat, lon) {
-    const d = await getAddress(lat, lon)
-    const data = d.data
+    const d = await getAddress(lat, lon);
+    const data = d.data;
 
     if (data.features.length == 0) {
-      $('.alert-warning')
-        .removeClass('invisible')
-        .addClass('visible')
+      $(".alert-warning").removeClass("invisible").addClass("visible");
     } else if (
       data.features.length > 0 &&
-      $('.alert-warning').hasClass('visible')
+      $(".alert-warning").hasClass("visible")
     ) {
-      $('.alert-warning')
-        .removeClass('visible')
-        .addClass('invisible')
+      $(".alert-warning").removeClass("visible").addClass("invisible");
     }
-    return data
+    return data;
   }
 
   async function convertAddress(city) {
-    const data = await getLatLon(city)
-    return data.data
+    const data = await getLatLon(city);
+    return data.data;
   }
 
-  let scrollPos = 0
-  const mainNav = document.getElementById('mainNav')
-  const headerHeight = mainNav.clientHeight
-
-
+  let scrollPos = 0;
+  const mainNav = document.getElementById("mainNav");
+  const headerHeight = mainNav.clientHeight;
 
   function DDtoDMS(lat, lon) {
     //
@@ -131,22 +131,21 @@ window.addEventListener('DOMContentLoaded', () => {
  <h1>Destination State = [${CoordsApp.state.destination}] </h1>
  <h1>User Location = [${CoordsApp.state.userLocation}] </h1>
  <h1>trackingUser =  ${CoordsApp.state.trackingUser}</h1>
-`
-  }
+`;
+  };
 
   const myhandler = {
     set: function (obj, prop, value) {
-      obj[prop] = value
-    }
-  }
+      obj[prop] = value;
+    },
+  };
 
   CoordsApp.state = new Proxy(
     { origin: [], destination: [], userLocation: [] },
     myhandler
-  )
+  );
   L.mapbox.accessToken =
-    'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
 
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
@@ -181,105 +180,95 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   // L.marker is a low-level marker constructor in Leaflet.
 
-  var featureLayer = L.mapbox.featureLayer().addTo(map)
+  var featureLayer = L.mapbox.featureLayer().addTo(map);
 
   const coordinatesGeocoder = function (query) {
     // Match anything which looks like
     // decimal degrees coordinate pair.
     const matches = query.match(
       /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    )
+    );
     if (!matches) {
-      return null
+      return null;
     }
 
     function coordinateFeature(lng, lat) {
       return {
         center: [lng, lat],
         geometry: {
-          type: 'Point',
-          coordinates: [lng, lat]
+          type: "Point",
+          coordinates: [lng, lat],
         },
-        place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-        place_type: ['coordinate'],
+        place_name: "Lat: " + lat + " Lng: " + lng,
+        place_type: ["coordinate"],
         properties: {},
-        type: 'Feature'
-      }
+        type: "Feature",
+      };
     }
 
-    const coord1 = Number(matches[1])
-    const coord2 = Number(matches[2])
-    const geocodes = []
+    const coord1 = Number(matches[1]);
+    const coord2 = Number(matches[2]);
+    const geocodes = [];
 
     if (coord1 < -90 || coord1 > 90) {
       // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2))
+      geocodes.push(coordinateFeature(coord1, coord2));
     }
 
     if (coord2 < -90 || coord2 > 90) {
       // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1))
+      geocodes.push(coordinateFeature(coord2, coord1));
     }
 
     if (geocodes.length === 0) {
       // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2))
-      geocodes.push(coordinateFeature(coord2, coord1))
+      geocodes.push(coordinateFeature(coord1, coord2));
+      geocodes.push(coordinateFeature(coord2, coord1));
     }
 
-    return geocodes
-  }
+    return geocodes;
+  };
 
-  $('#originTest').click(function (e) {
-    e.preventDefault()
-    $('#getTravelForm')
-      .find('input:eq(0)')
-      .val('Atlanta, GA')
-    $('#getTravelForm')
-      .find('input:eq(1)')
-      .val('Lagrange, GA')
-  })
+  $("#originTest").click(function (e) {
+    e.preventDefault();
+    $("#getTravelForm").find("input:eq(0)").val("Atlanta, GA");
+    $("#getTravelForm").find("input:eq(1)").val("Lagrange, GA");
+  });
 
-  $('#switchTest').click(function (e) {
-    e.preventDefault()
+  $("#switchTest").click(function (e) {
+    e.preventDefault();
 
-    $('#getTravelForm')
-      .find('input:eq(0)')
-      .val('Birmingham, AL')
-    $('#getTravelForm')
-      .find('input:eq(1)')
-      .val('Mobile, AL')
-  })
-
-
+    $("#getTravelForm").find("input:eq(0)").val("Birmingham, AL");
+    $("#getTravelForm").find("input:eq(1)").val("Mobile, AL");
+  });
 
   function format(time) {
     // Hours, minutes and seconds
-    var hrs = ~~(time / 3600)
-    var mins = ~~((time % 3600) / 60)
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
 
     let result = {
       hours: hrs,
-      minutes: mins
-    }
+      minutes: mins,
+    };
     // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result
+    return result;
   }
 
   async function callMatrix(first, second) {
-    const data = await getMatrix(first, second)
+    const data = await getMatrix(first, second);
 
-    const json = data.data
-    const durations = json.durations[0]
-    const travelTime = durations[1]
-    const result = format(travelTime)
+    const json = data.data;
+    const durations = json.durations[0];
+    const travelTime = durations[1];
+    const result = format(travelTime);
     // //
 
-    var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-    var alertTrigger = document.getElementById('liveAlertBtn')
+    var alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+    var alertTrigger = document.getElementById("liveAlertBtn");
 
     function postLog(message) {
-      var wrapper = document.createElement('div')
+      var wrapper = document.createElement("div");
       wrapper.innerHTML = `
   <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
    <div class="alertMessage">
@@ -287,19 +276,19 @@ window.addEventListener('DOMContentLoaded', () => {
    </div>
 
 
- </div>`
+ </div>`;
 
-      alertPlaceholder.appendChild(wrapper)
+      alertPlaceholder.appendChild(wrapper);
     }
     if (alertPlaceholder.childElementCount == 0) {
-      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
+      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`);
     } else if (alertPlaceholder.childElementCount == 1) {
-      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`)
+      postLog(`${result.hours} hour(s) and ${result.minutes} minutes`);
     } else if (alertPlaceholder.childElementCount == 2) {
-      $('#liveAlertPlaceholder').empty()
+      $("#liveAlertPlaceholder").empty();
       setTimeout(() => {
-        postLog(`${result.hours} hour(s) and ${result.minutes}`)
-      }, 200)
+        postLog(`${result.hours} hour(s) and ${result.minutes}`);
+      }, 200);
     }
 
     /*
@@ -334,50 +323,45 @@ window.addEventListener('DOMContentLoaded', () => {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: 'spinner-border spinner-border-sm map-spinner',
+      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: 'my-geo-icon',
+      icon: "my-geo-icon",
       locateOptions: {
         enableHighAccuracy: true,
         timeout: 5000,
       },
     })
-    .addTo(map)
+    .addTo(map);
 
-  map.on('locationfound', async function (e) {
-    let lat = e.latitude
-    let lon = e.longitude
-    let icon = locationControl._icon
-    let x = document.querySelectorAll("form")
-    let form = x[0]
-    clearForm(form)
+  map.on("locationfound", async function (e) {
+    let lat = e.latitude;
+    let lon = e.longitude;
+    let icon = locationControl._icon;
+    let x = document.querySelectorAll("form");
+    let form = x[0];
+    clearForm(form);
     map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });
     let obj = { lat: lat, lon: lon };
     localStorage.setItem("userlocation", `${JSON.stringify(obj)}`);
 
-    geojson.features[0].geometry.coordinates = [lon, lat]
+    geojson.features[0].geometry.coordinates = [lon, lat];
 
-
-    const result = await convertLatLon(lat, lon)
+    const result = await convertLatLon(lat, lon);
     const dmsCalculated = DDtoDMS(lat, lon);
 
-    const origin = result.features[0]
-    let originLatLon = result.features[0].geometry.coordinates
-    let originLat = originLatLon[1]
-    let originLon = originLatLon[0]
+    const origin = result.features[0];
+    let originLatLon = result.features[0].geometry.coordinates;
+    let originLat = originLatLon[1];
+    let originLon = originLatLon[0];
     let originResults = {
       address: origin.place_name,
       lat: originLat,
       lon: originLon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
       origin: true,
-
-    }
+    };
     if (result.features.length > 0) {
-      $('form')
-        .first()
-        .find('input:eq(0)')
-        .val(result.features[0].place_name)
+      $("form").first().find("input:eq(0)").val(result.features[0].place_name);
     }
 
     const p = popupContent(originResults);
@@ -385,18 +369,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
 
-
-
-    locationControl.stop()
+    locationControl.stop();
 
     // And hide the geolocation button
-  })
+  });
 
   // If the user chooses not to allow their location
   // to be shared, display an error message.
-  map.on('locationerror', function () {
-    geolocate.innerHTML = 'Position could not be found'
-  })
+  map.on("locationerror", function () {
+    console.log("Position could not be found");
+  });
 
   // !! Travel FORM   ---------------------------------------------->
 
@@ -406,27 +388,25 @@ window.addEventListener('DOMContentLoaded', () => {
    //✅
  *  */
   function consoleRed(message) {
-    let msg = `%c ${message}`
+    let msg = `%c ${message}`;
   }
   function consoleBlue(message) {
-    let msg = `%c ${message}`
+    let msg = `%c ${message}`;
   }
 
   async function addRouteTest(locationData) {
+    let latOrigin = locationData.origin.lat;
+    let lonOrigin = locationData.origin.lon;
+    let latDestination = locationData.destination.lat;
+    let lonDestination = locationData.destination.lon;
 
-    let latOrigin = locationData.origin.lat
-    let lonOrigin = locationData.origin.lon
-    let latDestination = locationData.destination.lat
-    let lonDestination = locationData.destination.lon
-
-    const query1 = `${lonOrigin},${latOrigin}`
-    const query2 = `${lonDestination},${latDestination}`
+    const query1 = `${lonOrigin},${latOrigin}`;
+    const query2 = `${lonDestination},${latDestination}`;
     //  destinationMarker.setLatLng(origin[1], origin[0])
-    await callMatrix(query1, query2)
+    await callMatrix(query1, query2);
 
-
-    let origin = locationData.origin
-    let destination = locationData.destination
+    let origin = locationData.origin;
+    let destination = locationData.destination;
 
     const originPopup = popupContent(locationData.origin);
     const destinationPopup = popupContent(locationData.destination);
@@ -440,45 +420,43 @@ window.addEventListener('DOMContentLoaded', () => {
     map.fitBounds(
       [
         [latOrigin, lonOrigin],
-        [latDestination, lonDestination]
+        [latDestination, lonDestination],
       ],
       { padding: [50, 50], maxZoom: 13 }
-    )
-    const submitText = $('form :submit').first().text()
-    $('form :submit').first().html(submitText)
+    );
+    const submitText = $("form :submit").first().text();
+    $("form :submit").first().html(submitText);
   }
   // ** NEW FORM   ------------------------------------------------->
 
-  $('#getTravelForm').on('submit', async function (e) {
-    e.preventDefault()
-    const submitText = $('form :submit').first().text()
-    console.log($('form :submit').first().parent())
-    $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  ${submitText}`)
+  $("#getTravelForm").on("submit", async function (e) {
+    e.preventDefault();
+    const submitText = $("form :submit").first().text();
+    console.log($("form :submit").first().parent());
+    $(
+      "form :submit"
+    ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  ${submitText}`);
     const popupCheck = marker1.isPopupOpen();
     if (popupCheck) {
       marker1.closePopup();
     }
-    const originInput = $(this)
-      .find('input:eq(0)')
-      .val()
-    const destinationInput = $(this)
-      .find('input:eq(1)')
-      .val()
+    const originInput = $(this).find("input:eq(0)").val();
+    const destinationInput = $(this).find("input:eq(1)").val();
 
-    const originFetch = await convertAddress(originInput)
-    const destinationFetch = await convertAddress(destinationInput)
+    const originFetch = await convertAddress(originInput);
+    const destinationFetch = await convertAddress(destinationInput);
 
-    const result = await Promise.all([originFetch, destinationFetch])
+    const result = await Promise.all([originFetch, destinationFetch]);
 
-    const origin = result[0].features[0]
-    let originLatLon = result[0].features[0].geometry.coordinates
-    let originLat = originLatLon[1]
-    let originLon = originLatLon[0]
-    const destination = result[1].features[0]
-    let destinationLatLon = result[1].features[0].geometry.coordinates
-    let destinationLat = destinationLatLon[1]
-    let destinationLon = destinationLatLon[0]
+    const origin = result[0].features[0];
+    let originLatLon = result[0].features[0].geometry.coordinates;
+    let originLat = originLatLon[1];
+    let originLon = originLatLon[0];
+    const destination = result[1].features[0];
+    let destinationLatLon = result[1].features[0].geometry.coordinates;
+    let destinationLat = destinationLatLon[1];
+    let destinationLon = destinationLatLon[0];
 
     const originDMS = DDtoDMS(originLat, originLon);
     const destinationDMS = DDtoDMS(destinationLat, destinationLon);
@@ -489,7 +467,7 @@ window.addEventListener('DOMContentLoaded', () => {
       lon: originLon,
       dms: { lat: originDMS.lat, lon: originDMS.lon },
       origin: true,
-    }
+    };
 
     let destinationResults = {
       address: destination.place_name,
@@ -497,27 +475,20 @@ window.addEventListener('DOMContentLoaded', () => {
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
       destination: true,
-    }
+    };
 
     const locationData = {
       origin: originResults,
-      destination: destinationResults
-    }
+      destination: destinationResults,
+    };
 
-    addRouteTest(locationData)
-
-
-
-
-
-  })
+    addRouteTest(locationData);
+  });
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
-
     if ($(this).hasClass("origin")) {
-
       toggleAltitude(this, marker1);
     } else {
       toggleAltitude(this, marker2);
@@ -526,11 +497,11 @@ window.addEventListener('DOMContentLoaded', () => {
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
 
-    toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1);
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker2)
+    toggleBookmark(this, marker2);
   });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
@@ -544,35 +515,31 @@ window.addEventListener('DOMContentLoaded', () => {
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
 
-  $('#map').on('click', '#add-bookmark-btn', function (e) {
-    let input = $(this).parent().children().first()
-
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
 
     if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a name.
-  </div>`)
-    }
-    else {
+  </div>`);
+    } else {
+      const markerCheck = marker1.isPopupOpen();
+      const localData = markerCheck ? "origin-data" : "destination-data";
+      const marker = markerCheck ? marker1 : marker2;
+      let locationData = JSON.parse(localStorage.getItem(localData));
+      let ldata = JSON.parse(localStorage.getItem("location-data"));
+      let altitude = ldata.altitude ? ldata.altitude : null;
+      ldata.altitude = altitude;
+      locationData.name = input[0].value;
+      ldata.bookmarked = true;
+      ldata.name = input[0].value;
+      localStorage.setItem("location-data", JSON.stringify(ldata));
+      addBookmark("location-data");
 
-      const markerCheck = marker1.isPopupOpen()
-      const localData = markerCheck ? "origin-data" : "destination-data"
-      const marker = markerCheck ? marker1 : marker2
-      let locationData = JSON.parse(localStorage.getItem(localData))
-      let ldata = JSON.parse(localStorage.getItem("location-data"))
-      let altitude = ldata.altitude ? ldata.altitude : null
-      locationData.altitude = altitude
-      locationData.name = input[0].value
-
-
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-
-      addBookmark("location-data")
-
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
-
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
     }
   });
-})
+});

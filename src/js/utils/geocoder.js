@@ -128,7 +128,7 @@ Get Altitude
 
     <div class="card-body px-3 pt-2 pb-1">
       <ul class="list-group border-0">
-      ${destinationTitle} ${originTitle} ${weather} ${nameElm}${addressElm}
+      ${destinationTitle} ${originTitle} ${nameElm} ${weather} ${addressElm}
         <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
               class="lat">${input.lat} </span></li>
         <li class="list-group-item border-0 px-1 fs-6 py-0">
@@ -391,10 +391,12 @@ export async function toggleAltitude(item, marker) {
   setTimeout(() => {
     $(".altitude").removeClass("mx-auto").addClass("me-auto");
     $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-
-    let locationData = JSON.parse(localStorage.getItem("location-data"));
-    locationData.altitude = `${highestElevation} meters`;
-    localStorage.setItem("location-data", JSON.stringify(locationData));
+    let locationData = JSON.parse(localStorage.getItem("bookmarks"));
+    let len = locationData.length;
+    let last = locationData[len - 1];
+    last.altitude = `${highestElevation} meters`;
+    console.log(locationData);
+    localStorage.setItem("bookmarks", JSON.stringify(locationData));
     let newPopupContent = $(item).parents("div.popupContent").parent().html();
     marker.setPopupContent(newPopupContent);
   }, 500);
