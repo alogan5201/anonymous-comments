@@ -10,7 +10,7 @@ import "./firebase";
 
 import "picturefill";
 import "utils/errors";
-import { Grid } from "gridjs";
+import { Grid, html } from "gridjs";
 
 /*
 var dropdownElementList = [].slice.call(
@@ -127,44 +127,86 @@ window.addEventListener("DOMContentLoaded", (event) => {
     Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
 
   function helloWorld() {
+    let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
     let arr = [];
-    for (let index = 0; index < d.length; index++) {
-      const element = d[index];
-      const newelm = removeNullUndefined(element);
-      arr.push(newelm);
-    }
-    console.log(arr);
-    const grid = new Grid({
-      search: true,
-      pagination: true,
-      columns: [
-        {
-          id: "name",
-          name: "Name",
-        },
-        {
-          id: "address",
-          name: "Address",
-        },
-        {
-          id: "date",
-          name: "date",
-        },
-        {
-          id: "lat",
-          name: "Latitude",
-        },
-        {
-          id: "lon",
-          name: "Longitude",
-        },
-      ],
-      data: arr,
-    }).render(document.getElementById("grid-wrapper"));
+    if (savedBookmarks) {
+      for (let index = 0; index < savedBookmarks.length; index++) {
+        const element = savedBookmarks[index];
+        const newelm = removeNullUndefined(element);
+        arr.push(newelm);
+      }
+      console.log(arr);
+      const grid = new Grid({
+        search: true,
+        pagination: true,
+        columns: [
+          {
+            id: "name",
+            name: "Name",
+            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+          },
+          {
+            id: "address",
+            name: "Address",
+            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+          },
+          {
+            id: "date",
+            name: "date",
+            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+          },
+          {
+            id: "lat",
+            name: "Latitude",
+            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+          },
+          {
+            id: "lon",
+            name: "Longitude",
+            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+          },
+        ],
+        data: arr,
+      }).render(document.getElementById("grid-wrapper"));
 
-    return grid;
+      return grid;
+    }
   }
 
   helloWorld();
-  // Movie Directory
+  let config = {
+    minZoom: 7,
+    maxZoom: 18,
+  };
+  // magnification with which the map will start
+  const zoom = 18;
+  // co-ordinates
+  const lat = 52.22977;
+  const lng = 21.01178;
+  L.mapbox.accessToken =
+    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
+  const map = L.mapbox
+    .map("bookmark-map", null, { zoomControl: false })
+    .setView([38.24828117242986, -85.86822924379871], 11);
+
+  L.mapbox
+    .styleLayer("mapbox://styles/mapbox/streets-v11")
+    .addTo(map) // add your tiles to the map
+    .once("load", finishedLoading);
+
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
+    setTimeout(() => {
+      console.log("map loaded");
+    }, 1000);
+  }
+
+  $("#test").on("click", function (e) {
+    e.preventDefault();
+    let center = map.getCenter();
+    console.log(center);
+    let bounds = JSON.stringify(map.getBounds());
+    console.log(`zoom is ${map.getZoom()} and bounds are ${bounds}`);
+  });
 });

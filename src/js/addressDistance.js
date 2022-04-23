@@ -2,13 +2,17 @@
 import HaversineGeolocation from "haversine-geolocation";
 import "utils/commentscript.js";
 import {
-  addBookmark, getAddress, getGeojson, getLatLon, popupContent, toggleAltitude, toggleBookmark
+  addBookmark,
+  getAddress,
+  getGeojson,
+  getLatLon,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
 } from "utils/geocoder";
 import "./firebase";
 
-
 window.addEventListener("DOMContentLoaded", () => {
-
   var loader = document.getElementById("loader");
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
@@ -59,20 +63,15 @@ window.addEventListener("DOMContentLoaded", () => {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: "my-geo-icon",
+      showPopup: false,
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 5000,
       },
     })
     .addTo(map);
 
   map.on("locationfound", async function (e) {
-
-
-
     let icon = locationControl._icon;
     let lat = e.latlng.lat;
 
@@ -86,7 +85,6 @@ window.addEventListener("DOMContentLoaded", () => {
     let addressName =
       data.features.length > 0 ? data.features[0].place_name : null;
     if (data.features.length > 0) {
-
       $("#addressInputFieldOrigin").val(data.features[0].place_name);
     }
 
@@ -205,11 +203,10 @@ window.addEventListener("DOMContentLoaded", () => {
   ${submitText}`);
 
     const popupCheck1 = marker1.isPopupOpen();
-    const popupCheck2 = marker2.isPopupOpen()
+    const popupCheck2 = marker2.isPopupOpen();
     if (popupCheck1 || popupCheck2) {
-
       let marker = popupCheck1 ? marker1 : marker2;
-      marker.closePopup()
+      marker.closePopup();
     }
     const coordsOrigin = await convertAddressToCoordinates(
       e.currentTarget[0].value
@@ -289,28 +286,25 @@ window.addEventListener("DOMContentLoaded", () => {
       { padding: [50, 50] }
     );
     $("form :submit").first().html(submitText);
-
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
-
     if ($(this).hasClass("origin")) {
-      toggleAltitude(this, marker1)
+      toggleAltitude(this, marker1);
     } else {
-      toggleAltitude(this, marker2)
+      toggleAltitude(this, marker2);
     }
   });
 
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1);
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker2)
-
+    toggleBookmark(this, marker2);
   });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
@@ -323,33 +317,30 @@ window.addEventListener("DOMContentLoaded", () => {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-  $('#map').on('click', '#add-bookmark-btn', function (e) {
-    let input = $(this).parent().children().first()
-
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
 
     if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a name.
-  </div>`)
-    }
-    else {
+  </div>`);
+    } else {
+      const markerCheck = marker1.isPopupOpen();
+      const localData = markerCheck ? "origin-data" : "destination-data";
+      const marker = markerCheck ? marker1 : marker2;
+      let locationData = JSON.parse(localStorage.getItem(localData));
+      locationData.name = input[0].value;
 
-      const markerCheck = marker1.isPopupOpen()
-      const localData = markerCheck ? "origin-data" : "destination-data"
-      const marker = markerCheck ? marker1 : marker2
-      let locationData = JSON.parse(localStorage.getItem(localData))
-      locationData.name = input[0].value
+      let ldata = JSON.parse(localStorage.getItem("location-data"));
+      let altitude = ldata.altitude ? ldata.altitude : null;
+      locationData.altitude = altitude;
+      localStorage.setItem("location-data", JSON.stringify(locationData));
+      addBookmark("location-data");
 
-      let ldata = JSON.parse(localStorage.getItem("location-data"))
-      let altitude = ldata.altitude ? ldata.altitude : null
-      locationData.altitude = altitude
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-      addBookmark("location-data")
-
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
-
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
     }
   });
 });

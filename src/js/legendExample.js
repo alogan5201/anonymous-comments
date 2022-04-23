@@ -6,31 +6,31 @@ const geojson = {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [0, 0]
+        coordinates: [0, 0],
       },
       properties: {
         title: "Mapbox DC",
         description: "1714 14th St NW, Washington DC",
         "marker-color": "#35A2D1",
         "marker-size": "large",
-        "marker-symbol": "1"
-      }
+        "marker-symbol": "1",
+      },
     },
     {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [0, 0]
+        coordinates: [0, 0],
       },
       properties: {
         title: "Mapbox SF",
         description: "155 9th St, San Francisco",
         "marker-color": "#fc4353",
         "marker-size": "large",
-        "marker-symbol": "2"
-      }
-    }
-  ]
+        "marker-symbol": "2",
+      },
+    },
+  ],
 };
 
 const map = L.mapbox.map("map").setView([37.9, -77], 6);
@@ -51,26 +51,29 @@ var locationControl = L.control
     followCircleStyle: { opacity: 0 },
     drawCircle: false,
     follow: false,
-    icon: "fas fa-map-marker-alt", // follow the user's location
     setView: false,
-    remainActive: false
+    remainActive: false,
+    showPopup: false,
+    locateOptions: {
+      enableHighAccuracy: true,
+    },
   })
   .addTo(map);
 const LocationState = function _LocationState() {
   let data = {
     origin: {
-      lat: LocationState.state.lat
+      lat: LocationState.state.lat,
     },
     destination: {
-      lon: LocationState.state.lon
-    }
+      lon: LocationState.state.lon,
+    },
   };
   return data;
 };
 const myhandler = {
   set: function (obj, prop, value) {
     obj[prop] = value;
-  }
+  },
 };
 
 LocationState.state = new Proxy({ lat: null, lon: null }, myhandler);
@@ -104,18 +107,13 @@ const title = $("title").html();
 
 const pageTitle = title.slice(11);
 
-
 let bookmarkControl = new L.Control.Bookmarks({
-  name: pageTitle
+  name: pageTitle,
 }).addTo(map);
 function inputFocus(x) {
   if ($("#secondOutput").hasClass("second")) {
-    $("#secondOutput")
-      .removeClass("second")
-      .addClass("fadeOut");
-    $("#firstOutput")
-      .removeClass("first")
-      .addClass("fadeOut");
+    $("#secondOutput").removeClass("second").addClass("fadeOut");
+    $("#firstOutput").removeClass("first").addClass("fadeOut");
     setTimeout(() => {
       $("#secondOutput").addClass("d-none");
       $("#firstOutput").addClass("d-none");
@@ -170,14 +168,14 @@ window.addEventListener("DOMContentLoaded", () => {
       lat: {
         degrees: degreesLatitude,
         minutes: minutesLatitude,
-        seconds: secondsLatitude
+        seconds: secondsLatitude,
       },
       lon: {
         degrees: degreesLongitude,
         minutes: minutesLongitude,
-        seconds: secondsLongitude
+        seconds: secondsLongitude,
       },
-      popupMessage: { lat: latResult, lon: lonResult }
+      popupMessage: { lat: latResult, lon: lonResult },
     };
     return result;
   }
@@ -199,7 +197,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const handler = {
     set: function (obj, prop, value) {
       obj[prop] = value;
-    }
+    },
   };
 
   App.state = new Proxy({ count: 0 }, handler);
@@ -218,7 +216,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const myhandler = {
     set: function (obj, prop, value) {
       obj[prop] = value;
-    }
+    },
   };
 
   CoordsApp.state = new Proxy(
@@ -281,7 +279,7 @@ window.addEventListener("DOMContentLoaded", () => {
     map.fitBounds(
       [
         [latOrigin, lonOrigin],
-        [latDest, lonDest]
+        [latDest, lonDest],
       ],
       { padding: [50, 50], maxZoom: 13 }
     );
@@ -317,10 +315,11 @@ window.addEventListener("DOMContentLoaded", () => {
     map.fitBounds(
       [
         [latOrigin, lonOrigin],
-        [latDest, lonDest]
+        [latDest, lonDest],
       ],
       {
-        padding: [50, 50], maxZoom: 13
+        padding: [50, 50],
+        maxZoom: 13,
       }
     );
   }
@@ -332,7 +331,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let result = {
       hours: hrs,
-      minutes: mins
+      minutes: mins,
     };
     // Output like "1:01" or "4:03:59" or "123:03:59"
     return result;
@@ -342,8 +341,8 @@ window.addEventListener("DOMContentLoaded", () => {
     fetch(
       `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`
     )
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         const durations = json.durations[0];
         const travelTime = durations[1];
         const result = format(travelTime);
@@ -395,12 +394,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const points = [
       {
         latitude: latO,
-        longitude: lonO
+        longitude: lonO,
       },
       {
         latitude: latD,
-        longitude: lonD
-      }
+        longitude: lonD,
+      },
     ];
 
     const distance = HaversineGeolocation.getDistanceBetween(
@@ -413,7 +412,7 @@ window.addEventListener("DOMContentLoaded", () => {
     map.fitBounds(
       [
         [latO, lonO],
-        [latD, lonD]
+        [latD, lonD],
       ],
       { padding: [50, 50], maxZoom: 13 }
     );
@@ -441,12 +440,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27503094358798, 41.13248444197727]
-            }
+              coordinates: [-74.27503094358798, 41.13248444197727],
+            },
           },
           {
             type: "Feature",
@@ -465,12 +464,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0882833729618, 40.67797023602428]
-            }
+              coordinates: [-75.0882833729618, 40.67797023602428],
+            },
           },
           {
             type: "Feature",
@@ -489,12 +488,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FLEMINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8543342019595, 40.61622101274659]
-            }
+              coordinates: [-74.8543342019595, 40.61622101274659],
+            },
           },
           {
             type: "Feature",
@@ -513,12 +512,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31655012213194, 41.059197055320894]
-            }
+              coordinates: [-74.31655012213194, 41.059197055320894],
+            },
           },
           {
             type: "Feature",
@@ -537,12 +536,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "LEAD",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67737736243629, 41.056567369032365]
-            }
+              coordinates: [-74.67737736243629, 41.056567369032365],
+            },
           },
           {
             type: "Feature",
@@ -561,12 +560,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59152174859952, 40.8967533632813]
-            }
+              coordinates: [-74.59152174859952, 40.8967533632813],
+            },
           },
           {
             type: "Feature",
@@ -585,12 +584,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59803575408051, 40.8894485213016]
-            }
+              coordinates: [-74.59803575408051, 40.8894485213016],
+            },
           },
           {
             type: "Feature",
@@ -609,12 +608,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58416970187123, 40.90559304210421]
-            }
+              coordinates: [-74.58416970187123, 40.90559304210421],
+            },
           },
           {
             type: "Feature",
@@ -633,12 +632,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58669987666237, 40.89761660347879]
-            }
+              coordinates: [-74.58669987666237, 40.89761660347879],
+            },
           },
           {
             type: "Feature",
@@ -657,12 +656,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5352889430601, 40.933347655666935]
-            }
+              coordinates: [-74.5352889430601, 40.933347655666935],
+            },
           },
           {
             type: "Feature",
@@ -681,12 +680,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54530246420049, 40.897950127482964]
-            }
+              coordinates: [-74.54530246420049, 40.897950127482964],
+            },
           },
           {
             type: "Feature",
@@ -705,12 +704,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5826399599448, 40.98806385630444]
-            }
+              coordinates: [-74.5826399599448, 40.98806385630444],
+            },
           },
           {
             type: "Feature",
@@ -729,12 +728,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0150843709367, 40.81167102612713]
-            }
+              coordinates: [-75.0150843709367, 40.81167102612713],
+            },
           },
           {
             type: "Feature",
@@ -753,12 +752,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01512637546615, 40.82420858813834]
-            }
+              coordinates: [-75.01512637546615, 40.82420858813834],
+            },
           },
           {
             type: "Feature",
@@ -777,12 +776,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02956376279282, 40.649537133638574]
-            }
+              coordinates: [-75.02956376279282, 40.649537133638574],
+            },
           },
           {
             type: "Feature",
@@ -801,12 +800,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.09510834078189, 40.63864301582166]
-            }
+              coordinates: [-75.09510834078189, 40.63864301582166],
+            },
           },
           {
             type: "Feature",
@@ -825,12 +824,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.05311120077457, 40.68334608742083]
-            }
+              coordinates: [-75.05311120077457, 40.68334608742083],
+            },
           },
           {
             type: "Feature",
@@ -849,12 +848,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6514121508385, 40.81309712412413]
-            }
+              coordinates: [-74.6514121508385, 40.81309712412413],
+            },
           },
           {
             type: "Feature",
@@ -873,12 +872,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68981190280036, 40.77014453823462]
-            }
+              coordinates: [-74.68981190280036, 40.77014453823462],
+            },
           },
           {
             type: "Feature",
@@ -897,12 +896,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56877409205099, 41.06588808712311]
-            }
+              coordinates: [-74.56877409205099, 41.06588808712311],
+            },
           },
           {
             type: "Feature",
@@ -921,12 +920,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9957061491642, 40.7961605061745]
-            }
+              coordinates: [-74.9957061491642, 40.7961605061745],
+            },
           },
           {
             type: "Feature",
@@ -945,12 +944,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.43137124824385, 41.12237217413069]
-            }
+              coordinates: [-74.43137124824385, 41.12237217413069],
+            },
           },
           {
             type: "Feature",
@@ -969,12 +968,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48872270072071, 41.097276595193755]
-            }
+              coordinates: [-74.48872270072071, 41.097276595193755],
+            },
           },
           {
             type: "Feature",
@@ -993,12 +992,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.84513824750636, 40.79943195520789]
-            }
+              coordinates: [-74.84513824750636, 40.79943195520789],
+            },
           },
           {
             type: "Feature",
@@ -1017,12 +1016,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.85460193463382, 40.77855972561124]
-            }
+              coordinates: [-74.85460193463382, 40.77855972561124],
+            },
           },
           {
             type: "Feature",
@@ -1041,12 +1040,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.75134891750227, 40.814225525517436]
-            }
+              coordinates: [-74.75134891750227, 40.814225525517436],
+            },
           },
           {
             type: "Feature",
@@ -1065,12 +1064,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.40167935653197, 41.1556303144733]
-            }
+              coordinates: [-74.40167935653197, 41.1556303144733],
+            },
           },
           {
             type: "Feature",
@@ -1089,12 +1088,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26209416352842, 41.08149330985091]
-            }
+              coordinates: [-74.26209416352842, 41.08149330985091],
+            },
           },
           {
             type: "Feature",
@@ -1113,12 +1112,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.30793495826279, 40.993418641341584]
-            }
+              coordinates: [-74.30793495826279, 40.993418641341584],
+            },
           },
           {
             type: "Feature",
@@ -1137,12 +1136,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Banghart Mine"
+              COMMENTS: "Updated 2005, working of Banghart Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91639213645684, 40.70167446540509]
-            }
+              coordinates: [-74.91639213645684, 40.70167446540509],
+            },
           },
           {
             type: "Feature",
@@ -1161,12 +1160,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Marble Mt."
+              COMMENTS: "Updated 2005, working of Marble Mt.",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18639216669007, 40.71611920651615]
-            }
+              coordinates: [-75.18639216669007, 40.71611920651615],
+            },
           },
           {
             type: "Feature",
@@ -1185,12 +1184,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Marble Mt."
+              COMMENTS: "Updated 2005, working of Marble Mt.",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18722416603232, 40.71528527178689]
-            }
+              coordinates: [-75.18722416603232, 40.71528527178689],
+            },
           },
           {
             type: "Feature",
@@ -1209,12 +1208,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58222227980404, 41.00695244995516]
-            }
+              coordinates: [-74.58222227980404, 41.00695244995516],
+            },
           },
           {
             type: "Feature",
@@ -1233,12 +1232,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56861283894283, 41.066676124221274]
-            }
+              coordinates: [-74.56861283894283, 41.066676124221274],
+            },
           },
           {
             type: "Feature",
@@ -1257,12 +1256,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56749970047022, 41.06695401442489]
-            }
+              coordinates: [-74.56749970047022, 41.06695401442489],
+            },
           },
           {
             type: "Feature",
@@ -1281,12 +1280,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "HOPEWELL NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86896027802806, 40.492277056633775]
-            }
+              coordinates: [-74.86896027802806, 40.492277056633775],
+            },
           },
           {
             type: "Feature",
@@ -1305,12 +1304,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31043769900695, 40.99622720452913]
-            }
+              coordinates: [-74.31043769900695, 40.99622720452913],
+            },
           },
           {
             type: "Feature",
@@ -1329,12 +1328,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRENCHTOWN NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08430340942664, 40.6118596689753]
-            }
+              coordinates: [-75.08430340942664, 40.6118596689753],
+            },
           },
           {
             type: "Feature",
@@ -1353,12 +1352,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BOUND BROOK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61516071146431, 40.61482058253676]
-            }
+              coordinates: [-74.61516071146431, 40.61482058253676],
+            },
           },
           {
             type: "Feature",
@@ -1377,12 +1376,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "MONMOUTH JCT NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.581269835894, 40.440375164089644]
-            }
+              coordinates: [-74.581269835894, 40.440375164089644],
+            },
           },
           {
             type: "Feature",
@@ -1401,12 +1400,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "MANGANESE",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89395660276608, 40.63274798296466]
-            }
+              coordinates: [-74.89395660276608, 40.63274798296466],
+            },
           },
           {
             type: "Feature",
@@ -1425,12 +1424,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93186840448071, 40.70223815524876]
-            }
+              coordinates: [-74.93186840448071, 40.70223815524876],
+            },
           },
           {
             type: "Feature",
@@ -1449,12 +1448,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73417895229986, 40.75653686275359]
-            }
+              coordinates: [-74.73417895229986, 40.75653686275359],
+            },
           },
           {
             type: "Feature",
@@ -1473,12 +1472,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BOUND BROOK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58056690575631, 40.60105929837433]
-            }
+              coordinates: [-74.58056690575631, 40.60105929837433],
+            },
           },
           {
             type: "Feature",
@@ -1497,12 +1496,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.30908803799645, 41.13836339778985]
-            }
+              coordinates: [-74.30908803799645, 41.13836339778985],
+            },
           },
           {
             type: "Feature",
@@ -1521,12 +1520,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27144430321727, 41.138253691680475]
-            }
+              coordinates: [-74.27144430321727, 41.138253691680475],
+            },
           },
           {
             type: "Feature",
@@ -1545,12 +1544,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08906451682549, 40.67906855902346]
-            }
+              coordinates: [-75.08906451682549, 40.67906855902346],
+            },
           },
           {
             type: "Feature",
@@ -1569,12 +1568,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00952011139334, 40.65879455658779]
-            }
+              coordinates: [-75.00952011139334, 40.65879455658779],
+            },
           },
           {
             type: "Feature",
@@ -1593,12 +1592,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "HOPEWELL NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86933905145821, 40.506215832065294]
-            }
+              coordinates: [-74.86933905145821, 40.506215832065294],
+            },
           },
           {
             type: "Feature",
@@ -1617,12 +1616,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.28406865692652, 41.03804818522556]
-            }
+              coordinates: [-74.28406865692652, 41.03804818522556],
+            },
           },
           {
             type: "Feature",
@@ -1641,12 +1640,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RAMSEY NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.2245772816742, 41.100918104779424]
-            }
+              coordinates: [-74.2245772816742, 41.100918104779424],
+            },
           },
           {
             type: "Feature",
@@ -1665,12 +1664,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60742689273643, 40.876923532882714]
-            }
+              coordinates: [-74.60742689273643, 40.876923532882714],
+            },
           },
           {
             type: "Feature",
@@ -1689,12 +1688,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57387791990392, 40.907162817769006]
-            }
+              coordinates: [-74.57387791990392, 40.907162817769006],
+            },
           },
           {
             type: "Feature",
@@ -1713,12 +1712,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55559781537923, 40.92152102558369]
-            }
+              coordinates: [-74.55559781537923, 40.92152102558369],
+            },
           },
           {
             type: "Feature",
@@ -1737,12 +1736,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61089568101829, 40.926123125059455]
-            }
+              coordinates: [-74.61089568101829, 40.926123125059455],
+            },
           },
           {
             type: "Feature",
@@ -1761,12 +1760,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.53690018226062, 40.93154459603805]
-            }
+              coordinates: [-74.53690018226062, 40.93154459603805],
+            },
           },
           {
             type: "Feature",
@@ -1785,12 +1784,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0090410310207, 40.816131319151374]
-            }
+              coordinates: [-75.0090410310207, 40.816131319151374],
+            },
           },
           {
             type: "Feature",
@@ -1809,12 +1808,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0472488009194, 40.80952905905538]
-            }
+              coordinates: [-75.0472488009194, 40.80952905905538],
+            },
           },
           {
             type: "Feature",
@@ -1833,12 +1832,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08091788988138, 40.770008401862306]
-            }
+              coordinates: [-75.08091788988138, 40.770008401862306],
+            },
           },
           {
             type: "Feature",
@@ -1857,12 +1856,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47347258509434, 40.940219870391616]
-            }
+              coordinates: [-74.47347258509434, 40.940219870391616],
+            },
           },
           {
             type: "Feature",
@@ -1881,12 +1880,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.66152951243131, 40.81060124831704]
-            }
+              coordinates: [-74.66152951243131, 40.81060124831704],
+            },
           },
           {
             type: "Feature",
@@ -1905,12 +1904,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6136171417059, 41.00966947127669]
-            }
+              coordinates: [-74.6136171417059, 41.00966947127669],
+            },
           },
           {
             type: "Feature",
@@ -1929,12 +1928,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9592134259809, 40.873282054001464]
-            }
+              coordinates: [-74.9592134259809, 40.873282054001464],
+            },
           },
           {
             type: "Feature",
@@ -1953,12 +1952,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.96653138913885, 40.83755514418138]
-            }
+              coordinates: [-74.96653138913885, 40.83755514418138],
+            },
           },
           {
             type: "Feature",
@@ -1977,12 +1976,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90657239285252, 40.81632205885785]
-            }
+              coordinates: [-74.90657239285252, 40.81632205885785],
+            },
           },
           {
             type: "Feature",
@@ -2001,12 +2000,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48448592693391, 41.00077145066758]
-            }
+              coordinates: [-74.48448592693391, 41.00077145066758],
+            },
           },
           {
             type: "Feature",
@@ -2025,12 +2024,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48022518643273, 41.0054003994041]
-            }
+              coordinates: [-74.48022518643273, 41.0054003994041],
+            },
           },
           {
             type: "Feature",
@@ -2049,12 +2048,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47520511853186, 41.00827761931737]
-            }
+              coordinates: [-74.47520511853186, 41.00827761931737],
+            },
           },
           {
             type: "Feature",
@@ -2073,12 +2072,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.45826473072513, 41.01707129273416]
-            }
+              coordinates: [-74.45826473072513, 41.01707129273416],
+            },
           },
           {
             type: "Feature",
@@ -2097,12 +2096,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80486723122537, 40.81036096011262]
-            }
+              coordinates: [-74.80486723122537, 40.81036096011262],
+            },
           },
           {
             type: "Feature",
@@ -2121,12 +2120,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73800563874039, 40.941893918264874]
-            }
+              coordinates: [-74.73800563874039, 40.941893918264874],
+            },
           },
           {
             type: "Feature",
@@ -2145,12 +2144,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67345183556779, 40.9930525367488]
-            }
+              coordinates: [-74.67345183556779, 40.9930525367488],
+            },
           },
           {
             type: "Feature",
@@ -2169,12 +2168,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.64179084301188, 40.89761967611427]
-            }
+              coordinates: [-74.64179084301188, 40.89761967611427],
+            },
           },
           {
             type: "Feature",
@@ -2193,12 +2192,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6517537133476, 40.99941372560139]
-            }
+              coordinates: [-74.6517537133476, 40.99941372560139],
+            },
           },
           {
             type: "Feature",
@@ -2217,12 +2216,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73752738967796, 40.93306261100909]
-            }
+              coordinates: [-74.73752738967796, 40.93306261100909],
+            },
           },
           {
             type: "Feature",
@@ -2241,12 +2240,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70389467943444, 40.95917504819219]
-            }
+              coordinates: [-74.70389467943444, 40.95917504819219],
+            },
           },
           {
             type: "Feature",
@@ -2265,12 +2264,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69734422817092, 40.9689162908837]
-            }
+              coordinates: [-74.69734422817092, 40.9689162908837],
+            },
           },
           {
             type: "Feature",
@@ -2289,12 +2288,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71500785552257, 40.91714865447735]
-            }
+              coordinates: [-74.71500785552257, 40.91714865447735],
+            },
           },
           {
             type: "Feature",
@@ -2313,12 +2312,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70437325632727, 40.92132021114104]
-            }
+              coordinates: [-74.70437325632727, 40.92132021114104],
+            },
           },
           {
             type: "Feature",
@@ -2337,12 +2336,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6013381206257, 40.84259010844753]
-            }
+              coordinates: [-74.6013381206257, 40.84259010844753],
+            },
           },
           {
             type: "Feature",
@@ -2361,12 +2360,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.51046562921098, 40.82941813183713]
-            }
+              coordinates: [-74.51046562921098, 40.82941813183713],
+            },
           },
           {
             type: "Feature",
@@ -2385,12 +2384,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.77664177517939, 40.92211631525824]
-            }
+              coordinates: [-74.77664177517939, 40.92211631525824],
+            },
           },
           {
             type: "Feature",
@@ -2409,12 +2408,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.1849005658795, 40.62020465201048]
-            }
+              coordinates: [-75.1849005658795, 40.62020465201048],
+            },
           },
           {
             type: "Feature",
@@ -2433,12 +2432,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80994471351958, 40.74776347318964]
-            }
+              coordinates: [-74.80994471351958, 40.74776347318964],
+            },
           },
           {
             type: "Feature",
@@ -2457,12 +2456,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99795121038821, 40.67621972872852]
-            }
+              coordinates: [-74.99795121038821, 40.67621972872852],
+            },
           },
           {
             type: "Feature",
@@ -2481,12 +2480,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RAMSEY NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.20787278694435, 41.107720203113665]
-            }
+              coordinates: [-74.20787278694435, 41.107720203113665],
+            },
           },
           {
             type: "Feature",
@@ -2505,12 +2504,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.32409915759412, 40.99846632438714]
-            }
+              coordinates: [-74.32409915759412, 40.99846632438714],
+            },
           },
           {
             type: "Feature",
@@ -2529,12 +2528,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88000182469642, 40.889729690372356]
-            }
+              coordinates: [-74.88000182469642, 40.889729690372356],
+            },
           },
           {
             type: "Feature",
@@ -2553,12 +2552,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9183340754713, 40.905564296084854]
-            }
+              coordinates: [-74.9183340754713, 40.905564296084854],
+            },
           },
           {
             type: "Feature",
@@ -2577,12 +2576,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88944601555518, 40.920564921261565]
-            }
+              coordinates: [-74.88944601555518, 40.920564921261565],
+            },
           },
           {
             type: "Feature",
@@ -2601,12 +2600,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8894447388067, 40.91973047092623]
-            }
+              coordinates: [-74.8894447388067, 40.91973047092623],
+            },
           },
           {
             type: "Feature",
@@ -2625,12 +2624,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "SULFIDE",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89639022252587, 40.91084069962262]
-            }
+              coordinates: [-74.89639022252587, 40.91084069962262],
+            },
           },
           {
             type: "Feature",
@@ -2649,12 +2648,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08333597703165, 40.676397396578615]
-            }
+              coordinates: [-75.08333597703165, 40.676397396578615],
+            },
           },
           {
             type: "Feature",
@@ -2673,12 +2672,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.03055690484962, 40.648896928066996]
-            }
+              coordinates: [-75.03055690484962, 40.648896928066996],
+            },
           },
           {
             type: "Feature",
@@ -2697,12 +2696,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02444665898909, 40.66528527641887]
-            }
+              coordinates: [-75.02444665898909, 40.66528527641887],
+            },
           },
           {
             type: "Feature",
@@ -2721,12 +2720,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Wild Cat Mine"
+              COMMENTS: "Updated 2004, working of Wild Cat Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00861133950121, 40.659731534326774]
-            }
+              coordinates: [-75.00861133950121, 40.659731534326774],
+            },
           },
           {
             type: "Feature",
@@ -2745,12 +2744,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18805861302175, 40.60945411641291]
-            }
+              coordinates: [-75.18805861302175, 40.60945411641291],
+            },
           },
           {
             type: "Feature",
@@ -2769,12 +2768,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.12666969437944, 40.606951409855945]
-            }
+              coordinates: [-75.12666969437944, 40.606951409855945],
+            },
           },
           {
             type: "Feature",
@@ -2793,12 +2792,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.13083388337753, 40.59973119761144]
-            }
+              coordinates: [-75.13083388337753, 40.59973119761144],
+            },
           },
           {
             type: "Feature",
@@ -2817,12 +2816,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.52028051528347, 41.04834259972489]
-            }
+              coordinates: [-74.52028051528347, 41.04834259972489],
+            },
           },
           {
             type: "Feature",
@@ -2841,12 +2840,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59250022009739, 41.036674485559296]
-            }
+              coordinates: [-74.59250022009739, 41.036674485559296],
+            },
           },
           {
             type: "Feature",
@@ -2865,12 +2864,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57555670057602, 41.014730538327214]
-            }
+              coordinates: [-74.57555670057602, 41.014730538327214],
+            },
           },
           {
             type: "Feature",
@@ -2889,12 +2888,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57694731384179, 41.01389792141451]
-            }
+              coordinates: [-74.57694731384179, 41.01389792141451],
+            },
           },
           {
             type: "Feature",
@@ -2913,12 +2912,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58250286464109, 41.0111189960753]
-            }
+              coordinates: [-74.58250286464109, 41.0111189960753],
+            },
           },
           {
             type: "Feature",
@@ -2937,12 +2936,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59111106551617, 41.00195281197448]
-            }
+              coordinates: [-74.59111106551617, 41.00195281197448],
+            },
           },
           {
             type: "Feature",
@@ -2961,12 +2960,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59166826979843, 41.00139790738263]
-            }
+              coordinates: [-74.59166826979843, 41.00139790738263],
+            },
           },
           {
             type: "Feature",
@@ -2985,12 +2984,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55777784320573, 41.0355634929199]
-            }
+              coordinates: [-74.55777784320573, 41.0355634929199],
+            },
           },
           {
             type: "Feature",
@@ -3009,12 +3008,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55778098580028, 41.035009022696016]
-            }
+              coordinates: [-74.55778098580028, 41.035009022696016],
+            },
           },
           {
             type: "Feature",
@@ -3033,12 +3032,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5897229073761, 41.006952348993025]
-            }
+              coordinates: [-74.5897229073761, 41.006952348993025],
+            },
           },
           {
             type: "Feature",
@@ -3057,12 +3056,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56666916711526, 41.0669517602691]
-            }
+              coordinates: [-74.56666916711526, 41.0669517602691],
+            },
           },
           {
             type: "Feature",
@@ -3081,12 +3080,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5663912972189, 41.06834081312849]
-            }
+              coordinates: [-74.5663912972189, 41.06834081312849],
+            },
           },
           {
             type: "Feature",
@@ -3105,12 +3104,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57611223993914, 41.059729658224]
-            }
+              coordinates: [-74.57611223993914, 41.059729658224],
+            },
           },
           {
             type: "Feature",
@@ -3129,12 +3128,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57666941294379, 41.05862036525829]
-            }
+              coordinates: [-74.57666941294379, 41.05862036525829],
+            },
           },
           {
             type: "Feature",
@@ -3153,12 +3152,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58166981291603, 41.052509601829115]
-            }
+              coordinates: [-74.58166981291603, 41.052509601829115],
+            },
           },
           {
             type: "Feature",
@@ -3177,12 +3176,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56305874689835, 41.068897150401504]
-            }
+              coordinates: [-74.56305874689835, 41.068897150401504],
+            },
           },
           {
             type: "Feature",
@@ -3201,12 +3200,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56055695679709, 41.06973018133079]
-            }
+              coordinates: [-74.56055695679709, 41.06973018133079],
+            },
           },
           {
             type: "Feature",
@@ -3225,12 +3224,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.538056767473, 41.040564618624]
-            }
+              coordinates: [-74.538056767473, 41.040564618624],
+            },
           },
           {
             type: "Feature",
@@ -3249,12 +3248,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57194552948319, 41.06306460686349]
-            }
+              coordinates: [-74.57194552948319, 41.06306460686349],
+            },
           },
           {
             type: "Feature",
@@ -3273,12 +3272,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.37889467772138, 41.20478216562326]
-            }
+              coordinates: [-74.37889467772138, 41.20478216562326],
+            },
           },
           {
             type: "Feature",
@@ -3297,12 +3296,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.36848696646015, 41.04260513729316]
-            }
+              coordinates: [-74.36848696646015, 41.04260513729316],
+            },
           },
           {
             type: "Feature",
@@ -3321,12 +3320,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31086623841081, 40.987228433985656]
-            }
+              coordinates: [-74.31086623841081, 40.987228433985656],
+            },
           },
           {
             type: "Feature",
@@ -3345,12 +3344,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "MONMOUTH JCT NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61210601757848, 40.426210586027324]
-            }
+              coordinates: [-74.61210601757848, 40.426210586027324],
+            },
           },
           {
             type: "Feature",
@@ -3369,12 +3368,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68632209191563, 40.78038220790875]
-            }
+              coordinates: [-74.68632209191563, 40.78038220790875],
+            },
           },
           {
             type: "Feature",
@@ -3393,12 +3392,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.2610414001321, 41.14132394030149]
-            }
+              coordinates: [-74.2610414001321, 41.14132394030149],
+            },
           },
           {
             type: "Feature",
@@ -3417,12 +3416,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27453025247154, 41.13213315545181]
-            }
+              coordinates: [-74.27453025247154, 41.13213315545181],
+            },
           },
           {
             type: "Feature",
@@ -3441,12 +3440,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GLADSTONE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71986984040937, 40.738906006872185]
-            }
+              coordinates: [-74.71986984040937, 40.738906006872185],
+            },
           },
           {
             type: "Feature",
@@ -3465,12 +3464,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "GLADSTONE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62869877970095, 40.642222161382996]
-            }
+              coordinates: [-74.62869877970095, 40.642222161382996],
+            },
           },
           {
             type: "Feature",
@@ -3489,12 +3488,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60560500217301, 40.96891226642104]
-            }
+              coordinates: [-74.60560500217301, 40.96891226642104],
+            },
           },
           {
             type: "Feature",
@@ -3513,12 +3512,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56030939462676, 40.9151583036919]
-            }
+              coordinates: [-74.56030939462676, 40.9151583036919],
+            },
           },
           {
             type: "Feature",
@@ -3537,12 +3536,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GLADSTONE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.64432861882213, 40.73177542866281]
-            }
+              coordinates: [-74.64432861882213, 40.73177542866281],
+            },
           },
           {
             type: "Feature",
@@ -3561,12 +3560,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "ORANGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.2162622218206, 40.78093182575554]
-            }
+              coordinates: [-74.2162622218206, 40.78093182575554],
+            },
           },
           {
             type: "Feature",
@@ -3585,12 +3584,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92330302822793, 40.69556652336904]
-            }
+              coordinates: [-74.92330302822793, 40.69556652336904],
+            },
           },
           {
             type: "Feature",
@@ -3609,12 +3608,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99650459450348, 40.67155545713957]
-            }
+              coordinates: [-74.99650459450348, 40.67155545713957],
+            },
           },
           {
             type: "Feature",
@@ -3633,12 +3632,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69440604614758, 40.86903654212151]
-            }
+              coordinates: [-74.69440604614758, 40.86903654212151],
+            },
           },
           {
             type: "Feature",
@@ -3657,12 +3656,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71280595136497, 40.85882850872655]
-            }
+              coordinates: [-74.71280595136497, 40.85882850872655],
+            },
           },
           {
             type: "Feature",
@@ -3681,12 +3680,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69832208287379, 40.78976432555834]
-            }
+              coordinates: [-74.69832208287379, 40.78976432555834],
+            },
           },
           {
             type: "Feature",
@@ -3705,12 +3704,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.72757742925641, 40.76821239020704]
-            }
+              coordinates: [-74.72757742925641, 40.76821239020704],
+            },
           },
           {
             type: "Feature",
@@ -3729,12 +3728,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73102213884674, 40.75858928106768]
-            }
+              coordinates: [-74.73102213884674, 40.75858928106768],
+            },
           },
           {
             type: "Feature",
@@ -3753,12 +3752,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0179442456185, 40.82122166020658]
-            }
+              coordinates: [-75.0179442456185, 40.82122166020658],
+            },
           },
           {
             type: "Feature",
@@ -3777,12 +3776,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9225759951138, 40.908992336360136]
-            }
+              coordinates: [-74.9225759951138, 40.908992336360136],
+            },
           },
           {
             type: "Feature",
@@ -3801,12 +3800,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "PLAINFIELD NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.44926431101163, 40.50125368069046]
-            }
+              coordinates: [-74.44926431101163, 40.50125368069046],
+            },
           },
           {
             type: "Feature",
@@ -3825,12 +3824,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BOUND BROOK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57670345406738, 40.59853868473988]
-            }
+              coordinates: [-74.57670345406738, 40.59853868473988],
+            },
           },
           {
             type: "Feature",
@@ -3849,12 +3848,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26282531123466, 41.15032532536775]
-            }
+              coordinates: [-74.26282531123466, 41.15032532536775],
+            },
           },
           {
             type: "Feature",
@@ -3873,12 +3872,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26381152375565, 41.150116168136485]
-            }
+              coordinates: [-74.26381152375565, 41.150116168136485],
+            },
           },
           {
             type: "Feature",
@@ -3897,12 +3896,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.29541907780043, 41.126461520978594]
-            }
+              coordinates: [-74.29541907780043, 41.126461520978594],
+            },
           },
           {
             type: "Feature",
@@ -3921,12 +3920,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26915698273052, 41.14640039819195]
-            }
+              coordinates: [-74.26915698273052, 41.14640039819195],
+            },
           },
           {
             type: "Feature",
@@ -3945,12 +3944,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27044336979998, 41.139292339281326]
-            }
+              coordinates: [-74.27044336979998, 41.139292339281326],
+            },
           },
           {
             type: "Feature",
@@ -3969,12 +3968,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27398704874476, 41.13312760422025]
-            }
+              coordinates: [-74.27398704874476, 41.13312760422025],
+            },
           },
           {
             type: "Feature",
@@ -3993,12 +3992,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27411667642511, 41.13271029893685]
-            }
+              coordinates: [-74.27411667642511, 41.13271029893685],
+            },
           },
           {
             type: "Feature",
@@ -4017,12 +4016,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.29581283400425, 41.12825185245979]
-            }
+              coordinates: [-74.29581283400425, 41.12825185245979],
+            },
           },
           {
             type: "Feature",
@@ -4041,12 +4040,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "FLEMINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86989390369249, 40.49704964510772]
-            }
+              coordinates: [-74.86989390369249, 40.49704964510772],
+            },
           },
           {
             type: "Feature",
@@ -4065,12 +4064,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GLADSTONE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.74278530227743, 40.72958210378467]
-            }
+              coordinates: [-74.74278530227743, 40.72958210378467],
+            },
           },
           {
             type: "Feature",
@@ -4089,12 +4088,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BUSHKILL PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02809614952275, 41.03334048318431]
-            }
+              coordinates: [-75.02809614952275, 41.03334048318431],
+            },
           },
           {
             type: "Feature",
@@ -4113,12 +4112,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60294622669902, 40.880158943189436]
-            }
+              coordinates: [-74.60294622669902, 40.880158943189436],
+            },
           },
           {
             type: "Feature",
@@ -4137,12 +4136,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59558738594059, 40.89435750715443]
-            }
+              coordinates: [-74.59558738594059, 40.89435750715443],
+            },
           },
           {
             type: "Feature",
@@ -4161,12 +4160,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5804206393364, 40.90787126896149]
-            }
+              coordinates: [-74.5804206393364, 40.90787126896149],
+            },
           },
           {
             type: "Feature",
@@ -4185,12 +4184,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60357347783798, 40.879290975529884]
-            }
+              coordinates: [-74.60357347783798, 40.879290975529884],
+            },
           },
           {
             type: "Feature",
@@ -4209,12 +4208,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59378963444802, 40.88432328821901]
-            }
+              coordinates: [-74.59378963444802, 40.88432328821901],
+            },
           },
           {
             type: "Feature",
@@ -4233,12 +4232,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5894125121848, 40.88851572702052]
-            }
+              coordinates: [-74.5894125121848, 40.88851572702052],
+            },
           },
           {
             type: "Feature",
@@ -4257,12 +4256,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5883830363197, 40.895916892779006]
-            }
+              coordinates: [-74.5883830363197, 40.895916892779006],
+            },
           },
           {
             type: "Feature",
@@ -4281,12 +4280,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58421773091405, 40.89970082489315]
-            }
+              coordinates: [-74.58421773091405, 40.89970082489315],
+            },
           },
           {
             type: "Feature",
@@ -4305,12 +4304,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58062512387119, 40.902891980971184]
-            }
+              coordinates: [-74.58062512387119, 40.902891980971184],
+            },
           },
           {
             type: "Feature",
@@ -4329,12 +4328,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57287521173215, 40.9082475348817]
-            }
+              coordinates: [-74.57287521173215, 40.9082475348817],
+            },
           },
           {
             type: "Feature",
@@ -4353,12 +4352,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.50254564219506, 40.96541744912413]
-            }
+              coordinates: [-74.50254564219506, 40.96541744912413],
+            },
           },
           {
             type: "Feature",
@@ -4377,12 +4376,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.52552098312572, 40.963534037245246]
-            }
+              coordinates: [-74.52552098312572, 40.963534037245246],
+            },
           },
           {
             type: "Feature",
@@ -4401,12 +4400,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54153079136617, 40.93545299959268]
-            }
+              coordinates: [-74.54153079136617, 40.93545299959268],
+            },
           },
           {
             type: "Feature",
@@ -4425,12 +4424,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54642436960918, 40.92626540079857]
-            }
+              coordinates: [-74.54642436960918, 40.92626540079857],
+            },
           },
           {
             type: "Feature",
@@ -4449,12 +4448,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55977254820253, 40.917716180138186]
-            }
+              coordinates: [-74.55977254820253, 40.917716180138186],
+            },
           },
           {
             type: "Feature",
@@ -4473,12 +4472,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56858930374993, 40.91170072318144]
-            }
+              coordinates: [-74.56858930374993, 40.91170072318144],
+            },
           },
           {
             type: "Feature",
@@ -4497,12 +4496,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57697021530959, 40.905125254504256]
-            }
+              coordinates: [-74.57697021530959, 40.905125254504256],
+            },
           },
           {
             type: "Feature",
@@ -4521,12 +4520,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59381720219659, 40.89975843664895]
-            }
+              coordinates: [-74.59381720219659, 40.89975843664895],
+            },
           },
           {
             type: "Feature",
@@ -4545,12 +4544,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.50821798610824, 40.929239669342884]
-            }
+              coordinates: [-74.50821798610824, 40.929239669342884],
+            },
           },
           {
             type: "Feature",
@@ -4569,12 +4568,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02122199629426, 40.83235452336559]
-            }
+              coordinates: [-75.02122199629426, 40.83235452336559],
+            },
           },
           {
             type: "Feature",
@@ -4593,12 +4592,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01912752938452, 40.81391027987389]
-            }
+              coordinates: [-75.01912752938452, 40.81391027987389],
+            },
           },
           {
             type: "Feature",
@@ -4617,12 +4616,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00068107486658, 40.79055385464196]
-            }
+              coordinates: [-75.00068107486658, 40.79055385464196],
+            },
           },
           {
             type: "Feature",
@@ -4641,12 +4640,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.43692149010039, 40.97726525481575]
-            }
+              coordinates: [-74.43692149010039, 40.97726525481575],
+            },
           },
           {
             type: "Feature",
@@ -4665,12 +4664,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.46365020215791, 40.95496478040864]
-            }
+              coordinates: [-74.46365020215791, 40.95496478040864],
+            },
           },
           {
             type: "Feature",
@@ -4689,12 +4688,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47354768747273, 40.98417775475996]
-            }
+              coordinates: [-74.47354768747273, 40.98417775475996],
+            },
           },
           {
             type: "Feature",
@@ -4713,12 +4712,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.41745523374588, 40.98930804798574]
-            }
+              coordinates: [-74.41745523374588, 40.98930804798574],
+            },
           },
           {
             type: "Feature",
@@ -4737,12 +4736,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.41547402513493, 40.93708965786296]
-            }
+              coordinates: [-74.41547402513493, 40.93708965786296],
+            },
           },
           {
             type: "Feature",
@@ -4761,12 +4760,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.403999610673, 40.94830002470148]
-            }
+              coordinates: [-74.403999610673, 40.94830002470148],
+            },
           },
           {
             type: "Feature",
@@ -4785,12 +4784,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.49933560881662, 40.97047239431033]
-            }
+              coordinates: [-74.49933560881662, 40.97047239431033],
+            },
           },
           {
             type: "Feature",
@@ -4809,12 +4808,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0769182553048, 40.69568237159509]
-            }
+              coordinates: [-75.0769182553048, 40.69568237159509],
+            },
           },
           {
             type: "Feature",
@@ -4833,12 +4832,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02087336064328, 40.73544424285175]
-            }
+              coordinates: [-75.02087336064328, 40.73544424285175],
+            },
           },
           {
             type: "Feature",
@@ -4857,12 +4856,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.15068809876524, 40.6923032279628]
-            }
+              coordinates: [-75.15068809876524, 40.6923032279628],
+            },
           },
           {
             type: "Feature",
@@ -4881,12 +4880,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7230589248656, 40.770513800962185]
-            }
+              coordinates: [-74.7230589248656, 40.770513800962185],
+            },
           },
           {
             type: "Feature",
@@ -4905,12 +4904,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73507121950294, 40.84231087727465]
-            }
+              coordinates: [-74.73507121950294, 40.84231087727465],
+            },
           },
           {
             type: "Feature",
@@ -4929,12 +4928,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73314012331258, 40.84484119943294]
-            }
+              coordinates: [-74.73314012331258, 40.84484119943294],
+            },
           },
           {
             type: "Feature",
@@ -4953,12 +4952,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.72571692176349, 40.85274172328616]
-            }
+              coordinates: [-74.72571692176349, 40.85274172328616],
+            },
           },
           {
             type: "Feature",
@@ -4977,12 +4976,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7260143143708, 40.85179327391944]
-            }
+              coordinates: [-74.7260143143708, 40.85179327391944],
+            },
           },
           {
             type: "Feature",
@@ -5001,12 +5000,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7037752676878, 40.86738951862554]
-            }
+              coordinates: [-74.7037752676878, 40.86738951862554],
+            },
           },
           {
             type: "Feature",
@@ -5025,12 +5024,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70684562608606, 40.78209941348116]
-            }
+              coordinates: [-74.70684562608606, 40.78209941348116],
+            },
           },
           {
             type: "Feature",
@@ -5049,12 +5048,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70510694069856, 40.78503622952902]
-            }
+              coordinates: [-74.70510694069856, 40.78503622952902],
+            },
           },
           {
             type: "Feature",
@@ -5073,12 +5072,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70379338336913, 40.78669344187465]
-            }
+              coordinates: [-74.70379338336913, 40.78669344187465],
+            },
           },
           {
             type: "Feature",
@@ -5097,12 +5096,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69860536268025, 40.78381029280727]
-            }
+              coordinates: [-74.69860536268025, 40.78381029280727],
+            },
           },
           {
             type: "Feature",
@@ -5121,12 +5120,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69449232259628, 40.78812162448368]
-            }
+              coordinates: [-74.69449232259628, 40.78812162448368],
+            },
           },
           {
             type: "Feature",
@@ -5145,12 +5144,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68578251619438, 40.79328162783061]
-            }
+              coordinates: [-74.68578251619438, 40.79328162783061],
+            },
           },
           {
             type: "Feature",
@@ -5169,12 +5168,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68059185062766, 40.79807558735205]
-            }
+              coordinates: [-74.68059185062766, 40.79807558735205],
+            },
           },
           {
             type: "Feature",
@@ -5193,12 +5192,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71651701516315, 40.77522655763591]
-            }
+              coordinates: [-74.71651701516315, 40.77522655763591],
+            },
           },
           {
             type: "Feature",
@@ -5217,12 +5216,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73090421582128, 40.75470224399619]
-            }
+              coordinates: [-74.73090421582128, 40.75470224399619],
+            },
           },
           {
             type: "Feature",
@@ -5241,12 +5240,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7339164559186, 40.75923985679327]
-            }
+              coordinates: [-74.7339164559186, 40.75923985679327],
+            },
           },
           {
             type: "Feature",
@@ -5265,12 +5264,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71046133975855, 40.76477965050477]
-            }
+              coordinates: [-74.71046133975855, 40.76477965050477],
+            },
           },
           {
             type: "Feature",
@@ -5289,12 +5288,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58777464665768, 41.112084911070326]
-            }
+              coordinates: [-74.58777464665768, 41.112084911070326],
+            },
           },
           {
             type: "Feature",
@@ -5313,12 +5312,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57537891537964, 41.014843881283426]
-            }
+              coordinates: [-74.57537891537964, 41.014843881283426],
+            },
           },
           {
             type: "Feature",
@@ -5337,12 +5336,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62336917335004, 41.025706041028094]
-            }
+              coordinates: [-74.62336917335004, 41.025706041028094],
+            },
           },
           {
             type: "Feature",
@@ -5361,12 +5360,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.96135005721386, 40.8748170435177]
-            }
+              coordinates: [-74.96135005721386, 40.8748170435177],
+            },
           },
           {
             type: "Feature",
@@ -5385,12 +5384,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99520985640886, 40.79549389155949]
-            }
+              coordinates: [-74.99520985640886, 40.79549389155949],
+            },
           },
           {
             type: "Feature",
@@ -5409,12 +5408,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88952357351619, 40.86208481970094]
-            }
+              coordinates: [-74.88952357351619, 40.86208481970094],
+            },
           },
           {
             type: "Feature",
@@ -5433,12 +5432,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89756415674779, 40.8309918574329]
-            }
+              coordinates: [-74.89756415674779, 40.8309918574329],
+            },
           },
           {
             type: "Feature",
@@ -5457,12 +5456,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90464789412361, 40.80733423697893]
-            }
+              coordinates: [-74.90464789412361, 40.80733423697893],
+            },
           },
           {
             type: "Feature",
@@ -5481,12 +5480,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89258098276831, 40.81747759893534]
-            }
+              coordinates: [-74.89258098276831, 40.81747759893534],
+            },
           },
           {
             type: "Feature",
@@ -5505,12 +5504,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.43188780932105, 41.001980541464114]
-            }
+              coordinates: [-74.43188780932105, 41.001980541464114],
+            },
           },
           {
             type: "Feature",
@@ -5529,12 +5528,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.46579621168146, 41.080447169919935]
-            }
+              coordinates: [-74.46579621168146, 41.080447169919935],
+            },
           },
           {
             type: "Feature",
@@ -5553,12 +5552,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.45647208256288, 41.01843432785099]
-            }
+              coordinates: [-74.45647208256288, 41.01843432785099],
+            },
           },
           {
             type: "Feature",
@@ -5577,12 +5576,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.85299699521745, 40.81490221230074]
-            }
+              coordinates: [-74.85299699521745, 40.81490221230074],
+            },
           },
           {
             type: "Feature",
@@ -5601,12 +5600,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86489039525857, 40.84241147031279]
-            }
+              coordinates: [-74.86489039525857, 40.84241147031279],
+            },
           },
           {
             type: "Feature",
@@ -5625,12 +5624,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.81608574298058, 40.81146993803371]
-            }
+              coordinates: [-74.81608574298058, 40.81146993803371],
+            },
           },
           {
             type: "Feature",
@@ -5649,12 +5648,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.84220385635696, 40.78145966585507]
-            }
+              coordinates: [-74.84220385635696, 40.78145966585507],
+            },
           },
           {
             type: "Feature",
@@ -5673,12 +5672,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.81315530436565, 40.79773706668668]
-            }
+              coordinates: [-74.81315530436565, 40.79773706668668],
+            },
           },
           {
             type: "Feature",
@@ -5697,12 +5696,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.72426550814414, 40.9605156855071]
-            }
+              coordinates: [-74.72426550814414, 40.9605156855071],
+            },
           },
           {
             type: "Feature",
@@ -5721,12 +5720,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.63092291787689, 40.938541435486385]
-            }
+              coordinates: [-74.63092291787689, 40.938541435486385],
+            },
           },
           {
             type: "Feature",
@@ -5745,12 +5744,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62962768308402, 40.929319953971635]
-            }
+              coordinates: [-74.62962768308402, 40.929319953971635],
+            },
           },
           {
             type: "Feature",
@@ -5769,12 +5768,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67528380650685, 40.934544948518145]
-            }
+              coordinates: [-74.67528380650685, 40.934544948518145],
+            },
           },
           {
             type: "Feature",
@@ -5793,12 +5792,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.63954210165035, 40.95374675544837]
-            }
+              coordinates: [-74.63954210165035, 40.95374675544837],
+            },
           },
           {
             type: "Feature",
@@ -5817,12 +5816,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6088373513846, 40.86944375263111]
-            }
+              coordinates: [-74.6088373513846, 40.86944375263111],
+            },
           },
           {
             type: "Feature",
@@ -5841,12 +5840,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61762113617179, 40.85276911316699]
-            }
+              coordinates: [-74.61762113617179, 40.85276911316699],
+            },
           },
           {
             type: "Feature",
@@ -5865,12 +5864,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61650298751599, 40.85440041163259]
-            }
+              coordinates: [-74.61650298751599, 40.85440041163259],
+            },
           },
           {
             type: "Feature",
@@ -5889,12 +5888,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61576390816211, 40.856608967673836]
-            }
+              coordinates: [-74.61576390816211, 40.856608967673836],
+            },
           },
           {
             type: "Feature",
@@ -5913,12 +5912,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6050483272501, 40.87006008044585]
-            }
+              coordinates: [-74.6050483272501, 40.87006008044585],
+            },
           },
           {
             type: "Feature",
@@ -5937,12 +5936,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5954744895017, 40.84725829414436]
-            }
+              coordinates: [-74.5954744895017, 40.84725829414436],
+            },
           },
           {
             type: "Feature",
@@ -5961,12 +5960,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61472575389621, 40.83852805785073]
-            }
+              coordinates: [-74.61472575389621, 40.83852805785073],
+            },
           },
           {
             type: "Feature",
@@ -5985,12 +5984,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62451548731761, 40.83113067356307]
-            }
+              coordinates: [-74.62451548731761, 40.83113067356307],
+            },
           },
           {
             type: "Feature",
@@ -6009,12 +6008,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56212146858682, 40.86755244552048]
-            }
+              coordinates: [-74.56212146858682, 40.86755244552048],
+            },
           },
           {
             type: "Feature",
@@ -6033,12 +6032,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61452031927531, 40.81208642373135]
-            }
+              coordinates: [-74.61452031927531, 40.81208642373135],
+            },
           },
           {
             type: "Feature",
@@ -6057,12 +6056,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55946116591892, 40.793062106334844]
-            }
+              coordinates: [-74.55946116591892, 40.793062106334844],
+            },
           },
           {
             type: "Feature",
@@ -6081,12 +6080,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80105339830905, 40.89621593465493]
-            }
+              coordinates: [-74.80105339830905, 40.89621593465493],
+            },
           },
           {
             type: "Feature",
@@ -6105,12 +6104,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HAMBURG NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54773574245687, 41.16789019420267]
-            }
+              coordinates: [-74.54773574245687, 41.16789019420267],
+            },
           },
           {
             type: "Feature",
@@ -6129,12 +6128,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HAMBURG NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54945575205915, 41.18054732963274]
-            }
+              coordinates: [-74.54945575205915, 41.18054732963274],
+            },
           },
           {
             type: "Feature",
@@ -6153,12 +6152,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.17886588259807, 40.62219766677702]
-            }
+              coordinates: [-75.17886588259807, 40.62219766677702],
+            },
           },
           {
             type: "Feature",
@@ -6177,12 +6176,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18098896040905, 40.620371898048205]
-            }
+              coordinates: [-75.18098896040905, 40.620371898048205],
+            },
           },
           {
             type: "Feature",
@@ -6201,12 +6200,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.17995129088987, 40.62105551934314]
-            }
+              coordinates: [-75.17995129088987, 40.62105551934314],
+            },
           },
           {
             type: "Feature",
@@ -6225,12 +6224,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90868494946642, 40.91945098615011]
-            }
+              coordinates: [-74.90868494946642, 40.91945098615011],
+            },
           },
           {
             type: "Feature",
@@ -6249,12 +6248,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.94366617419088, 40.88483270843597]
-            }
+              coordinates: [-74.94366617419088, 40.88483270843597],
+            },
           },
           {
             type: "Feature",
@@ -6273,12 +6272,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93667698921467, 40.94837173141849]
-            }
+              coordinates: [-74.93667698921467, 40.94837173141849],
+            },
           },
           {
             type: "Feature",
@@ -6297,12 +6296,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93558577084335, 40.90439489969041]
-            }
+              coordinates: [-74.93558577084335, 40.90439489969041],
+            },
           },
           {
             type: "Feature",
@@ -6321,12 +6320,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86752022072386, 40.667051356898774]
-            }
+              coordinates: [-74.86752022072386, 40.667051356898774],
+            },
           },
           {
             type: "Feature",
@@ -6345,12 +6344,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7803602239816, 40.71598423801243]
-            }
+              coordinates: [-74.7803602239816, 40.71598423801243],
+            },
           },
           {
             type: "Feature",
@@ -6369,12 +6368,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BANGOR NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.13555687731485, 40.75064931019449]
-            }
+              coordinates: [-75.13555687731485, 40.75064931019449],
+            },
           },
           {
             type: "Feature",
@@ -6393,12 +6392,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.94017101779993, 40.6862199224561]
-            }
+              coordinates: [-74.94017101779993, 40.6862199224561],
+            },
           },
           {
             type: "Feature",
@@ -6417,12 +6416,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0890855698475, 40.785825423382256]
-            }
+              coordinates: [-75.0890855698475, 40.785825423382256],
+            },
           },
           {
             type: "Feature",
@@ -6441,12 +6440,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.05343276369517, 40.81093274409778]
-            }
+              coordinates: [-75.05343276369517, 40.81093274409778],
+            },
           },
           {
             type: "Feature",
@@ -6465,12 +6464,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00324523935926, 40.77302018713421]
-            }
+              coordinates: [-75.00324523935926, 40.77302018713421],
+            },
           },
           {
             type: "Feature",
@@ -6489,12 +6488,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61351494906049, 40.75186849995474]
-            }
+              coordinates: [-74.61351494906049, 40.75186849995474],
+            },
           },
           {
             type: "Feature",
@@ -6513,12 +6512,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.77505871389866, 40.71399492517584]
-            }
+              coordinates: [-74.77505871389866, 40.71399492517584],
+            },
           },
           {
             type: "Feature",
@@ -6537,12 +6536,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "GLADSTONE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.742493006704, 40.72109226394718]
-            }
+              coordinates: [-74.742493006704, 40.72109226394718],
+            },
           },
           {
             type: "Feature",
@@ -6561,12 +6560,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90694546605522, 40.92278552584755]
-            }
+              coordinates: [-74.90694546605522, 40.92278552584755],
+            },
           },
           {
             type: "Feature",
@@ -6585,12 +6584,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88194663951501, 40.88889703824043]
-            }
+              coordinates: [-74.88194663951501, 40.88889703824043],
+            },
           },
           {
             type: "Feature",
@@ -6609,12 +6608,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90472272191626, 40.920287230023774]
-            }
+              coordinates: [-74.90472272191626, 40.920287230023774],
+            },
           },
           {
             type: "Feature",
@@ -6633,12 +6632,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92639033044323, 40.895285215062906]
-            }
+              coordinates: [-74.92639033044323, 40.895285215062906],
+            },
           },
           {
             type: "Feature",
@@ -6657,12 +6656,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91722460180843, 40.90806345258899]
-            }
+              coordinates: [-74.91722460180843, 40.90806345258899],
+            },
           },
           {
             type: "Feature",
@@ -6681,12 +6680,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91527822621933, 40.907507767796]
-            }
+              coordinates: [-74.91527822621933, 40.907507767796],
+            },
           },
           {
             type: "Feature",
@@ -6705,12 +6704,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90722322438239, 40.91556265336918]
-            }
+              coordinates: [-74.90722322438239, 40.91556265336918],
+            },
           },
           {
             type: "Feature",
@@ -6729,12 +6728,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90555760859647, 40.918340895558565]
-            }
+              coordinates: [-74.90555760859647, 40.918340895558565],
+            },
           },
           {
             type: "Feature",
@@ -6753,12 +6752,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8966665710273, 40.91167420524497]
-            }
+              coordinates: [-74.8966665710273, 40.91167420524497],
+            },
           },
           {
             type: "Feature",
@@ -6777,12 +6776,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0577802446189, 40.695008674108855]
-            }
+              coordinates: [-75.0577802446189, 40.695008674108855],
+            },
           },
           {
             type: "Feature",
@@ -6801,12 +6800,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0736126079871, 40.68278712243778]
-            }
+              coordinates: [-75.0736126079871, 40.68278712243778],
+            },
           },
           {
             type: "Feature",
@@ -6825,12 +6824,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08361229284266, 40.67500701492253]
-            }
+              coordinates: [-75.08361229284266, 40.67500701492253],
+            },
           },
           {
             type: "Feature",
@@ -6849,12 +6848,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08166908069916, 40.67750930149573]
-            }
+              coordinates: [-75.08166908069916, 40.67750930149573],
+            },
           },
           {
             type: "Feature",
@@ -6873,12 +6872,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.05305816828745, 40.651673644491325]
-            }
+              coordinates: [-75.05305816828745, 40.651673644491325],
+            },
           },
           {
             type: "Feature",
@@ -6897,12 +6896,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04472406235914, 40.65639629960842]
-            }
+              coordinates: [-75.04472406235914, 40.65639629960842],
+            },
           },
           {
             type: "Feature",
@@ -6921,12 +6920,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0430588181176, 40.65639590281848]
-            }
+              coordinates: [-75.0430588181176, 40.65639590281848],
+            },
           },
           {
             type: "Feature",
@@ -6945,12 +6944,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04138998924667, 40.656398254664474]
-            }
+              coordinates: [-75.04138998924667, 40.656398254664474],
+            },
           },
           {
             type: "Feature",
@@ -6969,12 +6968,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04138907956151, 40.65584101063003]
-            }
+              coordinates: [-75.04138907956151, 40.65584101063003],
+            },
           },
           {
             type: "Feature",
@@ -6993,12 +6992,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.048056691645, 40.65445350912516]
-            }
+              coordinates: [-75.048056691645, 40.65445350912516],
+            },
           },
           {
             type: "Feature",
@@ -7017,12 +7016,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04472209471412, 40.64861960411481]
-            }
+              coordinates: [-75.04472209471412, 40.64861960411481],
+            },
           },
           {
             type: "Feature",
@@ -7041,12 +7040,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07694640079542, 40.62778742484939]
-            }
+              coordinates: [-75.07694640079542, 40.62778742484939],
+            },
           },
           {
             type: "Feature",
@@ -7065,12 +7064,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01861099498645, 40.66584142322992]
-            }
+              coordinates: [-75.01861099498645, 40.66584142322992],
+            },
           },
           {
             type: "Feature",
@@ -7089,12 +7088,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01916695059693, 40.663618192206336]
-            }
+              coordinates: [-75.01916695059693, 40.663618192206336],
+            },
           },
           {
             type: "Feature",
@@ -7113,12 +7112,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0205576196328, 40.67000786312233]
-            }
+              coordinates: [-75.0205576196328, 40.67000786312233],
+            },
           },
           {
             type: "Feature",
@@ -7137,12 +7136,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02805567735157, 40.66306455831438]
-            }
+              coordinates: [-75.02805567735157, 40.66306455831438],
+            },
           },
           {
             type: "Feature",
@@ -7161,12 +7160,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Wild Cat Mine"
+              COMMENTS: "Updated 2004, working of Wild Cat Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00750020766753, 40.660562681895684]
-            }
+              coordinates: [-75.00750020766753, 40.660562681895684],
+            },
           },
           {
             type: "Feature",
@@ -7185,12 +7184,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02916815519795, 40.66334220944804]
-            }
+              coordinates: [-75.02916815519795, 40.66334220944804],
+            },
           },
           {
             type: "Feature",
@@ -7209,12 +7208,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.03027982418295, 40.66306260578763]
-            }
+              coordinates: [-75.03027982418295, 40.66306260578763],
+            },
           },
           {
             type: "Feature",
@@ -7233,12 +7232,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02694429413852, 40.65834268607439]
-            }
+              coordinates: [-75.02694429413852, 40.65834268607439],
+            },
           },
           {
             type: "Feature",
@@ -7257,12 +7256,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.1236140323397, 40.63973009909304]
-            }
+              coordinates: [-75.1236140323397, 40.63973009909304],
+            },
           },
           {
             type: "Feature",
@@ -7281,12 +7280,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6424937271758, 40.91354400359557]
-            }
+              coordinates: [-74.6424937271758, 40.91354400359557],
+            },
           },
           {
             type: "Feature",
@@ -7305,12 +7304,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Kean Mines"
+              COMMENTS: "Updated 2005, working of Kean Mines",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89055683232353, 40.678341397748866]
-            }
+              coordinates: [-74.89055683232353, 40.678341397748866],
+            },
           },
           {
             type: "Feature",
@@ -7329,12 +7328,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005"
+              COMMENTS: "Updated 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90111104794136, 40.67000971196333]
-            }
+              coordinates: [-74.90111104794136, 40.67000971196333],
+            },
           },
           {
             type: "Feature",
@@ -7353,12 +7352,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9202778893451, 40.69611817871842]
-            }
+              coordinates: [-74.9202778893451, 40.69611817871842],
+            },
           },
           {
             type: "Feature",
@@ -7377,12 +7376,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005"
+              COMMENTS: "Updated 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.98083659775335, 40.65806351161842]
-            }
+              coordinates: [-74.98083659775335, 40.65806351161842],
+            },
           },
           {
             type: "Feature",
@@ -7401,12 +7400,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93944716147519, 40.69945337214453]
-            }
+              coordinates: [-74.93944716147519, 40.69945337214453],
+            },
           },
           {
             type: "Feature",
@@ -7425,12 +7424,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99944614607865, 40.65556338806566]
-            }
+              coordinates: [-74.99944614607865, 40.65556338806566],
+            },
           },
           {
             type: "Feature",
@@ -7449,12 +7448,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005"
+              COMMENTS: "Updated 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.87777786673665, 40.68334145590369]
-            }
+              coordinates: [-74.87777786673665, 40.68334145590369],
+            },
           },
           {
             type: "Feature",
@@ -7473,12 +7472,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92305700413635, 40.694730020626736]
-            }
+              coordinates: [-74.92305700413635, 40.694730020626736],
+            },
           },
           {
             type: "Feature",
@@ -7497,12 +7496,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59527832321196, 41.030007664495145]
-            }
+              coordinates: [-74.59527832321196, 41.030007664495145],
+            },
           },
           {
             type: "Feature",
@@ -7521,12 +7520,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62333340646195, 41.027785154687805]
-            }
+              coordinates: [-74.62333340646195, 41.027785154687805],
+            },
           },
           {
             type: "Feature",
@@ -7545,12 +7544,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57027908219735, 41.06473176148184]
-            }
+              coordinates: [-74.57027908219735, 41.06473176148184],
+            },
           },
           {
             type: "Feature",
@@ -7569,12 +7568,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57416974457742, 41.06084259490235]
-            }
+              coordinates: [-74.57416974457742, 41.06084259490235],
+            },
           },
           {
             type: "Feature",
@@ -7593,12 +7592,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55222489441293, 41.06389868157275]
-            }
+              coordinates: [-74.55222489441293, 41.06389868157275],
+            },
           },
           {
             type: "Feature",
@@ -7617,12 +7616,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.28209475389306, 41.04010517750582]
-            }
+              coordinates: [-74.28209475389306, 41.04010517750582],
+            },
           },
           {
             type: "Feature",
@@ -7641,12 +7640,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "ORANGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.22987342801417, 40.78120913425718]
-            }
+              coordinates: [-74.22987342801417, 40.78120913425718],
+            },
           },
           {
             type: "Feature",
@@ -7665,12 +7664,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Kean Mines"
+              COMMENTS: "Updated 2005, working of Kean Mines",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89012592413793, 40.67961038084062]
-            }
+              coordinates: [-74.89012592413793, 40.67961038084062],
+            },
           },
           {
             type: "Feature",
@@ -7689,12 +7688,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7353937062122, 40.81848816625415]
-            }
+              coordinates: [-74.7353937062122, 40.81848816625415],
+            },
           },
           {
             type: "Feature",
@@ -7713,12 +7712,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27093716587105, 41.13883064643942]
-            }
+              coordinates: [-74.27093716587105, 41.13883064643942],
+            },
           },
           {
             type: "Feature",
@@ -7737,12 +7736,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27457388281671, 41.13257806856451]
-            }
+              coordinates: [-74.27457388281671, 41.13257806856451],
+            },
           },
           {
             type: "Feature",
@@ -7761,12 +7760,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27489287578724, 41.13218789661885]
-            }
+              coordinates: [-74.27489287578724, 41.13218789661885],
+            },
           },
           {
             type: "Feature",
@@ -7785,12 +7784,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31464538126458, 41.061214399431066]
-            }
+              coordinates: [-74.31464538126458, 41.061214399431066],
+            },
           },
           {
             type: "Feature",
@@ -7809,12 +7808,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.30413987891731, 41.02218605286828]
-            }
+              coordinates: [-74.30413987891731, 41.02218605286828],
+            },
           },
           {
             type: "Feature",
@@ -7833,12 +7832,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31495792543956, 41.09032306584505]
-            }
+              coordinates: [-74.31495792543956, 41.09032306584505],
+            },
           },
           {
             type: "Feature",
@@ -7857,12 +7856,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59652511412533, 40.88910461493399]
-            }
+              coordinates: [-74.59652511412533, 40.88910461493399],
+            },
           },
           {
             type: "Feature",
@@ -7881,12 +7880,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59030604477599, 40.89309256916406]
-            }
+              coordinates: [-74.59030604477599, 40.89309256916406],
+            },
           },
           {
             type: "Feature",
@@ -7905,12 +7904,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55356829127949, 40.92286940671558]
-            }
+              coordinates: [-74.55356829127949, 40.92286940671558],
+            },
           },
           {
             type: "Feature",
@@ -7929,12 +7928,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.52741489643341, 40.94263811033366]
-            }
+              coordinates: [-74.52741489643341, 40.94263811033366],
+            },
           },
           {
             type: "Feature",
@@ -7953,12 +7952,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57814822806169, 40.91504774848056]
-            }
+              coordinates: [-74.57814822806169, 40.91504774848056],
+            },
           },
           {
             type: "Feature",
@@ -7977,12 +7976,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01919630041219, 40.823469819039175]
-            }
+              coordinates: [-75.01919630041219, 40.823469819039175],
+            },
           },
           {
             type: "Feature",
@@ -8001,12 +8000,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48304389470292, 40.93493923745085]
-            }
+              coordinates: [-74.48304389470292, 40.93493923745085],
+            },
           },
           {
             type: "Feature",
@@ -8025,12 +8024,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.44069429638385, 40.965808468645875]
-            }
+              coordinates: [-74.44069429638385, 40.965808468645875],
+            },
           },
           {
             type: "Feature",
@@ -8049,12 +8048,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48282416438029, 40.96663150527114]
-            }
+              coordinates: [-74.48282416438029, 40.96663150527114],
+            },
           },
           {
             type: "Feature",
@@ -8073,12 +8072,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47254061597764, 40.95106447954626]
-            }
+              coordinates: [-74.47254061597764, 40.95106447954626],
+            },
           },
           {
             type: "Feature",
@@ -8097,12 +8096,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.4912343966406, 40.96134660693392]
-            }
+              coordinates: [-74.4912343966406, 40.96134660693392],
+            },
           },
           {
             type: "Feature",
@@ -8121,12 +8120,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08668865976381, 40.7197569722843]
-            }
+              coordinates: [-75.08668865976381, 40.7197569722843],
+            },
           },
           {
             type: "Feature",
@@ -8145,12 +8144,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73236599754381, 40.84596802546454]
-            }
+              coordinates: [-74.73236599754381, 40.84596802546454],
+            },
           },
           {
             type: "Feature",
@@ -8169,12 +8168,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69088249540333, 40.87123221162434]
-            }
+              coordinates: [-74.69088249540333, 40.87123221162434],
+            },
           },
           {
             type: "Feature",
@@ -8193,12 +8192,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70602956705399, 40.780516151901125]
-            }
+              coordinates: [-74.70602956705399, 40.780516151901125],
+            },
           },
           {
             type: "Feature",
@@ -8217,12 +8216,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61611647333255, 41.00485159114275]
-            }
+              coordinates: [-74.61611647333255, 41.00485159114275],
+            },
           },
           {
             type: "Feature",
@@ -8241,12 +8240,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99618749993172, 40.79782068726611]
-            }
+              coordinates: [-74.99618749993172, 40.79782068726611],
+            },
           },
           {
             type: "Feature",
@@ -8265,12 +8264,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.96837480781294, 40.831672597802445]
-            }
+              coordinates: [-74.96837480781294, 40.831672597802445],
+            },
           },
           {
             type: "Feature",
@@ -8289,12 +8288,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91139403929513, 40.81151155998225]
-            }
+              coordinates: [-74.91139403929513, 40.81151155998225],
+            },
           },
           {
             type: "Feature",
@@ -8313,12 +8312,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99365515193165, 40.7979044692972]
-            }
+              coordinates: [-74.99365515193165, 40.7979044692972],
+            },
           },
           {
             type: "Feature",
@@ -8337,12 +8336,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.46452014446609, 41.01417204872692]
-            }
+              coordinates: [-74.46452014446609, 41.01417204872692],
+            },
           },
           {
             type: "Feature",
@@ -8361,12 +8360,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.84934646327119, 40.817886819646006]
-            }
+              coordinates: [-74.84934646327119, 40.817886819646006],
+            },
           },
           {
             type: "Feature",
@@ -8385,12 +8384,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.85636899788072, 40.837755552962605]
-            }
+              coordinates: [-74.85636899788072, 40.837755552962605],
+            },
           },
           {
             type: "Feature",
@@ -8409,12 +8408,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.87297987295538, 40.77357280934975]
-            }
+              coordinates: [-74.87297987295538, 40.77357280934975],
+            },
           },
           {
             type: "Feature",
@@ -8433,12 +8432,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.81077847488979, 40.81008510106447]
-            }
+              coordinates: [-74.81077847488979, 40.81008510106447],
+            },
           },
           {
             type: "Feature",
@@ -8457,12 +8456,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73883254764893, 40.93680055467704]
-            }
+              coordinates: [-74.73883254764893, 40.93680055467704],
+            },
           },
           {
             type: "Feature",
@@ -8481,12 +8480,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6710015140961, 40.99032494525668]
-            }
+              coordinates: [-74.6710015140961, 40.99032494525668],
+            },
           },
           {
             type: "Feature",
@@ -8505,12 +8504,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60839875970822, 40.866505180664056]
-            }
+              coordinates: [-74.60839875970822, 40.866505180664056],
+            },
           },
           {
             type: "Feature",
@@ -8529,12 +8528,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59049455261056, 40.85123496065417]
-            }
+              coordinates: [-74.59049455261056, 40.85123496065417],
+            },
           },
           {
             type: "Feature",
@@ -8553,12 +8552,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58205335828887, 40.752091800544434]
-            }
+              coordinates: [-74.58205335828887, 40.752091800544434],
+            },
           },
           {
             type: "Feature",
@@ -8577,12 +8576,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.79424356964178, 40.90996418018411]
-            }
+              coordinates: [-74.79424356964178, 40.90996418018411],
+            },
           },
           {
             type: "Feature",
@@ -8601,12 +8600,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.81762196244499, 40.89300691858831]
-            }
+              coordinates: [-74.81762196244499, 40.89300691858831],
+            },
           },
           {
             type: "Feature",
@@ -8625,12 +8624,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HAMBURG NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.53194311538493, 41.196640812352065]
-            }
+              coordinates: [-74.53194311538493, 41.196640812352065],
+            },
           },
           {
             type: "Feature",
@@ -8649,12 +8648,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.94471056445663, 40.908741491675855]
-            }
+              coordinates: [-74.94471056445663, 40.908741491675855],
+            },
           },
           {
             type: "Feature",
@@ -8673,12 +8672,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.87977565029885, 40.88957191700717]
-            }
+              coordinates: [-74.87977565029885, 40.88957191700717],
+            },
           },
           {
             type: "Feature",
@@ -8697,12 +8696,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7669043125987, 40.72713227535845]
-            }
+              coordinates: [-74.7669043125987, 40.72713227535845],
+            },
           },
           {
             type: "Feature",
@@ -8721,12 +8720,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7228189356155, 41.01411671261064]
-            }
+              coordinates: [-74.7228189356155, 41.01411671261064],
+            },
           },
           {
             type: "Feature",
@@ -8745,12 +8744,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "ORANGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.20209708811399, 40.799537515692684]
-            }
+              coordinates: [-74.20209708811399, 40.799537515692684],
+            },
           },
           {
             type: "Feature",
@@ -8769,12 +8768,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "NEW BRUNSWICK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48554192833947, 40.45797419677878]
-            }
+              coordinates: [-74.48554192833947, 40.45797419677878],
+            },
           },
           {
             type: "Feature",
@@ -8793,12 +8792,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.00334202765785, 40.81513490348063]
-            }
+              coordinates: [-75.00334202765785, 40.81513490348063],
+            },
           },
           {
             type: "Feature",
@@ -8817,12 +8816,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RAMSEY NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.20316284210448, 41.09200441607801]
-            }
+              coordinates: [-74.20316284210448, 41.09200441607801],
+            },
           },
           {
             type: "Feature",
@@ -8841,12 +8840,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "MORRISTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.49668867706582, 40.82390827153763]
-            }
+              coordinates: [-74.49668867706582, 40.82390827153763],
+            },
           },
           {
             type: "Feature",
@@ -8865,12 +8864,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0552799233064, 40.739174198825665]
-            }
+              coordinates: [-75.0552799233064, 40.739174198825665],
+            },
           },
           {
             type: "Feature",
@@ -8889,12 +8888,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08028097217365, 40.68084051377461]
-            }
+              coordinates: [-75.08028097217365, 40.68084051377461],
+            },
           },
           {
             type: "Feature",
@@ -8913,12 +8912,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02416719660206, 40.671951484754665]
-            }
+              coordinates: [-75.02416719660206, 40.671951484754665],
+            },
           },
           {
             type: "Feature",
@@ -8937,12 +8936,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02500281320903, 40.67000970211472]
-            }
+              coordinates: [-75.02500281320903, 40.67000970211472],
+            },
           },
           {
             type: "Feature",
@@ -8961,12 +8960,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0247226676307, 40.66278603941575]
-            }
+              coordinates: [-75.0247226676307, 40.66278603941575],
+            },
           },
           {
             type: "Feature",
@@ -8985,12 +8984,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Banghart Mine"
+              COMMENTS: "Updated 2005, working of Banghart Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91639025377671, 40.701951721510426]
-            }
+              coordinates: [-74.91639025377671, 40.701951721510426],
+            },
           },
           {
             type: "Feature",
@@ -9009,12 +9008,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.87583634614495, 40.68306505730837]
-            }
+              coordinates: [-74.87583634614495, 40.68306505730837],
+            },
           },
           {
             type: "Feature",
@@ -9033,12 +9032,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Marble Mt."
+              COMMENTS: "Updated 2005, working of Marble Mt.",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18666708220847, 40.71584032472717]
-            }
+              coordinates: [-75.18666708220847, 40.71584032472717],
+            },
           },
           {
             type: "Feature",
@@ -9057,12 +9056,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006, Sweetwater Shaft"
+              COMMENTS: "Added 2006, Sweetwater Shaft",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56000042680232, 40.91612056949426]
-            }
+              coordinates: [-74.56000042680232, 40.91612056949426],
+            },
           },
           {
             type: "Feature",
@@ -9081,12 +9080,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62305535478853, 41.02834265876721]
-            }
+              coordinates: [-74.62305535478853, 41.02834265876721],
+            },
           },
           {
             type: "Feature",
@@ -9105,12 +9104,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62278033224679, 41.03834254331562]
-            }
+              coordinates: [-74.62278033224679, 41.03834254331562],
+            },
           },
           {
             type: "Feature",
@@ -9129,12 +9128,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55277977358729, 41.06389842876296]
-            }
+              coordinates: [-74.55277977358729, 41.06389842876296],
+            },
           },
           {
             type: "Feature",
@@ -9153,12 +9152,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.39533367730473, 41.21119433212716]
-            }
+              coordinates: [-74.39533367730473, 41.21119433212716],
+            },
           },
           {
             type: "Feature",
@@ -9177,12 +9176,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Kean Mines"
+              COMMENTS: "Updated 2005, working of Kean Mines",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89027810530428, 40.68000858130013]
-            }
+              coordinates: [-74.89027810530428, 40.68000858130013],
+            },
           },
           {
             type: "Feature",
@@ -9201,12 +9200,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005"
+              COMMENTS: "Updated 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89139086047562, 40.6569519554341]
-            }
+              coordinates: [-74.89139086047562, 40.6569519554341],
+            },
           },
           {
             type: "Feature",
@@ -9225,12 +9224,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Banghart Mine"
+              COMMENTS: "Updated 2005, working of Banghart Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91611424942181, 40.70222995698998]
-            }
+              coordinates: [-74.91611424942181, 40.70222995698998],
+            },
           },
           {
             type: "Feature",
@@ -9249,12 +9248,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Banghart Mine"
+              COMMENTS: "Updated 2005, working of Banghart Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9163919973388, 40.70223170234291]
-            }
+              coordinates: [-74.9163919973388, 40.70223170234291],
+            },
           },
           {
             type: "Feature",
@@ -9273,12 +9272,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26888897841513, 41.14445395565725]
-            }
+              coordinates: [-74.26888897841513, 41.14445395565725],
+            },
           },
           {
             type: "Feature",
@@ -9297,12 +9296,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.16277896824455, 40.62278641461315]
-            }
+              coordinates: [-75.16277896824455, 40.62278641461315],
+            },
           },
           {
             type: "Feature",
@@ -9321,12 +9320,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.13028088036289, 40.600285975177904]
-            }
+              coordinates: [-75.13028088036289, 40.600285975177904],
+            },
           },
           {
             type: "Feature",
@@ -9345,12 +9344,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.12972266480529, 40.60028627307321]
-            }
+              coordinates: [-75.12972266480529, 40.60028627307321],
+            },
           },
           {
             type: "Feature",
@@ -9369,12 +9368,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006, North Shaft"
+              COMMENTS: "Added 2006, North Shaft",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59083401277813, 41.04028532096803]
-            }
+              coordinates: [-74.59083401277813, 41.04028532096803],
+            },
           },
           {
             type: "Feature",
@@ -9393,12 +9392,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59250121433536, 41.00112000604739]
-            }
+              coordinates: [-74.59250121433536, 41.00112000604739],
+            },
           },
           {
             type: "Feature",
@@ -9417,12 +9416,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57444472848678, 41.06028521374593]
-            }
+              coordinates: [-74.57444472848678, 41.06028521374593],
+            },
           },
           {
             type: "Feature",
@@ -9441,12 +9440,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.40816169353172, 41.22231841361381]
-            }
+              coordinates: [-74.40816169353172, 41.22231841361381],
+            },
           },
           {
             type: "Feature",
@@ -9465,12 +9464,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRENCHTOWN NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.05012171058485, 40.62395600589244]
-            }
+              coordinates: [-75.05012171058485, 40.62395600589244],
+            },
           },
           {
             type: "Feature",
@@ -9489,12 +9488,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "ORANGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.12875915286929, 40.77871586357721]
-            }
+              coordinates: [-74.12875915286929, 40.77871586357721],
+            },
           },
           {
             type: "Feature",
@@ -9513,12 +9512,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70709005262941, 40.783149791109636]
-            }
+              coordinates: [-74.70709005262941, 40.783149791109636],
+            },
           },
           {
             type: "Feature",
@@ -9537,12 +9536,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69688210105362, 40.77556487411915]
-            }
+              coordinates: [-74.69688210105362, 40.77556487411915],
+            },
           },
           {
             type: "Feature",
@@ -9561,12 +9560,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6943873489057, 40.76330323457069]
-            }
+              coordinates: [-74.6943873489057, 40.76330323457069],
+            },
           },
           {
             type: "Feature",
@@ -9585,12 +9584,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BOUND BROOK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57922307497252, 40.60323296832365]
-            }
+              coordinates: [-74.57922307497252, 40.60323296832365],
+            },
           },
           {
             type: "Feature",
@@ -9609,12 +9608,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.36679410486074, 41.19308540585783]
-            }
+              coordinates: [-74.36679410486074, 41.19308540585783],
+            },
           },
           {
             type: "Feature",
@@ -9633,12 +9632,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.2605330999835, 41.15354505943965]
-            }
+              coordinates: [-74.2605330999835, 41.15354505943965],
+            },
           },
           {
             type: "Feature",
@@ -9657,12 +9656,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27353003580241, 41.133666234494605]
-            }
+              coordinates: [-74.27353003580241, 41.133666234494605],
+            },
           },
           {
             type: "Feature",
@@ -9681,12 +9680,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Miller Mine"
+              COMMENTS: "Updated 2005, working of Miller Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.95194767946953, 40.683898451499]
-            }
+              coordinates: [-74.95194767946953, 40.683898451499],
+            },
           },
           {
             type: "Feature",
@@ -9705,12 +9704,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Miller Mine"
+              COMMENTS: "Updated 2005, working of Miller Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.95305814139641, 40.683342346096914]
-            }
+              coordinates: [-74.95305814139641, 40.683342346096914],
+            },
           },
           {
             type: "Feature",
@@ -9729,12 +9728,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92416973818106, 40.693896935596946]
-            }
+              coordinates: [-74.92416973818106, 40.693896935596946],
+            },
           },
           {
             type: "Feature",
@@ -9753,12 +9752,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005, working of Banghart Mine"
+              COMMENTS: "Updated 2005, working of Banghart Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9166698820117, 40.701676201095104]
-            }
+              coordinates: [-74.9166698820117, 40.701676201095104],
+            },
           },
           {
             type: "Feature",
@@ -9777,12 +9776,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.17750023608957, 40.729729275611355]
-            }
+              coordinates: [-75.17750023608957, 40.729729275611355],
+            },
           },
           {
             type: "Feature",
@@ -9801,12 +9800,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67875981787039, 40.755823527139235]
-            }
+              coordinates: [-74.67875981787039, 40.755823527139235],
+            },
           },
           {
             type: "Feature",
@@ -9825,12 +9824,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08389173568594, 40.63056344646305]
-            }
+              coordinates: [-75.08389173568594, 40.63056344646305],
+            },
           },
           {
             type: "Feature",
@@ -9849,12 +9848,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58972489577792, 41.03778560740243]
-            }
+              coordinates: [-74.58972489577792, 41.03778560740243],
+            },
           },
           {
             type: "Feature",
@@ -9873,12 +9872,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57138857869711, 41.05778657368737]
-            }
+              coordinates: [-74.57138857869711, 41.05778657368737],
+            },
           },
           {
             type: "Feature",
@@ -9897,12 +9896,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.51305684627715, 41.09750954763406]
-            }
+              coordinates: [-74.51305684627715, 41.09750954763406],
+            },
           },
           {
             type: "Feature",
@@ -9921,12 +9920,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.7176464157836, 40.7685168539263]
-            }
+              coordinates: [-74.7176464157836, 40.7685168539263],
+            },
           },
           {
             type: "Feature",
@@ -9945,12 +9944,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07187901775457, 40.79851277346735]
-            }
+              coordinates: [-75.07187901775457, 40.79851277346735],
+            },
           },
           {
             type: "Feature",
@@ -9969,12 +9968,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56677579685798, 41.068390346059985]
-            }
+              coordinates: [-74.56677579685798, 41.068390346059985],
+            },
           },
           {
             type: "Feature",
@@ -9993,12 +9992,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.75382342023711, 40.812670915530994]
-            }
+              coordinates: [-74.75382342023711, 40.812670915530994],
+            },
           },
           {
             type: "Feature",
@@ -10017,12 +10016,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HAMBURG NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54743367320359, 41.14598375056228]
-            }
+              coordinates: [-74.54743367320359, 41.14598375056228],
+            },
           },
           {
             type: "Feature",
@@ -10041,12 +10040,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.94194571534129, 40.88723066815436]
-            }
+              coordinates: [-74.94194571534129, 40.88723066815436],
+            },
           },
           {
             type: "Feature",
@@ -10065,12 +10064,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "MICA",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.10646497638963, 40.742364314756664]
-            }
+              coordinates: [-75.10646497638963, 40.742364314756664],
+            },
           },
           {
             type: "Feature",
@@ -10089,12 +10088,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.49757717954888, 40.941737402758875]
-            }
+              coordinates: [-74.49757717954888, 40.941737402758875],
+            },
           },
           {
             type: "Feature",
@@ -10113,12 +10112,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68530624418538, 40.78237773903635]
-            }
+              coordinates: [-74.68530624418538, 40.78237773903635],
+            },
           },
           {
             type: "Feature",
@@ -10137,12 +10136,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.49667826171796, 41.10053042624121]
-            }
+              coordinates: [-74.49667826171796, 41.10053042624121],
+            },
           },
           {
             type: "Feature",
@@ -10161,12 +10160,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.81869434684289, 40.89260371980422]
-            }
+              coordinates: [-74.81869434684289, 40.89260371980422],
+            },
           },
           {
             type: "Feature",
@@ -10185,12 +10184,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67958499582635, 41.05146621720285]
-            }
+              coordinates: [-74.67958499582635, 41.05146621720285],
+            },
           },
           {
             type: "Feature",
@@ -10209,12 +10208,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Carter Mine"
+              COMMENTS: "Updated 2004, working of Carter Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.11888999800898, 40.72278691345366]
-            }
+              coordinates: [-75.11888999800898, 40.72278691345366],
+            },
           },
           {
             type: "Feature",
@@ -10233,12 +10232,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HAMBURG NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5329675404462, 41.24076128548768]
-            }
+              coordinates: [-74.5329675404462, 41.24076128548768],
+            },
           },
           {
             type: "Feature",
@@ -10257,12 +10256,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "CHATHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.42394668653506, 40.66739090786642]
-            }
+              coordinates: [-74.42394668653506, 40.66739090786642],
+            },
           },
           {
             type: "Feature",
@@ -10281,12 +10280,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07055677635451, 40.64028716846818]
-            }
+              coordinates: [-75.07055677635451, 40.64028716846818],
+            },
           },
           {
             type: "Feature",
@@ -10305,12 +10304,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.62361095201688, 41.02695315345433]
-            }
+              coordinates: [-74.62361095201688, 41.02695315345433],
+            },
           },
           {
             type: "Feature",
@@ -10329,12 +10328,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26224426832123, 41.15077050277286]
-            }
+              coordinates: [-74.26224426832123, 41.15077050277286],
+            },
           },
           {
             type: "Feature",
@@ -10353,12 +10352,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60027192882909, 40.891121015484345]
-            }
+              coordinates: [-74.60027192882909, 40.891121015484345],
+            },
           },
           {
             type: "Feature",
@@ -10377,12 +10376,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.76243652609122, 40.96100502950209]
-            }
+              coordinates: [-74.76243652609122, 40.96100502950209],
+            },
           },
           {
             type: "Feature",
@@ -10401,12 +10400,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80585904295424, 40.89371070994902]
-            }
+              coordinates: [-74.80585904295424, 40.89371070994902],
+            },
           },
           {
             type: "Feature",
@@ -10425,12 +10424,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18327029979115, 40.62016815263638]
-            }
+              coordinates: [-75.18327029979115, 40.62016815263638],
+            },
           },
           {
             type: "Feature",
@@ -10449,12 +10448,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88791210963878, 40.88724509728568]
-            }
+              coordinates: [-74.88791210963878, 40.88724509728568],
+            },
           },
           {
             type: "Feature",
@@ -10473,12 +10472,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.86945778613776, 40.65193901047863]
-            }
+              coordinates: [-74.86945778613776, 40.65193901047863],
+            },
           },
           {
             type: "Feature",
@@ -10497,12 +10496,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.83696964447556, 40.73921354735859]
-            }
+              coordinates: [-74.83696964447556, 40.73921354735859],
+            },
           },
           {
             type: "Feature",
@@ -10521,12 +10520,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.71961016342766, 41.01522751537163]
-            }
+              coordinates: [-74.71961016342766, 41.01522751537163],
+            },
           },
           {
             type: "Feature",
@@ -10545,12 +10544,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0069770321488, 40.815799934132336]
-            }
+              coordinates: [-75.0069770321488, 40.815799934132336],
+            },
           },
           {
             type: "Feature",
@@ -10569,12 +10568,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "STOCKTON NJ-PA",
               GPS: " ",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90107910279019, 40.453627216922705]
-            }
+              coordinates: [-74.90107910279019, 40.453627216922705],
+            },
           },
           {
             type: "Feature",
@@ -10593,12 +10592,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.53352667464324, 40.78581001195442]
-            }
+              coordinates: [-74.53352667464324, 40.78581001195442],
+            },
           },
           {
             type: "Feature",
@@ -10617,12 +10616,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.91166654329527, 40.910284852659586]
-            }
+              coordinates: [-74.91166654329527, 40.910284852659586],
+            },
           },
           {
             type: "Feature",
@@ -10641,12 +10640,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93250190531444, 40.89389823195957]
-            }
+              coordinates: [-74.93250190531444, 40.89389823195957],
+            },
           },
           {
             type: "Feature",
@@ -10665,12 +10664,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8916689347267, 40.91889671445774]
-            }
+              coordinates: [-74.8916689347267, 40.91889671445774],
+            },
           },
           {
             type: "Feature",
@@ -10689,12 +10688,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89416906843284, 40.91639855562898]
-            }
+              coordinates: [-74.89416906843284, 40.91639855562898],
+            },
           },
           {
             type: "Feature",
@@ -10713,12 +10712,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Carter Mine"
+              COMMENTS: "Updated 2004, working of Carter Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.11916730662637, 40.72195369432087]
-            }
+              coordinates: [-75.11916730662637, 40.72195369432087],
+            },
           },
           {
             type: "Feature",
@@ -10737,12 +10736,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08361235412303, 40.675841500940706]
-            }
+              coordinates: [-75.08361235412303, 40.675841500940706],
+            },
           },
           {
             type: "Feature",
@@ -10761,12 +10760,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Turkey Hill"
+              COMMENTS: "Updated 2004, working of Turkey Hill",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04694520703536, 40.654730536279544]
-            }
+              coordinates: [-75.04694520703536, 40.654730536279544],
+            },
           },
           {
             type: "Feature",
@@ -10785,12 +10784,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.09611335925305, 40.62611990862655]
-            }
+              coordinates: [-75.09611335925305, 40.62611990862655],
+            },
           },
           {
             type: "Feature",
@@ -10809,12 +10808,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89194689700145, 40.67250897374618]
-            }
+              coordinates: [-74.89194689700145, 40.67250897374618],
+            },
           },
           {
             type: "Feature",
@@ -10833,12 +10832,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89833392370218, 40.715842108922345]
-            }
+              coordinates: [-74.89833392370218, 40.715842108922345],
+            },
           },
           {
             type: "Feature",
@@ -10857,12 +10856,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "EASTON PA-NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.1686112443552, 40.73389860784148]
-            }
+              coordinates: [-75.1686112443552, 40.73389860784148],
+            },
           },
           {
             type: "Feature",
@@ -10881,12 +10880,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006, Southwest end of workings"
+              COMMENTS: "Added 2006, Southwest end of workings",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.51139084273312, 40.926118926022376]
-            }
+              coordinates: [-74.51139084273312, 40.926118926022376],
+            },
           },
           {
             type: "Feature",
@@ -10905,12 +10904,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.13111216449741, 40.5994524336745]
-            }
+              coordinates: [-75.13111216449741, 40.5994524336745],
+            },
           },
           {
             type: "Feature",
@@ -10929,12 +10928,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006, South Shaft"
+              COMMENTS: "Added 2006, South Shaft",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59083363163775, 41.04000809621337]
-            }
+              coordinates: [-74.59083363163775, 41.04000809621337],
+            },
           },
           {
             type: "Feature",
@@ -10953,12 +10952,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59250126147919, 41.0400095074847]
-            }
+              coordinates: [-74.59250126147919, 41.0400095074847],
+            },
           },
           {
             type: "Feature",
@@ -10977,12 +10976,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2006"
+              COMMENTS: "Added 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59944582096375, 41.0269518345835]
-            }
+              coordinates: [-74.59944582096375, 41.0269518345835],
+            },
           },
           {
             type: "Feature",
@@ -11001,12 +11000,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57333419205858, 41.06278649853632]
-            }
+              coordinates: [-74.57333419205858, 41.06278649853632],
+            },
           },
           {
             type: "Feature",
@@ -11025,12 +11024,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31575225446008, 40.988507230280426]
-            }
+              coordinates: [-74.31575225446008, 40.988507230280426],
+            },
           },
           {
             type: "Feature",
@@ -11049,12 +11048,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.3649375805099, 40.96022339942583]
-            }
+              coordinates: [-74.3649375805099, 40.96022339942583],
+            },
           },
           {
             type: "Feature",
@@ -11073,12 +11072,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BOUND BROOK NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5579372629567, 40.580648551812814]
-            }
+              coordinates: [-74.5579372629567, 40.580648551812814],
+            },
           },
           {
             type: "Feature",
@@ -11097,12 +11096,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60712172634197, 40.870944448044796]
-            }
+              coordinates: [-74.60712172634197, 40.870944448044796],
+            },
           },
           {
             type: "Feature",
@@ -11121,12 +11120,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61109825907974, 40.86863681550345]
-            }
+              coordinates: [-74.61109825907974, 40.86863681550345],
+            },
           },
           {
             type: "Feature",
@@ -11145,12 +11144,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88678604588576, 40.91673115217144]
-            }
+              coordinates: [-74.88678604588576, 40.91673115217144],
+            },
           },
           {
             type: "Feature",
@@ -11169,12 +11168,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26535641505512, 41.14789636400896]
-            }
+              coordinates: [-74.26535641505512, 41.14789636400896],
+            },
           },
           {
             type: "Feature",
@@ -11193,12 +11192,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.25998467074344, 41.14621834117658]
-            }
+              coordinates: [-74.25998467074344, 41.14621834117658],
+            },
           },
           {
             type: "Feature",
@@ -11217,12 +11216,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26952662442201, 41.144730399689344]
-            }
+              coordinates: [-74.26952662442201, 41.144730399689344],
+            },
           },
           {
             type: "Feature",
@@ -11241,12 +11240,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27173202801472, 41.13537545567341]
-            }
+              coordinates: [-74.27173202801472, 41.13537545567341],
+            },
           },
           {
             type: "Feature",
@@ -11265,12 +11264,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.27322486888762, 41.13280410254053]
-            }
+              coordinates: [-74.27322486888762, 41.13280410254053],
+            },
           },
           {
             type: "Feature",
@@ -11289,12 +11288,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "ZINC",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58751267864339, 41.1150069858741]
-            }
+              coordinates: [-74.58751267864339, 41.1150069858741],
+            },
           },
           {
             type: "Feature",
@@ -11313,12 +11312,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "CHATHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.44348957725977, 40.63260181173119]
-            }
+              coordinates: [-74.44348957725977, 40.63260181173119],
+            },
           },
           {
             type: "Feature",
@@ -11337,12 +11336,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "COPPER",
               QUAD_NAME: "PERTH AMBOY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.33321017145437, 40.56454409264009]
-            }
+              coordinates: [-74.33321017145437, 40.56454409264009],
+            },
           },
           {
             type: "Feature",
@@ -11361,12 +11360,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57296620920863, 40.91429336907416]
-            }
+              coordinates: [-74.57296620920863, 40.91429336907416],
+            },
           },
           {
             type: "Feature",
@@ -11385,12 +11384,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57725080073328, 40.904314454443245]
-            }
+              coordinates: [-74.57725080073328, 40.904314454443245],
+            },
           },
           {
             type: "Feature",
@@ -11409,12 +11408,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.53693793146128, 40.93636261173938]
-            }
+              coordinates: [-74.53693793146128, 40.93636261173938],
+            },
           },
           {
             type: "Feature",
@@ -11433,12 +11432,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5472361375027, 40.927637886482024]
-            }
+              coordinates: [-74.5472361375027, 40.927637886482024],
+            },
           },
           {
             type: "Feature",
@@ -11457,12 +11456,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.55080588510668, 40.9247063286837]
-            }
+              coordinates: [-74.55080588510668, 40.9247063286837],
+            },
           },
           {
             type: "Feature",
@@ -11481,12 +11480,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07276125118257, 40.79791908461344]
-            }
+              coordinates: [-75.07276125118257, 40.79791908461344],
+            },
           },
           {
             type: "Feature",
@@ -11505,12 +11504,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.39436026017076, 40.94035569025418]
-            }
+              coordinates: [-74.39436026017076, 40.94035569025418],
+            },
           },
           {
             type: "Feature",
@@ -11529,12 +11528,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69711444994479, 40.784994745605445]
-            }
+              coordinates: [-74.69711444994479, 40.784994745605445],
+            },
           },
           {
             type: "Feature",
@@ -11553,12 +11552,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67029413146214, 40.80556412782124]
-            }
+              coordinates: [-74.67029413146214, 40.80556412782124],
+            },
           },
           {
             type: "Feature",
@@ -11577,12 +11576,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.65954330898143, 40.81283294073039]
-            }
+              coordinates: [-74.65954330898143, 40.81283294073039],
+            },
           },
           {
             type: "Feature",
@@ -11601,12 +11600,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69442433107918, 40.776764664241576]
-            }
+              coordinates: [-74.69442433107918, 40.776764664241576],
+            },
           },
           {
             type: "Feature",
@@ -11625,12 +11624,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60589793352014, 41.08207210830701]
-            }
+              coordinates: [-74.60589793352014, 41.08207210830701],
+            },
           },
           {
             type: "Feature",
@@ -11649,12 +11648,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59003505265065, 41.10938979239934]
-            }
+              coordinates: [-74.59003505265065, 41.10938979239934],
+            },
           },
           {
             type: "Feature",
@@ -11673,12 +11672,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.99513165378846, 40.79318707799905]
-            }
+              coordinates: [-74.99513165378846, 40.79318707799905],
+            },
           },
           {
             type: "Feature",
@@ -11697,12 +11696,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.995349155346, 40.79845752469534]
-            }
+              coordinates: [-74.995349155346, 40.79845752469534],
+            },
           },
           {
             type: "Feature",
@@ -11721,12 +11720,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93413583208094, 40.78608950894524]
-            }
+              coordinates: [-74.93413583208094, 40.78608950894524],
+            },
           },
           {
             type: "Feature",
@@ -11745,12 +11744,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.43123255915327, 41.12385344650844]
-            }
+              coordinates: [-74.43123255915327, 41.12385344650844],
+            },
           },
           {
             type: "Feature",
@@ -11769,12 +11768,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.85087864156078, 40.81702384376416]
-            }
+              coordinates: [-74.85087864156078, 40.81702384376416],
+            },
           },
           {
             type: "Feature",
@@ -11793,12 +11792,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.79417042649287, 40.85996334403654]
-            }
+              coordinates: [-74.79417042649287, 40.85996334403654],
+            },
           },
           {
             type: "Feature",
@@ -11817,12 +11816,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80126986913714, 40.87328256792953]
-            }
+              coordinates: [-74.80126986913714, 40.87328256792953],
+            },
           },
           {
             type: "Feature",
@@ -11841,12 +11840,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73597226435948, 40.91274081725489]
-            }
+              coordinates: [-74.73597226435948, 40.91274081725489],
+            },
           },
           {
             type: "Feature",
@@ -11865,12 +11864,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6265595464713, 40.946253363781096]
-            }
+              coordinates: [-74.6265595464713, 40.946253363781096],
+            },
           },
           {
             type: "Feature",
@@ -11889,12 +11888,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.65179036709101, 40.8992113612835]
-            }
+              coordinates: [-74.65179036709101, 40.8992113612835],
+            },
           },
           {
             type: "Feature",
@@ -11913,12 +11912,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.70423322241896, 40.879521222860156]
-            }
+              coordinates: [-74.70423322241896, 40.879521222860156],
+            },
           },
           {
             type: "Feature",
@@ -11937,12 +11936,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60208699199221, 40.874820254088256]
-            }
+              coordinates: [-74.60208699199221, 40.874820254088256],
+            },
           },
           {
             type: "Feature",
@@ -11961,12 +11960,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59326281968588, 40.84936343316456]
-            }
+              coordinates: [-74.59326281968588, 40.84936343316456],
+            },
           },
           {
             type: "Feature",
@@ -11985,12 +11984,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6037904386563, 40.84156559858406]
-            }
+              coordinates: [-74.6037904386563, 40.84156559858406],
+            },
           },
           {
             type: "Feature",
@@ -12009,12 +12008,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80750173789835, 40.885919122430025]
-            }
+              coordinates: [-74.80750173789835, 40.885919122430025],
+            },
           },
           {
             type: "Feature",
@@ -12033,12 +12032,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "RIEGELSVILLE PA-NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.18982996178761, 40.597928228842974]
-            }
+              coordinates: [-75.18982996178761, 40.597928228842974],
+            },
           },
           {
             type: "Feature",
@@ -12057,12 +12056,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.79431078828893, 40.70647660708495]
-            }
+              coordinates: [-74.79431078828893, 40.70647660708495],
+            },
           },
           {
             type: "Feature",
@@ -12081,12 +12080,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92461493493109, 40.63455383421963]
-            }
+              coordinates: [-74.92461493493109, 40.63455383421963],
+            },
           },
           {
             type: "Feature",
@@ -12105,12 +12104,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56490986781544, 40.78184727122859]
-            }
+              coordinates: [-74.56490986781544, 40.78184727122859],
+            },
           },
           {
             type: "Feature",
@@ -12129,12 +12128,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.3229320772152, 41.039629248072465]
-            }
+              coordinates: [-74.3229320772152, 41.039629248072465],
+            },
           },
           {
             type: "Feature",
@@ -12153,12 +12152,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "MICA",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.54865617387198, 40.78154972624744]
-            }
+              coordinates: [-74.54865617387198, 40.78154972624744],
+            },
           },
           {
             type: "Feature",
@@ -12177,12 +12176,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "SULFIDE",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89277820988084, 40.93389667279535]
-            }
+              coordinates: [-74.89277820988084, 40.93389667279535],
+            },
           },
           {
             type: "Feature",
@@ -12201,12 +12200,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8922229464793, 40.91834310011789]
-            }
+              coordinates: [-74.8922229464793, 40.91834310011789],
+            },
           },
           {
             type: "Feature",
@@ -12225,12 +12224,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "MICA",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04778043304071, 40.74750815779907]
-            }
+              coordinates: [-75.04778043304071, 40.74750815779907],
+            },
           },
           {
             type: "Feature",
@@ -12249,12 +12248,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.044167077845, 40.648619483102514]
-            }
+              coordinates: [-75.044167077845, 40.648619483102514],
+            },
           },
           {
             type: "Feature",
@@ -12273,12 +12272,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07472346941752, 40.62695302792899]
-            }
+              coordinates: [-75.07472346941752, 40.62695302792899],
+            },
           },
           {
             type: "Feature",
@@ -12297,12 +12296,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02833604632052, 40.64834162991719]
-            }
+              coordinates: [-75.02833604632052, 40.64834162991719],
+            },
           },
           {
             type: "Feature",
@@ -12321,12 +12320,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.03000110428924, 40.648342231227275]
-            }
+              coordinates: [-75.03000110428924, 40.648342231227275],
+            },
           },
           {
             type: "Feature",
@@ -12345,12 +12344,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02444750916914, 40.652507117222264]
-            }
+              coordinates: [-75.02444750916914, 40.652507117222264],
+            },
           },
           {
             type: "Feature",
@@ -12369,12 +12368,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.53625011615325, 40.89150305264431]
-            }
+              coordinates: [-74.53625011615325, 40.89150305264431],
+            },
           },
           {
             type: "Feature",
@@ -12393,12 +12392,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.06812633404112, 40.79069188727491]
-            }
+              coordinates: [-75.06812633404112, 40.79069188727491],
+            },
           },
           {
             type: "Feature",
@@ -12417,12 +12416,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01983135709345, 40.81598803409366]
-            }
+              coordinates: [-75.01983135709345, 40.81598803409366],
+            },
           },
           {
             type: "Feature",
@@ -12441,12 +12440,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.4817664770433, 40.96514154488176]
-            }
+              coordinates: [-74.4817664770433, 40.96514154488176],
+            },
           },
           {
             type: "Feature",
@@ -12465,12 +12464,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48857270418061, 40.94969284188343]
-            }
+              coordinates: [-74.48857270418061, 40.94969284188343],
+            },
           },
           {
             type: "Feature",
@@ -12489,12 +12488,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BOONTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.40203126148964, 40.95009097657792]
-            }
+              coordinates: [-74.40203126148964, 40.95009097657792],
+            },
           },
           {
             type: "Feature",
@@ -12513,12 +12512,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.07742171479325, 40.68345061701157]
-            }
+              coordinates: [-75.07742171479325, 40.68345061701157],
+            },
           },
           {
             type: "Feature",
@@ -12537,12 +12536,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73071245142872, 40.84790791234296]
-            }
+              coordinates: [-74.73071245142872, 40.84790791234296],
+            },
           },
           {
             type: "Feature",
@@ -12561,12 +12560,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69810181112466, 40.78430783299746]
-            }
+              coordinates: [-74.69810181112466, 40.78430783299746],
+            },
           },
           {
             type: "Feature",
@@ -12585,12 +12584,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6645613651828, 40.80774320833745]
-            }
+              coordinates: [-74.6645613651828, 40.80774320833745],
+            },
           },
           {
             type: "Feature",
@@ -12609,12 +12608,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.64378763081321, 40.82114194105561]
-            }
+              coordinates: [-74.64378763081321, 40.82114194105561],
+            },
           },
           {
             type: "Feature",
@@ -12633,12 +12632,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.63125397996563, 40.82593537357844]
-            }
+              coordinates: [-74.63125397996563, 40.82593537357844],
+            },
           },
           {
             type: "Feature",
@@ -12657,12 +12656,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.57844358867375, 41.01347762418997]
-            }
+              coordinates: [-74.57844358867375, 41.01347762418997],
+            },
           },
           {
             type: "Feature",
@@ -12681,12 +12680,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59533629064106, 41.100532211806225]
-            }
+              coordinates: [-74.59533629064106, 41.100532211806225],
+            },
           },
           {
             type: "Feature",
@@ -12705,12 +12704,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93441934946404, 40.76549588346578]
-            }
+              coordinates: [-74.93441934946404, 40.76549588346578],
+            },
           },
           {
             type: "Feature",
@@ -12729,12 +12728,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9963854185141, 40.79693150157338]
-            }
+              coordinates: [-74.9963854185141, 40.79693150157338],
+            },
           },
           {
             type: "Feature",
@@ -12753,12 +12752,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.90298319332972, 40.760587277038006]
-            }
+              coordinates: [-74.90298319332972, 40.760587277038006],
+            },
           },
           {
             type: "Feature",
@@ -12777,12 +12776,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47540528450769, 41.113328594996794]
-            }
+              coordinates: [-74.47540528450769, 41.113328594996794],
+            },
           },
           {
             type: "Feature",
@@ -12801,12 +12800,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.4381235558684, 41.117265461297166]
-            }
+              coordinates: [-74.4381235558684, 41.117265461297166],
+            },
           },
           {
             type: "Feature",
@@ -12825,12 +12824,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.80185992370305, 40.8020357891213]
-            }
+              coordinates: [-74.80185992370305, 40.8020357891213],
+            },
           },
           {
             type: "Feature",
@@ -12849,12 +12848,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67010872106513, 40.9985061327402]
-            }
+              coordinates: [-74.67010872106513, 40.9985061327402],
+            },
           },
           {
             type: "Feature",
@@ -12873,12 +12872,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.66619492759875, 40.94523494073999]
-            }
+              coordinates: [-74.66619492759875, 40.94523494073999],
+            },
           },
           {
             type: "Feature",
@@ -12897,12 +12896,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.66271563899832, 40.88061439705231]
-            }
+              coordinates: [-74.66271563899832, 40.88061439705231],
+            },
           },
           {
             type: "Feature",
@@ -12921,12 +12920,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61224939344018, 40.86758335090834]
-            }
+              coordinates: [-74.61224939344018, 40.86758335090834],
+            },
           },
           {
             type: "Feature",
@@ -12945,12 +12944,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61021227976056, 40.874795278226635]
-            }
+              coordinates: [-74.61021227976056, 40.874795278226635],
+            },
           },
           {
             type: "Feature",
@@ -12969,12 +12968,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.5550694131577, 40.87443386024387]
-            }
+              coordinates: [-74.5550694131577, 40.87443386024387],
+            },
           },
           {
             type: "Feature",
@@ -12993,12 +12992,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "TRANQUILITY NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.78424537407673, 40.90541757493486]
-            }
+              coordinates: [-74.78424537407673, 40.90541757493486],
+            },
           },
           {
             type: "Feature",
@@ -13017,12 +13016,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89755629188802, 40.883931713731705]
-            }
+              coordinates: [-74.89755629188802, 40.883931713731705],
+            },
           },
           {
             type: "Feature",
@@ -13041,12 +13040,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.83606183273305, 40.73875589141771]
-            }
+              coordinates: [-74.83606183273305, 40.73875589141771],
+            },
           },
           {
             type: "Feature",
@@ -13065,12 +13064,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.87043084318758, 40.66106695357014]
-            }
+              coordinates: [-74.87043084318758, 40.66106695357014],
+            },
           },
           {
             type: "Feature",
@@ -13089,12 +13088,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.85660255313145, 40.67316791461536]
-            }
+              coordinates: [-74.85660255313145, 40.67316791461536],
+            },
           },
           {
             type: "Feature",
@@ -13113,12 +13112,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.83359911843098, 40.684232102749014]
-            }
+              coordinates: [-74.83359911843098, 40.684232102749014],
+            },
           },
           {
             type: "Feature",
@@ -13137,12 +13136,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.77942320173291, 40.71753831299218]
-            }
+              coordinates: [-74.77942320173291, 40.71753831299218],
+            },
           },
           {
             type: "Feature",
@@ -13161,12 +13160,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73179755886017, 41.00788389491327]
-            }
+              coordinates: [-74.73179755886017, 41.00788389491327],
+            },
           },
           {
             type: "Feature",
@@ -13185,12 +13184,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "CALIFON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.8729860242511, 40.649085927364716]
-            }
+              coordinates: [-74.8729860242511, 40.649085927364716],
+            },
           },
           {
             type: "Feature",
@@ -13209,12 +13208,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "GRAPHITE",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.32467600854382, 40.99677208773738]
-            }
+              coordinates: [-74.32467600854382, 40.99677208773738],
+            },
           },
           {
             type: "Feature",
@@ -13233,12 +13232,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.94388939598994, 40.88473080562727]
-            }
+              coordinates: [-74.94388939598994, 40.88473080562727],
+            },
           },
           {
             type: "Feature",
@@ -13257,12 +13256,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92194521061367, 40.90278699378562]
-            }
+              coordinates: [-74.92194521061367, 40.90278699378562],
+            },
           },
           {
             type: "Feature",
@@ -13281,12 +13280,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9166694361458, 40.90723100370912]
-            }
+              coordinates: [-74.9166694361458, 40.90723100370912],
+            },
           },
           {
             type: "Feature",
@@ -13305,12 +13304,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88916772475001, 40.92000864510317]
-            }
+              coordinates: [-74.88916772475001, 40.92000864510317],
+            },
           },
           {
             type: "Feature",
@@ -13329,12 +13328,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Howell Farm"
+              COMMENTS: "Updated 2004, working of Howell Farm",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89194429610998, 40.91834130981413]
-            }
+              coordinates: [-74.89194429610998, 40.91834130981413],
+            },
           },
           {
             type: "Feature",
@@ -13353,12 +13352,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Carter Mine"
+              COMMENTS: "Updated 2004, working of Carter Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.12389158905492, 40.72056398681312]
-            }
+              coordinates: [-75.12389158905492, 40.72056398681312],
+            },
           },
           {
             type: "Feature",
@@ -13377,12 +13376,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.029999873472, 40.65000848155669]
-            }
+              coordinates: [-75.029999873472, 40.65000848155669],
+            },
           },
           {
             type: "Feature",
@@ -13401,12 +13400,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.01944738400401, 40.66445142029307]
-            }
+              coordinates: [-75.01944738400401, 40.66445142029307],
+            },
           },
           {
             type: "Feature",
@@ -13425,12 +13424,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02083527400971, 40.66445340870379]
-            }
+              coordinates: [-75.02083527400971, 40.66445340870379],
+            },
           },
           {
             type: "Feature",
@@ -13449,12 +13448,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.0216665337255, 40.66334065411959]
-            }
+              coordinates: [-75.0216665337255, 40.66334065411959],
+            },
           },
           {
             type: "Feature",
@@ -13473,12 +13472,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73062866926968, 40.841663114780395]
-            }
+              coordinates: [-74.73062866926968, 40.841663114780395],
+            },
           },
           {
             type: "Feature",
@@ -13497,12 +13496,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48554026681026, 41.1528586097227]
-            }
+              coordinates: [-74.48554026681026, 41.1528586097227],
+            },
           },
           {
             type: "Feature",
@@ -13521,12 +13520,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.28365037562783, 41.132215311065885]
-            }
+              coordinates: [-74.28365037562783, 41.132215311065885],
+            },
           },
           {
             type: "Feature",
@@ -13545,12 +13544,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59797193447315, 40.87660718627414]
-            }
+              coordinates: [-74.59797193447315, 40.87660718627414],
+            },
           },
           {
             type: "Feature",
@@ -13569,12 +13568,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.52957699380624, 40.94076073601265]
-            }
+              coordinates: [-74.52957699380624, 40.94076073601265],
+            },
           },
           {
             type: "Feature",
@@ -13593,12 +13592,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58201871700754, 40.989526642845576]
-            }
+              coordinates: [-74.58201871700754, 40.989526642845576],
+            },
           },
           {
             type: "Feature",
@@ -13617,12 +13616,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04195360893053, 40.68976248725307]
-            }
+              coordinates: [-75.04195360893053, 40.68976248725307],
+            },
           },
           {
             type: "Feature",
@@ -13641,12 +13640,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68916232457755, 40.87415224155673]
-            }
+              coordinates: [-74.68916232457755, 40.87415224155673],
+            },
           },
           {
             type: "Feature",
@@ -13665,12 +13664,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.67738228283034, 40.80029028087967]
-            }
+              coordinates: [-74.67738228283034, 40.80029028087967],
+            },
           },
           {
             type: "Feature",
@@ -13689,12 +13688,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WASHINGTON NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.967437750441, 40.864493001086245]
-            }
+              coordinates: [-74.967437750441, 40.864493001086245],
+            },
           },
           {
             type: "Feature",
@@ -13713,12 +13712,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.47622228595334, 41.10875123177502]
-            }
+              coordinates: [-74.47622228595334, 41.10875123177502],
+            },
           },
           {
             type: "Feature",
@@ -13737,12 +13736,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HACKETTSTOWN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.84070400983994, 40.79782851168198]
-            }
+              coordinates: [-74.84070400983994, 40.79782851168198],
+            },
           },
           {
             type: "Feature",
@@ -13761,12 +13760,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.6104730042459, 40.807047489048955]
-            }
+              coordinates: [-74.6104730042459, 40.807047489048955],
+            },
           },
           {
             type: "Feature",
@@ -13785,12 +13784,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.93976444539744, 40.940380886593054]
-            }
+              coordinates: [-74.93976444539744, 40.940380886593054],
+            },
           },
           {
             type: "Feature",
@@ -13809,12 +13808,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.89128094847875, 40.672609020013965]
-            }
+              coordinates: [-74.89128094847875, 40.672609020013965],
+            },
           },
           {
             type: "Feature",
@@ -13833,12 +13832,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLAIRSTOWN NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.88638898557278, 40.88278573901365]
-            }
+              coordinates: [-74.88638898557278, 40.88278573901365],
+            },
           },
           {
             type: "Feature",
@@ -13857,12 +13856,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Carter Mine"
+              COMMENTS: "Updated 2004, working of Carter Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.12083416431334, 40.72000951450918]
-            }
+              coordinates: [-75.12083416431334, 40.72000951450918],
+            },
           },
           {
             type: "Feature",
@@ -13881,12 +13880,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02750211668915, 40.6486199467665]
-            }
+              coordinates: [-75.02750211668915, 40.6486199467665],
+            },
           },
           {
             type: "Feature",
@@ -13905,12 +13904,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.03027843453877, 40.6633426004696]
-            }
+              coordinates: [-75.03027843453877, 40.6633426004696],
+            },
           },
           {
             type: "Feature",
@@ -13929,12 +13928,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.09778010847222, 40.625565030333625]
-            }
+              coordinates: [-75.09778010847222, 40.625565030333625],
+            },
           },
           {
             type: "Feature",
@@ -13953,12 +13952,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WAWAYANDA NJ-NY",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.39375446029258, 41.21297220074038]
-            }
+              coordinates: [-74.39375446029258, 41.21297220074038],
+            },
           },
           {
             type: "Feature",
@@ -13977,12 +13976,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "ZINC",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.60479483584805, 41.08352068473073]
-            }
+              coordinates: [-74.60479483584805, 41.08352068473073],
+            },
           },
           {
             type: "Feature",
@@ -14001,12 +14000,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.06729277425265, 40.80418713005076]
-            }
+              coordinates: [-75.06729277425265, 40.80418713005076],
+            },
           },
           {
             type: "Feature",
@@ -14025,12 +14024,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.74075512375043, 40.81388921690667]
-            }
+              coordinates: [-74.74075512375043, 40.81388921690667],
+            },
           },
           {
             type: "Feature",
@@ -14049,12 +14048,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.4312242048297, 41.01928066064476]
-            }
+              coordinates: [-74.4312242048297, 41.01928066064476],
+            },
           },
           {
             type: "Feature",
@@ -14073,12 +14072,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61281914983351, 40.81503723498667]
-            }
+              coordinates: [-74.61281914983351, 40.81503723498667],
+            },
           },
           {
             type: "Feature",
@@ -14097,12 +14096,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWTON EAST NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.73493623272472, 41.00361541824323]
-            }
+              coordinates: [-74.73493623272472, 41.00361541824323],
+            },
           },
           {
             type: "Feature",
@@ -14121,12 +14120,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004"
+              COMMENTS: "Updated 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.08333590720791, 40.675562901670965]
-            }
+              coordinates: [-75.08333590720791, 40.675562901670965],
+            },
           },
           {
             type: "Feature",
@@ -14145,12 +14144,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2005"
+              COMMENTS: "Updated 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.9966682794419, 40.68000894009735]
-            }
+              coordinates: [-74.9966682794419, 40.68000894009735],
+            },
           },
           {
             type: "Feature",
@@ -14169,12 +14168,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "HIGH BRIDGE NJ",
               GPS: "YES",
-              COMMENTS: "Added 2005"
+              COMMENTS: "Added 2005",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.92472337506995, 40.693620397320274]
-            }
+              coordinates: [-74.92472337506995, 40.693620397320274],
+            },
           },
           {
             type: "Feature",
@@ -14193,12 +14192,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "FRANKLIN NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2006"
+              COMMENTS: "Updated 2006",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.56972478186623, 41.065286563963035]
-            }
+              coordinates: [-74.56972478186623, 41.065286563963035],
+            },
           },
           {
             type: "Feature",
@@ -14217,12 +14216,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "URANIUM",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.74333470486552, 40.9426549744144]
-            }
+              coordinates: [-74.74333470486552, 40.9426549744144],
+            },
           },
           {
             type: "Feature",
@@ -14241,12 +14240,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "POMPTON PLAINS NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.32405384762457, 40.9970262852142]
-            }
+              coordinates: [-74.32405384762457, 40.9970262852142],
+            },
           },
           {
             type: "Feature",
@@ -14265,12 +14264,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.58549098534019, 40.898961320588754]
-            }
+              coordinates: [-74.58549098534019, 40.898961320588754],
+            },
           },
           {
             type: "Feature",
@@ -14289,12 +14288,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "CHESTER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.68787501813247, 40.772817733951676]
-            }
+              coordinates: [-74.68787501813247, 40.772817733951676],
+            },
           },
           {
             type: "Feature",
@@ -14313,12 +14312,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.31570794829584, 41.05982720125706]
-            }
+              coordinates: [-74.31570794829584, 41.05982720125706],
+            },
           },
           {
             type: "Feature",
@@ -14337,12 +14336,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "WANAQUE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.3040413327842, 41.1220484146638]
-            }
+              coordinates: [-74.3040413327842, 41.1220484146638],
+            },
           },
           {
             type: "Feature",
@@ -14361,12 +14360,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "GREENWOOD LAKE NYNJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.26467465751325, 41.14865477861307]
-            }
+              coordinates: [-74.26467465751325, 41.14865477861307],
+            },
           },
           {
             type: "Feature",
@@ -14385,12 +14384,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "DOVER NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.59739446505384, 40.97375962625665]
-            }
+              coordinates: [-74.59739446505384, 40.97375962625665],
+            },
           },
           {
             type: "Feature",
@@ -14409,12 +14408,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BELVIDERE NJ-PA",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.04082291264405, 40.81253198155175]
-            }
+              coordinates: [-75.04082291264405, 40.81253198155175],
+            },
           },
           {
             type: "Feature",
@@ -14433,12 +14432,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "NEWFOUNDLAND NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.48481640970739, 41.00180426061511]
-            }
+              coordinates: [-74.48481640970739, 41.00180426061511],
+            },
           },
           {
             type: "Feature",
@@ -14457,12 +14456,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "MENDHAM NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.61106972684401, 40.864276819917016]
-            }
+              coordinates: [-74.61106972684401, 40.864276819917016],
+            },
           },
           {
             type: "Feature",
@@ -14481,12 +14480,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "STANHOPE NJ",
               GPS: " ",
-              COMMENTS: " "
+              COMMENTS: " ",
             },
             geometry: {
               type: "Point",
-              coordinates: [-74.69417452453908, 40.917406416610014]
-            }
+              coordinates: [-74.69417452453908, 40.917406416610014],
+            },
           },
           {
             type: "Feature",
@@ -14505,12 +14504,12 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Updated 2004, working of Swayze Mine"
+              COMMENTS: "Updated 2004, working of Swayze Mine",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02389075942196, 40.66473055232234]
-            }
+              coordinates: [-75.02389075942196, 40.66473055232234],
+            },
           },
           {
             type: "Feature",
@@ -14529,15 +14528,15 @@ window.addEventListener("DOMContentLoaded", () => {
               ELEMENT: "IRON",
               QUAD_NAME: "BLOOMSBURY NJ",
               GPS: "YES",
-              COMMENTS: "Added 2004"
+              COMMENTS: "Added 2004",
             },
             geometry: {
               type: "Point",
-              coordinates: [-75.02527863322713, 40.66472974054703]
-            }
-          }
-        ]
-      }
+              coordinates: [-75.02527863322713, 40.66472974054703],
+            },
+          },
+        ],
+      },
     ];
     var random =
       points[0].features[Math.floor(Math.random() * points[0].features.length)];
@@ -14547,9 +14546,4 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   let points = getGpsPoints();
-
-
-
-
-
 });

@@ -140,13 +140,6 @@ $(function () {
       "marker-color": "blue",
     }),
   }).addTo(map);
-  const bookmark = L.marker([0, 0], {
-    icon: L.mapbox.marker.icon({
-      "marker-size": "large",
-
-      "marker-color": "blue",
-    }),
-  }).addTo(map);
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -154,12 +147,10 @@ $(function () {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: "my-geo-icon",
+      showPopup: false,
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 5000,
       },
     })
     .addTo(map);
@@ -190,7 +181,6 @@ $(function () {
     setTimeout(() => {
       map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
       marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
-      locationControl.stop();
     }, 1000);
   });
 

@@ -2,14 +2,15 @@
 import HaversineGeolocation from "haversine-geolocation";
 import "utils/commentscript.js";
 import {
-  addBookmark, popupContent, toggleAltitude, toggleBookmark
+  addBookmark,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
 } from "utils/geocoder";
 import "./firebase";
 
 window.addEventListener("DOMContentLoaded", () => {
-
   function DDtoDMS(lat, lon) {
-
     let latitude = Math.abs(lat);
     let longitude = Math.abs(lon);
     let dLat = Math.floor(latitude);
@@ -69,7 +70,6 @@ window.addEventListener("DOMContentLoaded", () => {
     // L.marker is a low-level marker constructor in Leaflet.
   }
 
-
   var locationControl = L.control
     .locate({
       circleStyle: { opacity: 0 },
@@ -77,28 +77,20 @@ window.addEventListener("DOMContentLoaded", () => {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: "my-geo-icon",
+      showPopup: false,
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 5000,
       },
     })
     .addTo(map);
 
-
-
   map.on("locationfound", function (e) {
-    console.log(e)
+    console.log(e);
 
     let icon = locationControl._icon;
-    $("form")
-      .first()
-      .find("input:eq(2)").val("")
-    $("form")
-      .first()
-      .find("input:eq(3)").val("")
+    $("form").first().find("input:eq(2)").val("");
+    $("form").first().find("input:eq(3)").val("");
     let lat = e.latlng.lat;
 
     let lon = e.latlng.lng;
@@ -114,18 +106,16 @@ window.addEventListener("DOMContentLoaded", () => {
       inputs[1].value = lon;
     }
     const data = {
-
       lat: lat,
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon },
-      origin: true
+      origin: true,
     };
 
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
     marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
     locationControl.stop();
-
   });
 
   const App = function _App() {
@@ -173,17 +163,12 @@ window.addEventListener("DOMContentLoaded", () => {
   $("#switchTest").click(function (e) {
     e.preventDefault();
   });
-  console.log(
-    $("form")
-      .first()
-      .find("input:eq(2)")
-  );
+  console.log($("form").first().find("input:eq(2)"));
   $("#latlonForm").on("submit", function (e) {
     e.preventDefault();
-    const popupCheck = marker1.isPopupOpen()
+    const popupCheck = marker1.isPopupOpen();
     if (popupCheck) {
-
-      marker1.closePopup()
+      marker1.closePopup();
     }
 
     const submitText = $("form :submit").first().text();
@@ -218,35 +203,29 @@ window.addEventListener("DOMContentLoaded", () => {
       "mi"
     );
 
-
     let originResults = {
-
       lat: originLat,
       lon: originLon,
       dms: { lat: originDMSCalculated.lat, lon: originDMSCalculated.lon },
       origin: true,
     };
     let destinationResults = {
-
       lat: destinationLat,
       lon: destinationLon,
-      dms: { lat: destinationDMSCalculated.lat, lon: destinationDMSCalculated.lon },
-      destination: true
+      dms: {
+        lat: destinationDMSCalculated.lat,
+        lon: destinationDMSCalculated.lon,
+      },
+      destination: true,
     };
     const originPopup = popupContent(originResults);
-    const destinationPopup = popupContent(destinationResults)
+    const destinationPopup = popupContent(destinationResults);
 
     const popup1 = L.popup().setContent(originPopup);
     const popup2 = L.popup().setContent(destinationPopup);
-    marker1
-      .setLatLng([originLat, originLon])
-      .bindPopup(popup1)
+    marker1.setLatLng([originLat, originLon]).bindPopup(popup1);
 
-
-
-    marker2
-      .setLatLng([destinationLat, destinationLon])
-      .bindPopup(popup2)
+    marker2.setLatLng([destinationLat, destinationLon]).bindPopup(popup2);
 
     $("#distanceInput").val(`${distance} miles`);
     map.fitBounds(
@@ -259,69 +238,60 @@ window.addEventListener("DOMContentLoaded", () => {
     $("form :submit").first().html(submitText);
   });
 
-
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
-
     if ($(this).hasClass("origin")) {
-      toggleAltitude(this, marker1)
+      toggleAltitude(this, marker1);
     } else {
-      toggleAltitude(this, marker2)
+      toggleAltitude(this, marker2);
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker1)
+    toggleBookmark(this, marker1);
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    toggleBookmark(this, marker2)
-
+    toggleBookmark(this, marker2);
   });
-  map.on('popupopen', function (e) {
+  map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     map.panTo(map.unproject(px), { animate: true });
-    $('.leaflet-top.leaflet-left').css('opacity', '0');
+    $(".leaflet-top.leaflet-left").css("opacity", "0");
     // TODO update
   });
-  map.on('popupclose', function (e) {
+  map.on("popupclose", function (e) {
     // TODO update
-    $('.leaflet-top.leaflet-left').css('opacity', '1');
+    $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
 
-  $('#map').on('click', '#add-bookmark-btn', function (e) {
-    let input = $(this).parent().children().first()
-
+  $("#map").on("click", "#add-bookmark-btn", function (e) {
+    let input = $(this).parent().children().first();
 
     if (input[0].value.length < 1) {
-      $(input).addClass('is-invalid')
-      $(this).parent().append(`   <div id="validationServer03Feedback" class="invalid-feedback">
+      $(input).addClass("is-invalid");
+      $(this).parent()
+        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
       Please provide a name.
-  </div>`)
-    }
-    else {
+  </div>`);
+    } else {
+      const markerCheck = marker1.isPopupOpen();
+      const localData = markerCheck ? "origin-data" : "destination-data";
+      const marker = markerCheck ? marker1 : marker2;
+      let locationData = JSON.parse(localStorage.getItem(localData));
+      let ldata = JSON.parse(localStorage.getItem("location-data"));
+      let altitude = ldata.altitude ? ldata.altitude : null;
+      locationData.altitude = altitude;
+      locationData.name = input[0].value;
 
-      const markerCheck = marker1.isPopupOpen()
-      const localData = markerCheck ? "origin-data" : "destination-data"
-      const marker = markerCheck ? marker1 : marker2
-      let locationData = JSON.parse(localStorage.getItem(localData))
-      let ldata = JSON.parse(localStorage.getItem("location-data"))
-      let altitude = ldata.altitude ? ldata.altitude : null
-      locationData.altitude = altitude
-      locationData.name = input[0].value
+      localStorage.setItem("location-data", JSON.stringify(locationData));
 
+      addBookmark("location-data");
 
-      localStorage.setItem("location-data", JSON.stringify(locationData))
-
-      addBookmark("location-data")
-
-      let p = popupContent(locationData)
-      marker.setPopupContent(p)
-
+      let p = popupContent(locationData);
+      marker.setPopupContent(p);
     }
   });
-
 });
-

@@ -5,31 +5,31 @@ export const geojson = {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [0, 0]
+        coordinates: [0, 0],
       },
       properties: {
         title: "Mapbox DC",
         description: "1714 14th St NW, Washington DC",
         "marker-color": "#35A2D1",
         "marker-size": "large",
-        "marker-symbol": "1"
-      }
+        "marker-symbol": "1",
+      },
     },
     {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: [0, 0]
+        coordinates: [0, 0],
       },
       properties: {
         title: "Mapbox SF",
         description: "155 9th St, San Francisco",
         "marker-color": "#fc4353",
         "marker-size": "large",
-        "marker-symbol": "2"
-      }
-    }
-  ]
+        "marker-symbol": "2",
+      },
+    },
+  ],
 };
 
 export const map = L.mapbox.map("map").setView([37.9, -77], 6);
@@ -50,34 +50,36 @@ var locationControl = L.control
     followCircleStyle: { opacity: 0 },
     drawCircle: false,
     follow: false,
-    icon: "fas fa-map-marker-alt", // follow the user's location
     setView: false,
     remainActive: false,
-    iconLoading: "leaflet-control-locate-location-arrow"
+    showPopup: false,
+    locateOptions: {
+      enableHighAccuracy: true,
+    },
   })
   .addTo(map);
 export const LocationState = function _LocationState() {
   let data = {
     origin: {
-      lat: LocationState.state.lat
+      lat: LocationState.state.lat,
     },
     destination: {
-      lon: LocationState.state.lon
-    }
+      lon: LocationState.state.lon,
+    },
   };
   return data;
 };
 const myhandler = {
   set: function (obj, prop, value) {
     obj[prop] = value;
-  }
+  },
 };
 
 LocationState.state = new Proxy({ lat: null, lon: null }, myhandler);
 
 export const findLocation = () => {
   map.on("locationfound", function (e) {
-    map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });;
+    map.fitBounds(e.bounds, { padding: [50, 50], maxZoom: 13 });
 
     let lat = e.latlng.lat;
 

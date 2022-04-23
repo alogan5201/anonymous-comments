@@ -161,12 +161,10 @@ window.addEventListener("DOMContentLoaded", () => {
       drawCircle: false,
       follow: false,
       setView: false,
-      iconLoading: "spinner-border spinner-border-sm map-spinner",
       remainActive: false,
-      icon: "my-geo-icon",
+      showPopup: false,
       locateOptions: {
         enableHighAccuracy: true,
-        timeout: 5000,
       },
     })
     .addTo(map);
