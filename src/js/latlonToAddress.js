@@ -1,6 +1,8 @@
 /* jshint esversion: 8 */
 import "./firebase"
-import { popupContent, getLatLon, getAddress, getElevation, generateUID, addBookmark } from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress, getElevation, generateUID, addBookmark, toggleBookmark,
+  toggleAltitude
+} from "utils/geocoder";
 import { Dropdown } from 'bootstrap/dist/js/bootstrap.esm.min.js'
 import 'utils/commentscript.js'
 const uid = generateUID()
@@ -11,9 +13,7 @@ const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
   return new Dropdown(dropdownToggleEl)
 })
 const path = window.location.pathname
-function test(e) {
-  e.preventDefault()
-}
+
 window.addEventListener('DOMContentLoaded', () => {
   let scrollPos = 0
   const mainNav = document.getElementById('mainNav')
@@ -50,10 +50,6 @@ $(document).ready(function () {
     document.getElementById(elm).checked = true
   }
 
-  const convertLocationData = document.getElementById('convertLocationData')
-  const latInputField = document.getElementById('latInputField')
-  const lonInputField = document.getElementById('lonInputField')
-  const latlonGeocoderBtn = document.getElementById('latlonGeocoderBtn')
 
   const CoordsApp = function _CoordsApp() {
     return `
@@ -225,40 +221,10 @@ $(document).ready(function () {
     const highestElevation = Math.max(...elevations)
     $('.altitude').html(`<div> ${highestElevation} meters </div>`)
   }
-  $("#map").on("click", "#getAltitude", function (e) {
-    e.preventDefault();
-    let width = $(this).width()
-    let hstack = $(this).parent().parent()
 
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
-   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
-   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
- </button>
- `)
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-    console.log("has class origin");
-    marker.setPopupContent(newPopupContent)
-    let coords = marker.getLatLng();
-    getElevationData(coords.lng, coords.lat);
-
-  });
 
   // Clear results container when search is cleared.
 
-  function format(time) {
-    // Hours, minutes and seconds
-    var hrs = ~~(time / 3600)
-    var mins = ~~((time % 3600) / 60)
-
-    let result = {
-      hours: hrs,
-      minutes: mins
-    }
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    return result
-  }
 
   $('#latlonForm').on('submit', async function (e) {
     e.preventDefault()
@@ -342,18 +308,18 @@ $(document).ready(function () {
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
   };
+
+
+
+    $("#map").on("click", "#getAltitude", function (e) {
+    e.preventDefault();
+toggleAltitude(this, marker)
+
+  });
+
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("location-data")
-    let parsed = JSON.parse(cachedData)
-    let coords = marker.getLatLng();
-    name = name.replace(/^\s+|\s+$/gm, "");
-    $(this).prop("disabled", true)
-    $(this).children().last().removeClass("far").addClass("fas")
-
-    addBookmark("location-data")
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-    marker.setPopupContent(newPopupContent);
+ toggleBookmark(this, marker)
   });
   map.on('popupopen', function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

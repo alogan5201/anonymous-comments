@@ -61,6 +61,7 @@
     "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.20.1",
     "geolib": "^3.3.3",
+    "gridjs": "^5.0.2",
     "haversine-geolocation": "^1.6.0",
     "jquery": "^3.6.0",
     "jsdom": "^19.0.0",

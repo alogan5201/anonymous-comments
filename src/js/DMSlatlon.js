@@ -1,6 +1,8 @@
 /* jshint esversion: 8 */
+import "./firebase"
 import 'utils/commentscript.js'
-import {  popupContent, getElevation } from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress, getAltitude, generateUID, addBookmark, toggleBookmark, toggleAltitude} from 'utils/geocoder'
+import { getIp } from "./firebase";
 function test (e) {
   e.preventDefault()
 }
@@ -13,18 +15,10 @@ window.addEventListener('DOMContentLoaded', () => {
 $(document).ready(function () {
   const north = document.getElementById('north')
   const south = document.getElementById('south')
-  const degreesLat = document.getElementById('degrees-lat')
-  const minutesLat = document.getElementById('minutes-lat')
-  const secondsLat = document.getElementById('seconds-lat')
 
-  const degreesLon = document.getElementById('degrees-lon')
-  const minutesLon = document.getElementById('minutes-lon')
-  const secondsLon = document.getElementById('seconds-lon')
   const east = document.getElementById('east')
   const west = document.getElementById('west')
-  const outputInputField = document.getElementById('output-field-input')
-  const dmsBtn = document.getElementById('dmsBtn')
-  const dmsForm = document.getElementById('dms')
+
 
   const latlonForm = document.getElementById('latlonForm')
   function ParseDMS (input) {
@@ -119,9 +113,23 @@ $(document).ready(function () {
 
   L.mapbox.accessToken =
     'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
-  const map = L.mapbox.map('map').setView([37.9, -77], 6)
+  const map = L.mapbox.map('map', null, { zoomControl: false }).setView([38.25004425273146, -85.75576792471112], 11)
 
-  L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11').addTo(map) // add your tiles to the map
+  L.mapbox
+    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .addTo(map) // add your tiles to the map
+    .once('load', finishedLoading)
+
+
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
+    setTimeout(() => {
+      $("#map").removeClass("invisible")
+
+    }, 1000);
+
+  }
 
      // L.marker is a low-level marker constructor in Leaflet.
 
@@ -149,28 +157,31 @@ $(document).ready(function () {
       },
     })
     .addTo(map)
-  async function findAddress (lat, lon) {
-    const query = await fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${lon},${lat}.json?access_token=pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQycnlhMDBlb2kydXBwZHoyOGNsY3EifQ.E8N4lPy6tiI0xY3nor3MTg`,
-      { method: 'GET' }
-    )
-    if (query.status !== 200) {
-      return
-    }
-    const data = await query.json()
 
-    return data
-  }
    map.on('locationfound', async function (e) {
-    let icon = locationControl._icon
-    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
-    const submitText =  $('form :submit').first().text()
+    let lat = e.latitude
+    let lon = e.longitude
+await updateLocation(lat,lon)
+
+  })
+  map.on('locationerror', async function (e) {
+       if (e.message == "Geolocation error: Timeout expired.") {
+
+      const ip = await getIp()
+      let lat = ip.latitude
+      let lon = ip.longitude
+      await updateLocation(lat, lon)
+
+    }
+  })
+
+  async function updateLocation(lat, lon){
+
+      const submitText =  $('form :submit').first().text()
     console.log(  $('form :submit').first().parent())
     $('form :submit').first().html(`${submitText}`)
 
-    let lat = e.latitude
-    let lon = e.longitude
-    var radius = e.accuracy
+
 
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
 
@@ -197,12 +208,14 @@ $(document).ready(function () {
     const data = {
       lat: lat,
       lon: lon,
-      dms: {lat: `${dmsCalculated.lat.degrees}° ${dmsCalculated.lat.minutes}'${dmsCalculated.lat.seconds}''`, lon: `${dmsCalculoned.lon.degrees}° ${dmsCalculoned.lon.minutes}'${dmsCalculoned.lon.seconds}''`}
+      dms: {lat: `${dmsCalculated.lat.degrees}° ${dmsCalculated.lat.minutes}'${dmsCalculated.lat.seconds}''`, lon: `${dmsCalculated.lon.degrees}° ${dmsCalculated.lon.minutes}'${dmsCalculated.lon.seconds}''`}
           }
 
       const p = popupContent(data)
    const popup = L.popup({ autoPan: true, keepInView: true }).setContent(p)
-    popup.setContent(popup)
+
+
+
     marker
       .setLatLng([lat, lon])
       .bindPopup(popup)
@@ -211,76 +224,10 @@ $(document).ready(function () {
       setTimeout(() => {
         locationControl.stop()
       }, 500);
-  })
-  map.on('locationerror', function () {
-    alert('Position could not be found')
-  })
-  const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
-    const matches = query.match(
-      /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    )
-    if (!matches) {
-      return null
-    }
-
-    function coordinateFeature (lng, lat) {
-      return {
-        center: [lng, lat],
-        geometry: {
-          type: 'Point',
-          coordinates: [lng, lat]
-        },
-        place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-        place_type: ['coordinate'],
-        properties: {},
-        type: 'Feature'
-      }
-    }
-
-    const coord1 = Number(matches[1])
-    const coord2 = Number(matches[2])
-    const geocodes = []
-
-    if (coord1 < -90 || coord1 > 90) {
-      // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2))
-    }
-
-    if (coord2 < -90 || coord2 > 90) {
-      // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
-
-    if (geocodes.length === 0) {
-      // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2))
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
-
-    return geocodes
-  }
-
-  async function getElevationData (lon, lat) {
-    // Construct the API request
-
-      try {
-          const elvevationResponse = await getElevation(lat, lon)
-      const data = elvevationResponse.data
-           const allFeatures = data.features
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map(feature => feature.properties.ele)
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations)
-    $('.altitude').html(`<div> ${highestElevation} meters </div>`)
-
-  } catch(err) {
-    alert(err); // TypeError: failed to fetch
   }
 
 
-  }
+
 
 
   // Clear results container when search is cleared.
@@ -355,19 +302,29 @@ latlonForm.elements[1].value = lonReduced
   const title = $('title').html()
 
   const pageTitle = title.slice(11)
-  let bookmarkControl = new L.Control.Bookmarks({
-    name: pageTitle
-  }).addTo(map)
+
 
 
 
   $('#map').on('click', '#getAltitude', function (e) {
   e.preventDefault()
-   $('#getAltitude')
-            .html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Get Altitude`)
-const markerLocation = marker.getLatLng()
-console.log(markerLocation)
- getElevationData(markerLocation.lng, markerLocation.lat)
+  toggleAltitude(this, marker)
 });
+  $("#map").on("click", ".bookmark-btn", function (e) {
+    e.preventDefault();
+
+toggleBookmark(this, marker)
+
+  });
+  map.on("popupopen", function (e) {
+    var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px), { animate: true });
+    $(".leaflet-top.leaflet-left").css("opacity", "0");
+
+  });
+  map.on("popupclose", function (e) {
+
+    $(".leaflet-top.leaflet-left").css("opacity", "1");
+  });
 })

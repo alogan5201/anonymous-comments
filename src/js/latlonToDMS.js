@@ -1,8 +1,9 @@
 /* jshint esversion: 8 */
 import "./firebase"
 import 'utils/commentscript.js'
-import { popupContent, getLatLon, getAddress, getElevation, generateUID, addBookmark } from 'utils/geocoder'
+import { popupContent, getLatLon, getAddress,  generateUID, addBookmark, toggleBookmark, getAltitude, toggleAltitude  } from 'utils/geocoder'
 import { getIp } from "./firebase";
+
 function test(e) {
   e.preventDefault()
 }
@@ -182,8 +183,7 @@ $(document).ready(function () {
   async function updateLocation(lat, lon) {
 
 
-    let icon = locationControl._icon
-    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
+
 
 
     localStorage.setItem('userLatLon', `${lat}, ${lon}`)
@@ -222,65 +222,11 @@ $(document).ready(function () {
       .bindPopup(popup)
       .openPopup()
 
-    setTimeout(() => {
-      $(icon).css('background-color', 'black')
-    }, 1000);
-  }
-  const coordinatesGeocoder = function (query) {
-    // Match anything which looks like
-    // decimal degrees coordinate pair.
-    const matches = query.match(
-      /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i
-    )
-    if (!matches) {
-      return null
-    }
 
-    function coordinateFeature(lng, lat) {
-      return {
-        center: [lng, lat],
-        geometry: {
-          type: 'Point',
-          coordinates: [lng, lat]
-        },
-        place_name: 'Lat: ' + lat + ' Lng: ' + lng,
-        place_type: ['coordinate'],
-        properties: {},
-        type: 'Feature'
-      }
-    }
-
-    const coord1 = Number(matches[1])
-    const coord2 = Number(matches[2])
-    const geocodes = []
-
-    if (coord1 < -90 || coord1 > 90) {
-      // must be lng, lat
-      geocodes.push(coordinateFeature(coord1, coord2))
-    }
-
-    if (coord2 < -90 || coord2 > 90) {
-      // must be lat, lng
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
-
-    if (geocodes.length === 0) {
-      // else could be either lng, lat or lat, lng
-      geocodes.push(coordinateFeature(coord1, coord2))
-      geocodes.push(coordinateFeature(coord2, coord1))
-    }
-
-    return geocodes
   }
 
-  async function getElevationData(lon, lat) {
-    const elvevationResponse = await getElevation(lat, lon)
-    const data = elvevationResponse.data
-    const allFeatures = data.features
-    const elevations = allFeatures.map(feature => feature.properties.ele)
-    const highestElevation = Math.max(...elevations)
-    $('.altitude').html(`<div> ${highestElevation} meters </div>`)
-  }
+
+
 
 
   // Clear results container when search is cleared.
@@ -303,6 +249,8 @@ $(document).ready(function () {
     console.log($('form :submit').first().parent())
     $('form :submit').first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`)
+
+
 
     let icon = locationControl._icon
     $(icon).css('background-color', 'black')
@@ -342,42 +290,19 @@ $(document).ready(function () {
       .bindPopup(p)
       .openPopup()
   })
-  const title = $('title').html()
 
-  const pageTitle = title.slice(11)
 
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    let width = $(this).width()
-    let hstack = $(this).parent().parent()
-
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
-   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
-   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
- </button>
- `)
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-    console.log("has class origin");
-    marker.setPopupContent(newPopupContent)
-    let coords = marker.getLatLng();
-    getElevationData(coords.lng, coords.lat);
+ toggleAltitude(this, marker)
 
   });
 
   $("#map").on("click", ".bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("location-data")
-    let parsed = JSON.parse(cachedData)
-    let coords = marker.getLatLng();
-    name = name.replace(/^\s+|\s+$/gm, "");
-    $(this).prop("disabled", true)
-    $(this).children().last().removeClass("far").addClass("fas")
-    addBookmark("location-data")
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-    marker.setPopupContent(newPopupContent);
+
+toggleBookmark(this, marker)
 
   });
 

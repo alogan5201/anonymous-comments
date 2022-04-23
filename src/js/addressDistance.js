@@ -9,8 +9,8 @@ import {
   getAddress,
   getElevation,
   getGeojson,
-  addBookmark,
-
+  addBookmark, toggleBookmark,
+  toggleAltitude
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -306,64 +306,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    let width = $(this).width()
-    let hstack = $(this).parent().parent()
 
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
-   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
-   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
- </button>
- `)
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
 
     if ($(this).hasClass("origin")) {
-      console.log("has class origin");
-      marker1.setPopupContent(newPopupContent)
-      let originCoords = marker1.getLatLng();
-      getElevationData(originCoords.lng, originCoords.lat);
+        toggleAltitude(this, marker1)
     } else {
-      marker2.setPopupContent(newPopupContent)
-      let destinationCoords = marker2.getLatLng();
-      getElevationData(destinationCoords.lng, destinationCoords.lat);
+    toggleAltitude(this, marker2)
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("origin-data");
-    const data = JSON.parse(cachedData);
-
-    name = name.replace(/^\s+|\s+$/gm, "");
-
-    console.log("bookmark is origin");
-    let popup = marker1.getPopup();
-    $(this).prop("disabled", true);
-    $(this).children().last().removeClass("far").addClass("fas");
-    addBookmark("origin-data");
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-
-    marker1.setPopupContent(newPopupContent);
+toggleBookmark(this, marker1)
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("destination-data");
-    let parsed = JSON.parse(cachedData);
-    console.log(parsed);
-
-    name = name.replace(/^\s+|\s+$/gm, "");
-
-    console.log("bookmark is origin");
-    let popup = marker2.getPopup();
-    $(this).prop("disabled", true);
-    $(this).children().last().removeClass("far").addClass("fas");
-
-    addBookmark("destination-data");
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-
-    marker2.setPopupContent(newPopupContent);
+   toggleBookmark(this, marker2)
 
   });
   map.on("popupopen", function (e) {

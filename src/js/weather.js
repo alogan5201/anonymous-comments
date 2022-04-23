@@ -44,6 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // In the elevations array, find the largest value
     const highestElevation = Math.max(...elevations);
     setTimeout(() => {
+      $('.altitude').removeClass("mx-auto").addClass("me-auto")
       $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
     }, 500);
   }
@@ -710,11 +711,14 @@ ${currentWeather} and ${temp}°F`)
 
     $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
     $(hstack).children().first().html(`
-   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
-   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+   <button class="badge bg-transparent mx-auto border-0 text-primary" type="button" disabled style = "width:${width}px !important">
+  <div class="spinner-border spinner-border-sm" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
  </button>
  `)
 
+debugger
     let newPopupContent = $(this).parents("div.popupContent").parent().html();
     console.log("has class origin");
     marker.setPopupContent(newPopupContent)

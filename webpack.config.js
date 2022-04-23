@@ -1,42 +1,40 @@
-const path = require("path");
-const globals = require("./globals");
-const webpack = require("webpack");
+const path = require('path')
+const globals = require('./globals')
+const webpack = require('webpack')
 
-let isProduction;
+let isProduction
 
 module.exports = (env = {}) => {
-  isProduction = env.production === true;
+  isProduction = env.production === true
 
   return {
     entry: {
       vendor: [
-        "lodash.throttle",
-        "lodash.debounce",
-        "dompurify",
-        "picturefill",
-        "jquery",
-        "haversine-geolocation",
+        'lodash.throttle',
+        'lodash.debounce',
+        'dompurify',
+        'picturefill',
+        'jquery',
+        'haversine-geolocation'
       ],
-      app: ["./src/js/index.js"],
-       addressToLatLon: ["./src/js/addressToLatLon.js"],
-
-      latlonDistance: [ "./src/js/latlonDistance.js"],
-      latlonToAddress: [ "./src/js/latlonToAddress.js"],
-      latlonToDMS: [ "./src/js/latlonToDMS.js"],
-
-      addressDistance: [ "./src/js/addressDistance.js"],
-      DMSlatlon: [ "./src/js/DMSlatlon.js"],
-      travel: [ "./src/js/travel.js"],
-      weather: [ "./src/js/weather.js"],
-      login: [ "./src/js/login.js"],
-      newConverter: [ "./src/js/newConverter.js"],
-
+      app: ['./src/js/index.js'],
+      addressToLatLon: ['./src/js/addressToLatLon.js'],
+      latlonDistance: ['./src/js/latlonDistance.js'],
+      latlonToAddress: ['./src/js/latlonToAddress.js'],
+      latlonToDMS: ['./src/js/latlonToDMS.js'],
+      addressDistance: ['./src/js/addressDistance.js'],
+      DMSlatlon: ['./src/js/DMSlatlon.js'],
+      travel: ['./src/js/travel.js'],
+      weather: ['./src/js/weather.js'],
+      login: ['./src/js/login.js'],
+      newConverter: ['./src/js/newConverter.js'],
+      bookmarks: ['./src/js/bookmarks.js']
     },
     output: {
-      filename: isProduction ? "[name].[chunkhash].js" : "[name].js",
-      chunkFilename: isProduction ? "[name].[chunkhash].js" : "[name].js",
-      path: path.resolve(__dirname, "dist", "js"),
-      publicPath: `${globals.PP}/js/`,
+      filename: isProduction ? '[name].[chunkhash].js' : '[name].js',
+      chunkFilename: isProduction ? '[name].[chunkhash].js' : '[name].js',
+      path: path.resolve(__dirname, 'dist', 'js'),
+      publicPath: `${globals.PP}/js/`
     },
     module: {
       rules: [
@@ -44,46 +42,46 @@ module.exports = (env = {}) => {
           test: /\.js$/,
           use: [
             {
-              loader: "babel-loader",
+              loader: 'babel-loader',
               options: {
                 presets: [
                   [
-                    "@babel/env",
+                    '@babel/env',
                     {
-                      modules: false,
-                    },
-                  ],
-                ],
-              },
-            },
+                      modules: false
+                    }
+                  ]
+                ]
+              }
+            }
           ],
           parser: {
-            system: true,
-          },
-        },
-      ],
+            system: true
+          }
+        }
+      ]
     },
     plugins: [
       new webpack.DefinePlugin({
-        PP: JSON.stringify(""),
+        PP: JSON.stringify(''),
         SITE_TITLE: JSON.stringify(globals.SITE_TITLE),
         DESCRIPTION: JSON.stringify(globals.DESCRIPTION),
         SITE_URL: JSON.stringify(globals.SITE_URL),
         DEVELOPER_NAME: JSON.stringify(globals.DEVELOPER_NAME),
         DEVELOPER_URL: JSON.stringify(globals.DEVELOPER_URL),
-        GOOGLE_ANALYTICS_ID: JSON.stringify(globals.GOOGLE_ANALYTICS_ID),
-      }),
+        GOOGLE_ANALYTICS_ID: JSON.stringify(globals.GOOGLE_ANALYTICS_ID)
+      })
     ],
     optimization: {
       splitChunks: {
         cacheGroups: {
           commons: {
             test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
-            chunks: "all",
-          },
-        },
-      },
+            name: 'vendor',
+            chunks: 'all'
+          }
+        }
+      }
     },
     resolve: {
       alias: {
@@ -98,10 +96,10 @@ module.exports = (env = {}) => {
         vendor: globals.Dir.vendor,
         views: globals.Dir.views,
         pages: globals.Dir.pages,
-        partials: globals.Dir.partials,
+        partials: globals.Dir.partials
       },
-      symlinks: false,
+      symlinks: false
     },
-    devtool: isProduction ? "" : "eval",
-  };
-};
+    devtool: isProduction ? '' : 'eval'
+  }
+}

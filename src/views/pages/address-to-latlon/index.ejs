@@ -231,6 +231,26 @@
  <div id="map-container" class="map-container">
 
                   <div id="map" class="invisible"></div>
+                  <div class="toast-container position-absolute p-3 top-50 start-50
+            translate-middle">
+            <div id="liveToast" class="toast  fade"data-bs-autohide="false"
+              role="alert" aria-live="assertive" aria-atomic="true"
+              class="bg-dark position-relative bd-example-toasts">
+              <div class="toast-header">
+                <button type="button" class="btn-close ms-auto"
+                  data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body mb-4">
+                <div class="input-group mx-auto my-0 w-75">
+                  <input type="text" class="form-control"
+                    placeholder="Recipient's username" aria-label="Recipient's
+                    username" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary" type="button"
+                    id="button-addon2">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
                   <div id="static"></div>
 
 

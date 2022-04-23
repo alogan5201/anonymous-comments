@@ -1,7 +1,7 @@
 /* jshint esversion: 8 */
 import "./firebase"
 import 'utils/commentscript.js'
-import { getLatLon, getAddress, getGeojson, getMatrix, clearForm, popupContent, getElevation, addBookmark, altitudeLoading } from 'utils/geocoder'
+import { getLatLon, getAddress, getGeojson, getMatrix, clearForm, popupContent, toggleAltitude, toggleBookmark, addBookmark, altitudeLoading } from 'utils/geocoder'
 let geojson = {
   type: 'FeatureCollection',
   features: [
@@ -68,24 +68,7 @@ const handler = {
 
 App.state = new Proxy({ count: 0 }, handler)
 window.addEventListener('DOMContentLoaded', () => {
-  async function getElevationData(lon, lat) {
-    // Construct the API request
 
-    const elvevationResponse = await getElevation(lat, lon);
-    const data = elvevationResponse.data;
-
-    // Display the longitude and latitude values
-
-    // Get all the returned features
-    const allFeatures = data.features;
-    // For each returned feature, add elevation data to the elevations array
-    const elevations = allFeatures.map((feature) => feature.properties.ele);
-    // In the elevations array, find the largest value
-    const highestElevation = Math.max(...elevations);
-    setTimeout(() => {
-      $(".altitude").html(`<strong>${highestElevation} meters</strong>  `);
-    }, 500);
-  }
   async function convertLatLon(lat, lon) {
     const d = await getAddress(lat, lon)
     const data = d.data
@@ -608,64 +591,23 @@ window.addEventListener('DOMContentLoaded', () => {
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
-    let width = $(this).width()
-    let hstack = $(this).parent().parent()
 
-    $(hstack).children().first().removeClass("me-auto").addClass("mx-auto")
-    $(hstack).children().first().html(`
-   <button class="btn btn-outline-primary border-0 text-center mx-auto" type="button" disabled style = "width:${width}px !important">
-   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
- </button>
- `)
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
 
     if ($(this).hasClass("origin")) {
-      console.log("has class origin");
-      marker1.setPopupContent(newPopupContent)
-      let originCoords = marker1.getLatLng();
-      getElevationData(originCoords.lng, originCoords.lat);
+
+      toggleAltitude(this, marker1);
     } else {
-      marker2.setPopupContent(newPopupContent)
-      let destinationCoords = marker2.getLatLng();
-      getElevationData(destinationCoords.lng, destinationCoords.lat);
+      toggleAltitude(this, marker2);
     }
   });
   $("#map").on("click", ".origin.bookmark-btn", function (e) {
-    e.preventDefault();
-    let cachedData = localStorage.getItem("origin-data");
-    const data = JSON.parse(cachedData);
+  e.preventDefault();
 
-    name = name.replace(/^\s+|\s+$/gm, "");
-
-    console.log("bookmark is origin");
-    let popup = marker1.getPopup();
-    $(this).prop("disabled", true);
-    $(this).children().last().removeClass("far").addClass("fas");
-    addBookmark("origin-data");
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-
-    marker1.setPopupContent(newPopupContent);
+   toggleBookmark(this, marker1)
   });
   $("#map").on("click", ".destination.bookmark-btn", function (e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("destination-data");
-    let parsed = JSON.parse(cachedData);
-    console.log(parsed);
-
-    name = name.replace(/^\s+|\s+$/gm, "");
-
-    console.log("bookmark is origin");
-    let popup = marker2.getPopup();
-    $(this).prop("disabled", true);
-    $(this).children().last().removeClass("far").addClass("fas");
-
-    addBookmark("destination-data");
-
-    let newPopupContent = $(this).parents("div.popupContent").parent().html();
-
-    marker2.setPopupContent(newPopupContent);
+    toggleBookmark(this, marker2)
   });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is

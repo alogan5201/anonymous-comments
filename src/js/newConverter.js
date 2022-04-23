@@ -8,7 +8,8 @@ import {
   getLatLon,
   popupContent,
   addBookmark,
-  altitudeLoading
+  altitudeLoading, toggleBookmark,
+  toggleAltitude
 } from "utils/geocoder";
 import { getIp } from "./firebase";
 import { computeDestinationPoint } from "geolib";
@@ -602,35 +603,12 @@ $(document).ready(function() {
   }
   $("#map").on("click", "#getAltitude", function(e) {
     e.preventDefault();
-    let coords = marker.getLatLng();
-
-    $(
-      this
-    ).parent().html(`<button class="btn btn-primary" type="button" disabled>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-  Loading
-</button>`);
-    getElevationData(coords.lng, coords.lat);
+toggleAltitude(this, marker)
   });
 
   $("#map").on("click", ".bookmark-btn", function(e) {
     e.preventDefault();
-    let cachedData = localStorage.getItem("location-data");
-    let parsed = JSON.parse(cachedData);
-    let coords = marker.getLatLng();
-    name = name.replace(/^\s+|\s+$/gm, "");
-    $(this).prop("disabled", true);
-    $(this)
-      .children()
-      .last()
-      .removeClass("far")
-      .addClass("fas");
-    addBookmark("location-data");
-    let newPopupContent = $(this)
-      .parents("div.popupContent")
-      .parent()
-      .html();
-    marker.setPopupContent(newPopupContent);
+  toggleBookmark(this, marker)
   });
 
   map.on("popupopen", function(e) {
