@@ -1,0 +1,22 @@
+        <div class="row">
+
+          <%
+ 
+    var arr=['Latitude','Longitude'],
+    i = 0,
+    len = arr.length;
+ 
+%>
+ 
+<% while(i < len){ %>
+ 
+ <%- include(`${partials}/form/inputcol`, {inputName: arr[i]}); -%>
+    <% 
+        // some js in the loop
+        console.log('arr[' + i + '] = ' + arr[i]);
+        i += 1; 
+    %>
+<% } %>
+        </div>
+
+      

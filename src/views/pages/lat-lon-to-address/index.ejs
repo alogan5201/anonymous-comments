@@ -21,6 +21,15 @@
           <h3 class=" fw-normal">Latitude Longitude to Address</h3>
           <p class="fs-5 text-muted">Quickly find an Address from a set of coordinates.</p>
         </div>
+
+     <%- include(`${partials}/form/inputs`,{
+  inputName: [
+    { name: 'Latitude', id: 'latInputField', type: 'number' },
+    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+  ], 
+ formid: "latlonForm"
+}); -%>
+
         <div
           class="row g-3 "
         >
@@ -30,7 +39,7 @@
             
               id="latlonForm"
             >
-             <%- include(`${partials}/form/inputcol`, {inputName: 'Test'}); -%>
+        <!--     -->     <%- include(`${partials}/form/inputcol`, {inputName: 'Test'}); -%>
             <div class="col-12">
               <label for="latInputField" class="form-label">Latitude</label>
               <input type="number" class="form-control" id="latInputField" required>
