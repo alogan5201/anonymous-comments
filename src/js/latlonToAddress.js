@@ -14,7 +14,7 @@ import {
   closePopup,
    popupContent,
 } from "utils/geocoder";
-import { Dropdown } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import { Dropdown, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript.js";
 const uid = generateUID();
 var dropdownElementList = [].slice.call(
@@ -25,6 +25,7 @@ const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
 });
 const path = window.location.pathname;
 
+  // relatedTarget
 window.addEventListener("DOMContentLoaded", () => {
   let scrollPos = 0;
   const mainNav = document.getElementById("mainNav");
@@ -315,10 +316,7 @@ $(document).ready(function () {
       marker.setPopupContent(p);
     }
   });
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker);
-  });
+
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -330,7 +328,10 @@ $(document).ready(function () {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   } );
-  
+    var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
+  });
+  var bookmarkToggle = document.getElementById("bookmarkModal");
     $("#bookmarkForm").on("submit", function(e) {
     e.preventDefault();
     let input = $(this).find("input:eq(0)");

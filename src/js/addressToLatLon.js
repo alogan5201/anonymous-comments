@@ -167,19 +167,7 @@ $(function() {
 
     const address = await convertLatLon(lat, lon);
 
-    if (address.features.length > 0) {
-      $("form")
-        .first()
-        .find("input:eq(0)")
-        .val(address.features[0].place_name);
-
-      $("#latlonForm")
-        .find("input:eq(0)")
-        .val(lat);
-      $("#latlonForm")
-        .find("input:eq(1)")
-        .val(lon);
-    }
+ 
     const dmsCalculated = DDtoDMS(lat, lon);
     const data = {
       address: address.features[0].place_name,
@@ -197,6 +185,19 @@ $(function() {
         .setLatLng([lat, lon])
         .bindPopup(popup)
         .openPopup();
+         if (address.features.length > 0) {
+      $("form")
+        .first()
+        .find("input:eq(0)")
+        .val(address.features[0].place_name);
+
+      $("#latlonForm")
+        .find("input:eq(0)")
+        .val(lat);
+      $("#latlonForm")
+        .find("input:eq(1)")
+        .val(lon);
+    }
     }, 1000);
   });
 

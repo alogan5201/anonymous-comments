@@ -1,18 +1,12 @@
 /* jshint esversion: 8 */
-import "./firebase";
 import "utils/commentscript.js";
 import {
-  getLatLon,
-  getAddress,
-  getGeojson,
-  getMatrix,
-  clearForm,
-  popupContent,
+  addBookmark, clearForm, getAddress, getLatLon, getMatrix, popupContent,
   toggleAltitude,
-  toggleBookmark,
-  addBookmark,
-  altitudeLoading,
+  toggleBookmark
 } from "utils/geocoder";
+import "./firebase";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 let geojson = {
   type: "FeatureCollection",
   features: [
@@ -486,7 +480,7 @@ window.addEventListener("DOMContentLoaded", () => {
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
-    if ($(this).hasClass("origin")) {
+    if (marker1.isPopupOpen()) {
       toggleAltitude(this, marker1);
     } else {
       toggleAltitude(this, marker2);
@@ -506,7 +500,7 @@ window.addEventListener("DOMContentLoaded", () => {
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
     map.panTo(map.unproject(px), { animate: true });
     $(".leaflet-top.leaflet-left").css("opacity", "0");
-    // TODO update
+
   });
   map.on("popupclose", function (e) {
     // TODO update
@@ -539,5 +533,38 @@ window.addEventListener("DOMContentLoaded", () => {
       let p = popupContent(locationData);
       marker.setPopupContent(p);
     }
+  } );
+  
+  $( '#markerTest' ).on('click', function (e) {
+    e.preventDefault();
+    console.log( map )
+    console.log(marker1)
+  } );
+  
+
+      var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
   });
+  var bookmarkToggle = document.getElementById( "bookmarkModal" );
+  
+  $("#bookmarkForm").on("submit", function(e) {
+    e.preventDefault();
+    let marker = marker1.isPopupOpen() ? marker1 : marker2;
+    let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
+    let input = $(this).find("input:eq(0)");
+    console.log(e.target);
+    let locationData = JSON.parse(localStorage.getItem(data));
+    locationData.name = input[ 0 ].value;
+     let p = popupContent(locationData);
+    marker.setPopupContent( p );
+    localStorage.setItem( data, JSON.stringify( locationData ) );
+    
+    addBookmark(data);
+    bookmarkModal.hide(bookmarkToggle);
+    $(this)
+      .find("input:eq(0)")
+      .val("");
+  } );
+
+  
 });

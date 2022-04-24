@@ -1,6 +1,10 @@
 import { httpsCallable, getFunctions } from "firebase/functions";
 import { v4 as uuidv4 } from "uuid";
-import { Toast } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+
+
+
+
 Date.prototype.toShortFormat = function () {
   let monthNames = [
     "Jan",
@@ -115,7 +119,7 @@ let id = input.uid ? input.uid : uid
     : "";
 
   let bookmarked = input.name
-    ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}  bookmark-btn" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
+    ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
     : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="modal" data-bs-target="#bookmarkModal" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
   let altitudeElm = altitude
     ? `<strong class="${origin}${destination}">${altitude}</strong>`
@@ -511,6 +515,8 @@ export function closePopup (marker) {
       marker.closePopup();
     }
 }
+
+
 export default {
   getLatLon,
   getAddress,
@@ -523,4 +529,5 @@ export default {
   toggleBookmark,
   toggleAltitude,
   closePopup,
+ 
 };

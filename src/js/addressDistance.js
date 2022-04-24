@@ -9,11 +9,16 @@ import {
   popupContent,
   toggleAltitude,
   toggleBookmark,
+  bookmarkListener 
 } from "utils/geocoder";
 import "./firebase";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  var loader = document.getElementById("loader");
+  
+  
+  
+  var loader = document.getElementById( "loader" );
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
     .setView([38.25004425273146, -85.75576792471112], 11);
@@ -268,7 +273,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const originPopup = popupContent(originResults);
     const destinationPopup = popupContent(destinationResults);
- var popup = L.popup({ autoPan: true, keepInView: true })
+ var popup1 = L.popup({ autoPan: true, keepInView: true }).setContent(originPopup)
     const popup2 = L.popup({ autoPan: true, keepInView: true }).setContent(destinationPopup);
 
     marker1.setLatLng([originLat, originLon]).bindPopup(popup1);
@@ -297,14 +302,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  $("#map").on("click", ".origin.bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker1);
-  });
-  $("#map").on("click", ".destination.bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker2);
-  });
+
+
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -316,30 +315,29 @@ window.addEventListener("DOMContentLoaded", () => {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-  $("#map").on("click", "#add-bookmark-btn", function (e) {
-    let input = $(this).parent().children().first();
 
-    if (input[0].value.length < 1) {
-      $(input).addClass("is-invalid");
-      $(this).parent()
-        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a name.
-  </div>`);
-    } else {
-      const markerCheck = marker1.isPopupOpen();
-      const localData = markerCheck ? "origin-data" : "destination-data";
-      const marker = markerCheck ? marker1 : marker2;
-      let locationData = JSON.parse(localStorage.getItem(localData));
-      locationData.name = input[0].value;
-
-      let ldata = JSON.parse(localStorage.getItem("location-data"));
-      let altitude = ldata.altitude ? ldata.altitude : null;
-      locationData.altitude = altitude;
-      localStorage.setItem("location-data", JSON.stringify(locationData));
-      addBookmark("location-data");
-
-      let p = popupContent(locationData);
-      marker.setPopupContent(p);
-    }
+  
+        var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
   });
+  var bookmarkToggle = document.getElementById( "bookmarkModal" );
+  
+  $("#bookmarkForm").on("submit", function(e) {
+    e.preventDefault();
+    let marker = marker1.isPopupOpen() ? marker1 : marker2;
+    let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
+    let input = $(this).find("input:eq(0)");
+    console.log(e.target);
+    let locationData = JSON.parse(localStorage.getItem(data));
+    locationData.name = input[ 0 ].value;
+     let p = popupContent(locationData);
+    marker.setPopupContent( p );
+    localStorage.setItem( data, JSON.stringify( locationData ) );
+    
+    addBookmark(data);
+    bookmarkModal.hide(bookmarkToggle);
+    $(this)
+      .find("input:eq(0)")
+      .val("");
+  } );
 });

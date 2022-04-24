@@ -12,6 +12,8 @@ import {
   toggleAltitude,
 } from "utils/geocoder";
 import { getIp } from "./firebase";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+
 function test(e) {
   e.preventDefault();
 }
@@ -318,11 +320,7 @@ $(document).ready(function () {
     e.preventDefault();
     toggleAltitude(this, marker);
   });
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-
-    toggleBookmark(this, marker);
-  });
+ 
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -331,5 +329,28 @@ $(document).ready(function () {
   });
   map.on("popupclose", function (e) {
     $(".leaflet-top.leaflet-left").css("opacity", "1");
+  } );
+  
+       var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
   });
+  var bookmarkToggle = document.getElementById( "bookmarkModal" );
+  
+  $( "#bookmarkForm" ).on( "submit", function ( e ) {
+    e.preventDefault();
+    let data = "location-data" 
+    let input = $( this ).find( "input:eq(0)" );
+    console.log( e.target );
+    let locationData = JSON.parse( localStorage.getItem( data ) );
+    locationData.name = input[ 0 ].value;
+    let p = popupContent( locationData );
+    marker.setPopupContent( p );
+    localStorage.setItem( data, JSON.stringify( locationData ) );
+    
+    addBookmark( data );
+    bookmarkModal.hide( bookmarkToggle );
+    $( this )
+      .find( "input:eq(0)" )
+      .val( "" );
+  })
 });

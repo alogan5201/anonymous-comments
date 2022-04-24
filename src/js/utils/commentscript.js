@@ -42,7 +42,7 @@ setTimeout(() => {
     $('#panelsStayOpen-collapseOne').addClass("d-none")
 
   }
-}, 500);
+}, 50);
 var myCollapse = document.getElementById( 'myCollapsible' )
 
 myCollapse.addEventListener('shown.bs.collapse', function (event) {
