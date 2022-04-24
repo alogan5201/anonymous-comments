@@ -1,13 +1,17 @@
 /* jshint esversion: 8 */
 import "./firebase";
 import {
-  popupContent,
   getLatLon,
   getAddress,
+  getAltitude,
+  getMatrix,
+  getGeojson,
   generateUID,
   addBookmark,
+  altitudeLoading,
   toggleBookmark,
   toggleAltitude,
+  closePopup,
 } from "utils/geocoder";
 import { Dropdown } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript.js";

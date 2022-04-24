@@ -209,15 +209,16 @@ export async function handleComment(message, name, userData, path) {
       const documentId = result.data.id;
 
       if (message !== sanitizedMessage) {
-        toggleModal("fail");
+  
 
-        $("#comment-btn").disabled = false;
+       $('#comment-btn').prop("disabled", false);
         $("#comment-btn").html("Submit");
         for (let index = 0; index < commentFormInputs.length; index++) {
           const element = commentFormInputs[index];
           element.value = "";
         }
-      } else {
+              toggleModal("fail");
+      } else if (message == sanitizedMessage) {
         const newCommentData = {
           id: documentId,
           name: sanitizedName,
@@ -226,8 +227,7 @@ export async function handleComment(message, name, userData, path) {
         };
         const newComment = push(commentRef);
         set(newComment, newCommentData);
-        $("#comment-btn").disabled = false;
-        $("#comment-btn").html("Submit");
+      
         for (let index = 0; index < commentFormInputs.length; index++) {
           const element = commentFormInputs[index];
           element.value = "";
@@ -241,9 +241,11 @@ export async function handleComment(message, name, userData, path) {
           "",
           ""
         );
+            $('#comment-btn').prop("disabled", false);
+        $("#comment-btn").html("Submit");
         toggleModal("success");
         $("#comment-section").append(commentComponent);
-        $("#comment-btn").disabled = false;
+   
       }
     })
     .catch(function (error) {
@@ -263,7 +265,8 @@ export async function handleComment(message, name, userData, path) {
         "\nError Details:" +
         details
       );
-      addCommentButton.disabled = false;
+     $('#comment-btn').prop("disabled", false);
+        $("#comment-btn").html("Submit");
     });
 }
 

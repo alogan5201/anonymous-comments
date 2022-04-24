@@ -76,8 +76,7 @@ async function fetchElevation(lat, lon) {
   // snippet is showing how to access the secret material.
 }
 async function fetchMatrix(first, second) {
-  const firstQuery = encodeURIComponent(first);
-  const secondQuery = encodeURIComponent(second);
+
 
   const response = await fetch(
     `https://api.mapbox.com/directions-matrix/v1/mapbox/driving/${first};${second}?&access_token=${mapboxToken}`,

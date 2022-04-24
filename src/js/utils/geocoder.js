@@ -414,7 +414,6 @@ export async function toggleAltitude ( item, marker ) {
         
       }
     }
-    
     let newPopupContent = $( item ).parents( "div.popupContent" ).parent().html();
           marker.setPopupContent( newPopupContent );
  
