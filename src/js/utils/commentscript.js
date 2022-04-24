@@ -1,5 +1,6 @@
 /* jshint esversion: 8 */
 import { initializeApp } from "firebase/app";
+
 import {
   getDatabase,
   ref,
@@ -28,13 +29,22 @@ import {
   replyForm,
 } from "utils/comments";
 import { toggleModal } from "utils/helpers";
-import {addCommentMessage, createRandomUser, handleComment} from "../firebase"
+import {addCommentMessage, createRandomUser, handleComment, sanitizeReply} from "../firebase"
 import dompurify from "dompurify";
+
 
 const auth = getAuth();
 const db = getDatabase();
 
-var myCollapse = document.getElementById('myCollapsible')
+setTimeout(() => {
+  if (  auth.currentUser && auth.currentUser.displayName )
+  {
+    $('#panelsStayOpen-collapseOne').addClass("d-none")
+
+  }
+}, 500);
+var myCollapse = document.getElementById( 'myCollapsible' )
+
 myCollapse.addEventListener('shown.bs.collapse', function (event) {
 
 
@@ -169,27 +179,32 @@ displayComments();
 $("#comment-form").on("submit", async function (e) {
   e.preventDefault();
   e.stopImmediatePropagation()
-$(this).prop("disabled", true);
-  let userCheck = auth.currentUser
-   $(
+  $( '#comment-form :submit').prop( "disabled", true );
+
+     $(
     "#comment-btn"
   ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
 Verifying..`);
+
+
+  let userCheck = auth.currentUser
+
   const inputs = $("#comment-form :input");
   const children = $('#comment-form').children();
  
   let nameInputVal = $( "#comment-form" ).find( "input:eq(0)" ).val()
   let textInputVal = $( "#comment-form" ).find( "textarea:eq(0)" ).val()
-  
+   let inputName = nameInputVal.length > 0 ?nameInputVal : "Guest";
   if ( !userCheck )
   {
     
-    guestComment (nameInputVal, textInputVal, userCheck)
+    guestComment (nameInputVal, textInputVal)
   }
 
   else
   {
-    userComment (nameInputVal, textInputVal, userCheck)
+    const userName = userCheck.isAnonymous ? inputName : auth.currentUser.displayName
+    userComment ( userName, textInputVal,)
 }
 
 
@@ -199,7 +214,7 @@ Verifying..`);
 } );
 async function guestComment (nameInputVal, textInputVal) {
   
-     console.log("no user on frontend");
+     
    const newUser = await  createRandomUser();
 
 
@@ -211,21 +226,22 @@ async function guestComment (nameInputVal, textInputVal) {
 
   handleComment(cleanMessage, cleanName, newUser.uid, path);
 }
-async function userComment (nameInputVal, textInputVal, userCheck){
-    let name =nameInputVal.length > 0 ? nameInputVal : "Guest";
+async function userComment (nameInputVal, textInputVal){
+   
   let message = textInputVal;
   let cleanMessage = dompurify.sanitize(message);
-  let cleanName = dompurify.sanitize(name);
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  let cleanName = dompurify.sanitize(nameInputVal);
+ 
 
-  handleComment(cleanMessage, userCheck.displayName, auth.currentUser.uid, path);
+  handleComment(cleanMessage, cleanName, auth.currentUser.uid, path);
 }
 /**
  *---------------------------------------------------------------------
  * !! COMMENT REPLY SUBMIT
  * -------------------------------------------------------------------
  */
-$("#comment-section").on("click", ".reply-btn", function (e) {
+
+$("#comment-section").on("click", ".reply-btn", async function (e) {
   e.preventDefault();
   let item = $(this);
   let btn = item[0];
@@ -250,49 +266,175 @@ $("#comment-section").on("click", ".reply-btn", function (e) {
     .last()
     .children();
 
-  console.log(btn);
-  const replyFormComponent = replyForm();
+
+  const replyFormComponent = replyForm(auth.currentUser);
   $(footer).append(replyFormComponent);
   $(replySection).addClass("d-none");
   btn.disabled = true;
-  $(".reply-form").on("submit", function (e) {
-    e.preventDefault();
+ 
+} );
 
-    let elem = $(this);
+
+
+
+ $("#comment-section").on("submit", '.reply-form', async function (e) {
+    e.preventDefault();
+ 
+   $( this ).find( ":submit" ).prop( "disabled", true );
+    $(this).find(":submit").html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+Verifying..`)
     let buttonElm = e.target[2];
     let formElements = e.target;
-    buttonElm.disabled = true;
-    $(
-      buttonElm
-    ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-Verifying..`);
+   
 
-    let name =
-      formElements[0].value.length > 0 ? formElements[0].value : "Guest";
+    let name = $(this).find(':input').val() ||  "Guest";
 
-    let message = formElements[1];
+    let message = $(this).find('textarea').val()
     let parent = $(this).parent();
     let siblings = $(this).siblings();
-
+    let cleanMessage = dompurify.sanitize(message);
+    let cleanName = dompurify.sanitize(name);
     let otherComments = siblings[1];
 
-    let cleanMessage = dompurify.sanitize(message.value);
-    let cleanName = dompurify.sanitize(name);
-    const docId = $(this).parent().parent().attr("id");
+   
+    const docId = $(this).parents("div.card").attr("id")
 
     let messageText = `${cleanName} ${cleanMessage}`;
     let replyForm = $(this);
-    let otherSiblings = siblings[0];
+   let otherSiblings = siblings[ 0 ];
+   
+ 
+
+    if ( !auth.currentUser )
+    {
+
+      const newUser = await createRandomUser();
+      const data = {
+        name: cleanName,
+       text: cleanMessage,
+        uid: newUser.uid,
+        replyTo: docId
+      }
+
+      const response = await  sanitizeReply( cleanMessage, cleanName, newUser.uid )
+
+      submitReply(response, data.replyTo, $(this))
+      
+      //submitReply( response, data.replyTo )
+
+    } else
+    {
+      
+        const data = {
+        name: auth.currentUser.displayName,
+       text: cleanMessage,
+        uid: auth.currentUser.uid,
+        replyTo: docId
+        }
+      
+      const response = await sanitizeReply( cleanMessage, auth.currentUser.displayName, auth.currentUser.uid )
+      
+        submitReply(response, data.replyTo, $(this))
+   
+    }
+
+ } );
+  
+ 
+async function submitReply (data , replyTo, item) {
+  
+   if ( data.status )
+   {
+     console.log( data.name )
+     console.log(auth.currentUser)
+     let siblings = $( item ).siblings();
+     let otherSiblings = siblings[ 0 ];
+     let otherComments = siblings[1];
+     const replyFormComponent = replyForm();
+     $( item ).find( ":submit" ).prop( "disabled", false );
+     let footer = $(`#${replyTo}`).children().last()
+        get(commentRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const payload = snapshot.val();
+              const map = new Map(Object.entries(payload));
+
+              for (const [key, value] of map.entries()) {
+                if (value.id == replyTo) {
+                  const postListRef = ref(
+                    db,
+                    `messages${path}${key}/replies`
+                  );
+
+                  const newPostRef = push( postListRef );
+                    
+                   
+
+                  return set(newPostRef, {
+                    name: data.name,
+                    id: data.uid,
+                    message: data.message,
+                    date: prettyDate,
+                    recipient: value.id,
+                  });
+                }
+              }
+            } 
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+
+        setTimeout(() => {
+          $(item).animate({ opacity: 0 }, function () {
+            $(item).css("display", "none");
+            $(otherSiblings).removeClass("d-none");
+            $(otherSiblings).append(
+              `
+       <div class="col-md-11 p-3 mb-3" >
+   <div class="row ">
+   <div class="col-lg-12 border-start">
+      <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+     <h6 class="fw-bold text-primary mb-1 ">${data.name}</h6>
+     <p class="text-muted small m-0">
+      ${prettyDate}
+     </p>
 
 
-    setTimeout(() => {
-      const userData = JSON.parse(localStorage.getItem("userData"));
-      addCommentMessage(cleanMessage, cleanName)
-      const uid = userData.uid;
+     </div>
+     <p class="mt-3 mb-0 pb-2">
+     ${data.message}
+     </p>
+   </div>
+   </div>
 
-    }, 2000);
-  });
-});
+     </div>
+     `
+            );
+            $(otherComments).animate({ opacity: 1 }, 500);
+
+            toggleModal("success")
+          });
+        }, 500);
+      }
+      else if ( data == "user is swearing" )
+      {
+        
+        toggleModal("fail")
+      }
+ 
+
+
+}
+async function userReply (nameInputVal, textInputVal, userCheck){
+    let name =nameInputVal.length > 0 ? nameInputVal : "Guest";
+  let message = textInputVal;
+  let cleanMessage = dompurify.sanitize(message);
+  let cleanName = dompurify.sanitize(name);
+  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  handleComment(cleanMessage, userCheck.displayName, auth.currentUser.uid, path);
+}
 /**
  *---------------------------------------------------------------------
  * !! THUMBS UP

@@ -189,7 +189,8 @@ exports.addNumbers = functions.https.onCall((data) => {
 // [START messageFunctionTrigger]
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
 
-exports.addComment = functions.https.onCall((data) => {
+exports.addComment = functions.https.onCall( ( data ) => {
+  console.log(data)
   const text = data.text;
   const name = data.name;
   const uid = data.uid;

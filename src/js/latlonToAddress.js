@@ -12,6 +12,7 @@ import {
   toggleBookmark,
   toggleAltitude,
   closePopup,
+   popupContent,
 } from "utils/geocoder";
 import { Dropdown } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript.js";
@@ -328,5 +329,21 @@ $(document).ready(function () {
   map.on("popupclose", function (e) {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
-  });
+  } );
+  
+    $("#bookmarkForm").on("submit", function(e) {
+    e.preventDefault();
+    let input = $(this).find("input:eq(0)");
+    console.log(e.target);
+    let locationData = JSON.parse(localStorage.getItem("location-data"));
+    locationData.name = input[0].value;
+    localStorage.setItem("location-data", JSON.stringify(locationData));
+    addBookmark("location-data");
+    bookmarkModal.hide(bookmarkToggle);
+    $(this)
+      .find("input:eq(0)")
+      .val("");
+    let p = popupContent(locationData);
+    marker.setPopupContent(p);
+  } );
 });

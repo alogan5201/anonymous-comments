@@ -187,7 +187,7 @@ $(function() {
       lon: lon,
       dms: { lat: dmsCalculated.lat, lon: dmsCalculated.lon }
     };
-
+   
     const p = popupContent(data);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 

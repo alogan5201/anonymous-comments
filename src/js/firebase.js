@@ -32,7 +32,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getDatabase();
 const functions = getFunctions(app);
-
+ const prettyDate = getDate();
 if (location.hostname === "localhost") {
   connectFunctionsEmulator(functions, "localhost", 5001);
 
@@ -42,11 +42,12 @@ const commentRef = ref(db, `messages${path}`);
 const commentFormInputs = $("#comment-form :input");
 const googleProvider = new GoogleAuthProvider();
 
-
+// login-link-text login-link-icon
 
 onAuthStateChanged(auth, (user) => {
   const userData = localStorage.getItem("userData");
   if (user) {
+  console.log("🚀 ~ file: firebase.js ~ line 50 ~ onAuthStateChanged ~ user", user)
 
 
     if (window.location.href.includes("login")) {
@@ -92,7 +93,7 @@ export async function getIp() {
   return data;
 }
 export function googleSignin() {
-  signInWithRedirect(auth, googleProvider);
+  return signInWithRedirect(auth, googleProvider);
 }
 function googleSignOut() {
   signOut(auth);
@@ -194,7 +195,7 @@ export async function createRandomUser() {
 
 export async function handleComment(message, name, userData, path) {
   const addComment = httpsCallable(functions, "addComment");
-  const prettyDate = getDate();
+ 
 
   addComment({
     text: message,
@@ -270,6 +271,36 @@ export async function handleComment(message, name, userData, path) {
     });
 }
 
+if ( !window.location.pathname.includes( "login" ) )
+{
+
+  
+
+  $( "#mainNav" ).on( "click", "#sign-out", function ( e ) {
+    
+
+  e.preventDefault();
+  console.log(e)
+  signOut(auth)
+    .then(() => {
+    let myModal = new Modal(document.getElementById("modalSignOut"));
+      myModal.toggle();
+      toggleLogInNav()
+       
+
+
+    })
+    .catch( ( error ) => {} );
+   
+  }
+  
+  
+  
+  );
+
+
+}
+
 function getUser() {
 
   let result = auth.currentUser ? auth.currentUser : null;
@@ -293,7 +324,23 @@ setTimeout(() => {
     if (auth.currentUser) {
 
       console.log(auth.currentUser.uid)
-      let logoutNav = `    <div class="nav-item dropdown">
+      toggleLogOutNav()
+    }
+    else {
+      toggleLogInNav()
+
+    }
+
+
+
+  }
+
+}, 1000 );
+
+
+function toggleLogOutNav () {
+  
+        let logoutNav = `    <div class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
             href="#"
@@ -321,38 +368,97 @@ setTimeout(() => {
           </ul>
         </div>`
       $("#user-profile").html(logoutNav);
-    }
-    else {
+}
 
-      console.log("no user timed")
-    }
+function toggleLogInNav () {
+  
+      let loginNav = `
+                          <div class="nav-item">
+                            <a class="nav-link" href="/login" id="login-link-icon">
+                              <svg width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0
+                                448 512">
+                                <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+                                <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0
+                                  224 0 96 57.3 96 128s57.3 128 128 128zm89.6
+                                  32h-16.7c-22.2 10.2-46.9 16-72.9
+                                  16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0
+                                  422.4V464c0 26.5 21.5 48 48 48h352c26.5 0
+                                  48-21.5
+                                  48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></a>
 
+                            </div>
+                         `
+      
+       $("#user-profile").html(loginNav);
+}
+export async function sanitizeReply(message, name, userData, path) {
+  const addComment = httpsCallable(functions, "addComment");
+ 
 
+  return addComment({
+    text: message,
+    name: name,
+    uid: userData,
+    page: path,
+  })
+    .then(function (result) {
+      // Read result of the Cloud Function.
+      let sanitizedMessage = result.data.text;
+      let sanitizedName = result.data.name;
+      const documentId = result.data.id;
+      const userid = result.data.uid
 
-  }
-
-  if ($('.name-box')) {
-    if (auth.currentUser) {
-
-      $('.name-box').addClass("d-none")
-
-    }
-
-
-  }
-
-
-}, 1000);
-export function addCommentMessage(cleanMessage, cleanName) {
+      if (message !== sanitizedMessage) {
+        let returnmessage = "user is swearing"
+         return returnmessage
+     
+           
+      } else if (message == sanitizedMessage) {
+        const newCommentData = {
+          id: documentId,
+          name: sanitizedName,
+          date: prettyDate,
+          message: sanitizedMessage,
+          uid: userid,
+          status: true
+        };
+       return newCommentData
+   
+      }
+      return result
+    })
+    .catch(function (error) {
+      // Getting the Error details.
+      let code = error.code;
+      let message = error.message;
+      let details = error.details;
+      console.error(
+        "There was an error when calling the Cloud Function",
+        error
+      );
+      window.alert(
+        "There was an error when calling the Cloud Function:\n\nError Code: " +
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
+      );
+   return error
+    });
+}
+export function addCommentMessage(data) {
   const path = window.location.pathname;
   const addComment = httpsCallable(functions, "addComment");
-  const userData = JSON.parse(localStorage.getItem("userData"));
+    const docId = data.docId
 
-  const uid = userData.uid;
+  
+
+
   addComment({
-    text: cleanMessage,
-    name: cleanName,
-    uid: userData,
+    text: data.cleanMessage,
+    name: data.cleanName,
+    uid: data.uid,
     page: path,
   })
     .then(function (result) {
@@ -362,17 +468,14 @@ export function addCommentMessage(cleanMessage, cleanName) {
       let sanitizedMessage = result.data.text;
       let sanitizedName = result.data.name;
 
-      if (cleanMessage !== sanitizedMessage) {
-        filterCommentFail.toggle();
-        $("#reply-btn").disabled = false;
-        $("#reply-btn").html("Send");
-        for (let index = 0; index < formElements.length; index++) {
-          const element = formElements[index];
-          element.value = "";
-        }
-      } else {
-        console.log("test");
-        get(commentRef)
+      if (data.cleanMessage !== sanitizedMessage) {
+      
+        let message = `message ${ cleanMessage } was not clean`
+        return message
+      } else
+      {
+      
+       return get(commentRef)
           .then((snapshot) => {
             if (snapshot.exists()) {
               const data = snapshot.val();
@@ -384,55 +487,27 @@ export function addCommentMessage(cleanMessage, cleanName) {
                     db,
                     `messages${path}${key}/replies`
                   );
-
-                  const newPostRef = push(postListRef);
-                  return set(newPostRef, {
-                    name: sanitizedName,
-                    id: uid,
-                    message: sanitizedMessage,
+                    let messageContent = {
+                    name: data.sanitizedName,
+                    id: data.uid,
+                    message: data.sanitizedMessage,
                     date: prettyDate,
                     recipient: value.id,
-                  });
+                 } 
+                  const newPostRef = push(postListRef);
+                 set(newPostRef, messageContent);
+                  return messageContent
                 }
               }
-            } else {
-            }
+              
+            } 
           })
           .catch((error) => {
-            console.error(error);
+            console.error( error );
+            return error
           });
 
-        setTimeout(() => {
-          $(replyForm).animate({ opacity: 0 }, function () {
-            $(replyForm).css("display", "none");
-            $(otherSiblings).removeClass("d-none");
-            $(otherSiblings).append(
-              `
-       <div class="col-md-11 p-3 mb-3" >
-   <div class="row ">
-   <div class="col-lg-12 border-start">
-      <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
-     <h6 class="fw-bold text-primary mb-1 ">${cleanName}</h6>
-     <p class="text-muted small m-0">
-      ${prettyDate}
-     </p>
-
-
-     </div>
-     <p class="mt-3 mb-0 pb-2">
-     ${cleanMessage}
-     </p>
-   </div>
-   </div>
-
-     </div>
-     `
-            );
-            $(otherComments).animate({ opacity: 1 }, 500);
-
-            filterCommentSuccess.toggle();
-          });
-        }, 500);
+  
       }
     })
     .catch(function (error) {
@@ -452,19 +527,10 @@ export function addCommentMessage(cleanMessage, cleanName) {
         "\nError Details:" +
         details
       );
-      addCommentButton.disabled = false;
+    return error
     });
 }
 
-$("#user-profile").on("click", "#sign-out", function (e) {
-  e.preventDefault();
-  console.log(e)
-  signOut(auth)
-    .then(() => {
-      let myModal = new Modal(document.getElementById("modalSignOut"));
-      myModal.toggle();
-    })
-    .catch((error) => { });
-});
 
-export default { addCommentMessage, googleSignin, createRandomUser, getIp }
+
+export default { addCommentMessage, googleSignin, createRandomUser, getIp, sanitizeReply }

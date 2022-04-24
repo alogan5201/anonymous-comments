@@ -74,6 +74,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "node-fetch": "^2.0.0",
+    "node-icecream": "^1.0.0",
     "nodemw": "^0.16.0",
     "picturefill": "^3.0.3",
     "spin.js": "^4.1.1",

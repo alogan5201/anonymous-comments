@@ -89,19 +89,16 @@ export function comment(id, name, date, message, likes, dislikes) {
   return data;
 }
 
-export function replyForm() {
+export function replyForm ( user ) {
+  
+  let userField = user && user.isAnonymous ?  ` <div class="mb-3">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="replyName" placeholder="Name (Optional)">
+      </div>` : ""
   let data = `<form class="reply-form">
  <div class="d-flex flex-start w-100 ">
      <div class="col-md-11 p-3 mb-3">
     <div class="form-outline w-100">
-
-      <div class="mb-3">
-
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="replyName" placeholder="Name (Optional)">
-
-
-      </div>
-
+${userField}
       <textarea class="form-control" id="textAreaExample" rows="4" style="background: #fff;" placeholder="Write a comment."></textarea>
 
     </div>
