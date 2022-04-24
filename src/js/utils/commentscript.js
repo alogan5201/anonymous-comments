@@ -168,51 +168,58 @@ displayComments();
  */
 $("#comment-form").on("submit", async function (e) {
   e.preventDefault();
-
+  e.stopImmediatePropagation()
+$(this).prop("disabled", true);
   let userCheck = auth.currentUser
-
-
-   $("#comment-btn").disabled = true;
-  const inputs = $("#comment-form :input");
-  const children = $(this).children();
-  $(
+   $(
     "#comment-btn"
   ).html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
 Verifying..`);
-  if (!userCheck) {
-    console.log("no user on frontend");
+  const inputs = $("#comment-form :input");
+  const children = $('#comment-form').children();
+ 
+  let nameInputVal = $( "#comment-form" ).find( "input:eq(0)" ).val()
+  let textInputVal = $( "#comment-form" ).find( "textarea:eq(0)" ).val()
+  
+  if ( !userCheck )
+  {
+    
+    guestComment (nameInputVal, textInputVal, userCheck)
+  }
+
+  else
+  {
+    userComment (nameInputVal, textInputVal, userCheck)
+}
+
+
+
+
+
+} );
+async function guestComment (nameInputVal, textInputVal) {
+  
+     console.log("no user on frontend");
    const newUser = await  createRandomUser();
 
 
   let name =
-    e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
-  let message = e.currentTarget[2].value;
+   nameInputVal.length > 0 ?nameInputVal : "Guest";
+  let message = textInputVal;
   let cleanMessage = dompurify.sanitize(message);
   let cleanName = dompurify.sanitize(name);
-  const userData = JSON.parse(localStorage.getItem("userData"));
 
   handleComment(cleanMessage, cleanName, newUser.uid, path);
-
-  }
-
-  else {
-
-
-
-  let name = e.currentTarget[0].value.length > 0 ? e.currentTarget[0].value : "Guest";
-  let message = e.currentTarget[2].value;
+}
+async function userComment (nameInputVal, textInputVal, userCheck){
+    let name =nameInputVal.length > 0 ? nameInputVal : "Guest";
+  let message = textInputVal;
   let cleanMessage = dompurify.sanitize(message);
   let cleanName = dompurify.sanitize(name);
   const userData = JSON.parse(localStorage.getItem("userData"));
-console.log(userCheck)
+
   handleComment(cleanMessage, userCheck.displayName, auth.currentUser.uid, path);
-
-  }
-
-
-
-
-});
+}
 /**
  *---------------------------------------------------------------------
  * !! COMMENT REPLY SUBMIT

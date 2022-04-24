@@ -1,97 +1,54 @@
+<!--  !! COMMENT SECTION !! -->
 <section class="mb-5 mt-5">
-  <div class="card "  style="background-color: hsl(0deg 0% 20% / 10%)">
+  <div class="card " style="background-color: hsl(0deg 0% 20% / 10%)">
     <div class="card-body">
       <!-- Comment form-->
-      <form id="comment-form" class="mb-3">
-     <div class="accordion" id="myCollapsible">
+      <form id="comment-form" class="mb-3 ">
+        <div class="accordion" id="myCollapsible">
 
-  <div class="accordion-item border-0 bg-transparent  mb-5 border-0">
-     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse border-0 name-box " aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body px-0 py-1 pb-09">
-      <div id="emailHelp" class="form-text">
-            Name (Optional)
+          <div class="accordion-item border-0 bg-transparent  mb-5 border-0">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse border-0 name-box "
+              aria-labelledby="panelsStayOpen-headingOne">
+              <div class="accordion-body px-0 py-1 pb-09">
+                <div id="nameFIeld" class="form-text">
+                  Name (Optional)
+                </div>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="nameFIeld">
+              </div>
+            </div>
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne bg-transparent py-1 border-0">
+              <button id="my-comment-text-btn" class="accordion-button bg-transparent px-0 border-0" type="button"
+                data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne" data-bs-toggle="false">
+
+                <textarea class="form-control border-0" rows="3" id="comment-text-field" placeholder="Add a comment..."
+                  required></textarea>
+                <button type="submit" id="comment-btn" class="btn btn-primary">
+                  Submit
+                </button>
+
+              </button>
+            </h2>
+
           </div>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-    </div>
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne bg-transparent py-1 border-0" >
-      <button id= "my-comment-text-btn" class="accordion-button bg-transparent px-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" data-bs-toggle = "false">
 
-             <textarea class="form-control border-0" rows="3" id="comment-text-field" placeholder="Add a comment..." required=""></textarea>
-<button type="button" id="comment-btn" class="btn btn-primary">
-          Submit
-        </button>
-
-      </button>
-    </h2>
-
-  </div>
-
-</div>
+        </div>
       </form>
-<div id="comment-section" >
-
-
-
-
-
-    <!-- Comment with nested comments-->
-      <div class="d-flex mb-4 d-none">
-        <!-- Parent comment-->
-        <div class="ms-3">
-          <div class="fw-bold">Commenter Name</div>
-          If you're going to lead a space frontier, it has to be government;
-          it'll never be private enterprise. Because the space frontier is
-          dangerous, and it's expensive, and it has unquantified risks.
-          <!-- Child comment 1-->
-          <div class="d-flex mt-4">
-
-            <div class="ms-3">
-              <div class="fw-bold">Commenter Name</div>
-              And under those conditions, you cannot establish a capital-market
-              evaluation of that enterprise. You can't get investors.
-            </div>
-          </div>
-          <!-- Child comment 2-->
-          <div class="d-flex mt-4">
-
-            <div class="ms-3">
-              <div class="fw-bold">Commenter Name</div>
-              When you put money directly to a problem, it makes a good
-              headline.
-            </div>
-          </div>
-        </div>
+      <div id="comment-section">
+    
       </div>
-      <!-- Single comment-->
-      <div class="d-flex d-none">
-
-        <div class="ms-3">
-          <div class="fw-bold">Commenter Name</div>
-          When I look at the universe and all the ways the universe wants to
-          kill us, I find it hard to reconcile that with statements of
-          beneficence.
-        </div>
-      </div>
-
-</div>
-
-
-
     </div>
   </div>
 </section>
-<!-- Modal HTML -->
-<div class="modal py-5 fade" id="modalSignOut" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--  !! COMMENT SECTION FORM MODALS !! -->
+<div class="modal py-5 fade" id="modalSignOut" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 
   <div class="modal-dialog">
     <div class="modal-content rounded-6 shadow">
       <div class="modal-header border-bottom-0">
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal"
-          aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body py-2 mx-4 mt-3 mb-5">
 
@@ -104,93 +61,75 @@
 
 
 </div>
-   <div id="filterCommentSuccess" class="modal fade" tabindex="-1">
-          <div
-            class="modal-dialog modal-confirm success modal-dialog-centered my-0 mx-auto"
-          >
-            <div class="modal-content">
-              <div class="modal-header">
-                <div class="icon-box">
-                  <i class="fas fa-check"></i>
-                </div>
-                <h4 class="modal-title w-100">Awesome!</h4>
-              </div>
-              <div class="modal-body">
-                <p class="text-center">Your Comment has been approved</p>
-              </div>
-              <div class="modal-footer justify-content-center">
-                <button
-                  id="modal-close-btn"
-                  type="button"
-                  class="btn btn-secondary modal-close-btn"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
+<div id="filterCommentSuccess" class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-confirm success modal-dialog-centered my-0 mx-auto">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="fas fa-check"></i>
         </div>
-   <div
-          class="modal fade"
-          id="filterCommentFail"
-          tabindex="-1"
-          aria-labelledby="filterCommentFailLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog modal-confirm modal-dialog-centered failure">
-            <div class="modal-content">
-              <div class="modal-header">
-                <div class="icon-box">
-                  <i class="fas fa-times"></i>
-                </div>
-                <h4 class="modal-title w-100">Oops!</h4>
-              </div>
-              <div class="modal-body">
-                <p class="text-center">
-                  The content of your message was flagged inappropriate.<br />Please
-                  try again.
-                </p>
-              </div>
-              <div class="modal-footer justify-content-center">
-                <div class="modal-footer justify-content-center">
-                  <button
-                    type="button"
-                    class="btn btn-secondary modal-close-btn"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h4 class="modal-title w-100">Awesome!</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Your Comment has been approved</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button id="modal-close-btn" type="button" class="btn btn-secondary modal-close-btn" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="filterCommentFail" tabindex="-1" aria-labelledby="filterCommentFailLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-confirm modal-dialog-centered failure">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="fas fa-times"></i>
         </div>
-
-
-        <!--  !! BOOKMARK DIALOG !! -->
+        <h4 class="modal-title w-100">Oops!</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+          The content of your message was flagged inappropriate.<br />Please
+          try again.
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary modal-close-btn" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  !! BOOKMARK DIALOG MODAL !! -->
 <div class="modal fade   py-5" tabindex="-1" role="dialog" id="bookmarkModal">
   <div class="modal-dialog" aria-hidden="true">
     <div class="modal-content rounded-6 shadow">
-    
-          <div class="modal-body">
-            <div class="row justify-content-end">
-  <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            
+
+      <div class="modal-body">
+        <div class="row justify-content-end">
+          <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
         <form id="bookmarkForm">
           <div class="mb-3">
-        
+
             <input type="text" class="form-control" id="bookmark-name" placeholder="Enter Bookmark name" required>
           </div>
-         
-      
+
+
       </div>
       <div class="modal-footer flex-column border-top-0">
-        <button type="button" class="btn btn-sm btn-primary w-100 mx-0 mb-2" >Save changes</button>
+        <button type="button" class="btn btn-sm btn-primary w-100 mx-0 mb-2">Save changes</button>
         <button type="button" class="btn btn-sm btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
       </div>
-        </form>
+      </form>
     </div>
   </div>
 </div>
