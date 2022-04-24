@@ -16,55 +16,36 @@
     <%- include(`${partials}/nav`); -%>
     <!--   !! MAIN -------------------------->
      <main class="flex-shrink-0 mt-2">
-      <div class="container px-4 px-lg-5 pb-5">
+      <div class="container px-3">
         <div class=" py-3 pb-md-4 mx-auto text-left">
           <h3 class=" fw-normal">Latitude Longitude to Address</h3>
           <p class="fs-5 text-muted">Quickly find an Address from a set of coordinates.</p>
         </div>
         <div
-          class="row g-3 align-items-center justify-content-center pb-4 mb-4"
+          class="row g-3 "
         >
-          <div class="col-md-5" style="position: relative;">
-            <h5 class="text-start mb-4">Latitude and Longitude</h5>
+          <div class="col-md-4" style="position: relative;">
+         
             <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
+            
               id="latlonForm"
             >
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 text-end">
+             <%- include(`${partials}/form/inputcol`, {inputName: 'Test'}); -%>
+            <div class="col-12">
+              <label for="latInputField" class="form-label">Latitude</label>
+              <input type="number" class="form-control" id="latInputField" required>
+            
+            </div>
+                  <div class="col-12">
+              <label for="lonInputField" class="form-label">Longitude</label>
+              <input type="number"
+                      step="any" class="form-control" id="lonInputField" required>
+            
+            </div>
+
+
+        
+              <div class="col-12 text-end mb-3">
                 <button
                   class="btn btn-primary"
                   id="latlonGeocoderBtn"
@@ -74,25 +55,20 @@
                 </button>
               </div>
             </form>
-            <hr class="mb-4" />
+           <hr class="my-4">
 
-            <div
-              class="row g-3 mb-3 justify-content-between align-items-center"
-            >
-              <div class="col">
-                <h5 class="text-start mb-4">Address</h5>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addressInput"
-                  placeholder=""
-                />
-              </div>
+           <div class="col-12">
+              <label for="addressInput" class="form-label">Address</label>
+              <input type="number" class="form-control" id="addressInput" placeholder="">
+            
             </div>
+            
+           
+      
 
 
           </div>
-           <div class="col-md-7  align-self-start">
+           <div class="col-md-8  align-self-start mt-0">
             <h4 class="travel-time"></h4>
             <div class="map-container"><div id="map" class="invisible"></div><div id="static"></div></div>
 

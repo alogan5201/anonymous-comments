@@ -278,7 +278,8 @@ export async function getAddress(lat, lon) {
     lat: lat,
     lon: lon,
   })
-    .then(function (result) {
+    .then( function ( result ) {
+      console.log(result)
       return result;
     })
     .catch(function (error) {
@@ -298,7 +299,8 @@ export async function getAddress(lat, lon) {
           "\nError Details:" +
           details
       );
-    });
+    } );
+  
 }
 
 async function getElevation(lat, lon) {

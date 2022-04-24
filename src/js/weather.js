@@ -11,6 +11,7 @@ import {
   toggleBookmark,
 } from "utils/geocoder";
 import { getIp } from "./firebase";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 const uid = generateUID();
 function inputFocus(x) {
@@ -500,116 +501,14 @@ ${currentWeather} and ${temp}°F`);
       $(".target-address").val(coords.features[0].place_name);
     }
 
-    /*
-    setTimeout(() => {
-      const alertMessage = `
-      <div class="alert alert-primary d-flex align-items-center" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-      </svg>
-      <div>
-      No Address Found
-      </div>
-      </div>
 
-      `;
-
-      let address =
-        coords.features.length > 0 ? coords.features[0].place_name : "";
-
-      $("input")
-        .first()
-        .val(address);
-
-      let alertHtml = coords.features.length > 0 ? "" : alertMessage;
-      $(".alerts").html(alertHtml);
-
-      var popup = L.popup({ autoPan: true, keepInView: true })
-        .setContent(`<div class="row" >
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">${currentWeather}</h5>
-          <p class="card-text">
-
-            <span>   <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span>
-
-            <span>
-              ${temp}°F </span>
-
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>`);
-
-      marker
-        .setLatLng([lat, lon])
-        .bindPopup(popup)
-        .openPopup();
-      var alertPlaceholder = document.querySelector(
-        ".weather-alert-placeholder"
-      );
-
-      function postLog(icon, weather, temperature) {
-        let wrapper = document.createElement("div");
-        wrapper.innerHTML = ` <div
-          class="alert alert-light d-flex align-items-center"
-          role="alert"
-          >
-          <img
-            style="max-width: 50px"
-            src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
-            alt=""
-            srcset=""
-          />
-          ${currentWeather} and ${temp}°F
-          </div>`;
-
-        alertPlaceholder.append(wrapper);
-      }
-
-      if (alertPlaceholder.childElementCount == 0) {
-        postLog(` <img
-  style="max-width: 50px"
-  src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
-  alt=""
-  srcset=""
-  />
-  ${currentWeather} and ${temp}°F`);
-      } else if (alertPlaceholder.childElementCount == 1) {
-        postLog(` <img
-  style="max-width: 50px"
-  src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
-  alt=""
-  srcset=""
-  />
-  ${currentWeather} and ${temp}°F`);
-      } else if (alertPlaceholder.childElementCount == 2) {
-        $("#liveAlertPlaceholder").empty();
-        setTimeout(() => {
-          postLog(` <img
-    style="max-width: 50px"
-    src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
-    alt=""
-    srcset=""
-  />
-  ${currentWeather} and ${temp}°F`);
-        }, 200);
-      }
-    }, 500);
- */
   });
 
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
     toggleAltitude(this, marker);
   });
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker);
-  });
+
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -622,24 +521,52 @@ ${currentWeather} and ${temp}°F`);
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
 
-  $("#map").on("click", "#add-bookmark-btn", function (e) {
-    let input = $(this).parent().children().first();
-
-    if (input[0].value.length < 1) {
-      $(input).addClass("is-invalid");
-      $(this).parent()
-        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a name.
-    </div>`);
-    } else {
-      let locationData = JSON.parse(localStorage.getItem("location-data"));
-      locationData.name = input[0].value;
-
-      localStorage.setItem("location-data", JSON.stringify(locationData));
-      addBookmark("location-data");
-
-      let p = popupContent(locationData);
-      marker.setPopupContent(p);
-    }
+ 
+        var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
   });
+  var bookmarkToggle = document.getElementById( "bookmarkModal" );
+  
+  $("#bookmarkForm").on("submit", function(e) {
+    e.preventDefault();
+    let input = $(this).find("input:eq(0)");
+    console.log(e.target);
+    let locationData = JSON.parse(localStorage.getItem("location-data"));
+    locationData.name = input[0].value;
+    localStorage.setItem("location-data", JSON.stringify(locationData));
+    addBookmark("location-data");
+    bookmarkModal.hide(bookmarkToggle);
+    $(this)
+      .find("input:eq(0)")
+      .val("");
+    let p = popupContent(locationData);
+    marker.setPopupContent(p);
+  } );
+
+
+
+const grid = new Grid({
+  columns: ['Name', 'Email', 'Phone Number'],
+  search: true,
+  data: [
+    ['John', 'john@example.com', '(353) 01 222 3333'],
+    ['Mark', 'mark@gmail.com',   '(01) 22 888 4444'],
+    ['Eoin', 'eo3n@yahoo.com',   '(05) 10 878 5554'],
+    ['Nisen', 'nis900@gmail.com',   '313 333 1923']
+  ],
+  style: {
+    table: {
+      border: '3px solid #ccc'
+    },
+    th: {
+      'background-color': 'rgba(0, 0, 0, 0.1)',
+      color: '#000',
+      'border-bottom': '3px solid #ccc',
+      'text-align': 'center'
+    },
+    td: {
+      'text-align': 'center'
+    }
+  }
+});
 });

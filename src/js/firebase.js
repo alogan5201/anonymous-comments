@@ -325,6 +325,12 @@ setTimeout(() => {
 
       console.log(auth.currentUser.uid)
       toggleLogOutNav()
+      if ( $( '#comment-form' ) )
+      {
+               $('#panelsStayOpen-collapseOne').addClass("d-none")
+
+
+      }
     }
     else {
       toggleLogInNav()

@@ -10,8 +10,17 @@ import "./firebase";
 
 import "picturefill";
 import "utils/errors";
-import { Grid, html } from "gridjs";
-
+import {Grid, html} from "gridjs";
+import {
+  addBookmark,
+  generateUID,
+  getAddress,
+  getLatLon,
+  popupContent,
+  toggleAltitude,
+  toggleBookmark,
+  closePopup
+} from "utils/geocoder";
 /*
 var dropdownElementList = [].slice.call(
   document.querySelectorAll(".nav-bar-toggle")
@@ -21,7 +30,7 @@ var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
 });
 */
 let url = window.location.href;
-Date.prototype.toShortFormat = function () {
+Date.prototype.toShortFormat = function() {
   let monthNames = [
     "Jan",
     "Feb",
@@ -34,7 +43,7 @@ Date.prototype.toShortFormat = function () {
     "Sep",
     "Oct",
     "Nov",
-    "Dec",
+    "Dec"
   ];
 
   let day = this.getDate();
@@ -53,77 +62,12 @@ const prettyDate = today.toShortFormat();
 
 //const functions = getFunctions(app);
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", event => {
   console.log("index page loaded");
-  const d = [
-    {
-      name: "s",
-      address:
-        "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
-      lat: 33.81418,
-      lon: -84.43854,
-      dms: {
-        lat: "33° 48' 50.812''",
-        lon: "84° 26' 19.529''",
-      },
-      weather: null,
-      path: "/travel/",
-      uid: "97e9b3b8-c9f9-4712-b292-a7c03a9caaf7",
-      date: "Apr 2022",
-      altitude: null,
-      bookmarked: true,
-    },
-    {
-      name: "s",
-      address:
-        "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
-      lat: 33.81418,
-      lon: -84.43854,
-      dms: {
-        lat: "33° 48' 50.791''",
-        lon: "84° 26' 19.602''",
-      },
-      weather: null,
-      path: "/travel/",
-      uid: "74d3b708-e377-4d1a-9960-03ad9e684453",
-      date: "Apr 2022",
-      altitude: "250 meters",
-      bookmarked: true,
-    },
-    {
-      name: "austin",
-      address: "Austin, Texas, United States",
-      lat: 30.2711,
-      lon: -97.7437,
-      dms: {
-        lat: "30° 16' 15.96''",
-        lon: "97° 44' 37.32''",
-      },
-      weather: null,
-      path: "/travel/",
-      uid: "438ca9ff-5862-42a1-8cdf-6d3809e7c363",
-      date: "Apr 2022",
-      altitude: "160 meters",
-      bookmarked: true,
-    },
-  ];
 
-  let x = {
-    name: "s",
-    address:
-      "2048 Bolton Drive Northwest, Atlanta, Georgia 30318, United States",
-    lat: 33.81418,
-    lon: -84.43854,
-    dms: {
-      lat: "33° 48' 50.812''",
-      lon: "84° 26' 19.529''",
-    },
-    path: "/travel/",
-    uid: "97e9b3b8-c9f9-4712-b292-a7c03a9caaf7",
-    date: "Apr 2022",
-    bookmarked: true,
-  };
-  const removeNullUndefined = (obj) =>
+
+
+  const removeNullUndefined = obj =>
     Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
 
   function helloWorld() {
@@ -135,45 +79,121 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const newelm = removeNullUndefined(element);
         arr.push(newelm);
       }
-      console.log(arr);
+      console.log( arr );
       const grid = new Grid({
-        search: true,
-        pagination: true,
         columns: [
+         {
+            id: "uid",
+            name: "uid",
+           hidden: true
+          },
+           {
+            address: "address",
+            name: "address",
+           hidden: true
+          },
+               {
+            address: "dms",
+            name: "dms",
+           hidden: true
+          },
+                     {
+            address: "altitude",
+            name: "altitude",
+           hidden: true
+          },
           {
             id: "name",
             name: "Name",
-            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
           },
-          {
-            id: "address",
-            name: "Address",
-            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
-          },
-          {
+             {
             id: "date",
             name: "date",
-            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
           },
+                 
           {
             id: "lat",
             name: "Latitude",
-            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
           },
           {
             id: "lon",
             name: "Longitude",
-            formatter: (cell) => html(`<a href='#'>${cell}</a>`),
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
           },
+          
+      
+   
         ],
+         search: true,
         data: arr,
+        pagination: {
+    enabled: true,
+    limit: 8,
+    summary: false
+  },
+          style: { 
+    table: { 
+      'white-space': 'nowrap'
+            }, 
+            th: {
+                  'border-collapse': 'separate!important',
+    'border-spacing': '0',
+    
+    'border': '0 solid',
+   
+    'border-bottomwidth': '1px',
+  
+   ' padding': '.75rem',
+    'border-color': '#dee2e6',
+    'box-sizing': 'content-box',
+    'cursor': 'pointer',
+   ' position': 'relative',
+    'padding-right': '30px',
+    'border-left': '0',
+    'padding-left': '1.25rem',
+    'border-top': '0',
+            }
+  },
+        className: {
+          td: "my-td",
+          table: "table table-striped my-0 dataTable no-footer",
+          thead: "thead-light", 
+          pagination: "btn-group",
+          paginationButtonCurrent: "btn btn-primary text-white",
+          paginationButton: "btn btn-outline border border-primary text-primary", //btn btn-outline-primary
+          paginationButtonPrev: "btn btn-outline-primary border border-primary text-primary",
+          paginationButtonNext: "btn btn-outline-primary border border-primary text-primary"
+        }
       }).render(document.getElementById("grid-wrapper"));
+   
+grid.on('rowClick', (...args) => test(args[1]._cells));
+//grid.on('cellClick', (...args) => console.log('cell: ' + JSON.stringify(args), args));
+    
+      
+      
 
       return grid;
     }
   }
 
   helloWorld();
+
+
 
   L.mapbox.accessToken =
     "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
@@ -185,11 +205,59 @@ window.addEventListener("DOMContentLoaded", (event) => {
       attribution:
         '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       tileSize: 512,
-      zoomOffset: -1,
+      zoomOffset: -1
     }
   );
 
   const map = L.map("map")
     .addLayer(mapboxTiles)
-    .setView([42.361, -71.0587], 15);
+    .setView( [ 42.361, -74.0587 ], 10 );
+  
+      const marker = L.marker([0, 0], {
+    icon: L.mapbox.marker.icon({
+      "marker-size": "large",
+
+      "marker-color": "blue"
+    })
+  }).addTo(map);
+  function test (row) {
+    let uid = row[0].data
+    console.log( uid )
+  
+    let local = JSON.parse(localStorage.getItem('bookmarks'))
+    const found = local.find( element => element.uid == uid );
+    console.log( found )
+    let lat = found.lat
+    let lon = found.lon
+    console.log( lat, lon )
+    
+    map.fitBounds( [ [ lat, lon ] ], { padding: [ 50, 50 ], maxZoom: 13 } );
+    
+
+       const p = `  <div id = "popupContent" class="row popupContent position-relative">
+  <div class="col p-0 popup-content">
+
+    <div class="card-body px-3 pt-2 pb-1">
+      <ul class="list-group border-0">
+       <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.name} </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address || "" } </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
+              class="lat">${found.lat} </span></li>
+        <li class="list-group-item border-0 px-1 fs-6 py-0">
+         Longitude:
+               <span class="lon">${found.lon}</span></li>
+        <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${found.dms.lat} ${found.dms.lon}</li>
+        
+        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+      
+
+  </div>
+
+</div> `;
+    var popup = L.popup( { autoPan: true, keepInView: true } ).setContent( p );
+         marker
+        .setLatLng([lat, lon])
+        .bindPopup(popup)
+        .openPopup();
+}
 });

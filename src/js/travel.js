@@ -486,15 +486,7 @@ window.addEventListener("DOMContentLoaded", () => {
       toggleAltitude(this, marker2);
     }
   });
-  $("#map").on("click", ".origin.bookmark-btn", function (e) {
-    e.preventDefault();
 
-    toggleBookmark(this, marker1);
-  });
-  $("#map").on("click", ".destination.bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker2);
-  });
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
@@ -507,40 +499,6 @@ window.addEventListener("DOMContentLoaded", () => {
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
 
-  $("#map").on("click", "#add-bookmark-btn", function (e) {
-    let input = $(this).parent().children().first();
-
-    if (input[0].value.length < 1) {
-      $(input).addClass("is-invalid");
-      $(this).parent()
-        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a name.
-  </div>`);
-    } else {
-      const markerCheck = marker1.isPopupOpen();
-      const localData = markerCheck ? "origin-data" : "destination-data";
-      const marker = markerCheck ? marker1 : marker2;
-      let locationData = JSON.parse(localStorage.getItem(localData));
-      let ldata = JSON.parse(localStorage.getItem("location-data"));
-      let altitude = ldata.altitude ? ldata.altitude : null;
-      ldata.altitude = altitude;
-      locationData.name = input[0].value;
-      ldata.bookmarked = true;
-      ldata.name = input[0].value;
-      localStorage.setItem("location-data", JSON.stringify(ldata));
-      addBookmark("location-data");
-
-      let p = popupContent(locationData);
-      marker.setPopupContent(p);
-    }
-  } );
-  
-  $( '#markerTest' ).on('click', function (e) {
-    e.preventDefault();
-    console.log( map )
-    console.log(marker1)
-  } );
-  
 
       var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
     keyboard: false

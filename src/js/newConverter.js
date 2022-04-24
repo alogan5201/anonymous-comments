@@ -9,6 +9,8 @@ import {
   toggleBookmark,
 } from "utils/geocoder";
 import "./firebase";
+import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+
 import { getIp } from "./firebase";
 function test(e) {
   e.preventDefault();
@@ -234,14 +236,13 @@ window.addEventListener("DOMContentLoaded", () => {
     marker.setLatLng([lat, lon]).bindPopup(popup).openPopup();
   }
 
-  $("#map").on("click", "#getAltitude", function (e) {
-    e.preventDefault();
-    toggleAltitude(this, marker);
-  });
 
-  // !! First Form
 
-  $("form#addressForm").submit(async function (e) {
+
+
+  // !! First Form form#addressForm
+
+$("#addressForm").on("submit", async function (e) {
     e.preventDefault();
     clearAlert();
     $("form#addressForm :submit").prop("disabled", true);
@@ -436,10 +437,7 @@ window.addEventListener("DOMContentLoaded", () => {
     toggleAltitude(this, marker);
   });
 
-  $("#map").on("click", ".bookmark-btn", function (e) {
-    e.preventDefault();
-    toggleBookmark(this, marker);
-  });
+ 
 
   map.on("popupopen", function (e) {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
@@ -452,28 +450,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-  $("#map").on("click", "#add-bookmark-btn", function (e) {
-    let input = $(this).parent().children().first();
-    console.log(input);
-    console.log(input[0].value);
-    if (input[0].value.length < 1) {
-      $(input).addClass("is-invalid");
-      $(this).parent()
-        .append(`   <div id="validationServer03Feedback" class="invalid-feedback">
-      Please provide a name.
-    </div>`);
-    } else {
-      let locationData = JSON.parse(localStorage.getItem("location-data"));
-      locationData.name = input[0].value;
-      locationData.bookedmarked = true;
 
-      localStorage.setItem("location-data", JSON.stringify(locationData));
-      addBookmark("location-data");
-
-      let p = popupContent(locationData);
-      marker.setPopupContent(p);
-    }
-  });
 
   function clearAlert() {
     let alerts = document.querySelector(".alerts");
@@ -483,4 +460,26 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
   }
+
+    var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
+  });
+  var bookmarkToggle = document.getElementById("bookmarkModal");
+  // relatedTarget
+
+  $("#bookmarkForm").on("submit", function(e) {
+    e.preventDefault();
+    let input = $(this).find("input:eq(0)");
+    console.log(e.target);
+    let locationData = JSON.parse(localStorage.getItem("location-data"));
+    locationData.name = input[0].value;
+    localStorage.setItem("location-data", JSON.stringify(locationData));
+    addBookmark("location-data");
+    bookmarkModal.hide(bookmarkToggle);
+    $(this)
+      .find("input:eq(0)")
+      .val("");
+    let p = popupContent(locationData);
+    marker.setPopupContent(p);
+  } );
 });
