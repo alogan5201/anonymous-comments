@@ -16,99 +16,35 @@
       <h3>Please enable JavaScript in order to view this site properly.</h3>
     </noscript>
     <%- include(`${partials}/nav`); -%>
-    <!-- Main Content-->
-    <!-- Main Content-->
-    <main class="mb-4 mt-5">
-      <div class="container px-4 px-lg-5 pb-5">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Address Distance Calculator</h3>
-          <p class="fs-5 text-muted">Quickly get the distance between two points.</p>
-        </div>
-        <div class="row gx-5 align-items-center justify-content-center">
-  <div class="col-md-5" style="position: relative;">            <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
-              id="getDistanceForm"
-            >
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label
-                    class="col-sm-2 col-form-label"
-                    for="addressInputFieldOrigin"
-                    >Origin</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="addressInputFieldOrigin"
-                      type="text"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Destination</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="text"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 text-end">
-                <button
-                  class="btn btn-primary"
-                  id="latlonGeocoderBtn"
-                  type="submit"
-                >
-                  Find Distance
-                </button>
-              </div>
-            </form>
+       <main class="flex-shrink-0 mt-5" >
+    <div class="container px-3">
+ 
+      <div class="row g-3 ">
+             <div class="col-md-4">
 
-            <hr class="mb-4" />
-            <div
-              class="row g-3 mb-3 justify-content-between align-items-center"
-            >
-              <div class="col">
-                <h5 class="text-start mb-4">Distance</h5>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="distanceInput"
-                  placeholder=""
-                />
-              </div>
-            </div>
-          </div>
-       <div class="col-md-7  align-self-start">
-            <div class="row-mb-3 align-items-start">
-              <div class="col">
-                <h4 class="travel-time"></h4>
-           <div id="map-container" class="map-container">
+      <%- include(`${partials}/general/header`, {title: 'Address Distance Calculator', subtitle: 'Quickly get the distance between two points.'}); -%>
 
-                  <div id="map" class="invisible"></div>
-                  <div id="static"></div>
+        <%- include(`${partials}/form/inputs`,{
+                  inputName: [
+                    { name: 'Origin',  type: 'text' },
+                      { name: 'Destination',  type: 'text' }
+                      
+
+                  ], 
+                formid: "getDistanceForm",
+                button: {name: 'Find Distance', type: 'submit' },
+                output: [{name: 'Distance', type: 'text'}]
+                }); -%>
 
 
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-       <%- include(`${partials}/comment-section.ejs`); -%>
+             </div>
+             <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
-    </main>
+      <%- include(`${partials}/comment-section.ejs`); -%>
+
+    </div>
+  </main>
+
     <!-- Footer-->
 
     <%- include(`${partials}/footer`); -%> <%-

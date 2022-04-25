@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'Home'}); -%>
+<%- include(`${partials}/head`, {pageTitle: 'Home' }); -%>
   <body class="latlon-to-distance">
     <!--[if lt IE 8]>
       <p class="browserupgrade">
@@ -10,150 +10,52 @@
       </p>
       <p>Go back <a href="<%= PP %>/">Home</a>.</p>
     <![endif]-->
-
     <noscript>
       <h3>Please enable JavaScript in order to view this site properly.</h3>
     </noscript>
     <%- include(`${partials}/nav`); -%>
-    <!-- Main Content-->
-    <!-- Main Content-->
-    <main class="flex-shrink-0 mt-2">
-      <div class="container  px-4 px-lg-5 pb-5">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Latitude and Longitude Distance</h3>
-          <p class="fs-5 text-muted">Quickly find the distance between two points.</p>
-        </div>
-        <div
-          class="row gx-5 align-items-center justify-content-center mb-5"
-        >
+      <main class="flex-shrink-0 mt-5">
+        <div class="container px-3">
+          <div class="row g-3 ">
+            <div class="col-md-4">
+              <%- include(`${partials}/general/header`, {title: 'Latitude and Longitude Distance' ,
+                subtitle: 'Quickly find the distance between two points.' }); -%>
 
 
-          <div class="col-md-5" style="position: relative;">
-          <h5>Origin</h5>
-            <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
-              id="latlonForm"
-            >
-              <div>
-
-
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required=""
-                    />
+                <form  id="latlonForm">
+   <div class="row-g-3">
+                  <div class="col-12 my-3">
+                    <label for="LatitudeInput" class="form-label">Origin</label>
+                    <input type="number" class="form-control" id="LatitudeInput" step="any" placeholder="Latitude">
+                  </div>
+                  <div class="col-12 my-3">
+          
+                    <input type="number" class="form-control" id="LongitudeInput" step="any" placeholder="Longitude">
                   </div>
                 </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center mb-3">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-               <h5 class="border-top mt-3 pt-3 ">Destination</h5>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
 
-              <div class="col-12 text-end">
-                <button
-                  class="btn btn-primary"
-                  id="latlonGeocoderBtn"
-                  type="submit"
-                >
-                  Get Distance
-                </button>
-              </div>
-            </form>
-
-            <div
-              class="row g-3 mb-3 justify-content-between align-items-center"
-            >
-              <div class="col">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="distanceInput"
-                  placeholder=""
-                />
-              </div>
+   <div class="row-g-3">
+                  <div class="col-12 my-3">
+                    <label for="LatitudeInput" class="form-label">Destination</label>
+                    <input type="number" class="form-control" id="LatitudeInput" step="any" placeholder="Latitude">
+                  </div>
+                  <div class="col-12 my-3">
+          
+                    <input type="number" class="form-control" id="LongitudeInput" step="any" placeholder="Longitude">
+                  </div>
+                </div>
+                <div class="col-12 text-end"> <button class="btn btn-primary" id="latlonGeocoderBtn" type="submit"> Get Distance </button> </div>
+                </form>
+             <div class="row g-3 mb-3 mt-3 justify-content-between align-items-center"> <div class="col"> <input class="form-control" id="distanceInput" placeholder=""> </div> </div>
             </div>
-
-
-            <div class="row mb-3">
-              <div id="liveAlertPlaceholder">
-                <div class="alerts mt-1"></div>
-                <div class="history"></div>
-              </div>
-            </div>
+            <%- include(`${partials}/map/map-Container.ejs`); -%>
           </div>
-          <div class="col-md-7 align-self-start">
-           <div id="map-container" class="map-container">
-
-                  <div id="map" class="invisible"></div>
-                  <div id="static"></div>
-
-
-              </div>
-          </div>
+          <%- include(`${partials}/comment-section.ejs`); -%>
         </div>
-       <%- include(`${partials}/comment-section.ejs`); -%>
-      </div>
-    </main>
-    <!-- Footer-->
-
-    <%- include(`${partials}/footer`); -%> <%-
-    include(`${partials}/page-scripts/lat-lon-distance-scripts.ejs`); -%>
+      </main>
+   
+      <!-- Footer-->
+      <%- include(`${partials}/footer`); -%>
+        <%- include(`${partials}/page-scripts/lat-lon-distance-scripts.ejs`); -%>
   </body>
 </html>

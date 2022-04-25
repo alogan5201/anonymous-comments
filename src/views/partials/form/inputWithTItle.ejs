@@ -1,0 +1,34 @@
+
+      
+      <% if (inputName) { %> 
+
+   
+              <div class="row-g-3">
+
+
+ 
+    <%  var arr=inputName,
+        i = 0,
+        len = arr.length; %>
+
+       <% while(i < len){ %>
+
+       <%- include(`${partials}/form/inputcol`, {inputName:{name: arr[i].name, type: arr[i].type} }); -%>
+       <% 
+        // some js in the loop
+        console.log('arr[' + i + '] = ' + arr[i]);
+        i += 1; 
+         %>
+       <% } %>
+
+
+         
+
+
+</div>
+                
+
+
+   <% } %>
+ 
+ 

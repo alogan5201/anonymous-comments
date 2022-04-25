@@ -90,7 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let addressName =
       data.features.length > 0 ? data.features[0].place_name : null;
     if (data.features.length > 0) {
-      $("#addressInputFieldOrigin").val(data.features[0].place_name);
+      $("#OriginInput").val(data.features[0].place_name);
     }
 
     const dmsCalculated = DDtoDMS(lat, lon);
@@ -118,7 +118,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const data = d.data;
     if (data.features.length > 0) {
-      $("#addressInputFieldOrigin").val(data.features[0].place_name);
+      $("#OriginInput").val(data.features[0].place_name);
       const origin = data.features[0];
       let originLatLon = data.features[0].geometry.coordinates;
       let originLat = originLatLon[1];
@@ -130,7 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
       };
       const geojsonData = getGeojson(originResults);
       featureLayer.setGeoJSON(geojsonData);
-      $("#lonInputField").focus();
+      $("#DestinationInput").focus();
     } else if (data.features.length == 0) {
       alert("No Address found from your location");
     }
@@ -280,8 +280,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     marker2.setLatLng([destinationLat, destinationLon]).bindPopup(popup2);
 
-    $("#distanceInput").val(`${distance} miles`);
-    $("#distanceInput").focus();
+    $("#DistanceInput").val(`${distance} miles`);
+    $("#DistanceInput").focus();
     map.fitBounds(
       [
         [originLat, originLon],
