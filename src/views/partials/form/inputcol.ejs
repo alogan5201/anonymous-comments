@@ -1,4 +1,30 @@
-<div class="col-12">
-              <label for="<%= inputName.id %>" class="form-label"><%= inputName.name %></label>
-              <input type="<%= inputName.type %>" class="form-control" id="<%= inputName.id %>" placeholder="">
+<div class="col-12 my-2">
+             
+              <% if (inputName.type =="search") { %>
+            <label for="searchInput" class="form-label"><%= inputName.name %></label>
+
+                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <button
+                        id="searchButton"
+                        type="button"
+                        class="btn btn-outline-primary text-info border border-end-0 ps-3 pe-1 disabled"
+                      >
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                    <input
+                      type="search"
+                      id="searchInput"
+                      class="form-control border border-start-0 target-address"
+                      aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default"
+                    />
+                  </div>
+              <% } %>
+              <% if (inputName.type != "search") { %>
+                 <label for="<%= inputName.name %>Input" class="form-label"><%= inputName.name %></label>
+                <input type="<%= inputName.type %>" class="form-control" id="<%= inputName.name %>Input"  placeholder="">
+              <% } %>
+          
             </div>

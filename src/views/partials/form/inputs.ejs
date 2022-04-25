@@ -1,9 +1,12 @@
 
-       <form id="<%= formid %>">
-         <!--     -->
+      
+      <% if (inputName) { %> 
+      <form id="<%= formid %>">
+   
+              <div class="row-g-3">
 
 
-                
+ 
     <%  var arr=inputName,
         i = 0,
         len = arr.length; %>
@@ -17,11 +20,13 @@
         i += 1; 
          %>
        <% } %>
+
+    
        <hr class="my-4">
  <% if (button) { %>
     <button
     class="btn btn-primary"
-    id="<%= button.id %>"
+  
     type=" <%= button.type %>"
     >
     <%= button.name %>
@@ -29,10 +34,17 @@
  
 <% } %>
 
-            
+         
+
+
+</div>
+                
+
         
        </form>
-
+   <% } %>
+ 
+ 
         <% if (output) { %>
 
      <%  var inputName = output,
@@ -41,13 +53,12 @@
 <hr class="my-4">
        <% while(i < len){ %>
 
-       <%- include(`${partials}/form/inputcol`, {inputName:{name: output[i].name, id: output[i].id, type: output[i].type} }); -%>
+       <%- include(`${partials}/form/inputcol`, {inputName:{name: output[i].name, type: output[i].type} }); -%>
        <% 
         // some js in the loop
         console.log('output[' + i + '] = ' + output[i]);
         i += 1; 
          %>
        <% } %>
-<% } %>
- 
- 
+       
+<% } %>   

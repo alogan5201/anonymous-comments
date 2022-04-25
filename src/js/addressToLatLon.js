@@ -191,11 +191,11 @@ $(function() {
         .find("input:eq(0)")
         .val(address.features[0].place_name);
 
-      $("#latlonForm")
-        .find("input:eq(0)")
-        .val(lat);
-      $("#latlonForm")
+      $("main")
         .find("input:eq(1)")
+        .val(lat);
+       $("main")
+        .find("input:eq(2)")
         .val(lon);
     }
     }, 1000);

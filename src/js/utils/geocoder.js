@@ -279,7 +279,7 @@ export async function getAddress(lat, lon) {
     lon: lon,
   })
     .then( function ( result ) {
-      console.log(result)
+ 
       return result;
     })
     .catch(function (error) {

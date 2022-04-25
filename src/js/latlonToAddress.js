@@ -138,8 +138,8 @@ $(document).ready(function () {
     const result = await findAddress(lat, lon);
 
     const address = result.features[0].place_name;
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LongitudeInput").val(lon);
     $("#addressInput").val(address);
     map.fitBounds([[lat, lon]], {
       padding: [50, 50],
@@ -224,8 +224,8 @@ $(document).ready(function () {
       "form :submit"
     ).first().html(` <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
   ${submitText}`);
-    let latInput = document.getElementById("latInputField");
-    let lonInput = document.getElementById("lonInputField");
+    let latInput = document.getElementById("LatitudeInput");
+    let lonInput = document.getElementById("LongitudeInput");
     const lat = latInput.value;
     const lon = lonInput.value;
 
@@ -237,8 +237,11 @@ $(document).ready(function () {
 
     let address =
       result.features.length > 0 ? result.features[0].place_name : "";
-    $("#addressInput").val(address);
-
+    $( "#AddressInput" ).val( address );
+    
+    // addressInput ---->  AddressInput 
+  //   latInputField   ---> LatitudeInput
+    // latInputField ------> LongitudeInput
     const alertMessage = `
     <div class="alert alert-warning d-flex align-items-center" role="alert">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">

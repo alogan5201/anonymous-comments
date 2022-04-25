@@ -15,22 +15,21 @@
   </noscript>
   <%- include(`${partials}/nav`); -%>
   <!--   !! MAIN -------------------------->
-  <main class="flex-shrink-0 mt-3" >
+  <main class="flex-shrink-0 mt-5" >
     <div class="container px-3">
- 
       <div class="row g-3 ">
-             <div class="col-md-4">
+        <div class="col-md-4">
 
         <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address', subtitle: 'Quickly find an Address from a set of coordinates.'}); -%>
 
         <%- include(`${partials}/form/inputs`,{
                   inputName: [
-                    { name: 'Latitude', id: 'latInputField', type: 'number' },
-                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+                    { name: 'Latitude',type: 'number' },
+                    { name: 'Longitude',type: 'number' },
                   ], 
                 formid: "latlonForm",
-                button: {name: 'Submit', type: 'submit', id: 'latlonGeocoderBtn'},
-                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
+                button: {name: 'Submit', type: 'submit' },
+                output: [{name: 'Address', type: 'text'}]
                 }); -%>
 
              </div>

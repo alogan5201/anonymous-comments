@@ -1,18 +1,11 @@
 /* jshint esversion: 8 */
-import "./firebase";
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript.js";
 import {
-  popupContent,
-  getLatLon,
-  getAddress,
-  getAltitude,
-  generateUID,
-  addBookmark,
-  toggleBookmark,
-  toggleAltitude,
+  addBookmark, popupContent, toggleAltitude
 } from "utils/geocoder";
+import "./firebase";
 import { getIp } from "./firebase";
-import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 function test(e) {
   e.preventDefault();
@@ -185,8 +178,8 @@ $(document).ready(function () {
 
     localStorage.setItem("userLatLon", `${lat}, ${lon}`);
 
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LongitudeInput").val(lon);
 
     north.checked = lat >= 0;
     south.check = lat < 0;

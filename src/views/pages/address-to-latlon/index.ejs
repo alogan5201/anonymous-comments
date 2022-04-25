@@ -3,7 +3,7 @@
     
   <%- include(`${partials}/head`, {pageTitle: 'title'}); -%>
 
-  <body class="address-to-latlon ">
+  <body >
     <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -98,23 +98,25 @@
     <!--   !! MAIN -------------------------->
 
     <!-- Main Content-->
-       <main class="flex-shrink-0 mt-3" >
+       <main class="flex-shrink-0 mt-5" >
     <div class="container px-3">
  
       <div class="row g-3 ">
              <div class="col-md-4">
 
-        <%- include(`${partials}/general/header`, {title: 'Address to Latitude Longitude', subtitle: 'Quickly convert any address to longitude and latitude coordinates.'}); -%>
+      <%- include(`${partials}/general/header`, {title: 'Address to Latitude Longitude', subtitle: 'Quickly convert any address to longitude and latitude coordinates.'}); -%>
 
         <%- include(`${partials}/form/inputs`,{
                   inputName: [
-                    { name: 'Address',  type: 'search' },
-                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+                    { name: 'Address',  type: 'search' }
+          
+
                   ], 
-                formid: "getTravelForm",
-                button: {name: 'Submit', type: 'submit', id: 'getRoute'},
-                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
+                formid: "latlonForm",
+                button: {name: 'Submit', type: 'submit' },
+                output: [{name: 'Latitude', type: 'number'},{name: 'Longitude', type: 'number'}]
                 }); -%>
+
 
              </div>
              <%- include(`${partials}/map/map-Container.ejs`); -%>
