@@ -25,7 +25,7 @@
   max-width: 1170px;
 }
 main {
-  max-width: 1170px !important ;
+  max-width: 1100px !important ;
   margin: 0 auto;
 }
 .hide-element {
@@ -1014,7 +1014,7 @@ body {
 }
 
 @media (max-width: 991px) {
-  #mainNav .container-fluid {
+  #mainNav .container {
     border: 0 !important;
   }
   .leaflet-control-zoom.leaflet-bar.leaflet-control {
@@ -1248,4 +1248,6 @@ margin: 1rem 0 !important;
   text-align: left !important;
 }
 
-#mainNav .container {max-width: 1144px !important}
+#mainNav .container {max-width: 1072px !important}
+
+.container {max-width: 1100px !important}
