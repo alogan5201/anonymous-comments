@@ -93,8 +93,8 @@ $(document).ready(function () {
   }
 
   const convertLocationData = document.getElementById("convertLocationData");
-  const latInputField = document.getElementById("latInputField");
-  const lonInputField = document.getElementById("lonInputField");
+  const LatitudeInput = document.getElementById("LatitudeInput");
+  const LongitudeInput = document.getElementById("LongitudeInput");
   const latlonGeocoderBtn = document.getElementById("latlonGeocoderBtn");
 
   const CoordsApp = function _CoordsApp() {
@@ -182,8 +182,8 @@ $(document).ready(function () {
     localStorage.setItem("userLatLon", `${lat}, ${lon}`);
 
     locationControl.stop();
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LongitudeInput").val(lon);
 
     north.checked = lat >= 0;
     south.check = lat < 0;
@@ -242,8 +242,8 @@ $(document).ready(function () {
 
     let icon = locationControl._icon;
     $(icon).css("background-color", "black");
-    let latInput = document.getElementById("latInputField");
-    let lonInput = document.getElementById("lonInputField");
+    let latInput = document.getElementById("LatitudeInput");
+    let lonInput = document.getElementById("LongitudeInput");
     const lat = e.currentTarget[0].value;
     const lon = e.currentTarget[1].value;
 

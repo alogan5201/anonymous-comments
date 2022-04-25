@@ -263,7 +263,7 @@ $(function() {
     }
   });
 
-  $("#getTravelForm").on("submit", async function(e) {
+ $( "form" ).first().on("submit", async function(e) {
     e.preventDefault();
 
     const submitText = $("form :submit")

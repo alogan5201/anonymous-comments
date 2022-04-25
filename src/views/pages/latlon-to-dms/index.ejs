@@ -15,185 +15,32 @@
     </noscript>
     <%- include(`${partials}/nav`); -%>
     <!--   !! MAIN -------------------------->
-     <main class="flex-shrink-0 mt-2">
-      <div class="container px-4 px-lg-5">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Latitude Longitude to <br> DMS </h3>
-          <small>(Degrees Minutes and Seconds)</small>
-          <p class="fs-5 text-muted">Quickly convert a set of coordinates to DMS.</p>
-        </div>
-        <div class="row g-3 align-items-center justify-content-center">
-           <div class="col-md-5" style="position: relative;">
-            <h5 class="text-start mb-4">Latitude and Longitude</h5>
-            <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
-              id="latlonForm"
-            >
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 text-end">
-                <button
-                  class="btn btn-primary"
-                  id="latlonGeocoderBtn"
-                  type="submit"
-                >
-                  Get DMS
-                </button>
-              </div>
-            </form>
-            <hr class="mb-4" />
+        <main class="flex-shrink-0 mt-5" >
+    <div class="container px-3">
+      <div class="row g-3 ">
+        <div class="col-md-4">
 
-            <form class="row g-3 mb-3" id="dms" name="myDmsForm">
-              <h5 class="text-start mb-4">DMS (degrees, minutes, seconds)*</h5>
-              <div class="input-group mb-3" id="lat-dms-field">
-                <legend
-                  class="col-form-label col-sm-2 pt-0 align-self-center me-5 text-start fs-5"
-                >
-                  Latitude
-                </legend>
-                <div
-                  class="form-check form-check-inline align-self-center north-form-check"
-                >
-                  <input
-                    class="form-check-input align-self-center"
-                    id="north"
-                    type="radio"
-                    name="radioStacked"
-                    required=""
-                  />
-                  <label class="form-check-label" for="north">N</label>
-                </div>
-                <div
-                  class="form-check form-check-inline align-self-center south-form-check"
-                >
-                  <input
-                    class="form-check-input align-self-center"
-                    id="south"
-                    type="radio"
-                    name="radioStacked"
-                    required=""
-                  />
-                  <label class="form-check-label" for="south">S</label>
-                </div>
-                <input
-                  class="form-control"
-                  id="degrees-lat"
-                  type="number"
-                  step="any"
-                  name="degreesLat"
-                  required=""
-                />
-                <span class="input-group-text">&deg;</span>
-                <input
-                  class="form-control"
-                  id="minutes-lat"
-                  type="number"
-                  step="any"
-                />
-                <span class="input-group-text">&apos;</span>
-                <input
-                  class="form-control"
-                  id="seconds-lat"
-                  type="number"
-                  step="any"
-                />
-                <span class="input-group-text">&apos;&apos;</span>
-              </div>
-              <div class="input-group mb-3" id="lon-dms-field">
-                <legend
-                  class="col-form-label col-sm-2 pt-0 align-self-center me-5 text-start fs-5"
-                >
-                  Longitude
-                </legend>
-                <div class="form-check form-check-inline align-self-center">
-                  <input
-                    class="form-check-input align-self-center"
-                    id="east"
-                    type="radio"
-                    name="radioStacked2"
-                    required=""
-                  />
-                  <label class="form-check-label" for="east">E</label>
-                </div>
-                <div class="form-check form-check-inline align-self-center">
-                  <input
-                    class="form-check-input align-self-center"
-                    id="west"
-                    type="radio"
-                    name="radioStacked2"
-                    required=""
-                  />
-                  <label class="form-check-label" for="west">W</label>
-                </div>
-                <input
-                  class="form-control"
-                  id="degrees-lon"
-                  type="text"
-                  name="degreesLon"
-                  required=""
-                />
-                <span class="input-group-text">&deg;</span>
-                <input class="form-control" id="minutes-lon" type="text" />
-                <span class="input-group-text">&apos;</span>
-                <input
-                  class="form-control"
-                  id="seconds-lon"
-                  type="text"
-                  aria-describedby="validationServer10Feedback"
-                />
-                <span class="input-group-text">&apos;&apos;</span>
-              </div>
-            </form>
+        <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to DMS ', subtitle: 'Quickly convert a set of coordinates to DMS.'}); -%>
 
-            <hr class="mb-4" />
-            <div class="row mb-3">
-              <div id="liveAlertPlaceholder">
-                <div class="alerts mt-1"></div>
-                <div class="history"></div>
-              </div>
-            </div>
-          </div>
-        <div class="col-md-7  align-self-start">
-            <h4 class="travel-time"></h4>
-            <div class="map-container"> <div id="map" class="invisible"></div>
-                  <div id="static"></div></div>
-          </div>
-        </div>
-       <%- include(`${partials}/comment-section.ejs`); -%>
+        <%- include(`${partials}/form/inputs`,{
+                  inputName: [
+                    { name: 'Latitude',type: 'number' },
+                    { name: 'Longitude',type: 'number' },
+                  ], 
+                formid: "latlonForm",
+                button: {name: 'Get DMS', type: 'submit' },
+          output: null
+                }); -%>
+<hr class="mb-3">
+    <%- include(`${partials}/form/dmsInput`); -%>
+             </div>
+             <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
-    </main>
+      <%- include(`${partials}/comment-section.ejs`); -%>
+
+    </div>
+  </main>
+   
     <%- include(`${partials}/footer`); -%> <%-
     include(`${partials}/page-scripts/latlon-to-dms-scripts.ejs`); -%>
   </body>

@@ -140,7 +140,7 @@ $(document).ready(function () {
     const address = result.features[0].place_name;
     $("#LatitudeInput").val(lat);
     $("#LongitudeInput").val(lon);
-    $("#addressInput").val(address);
+    $("#AddressInput").val(address);
     map.fitBounds([[lat, lon]], {
       padding: [50, 50],
       maxZoom: 13,

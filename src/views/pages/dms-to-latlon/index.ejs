@@ -23,25 +23,39 @@
       
 
           <%- include(`${partials}/general/header`, {title: 'DMS to Latitude Longitude', subtitle: 'Quickly convert DMS to Latitude and Longitude.'}); -%>
-          <%- include(`${partials}/form/dmsForm`); -%>
+            <form class="row g-3 mb-3" id="myDmsForm">
+
+
+                <%- include(`${partials}/form/dmsInput`); -%>
+
+              <div class="col-12 text-end">
+                <button
+                  class="btn btn-primary"
+                  id="latlonGeocoderBtn"
+                  type="submit"
+                >
+                  Get Coordinates
+                </button>
+              </div>
+            </form>
+     
     <%- include(`${partials}/form/inputs`,{               
                 output: [{name: 'Latitude', type: 'number'},{name: 'Longitude', type: 'number'}]
                 }); -%>
    
 
-          <hr class="mb-4" />
-          <div class="row mb-3">
-            <div id="liveAlertPlaceholder">
-              <div class="alerts mt-1"></div>
-              <div class="history"></div>
-            </div>
-          </div>
+  
+       
         </div>
         <div class="col-md-7  align-self-start">
           <h4 class="travel-time"></h4>
           <div class="map-container">
             <div id="map"></div>
             <div id="static"></div>
+                <div id="liveAlertPlaceholder">
+              <div class="alerts mt-1"></div>
+              <div class="history"></div>
+            </div>
           </div>
         </div>
       </div>
