@@ -96,179 +96,33 @@
       </style>
 
     <!--   !! MAIN -------------------------->
+
     <!-- Main Content-->
-     <main class="flex-shrink-0 mt-2 w-100">
+       <main class="flex-shrink-0 mt-3" >
+    <div class="container px-3">
+ 
+      <div class="row g-3 ">
+             <div class="col-md-4">
 
-      <div class="container  px-4 px-lg-5 pb-5 ">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 id="site-title"class=" fw-normal">Address to Latitude Longitude</h3>
-          <p class="fs-5 text-muted">Quickly convert any address to longitude and latitude coordinates.</p>
-        </div>
-        <div class="row gx-5 align-items-center justify-content-center mb-5">
+        <%- include(`${partials}/general/header`, {title: 'Address to Latitude Longitude', subtitle: 'Quickly convert any address to longitude and latitude coordinates.'}); -%>
 
-           
-          <div class="col-md-5" style="position: relative;">
-            <h5 class="text-start mb-4">Address</h5>
-            <form
-              class="row justify-content-between align-items-center"
-              autocomplete="off"
-              id="getTravelForm"
-            >
-              <div class="row justify-content-between align-items-center pe-0">
-                <label class="col-sm-2 col-form-label mb-3" for="latInputField"
-                  >Address</label
-                >
-                <div class="col-sm-9">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button
-                        id="searchButton"
-                        type="button"
-                        class="btn btn-outline-primary text-info border border-end-0 ps-3 pe-1 disabled"
-                      >
-                        <i class="fa fa-search"></i>
-                      </button>
-                    </div>
-                    <input
-                      type="search"
-                      id="searchInput"
-                      class="form-control border border-start-0 target-address"
-                      aria-label="Sizing example input"
-                      aria-describedby="inputGroup-sizing-default"
-                    />
-                  </div>
-                </div>
-              </div>
+        <%- include(`${partials}/form/inputs`,{
+                  inputName: [
+                    { name: 'Address',  type: 'search' },
+                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+                  ], 
+                formid: "getTravelForm",
+                button: {name: 'Submit', type: 'submit', id: 'getRoute'},
+                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
+                }); -%>
 
-              <div class="row mb-3 justify-content-end">
-                <div
-                  class="col-sm-8 position-relative text-end pe-0"
-                  style="z-index: 0 !important;"
-                >
-
-                  <button class="btn btn-primary" id="getRoute" type="submit">
-                    Find
-                  </button>
-                </div>
-              </div>
-            </form>
-            <form
-              class="row mb-3 justify-content-between align-items-center d-none"
-              action="post"
-              id="geocoderAddressForm"
-            >
-              <label class="col-sm-2 col-form-label">Address</label>
-              <div
-                class="col-sm-9 position-relative"
-                style="z-index: 2 !important;"
-              >
-                <div class="geocoder" id="geocoder"></div>
-              </div>
-
-              <div class="row mt-3 mb-3 px-0 justify-content-end">
-                <div
-                  class="col-12 px-0 position-relative text-end"
-                  style="z-index: 0 !important;"
-                >
-                  <button
-                    class="btn btn-primary"
-                    id="convertLocationData"
-                    type="submit"
-                  >
-                    Find
-                  </button>
-                </div>
-              </div>
-            </form>
-            <h5 class="text-start mb-4">Latitude and Longitude</h5>
-            <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
-              id="latlonForm"
-            >
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </form>
-
-
-            <div class="row mb-3">
-              <div id="liveAlertPlaceholder">
-                <div class="alerts"></div>
-                <div class="history"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7  align-self-start">
-
- <div id="map-container" class="map-container">
-
-                  <div id="map" class="invisible"></div>
-                  <div class="toast-container position-absolute p-3 top-50 start-50
-            translate-middle">
-            <div id="liveToast" class="toast  fade"data-bs-autohide="false"
-              role="alert" aria-live="assertive" aria-atomic="true"
-              class="bg-dark position-relative bd-example-toasts">
-              <div class="toast-header">
-                <button type="button" class="btn-close ms-auto"
-                  data-bs-dismiss="toast" aria-label="Close"></button>
-              </div>
-              <div class="toast-body mb-4">
-                <div class="input-group mx-auto my-0 w-75">
-                  <input type="text" class="form-control"
-                    placeholder="Recipient's username" aria-label="Recipient's
-                    username" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-secondary" type="button"
-                    id="button-addon2">+</button>
-                </div>
-              </div>
-            </div>
-          </div>
-                  <div id="static"></div>
-
-
-              </div>
-
-
-            <h4 class="travel-time"></h4>
-
-
-          </div>
-        </div>
-        <%- include(`${partials}/comment-section.ejs`); -%>
-    
+             </div>
+             <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
-    </main>
+      <%- include(`${partials}/comment-section.ejs`); -%>
+
+    </div>
+  </main>
 
     <!-- Footer-->
 

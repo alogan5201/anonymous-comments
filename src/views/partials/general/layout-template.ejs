@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
-
-<body>
-  <!--[if lt IE 8]>
+<%- include(`${partials}/head`, {pageTitle: 'page' }); -%>
+  <body>
+    <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-  <noscript>
-    <h3>Please enable JavaScript in order to view this site properly.</h3>
-  </noscript>
-  <%- include(`${partials}/nav`); -%>
-  <!--   !! MAIN -------------------------->
-  <main class="flex-shrink-0 mt-3" >
-    <div class="container px-3">
- 
-      <div class="row g-3 ">
-             <div class="col-md-4">
-
-        <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address', subtitle: 'Quickly find an Address from a set of coordinates.'}); -%>
-
-        <%- include(`${partials}/form/inputs`,{
-                  inputName: [
-                    { name: 'Latitude', id: 'latInputField', type: 'number' },
-                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
-                  ], 
-                formid: "latlonForm",
-                button: {name: 'Submit', type: 'submit', id: 'latlonGeocoderBtn'},
-                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
-                }); -%>
-
-             </div>
-             <%- include(`${partials}/map/map-Container.ejs`); -%>
-      </div>
-      <%- include(`${partials}/comment-section.ejs`); -%>
-
-    </div>
-  </main>
-
-
-
-  <%- include(`${partials}/footer`); -%> <%-
-   include(`${partials}/page-scripts/lat-lon-to-address-scripts.ejs`); -%>
-</body>
-
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+    <%- include(`${partials}/nav`); -%>
+      <!--   !! MAIN -------------------------->
+      <main class="flex-shrink-0 mt-3">
+        <div class="container px-3">
+          <div class="row g-3 ">
+            <div class="col-md-4">
+              <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address' ,
+                subtitle: 'Quickly find an Address from a set of coordinates.' }); -%>
+                <%- include(`${partials}/form/inputs`,{ inputName: [ { name: 'Latitude' , id: 'latInputField' ,
+                  type: 'number' }, { name: 'Longitude' , id: 'lonInputField' , type: 'number' }, ],
+                  formid: "latlonForm" , button: {name: 'Submit' , type: 'submit' , id: 'latlonGeocoderBtn' }, output:
+                  [{name: 'Address' , type: 'text' , id: 'addressInput' }] }); -%>
+            </div>
+            <%- include(`${partials}/map/map-Container.ejs`); -%>
+          </div>
+          <%- include(`${partials}/comment-section.ejs`); -%>
+        </div>
+      </main>
+      <%- include(`${partials}/footer`); -%>
+        <%- include(`${partials}/page-scripts/lat-lon-to-address-scripts.ejs`); -%>
+  </body>
 </html>

@@ -10,7 +10,7 @@
 
        <% while(i < len){ %>
 
-       <%- include(`${partials}/form/inputcol`, {inputName:{name: arr[i].name, id: arr[i].id, type: arr[i].type} }); -%>
+       <%- include(`${partials}/form/inputcol`, {inputName:{name: arr[i].name, type: arr[i].type} }); -%>
        <% 
         // some js in the loop
         console.log('arr[' + i + '] = ' + arr[i]);

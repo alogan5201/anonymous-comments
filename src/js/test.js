@@ -199,7 +199,76 @@ $(function () {
 ${submitText}`)
   })
 
+const forms = document.querySelectorAll("form")
+  function m (item) {
+    let inputs = item.elements
+    let arr = []
+    for ( i = 0; i < inputs.length; i++ )
+{
 
+    // Update text input
+   
+//  let obj = {nodeName: inputs[i].nodeName, type: inputs[i].type, value: inputs[i].value}
+arr.push(JSON.stringify(inputs))
+
+}
+return arr
+}
+  const all = []
+
+  let formData = {
+                  inputName: [
+                    { name: 'Address', id: 'latInputField', type: 'search' },
+                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+                  ], 
+                formid: "getTravelForm",
+                button: {name: 'Submit', type: 'submit', id: 'latlonGeocoderBtn'},
+                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
+                }
+
+function extractAll(){
+let arr = []
+  let allForms = document.querySelectorAll( "form" )
+  for (let index = 0; index < allForms.length; index++) {
+    const element = allForms[ index ];
+    const inputs = element.elements
+    const formId = element.getAttribute( "id" )
+    
+
+    for ( i = 0; i < inputs.length; i++ )
+    {
+      if ( formId != "bookmarkForm" && formId != "comment-form" )
+      {
+        
+  if (inputs[i].nodeName === "INPUT") {
+    // Update text input
+    let id = inputs[i].getAttribute("id") || null
+    let type = inputs[ i ].getAttribute( "type" ) || null 
+    const parent = inputs[ i ].parentNode;
+    let inputnodeName = inputs[i].nodeName
+    let obj = { id: id, type: type, formId: formId, nodename : inputnodeName }
+    arr.push( obj )
+  }
+  else if ( inputs[ i ].nodeName === "SUBMIT" || inputs[ i ].nodeName == "BUTTON" )
+  {
+     let id = inputs[i].getAttribute("id") || null
+    let type = inputs[ i ].getAttribute( "type" ) || null 
+    let inputnodeName = inputs[i].nodeName
+    let obj = { id: id, type: type, formId: formId, nodename : inputnodeName }
+    arr.push(obj)
+    }
+      }
+
+}
+     
+  }
+  return arr
+
+}
+  extractAll()
+setTimeout(() => {
+  console.log(all)
+}, 500);
   const customControl = L.Control.extend({
     // button position
     options: {
