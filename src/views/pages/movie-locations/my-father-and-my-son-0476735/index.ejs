@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+
+     <main class="mb-4 mt-5">
+
+
+
+        <div class="container px-4 px-lg-5">
+
+
+            <div class="row align-items-md-stretch">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                      <h3 class="card-title">My Father and My Son</h3>
+          <p class="card-text mb-0">
+
+
+  <span > The family of a left-wing journalist is torn apart after the military coup of Turkey in 1980.  </span>
+                          <span > Sadik is one of the rebellious youth who has been politically active as a university student and became a left-wing journalist in the 70's, despite his father's expectations of him becoming an agricultural engineer and taking control of their family farm in an Aegean village. On the dawn of September 12, 1980, when a merciless military coup hits the country, they cannot find access to any hospital or a doctor and his wife dies while giving birth to their only child, Deniz. After a long-lasting period of torture, trials, and jail time, Sadik returns to his village with 7-8 years old Deniz, knowing that it will be hard to correct things with his father, Huseyin. -Ali Riza Bolukbasi.  </span>
+                          
+
+                        </p>
+                      </div>
+                    </div>
+                      <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BNjAzMzEwYzctNjc1MC00Nzg5LWFmMGItMTgzYmMyNTY2OTQ4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="My Father and My Son"
+                                    />
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+ <table class="table">
+          <tr class="table__header">
+
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Seferihisar, Izmir, Turkey </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">38.2</span>, <span class="lon">26.83333</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Istanbul, Turkey </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.01</span>, <span class="lon">28.96028</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Izmir, Izmir, Turkey </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">38.43333</span>, <span class="lon">27.15</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Ayvalik, Balıkesir, Turkey </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">39.33</span>, <span class="lon">26.7</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Balikesir, Balıkesir, Turkey </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">39.588542</span>, <span class="lon">27.936557</span></a>
+                
+            </td>
+          </tr>
+          </tr>
+
+        </table>
+          </div>
+        </div>
+
+
+    </main>
+
+
+
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": null, "data": [{"lat": 38.2, "lon": 26.83333, "name": "Seferihisar, Izmir, Turkey"}, {"lat": 41.01, "lon": 28.96028, "name": "Istanbul, Turkey"}, {"lat": 38.43333, "lon": 27.15, "name": "Izmir, Izmir, Turkey"}, {"lat": 39.33, "lon": 26.7, "name": "Ayvalik, Bal\u0131kesir, Turkey"}, {"lat": 39.588542, "lon": 27.936557, "name": "Balikesir, Bal\u0131kesir, Turkey"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

@@ -106,8 +106,8 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   const convertLocationData = document.getElementById("convertLocationData");
-  const latInputField = document.getElementById("latInputField");
-  const lonInputField = document.getElementById("lonInputField");
+  const LatitudeInput = document.getElementById("LatitudeInput");
+  const LongitudeInput = document.getElementById("LongitudeInput");
   const latlonGeocoderBtn = document.getElementById("latlonGeocoderBtn");
 
   const CoordsApp = function _CoordsApp() {
@@ -203,8 +203,8 @@ window.addEventListener("DOMContentLoaded", () => {
     let alertHtml = result.features.length > 0 ? "" : alertMessage;
     $(".alerts").html(alertHtml);
     locationControl.stop();
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LongitudeInput").val(lon);
 
     north.checked = lat >= 0;
     south.check = lat < 0;

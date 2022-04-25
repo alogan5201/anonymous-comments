@@ -14,98 +14,36 @@
     </noscript>
     <%- include(`${partials}/nav`); -%>
       <!--   !! MAIN -------------------------->
-      <main class="flex-shrink-0 mt-2">
-        <div class="container  px-4 px-lg-5 pb-5 ">
-          <div class=" py-3 pb-md-4 mx-auto text-left">
-            <h3 class=" fw-normal">Travel Time </h3>
-            <p class="fs-5 text-muted">Quickly identify the travel time between two points.</p>
-          </div>
-          <div class="row gx-5 align-items-center justify-content-center mb-5">
+          <!-- Main Content-->
+       <main class="flex-shrink-0 mt-5" >
+    <div class="container px-3">
+ 
+      <div class="row g-3 ">
+             <div class="col-md-4">
 
-           <div class="col-md-5" style="position: relative;">
+      <%- include(`${partials}/general/header`, {title: 'Travel Time ', subtitle: 'Quickly identify the travel time between two points.'}); -%>
 
+        <%- include(`${partials}/form/inputs`,{
+                  inputName: [
+                    { name: 'Origin',  type: 'search' },
+                     { name: 'Destination',  type: 'search' }
+          
 
-              <h5 class="text-start mb-4">Find Travel Time</h5>
-              <form class="row mb-3 justify-content-between align-items-center" autocomplete="off" id="getTravelForm">
-                <div class="row mb-3">
-                  <div class="col text-start">
-                    <label class="col-sm-2 col-form-label fs-5 text-start">Origin</label>
-                  </div>
-                  <div class="col-sm-8 position-relative" style="z-index: 2 !important">
-
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend ">
-                        <button id="searchButton" type="button"
-                          class="btn btn-outline-primary  text-info border border-end-0 ps-3 pe-1  disabled"><i
-                            class="fa fa-search"></i></button>
-                      </div>
-                      <input type="search" id="searchInput" class="form-control border border-start-0 target-address"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
+                  ], 
+                formid: "getTravelForm",
+                button: {name: 'Find', type: 'submit' },
+                output: null
+                }); -%>
 
 
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col text-start">
-                    <label class="col-sm-2 col-form-label fs-5 text-start">Destination</label>
-                  </div>
-                  <div class="col-sm-8 position-relative" style="z-index: 1 !important">
+             </div>
+             <%- include(`${partials}/map/map-Container.ejs`); -%>
+      </div>
+      <%- include(`${partials}/comment-section.ejs`); -%>
 
+    </div>
+  </main>
 
-                    <div class="input-group mb-3">
-                      <div class="input-group-prepend ">
-                        <button id="searchButton" type="button"
-                          class="btn btn-outline-primary  text-info border border-end-0 ps-3 pe-1  disabled" style="color: #ee4053 !important "><i
-                            class="fa fa-search"></i></button>
-                      </div>
-                      <input type="search" id="searchInput" class="form-control border border-start-0 target-address"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-
-
-
-                  </div>
-                </div>
-                <div class="row mb-3 justify-content-end">
-                  <div class="col-sm-8 position-relative text-end" style="z-index: 0 !important">
-                    <button class="btn btn-primary" id="getRoute" type="submit">
-                      Get Travel Time
-                    </button>
-
-                  </div>
-                </div>
-
-              </form>
-
-
-              <div class="row mb-3">
-                <div id="liveAlertPlaceholder">
-
-                </div>
-              </div>
-              <ul class="list-group" id="addressHistory"></ul>
-            </div>
-            <div class="col-md-7  align-self-start">
-
-
-                  <h4 class="travel-time"></h4>
-
- <div id="map-container" class="map-container">
-
-                  <div id="map" class="invisible"></div>
-                  <div id="static"></div>
-
-
-              </div>
-
-
-            </div>
-          </div>
-        <%- include(`${partials}/comment-section.ejs`); -%>
-
-        </div>
-      </main>
       <%- include(`${partials}/footer`); -%>
         <%- include(`${partials}/page-scripts/travel-scripts`); -%>
   </body>

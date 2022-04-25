@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+
+     <main class="mb-4 mt-5">
+
+
+
+        <div class="container px-4 px-lg-5">
+
+
+            <div class="row align-items-md-stretch">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                      <h3 class="card-title">The Bridge on the River Kwai</h3>
+          <p class="card-text mb-0">
+
+
+  <span > British POWs are forced to build a railway bridge across the river Kwai for their Japanese captors in occupied Burma, not knowing that the allied forces are planning a daring commando raid through the jungle to destroy it.  </span>
+                          <span > During WW II, allied POWs in a Japanese internment camp are ordered to build a bridge to accommodate the Burma-Siam railway. Their instinct is to sabotage the bridge, but under the leadership of Colonel Nicholson they're persuaded the bridge should be built to help morale, spirit. At first, the prisoners admire Nicholson when he bravely endures torture rather than compromise his principles for the benefit of Japanese Commandant Colonel Saito, but soon they realise it's a monument to Nicholson, himself, as well as a form of collaboration with the enemy. -alfiehitchie.  </span>
+                          <span > During WWII, the Japanese have set up a POW camp in Indochina on an island on the banks of the Kwai River. The primary purpose of this location is so that the Japanese can use the labor of the POWs to construct a railway bridge over the river, the bridge which will be a vital link for the Japanese forces in the war. It needs to be completed in five month's time. The camp is presided over by Colonel Saito, a man ruled by a mixture of Japanese cultural tradition and the need to win the war at any cost, even if it includes torture and other measures against the Geneva Convention. Among the officers at the camp are Colonel Nicholson, the senior British officer for who the principle of the matter is foremost regardless of the consequences; Major Clipton, the pragmatic medical officer; and US Navy Commander Shears who is more concerned about his own well being and that of those around him than he is about the big picture of the war. Against the assertions of its futility by both Saito and Nicholson, three POWs try to escape - among them being Shears - with all being shot. Everyone believes Shears is dead, but he manages to survive and make it out of the jungle back to safety. At the camp, a battle of wills ensues between Nicholson and Saito, specifically regarding the illegal use of POW officers as laborers to build the bridge. Nicholson wins the respect of the POWs because of this standoff. But Nicholson ultimately has other thoughts, namely taking control of the building of a proper, well made bridge to replace the haphazard one currently being directed by Saito. Nicholson's rationale is that it will raise the morale of the POWs by giving them something constructive to do, while demoralizing the enemy by showing them the superiority of the British. Meanwhile, as Shears is convalescing at a beach-side military hospital in Ceylon, he is certain he will get his wish of a medical discharge. His plans are disrailed when he is asked to participate in a British led four man commando mission to destroy the bridge under the command of Major Warden, the antithesis of Shears in that he can only see the big picture without seeing the personal cost to those around him. This offer is one that Shears cannot refuse. The four understand the risks - the perils of the jungle and the Japanese - but they may not fully realize that their biggest threat for carrying out the mission successfully is Nicholson's pride. -Huggo.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > In Burma during World War II, a group of British prisoners of war is commanded by the warden of the Japanese camp they're being held captive in, Colonel Saito, to build a bridge over the River Kwai. The senior officer of the capitulated brigade, Colonel Nicolson, conflicts with Saito over the order, which obliges the British officers to perform work on the bridge as well. As punishment, the officers and the colonel are locked away, and the demoralized men are sent off to work. Nicholson and the officers are after some time released by and put in charge of their men by a desperate Saito, who fear that the lackluster work morale of the prisoners may cause the bridge to not be completed in time, which would in turn force him to commit seppuku. After the change in authority, work seems to be going on the way, but unbeknownst to the two colonels, escaped former inmate US Commander Shears is leading a mission from Ceylon with the goal of blowing up the bridge on the River Kwai. -goddangwatir.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
+                        </p>
+                      </div>
+                    </div>
+                      <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BOGY5NmNlMmQtYzRlYy00NGQ5LWFkYjYtNzExZmQyMTg0ZDA0XkEyXkFqcGdeQXVyNDIzMzcwNjc@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="The Bridge on the River Kwai"
+                                    />
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+ <table class="table">
+          <tr class="table__header">
+
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Ambepussa, Gampaha, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.253562652</span>, <span class="lon">80.172499325</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Araliya, Klang, Selangor 41200, Malaysia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">2.997249</span>, <span class="lon">101.445785</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Kithulgala, Kegalle, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.997872529</span>, <span class="lon">80.408492647</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mount Lavinia, Colombo, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.842919</span>, <span class="lon">79.866418</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Colombo, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.86667</span>, <span class="lon">80.01667</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Kandy, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.25</span>, <span class="lon">80.75</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Kithulgala, Kegalle, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.997872529</span>, <span class="lon">80.408492647</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mount Lavinia, Colombo, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.842919</span>, <span class="lon">79.866418</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Peradeniya, Kandy, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.247535</span>, <span class="lon">80.586124</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mahara, Gampaha, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">6.991302851</span>, <span class="lon">79.939375045</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Gelioya, Kandy, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.214597871</span>, <span class="lon">80.598184085</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Peradeniya, Kandy, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.247535</span>, <span class="lon">80.586124</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Sri Lankaramaya Buddhist Temple (Sleeping Buddha), Singapore, Central 328002, Singapore </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">1.32703</span>, <span class="lon">103.86307</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Peradeniya, Kandy, Sri Lanka </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">7.247535</span>, <span class="lon">80.586124</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Altstadt, Köln, North Rhine-Westphalia, Germany </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">50.938915</span>, <span class="lon">6.951947</span></a>
+                
+            </td>
+          </tr>
+          </tr>
+
+        </table>
+          </div>
+        </div>
+
+
+    </main>
+
+
+
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[6.842919, 79.866418], [6.842919, 79.866418], [6.86667, 80.01667]], "data": [{"lat": 7.253562652, "lon": 80.172499325, "name": "Ambepussa, Gampaha, Sri Lanka"}, {"lat": 2.997249, "lon": 101.445785, "name": "Araliya, Klang, Selangor 41200, Malaysia"}, {"lat": 6.997872529, "lon": 80.408492647, "name": "Kithulgala, Kegalle, Sri Lanka"}, {"lat": 6.842919, "lon": 79.866418, "name": "Mount Lavinia, Colombo, Sri Lanka"}, {"lat": 6.86667, "lon": 80.01667, "name": "Colombo, Sri Lanka"}, {"lat": 7.25, "lon": 80.75, "name": "Kandy, Sri Lanka"}, {"lat": 6.997872529, "lon": 80.408492647, "name": "Kithulgala, Kegalle, Sri Lanka"}, {"lat": 6.842919, "lon": 79.866418, "name": "Mount Lavinia, Colombo, Sri Lanka"}, {"lat": 7.247535, "lon": 80.586124, "name": "Peradeniya, Kandy, Sri Lanka"}, {"lat": 6.991302851, "lon": 79.939375045, "name": "Mahara, Gampaha, Sri Lanka"}, {"lat": 7.214597871, "lon": 80.598184085, "name": "Gelioya, Kandy, Sri Lanka"}, {"lat": 7.247535, "lon": 80.586124, "name": "Peradeniya, Kandy, Sri Lanka"}, {"lat": 1.32703, "lon": 103.86307, "name": "Sri Lankaramaya Buddhist Temple (Sleeping Buddha), Singapore, Central 328002, Singapore"}, {"lat": 7.247535, "lon": 80.586124, "name": "Peradeniya, Kandy, Sri Lanka"}, {"lat": 50.938915, "lon": 6.951947, "name": "Altstadt, K\u00f6ln, North Rhine-Westphalia, Germany"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

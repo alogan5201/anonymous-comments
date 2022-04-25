@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+
+     <main class="mb-4 mt-5">
+
+
+
+        <div class="container px-4 px-lg-5">
+
+
+            <div class="row align-items-md-stretch">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                      <h3 class="card-title">Like Stars on Earth</h3>
+          <p class="card-text mb-0">
+
+
+  <span > An eight-year-old boy is thought to be a lazy trouble-maker, until the new art teacher has the patience and compassion to discover the real problem behind his struggles in school.  </span>
+                          <span > Ishaan Awasthi is an eight-year-old child whose world is filled with wonders that no one else seems to appretiate are just not important in the world of adults, who are much more interested in things like homework, marks and neatness. And Ishaan just cannot seem to get anything right in class. When he gets into far more trouble than his parents can handle, he is packed off to a boarding school to 'be disciplined'. Things are no different at his new school, and Ishaan has to contend with the added trauma of separation from his family. One day a new art teacher bursts onto the scene, Ram Shankar Nikumbh, who infects the students with joy and optimism. He breaks all the rules of 'how things are done' by asking them to think, dream and imagine, and all the children respond with enthusiasm, all except Ishaan. Nikumbh soon realizes that Ishaan is very unhappy, and he sets out to discover why. With time, patience and care, he ultimately helps Ishaan find himself.  </span>
+                          <span > Taare zameen par is a story about a child played by Darsheel Safari who suffers from dyslexia. As a result of which he is unable to cope with daily life, during his early childhood. Improvement in his life is made by teacher played by aamir khan, who explains the problem to darsheel's parents and gradually puts in efforts himself to improve life of that poor child. -muvi-fan-73.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > The Awasthi family consisting of Nandkishore, his wife, Maya and two sons, Yohan and Ishaan, all resides in a house-hold in Bombay, India. The two children attend St. Anthony's High School, while Yohan excels in his studies, Ishaan is the exact opposite; everything about him is negative with a record of failing twice in his third standard, the boy who hides his report card from his parents, the one who makes mischief with other students and his teachers all gives the principal a reason to throw him out. Even at home in his neighbor hood his behavior gets out of control when he gets into fights with other children. The numerous complaints from others forces his parents to enroll him into, "The New Era" boarding school in distant Panchgani but Ishaan's performance still does not improve and is again on the verge of being rusticated when a temporary art teacher, Ram Shankar Nikumbh is recruited. Ram believes Ishaan is suffering from dyslexia and attempt to explain to his parents and other teachers that he will work on curing the boy. -gavin (racktoo@hotmail.com).  </span>
+    <span class="additional-information" > An art teacher, Ram Shankar Nikumbh teaches at a local boarding school and thinks that every child is special and must have his chance of enjoying his/her school days, so he breaks all the rules of 'how things are done' in the school to let his motives became successful, all the children respond to him with joy, all except a small boy named Ishaan Awasthi, of eight years old who seem to be in a different world all the time. Nikumbh soon finds out that Ishaan is unhappy about something. He attempts to help him. The questions remain will he be successful or will the errant prove dangerous for him. -gavin (gunmasterM@hotmail.com).  </span>
+    <span class="additional-information" > The Mumbai-based Awasthi family consists of Nandkishore, his wife, Maya, and two sons, Yohan and Ishaan. Both sons attend St. Anthony's High School where Yohan excels in his studies, but Ishaan does the opposite, having failed in his 3rd standard twice already. His parents continue to be disappointed with his performance, and as a result he hides his report cards from them, often misses school, and keeps to himself all the time. Things get worse when he gets into disagreements and fisticuffs with other children, prompting his father to have him admitted in the New Era Boarding School in distant Panchgani. Even this re-location does not improve Ishaan performance, and the Principal decides to rusticate him. Then a temporary teacher, Ram Shankar Nikumbh is recruited. Ram meets with Ishaan and believes he has a solution that will improve the child's life - little realizing that Ishaan does not have much of a future as neither his teachers, his friends, and even his parents believe that there is any hope for him. -rAjOo (gunwanti@hotmail.com).  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
+                        </p>
+                      </div>
+                    </div>
+                      <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BMDhjZWViN2MtNzgxOS00NmI4LThiZDQtZDI3MzM4MDE4NTc0XkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Like Stars on Earth"
+                                    />
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+ <table class="table">
+          <tr class="table__header">
+
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Panchgani, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">17.918044</span>, <span class="lon">73.799756</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mumbai, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">18.96667</span>, <span class="lon">72.83333</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">St Xaviers High School, Lokmanya Tilak Marg, Mumbai, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">18.944321</span>, <span class="lon">72.829906</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.032711</span>, <span class="lon">72.891125</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.032711</span>, <span class="lon">72.891125</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Trombay Club, BPCL Colony, Chembur, Mumbai, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.035169</span>, <span class="lon">72.897258</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.05871</span>, <span class="lon">72.89969</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Parel, Mumbai, Mumbai City, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">18.998234</span>, <span class="lon">72.843157</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Mumbai, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">18.96667</span>, <span class="lon">72.83333</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">The Acres Club, 411-B, Sindhi Society, Mumbai, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.052128</span>, <span class="lon">72.892529</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Panchgani, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">17.918044</span>, <span class="lon">73.799756</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Sydney Point, Panchgani, Panchgani, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">17.934397</span>, <span class="lon">73.805594</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Il Palazzo Hotel, Panchgani, Maharashtra, India </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">17.925178</span>, <span class="lon">73.802047</span></a>
+                
+            </td>
+          </tr>
+          </tr>
+
+        </table>
+          </div>
+        </div>
+
+
+    </main>
+
+
+
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[17.918044, 73.799756], [17.918044, 73.799756], [17.925178, 73.802047]], "data": [{"lat": 17.918044, "lon": 73.799756, "name": "Panchgani, Maharashtra, India"}, {"lat": 18.96667, "lon": 72.83333, "name": "Mumbai, Maharashtra, India"}, {"lat": 18.944321, "lon": 72.829906, "name": "St Xaviers High School, Lokmanya Tilak Marg, Mumbai, Maharashtra, India"}, {"lat": 19.032711, "lon": 72.891125, "name": "Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India"}, {"lat": 19.032711, "lon": 72.891125, "name": "Mysore Colony, Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India"}, {"lat": 19.035169, "lon": 72.897258, "name": "Trombay Club, BPCL Colony, Chembur, Mumbai, Maharashtra, India"}, {"lat": 19.05871, "lon": 72.89969, "name": "Chembur East, Mumbai, Mumbai Suburban, Maharashtra, India"}, {"lat": 18.998234, "lon": 72.843157, "name": "Parel, Mumbai, Mumbai City, Maharashtra, India"}, {"lat": 18.96667, "lon": 72.83333, "name": "Mumbai, Maharashtra, India"}, {"lat": 19.052128, "lon": 72.892529, "name": "The Acres Club, 411-B, Sindhi Society, Mumbai, Maharashtra, India"}, {"lat": 17.918044, "lon": 73.799756, "name": "Panchgani, Maharashtra, India"}, {"lat": 17.934397, "lon": 73.805594, "name": "Sydney Point, Panchgani, Panchgani, Maharashtra, India"}, {"lat": 17.925178, "lon": 73.802047, "name": "Il Palazzo Hotel, Panchgani, Maharashtra, India"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

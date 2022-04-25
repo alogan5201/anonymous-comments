@@ -257,8 +257,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const imgIcon = data.weather[0].icon;
     const currentWeather = data.weather[0].main;
     const temp = data.main.temp;
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LatitudeInput").val(lon);
     const dmsCalculated = DDtoDMS(lat, lon);
     console.log(addressField[0].value);
     const weatherdata = {
@@ -404,8 +404,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
     let lat = latLon.features[0].center[1];
     let lon = latLon.features[0].center[0];
-    $("#latInputField").val(lat);
-    $("#lonInputField").val(lon);
+    $("#LatitudeInput").val(lat);
+    $("#LongitudeInput").val(lon);
     map.fitBounds([[lat, lon]], {
       padding: [50, 50],
       maxZoom: 13,

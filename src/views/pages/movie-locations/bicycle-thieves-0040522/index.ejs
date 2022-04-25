@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+
+     <main class="mb-4 mt-5">
+
+
+
+        <div class="container px-4 px-lg-5">
+
+
+            <div class="row align-items-md-stretch">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                      <h3 class="card-title">Bicycle Thieves</h3>
+          <p class="card-text mb-0">
+
+
+  <span > In post-war Italy, a working-class man's bicycle is stolen, endangering his efforts to find work. He and his son set out to find it.  </span>
+                          <span > Antonio Ricci, an unemployed man in the depressed post-WWII economy of Italy, finally gets a job hanging up posters, but he needs a bicycle. But when his bicycle is stolen,, he and son walk the streets of Rome looking for it. Antonio finally manages to locate the thief, but with no proof he must abandon his cause. But he and his son know perfectly well that without a bike, Antonio won't be able to keep his job. -jolusoma.  </span>
+                          <span > The unemployment rate is high in postwar Italy. After two jobless years, Antonio Ricci is finally offered a job as a poster-hanger. There is one condition: he must have his own bicycle. At the moment his bicycle is at the pawnshop, but Antonio's wife Maria says they can pawn their six sheets instead. The first day at work Antonio's bicycle is stolen. A friend offers to help him search for it the next morning at Piazza Vittorio, where street vendors sell stolen bikes. The search is unsuccessful, but Antonio and his son Bruno continue to the market at Porta Portese, where Antonio happens to see the thief talking to an elderly man. As he cannot catch the thief, he instead pursues the old man, who goes into a church and disappears during the Mass. The third time Antonio happens to see the thief, he succeeds to pursue him to his dwelling-place. A local policeman believes Antonio's story about the theft, but as he cannot find the stolen bike in the apartment, the case is dismissed. Driven into utter despair Antonio and Bruno walk back home--back to unemployment. -Maths Jesperson {maths.jesperson1@comhem.se}.  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > During the hard years of poverty in post-World-War-II Rome, poor working-class family man Antonio is finally offered a modest bill-posting job, but a bicycle is required and he's already been forced to pawn his. His wife Maria promptly pawns the family's bed-linens to redeem their bicycle, but on Antonio's first day of work, the prized possession is stolen. Desperate, the ill-fated father and his older son Bruno will scour Rome's bustling streets on a gloomy Sunday to find the vital bicycle, but undoubtedly this is an impossible task. Will Antonio ever get his job back? -Nick Riganas.  </span>
+    <span class="additional-information" > Antonio Ricci is only one of several men who regularly stand outside his local municipal employment office in Rome every morning hoping that work, doled out on a qualification basis, is available. This morning he is told that he has a job starting the next day: hanging posters around the city. A bicycle is a requirement for the job, and he tells a white lie that he owns one. He did own one, but he pawned it to put food on the table for himself, his wife Maria, and their two young children. At some sacrifice, he and Maria sell some of their possessions so that Antonio can get his bicycle out of hock; they believe it's worth the sacrifice, as the return in employment salary and overtime far excesses the initial capital outlay in getting the bicycle back. On Antonio's first working day, his bicycle is stolen as he is on his ladder hanging a poster. When the police tell him that they can only keep the bicycle's serial number on file in case it does show up, Antonio, with his friends and his older son, adolescent Bruno, by his side, go on what seems like a futile mission to locate the bicycle, which could now be anywhere in Rome. But Antonio views the bicycle as his and his family's means of survival, so he jumps on any clue to locate the bicycle and/or the thief--whom he actually saw--and perhaps take desperate measures in these desperate times. -Huggo.  </span>
+    <span class="additional-information" > In post-war Rome, Antonio is offered a job of putting posters up in the city but that job requires a bicycle. Antonio hails from a poverty stricken class n he cannot afford to miss this job as unemployment is very high. Trouble is he had already pawned the bicycle to put food on the table for his family. His resourceful wife sells the bed linens in order to get the money to get his bicycle back. -Fella_shibby@yahoo.com.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
+                        </p>
+                      </div>
+                    </div>
+                      <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BNmI1ODdjODctMDlmMC00ZWViLWI5MzYtYzRhNDdjYmM3MzFjXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Bicycle Thieves"
+                                    />
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+ <table class="table">
+          <tr class="table__header">
+
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Piazza Vittorio Emanuele, 00060 Formello Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">42.079285</span>, <span class="lon">12.400895</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Trastevere, Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.885458</span>, <span class="lon">12.467054</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Pinciano, Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.921987</span>, <span class="lon">12.487658</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Lazio, 00019 Tivoli Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.9499874999981</span>, <span class="lon">12.7727081111137</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Salaria, 00138 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.999349</span>, <span class="lon">12.518154</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Lazio, 00019 Tivoli Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.9499874999981</span>, <span class="lon">12.7727081111137</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Maiella, 00013 Fonte Nuova Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.9925</span>, <span class="lon">12.61941</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Di Montecatini, 00186 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.899573</span>, <span class="lon">12.480446</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Roma, Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.89306</span>, <span class="lon">12.48278</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Del Traforo, 00187 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.9024667455</span>, <span class="lon">12.485962293</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Giacomo Venezian 19, 00153 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.889054</span>, <span class="lon">12.468505</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Viale Delle Terme Di Caracalla 28, 00153 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.880207</span>, <span class="lon">12.495117</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Via Pietro Da Cortona, 00054 Fiumicino Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.7940932</span>, <span class="lon">12.2913798</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Piazza Dei Mercanti, 00153 Roma Rome, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.8867408</span>, <span class="lon">12.4769362</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Stadio Flaminio, Viale dello Stadio Flaminio, Roma, Rome 00196, Italy </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">41.926933500000004</span>, <span class="lon">12.4722525</span></a>
+                
+            </td>
+          </tr>
+          </tr>
+
+        </table>
+          </div>
+        </div>
+
+
+    </main>
+
+
+
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[41.7940932, 12.2913798], [41.880207, 12.495117], [41.885458, 12.467054]], "data": [{"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 42.079285, "lon": 12.400895, "name": "Piazza Vittorio Emanuele, 00060 Formello Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.885458, "lon": 12.467054, "name": "Trastevere, Roma, Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.921987, "lon": 12.487658, "name": "Pinciano, Roma, Rome, Italy"}, {"lat": 41.9499874999981, "lon": 12.7727081111137, "name": "Via Lazio, 00019 Tivoli Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.999349, "lon": 12.518154, "name": "Via Salaria, 00138 Roma Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.9499874999981, "lon": 12.7727081111137, "name": "Via Lazio, 00019 Tivoli Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.9925, "lon": 12.61941, "name": "Via Maiella, 00013 Fonte Nuova Rome, Italy"}, {"lat": 41.899573, "lon": 12.480446, "name": "Via Di Montecatini, 00186 Roma Rome, Italy"}, {"lat": 41.89306, "lon": 12.48278, "name": "Roma, Rome, Italy"}, {"lat": 41.9024667455, "lon": 12.485962293, "name": "Via Del Traforo, 00187 Roma Rome, Italy"}, {"lat": 41.889054, "lon": 12.468505, "name": "Via Giacomo Venezian 19, 00153 Roma Rome, Italy"}, {"lat": 41.880207, "lon": 12.495117, "name": "Viale Delle Terme Di Caracalla 28, 00153 Roma Rome, Italy"}, {"lat": 41.7940932, "lon": 12.2913798, "name": "Via Pietro Da Cortona, 00054 Fiumicino Rome, Italy"}, {"lat": 41.8867408, "lon": 12.4769362, "name": "Piazza Dei Mercanti, 00153 Roma Rome, Italy"}, {"lat": 41.926933500000004, "lon": 12.4722525, "name": "Stadio Flaminio, Viale dello Stadio Flaminio, Roma, Rome 00196, Italy"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

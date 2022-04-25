@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+
+  <body class="film-location">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+
+     <main class="mb-4 mt-5">
+
+
+
+        <div class="container px-4 px-lg-5">
+
+
+            <div class="row align-items-md-stretch">
+                
+              <div class="col-md-12">
+
+                <div class="card mb-3" id="film-details">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                      <h3 class="card-title">Star Wars</h3>
+          <p class="card-text mb-0">
+
+
+  <span > Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader.  </span>
+                          <span > The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy. -Jwelch5742.  </span>
+                          <span > Part IV in George Lucas' epic, this movie opens with a rebel ship being boarded by the tyrannical Darth Vader. The plot then follows the life of a simple farm boy, Luke Skywalker, as he and his newly met allies (Han Solo, Chewbacca, Obi-wan Kenobi, C-3PO, R2-D2) attempt to rescue a rebel leader, Princess Leia, from the clutches of the Empire. The conclusion is culminated as the rebels, including Skywalker and flying ace Wedge Antilles make an attack on the Empire's most powerful and ominous weapon, the Death Star. -P. Wong .  </span>
+                          
+                <div class="collapse" id="myCollapsible">
+                    <div id = "module">
+
+
+
+                    </div>
+<span class="additional-information" > Luke Skywalker stays with his aunt and uncle on a farm on Tatooine. He is desperate to get off this planet and get to the Academy like his friends, but his uncle needs him for the next harvest. Meanwhile, an evil emperor has taken over the galaxy, and has constructed a formidable "Death Star" capable of destroying whole planets. Princess Leia, a leader in the resistance movement, acquires plans of the Death Star, places them in R2-D2, a droid, and sends him off to find Obi-wan Kenobi. Before he finds him, R2-D2 ends up on the Skywalkers' farm with his friend C-3PO. R2-D2 then wanders into the desert, and when Luke follows, they eventually come across Obi-wan. Will Luke, Obi-wan, and the two droids be able to destroy the Death Star, or will the Emperor rule forever? -Colin Tinto .  </span>
+    <span class="additional-information" > Princess Leia is held hostage by the evil forces of the Galactic Empire in their effort to take over the galaxy. Venturesome Luke Skywalker and dashing Captain Han Solo team together with the lovable robotic duo, R2-D2 and C-3PO, to rescue the beautiful Princess Leia and restore justice in the galaxy. -Robert Lynch .  </span>
+    <span class="additional-information" > In a distant galaxy eons before the creation of the planet known as Earth, vast civilizations have evolved, and ruling the galaxy is an interstellar Empire created from the ruins of an Old Republic that held sway for generations. It is a time of civil war, as solar systems have broken away from the Empire and are waging a war of rebellion. During a recent battle, technical schematics for a gigantic space station, code named the Death Star, have been unearthed by rebel spies, and a young woman who is a dissident member of the Imperial Senate, under the cover of a diplomatic mission to the planet Alderaan, is trying to smuggle these plans to the rebellion. But her spacecraft is attacked by a vast warship of the Empire and seized. The dissident Senator is captured, but the plans for the Death Star are nowhere to be found. While soldiers of the Empire search the nearby planet Tatooine, a series of incidents sweeps up a young desert farmer with dreams of being a fighter pilot in the rebellion, as he winds up with the Death Star plans and also the assistance of an elderly hermit who once served as a warrior of an ancient order whose chosen weapons were powerful energy swords known as light-sabers. The pair recruit a cynical interstellar smuggler and his outsized alien copilot with an ancient freighter heavily modified for combat to help them reach Alderaan, but the planet is obliterated and now the foursome must rescue the young woman held prisoner by the Empire and lead an attack by the rebellion against the Death Star before it can annihilate all hope of restoring freedom to the galaxy. -Michael Daly.  </span>
+    </div>
+                
+<p>
+  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
+
+  </a>
+
+</p>
+
+              
+
+                        </p>
+                      </div>
+                    </div>
+                      <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                      class="img-fluid rounded-start"
+                                      alt="Star Wars"
+                                    />
+                    </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+  <div class="map-container">
+                  <div id="map"></div>
+                  <div id="loader">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only d-none">Loading...</span>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+ <table class="table">
+          <tr class="table__header">
+
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Parque Nacional Tikal, Flores, Petén, Guatemala </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">17.219744375</span>, <span class="lon">-89.619804375</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">أجيم, Medenine, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">33.7261842</span>, <span class="lon">10.75120342</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Yuma, Arizona, United States </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">32.7253</span>, <span class="lon">-114.6244</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Nefta نفطة, Tozeur, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">33.876337807</span>, <span class="lon">7.876610029</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">مطماطة, Gabès, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">33.545572738</span>, <span class="lon">9.967946839</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">بوهلال, Tozeur, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">34.011823667</span>, <span class="lon">8.259519925</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Calakmul, Av. Pedro Sáinz de Baranda, Campeche, Campeche, Mexico </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">19.864702</span>, <span class="lon">-90.511683</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Death Valley National Park, Death Valley, California 92328, United States </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">36.509057</span>, <span class="lon">-116.847615</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.396334</span>, <span class="lon">-0.453109</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Cardington, Shropshire, England, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">52.55</span>, <span class="lon">-2.7333</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">بوهلال, Tozeur, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">34.011823667</span>, <span class="lon">8.259519925</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">34.1107038598115</span>, <span class="lon">9.56116835557131</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.396334</span>, <span class="lon">-0.453109</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Los Angeles, California, United States </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
+                
+            </td>
+          </tr>
+          <tr class="table__row">
+            <td class="table__cell">
+             <a href="#">Tataouine, Tunisia </a>
+               
+            </td>
+                <td class="table__cell">
+                <a href="#"><span class="lat">32.92556</span>, <span class="lon">10.44417</span></a>
+                
+            </td>
+          </tr>
+          </tr>
+
+        </table>
+          </div>
+        </div>
+
+
+    </main>
+
+
+
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+
+  <script type="text/javascript">
+
+var locations =[{"bbox": [[32.92556, 10.44417], [33.545572738, 9.967946839], [33.7261842, 10.75120342]], "data": [{"lat": 17.219744375, "lon": -89.619804375, "name": "Parque Nacional Tikal, Flores, Pet\u00e9n, Guatemala"}, {"lat": 33.7261842, "lon": 10.75120342, "name": "\u0623\u062c\u064a\u0645, Medenine, Tunisia"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 33.876337807, "lon": 7.876610029, "name": "Nefta \u0646\u0641\u0637\u0629, Tozeur, Tunisia"}, {"lat": 33.545572738, "lon": 9.967946839, "name": "\u0645\u0637\u0645\u0627\u0637\u0629, Gab\u00e8s, Tunisia"}, {"lat": 34.011823667, "lon": 8.259519925, "name": "\u0628\u0648\u0647\u0644\u0627\u0644, Tozeur, Tunisia"}, {"lat": 19.864702, "lon": -90.511683, "name": "Calakmul, Av. Pedro S\u00e1inz de Baranda, Campeche, Campeche, Mexico"}, {"lat": 36.509057, "lon": -116.847615, "name": "Death Valley National Park, Death Valley, California 92328, United States"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.396334, "lon": -0.453109, "name": "Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom"}, {"lat": 52.55, "lon": -2.7333, "name": "Cardington, Shropshire, England, United Kingdom"}, {"lat": 34.011823667, "lon": 8.259519925, "name": "\u0628\u0648\u0647\u0644\u0627\u0644, Tozeur, Tunisia"}, {"lat": 34.1107038598115, "lon": 9.56116835557131, "name": "Tunisia"}, {"lat": 51.396334, "lon": -0.453109, "name": "Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 32.92556, "lon": 10.44417, "name": "Tataouine, Tunisia"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+    //console.log($(`${target} span`).first())
+
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map);
+</script>
+  </body>
+</html>

@@ -6,21 +6,11 @@
  * all the paths within Dir in globals.js
  */
 
-import "./firebase";
-
+import { Grid, html } from "gridjs";
 import "picturefill";
 import "utils/errors";
-import {Grid, html} from "gridjs";
-import {
-  addBookmark,
-  generateUID,
-  getAddress,
-  getLatLon,
-  popupContent,
-  toggleAltitude,
-  toggleBookmark,
-  closePopup
-} from "utils/geocoder";
+import "./firebase";
+
 /*
 var dropdownElementList = [].slice.call(
   document.querySelectorAll(".nav-bar-toggle")
@@ -220,7 +210,8 @@ grid.on('rowClick', (...args) => test(args[1]._cells));
       "marker-color": "blue"
     })
   }).addTo(map);
-  function test (row) {
+  function test ( row) {
+  
     let uid = row[0].data
     console.log( uid )
   
@@ -230,11 +221,7 @@ grid.on('rowClick', (...args) => test(args[1]._cells));
     let lat = found.lat
     let lon = found.lon
     console.log( lat, lon )
-    
-    map.fitBounds( [ [ lat, lon ] ], { padding: [ 50, 50 ], maxZoom: 13 } );
-    
-
-       const p = `  <div id = "popupContent" class="row popupContent position-relative">
+           const p = `  <div id = "popupContent" class="row popupContent position-relative">
   <div class="col p-0 popup-content">
 
     <div class="card-body px-3 pt-2 pb-1">
@@ -254,10 +241,27 @@ grid.on('rowClick', (...args) => test(args[1]._cells));
   </div>
 
 </div> `;
-    var popup = L.popup( { autoPan: true, keepInView: true } ).setContent( p );
+
+   setTimeout(() => {
+     map.flyTo( [ lat, lon ] );
+     
+
+
+   }, 700);
+  
+   setTimeout(() => {
+        var popup = L.popup( { autoPan: true, keepInView: true } ).setContent( p );
          marker
         .setLatLng([lat, lon])
         .bindPopup(popup)
-        .openPopup();
+           .openPopup();
+     
+     
+     map.zoomOut()
+ }, 1000);
+    
+
+
+ 
 }
 });
