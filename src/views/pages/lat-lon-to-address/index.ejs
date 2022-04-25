@@ -1,104 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
+<%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
 
-  <body>
-    <!--[if lt IE 8]>
+<body>
+  <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-    <%- include(`${partials}/nav`); -%>
-    <!--   !! MAIN -------------------------->
-     <main class="flex-shrink-0 mt-2">
-      <div class="container px-3">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Latitude Longitude to Address</h3>
-          <p class="fs-5 text-muted">Quickly find an Address from a set of coordinates.</p>
-        </div>
-
-     <%- include(`${partials}/form/inputs`,{
-  inputName: [
-    { name: 'Latitude', id: 'latInputField', type: 'number' },
-    { name: 'Longitude', id: 'lonInputField', type: 'number' },
-  ], 
- formid: "latlonForm"
-}); -%>
-
-        <div
-          class="row g-3 "
-        >
-          <div class="col-md-4" style="position: relative;">
-         
-            <form
-            
-              id="latlonForm"
-            >
-        <!--     -->     <%- include(`${partials}/form/inputcol`, {inputName: 'Test'}); -%>
-            <div class="col-12">
-              <label for="latInputField" class="form-label">Latitude</label>
-              <input type="number" class="form-control" id="latInputField" required>
-            
-            </div>
-                  <div class="col-12">
-              <label for="lonInputField" class="form-label">Longitude</label>
-              <input type="number"
-                      step="any" class="form-control" id="lonInputField" required>
-            
-            </div>
-
-
-        
-              <div class="col-12 text-end mb-3">
-                <button
-                  class="btn btn-primary"
-                  id="latlonGeocoderBtn"
-                  type="submit"
-                >
-                  Get Address
-                </button>
-              </div>
-            </form>
-           <hr class="my-4">
-
-           <div class="col-12">
-              <label for="addressInput" class="form-label">Address</label>
-              <input type="number" class="form-control" id="addressInput" placeholder="">
-            
-            </div>
-            
-           
-      
-
-
-          </div>
-           <div class="col-md-8  align-self-start mt-0">
-            <h4 class="travel-time"></h4>
-            <div class="map-container"><div id="map" class="invisible"></div><div id="static"></div></div>
-
-            <div class="row">
-              <div id="liveAlertPlaceholder">
-                <div class="alerts mt-2 alert-warning"></div>
-                <div class="history"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <%- include(`${partials}/comment-section.ejs`); -%>
-
+  <noscript>
+    <h3>Please enable JavaScript in order to view this site properly.</h3>
+  </noscript>
+  <%- include(`${partials}/nav`); -%>
+  <!--   !! MAIN -------------------------->
+  <main class="flex-shrink-0 mt-2">
+    <div class="container px-3">
+      <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address', subtitle: 'Quickly find an Address from a set of coordinates.'}); -%>
+      <div class="row g-3 ">
+        <%- include(`${partials}/form/inputs`,{
+                  inputName: [
+                    { name: 'Latitude', id: 'latInputField', type: 'number' },
+                    { name: 'Longitude', id: 'lonInputField', type: 'number' },
+                  ], 
+                formid: "latlonForm",
+                button: {name: 'Submit', type: 'submit', id: 'latlonGeocoderBtn'},
+                output: [{name: 'Address', type: 'text', id: 'addressInput'}]
+                }); -%>
+        <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
-    </main>
+      <%- include(`${partials}/comment-section.ejs`); -%>
 
-    <!-- Footer-->
+    </div>
+  </main>
 
-    <%- include(`${partials}/footer`); -%> <%-
+
+
+  <%- include(`${partials}/footer`); -%> <%-
     include(`${partials}/page-scripts/lat-lon-to-address-scripts.ejs`); -%>
-  </body>
+</body>
+
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx
 /home/a/Desktop/ejs-sass-static-boilerplate/src/views/partials/page-scripts/lat-lon-to-address-scripts.ejs

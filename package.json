@@ -50,6 +50,7 @@
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@aghajari/jssoup": "^1.0.2",
     "@mapbox/mapbox-sdk": "^0.13.3",
     "@popperjs/core": "^2.11.5",
     "bad-words": "^3.0.4",

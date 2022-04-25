@@ -1,0 +1,54 @@
+{
+  "address-distance": {
+    "slug": "address-distance",
+    "title": "Address Distance"
+  },
+  "address-to-latlon": {
+    "slug": "address-to-latlon",
+    "title": "Address to Lat Lon"
+  },
+  "bookmarks": {
+    "slug": "bookmarks",
+    "title": "Bookmarks"
+  },
+  "converter": {
+    "slug": "converter",
+    "title": "Converter"
+  },
+  "dms-to-latlon": {
+    "slug": "dms-to-latlon",
+    "title": "Dms to Lat Lon"
+  },
+  "lat-lon-distance": {
+    "slug": "lat-lon-distance",
+    "title": "Lat Lon Distance"
+  },
+  "lat-lon-to-address": {
+    "slug": "lat-lon-to-address",
+    "title": "Lat Lon to Address"
+  },
+  "latlon-to-dms": {
+    "slug": "latlon-to-dms",
+    "title": "Lat Lon to Dms"
+  },
+  "login": {
+    "slug": "login",
+    "title": "Login"
+  },
+  "movies": {
+    "slug": "movies",
+    "title": "Movies"
+  },
+  "pricing": {
+    "slug": "pricing",
+    "title": "Pricing"
+  },
+  "travel": {
+    "slug": "travel",
+    "title": "Travel"
+  },
+  "weather": {
+    "slug": "weather",
+    "title": "Weather"
+  }
+}

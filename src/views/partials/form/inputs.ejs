@@ -17,7 +17,37 @@
         i += 1; 
          %>
        <% } %>
+       <hr class="my-4">
+ <% if (button) { %>
+    <button
+    class="btn btn-primary"
+    id="<%= button.id %>"
+    type=" <%= button.type %>"
+    >
+    <%= button.name %>
+</button>
+ 
+<% } %>
 
+            
+        
        </form>
 
+        <% if (output) { %>
+
+     <%  var inputName = output,
+        i = 0,
+        len = output.length; %>
+<hr class="my-4">
+       <% while(i < len){ %>
+
+       <%- include(`${partials}/form/inputcol`, {inputName:{name: output[i].name, id: output[i].id, type: output[i].type} }); -%>
+       <% 
+        // some js in the loop
+        console.log('output[' + i + '] = ' + output[i]);
+        i += 1; 
+         %>
+       <% } %>
+<% } %>
+ 
      </div>

@@ -1,5 +1,6 @@
 const { resolve } = require("path");
-
+const fs = require( 'fs' )
+const pageData = require("./page-data.json");
 // Use the following variables in src/views and src/js. They are made available in
 // build-tools/ejs-to-html.js in the 'transformer' function and in webpcak.config.js
 
@@ -15,7 +16,7 @@ module.exports.DEVELOPER_URL = "https://brentoncozby.com";
 module.exports.GOOGLE_ANALYTICS_ID = "";
 module.exports.CLIENT_ID =
   "106157954659-7lbsq0rvthktblg442hoav3tjajnnebb.apps.googleusercontent.com";
-module.exports.TEST = [1, 2, 3, 4];
+module.exports.PAGE_DATA = pageData;
 //dist: resolve(__dirname, "dist"),
 module.exports.Dir = {
   dist: resolve(__dirname, "dist"),

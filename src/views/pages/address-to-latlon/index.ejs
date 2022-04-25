@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
+    
+  <%- include(`${partials}/head`, {pageTitle: 'title'}); -%>
 
   <body class="address-to-latlon ">
     <!--[if lt IE 8]>
@@ -104,6 +105,13 @@
           <p class="fs-5 text-muted">Quickly convert any address to longitude and latitude coordinates.</p>
         </div>
         <div class="row gx-5 align-items-center justify-content-center mb-5">
+
+            <% 
+      const getValue = (path, obj) => path.split('.').reduce((acc, c) => acc && acc[c], obj);
+  
+      
+      var data =  PAGE_DATA
+       const title = getValue('address-to-lat-lon.title', data); %>
           <div class="col-md-5" style="position: relative;">
             <h5 class="text-start mb-4">Address</h5>
             <form
