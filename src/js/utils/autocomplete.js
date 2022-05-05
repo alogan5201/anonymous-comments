@@ -143,7 +143,6 @@
 
 export function autocompleteInit (data) {
 
-console.log(data)
     set_autocomplete('searchInput', 'form2_complete', data);
 
 

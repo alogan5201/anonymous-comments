@@ -47,13 +47,11 @@ const googleProvider = new GoogleAuthProvider();
 onAuthStateChanged(auth, (user) => {
   const userData = localStorage.getItem("userData");
   if (user) {
-  console.log("🚀 ~ file: firebase.js ~ line 50 ~ onAuthStateChanged ~ user", user)
 
 
     if (window.location.href.includes("login")) {
 
-      console.log("login", window.location)
-      console.log(user);
+  
       let history = localStorage.getItem("page-history") || "/"
       window.location.replace(history)
     }
@@ -61,16 +59,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-function loginNav() {
-
-  console.log('login nav user login')
-}
-
-function logoutNav() {
-
-  console.log('login nav user already logged in')
-
-}
 
 
 function writeUserData(userId, userInfo) {
@@ -323,7 +311,6 @@ setTimeout(() => {
   if ($("#mainNav")) {
     if (auth.currentUser) {
 
-      console.log(auth.currentUser.uid)
       toggleLogOutNav()
       if ( $( '#comment-form' ) )
       {
@@ -468,7 +455,6 @@ export function addCommentMessage(data) {
     page: path,
   })
     .then(function (result) {
-      console.log(result);
 
       // Read result of the Cloud Function.
       let sanitizedMessage = result.data.text;

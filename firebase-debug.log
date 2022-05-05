@@ -1,0 +1,91 @@
+[debug] [2022-05-05T16:14:03.901Z] ----------------------------------------------------------------------
+[debug] [2022-05-05T16:14:03.903Z] Command:       /Users/andrewlogan/.nvm/versions/node/v14.19.1/bin/node /Users/andrewlogan/.nvm/versions/node/v14.19.1/bin/firebase emulators:start --only functions
+[debug] [2022-05-05T16:14:03.904Z] CLI Version:   10.6.0
+[debug] [2022-05-05T16:14:03.904Z] Platform:      darwin
+[debug] [2022-05-05T16:14:03.904Z] Node Version:  v14.19.1
+[debug] [2022-05-05T16:14:03.912Z] Time:          Thu May 05 2022 12:14:03 GMT-0400 (Eastern Daylight Time)
+[debug] [2022-05-05T16:14:03.912Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-05T16:14:03.917Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2022-05-05T16:14:04.022Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-05T16:14:04.022Z] > authorizing via signed-in user (andrewthomaslogan@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2022-05-05T16:14:04.048Z] [hub] writing locator at /var/folders/wj/mb0xfx1514x14njcq5lrkw480000gn/T/hub-geotools-bc75a.json
+[debug] [2022-05-05T16:14:04.162Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2022-05-05T16:14:04.162Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[warn] ⚠  Your requested "node" version "16" doesn't match your global version "14". Using node@14 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"14\". Using node@14 from host."}}
+[debug] [2022-05-05T16:14:04.335Z] defaultcredentials: writing to file /Users/andrewlogan/.config/firebase/andrewthomaslogan_gmail_com_application_default_credentials.json
+[debug] [2022-05-05T16:14:04.337Z] Setting GAC to /Users/andrewlogan/.config/firebase/andrewthomaslogan_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/andrewlogan/.config/firebase/andrewthomaslogan_gmail_com_application_default_credentials.json"}}
+[debug] [2022-05-05T16:14:04.338Z] > refreshing access token with scopes: []
+[debug] [2022-05-05T16:14:04.339Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-05T16:14:04.402Z] <<< HTTP RESPONSE 200 {"date":"Thu, 05 May 2022 16:14:04 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-05T16:14:04.417Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig [none]
+[debug] [2022-05-05T16:14:04.655Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig 200
+[debug] [2022-05-05T16:14:04.656Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/geotools-bc75a/adminSdkConfig {"projectId":"geotools-bc75a","databaseURL":"https://geotools-bc75a-default-rtdb.firebaseio.com","storageBucket":"geotools-bc75a.appspot.com","locationId":"us-central"}
+[debug] [2022-05-05T16:14:05.190Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-05T16:14:05.190Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-05T16:14:05.191Z] Starting Emulator UI with command {"binary":"node","args":["/Users/andrewlogan/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/andrewlogan/.cache/firebase/emulators/ui-v1.6.5/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-05-05T16:14:05.355Z] Web / API server started at localhost:5002
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:5002\n"}}
+[info] i  functions: Watching "/Users/andrewlogan/Desktop/geo-front-end/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/andrewlogan/Desktop/geo-front-end/functions\" for Cloud Functions..."}}
+[debug] [2022-05-05T16:14:05.461Z] Validating nodejs source
+[debug] [2022-05-05T16:14:08.216Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
+    "bad-words": "^3.0.4",
+    "capitalize-sentence": "^0.1.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.20.1",
+    "node-fetch": "^2.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-05-05T16:14:08.217Z] Building nodejs source
+[debug] [2022-05-05T16:14:08.217Z] Analyzing nodejs backend spec
+[info] ✔  functions[us-central1-getMatrix]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/getMatrix). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/getMatrix)."}}
+[info] ✔  functions[us-central1-getElevation]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/getElevation). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/getElevation)."}}
+[info] ✔  functions[us-central1-getAddress]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/getAddress). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/getAddress)."}}
+[info] ✔  functions[us-central1-getLatLon]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/getLatLon). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/getLatLon)."}}
+[info] ✔  functions[us-central1-addNumbers]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/addNumbers). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/addNumbers)."}}
+[info] ✔  functions[us-central1-addComment]: http function initialized (http://localhost:5001/geotools-bc75a/us-central1/addComment). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/geotools-bc75a/us-central1/addComment)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:5002                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:5002/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

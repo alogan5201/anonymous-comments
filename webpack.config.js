@@ -26,7 +26,8 @@ module.exports = (env = {}) => {
       DMSlatlon: ['./src/js/DMSlatlon.js'],
       travel: ['./src/js/travel.js'],
       weather: ['./src/js/weather.js'],
-      login: ['./src/js/login.js'],
+      login: [ './src/js/login.js' ],
+      movies: ['./src/js/movies.js'],
       newConverter: ['./src/js/newConverter.js'],
       bookmarks: ['./src/js/bookmarks.js']
     },
