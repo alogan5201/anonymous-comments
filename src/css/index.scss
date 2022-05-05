@@ -75,11 +75,19 @@ main {
   max-height: 1px;
   opacity: 0;
 }
-
+/* 
 .map-container {
   position: relative;
 width: 100%;
   max-width: 750px;
+  max-height: 500px;
+}
+
+*/
+.map-container {
+  position: relative;
+width: 100%;
+ // max-width: 750px;
   max-height: 500px;
 }
 

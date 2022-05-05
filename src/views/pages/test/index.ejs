@@ -1,192 +1,279 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
 
-  <body class="address-to-latlon ">
-    <!--[if lt IE 8]>
+  <%- include(`${partials}/homeHead`, {pageTitle: 'Movies'}); -%>
+
+
+<body>
+  <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
+
+  <noscript>
+    <h3>Please enable JavaScript in order to view this site properly.</h3>
+  </noscript>
     <%- include(`${partials}/nav`); -%>
-<style>
 
-.located-animation {
-  width: 17px;
-  height: 17px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  background: #2a93ee;
-  animation: border-pulse 2s infinite;
-}
+       <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5">
+        <%- include(`${partials}/autocomplete`); -%>
 
-@keyframes border-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-  }
-
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-  }
-}
-
-
-</style>
-    <!--   !! MAIN -------------------------->
-    <!-- Main Content-->
-     <main class="flex-shrink-0 mt-2">
-
-      <div class="container  px-4 px-lg-5 pb-5 ">
-        <div class=" py-3 pb-md-4 mx-auto text-left">
-          <h3 class=" fw-normal">Test</h3>
-        </div>
-        <div class="row gx-5 align-items-center justify-content-center mb-5">
-          <div class="col-lg-5" style="position: relative;">
-            <h5 class="text-start mb-4">Address</h5>
-            <form
-              class="row justify-content-between align-items-center"
-              autocomplete="off"
-              id="getTravelForm"
-            >
-              <div class="row justify-content-between align-items-center pe-0">
-                <label class="col-sm-2 col-form-label mb-3" for="latInputField"
-                  >Address</label
-                >
-                <div class="col-sm-9">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <button
-                        id="searchButton"
-                        type="button"
-                        class="btn btn-outline-primary text-info border border-end-0 ps-3 pe-1 disabled"
-                      >
-                        <i class="fa fa-search"></i>
-                      </button>
-                    </div>
-                    <input
-                      type="search"
-                      id="searchInput"
-                      class="form-control border border-start-0 target-address"
-                      aria-label="Sizing example input"
-                      aria-describedby="inputGroup-sizing-default"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="row mb-3 justify-content-end">
-                <div
-                  class="col-sm-8 position-relative text-end pe-0"
-                  style="z-index: 0 !important;"
-                >
-
-                  <button class="btn btn-primary" id="getRoute" type="submit">
-                    Find
-                  </button>
-                </div>
-              </div>
-            </form>
-            <form
-              class="row mb-3 justify-content-between align-items-center d-none"
-              action="post"
-              id="geocoderAddressForm"
-            >
-              <label class="col-sm-2 col-form-label">Address</label>
-              <div
-                class="col-sm-9 position-relative"
-                style="z-index: 2 !important;"
-              >
-                <div class="geocoder" id="geocoder"></div>
-              </div>
-
-              <div class="row mt-3 mb-3 px-0 justify-content-end">
-                <div
-                  class="col-12 px-0 position-relative text-end"
-                  style="z-index: 0 !important;"
-                >
-                  <button
-                    class="btn btn-primary"
-                    id="convertLocationData"
-                    type="submit"
-                  >
-                    Find
-                  </button>
-                </div>
-              </div>
-            </form>
-            <h5 class="text-start mb-4">Latitude and Longitude</h5>
-            <form
-              class="row g-3 mb-3 justify-content-between align-items-center"
-              id="latlonForm"
-            >
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="latInputField"
-                    >Latitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="latInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="latInputFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="row justify-content-between align-items-center">
-                  <label class="col-sm-2 col-form-label" for="lonInputField"
-                    >Longitude</label
-                  >
-                  <div class="col-sm-9">
-                    <input
-                      class="form-control"
-                      id="lonInputField"
-                      type="number"
-                      step="any"
-                      aria-describedby="lonInputFieldFeedback"
-                      required=""
-                    />
-                  </div>
-                </div>
-              </div>
-            </form>
-
-
-            <div class="row mb-3">
-              <div id="liveAlertPlaceholder">
-                <div class="alerts"></div>
-                <div class="history"></div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 text-center g-3">
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0111161" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg" class="card-img-top" alt="The Shawshank Redemption" />
+              <div class="card-body">
+                <a href="/movie-locations/the-shawshank-redemption-0111161" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Shawshank Redemption
+                  </p>
+                </a>
               </div>
             </div>
           </div>
-          <div class="col-lg-7 align-self-start">
-          <button id= "mapTestbtn" class="btn btn-primary" role>Test</button>
-            <h4 class="travel-time"></h4>
-            <div class="map-container"><div id="map"></div></div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0068646" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="The Godfather" />
+              <div class="card-body">
+                <a href="/movie-locations/the-godfather-0068646" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Godfather
+                  </p>
+                </a>
+              </div>
+            </div>
           </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0468569" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@.jpg" class="card-img-top" alt="The Dark Knight" />
+              <div class="card-body">
+                <a href="/movie-locations/the-dark-knight-0468569" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Dark Knight
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0071562" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="The Godfather: Part II" />
+              <div class="card-body">
+                <a href="/movie-locations/the-godfather-part-ii-0071562" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Godfather: Part II
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0050083" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg" class="card-img-top" alt="12 Angry Men" />
+              <div class="card-body">
+                <a href="/movie-locations/12-angry-men-0050083" class="stretched-link">
+                  <p class="card-text text-center">
+                    12 Angry Men
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0108052" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg" class="card-img-top" alt="Schindler's List" />
+              <div class="card-body">
+                <a href="/movie-locations/schindler-s-list-0108052" class="stretched-link">
+                  <p class="card-text text-center">
+                    Schindler's List
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0167260" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="The Lord of the Rings: The Return of the King" />
+              <div class="card-body">
+                <a href="/movie-locations/the-lord-of-the-rings-the-return-of-the-king-0167260" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Return of the King
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0110912" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="Pulp Fiction" />
+              <div class="card-body">
+                <a href="/movie-locations/pulp-fiction-0110912" class="stretched-link">
+                  <p class="card-text text-center">
+                    Pulp Fiction
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0120737" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@.jpg" class="card-img-top" alt="The Lord of the Rings: The Fellowship of the Ring" />
+              <div class="card-body">
+                <a href="/movie-locations/the-lord-of-the-rings-the-fellowship-of-the-ring-0120737" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Fellowship of the Ring
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0060196" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg" class="card-img-top" alt="The Good, the Bad and the Ugly" />
+              <div class="card-body">
+                <a href="/movie-locations/the-good-the-bad-and-the-ugly-0060196" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Good, the Bad and the Ugly
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0109830" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg" class="card-img-top" alt="Forrest Gump" />
+              <div class="card-body">
+                <a href="/movie-locations/forrest-gump-0109830" class="stretched-link">
+                  <p class="card-text text-center">
+                    Forrest Gump
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0137523" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNDIzNDU0YzEtYzE5Ni00ZjlkLTk5ZjgtNjM3NWE4YzA3Nzk3XkEyXkFqcGdeQXVyMjUzOTY1NTc@.jpg" class="card-img-top" alt="Fight Club" />
+              <div class="card-body">
+                <a href="/movie-locations/fight-club-0137523" class="stretched-link">
+                  <p class="card-text text-center">
+                    Fight Club
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="1375666" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@.jpg" class="card-img-top" alt="Inception" />
+              <div class="card-body">
+                <a href="/movie-locations/inception-1375666" class="stretched-link">
+                  <p class="card-text text-center">
+                    Inception
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0167261" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg" class="card-img-top" alt="The Lord of the Rings: The Two Towers" />
+              <div class="card-body">
+                <a href="/movie-locations/the-lord-of-the-rings-the-two-towers-0167261" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Lord of the Rings: The Two Towers
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0080684" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="Star Wars: Episode V - The Empire Strikes Back" />
+              <div class="card-body">
+                <a href="/movie-locations/star-wars-episode-v-the-empire-strikes-back-0080684" class="stretched-link">
+                  <p class="card-text text-center">
+                    Star Wars: Episode V - The Empire Strikes Back
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0133093" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg" class="card-img-top" alt="The Matrix" />
+              <div class="card-body">
+                <a href="/movie-locations/the-matrix-0133093" class="stretched-link">
+                  <p class="card-text text-center">
+                    The Matrix
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0099685" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg" class="card-img-top" alt="Goodfellas" />
+              <div class="card-body">
+                <a href="/movie-locations/goodfellas-0099685" class="stretched-link">
+                  <p class="card-text text-center">
+                    Goodfellas
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+<div class="col-sm-4 d-flex align-items-stretch">
+            <div id="0073486" class="card">
+              <img src="https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg" class="card-img-top" alt="One Flew Over the Cuckoo's Nest" />
+              <div class="card-body">
+                <a href="/movie-locations/one-flew-over-the-cuckoo-s-nest-0073486" class="stretched-link">
+                  <p class="card-text text-center">
+                    One Flew Over the Cuckoo's Nest
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+</div>
+                <div class="row justify-content-center mt-3">
+
+          <nav aria-label="Movie Locations Top 250">
+
+            <ul class="pagination justify-content-center">
+              <li class="active page-item">
+                <a class="page-link" href="/movie-locations/1">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/movie-locations/2">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/movie-locations/3">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/movie-locations/4">4</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/movie-locations/5">5</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="/movie-locations/2" aria-label="Next">Next<span
+                    aria-hidden="true">&raquo;</span></a>
+              </li>
+            </ul>
+
+          </nav>
+
         </div>
-        <%- include(`${partials}/comment-section.ejs`); -%>
       </div>
     </main>
+ <%- include(`${partials}/footer`); -%> <%-
+    include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-    <!-- Footer-->
+</body>
 
-    <%- include(`${partials}/footer`); -%>
-    <%-include(`${partials}/page-scripts/test-scripts`); -%>
-
-  </body>
 </html>
-<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->
