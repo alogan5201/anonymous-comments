@@ -416,6 +416,7 @@ $("#addressForm").on("submit", async function (e) {
       thirdFormSuccess(data);
     } else {
       $("form#myDmsForm :submit").prop("disabled", false);
+      $("form#myDmsForm :submit").first().html(`${submitText}`);
       $(".alerts").html(alertMessage);
     }
   });

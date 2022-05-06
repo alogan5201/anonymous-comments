@@ -50,10 +50,64 @@ window.addEventListener("DOMContentLoaded", event => {
   if (localBookmarks) {
     init();
   } else {
-    //$("#no-content-wrapper").toggleClass("d-none");
+    $('#spinner-wrapper').addClass("d-none");
+    $("#no-content-wrapper").toggleClass("d-none");
   }
   function init() {
+
+      function test(row) {
+    let uid = row[0].data;
+    console.log(uid);
+
+    let local = JSON.parse(localStorage.getItem("bookmarks"));
+    const found = local.find(element => element.uid == uid);
+    console.log(found);
+    let lat = found.lat;
+    let lon = found.lon;
+    console.log(lat, lon);
+ 
+ 
+
+    const p = `  <div id = "popupContent" class="row popupContent position-relative">
+  <div class="col p-0 popup-content">
+
+    <div class="card-body px-3 pt-2 pb-1">
+      <ul class="list-group border-0">
+       <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${
+         found.name
+       } </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
+          ""} </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
+              class="lat">${found.lat} </span></li>
+        <li class="list-group-item border-0 px-1 fs-6 py-0">
+         Longitude:
+               <span class="lon">${found.lon}</span></li>
+        <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${
+          found.dms.lat
+        } ${found.dms.lon}</li>
+        
+        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+      
+
+  </div>
+
+</div> `;
+
+var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+ map.flyTo([lat, lon])
+ const marker = L.marker([lat, lon]).addTo(map)
+ setTimeout(() => {
+  marker.bindPopup(popup).openPopup();
+ }, 1000);
+let destination = $("#map")
+$( 'html, body' ).animate({
+  scrollTop: $('#map' ).offset().top
+},'300');
+ 
+  }
     $("#bookmark-ui-wrapper").removeClass("d-none");
+  $('#spinner-wrapper').addClass("d-none");
     let pagContainer = $(".pagination-container");
 
     const removeNullUndefined = obj =>
@@ -161,6 +215,23 @@ window.addEventListener("DOMContentLoaded", event => {
           }
         }
         setTimeout(() => {
+          let firstSet = $('.gridjs-currentPage').html()
+          let height = $('#grid-wrapper').height();
+          console.log(height, firstSet)
+          if(firstSet == "1"){
+            grid.updateConfig({
+      
+              style: {
+                container: {
+                  "min-height": height
+                }, 
+                footer: {
+                  "margin-top": "auto"
+                }}
+            });
+            
+          }
+          
           let pagContainer = $(".pagination-container");
           $(pagContainer)
             .children()
@@ -186,59 +257,10 @@ window.addEventListener("DOMContentLoaded", event => {
 
     layer.addTo(map);
 
-    const marker = L.marker([0, 0]).addTo(map);
+ 
 
     map.zoomOut(1);
   }
 
-  function test(row) {
-    let uid = row[0].data;
-    console.log(uid);
 
-    let local = JSON.parse(localStorage.getItem("bookmarks"));
-    const found = local.find(element => element.uid == uid);
-    console.log(found);
-    let lat = found.lat;
-    let lon = found.lon;
-    console.log(lat, lon);
-    const p = `  <div id = "popupContent" class="row popupContent position-relative">
-  <div class="col p-0 popup-content">
-
-    <div class="card-body px-3 pt-2 pb-1">
-      <ul class="list-group border-0">
-       <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${
-         found.name
-       } </li>
-        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
-          ""} </li>
-        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
-              class="lat">${found.lat} </span></li>
-        <li class="list-group-item border-0 px-1 fs-6 py-0">
-         Longitude:
-               <span class="lon">${found.lon}</span></li>
-        <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${
-          found.dms.lat
-        } ${found.dms.lon}</li>
-        
-        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
-      
-
-  </div>
-
-</div> `;
-
-    setTimeout(() => {
-      map.flyTo([lat, lon]);
-    }, 700);
-
-    setTimeout(() => {
-      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-      marker
-        .setLatLng([lat, lon])
-        .bindPopup(popup)
-        .openPopup();
-
-      map.zoomOut();
-    }, 1000);
-  }
 });
