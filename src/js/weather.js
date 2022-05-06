@@ -149,12 +149,13 @@ window.addEventListener("DOMContentLoaded", () => {
    *
    * TODO Create PYTHON SCRIPT to render partials pages and change leaflet cdn script and css link
    */
-  map.on("locationfound", function (e) {
-    let lat = e.latitude;
-    let lon = e.longitude;
-    var radius = e.accuracy;
+  map.on("locationfound", async function (e) {
+  
 
-    (async () => {
+ 
+      let lat = e.latitude;
+      let lon = e.longitude;
+      var radius = e.accuracy;
       const address = await convertLatLon(lat, lon);
       const submitText = $("form :submit").first().text();
       console.log($("form :submit").first().parent());
@@ -163,9 +164,9 @@ window.addEventListener("DOMContentLoaded", () => {
         $("input").first().val(address.features[0].place_name);
       }
       await fetchWeather(lat, lon);
-    })().catch((err) => {
-      console.error(err);
-    });
+    
+ 
+  
     locationControl.stop();
 
     // map.stopLocate();
@@ -257,8 +258,9 @@ window.addEventListener("DOMContentLoaded", () => {
     const imgIcon = data.weather[0].icon;
     const currentWeather = data.weather[0].main;
     const temp = data.main.temp;
-    $("#LatitudeInput").val(lat);
-    $("#LatitudeInput").val(lon);
+    $('#latlonForm').find("input:eq(0)").val(lat)
+    $('#latlonForm').find("input:eq(1)").val(lon)
+    
     const dmsCalculated = DDtoDMS(lat, lon);
     console.log(addressField[0].value);
     const weatherdata = {
@@ -545,28 +547,5 @@ ${currentWeather} and ${temp}°F`);
 
 
 
-const grid = new Grid({
-  columns: ['Name', 'Email', 'Phone Number'],
-  search: true,
-  data: [
-    ['John', 'john@example.com', '(353) 01 222 3333'],
-    ['Mark', 'mark@gmail.com',   '(01) 22 888 4444'],
-    ['Eoin', 'eo3n@yahoo.com',   '(05) 10 878 5554'],
-    ['Nisen', 'nis900@gmail.com',   '313 333 1923']
-  ],
-  style: {
-    table: {
-      border: '3px solid #ccc'
-    },
-    th: {
-      'background-color': 'rgba(0, 0, 0, 0.1)',
-      color: '#000',
-      'border-bottom': '3px solid #ccc',
-      'text-align': 'center'
-    },
-    td: {
-      'text-align': 'center'
-    }
-  }
-});
+
 });
