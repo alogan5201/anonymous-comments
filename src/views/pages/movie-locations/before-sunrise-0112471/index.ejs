@@ -1,264 +1,200 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Before Sunrise</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A young man and woman meet on a train in Europe, and wind up spending one evening together in Vienna. Unfortunately, both know that this will probably be their only night together.  </span>
-                          <span > American tourist Jesse and French student Celine meet by chance on the train from Budapest to Vienna. Sensing that they are developing a connection, Jesse asks Celine to spend the day with him in Vienna, and she agrees. So they pass the time before his scheduled flight the next morning together. How do two perfect strangers connect so intimately over the course of a single day? What is that special thing that bonds two people so strongly? As their bond turns to love, what will happen to them the next morning when Jesse flies away? -randywong70@comcast.net.  </span>
-                          <span > Jesse, an American, has been traveling around Europe on his own aimlessly for the past few weeks on his Eurail pass. His last stop, where he is currently heading, is Vienna, from where he will catch a flight home tomorrow morning. Celine, a Parisienne, had been in Budapest visiting her grandmother. She is currently heading back to Paris to resume her studies at the Sorbonne. Jesse and Celine meet by chance on the same westbound train out of Budapest. The connection they feel from their short conversation on the train is enough for Jesse to suggest at the last minute that she get off the train with him in Vienna and that they spend time together in Vienna - just wandering around the city as was his original plan as he doesn't have the money for a hotel - before he needs to go to the airport, and at which time she will board the next train to Paris. If it ends up she feels uncomfortable with him as time progresses, she could ditch him at any point. Celine agrees. As they wander from place to place in Vienna, they talk about their philosophies of life and love. They also talk about logistical issues regarding their time, such as why Jesse was in Europe to begin with, what they are feeling for each other, if there is a future for them together and if so what that future may look like taking into consideration both their current lots in life. -Huggo.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Before Sunrise</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A young man and woman meet on a train in Europe, and wind up spending one evening together in Vienna. Unfortunately, both know that this will probably be their only night together. American tourist Jesse and French student Celine meet by chance on the train from Budapest to Vienna. Sensing that they are developing a connection, Jesse asks Celine to spend the day with him in Vienna, and she agrees. So they pass the time before his scheduled flight the next morning together. How do two perfect strangers connect so intimately over the course of a single day? What is that special thing that bonds two people so strongly? As their bond turns to love, what will happen to them the next morning when Jesse flies away? randywong70@comcast.net Jesse, a...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">n American, has been traveling around Europe on his own aimlessly for the past few weeks on his Eurail pass. His last stop, where he is currently heading, is Vienna, from where he will catch a flight home tomorrow morning. Celine, a Parisienne, had been in Budapest visiting her grandmother. She is currently heading back to Paris to resume her studies at the Sorbonne. Jesse and Celine meet by chance on the same westbound train out of Budapest. The connection they feel from their short conversation on the train is enough for Jesse to suggest at the last minute that she get off the train with him in Vienna and that they spend time together in Vienna - just wandering around the city as was his original plan as he doesn't have the money for a hotel - before he needs to go to the airport, and at which time she will board the next train to Paris. If it ends up she feels uncomfortable with him as time progresses, she could ditch him at any point. Celine agrees. As they wander from place to place in Vienna, they talk about their philosophies of life and love. They also talk about logistical issues regarding their time, such as why Jesse was in Europe to begin with, what they are feeling for each other, if there is a future for them together and if so what that future may look like taking into consideration both their current lots in life. Huggo Two young people, a French graduate student and an American tourist, meet briefly on a train traveling through Europe. Each enjoy talking to each other so much that they decide to get off the train together in Vienna. As they wander the city together and their night progresses, their connection makes the idea of separating the next morning a difficult choice. Kyle Perez Before Sunrise is a romance between a young American (Jesse) and a French student (Celine). A chance encounter on the train incites intrigue, and Jesse provocatively suggests that Celine postpones her return to France and embarks instead on a spontaneous expedition to Vienna. In the course of their 14-hour relationship, the two share in their love for the unrehearsed and their appreciation for the unexpected as they explore in a powerful meeting of hearts and minds. Hong Kong Arts Centre</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZDdiZTAwYzAtMDI3Ni00OTRjLTkzN2UtMGE3MDMyZmU4NTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Before Sunrise"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Two young people, a French graduate student and an American tourist, meet briefly on a train traveling through Europe. Each enjoy talking to each other so much that they decide to get off the train together in Vienna. As they wander the city together and their night progresses, their connection makes the idea of separating the next morning a difficult choice. -Kyle Perez.  </span>
-    <span class="additional-information" > A French grad student named Celine meets an American boy named Jesse on the Budapest-Vienna train. They get off the train in Vienna and hang out for a while. -Anonymous.  </span>
-    <span class="additional-information" > Before Sunrise is a romance between a young American (Jesse) and a French student (Celine). A chance encounter on the train incites intrigue, and Jesse provocatively suggests that Celine postpones her return to France and embarks instead on a spontaneous expedition to Vienna. In the course of their 14-hour relationship, the two share in their love for the unrehearsed and their appreciation for the unexpected as they explore in a powerful meeting of hearts and minds. -Hong Kong Arts Centre.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZDdiZTAwYzAtMDI3Ni00OTRjLTkzN2UtMGE3MDMyZmU4NTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Before Sunrise"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Vienna, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Prater, 1020 Leopoldstadt, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.214074</span>, <span class="lon">16.4016205</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Kleines Café, Franziskanerplatz 3, Innere Stadt, Vienna 1010, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.206476</span>, <span class="lon">16.374264</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Maria-Theresien-Platz, Maria Theresien Platz, Innere Stadt, Vienna 1010, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.204738</span>, <span class="lon">16.361015</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Alberner Hafenzufahrtsstraße, 1110 Simmering, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.1608836</span>, <span class="lon">16.4890456</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Vienna, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Maria Alm am Steinernen Meer, Salzburg, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">47.38333</span>, <span class="lon">12.9</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Preßgasse 4, 1040 Wieden, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.194605</span>, <span class="lon">16.3644</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wien Westbahnhof, Europaplatz 2, Rudolfsheim-Fünfhaus, Vienna 1150, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.196845249999996</span>, <span class="lon">16.338205000000002</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Vienna, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Windmühlgasse 10, 1060 Mariahilf, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.199619</span>, <span class="lon">16.357045</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Reichsbrücke, Reichsbrücke, Donaustadt, Vienna 1220, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.2282515</span>, <span class="lon">16.4097055</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Vienna, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Mariahilfer Kirche, Mariahilfer Straße 55, Mariahilf, Vienna 1060, Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.199093000000005</span>, <span class="lon">16.352997000000002</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Austria </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">47.6077978292689</span>, <span class="lon">14.3001435907641</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Vienna, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Prater, 1020 Leopoldstadt, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.2139745</span>, <span class="lon">16.4015718199215</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Kleines Café, Franziskanerplatz 3, Innere Stadt, Vienna 1010, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.206476</span>, <span class="lon">16.374264</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Maria-Theresien-Platz, Maria Theresien Platz, Innere Stadt, Vienna 1010, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.204738</span>, <span class="lon">16.361015</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Alberner Hafenzufahrtsstraße, 1110 Simmering, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.16578385</span>, <span class="lon">16.48861265</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Vienna, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Maria Alm am Steinernen Meer, Salzburg, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">47.405328</span>, <span class="lon">12.902713</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Preßgasse 4, 1040 Wieden, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.194605</span>, <span class="lon">16.3644</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wien Westbahnhof, Europaplatz 2, Rudolfsheim-Fünfhaus, Vienna 1150, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.196845249999996</span>, <span class="lon">16.338205000000002</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Vienna, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Windmühlgasse 10, 1060 Mariahilf, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.199663</span>, <span class="lon">16.357069</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Reichsbrücke, Reichsbrücke, Donaustadt, Vienna 1220, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.2282515</span>, <span class="lon">16.4097055</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Vienna, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.20833</span>, <span class="lon">16.37306</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Mariahilfer Kirche, Mariahilfer Straße 55, Mariahilf, Vienna 1060, Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.199093000000005</span>, <span class="lon">16.352997000000002</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Austria</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">47.6077978292689</span>, <span class="lon">14.3001435907641</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[48.1608836, 16.4890456], [48.194605, 16.3644], [48.196845249999996, 16.338205000000002]], "data": [{"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.214074, "lon": 16.4016205, "name": "Prater, 1020 Leopoldstadt, Austria"}, {"lat": 48.206476, "lon": 16.374264, "name": "Kleines Caf\u00e9, Franziskanerplatz 3, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.204738, "lon": 16.361015, "name": "Maria-Theresien-Platz, Maria Theresien Platz, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.1608836, "lon": 16.4890456, "name": "Alberner Hafenzufahrtsstra\u00dfe, 1110 Simmering, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 47.38333, "lon": 12.9, "name": "Maria Alm am Steinernen Meer, Salzburg, Austria"}, {"lat": 48.194605, "lon": 16.3644, "name": "Pre\u00dfgasse 4, 1040 Wieden, Austria"}, {"lat": 48.196845249999996, "lon": 16.338205000000002, "name": "Wien Westbahnhof, Europaplatz 2, Rudolfsheim-F\u00fcnfhaus, Vienna 1150, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.199619, "lon": 16.357045, "name": "Windm\u00fchlgasse 10, 1060 Mariahilf, Austria"}, {"lat": 48.2282515, "lon": 16.4097055, "name": "Reichsbr\u00fccke, Reichsbr\u00fccke, Donaustadt, Vienna 1220, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.199093000000005, "lon": 16.352997000000002, "name": "Mariahilfer Kirche, Mariahilfer Stra\u00dfe 55, Mariahilf, Vienna 1060, Austria"}, {"lat": 47.6077978292689, "lon": 14.3001435907641, "name": "Austria"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[48.16578385, 16.48861265], [48.194605, 16.3644], [48.196845249999996, 16.338205000000002]], "data": [{"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.2139745, "lon": 16.4015718199215, "name": "Prater, 1020 Leopoldstadt, Austria"}, {"lat": 48.206476, "lon": 16.374264, "name": "Kleines Caf\u00e9, Franziskanerplatz 3, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.204738, "lon": 16.361015, "name": "Maria-Theresien-Platz, Maria Theresien Platz, Innere Stadt, Vienna 1010, Austria"}, {"lat": 48.16578385, "lon": 16.48861265, "name": "Alberner Hafenzufahrtsstra\u00dfe, 1110 Simmering, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 47.405328, "lon": 12.902713, "name": "Maria Alm am Steinernen Meer, Salzburg, Austria"}, {"lat": 48.194605, "lon": 16.3644, "name": "Pre\u00dfgasse 4, 1040 Wieden, Austria"}, {"lat": 48.196845249999996, "lon": 16.338205000000002, "name": "Wien Westbahnhof, Europaplatz 2, Rudolfsheim-F\u00fcnfhaus, Vienna 1150, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.199663, "lon": 16.357069, "name": "Windm\u00fchlgasse 10, 1060 Mariahilf, Austria"}, {"lat": 48.2282515, "lon": 16.4097055, "name": "Reichsbr\u00fccke, Reichsbr\u00fccke, Donaustadt, Vienna 1220, Austria"}, {"lat": 48.20833, "lon": 16.37306, "name": "Vienna, Austria"}, {"lat": 48.199093000000005, "lon": 16.352997000000002, "name": "Mariahilfer Kirche, Mariahilfer Stra\u00dfe 55, Mariahilf, Vienna 1060, Austria"}, {"lat": 47.6077978292689, "lon": 14.3001435907641, "name": "Austria"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -342,5 +278,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

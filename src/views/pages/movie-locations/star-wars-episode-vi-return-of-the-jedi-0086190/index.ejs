@@ -1,324 +1,192 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Star Wars: Episode VI - Return of the Jedi</h3>
-          <p class="card-text mb-0">
-
-
-  <span > After a daring mission to rescue Han Solo from Jabba the Hutt, the Rebels dispatch to Endor to destroy the second Death Star. Meanwhile, Luke struggles to help Darth Vader back from the dark side without falling into the Emperor's trap.  </span>
-                          <span > Luke Skywalker battles Jabba the Hutt and Darth Vader to save his comrades in the Rebel Alliance and triumph over the Galactic Empire. Han Solo and Princess Leia reaffirm their love, and team with Chewbacca, Lando Calrissian, the Ewoks, and droids C-3PO and R2-D2 to aid in the disruption of the Dark Side, and the defeat of the evil emperor. -Jwelch5742.  </span>
-                          <span > Emperor Palpatine, Darth Vader, and the Empire are building a new Death Star. Meanwhile, Han Solo has been imprisoned, and Luke Skywalker has sent R2-D2 and C-3PO to try and free him. Princess Leia, disguised as a bounty hunter, and Chewbacca go along as well. The final battle takes place on the Forest Moon of Endor, with its natural inhabitants, the Ewoks, lending a hand to the rebels. -Colin Tinto .  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Star Wars: Episode VI - Return of the Jedi</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">After a daring mission to rescue Han Solo from Jabba the Hutt, the Rebels dispatch to Endor to destroy the second Death Star. Meanwhile, Luke struggles to help Darth Vader back from the dark side without falling into the Emperor's trap. Luke Skywalker battles Jabba the Hutt and Darth Vader to save his comrades in the Rebel Alliance and triumph over the Galactic Empire. Han Solo and Princess Leia reaffirm their love, and team with Chewbacca, Lando Calrissian, the Ewoks, and droids C-3PO and R2-D2 to aid in the disruption of the Dark Side, and the defeat of the evil emperor. Jwelch5742 Emperor Palpatine, Darth Vader, and the Empire are building a new Death Star. Meanwhile, Han Solo has been imprisoned, and Luke Skywalker has sent R2-D2 and C-...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">3PO to try and free him. Princess Leia, disguised as a bounty hunter, and Chewbacca go along as well. The final battle takes place on the Forest Moon of Endor, with its natural inhabitants, the Ewoks, lending a hand to the rebels. Colin Tinto <cst@imdb.com> As the evil Emperor Palpatine oversees the construction of the new Death Star by Darth Vader and the Galactic Empire, smuggler Han Solo is rescued from the clutches of the vile gangster Jabba the Hutt by his friends, Luke Skywalker, Princess Leia, Lando Calrissian, and Chewbacca. Leaving Luke Skywalker Jedi training with Master Yoda, Solo returns to the Rebel fleet to prepare to complete his battle with the Empire. During the ensuing fighting, the newly returned Luke Skywalker is captured by Darth Vader. James Pearce <james.pearce@cs.man.ac.uk> Light-sabers sparkle, the Millennium Falcon flashes through hyperspace, and creatures from all over the galaxy defy the Galactic Empire, in this stunning third chapter of the  Star Wars  saga. As the Rebels prepare to attack Emperor Palpatine's awesome new Death Star, Han Solo remains imprisoned by the loathsome outlaw Jabba the Hutt, who has also captured Princess Leia. Luke Skywalker rescues his friends, but he will not be a true Jedi Knight until he confronts Darth Vader again, who has sworn to win him over to the Dark Side of the Force. With old favorites like Chewbacca, Yoda, R2-D2, C-3PO, and Lando Calrissian, plus the small, but stalwart Ewoks. Robert Lynch <docrlynch@yahoo.com> The Empire is more than halfway through construction of a new Death Star, almost twice as big, but more than twice as powerful. When completed, it will spell certain doom for Luke Skywalker and the rebels. Han Solo is a prisoner of crime lord Jabba the Hutt, and Princess Leia soon finds herself in the gangster's hands. Luke Skywalker, aided by C-3PO and R2-D2, makes his way into Jabba's palace, hoping to secure his friends' freedom. But Jabba has no intention of doing so, and tries to kill them all. After escaping from Jabba and the sands of Tatooine, they regroup with the rebel fleet, which is massing for an attack against the new satellite battle station at Endor. Lando Calrissian is pressed into action to lead the rebel fighter attack, while Han is put in charge of a group of soldiers to take out the shield generator protecting the Death Star. However, Luke Skywalker surrenders to Darth Vader's soldiers on Endor, and is taken in front of Vader's Master, Emperor Palpatine, on the Death Star for final corruption to the Dark Side of the Force. The fleet of Imperial Star Destroyers ambushes the rebels, cutting them off. Worse, the new Death Star begins turning its giant laser on the rebel carriers. It appears that nothing will stop the Empire's triumph, unless things start to change quickly. medic249a2</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Star Wars: Episode VI - Return of the Jedi"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > As the evil Emperor Palpatine oversees the construction of the new Death Star by Darth Vader and the Galactic Empire, smuggler Han Solo is rescued from the clutches of the vile gangster Jabba the Hutt by his friends, Luke Skywalker, Princess Leia, Lando Calrissian, and Chewbacca. Leaving Luke Skywalker Jedi training with Master Yoda, Solo returns to the Rebel fleet to prepare to complete his battle with the Empire. During the ensuing fighting, the newly returned Luke Skywalker is captured by Darth Vader. -James Pearce .  </span>
-    <span class="additional-information" > Light-sabers sparkle, the Millennium Falcon flashes through hyperspace, and creatures from all over the galaxy defy the Galactic Empire, in this stunning third chapter of the "Star Wars" saga. As the Rebels prepare to attack Emperor Palpatine's awesome new Death Star, Han Solo remains imprisoned by the loathsome outlaw Jabba the Hutt, who has also captured Princess Leia. Luke Skywalker rescues his friends, but he will not be a true Jedi Knight until he confronts Darth Vader again, who has sworn to win him over to the Dark Side of the Force. With old favorites like Chewbacca, Yoda, R2-D2, C-3PO, and Lando Calrissian, plus the small, but stalwart Ewoks. -Robert Lynch .  </span>
-    <span class="additional-information" > The Empire is more than halfway through construction of a new Death Star, almost twice as big, but more than twice as powerful. When completed, it will spell certain doom for Luke Skywalker and the rebels. Han Solo is a prisoner of crime lord Jabba the Hutt, and Princess Leia soon finds herself in the gangster's hands. Luke Skywalker, aided by C-3PO and R2-D2, makes his way into Jabba's palace, hoping to secure his friends' freedom. But Jabba has no intention of doing so, and tries to kill them all. After escaping from Jabba and the sands of Tatooine, they regroup with the rebel fleet, which is massing for an attack against the new satellite battle station at Endor. Lando Calrissian is pressed into action to lead the rebel fighter attack, while Han is put in charge of a group of soldiers to take out the shield generator protecting the Death Star. However, Luke Skywalker surrenders to Darth Vader's soldiers on Endor, and is taken in front of Vader's Master, Emperor Palpatine, on the Death Star for final corruption to the Dark Side of the Force. The fleet of Imperial Star Destroyers ambushes the rebels, cutting them off. Worse, the new Death Star begins turning its giant laser on the rebel carriers. It appears that nothing will stop the Empire's triumph, unless things start to change quickly. -medic249a2.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Star Wars: Episode VI - Return of the Jedi"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Smith River, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">41.9282</span>, <span class="lon">-124.147</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Death Valley National Park, Death Valley, California 92328, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.509057</span>, <span class="lon">-116.847615</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Buttercup, 289 E Green St, Pasadena, California 91101, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.144905</span>, <span class="lon">-118.144325</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Yuma, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.7253</span>, <span class="lon">-114.6244</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Carlotta, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.5374</span>, <span class="lon">-124.0606</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Death Valley, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.4573</span>, <span class="lon">-116.8653</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Dome, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.7582</span>, <span class="lon">-114.3661</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hopi Indian Reservation, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.87417</span>, <span class="lon">-110.62278</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Imperial County, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">33.04</span>, <span class="lon">-115.35</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.2202611707</span>, <span class="lon">-111.422127989113</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">San Rafael, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.9735</span>, <span class="lon">-122.5311</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Death Valley National Park, Death Valley, California 92328, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.509057</span>, <span class="lon">-116.847615</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Yuma, Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">32.692659</span>, <span class="lon">-114.627616</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Carlotta, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.537357</span>, <span class="lon">-124.060604</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.2202611707</span>, <span class="lon">-111.422127989113</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6596497</span>, <span class="lon">-0.258105</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[32.7253, -114.6244], [32.7582, -114.3661], [33.04, -115.35]], "data": [{"lat": 41.9282, "lon": -124.147, "name": "Smith River, California, United States"}, {"lat": 36.509057, "lon": -116.847615, "name": "Death Valley National Park, Death Valley, California 92328, United States"}, {"lat": 34.144905, "lon": -118.144325, "name": "Buttercup, 289 E Green St, Pasadena, California 91101, United States"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 40.5374, "lon": -124.0606, "name": "Carlotta, California, United States"}, {"lat": 36.4573, "lon": -116.8653, "name": "Death Valley, California, United States"}, {"lat": 32.7582, "lon": -114.3661, "name": "Dome, Arizona, United States"}, {"lat": 35.87417, "lon": -110.62278, "name": "Hopi Indian Reservation, Arizona, United States"}, {"lat": 33.04, "lon": -115.35, "name": "Imperial County, California, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 37.9735, "lon": -122.5311, "name": "San Rafael, California, United States"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[51.657803, -0.269703], [51.657803, -0.269703], [51.6596497, -0.258105]], "data": [{"lat": 36.509057, "lon": -116.847615, "name": "Death Valley National Park, Death Valley, California 92328, United States"}, {"lat": 32.692659, "lon": -114.627616, "name": "Yuma, Arizona, United States"}, {"lat": 40.537357, "lon": -124.060604, "name": "Carlotta, California, United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}, {"lat": 51.6596497, "lon": -0.258105, "name": "Elstree Film Studios, Borehamwood, WD6 1JG, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -402,5 +270,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

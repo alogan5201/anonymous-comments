@@ -1,374 +1,288 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Taxi Driver</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A mentally unstable veteran works as a nighttime taxi driver in New York City, where the perceived decadence and sleaze fuels his urge for violent action.  </span>
-                          <span > Travis Bickle is an ex-Marine and Vietnam War veteran living in New York City. As he suffers from insomnia, he spends his time working as a taxi driver at night, watching porn movies at seedy cinemas during the day, or thinking about how the world, New York in particular, has deteriorated into a cesspool. He's a loner who has strong opinions about what is right and wrong with mankind. For him, the one bright spot in New York humanity is Betsy, a worker on the presidential nomination campaign of Senator Charles Palantine. He becomes obsessed with her. After an incident with her, he believes he has to do whatever he needs to make the world a better place in his opinion. One of his priorities is to be the savior for Iris, a twelve-year-old runaway and prostitute who he believes wants out of the profession and under the thumb of her pimp and lover Matthew. -Huggo.  </span>
-                          <span > The former marine Travis Bickle is insomniac and decides to work as taxi driver in the night shift. Travis is a lonely uneducated man that spends his leisure time watching porn films in the theaters. When Travis sees the gorgeous Betsy working as a volunteer in the campaign for president of Senator Charles Palantine, he has a crush on her. He invites Betsy to drink coffee with him and later he dates her. However he takes her to see a porn Swedish movie and she feels offended and leaves him. Travis unsuccessfully sends flowers for her but she rejects him. Travis meets the young prostitute Iris that is trying to flee from her pimp Sport in his taxi but Sport takes her from the car. Travis also buys several weapons from a dealer and practices shooting. When he meets Iris again, he is resolute to help her. Will Travis succeed in his intent? -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Taxi Driver</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A mentally unstable veteran works as a nighttime taxi driver in New York City, where the perceived decadence and sleaze fuels his urge for violent action. Travis Bickle is an ex-Marine and Vietnam War veteran living in New York City. As he suffers from insomnia, he spends his time working as a taxi driver at night, watching porn movies at seedy cinemas during the day, or thinking about how the world, New York in particular, has deteriorated into a cesspool. He's a loner who has strong opinions about what is right and wrong with mankind. For him, the one bright spot in New York humanity is Betsy, a worker on the presidential nomination campaign of Senator Charles Palantine. He becomes obsessed with her. After an incident with her, he believe...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">s he has to do whatever he needs to make the world a better place in his opinion. One of his priorities is to be the savior for Iris, a twelve-year-old runaway and prostitute who he believes wants out of the profession and under the thumb of her pimp and lover Matthew. Huggo The former marine Travis Bickle is insomniac and decides to work as taxi driver in the night shift. Travis is a lonely uneducated man that spends his leisure time watching porn films in the theaters. When Travis sees the gorgeous Betsy working as a volunteer in the campaign for president of Senator Charles Palantine, he has a crush on her. He invites Betsy to drink coffee with him and later he dates her. However he takes her to see a porn Swedish movie and she feels offended and leaves him. Travis unsuccessfully sends flowers for her but she rejects him. Travis meets the young prostitute Iris that is trying to flee from her pimp Sport in his taxi but Sport takes her from the car. Travis also buys several weapons from a dealer and practices shooting. When he meets Iris again, he is resolute to help her. Will Travis succeed in his intent? Claudio Carvalho, Rio de Janeiro, Brazil Travis Bickle is a lonely, impotent and insomniac ex-marine, who spends his nights driving his taxi throughout the shadowy streets of mid-70's New York City. Travis is fed up with the society he finds himself surrounded by, wishing that a  real rain will come and wash all the scum off the streets . But Travis's personality sees him being unable to connect with virtually anyone, until he becomes infatuated with a blonde campaign worker named Betsy and then later meets an adolescent prostitute named Iris. As Travis grows increasingly more paranoid of his situations, he begins to sees these relationships he develops as 'missions' of which he will need to be the saviour. Kyle Perez In the shadow of bustling Big Apple, Travis Bickle--a depressed former U.S. Marine and a chronically insomniac lone wolf--prowls the night streets of the metropolis' dark underbelly in his yellow cab. A nobody amid nobodies against the backdrop of an increasingly distorted perceived reality, Travis delves deeper and deeper into his world of obsession and vitriolic revulsion, as an endless string of bitter rejections from unobtainable objects of desire; condemned young souls, and even his colleagues, can only lead to a flaming manifesto of violence. Now, as Travis braces up to clean up this filthy city, his hungry and lethal weapons will become the grim messengers of truth. His truth. Nick Riganas New York City taxi driver Travis Bickle constantly, almost obsessively, reflects on the ugly corruption of life around him, and becomes increasingly disturbed over his own loneliness and alienation. In nearly every phase of his life, he remains a complete outsider, failing to make emotional contact with anyone. Unable to sleep night after night, he haunts the local pornography emporiums to find diversion, and begins desperately thinking about an escape from his depressing existence. filmfactsman</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Taxi Driver"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Travis Bickle is a lonely, impotent and insomniac ex-marine, who spends his nights driving his taxi throughout the shadowy streets of mid-70's New York City. Travis is fed up with the society he finds himself surrounded by, wishing that a "real rain will come and wash all the scum off the streets". But Travis's personality sees him being unable to connect with virtually anyone, until he becomes infatuated with a blonde campaign worker named Betsy and then later meets an adolescent prostitute named Iris. As Travis grows increasingly more paranoid of his situations, he begins to sees these relationships he develops as 'missions' of which he will need to be the saviour. -Kyle Perez.  </span>
-    <span class="additional-information" > In the shadow of bustling Big Apple, Travis Bickle--a depressed former U.S. Marine and a chronically insomniac lone wolf--prowls the night streets of the metropolis' dark underbelly in his yellow cab. A nobody amid nobodies against the backdrop of an increasingly distorted perceived reality, Travis delves deeper and deeper into his world of obsession and vitriolic revulsion, as an endless string of bitter rejections from unobtainable objects of desire; condemned young souls, and even his colleagues, can only lead to a flaming manifesto of violence. Now, as Travis braces up to clean up this filthy city, his hungry and lethal weapons will become the grim messengers of truth. His truth. -Nick Riganas.  </span>
-    <span class="additional-information" > New York City taxi driver Travis Bickle constantly, almost obsessively, reflects on the ugly corruption of life around him, and becomes increasingly disturbed over his own loneliness and alienation. In nearly every phase of his life, he remains a complete outsider, failing to make emotional contact with anyone. Unable to sleep night after night, he haunts the local pornography emporiums to find diversion, and begins desperately thinking about an escape from his depressing existence. -filmfactsman.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BM2M1MmVhNDgtNmI0YS00ZDNmLTkyNjctNTJiYTQ2N2NmYzc2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Taxi Driver"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">87 Columbia Heights, Brooklyn, New York 11201, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.70002</span>, <span class="lon">-73.9954</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">202 East 13th Street, New York, New York 10003, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.732405</span>, <span class="lon">-73.987465</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">226 East 13th Street, New York, New York 10003, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.732015</span>, <span class="lon">-73.986715</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Ed Sullivan Theater, 1697 Broadway, New York, New York 10019, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.763894</span>, <span class="lon">-73.98266</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">546 Columbus Avenue, New York, New York 10024, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.78692</span>, <span class="lon">-73.97208</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">13 Fletcher Street, New York, New York 10038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.705949</span>, <span class="lon">-74.005156</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">737 8th Ave, Manhattan, New York 10036, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.76016</span>, <span class="lon">-73.98779</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">58th Street and 8th Avenue, Brooklyn, New York 11220, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.636635</span>, <span class="lon">-74.008371</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5th Avenue and E 19th St, Brooklyn, New York 11232, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.662469</span>, <span class="lon">-73.992255</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">214 W 42nd St, Manhattan, New York 10036, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.75657</span>, <span class="lon">-73.98846</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">671 8th Avenue, New York, New York 10036, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.75778</span>, <span class="lon">-73.989735</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.68917359673309</span>, <span class="lon">-73.9826731487689</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.751296</span>, <span class="lon">-73.984819</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">657 West 57th Street, New York, New York 10019, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.77131</span>, <span class="lon">-73.99332</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">27 West 72nd Street, New York, New York 10023, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.777155</span>, <span class="lon">-73.97743</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">110 3rd Avenue, New York, New York 10003, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.732955</span>, <span class="lon">-73.98776</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">2 East 55th Street, New York, New York 10022, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.761305</span>, <span class="lon">-73.974455</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">1866 Broadway, New York, New York 10025, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.874707</span>, <span class="lon">-73.909438</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">8th Avenue and 40th Street, Brooklyn, New York 11218, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.6467231</span>, <span class="lon">-73.9978897</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">East 28th Street and Park Avenue South, New York, New York 10016, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.7433005</span>, <span class="lon">-73.9840243</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">208 East 38th Street, New York, New York 10016, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.747957</span>, <span class="lon">-73.975597</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Columbus Circle, 4-6 Columbus Cir, New York, New York 10023, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.768134</span>, <span class="lon">-73.98176175</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">152 West 51st Street, New York, New York 10019, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.76153</span>, <span class="lon">-73.98263</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">1 Times Sq, Manhattan, New York 10036, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.75538</span>, <span class="lon">-73.98665</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">725 7th Avenue, New York, New York 10019, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.759965</span>, <span class="lon">-73.98377</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">1886 Broadway, Manhattan, New York 10023, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.77078</span>, <span class="lon">-73.98203</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">87 Columbia Heights, Brooklyn, New York 11201, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.70002</span>, <span class="lon">-73.9954</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">202 East 13th Street, New York, New York 10003, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.732405</span>, <span class="lon">-73.987465</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">226 East 13th Street, New York, New York 10003, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.732015</span>, <span class="lon">-73.986715</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Ed Sullivan Theater, 1697 Broadway, New York, New York 10019, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.763894</span>, <span class="lon">-73.98266</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">546 Columbus Avenue, New York, New York 10024, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.78692</span>, <span class="lon">-73.97208</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">13 Fletcher Street, New York, New York 10038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.705949</span>, <span class="lon">-74.005156</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">737 8th Ave, Manhattan, New York 10036, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.76016</span>, <span class="lon">-73.98779</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">58th Street and 8th Avenue, Brooklyn, New York 11220, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.636635</span>, <span class="lon">-74.008371</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">5th Avenue and E 19th St, Brooklyn, New York 11232, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.662469</span>, <span class="lon">-73.992255</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">214 W 42nd St, Manhattan, New York 10036, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.75657</span>, <span class="lon">-73.98846</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1866 Broadway, New York, New York 10025, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.769944</span>, <span class="lon">-73.982022</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">671 8th Avenue, New York, New York 10036, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.75778</span>, <span class="lon">-73.989735</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Columbus Circle, 4-6 Columbus Cir, New York, New York 10023, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.768134</span>, <span class="lon">-73.98176175</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1 Times Sq, Manhattan, New York 10036, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.75538</span>, <span class="lon">-73.98665</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1886 Broadway, Manhattan, New York 10023, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.77078</span>, <span class="lon">-73.98203</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.68917359673309</span>, <span class="lon">-73.9826731487689</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.751296</span>, <span class="lon">-73.984819</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">657 West 57th Street, New York, New York 10019, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.77131</span>, <span class="lon">-73.99332</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">27 West 72nd Street, New York, New York 10023, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.777155</span>, <span class="lon">-73.97743</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">110 3rd Avenue, New York, New York 10003, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.732955</span>, <span class="lon">-73.98776</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">2 East 55th Street, New York, New York 10022, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.761305</span>, <span class="lon">-73.974455</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">8th Avenue and 40th Street, Brooklyn, New York 11218, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.6467231</span>, <span class="lon">-73.9978897</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">East 28th Street and Park Avenue South, New York, New York 10016, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.7433005</span>, <span class="lon">-73.9840243</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">208 East 38th Street, New York, New York 10016, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.747957</span>, <span class="lon">-73.975597</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">152 West 51st Street, New York, New York 10019, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.76153</span>, <span class="lon">-73.98263</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">725 7th Avenue, New York, New York 10019, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.759965</span>, <span class="lon">-73.98377</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[40.636635, -74.008371], [40.6467231, -73.9978897], [40.662469, -73.992255]], "data": [{"lat": 40.70002, "lon": -73.9954, "name": "87 Columbia Heights, Brooklyn, New York 11201, United States"}, {"lat": 40.732405, "lon": -73.987465, "name": "202 East 13th Street, New York, New York 10003, United States"}, {"lat": 40.732015, "lon": -73.986715, "name": "226 East 13th Street, New York, New York 10003, United States"}, {"lat": 40.763894, "lon": -73.98266, "name": "Ed Sullivan Theater, 1697 Broadway, New York, New York 10019, United States"}, {"lat": 40.78692, "lon": -73.97208, "name": "546 Columbus Avenue, New York, New York 10024, United States"}, {"lat": 40.705949, "lon": -74.005156, "name": "13 Fletcher Street, New York, New York 10038, United States"}, {"lat": 40.76016, "lon": -73.98779, "name": "737 8th Ave, Manhattan, New York 10036, United States"}, {"lat": 40.636635, "lon": -74.008371, "name": "58th Street and 8th Avenue, Brooklyn, New York 11220, United States"}, {"lat": 40.662469, "lon": -73.992255, "name": "5th Avenue and E 19th St, Brooklyn, New York 11232, United States"}, {"lat": 40.75657, "lon": -73.98846, "name": "214 W 42nd St, Manhattan, New York 10036, United States"}, {"lat": 40.75778, "lon": -73.989735, "name": "671 8th Avenue, New York, New York 10036, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.77131, "lon": -73.99332, "name": "657 West 57th Street, New York, New York 10019, United States"}, {"lat": 40.777155, "lon": -73.97743, "name": "27 West 72nd Street, New York, New York 10023, United States"}, {"lat": 40.732955, "lon": -73.98776, "name": "110 3rd Avenue, New York, New York 10003, United States"}, {"lat": 40.761305, "lon": -73.974455, "name": "2 East 55th Street, New York, New York 10022, United States"}, {"lat": 40.874707, "lon": -73.909438, "name": "1866 Broadway, New York, New York 10025, United States"}, {"lat": 40.6467231, "lon": -73.9978897, "name": "8th Avenue and 40th Street, Brooklyn, New York 11218, United States"}, {"lat": 40.7433005, "lon": -73.9840243, "name": "East 28th Street and Park Avenue South, New York, New York 10016, United States"}, {"lat": 40.747957, "lon": -73.975597, "name": "208 East 38th Street, New York, New York 10016, United States"}, {"lat": 40.768134, "lon": -73.98176175, "name": "Columbus Circle, 4-6 Columbus Cir, New York, New York 10023, United States"}, {"lat": 40.76153, "lon": -73.98263, "name": "152 West 51st Street, New York, New York 10019, United States"}, {"lat": 40.75538, "lon": -73.98665, "name": "1 Times Sq, Manhattan, New York 10036, United States"}, {"lat": 40.759965, "lon": -73.98377, "name": "725 7th Avenue, New York, New York 10019, United States"}, {"lat": 40.77078, "lon": -73.98203, "name": "1886 Broadway, Manhattan, New York 10023, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[40.636635, -74.008371], [40.6467231, -73.9978897], [40.662469, -73.992255]], "data": [{"lat": 40.70002, "lon": -73.9954, "name": "87 Columbia Heights, Brooklyn, New York 11201, United States"}, {"lat": 40.732405, "lon": -73.987465, "name": "202 East 13th Street, New York, New York 10003, United States"}, {"lat": 40.732015, "lon": -73.986715, "name": "226 East 13th Street, New York, New York 10003, United States"}, {"lat": 40.763894, "lon": -73.98266, "name": "Ed Sullivan Theater, 1697 Broadway, New York, New York 10019, United States"}, {"lat": 40.78692, "lon": -73.97208, "name": "546 Columbus Avenue, New York, New York 10024, United States"}, {"lat": 40.705949, "lon": -74.005156, "name": "13 Fletcher Street, New York, New York 10038, United States"}, {"lat": 40.76016, "lon": -73.98779, "name": "737 8th Ave, Manhattan, New York 10036, United States"}, {"lat": 40.636635, "lon": -74.008371, "name": "58th Street and 8th Avenue, Brooklyn, New York 11220, United States"}, {"lat": 40.662469, "lon": -73.992255, "name": "5th Avenue and E 19th St, Brooklyn, New York 11232, United States"}, {"lat": 40.75657, "lon": -73.98846, "name": "214 W 42nd St, Manhattan, New York 10036, United States"}, {"lat": 40.769944, "lon": -73.982022, "name": "1866 Broadway, New York, New York 10025, United States"}, {"lat": 40.75778, "lon": -73.989735, "name": "671 8th Avenue, New York, New York 10036, United States"}, {"lat": 40.768134, "lon": -73.98176175, "name": "Columbus Circle, 4-6 Columbus Cir, New York, New York 10023, United States"}, {"lat": 40.75538, "lon": -73.98665, "name": "1 Times Sq, Manhattan, New York 10036, United States"}, {"lat": 40.77078, "lon": -73.98203, "name": "1886 Broadway, Manhattan, New York 10023, United States"}, {"lat": 40.68917359673309, "lon": -73.9826731487689, "name": "Prison Ship Martyrs Monument, Fort Greene Park, New York, New York 11201, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.77131, "lon": -73.99332, "name": "657 West 57th Street, New York, New York 10019, United States"}, {"lat": 40.777155, "lon": -73.97743, "name": "27 West 72nd Street, New York, New York 10023, United States"}, {"lat": 40.732955, "lon": -73.98776, "name": "110 3rd Avenue, New York, New York 10003, United States"}, {"lat": 40.761305, "lon": -73.974455, "name": "2 East 55th Street, New York, New York 10022, United States"}, {"lat": 40.6467231, "lon": -73.9978897, "name": "8th Avenue and 40th Street, Brooklyn, New York 11218, United States"}, {"lat": 40.7433005, "lon": -73.9840243, "name": "East 28th Street and Park Avenue South, New York, New York 10016, United States"}, {"lat": 40.747957, "lon": -73.975597, "name": "208 East 38th Street, New York, New York 10016, United States"}, {"lat": 40.76153, "lon": -73.98263, "name": "152 West 51st Street, New York, New York 10019, United States"}, {"lat": 40.759965, "lon": -73.98377, "name": "725 7th Avenue, New York, New York 10019, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -452,5 +366,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

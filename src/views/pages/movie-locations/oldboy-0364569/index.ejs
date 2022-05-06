@@ -1,161 +1,119 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Oldboy</h3>
-          <p class="card-text mb-0">
-
-
-  <span > After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days.  </span>
-                          <span > Abducted on a rainy night in 1988, the obnoxious drunk, Oh Dae-Su, much to his surprise, wakes up locked in a windowless and dilapidated hotel room, for an unknown reason. There, his invisible and pitiless captors will feed him, clothe him, and sedate him to avert a desperate suicide--and as his only companion and a window to the world is the TV in his stark cell--the only thing that helps Oh Dae-Su keep going is his daily journal. Then, unexpectedly, after fifteen long years in captivity, the perplexed prisoner is deliberately released, encouraged to track down his tormentor to finally get his retribution. However, who would hate Oh Dae-Su so much he would deny him of a quick and clean death? -Nick Riganas.  </span>
-                          <span > An average man is kidnapped and imprisoned in a shabby cell for 15 years without explanation. He then is released, equipped with money, a cellphone and expensive clothes. As he strives to explain his imprisonment and get his revenge, Oh Dae-Su soon finds out that his kidnapper has a greater plan for him and is set onto a path of pain and suffering in an attempt to uncover the motive of his mysterious tormentor. -Jacksrevenge.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Oldboy</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">After being kidnapped and imprisoned for fifteen years, Oh Dae-Su is released, only to find that he must find his captor in five days. Abducted on a rainy night in 1988, the obnoxious drunk, Oh Dae-Su, much to his surprise, wakes up locked in a windowless and dilapidated hotel room, for an unknown reason. There, his invisible and pitiless captors will feed him, clothe him, and sedate him to avert a desperate suicide--and as his only companion and a window to the world is the TV in his stark cell--the only thing that helps Oh Dae-Su keep going is his daily journal. Then, unexpectedly, after fifteen long years in captivity, the perplexed prisoner is deliberately released, encouraged to track down his tormentor to finally get his retribution. ...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">However, who would hate Oh Dae-Su so much he would deny him of a quick and clean death? Nick Riganas An average man is kidnapped and imprisoned in a shabby cell for 15 years without explanation. He then is released, equipped with money, a cellphone and expensive clothes. As he strives to explain his imprisonment and get his revenge, Oh Dae-Su soon finds out that his kidnapper has a greater plan for him and is set onto a path of pain and suffering in an attempt to uncover the motive of his mysterious tormentor. Jacksrevenge On the day of his daughter's birthday, Ho Dae-su gets completely drunk and is arrested. His best friend No Joo-hwan releases him from the police station, and while calling home from a phone booth, Dae-su vanishes. Indeed he has been abducted and imprisoned in a room for fifteen years. One day, he is suddenly released, receives clothes, money and a cellular and meets the Japanese chef Mido, and they feel a great attraction for each other. However, Dae-su seeks for his captor and the reason of his long imprisonment. While looking for revenge, Dae-su discloses deep secrets from the past. Claudio Carvalho, Rio de Janeiro, Brazil</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Oldboy"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > On the day of his daughter's birthday, Ho Dae-su gets completely drunk and is arrested. His best friend No Joo-hwan releases him from the police station, and while calling home from a phone booth, Dae-su vanishes. Indeed he has been abducted and imprisoned in a room for fifteen years. One day, he is suddenly released, receives clothes, money and a cellular and meets the Japanese chef Mido, and they feel a great attraction for each other. However, Dae-su seeks for his captor and the reason of his long imprisonment. While looking for revenge, Dae-su discloses deep secrets from the past. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMTI3NTQyMzU5M15BMl5BanBnXkFtZTcwMTM2MjgyMQ@@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Oldboy"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Busan, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.1</span>, <span class="lon">129.04028</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-41.8388752215127</span>, <span class="lon">171.779900195937</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">상계고등학교, 노원구 노해로 432, Nowon-gu, Seoul 01761, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.6525355</span>, <span class="lon">127.055969</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Seoul, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.58333</span>, <span class="lon">127</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.5362364654109</span>, <span class="lon">128.168944342317</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Busan, South Korea</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.1</span>, <span class="lon">129.04028</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-41.8388752215127</span>, <span class="lon">171.779900195937</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">상계고등학교, 노원구 노해로 432, Nowon-gu, Seoul 01761, South Korea</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.6525355</span>, <span class="lon">127.055969</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Seoul, South Korea</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.58333</span>, <span class="lon">127</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">South Korea</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.5362364654109</span>, <span class="lon">128.168944342317</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
+<script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 35.1, "lon": 129.04028, "name": "Busan, South Korea"}, {"lat": -41.8388752215127, "lon": 171.779900195937, "name": "New Zealand"}, {"lat": 37.6525355, "lon": 127.055969, "name": "\uc0c1\uacc4\uace0\ub4f1\ud559\uad50, \ub178\uc6d0\uad6c \ub178\ud574\ub85c 432, Nowon-gu, Seoul 01761, South Korea"}, {"lat": 37.58333, "lon": 127, "name": "Seoul, South Korea"}, {"lat": 36.5362364654109, "lon": 128.168944342317, "name": "South Korea"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -240,5 +198,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

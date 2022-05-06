@@ -1,234 +1,176 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Gladiator</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.  </span>
-                          <span > Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge. -Chris "Morphy" Terry.  </span>
-                          <span > Commodus takes power and strips rank from Maximus, one of the favored generals of his predecessor and father, Emperor Marcus Aurelius, the great stoical philosopher. Maximus is then relegated to fighting to the death in the gladiator arenas. -Jwelch5742.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Gladiator</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery. Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge. Chris  Morphy  Terry Commodus takes power and strips rank from M...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">aximus, one of the favored generals of his predecessor and father, Emperor Marcus Aurelius, the great stoical philosopher. Maximus is then relegated to fighting to the death in the gladiator arenas. Jwelch5742 In 180 A.D. Rome, the weary and dying emperor, Marcus Aurelius, names his loyal and triumphant general, Maximus Decimus Meridius, his successor and protector of Rome, much to the dismay of his haughty and unbalanced son, Commodus. But, instead, death and entrapment await, as the embittered and blind with rage rival rewards Rome's hero with an order for his execution, only to wind up as a slave to the former gladiator, Proximo. From the vast deserts of North Africa, a new Maximo will rise as a gladiator, hacking and slashing his way through all the way up to Mother Rome and the unsuspecting dictator, Commodus. But will the popular general ever find peace in a long-awaited retribution? Nick Riganas In Gladiator, victorious general Maximus Decimus Meridias has been named keeper of Rome and its empire by dying emperor Marcus Aurelius, so that rule might pass from the Caesars back to the people and Senate. Marcus' neglected and power-hungry son, Commodus, has other ideas, however. Escaping an ordered execution, Maximus hurries back to his home in Spain, too late to save his wife and son from the same order. Taken into slavery and trained as a gladiator by Proximo, Maximus lives only that he might someday take his revenge and fulfill the dying wish of his emperor. The time soon comes when Proximo's troupe is called to Rome to participate in a marathon of gladiator games held at the behest of the new emperor, Commodus. Once in Rome, Maximus wastes no time in making his presence known, and is soon involved in a plot to overthrow the emperor with his former-love Lucilla, Commodus' sister, after whom he lusts, and also the widowed mother of Lucius, heir to the empire after his uncle, and democratic-minded senator, Gracchus. ahmetkozan A dying Marcus Aurelius plans to name his loyal and brave General Maximus as his successor in order to restore the power of the Roman Senate. However, his power-hungry, jealous son Commodus learns of the plan, murders Marcus Aurelius, and plans to execute Maximus in order to secure his claim to the throne. Maximus escapes execution, but is sold into slavery and is forced to become a gladiator. Eventually, Maximus and his fellow gladiators are sent to Rome to perform for Commodus. Through his bravery he wins over the masses and reveals his true identity, much to the chagrin of Commodus. Can Maximus use his newfound popularity to avenge Marcus Aurelius' death, or will Commodus be able to keep the throne? <jgp3553@excite.com></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Gladiator"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In 180 A.D. Rome, the weary and dying emperor, Marcus Aurelius, names his loyal and triumphant general, Maximus Decimus Meridius, his successor and protector of Rome, much to the dismay of his haughty and unbalanced son, Commodus. But, instead, death and entrapment await, as the embittered and blind with rage rival rewards Rome's hero with an order for his execution, only to wind up as a slave to the former gladiator, Proximo. From the vast deserts of North Africa, a new Maximo will rise as a gladiator, hacking and slashing his way through all the way up to Mother Rome and the unsuspecting dictator, Commodus. But will the popular general ever find peace in a long-awaited retribution? -Nick Riganas.  </span>
-    <span class="additional-information" > In Gladiator, victorious general Maximus Decimus Meridias has been named keeper of Rome and its empire by dying emperor Marcus Aurelius, so that rule might pass from the Caesars back to the people and Senate. Marcus' neglected and power-hungry son, Commodus, has other ideas, however. Escaping an ordered execution, Maximus hurries back to his home in Spain, too late to save his wife and son from the same order. Taken into slavery and trained as a gladiator by Proximo, Maximus lives only that he might someday take his revenge and fulfill the dying wish of his emperor. The time soon comes when Proximo's troupe is called to Rome to participate in a marathon of gladiator games held at the behest of the new emperor, Commodus. Once in Rome, Maximus wastes no time in making his presence known, and is soon involved in a plot to overthrow the emperor with his former-love Lucilla, Commodus' sister, after whom he lusts, and also the widowed mother of Lucius, heir to the empire after his uncle, and democratic-minded senator, Gracchus. -ahmetkozan.  </span>
-    <span class="additional-information" > A dying Marcus Aurelius plans to name his loyal and brave General Maximus as his successor in order to restore the power of the Roman Senate. However, his power-hungry, jealous son Commodus learns of the plan, murders Marcus Aurelius, and plans to execute Maximus in order to secure his claim to the throne. Maximus escapes execution, but is sold into slavery and is forced to become a gladiator. Eventually, Maximus and his fellow gladiators are sent to Rome to perform for Commodus. Through his bravery he wins over the masses and reveals his true identity, much to the chagrin of Commodus. Can Maximus use his newfound popularity to avenge Marcus Aurelius' death, or will Commodus be able to keep the throne? -.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Gladiator"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Malta </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.890522427978</span>, <span class="lon">14.4419213796182</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bourne Woods, Tilford Rd, Farnham, England GU10 3RW, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.189984</span>, <span class="lon">-0.77319</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Ouarzazate, Drâa-Tafilalet, Morocco </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.91667</span>, <span class="lon">-6.91667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Val d'Orcia, Via Cassia, Montalcino, Siena 53024, Italy </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.066899500000005</span>, <span class="lon">11.550547000000002</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Atlas Studios Ouarzazate, Ouarzazate, Drâa-Tafilalet 45, Morocco </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.941094</span>, <span class="lon">-6.967311</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Alabama Hills, Movie Flat Rd., Lone Pine, California 93545, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.60179</span>, <span class="lon">-118.08127</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Маракуйя, вул. Маршала Тимошенка, 29, Київ, Kyiv 04205, Ukraine </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">50.512677</span>, <span class="lon">30.503327</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Morocco </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.3507513130338</span>, <span class="lon">-6.01707272732872</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Italy </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.5041539170675</span>, <span class="lon">12.6463610364431</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Malta</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.890522427978</span>, <span class="lon">14.4419213796182</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bourne Woods, Tilford Rd, Farnham, England GU10 3RW, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.189984</span>, <span class="lon">-0.77319</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Ouarzazate, Drâa-Tafilalet, Morocco</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.91667</span>, <span class="lon">-6.91667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Val d'Orcia, Via Cassia, Montalcino, Siena 53024, Italy</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.066899500000005</span>, <span class="lon">11.550547000000002</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Atlas Studios Ouarzazate, Ouarzazate, Drâa-Tafilalet 45, Morocco</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.941094</span>, <span class="lon">-6.967311</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Alabama Hills Cafe, 111 W Post St., Lone Pine, California 93545, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.604162</span>, <span class="lon">-118.063027</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Маракуйя, вул. Маршала Тимошенка, 29, Київ, Kyiv 04205, Ukraine</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">50.512677</span>, <span class="lon">30.503327</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Morocco</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">32.3507513130338</span>, <span class="lon">-6.01707272732872</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Italy</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.5041539170675</span>, <span class="lon">12.6463610364431</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": null, "data": [{"lat": 35.890522427978, "lon": 14.4419213796182, "name": "Malta"}, {"lat": 51.189984, "lon": -0.77319, "name": "Bourne Woods, Tilford Rd, Farnham, England GU10 3RW, United Kingdom"}, {"lat": 30.91667, "lon": -6.91667, "name": "Ouarzazate, Dr\u00e2a-Tafilalet, Morocco"}, {"lat": 43.066899500000005, "lon": 11.550547000000002, "name": "Val d\u0027Orcia, Via Cassia, Montalcino, Siena 53024, Italy"}, {"lat": 30.941094, "lon": -6.967311, "name": "Atlas Studios Ouarzazate, Ouarzazate, Dr\u00e2a-Tafilalet 45, Morocco"}, {"lat": 36.60179, "lon": -118.08127, "name": "Alabama Hills, Movie Flat Rd., Lone Pine, California 93545, United States"}, {"lat": 50.512677, "lon": 30.503327, "name": "\u041c\u0430\u0440\u0430\u043a\u0443\u0439\u044f, \u0432\u0443\u043b. \u041c\u0430\u0440\u0448\u0430\u043b\u0430 \u0422\u0438\u043c\u043e\u0448\u0435\u043d\u043a\u0430, 29, \u041a\u0438\u0457\u0432, Kyiv 04205, Ukraine"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 32.3507513130338, "lon": -6.01707272732872, "name": "Morocco"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 42.5041539170675, "lon": 12.6463610364431, "name": "Italy"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 35.890522427978, "lon": 14.4419213796182, "name": "Malta"}, {"lat": 51.189984, "lon": -0.77319, "name": "Bourne Woods, Tilford Rd, Farnham, England GU10 3RW, United Kingdom"}, {"lat": 30.91667, "lon": -6.91667, "name": "Ouarzazate, Dr\u00e2a-Tafilalet, Morocco"}, {"lat": 43.066899500000005, "lon": 11.550547000000002, "name": "Val d\u0027Orcia, Via Cassia, Montalcino, Siena 53024, Italy"}, {"lat": 30.941094, "lon": -6.967311, "name": "Atlas Studios Ouarzazate, Ouarzazate, Dr\u00e2a-Tafilalet 45, Morocco"}, {"lat": 36.604162, "lon": -118.063027, "name": "Alabama Hills Cafe, 111 W Post St., Lone Pine, California 93545, United States"}, {"lat": 50.512677, "lon": 30.503327, "name": "\u041c\u0430\u0440\u0430\u043a\u0443\u0439\u044f, \u0432\u0443\u043b. \u041c\u0430\u0440\u0448\u0430\u043b\u0430 \u0422\u0438\u043c\u043e\u0448\u0435\u043d\u043a\u0430, 29, \u041a\u0438\u0457\u0432, Kyiv 04205, Ukraine"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 32.3507513130338, "lon": -6.01707272732872, "name": "Morocco"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 42.5041539170675, "lon": 12.6463610364431, "name": "Italy"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -312,5 +254,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

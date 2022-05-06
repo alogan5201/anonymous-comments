@@ -1,172 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Incendies</h3>
-          <p class="card-text mb-0">
-
-
-  <span > Twins journey to the Middle East to discover their family history and fulfill their mother's last wishes.  </span>
-                          <span > A mother's last wishes send twins Jeanne and Simon on a journey to the Middle East in search of their tangled roots. Adapted from Wajdi Mouawad's acclaimed play, Incendies tells the powerful and moving tale of two young adults' voyage to the core of deep-rooted hatred, never-ending wars and enduring love. -Mylène Chollet.  </span>
-                          <span > Canadian Nawal Marwan has just passed away. The only people at the reading of her will are her twin adult children, Jeanne and Simon Marwan, and the executor, Nawal's long time employer and friend, notary Jean Lebel. The will contains many unusual requests, the most unusual being two sealed envelopes, one to be delivered by each of the twins to their father and to their brother respectively. The unusual nature of these requests are that their father as they know passed away years earlier during the war in Lebanon (where Nawal was raised) and they have no knowledge of any other offspring. Simon sees these requests as further indication that his mother was crazy and he will have no part of any of what he sees as her unusual final requests. But Jeanne wants to respect her mother's final wishes, which means finding out who their real father is and who this unknown brother is. These tasks take Jeanne on a quest to Lebanon to trace her mother's history, of which she knows little. As Jeanne goes on her quest with what little information she has on hand, she finds a history filled with turmoil. But many who knew her mother or knew of her mother refuse to speak to Jeanne. Jeanne ultimately requires Simon's assistance who reluctantly joins her in Lebanon. But even Simon gets caught up in finding out about his father and brother when they are closer to piecing together the puzzle. Finding out about their mother's past and thus their own history may enlighten them on why Nawal was the woman that she was. -Huggo.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Incendies</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">Twins journey to the Middle East to discover their family history and fulfill their mother's last wishes. A mother's last wishes send twins Jeanne and Simon on a journey to the Middle East in search of their tangled roots. Adapted from Wajdi Mouawad's acclaimed play, Incendies tells the powerful and moving tale of two young adults' voyage to the core of deep-rooted hatred, never-ending wars and enduring love. Mylène Chollet Canadian Nawal Marwan has just passed away. The only people at the reading of her will are her twin adult children, Jeanne and Simon Marwan, and the executor, Nawal's long time employer and friend, notary Jean Lebel. The will contains many unusual requests, the most unusual being two sealed envelopes, one to be delivered...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information"> by each of the twins to their father and to their brother respectively. The unusual nature of these requests are that their father as they know passed away years earlier during the war in Lebanon (where Nawal was raised) and they have no knowledge of any other offspring. Simon sees these requests as further indication that his mother was crazy and he will have no part of any of what he sees as her unusual final requests. But Jeanne wants to respect her mother's final wishes, which means finding out who their real father is and who this unknown brother is. These tasks take Jeanne on a quest to Lebanon to trace her mother's history, of which she knows little. As Jeanne goes on her quest with what little information she has on hand, she finds a history filled with turmoil. But many who knew her mother or knew of her mother refuse to speak to Jeanne. Jeanne ultimately requires Simon's assistance who reluctantly joins her in Lebanon. But even Simon gets caught up in finding out about his father and brother when they are closer to piecing together the puzzle. Finding out about their mother's past and thus their own history may enlighten them on why Nawal was the woman that she was. Huggo In Canada, the sixty-year-old immigrant secretary Nawal Marwan passes away and the notary Jean Lebel, who had been her employer and friend for seventeen years, reads her will to her twin son and daughter Simon and Jeanne Marwan, who is a mathematician. Nawal requests to be buried naked with her face down and her tomb without a gravestone; further, she leaves three sealed envelopes addressed to the twins' father that they believed had died in the Middle East; to their unknown brother; and the last one to themselves to be opened only after the delivery of the other two. Then, they may put a gravestone on her tomb. Simon is reluctant to respect his mother last wishes, but Jeanne decides to find her biological father and brother. She travels to the Middle East to track down the past life of her mother and she discovers who she was before moving to Canada. She feels disturbed with the revelations and asks Simon to come to the Middle East to assist her in her journey. Simon discovers who his father and his brother are and concludes that one plus one may be equal to one. Claudio Carvalho, Rio de Janeiro, Brazil Long-buried secrets are about to come to light, when the twin siblings, Jeanne and Simon, are called before a notary for the reading of their mother Nawal's will. Suddenly, Jeanne is to hand-deliver a sealed letter to the father she never knew, somewhere in the Middle East; likewise, Simon has to give an equally important message to an unknown brother the twins didn't know they had. One is determined to unearth the truth; the other is reluctant. However, a promise is a promise, and, unless the siblings travel to their mother's homeland, they will never find peace. Will Jeanne and Simon honour her dying wish and shed light on Nawal Marwan's terrifying life? Nick Riganas</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMWE3MGYzZjktY2Q5Mi00Y2NiLWIyYWUtMmIyNzA3YmZlMGFhXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Incendies"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In Canada, the sixty-year-old immigrant secretary Nawal Marwan passes away and the notary Jean Lebel, who had been her employer and friend for seventeen years, reads her will to her twin son and daughter Simon and Jeanne Marwan, who is a mathematician. Nawal requests to be buried naked with her face down and her tomb without a gravestone; further, she leaves three sealed envelopes addressed to the twins' father that they believed had died in the Middle East; to their unknown brother; and the last one to themselves to be opened only after the delivery of the other two. Then, they may put a gravestone on her tomb. Simon is reluctant to respect his mother last wishes, but Jeanne decides to find her biological father and brother. She travels to the Middle East to track down the past life of her mother and she discovers who she was before moving to Canada. She feels disturbed with the revelations and asks Simon to come to the Middle East to assist her in her journey. Simon discovers who his father and his brother are and concludes that one plus one may be equal to one. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-    <span class="additional-information" > Long-buried secrets are about to come to light, when the twin siblings, Jeanne and Simon, are called before a notary for the reading of their mother Nawal's will. Suddenly, Jeanne is to hand-deliver a sealed letter to the father she never knew, somewhere in the Middle East; likewise, Simon has to give an equally important message to an unknown brother the twins didn't know they had. One is determined to unearth the truth; the other is reluctant. However, a promise is a promise, and, unless the siblings travel to their mother's homeland, they will never find peace. Will Jeanne and Simon honour her dying wish and shed light on Nawal Marwan's terrifying life? -Nick Riganas.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMWE3MGYzZjktY2Q5Mi00Y2NiLWIyYWUtMmIyNzA3YmZlMGFhXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Incendies"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">اممان, Amman, Jordan </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">31.95</span>, <span class="lon">35.93333</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Amman, Jordan </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">31.94972</span>, <span class="lon">35.93278</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Jordan </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">31.0101920713363</span>, <span class="lon">36.4358628369717</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">2560 Rue Masson, Montréal, Quebec H1Y 1V7, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">45.544482</span>, <span class="lon">-73.576344</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">175 Boulevard Deguire, Montréal, Quebec H4N 1P1, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">45.531537</span>, <span class="lon">-73.675686</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Montréal, Quebec, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">45.497216</span>, <span class="lon">-73.610364</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">اممان, Amman, Jordan</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">31.95</span>, <span class="lon">35.93333</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Amman, Jordan</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">31.94972</span>, <span class="lon">35.93278</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Jordan</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">31.0101920713363</span>, <span class="lon">36.4358628369717</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">2560 Rue Masson, Montréal, Quebec H1Y 1V7, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">45.544482</span>, <span class="lon">-73.576344</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">175 Boulevard Deguire, Montréal, Quebec H4N 1P1, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">45.531537</span>, <span class="lon">-73.675686</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Montréal, Quebec, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">45.497216</span>, <span class="lon">-73.610364</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
+<script type="text/javascript">
 var locations =[{"bbox": [[45.497216, -73.610364], [45.531537, -73.675686], [45.544482, -73.576344]], "data": [{"lat": 31.95, "lon": 35.93333, "name": "\u0627\u0645\u0645\u0627\u0646, Amman, Jordan"}, {"lat": 31.94972, "lon": 35.93278, "name": "Amman, Jordan"}, {"lat": 31.0101920713363, "lon": 36.4358628369717, "name": "Jordan"}, {"lat": 45.544482, "lon": -73.576344, "name": "2560 Rue Masson, Montr\u00e9al, Quebec H1Y 1V7, Canada"}, {"lat": 45.531537, "lon": -73.675686, "name": "175 Boulevard Deguire, Montr\u00e9al, Quebec H4N 1P1, Canada"}, {"lat": 45.497216, "lon": -73.610364, "name": "Montr\u00e9al, Quebec, Canada"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -251,5 +206,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

@@ -1,273 +1,208 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Groundhog Day</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A self-centered Pittsburgh weatherman finds himself inexplicably trapped in a small town as he lives the same day over and over again.  </span>
-                          <span > A weather man is reluctantly sent to cover a story about a weather forecasting "rat" (as he calls it). This is his fourth year on the story, and he makes no effort to hide his frustration. On awaking the 'following' day, he discovers that it's Groundhog Day again, and again, and again. First he uses this to his advantage, then comes the realisation that he is doomed to spend the rest of eternity in the same place, seeing the same people do the same thing every day. -Rob Hartill.  </span>
-                          <span > Misanthropic TV weatherman/broadcaster, Phil Connors, is annoyed and despondent when he's assigned the job of covering the annual Groundhog festivities in the small "Hick" town of Punxsutawney - making this his fourth in a row. The only noticeable upside is his attractive and good-natured producer. But the real nightmare begins when Phil ends up reliving the same day (Groundhog Day) over, and over again. Unable to leave the town due to a severe blizzard, and with no end in sight, Phil struggles to find a way to escape (and ultimately make the best of) his seemingly hopeless situation. -S. Lagan.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Groundhog Day</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A self-centered Pittsburgh weatherman finds himself inexplicably trapped in a small town as he lives the same day over and over again. A weather man is reluctantly sent to cover a story about a weather forecasting  rat  (as he calls it). This is his fourth year on the story, and he makes no effort to hide his frustration. On awaking the 'following' day, he discovers that it's Groundhog Day again, and again, and again. First he uses this to his advantage, then comes the realisation that he is doomed to spend the rest of eternity in the same place, seeing the same people do the same thing every day. Rob Hartill Misanthropic TV weatherman/broadcaster, Phil Connors, is annoyed and despondent when he's assigned the job of covering the annual Gro...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">undhog festivities in the small  Hick  town of Punxsutawney - making this his fourth in a row. The only noticeable upside is his attractive and good-natured producer. But the real nightmare begins when Phil ends up reliving the same day (Groundhog Day) over, and over again. Unable to leave the town due to a severe blizzard, and with no end in sight, Phil struggles to find a way to escape (and ultimately make the best of) his seemingly hopeless situation. S. Lagan TV weatherman Phil Connors is cynical, to say the least, and having to go yet again to Punxsutawney, Pa. on February 2 to see if Punxsutawney Phil sees his shadow isn't his idea of fun. He is grumpy with his segment producer Rita and downright nasty with cameraman Larry. He doesn't take the shadow business at all seriously but the next morning, awakens to find he is reliving the same day. Initially disbelieving and fighting what is happening to him, Phil eventually accepts that he will relive the same day over and over again. He uses the opportunity to acquire new skills - piano playing and ice carving among them - and soon becomes the most admired man in Punxsutawney. However, just how many times he relives the day is anyone's guess. garykmcd Phil Connors is the arrogant and egotistical weatherman for local station WPBH-TV Pittsburgh. He has disdain for those with whom he works as well as for his viewers. But he has the most disdain for Groundhog Day held in Punxsutawney, Pennsylvania, which he is to cover for the fourth time in his career, this year with Rita and Larry, the station's new producer and cameraman respectively. Phil wants to get in and out of Punxsutawney as quickly as possible, but a snowstorm forces the threesome to stay an extra night in town after the Groundhog Day festivities. When Phil awakens the next morning, he is experiencing what he thinks is déjà vu. In reality, he is experiencing that Groundhog Day in Punxsutawney all over again. The same happens the following day and the following. As Phil relives that same Groundhog Day over and over again, he goes through a myriad of highs and lows. But as he comes to the realization that Groundhog Day may be his fate for eternity, he also comes to other realizations, such as that his actions have no long term consequences, but that knowledge, especially as it relates to Rita, can be a powerful and dangerous thing. But he is given opportunity after opportunity to get the day  right.  Huggo</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Groundhog Day"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > TV weatherman Phil Connors is cynical, to say the least, and having to go yet again to Punxsutawney, Pa. on February 2 to see if Punxsutawney Phil sees his shadow isn't his idea of fun. He is grumpy with his segment producer Rita and downright nasty with cameraman Larry. He doesn't take the shadow business at all seriously but the next morning, awakens to find he is reliving the same day. Initially disbelieving and fighting what is happening to him, Phil eventually accepts that he will relive the same day over and over again. He uses the opportunity to acquire new skills - piano playing and ice carving among them - and soon becomes the most admired man in Punxsutawney. However, just how many times he relives the day is anyone's guess. -garykmcd.  </span>
-    <span class="additional-information" > Phil Connors is the arrogant and egotistical weatherman for local station WPBH-TV Pittsburgh. He has disdain for those with whom he works as well as for his viewers. But he has the most disdain for Groundhog Day held in Punxsutawney, Pennsylvania, which he is to cover for the fourth time in his career, this year with Rita and Larry, the station's new producer and cameraman respectively. Phil wants to get in and out of Punxsutawney as quickly as possible, but a snowstorm forces the threesome to stay an extra night in town after the Groundhog Day festivities. When Phil awakens the next morning, he is experiencing what he thinks is déjà vu. In reality, he is experiencing that Groundhog Day in Punxsutawney all over again. The same happens the following day and the following. As Phil relives that same Groundhog Day over and over again, he goes through a myriad of highs and lows. But as he comes to the realization that Groundhog Day may be his fate for eternity, he also comes to other realizations, such as that his actions have no long term consequences, but that knowledge, especially as it relates to Rita, can be a powerful and dangerous thing. But he is given opportunity after opportunity to get the day "right." -Huggo.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZWIxNzM5YzQtY2FmMS00Yjc3LWI1ZjUtNGVjMjMzZTIxZTIxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Groundhog Day"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">344 Fremont Street, Woodstock, Illinois 60098, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.30977</span>, <span class="lon">-88.44466</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Woodstock, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.315</span>, <span class="lon">-88.4475</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Algonquin, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.1656</span>, <span class="lon">-88.2942</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Rockford, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.2714</span>, <span class="lon">-89.094</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Woodstock, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.315</span>, <span class="lon">-88.4475</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Rail Drive, Woodstock, Illinois 60098, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.34142</span>, <span class="lon">-88.48424</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Waukegan, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.3636</span>, <span class="lon">-87.8448</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wayne City, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">38.3453</span>, <span class="lon">-88.5878</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Cary, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.212</span>, <span class="lon">-88.2381</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Old Courthouse, Effingham, Illinois 62401, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.121721</span>, <span class="lon">-88.541211</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Woodstock, Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">42.315</span>, <span class="lon">-88.4475</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">100 Universal City Plz, Los Angeles, California 91608, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.14138</span>, <span class="lon">-118.35659</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Illinois, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.1492928594</span>, <span class="lon">-89.2749461071049</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pittsburgh, Pennsylvania, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.4417</span>, <span class="lon">-79.9901</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Blairsville, Pennsylvania, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.4312</span>, <span class="lon">-79.2609</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">344 Fremont Street, Woodstock, Illinois 60098, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.30977</span>, <span class="lon">-88.44466</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Woodstock, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.314753</span>, <span class="lon">-88.44743</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Algonquin, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.16558</span>, <span class="lon">-88.294249</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Rockford, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.271395</span>, <span class="lon">-89.093966</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Woodstock, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.314753</span>, <span class="lon">-88.44743</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Rail Drive, Woodstock, Illinois 60098, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.34142</span>, <span class="lon">-88.48424</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Waukegan, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.363633</span>, <span class="lon">-87.844794</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wayne City, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">38.345326</span>, <span class="lon">-88.587831</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Cary, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.211968</span>, <span class="lon">-88.238138</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Old Courthouse, Effingham, Illinois 62401, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.121721</span>, <span class="lon">-88.541211</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Woodstock, Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">42.314753</span>, <span class="lon">-88.44743</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Universal City Plz, Universal City, California 91608, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.1379</span>, <span class="lon">-118.3613</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Illinois, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.1492928594</span>, <span class="lon">-89.2749461071049</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Pittsburgh, Pennsylvania, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.441694</span>, <span class="lon">-79.990086</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Blairsville, Pennsylvania, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.43118</span>, <span class="lon">-79.260869</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[42.1656, -88.2942], [42.212, -88.2381], [42.2714, -89.094]], "data": [{"lat": 42.30977, "lon": -88.44466, "name": "344 Fremont Street, Woodstock, Illinois 60098, United States"}, {"lat": 42.315, "lon": -88.4475, "name": "Woodstock, Illinois, United States"}, {"lat": 42.1656, "lon": -88.2942, "name": "Algonquin, Illinois, United States"}, {"lat": 42.2714, "lon": -89.094, "name": "Rockford, Illinois, United States"}, {"lat": 42.315, "lon": -88.4475, "name": "Woodstock, Illinois, United States"}, {"lat": 42.34142, "lon": -88.48424, "name": "Rail Drive, Woodstock, Illinois 60098, United States"}, {"lat": 42.3636, "lon": -87.8448, "name": "Waukegan, Illinois, United States"}, {"lat": 38.3453, "lon": -88.5878, "name": "Wayne City, Illinois, United States"}, {"lat": 42.212, "lon": -88.2381, "name": "Cary, Illinois, United States"}, {"lat": 39.121721, "lon": -88.541211, "name": "Old Courthouse, Effingham, Illinois 62401, United States"}, {"lat": 42.315, "lon": -88.4475, "name": "Woodstock, Illinois, United States"}, {"lat": 34.14138, "lon": -118.35659, "name": "100 Universal City Plz, Los Angeles, California 91608, United States"}, {"lat": 40.1492928594, "lon": -89.2749461071049, "name": "Illinois, United States"}, {"lat": 40.4417, "lon": -79.9901, "name": "Pittsburgh, Pennsylvania, United States"}, {"lat": 40.4312, "lon": -79.2609, "name": "Blairsville, Pennsylvania, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[42.16558, -88.294249], [42.211968, -88.238138], [42.271395, -89.093966]], "data": [{"lat": 42.30977, "lon": -88.44466, "name": "344 Fremont Street, Woodstock, Illinois 60098, United States"}, {"lat": 42.314753, "lon": -88.44743, "name": "Woodstock, Illinois, United States"}, {"lat": 42.16558, "lon": -88.294249, "name": "Algonquin, Illinois, United States"}, {"lat": 42.271395, "lon": -89.093966, "name": "Rockford, Illinois, United States"}, {"lat": 42.314753, "lon": -88.44743, "name": "Woodstock, Illinois, United States"}, {"lat": 42.34142, "lon": -88.48424, "name": "Rail Drive, Woodstock, Illinois 60098, United States"}, {"lat": 42.363633, "lon": -87.844794, "name": "Waukegan, Illinois, United States"}, {"lat": 38.345326, "lon": -88.587831, "name": "Wayne City, Illinois, United States"}, {"lat": 42.211968, "lon": -88.238138, "name": "Cary, Illinois, United States"}, {"lat": 39.121721, "lon": -88.541211, "name": "Old Courthouse, Effingham, Illinois 62401, United States"}, {"lat": 42.314753, "lon": -88.44743, "name": "Woodstock, Illinois, United States"}, {"lat": 34.1379, "lon": -118.3613, "name": "Universal City Plz, Universal City, California 91608, United States"}, {"lat": 40.1492928594, "lon": -89.2749461071049, "name": "Illinois, United States"}, {"lat": 40.441694, "lon": -79.990086, "name": "Pittsburgh, Pennsylvania, United States"}, {"lat": 40.43118, "lon": -79.260869, "name": "Blairsville, Pennsylvania, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -351,5 +286,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

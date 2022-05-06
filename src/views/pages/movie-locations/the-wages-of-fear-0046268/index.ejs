@@ -1,154 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">The Wages of Fear</h3>
-          <p class="card-text mb-0">
-
-
-  <span > In a decrepit South American village, four men are hired to transport an urgent nitroglycerine shipment without the equipment that would make it safe.  </span>
-                          <span > In the Central American jungle supplies of nitroglycerin are needed at a remote oil field. The oil company pays four men to deliver the supplies in two trucks. A tense rivalry develops between the two sets of drivers and on the rough remote roads the slightest jolt can result in death. -Col Needham .  </span>
-                          <span > A convoy of trucks driven by four derelicts transports dangerous nitroglycerin to try and quell an oil well fire. Their long, harrowing ride over bad roads with their cargo ready to explode at every jolt and jar; the drivers are gambling with their very lives against the opportunity to escape from their steaming, sordid environment. -alfiehitchie.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The Wages of Fear</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">In a decrepit South American village, four men are hired to transport an urgent nitroglycerine shipment without the equipment that would make it safe. In the Central American jungle supplies of nitroglycerin are needed at a remote oil field. The oil company pays four men to deliver the supplies in two trucks. A tense rivalry develops between the two sets of drivers and on the rough remote roads the slightest jolt can result in death. Col Needham <col@imdb.com> A convoy of trucks driven by four derelicts transports dangerous nitroglycerin to try and quell an oil well fire. Their long, harrowing ride over bad roads with their cargo ready to explode at every jolt and jar; the drivers are gambling with their very lives against the opportunity t...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">o escape from their steaming, sordid environment. alfiehitchie In a desolate South American village several men try to find a way out. Their main problem is they are essentially marooned there. The only road out of town goes only as far as the oil drilling rigs and they are nowhere near having the money to fly out. There are no jobs to speak of and one day seems to just blend into the next. When a major fire breaks at the oil drilling site, the oil company hires four men to transport highly volatile nitroglycerin over a rough terrain and roads that have been virtually abandoned. The four accept the job because of the money they're offered is more than enough to allow them to leave once the job is done. The job is so dangerous however that few people expect them to return alive. garykmcd In a remote South American town, four men are hired by an American oil company to transport two truckloads of nitroglycerin to an oil field, to put out a fire. It's a very hazardous task - the nitroglycerin can explode for the slightest reason, the road is treacherous and the journey is a long one. However, the money is very good and their current situation in the town is rather dire - they will do anything to improve their situation. grantss Begging for work, to find the money and break out of the dusty and God-forsaken town of Las Piedras, four stranded men--the tough Corsican, Mario; the nihilistic French gangster, Jo; the Italian workhorse, Luigi, and the mysterious German, Bimba--accept a suicide mission. As the flames of a raging fire threaten to consume the facilities of the unscrupulous Southern Oil Company, the desperate men will have to complete a seemingly simple but severely hazardous mission. Now, the risk-takers must drive two trucks loaded with highly unstable nitroglycerine over hundreds of kilometres of rugged mountain roads to the oilfield. And in this tortuous and nerve-wracking journey, the slightest vibration can blow both the drivers and their hulking lorries to smithereens, as, more and more, the unrelenting heat and a silent undercurrent of rivalry get the best of them. In other words, the scarred adventurers are taking their lives into their hands. Does fortune favour the bold? Nick Riganas</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZDdkNzMwZmUtY2Q5MS00ZmM2LWJhYjItYTBjMWY0MGM4MDRjXkEyXkFqcGdeQXVyNTA4NzY1MzY@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="The Wages of Fear"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In a desolate South American village several men try to find a way out. Their main problem is they are essentially marooned there. The only road out of town goes only as far as the oil drilling rigs and they are nowhere near having the money to fly out. There are no jobs to speak of and one day seems to just blend into the next. When a major fire breaks at the oil drilling site, the oil company hires four men to transport highly volatile nitroglycerin over a rough terrain and roads that have been virtually abandoned. The four accept the job because of the money they're offered is more than enough to allow them to leave once the job is done. The job is so dangerous however that few people expect them to return alive. -garykmcd.  </span>
-    <span class="additional-information" > In a remote South American town, four men are hired by an American oil company to transport two truckloads of nitroglycerin to an oil field, to put out a fire. It's a very hazardous task - the nitroglycerin can explode for the slightest reason, the road is treacherous and the journey is a long one. However, the money is very good and their current situation in the town is rather dire - they will do anything to improve their situation. -grantss.  </span>
-    <span class="additional-information" > Begging for work, to find the money and break out of the dusty and God-forsaken town of Las Piedras, four stranded men--the tough Corsican, Mario; the nihilistic French gangster, Jo; the Italian workhorse, Luigi, and the mysterious German, Bimba--accept a suicide mission. As the flames of a raging fire threaten to consume the facilities of the unscrupulous Southern Oil Company, the desperate men will have to complete a seemingly simple but severely hazardous mission. Now, the risk-takers must drive two trucks loaded with highly unstable nitroglycerine over hundreds of kilometres of rugged mountain roads to the oilfield. And in this tortuous and nerve-wracking journey, the slightest vibration can blow both the drivers and their hulking lorries to smithereens, as, more and more, the unrelenting heat and a silent undercurrent of rivalry get the best of them. In other words, the scarred adventurers are taking their lives into their hands. Does fortune favour the bold? -Nick Riganas.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZDdkNzMwZmUtY2Q5MS00ZmM2LWJhYjItYTBjMWY0MGM4MDRjXkEyXkFqcGdeQXVyNTA4NzY1MzY@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="The Wages of Fear"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bouches-du-Rhône, France </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.5</span>, <span class="lon">5.08333</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Saint-Gilles, Gard, France </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.67778</span>, <span class="lon">4.43111</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Nîmes, Gard, France </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.83694</span>, <span class="lon">4.36</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Poulx, Gard, France </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.91083</span>, <span class="lon">4.42361</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bouches-du-Rhône, France</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.5</span>, <span class="lon">5.08333</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Saint-Gilles, Gard, France</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.677007</span>, <span class="lon">4.431849</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Nîmes, Gard, France</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.837425</span>, <span class="lon">4.360069</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Poulx, Gard, France</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.9105</span>, <span class="lon">4.42408</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[43.5, 5.08333], [43.67778, 4.43111], [43.83694, 4.36]], "data": [{"lat": 43.5, "lon": 5.08333, "name": "Bouches-du-Rh\u00f4ne, France"}, {"lat": 43.67778, "lon": 4.43111, "name": "Saint-Gilles, Gard, France"}, {"lat": 43.83694, "lon": 4.36, "name": "N\u00eemes, Gard, France"}, {"lat": 43.91083, "lon": 4.42361, "name": "Poulx, Gard, France"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[43.5, 5.08333], [43.677007, 4.431849], [43.837425, 4.360069]], "data": [{"lat": 43.5, "lon": 5.08333, "name": "Bouches-du-Rh\u00f4ne, France"}, {"lat": 43.677007, "lon": 4.431849, "name": "Saint-Gilles, Gard, France"}, {"lat": 43.837425, "lon": 4.360069, "name": "N\u00eemes, Gard, France"}, {"lat": 43.9105, "lon": 4.42408, "name": "Poulx, Gard, France"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -232,5 +190,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

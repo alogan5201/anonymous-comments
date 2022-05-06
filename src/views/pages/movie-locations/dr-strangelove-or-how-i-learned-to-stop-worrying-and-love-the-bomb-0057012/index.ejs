@@ -1,243 +1,184 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb</h3>
-          <p class="card-text mb-0">
-
-
-  <span > An insane American general orders a bombing attack on the Soviet Union, triggering a path to nuclear holocaust that a war room full of politicians and generals frantically tries to stop.  </span>
-                          <span > Paranoid Brigadier General Jack D. Ripper of Burpelson Air Force Base, believing that fluoridation of the American water supply is a Soviet plot to poison the U.S. populace, is able to deploy through a back door mechanism a nuclear attack on the Soviet Union without the knowledge of his superiors, including the Chair of the Joint Chiefs of Staff, General Buck Turgidson, and President Merkin Muffley. Only Ripper knows the code to recall the B-52 bombers and he has shut down communication in and out of Burpelson as a measure to protect this attack. Ripper's executive officer, RAF Group Captain Lionel Mandrake (on exchange from Britain), who is being held at Burpelson by Ripper, believes he knows the recall codes if he can only get a message to the outside world. Meanwhile at the Pentagon War Room, key persons including Muffley, Turgidson and nuclear scientist and adviser, a former Nazi named Dr. Strangelove, are discussing measures to stop the attack or mitigate its blow-up into an all out nuclear war with the Soviets. Against Turgidson's wishes, Muffley brings Soviet Ambassador Alexi de Sadesky into the War Room, and get his boss, Soviet Premier Dimitri Kisov, on the hot line to inform him of what's going on. The Americans in the War Room are dismayed to learn that the Soviets have an as yet unannounced Doomsday Device to detonate if any of their key targets are hit. As Ripper, Mandrake and those in the War Room try and work the situation to their end goal, Major T.J. "King" Kong, one of the B-52 bomber pilots, is working on his own agenda of deploying his bomb where ever he can on enemy soil if he can't make it to his intended target. -Huggo.  </span>
-                          <span > A fundamental pedantic General, evokes a huge number of optimists (politicians) to prevent his actions, by practically quarrelling with the outcome of the salted bomb that was being prepared to be dropped on the soviets, that could cause a radio active encirclement of 90 years loitering.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">An insane American general orders a bombing attack on the Soviet Union, triggering a path to nuclear holocaust that a war room full of politicians and generals frantically tries to stop. Paranoid Brigadier General Jack D. Ripper of Burpelson Air Force Base, believing that fluoridation of the American water supply is a Soviet plot to poison the U.S. populace, is able to deploy through a back door mechanism a nuclear attack on the Soviet Union without the knowledge of his superiors, including the Chair of the Joint Chiefs of Staff, General Buck Turgidson, and President Merkin Muffley. Only Ripper knows the code to recall the B-52 bombers and he has shut down communication in and out of Burpelson as a measure to protect this attack. Ripper's e...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">xecutive officer, RAF Group Captain Lionel Mandrake (on exchange from Britain), who is being held at Burpelson by Ripper, believes he knows the recall codes if he can only get a message to the outside world. Meanwhile at the Pentagon War Room, key persons including Muffley, Turgidson and nuclear scientist and adviser, a former Nazi named Dr. Strangelove, are discussing measures to stop the attack or mitigate its blow-up into an all out nuclear war with the Soviets. Against Turgidson's wishes, Muffley brings Soviet Ambassador Alexi de Sadesky into the War Room, and get his boss, Soviet Premier Dimitri Kisov, on the hot line to inform him of what's going on. The Americans in the War Room are dismayed to learn that the Soviets have an as yet unannounced Doomsday Device to detonate if any of their key targets are hit. As Ripper, Mandrake and those in the War Room try and work the situation to their end goal, Major T.J.  King  Kong, one of the B-52 bomber pilots, is working on his own agenda of deploying his bomb where ever he can on enemy soil if he can't make it to his intended target. Huggo A fundamental pedantic General, evokes a huge number of optimists (politicians) to prevent his actions, by practically quarrelling with the outcome of the salted bomb that was being prepared to be dropped on the soviets, that could cause a radio active encirclement of 90 years loitering. U.S. Air Force General Jack Ripper goes completely and utterly mad, and sends his bomber wing to destroy the U.S.S.R. He suspects that the communists are conspiring to pollute the  precious bodily fluids  of the American people. The U.S. president meets with his advisors, where the Soviet ambassador tells him that if the U.S.S.R. is hit by nuclear weapons, it will trigger a  Doomsday Machine  which will destroy all plant and animal life on Earth. Peter Sellers portrays the three men who might avert this tragedy: British Group Captain Lionel Mandrake, the only person with access to the demented Gen. Ripper; U.S. President Merkin Muffley, whose best attempts to divert disaster depend on placating a drunken Soviet Premier and the former Nazi genius Dr. Strangelove, who concludes that  such a device would not be a practical deterrent for reasons which at this moment must be all too obvious . Will the bombers be stopped in time, or will General Jack Ripper succeed in destroying the world ? Colin Tinto <cst@imdb.com> U.S. President Merkin Muffley is on the hot line to Moscow with some rather embarrassing news for the Soviet premier:  Hello, Dimitri....I'm fine....Now then, you know how we've always talked about the possibility of something going wrong with the bomb....The bomb, Dimitri. The hydrogen bomb....Well, now, what happened is that, uh, one of our base commanders...he went a little funny in the head....and he went and did a silly thing....He ordered his planes to attack your country.  A comedy about an accidental nuclear attack? One that ends with total annihilation, thermonuclear apocalypse? Preposterous! Stanley Kubrick thought otherwise. In the end his thinking prevailed. The mad saga revolves around a psychotic Strategic Air Command officer, Gen. Jack D. Ripper, who lets loose his B-52 bomber squadron on the Soviet Union. Ripper takes this unilateral action because of his paranoid belief that Communists are sapping and contaminating  all our precious bodily fluids  as part of their plan to take over the world. Unbeknownst to Ripper, his attack will trigger the Russian's ultimate weapon, the Doomsday Machine, a diabolical retaliatory device set to blow up the planet. alfiehitchie</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZWI3ZTMxNjctMjdlNS00NmUwLWFiM2YtZDUyY2I3N2MxYTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > U.S. Air Force General Jack Ripper goes completely and utterly mad, and sends his bomber wing to destroy the U.S.S.R. He suspects that the communists are conspiring to pollute the "precious bodily fluids" of the American people. The U.S. president meets with his advisors, where the Soviet ambassador tells him that if the U.S.S.R. is hit by nuclear weapons, it will trigger a "Doomsday Machine" which will destroy all plant and animal life on Earth. Peter Sellers portrays the three men who might avert this tragedy: British Group Captain Lionel Mandrake, the only person with access to the demented Gen. Ripper; U.S. President Merkin Muffley, whose best attempts to divert disaster depend on placating a drunken Soviet Premier and the former Nazi genius Dr. Strangelove, who concludes that "such a device would not be a practical deterrent for reasons which at this moment must be all too obvious". Will the bombers be stopped in time, or will General Jack Ripper succeed in destroying the world ? -Colin Tinto .  </span>
-    <span class="additional-information" > U.S. President Merkin Muffley is on the hot line to Moscow with some rather embarrassing news for the Soviet premier: "Hello, Dimitri....I'm fine....Now then, you know how we've always talked about the possibility of something going wrong with the bomb....The bomb, Dimitri. The hydrogen bomb....Well, now, what happened is that, uh, one of our base commanders...he went a little funny in the head....and he went and did a silly thing....He ordered his planes to attack your country." A comedy about an accidental nuclear attack? One that ends with total annihilation, thermonuclear apocalypse? Preposterous! Stanley Kubrick thought otherwise. In the end his thinking prevailed. The mad saga revolves around a psychotic Strategic Air Command officer, Gen. Jack D. Ripper, who lets loose his B-52 bomber squadron on the Soviet Union. Ripper takes this unilateral action because of his paranoid belief that Communists are sapping and contaminating "all our precious bodily fluids" as part of their plan to take over the world. Unbeknownst to Ripper, his attack will trigger the Russian's ultimate weapon, the Doomsday Machine, a diabolical retaliatory device set to blow up the planet. -alfiehitchie.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZWI3ZTMxNjctMjdlNS00NmUwLWFiM2YtZDUyY2I3N2MxYTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.177996</span>, <span class="lon">-115.570995</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Québec, Quebec, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">46.82596</span>, <span class="lon">-71.235223</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Arctic, West Warwick, Rhode Island, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">41.71</span>, <span class="lon">-71.52</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Iceland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">64.9975884448459</span>, <span class="lon">-18.6054668169534</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Rocky Mountains, Evergreen, Colorado 80439, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.735612</span>, <span class="lon">-105.423783</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.396334</span>, <span class="lon">-0.453109</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Greenland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">74.7209117556808</span>, <span class="lon">-41.3894770446402</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Northwest Territories, Canada </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">63.6963550874</span>, <span class="lon">-118.540250478607</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Okaloosa County, Navarre, Florida 32566, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.40967</span>, <span class="lon">-86.816359</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Exeter Rd, Hillingdon, Hounslow, TW6 2PL, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.47271</span>, <span class="lon">-0.428711</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hounslow, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.4668</span>, <span class="lon">-0.3507</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.177996</span>, <span class="lon">-115.570995</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Québec, Quebec, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">46.82596</span>, <span class="lon">-71.235223</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Arctic, West Warwick, Rhode Island, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">41.703156</span>, <span class="lon">-71.528395</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Iceland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">64.9975884448459</span>, <span class="lon">-18.6054668169534</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Rocky Mountains, Evergreen, Colorado 80439, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.735612</span>, <span class="lon">-105.423783</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shepperton Studios Studios Rd, Shepperton, TW17 0QD, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.3963343</span>, <span class="lon">-0.4531088</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Greenland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">74.7209117556808</span>, <span class="lon">-41.3894770446402</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Northwest Territories, Canada</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">63.6963550874</span>, <span class="lon">-118.540250478607</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Okaloosa County, Navarre, Florida 32566, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.40967</span>, <span class="lon">-86.816359</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Nelson Road, Hillingdon, Hounslow, HA4 7GF, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.4803885</span>, <span class="lon">-0.4670351</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.515618</span>, <span class="lon">-0.091998</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hounslow, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.468613</span>, <span class="lon">-0.361347</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[51.396334, -0.453109], [51.4668, -0.3507], [51.47271, -0.428711]], "data": [{"lat": 51.177996, "lon": -115.570995, "name": "Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada"}, {"lat": 46.82596, "lon": -71.235223, "name": "Qu\u00e9bec, Quebec, Canada"}, {"lat": 41.71, "lon": -71.52, "name": "Arctic, West Warwick, Rhode Island, United States"}, {"lat": 64.9975884448459, "lon": -18.6054668169534, "name": "Iceland"}, {"lat": 39.735612, "lon": -105.423783, "name": "Rocky Mountains, Evergreen, Colorado 80439, United States"}, {"lat": 51.396334, "lon": -0.453109, "name": "Shepperton Studios Studios Rd, Shepperton, TW17 8EJ, United Kingdom"}, {"lat": 74.7209117556808, "lon": -41.3894770446402, "name": "Greenland"}, {"lat": 63.6963550874, "lon": -118.540250478607, "name": "Northwest Territories, Canada"}, {"lat": 30.40967, "lon": -86.816359, "name": "Okaloosa County, Navarre, Florida 32566, United States"}, {"lat": 51.47271, "lon": -0.428711, "name": "Exeter Rd, Hillingdon, Hounslow, TW6 2PL, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.4668, "lon": -0.3507, "name": "Hounslow, Greater London, England, United Kingdom"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[51.3963343, -0.4531088], [51.468613, -0.361347], [51.4803885, -0.4670351]], "data": [{"lat": 51.177996, "lon": -115.570995, "name": "Banff National Park, 224 Banff Ave, Banff, Alberta T1L 0A1, Canada"}, {"lat": 46.82596, "lon": -71.235223, "name": "Qu\u00e9bec, Quebec, Canada"}, {"lat": 41.703156, "lon": -71.528395, "name": "Arctic, West Warwick, Rhode Island, United States"}, {"lat": 64.9975884448459, "lon": -18.6054668169534, "name": "Iceland"}, {"lat": 39.735612, "lon": -105.423783, "name": "Rocky Mountains, Evergreen, Colorado 80439, United States"}, {"lat": 51.3963343, "lon": -0.4531088, "name": "Shepperton Studios Studios Rd, Shepperton, TW17 0QD, United Kingdom"}, {"lat": 74.7209117556808, "lon": -41.3894770446402, "name": "Greenland"}, {"lat": 63.6963550874, "lon": -118.540250478607, "name": "Northwest Territories, Canada"}, {"lat": 30.40967, "lon": -86.816359, "name": "Okaloosa County, Navarre, Florida 32566, United States"}, {"lat": 51.4803885, "lon": -0.4670351, "name": "Nelson Road, Hillingdon, Hounslow, HA4 7GF, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.468613, "lon": -0.361347, "name": "Hounslow, Greater London, England, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -321,5 +262,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

@@ -1,323 +1,248 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Braveheart</h3>
-          <p class="card-text mb-0">
-
-
-  <span > Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England.  </span>
-                          <span > William Wallace is a Scottish rebel who leads an uprising against the cruel English ruler Edward the Longshanks, who wishes to inherit the crown of Scotland for himself. When he was a young boy, William Wallace's father and brother, along with many others, lost their lives trying to free Scotland. Once he loses another of his loved ones, William Wallace begins his long quest to make Scotland free once and for all, along with the assistance of Robert the Bruce. -Anonymous.  </span>
-                          <span > Tells the story of the legendary thirteenth century Scottish hero named William Wallace. Wallace rallies the Scottish against the English monarch and Edward I after he suffers a personal tragedy by English soldiers. Wallace gathers a group of amateur warriors that is stronger than any English army. -Jwelch5742.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Braveheart</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">Scottish warrior William Wallace leads his countrymen in a rebellion to free his homeland from the tyranny of King Edward I of England. William Wallace is a Scottish rebel who leads an uprising against the cruel English ruler Edward the Longshanks, who wishes to inherit the crown of Scotland for himself. When he was a young boy, William Wallace's father and brother, along with many others, lost their lives trying to free Scotland. Once he loses another of his loved ones, William Wallace begins his long quest to make Scotland free once and for all, along with the assistance of Robert the Bruce. Anonymous Tells the story of the legendary thirteenth century Scottish hero named William Wallace. Wallace rallies the Scottish against the English m...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">onarch and Edward I after he suffers a personal tragedy by English soldiers. Wallace gathers a group of amateur warriors that is stronger than any English army. Jwelch5742 Around the end of the 1200s, oppressed by King Edward  Longshanks  who rules England with an iron fist, the noble and charismatic Scot of humble descent, William Wallace, leads a righteous campaign to end tyranny. In this gallant quest for freedom, the gifted strategist and mighty warrior will amass the hordes of the oppressed Scotsmen who thirst to reclaim their independence, however, the road to liberty is always drenched in blood. Nick Riganas In 14th Century Scotland, William Wallace leads his people in a rebellion against the tyranny of the English King, who has given English nobility the 'Prima Nocta' - a right to take all new brides for the first night. The Scots are none too pleased with the brutal English invaders, but they lack leadership to fight back. Wallace creates a legend of himself, with his courageous defense of his people and attacks on the English. Rob Hartill</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Braveheart"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Around the end of the 1200s, oppressed by King Edward "Longshanks" who rules England with an iron fist, the noble and charismatic Scot of humble descent, William Wallace, leads a righteous campaign to end tyranny. In this gallant quest for freedom, the gifted strategist and mighty warrior will amass the hordes of the oppressed Scotsmen who thirst to reclaim their independence, however, the road to liberty is always drenched in blood. -Nick Riganas.  </span>
-    <span class="additional-information" > In 14th Century Scotland, William Wallace leads his people in a rebellion against the tyranny of the English King, who has given English nobility the 'Prima Nocta' - a right to take all new brides for the first night. The Scots are none too pleased with the brutal English invaders, but they lack leadership to fight back. Wallace creates a legend of himself, with his courageous defense of his people and attacks on the English. -Rob Hartill.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMzkzMmU0YTYtOWM3My00YzBmLWI0YzctOGYyNTkwMWE5MTJkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Braveheart"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Fort William, Highland, Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">56.81694</span>, <span class="lon">-5.10972</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.2202611707</span>, <span class="lon">-111.422127989113</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bray, Wicklow, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.2028</span>, <span class="lon">-6.1083</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">56.804311</span>, <span class="lon">-5.073844</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Highland, Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">57.5066</span>, <span class="lon">-5.0038</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wicklow, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53</span>, <span class="lon">-6.41667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Onich, Highland, Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">56.7033</span>, <span class="lon">-5.2277</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Ballymore Eustace, Kildare, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.1321</span>, <span class="lon">-6.6152</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Trim Castle, Castle St, Trim, Meath C15, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.558242</span>, <span class="lon">-6.790737</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bective Abbey, Bective, Meath C15, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.582363</span>, <span class="lon">-6.702843</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.157165</span>, <span class="lon">-6.840038</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Dunsany, Killeen, Meath, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.544036</span>, <span class="lon">-6.619148</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.137675</span>, <span class="lon">-6.311974</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Curragh, Kildare, Kildare, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.17</span>, <span class="lon">-6.86</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Trim, Meath, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.55224</span>, <span class="lon">-6.79341</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Trim, Meath, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.55224</span>, <span class="lon">-6.79341</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.3658155</span>, <span class="lon">-6.330507</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Highland, Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">57.5066</span>, <span class="lon">-5.0038</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Kippure Estate, Kilbride, Wicklow W91, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.166743</span>, <span class="lon">-6.37861</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wicklow, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53</span>, <span class="lon">-6.41667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">St. Margaret'S, Dubber, County Dublin, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.432074</span>, <span class="lon">-6.303392</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Fort William, Highland, Scotland, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">56.817829</span>, <span class="lon">-5.110974</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.2202611707</span>, <span class="lon">-111.422127989113</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bray, Wicklow, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.20146</span>, <span class="lon">-6.110505</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">56.804311</span>, <span class="lon">-5.073844</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Highland, Scotland, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">57.5066</span>, <span class="lon">-5.0038</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wicklow, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53</span>, <span class="lon">-6.41667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Onich, Highland, Scotland, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">56.7033</span>, <span class="lon">-5.2277</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Ballymore Eustace, Kildare, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.133477</span>, <span class="lon">-6.615201</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Trim Castle, Castle St, Trim, Meath C15, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.558242</span>, <span class="lon">-6.790737</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bective Abbey, Bective, Meath C15, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.582363</span>, <span class="lon">-6.702843</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.157165</span>, <span class="lon">-6.840038</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Dunsany, Killeen, Meath, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.544036</span>, <span class="lon">-6.619148</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.137675</span>, <span class="lon">-6.311974</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Curragh, Kildare, Kildare, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.17</span>, <span class="lon">-6.86</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Trim, Meath, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.555642</span>, <span class="lon">-6.792511</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Trim, Meath, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.555642</span>, <span class="lon">-6.792511</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.3658155</span>, <span class="lon">-6.330507</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Highland, Scotland, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">57.5066</span>, <span class="lon">-5.0038</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Kippure Estate, Kilbride, Wicklow W91, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.166743</span>, <span class="lon">-6.37861</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Luggala Estate, Calary, Wicklow A98, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.0982622</span>, <span class="lon">-6.2583957</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">St. Margaret'S, Dubber, County Dublin, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.432074</span>, <span class="lon">-6.303392</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[53, -6.41667], [53, -6.41667], [53.1321, -6.6152]], "data": [{"lat": 56.81694, "lon": -5.10972, "name": "Fort William, Highland, Scotland, United Kingdom"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 53.2028, "lon": -6.1083, "name": "Bray, Wicklow, Ireland"}, {"lat": 56.804311, "lon": -5.073844, "name": "Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53, "lon": -6.41667, "name": "Wicklow, Ireland"}, {"lat": 56.7033, "lon": -5.2277, "name": "Onich, Highland, Scotland, United Kingdom"}, {"lat": 53.1321, "lon": -6.6152, "name": "Ballymore Eustace, Kildare, Ireland"}, {"lat": 53.558242, "lon": -6.790737, "name": "Trim Castle, Castle St, Trim, Meath C15, Ireland"}, {"lat": 53.582363, "lon": -6.702843, "name": "Bective Abbey, Bective, Meath C15, Ireland"}, {"lat": 53.157165, "lon": -6.840038, "name": "Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland"}, {"lat": 53.544036, "lon": -6.619148, "name": "Dunsany, Killeen, Meath, Ireland"}, {"lat": 53.137675, "lon": -6.311974, "name": "Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland"}, {"lat": 53.17, "lon": -6.86, "name": "Curragh, Kildare, Kildare, Ireland"}, {"lat": 53.55224, "lon": -6.79341, "name": "Trim, Meath, Ireland"}, {"lat": 53.55224, "lon": -6.79341, "name": "Trim, Meath, Ireland"}, {"lat": 53.3658155, "lon": -6.330507, "name": "Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53.166743, "lon": -6.37861, "name": "Kippure Estate, Kilbride, Wicklow W91, Ireland"}, {"lat": 53, "lon": -6.41667, "name": "Wicklow, Ireland"}, {"lat": 53.432074, "lon": -6.303392, "name": "St. Margaret\u0027S, Dubber, County Dublin, Ireland"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[53, -6.41667], [53.0982622, -6.2583957], [53.133477, -6.615201]], "data": [{"lat": 56.817829, "lon": -5.110974, "name": "Fort William, Highland, Scotland, United Kingdom"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 53.20146, "lon": -6.110505, "name": "Bray, Wicklow, Ireland"}, {"lat": 56.804311, "lon": -5.073844, "name": "Glen Nevis, Fort William, Scotland PH33 6SX, United Kingdom"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53, "lon": -6.41667, "name": "Wicklow, Ireland"}, {"lat": 56.7033, "lon": -5.2277, "name": "Onich, Highland, Scotland, United Kingdom"}, {"lat": 53.133477, "lon": -6.615201, "name": "Ballymore Eustace, Kildare, Ireland"}, {"lat": 53.558242, "lon": -6.790737, "name": "Trim Castle, Castle St, Trim, Meath C15, Ireland"}, {"lat": 53.582363, "lon": -6.702843, "name": "Bective Abbey, Bective, Meath C15, Ireland"}, {"lat": 53.157165, "lon": -6.840038, "name": "Curragh Plains, Curragh Camp, Kildare, Kildare R56, Ireland"}, {"lat": 53.544036, "lon": -6.619148, "name": "Dunsany, Killeen, Meath, Ireland"}, {"lat": 53.137675, "lon": -6.311974, "name": "Sally Gap, Wicklow Mountains National Park, Glendalough, Wicklow A98, Ireland"}, {"lat": 53.17, "lon": -6.86, "name": "Curragh, Kildare, Kildare, Ireland"}, {"lat": 53.555642, "lon": -6.792511, "name": "Trim, Meath, Ireland"}, {"lat": 53.555642, "lon": -6.792511, "name": "Trim, Meath, Ireland"}, {"lat": 53.3658155, "lon": -6.330507, "name": "Ashtown Castle, Phoenix Park, Dublin, Dublin D08, Ireland"}, {"lat": 57.5066, "lon": -5.0038, "name": "Highland, Scotland, United Kingdom"}, {"lat": 53.166743, "lon": -6.37861, "name": "Kippure Estate, Kilbride, Wicklow W91, Ireland"}, {"lat": 53.0982622, "lon": -6.2583957, "name": "Luggala Estate, Calary, Wicklow A98, Ireland"}, {"lat": 53.432074, "lon": -6.303392, "name": "St. Margaret\u0027S, Dubber, County Dublin, Ireland"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -401,5 +326,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

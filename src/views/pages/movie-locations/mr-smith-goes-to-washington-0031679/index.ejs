@@ -1,173 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Mr. Smith Goes to Washington</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A naive youth leader is appointed to fill a vacancy in the U.S. Senate. His idealistic plans promptly collide with corruption at home and subterfuge from his hero in Washington, but he tries to forge ahead despite attacks on his character.  </span>
-                          <span > Naive and idealistic Jefferson Smith, leader of the Boy Rangers, is appointed on a lark by the spineless governor of his state. He is reunited with the state's senior senator--presidential hopeful and childhood hero, Senator Joseph Paine. In Washington, however, Smith discovers many of the shortcomings of the political process as his earnest goal of a national boys' camp leads to a conflict with the state political boss, Jim Taylor. Taylor first tries to corrupt Smith and then later attempts to destroy Smith through a scandal. -James Yu .  </span>
-                          <span > Upon the death of Senator Samuel Foley, Governor Hubert Hopper, after careful deliberation upon listening to the recommendations of his closest confidantes, appoints young Jefferson Smith to fill the vacancy, despite or because of Smith's lack of political experience and thus lack of political know-how. Jeff is the model of patriotism: he recites Lincoln, and is head of the Boy Rangers. Most in the know know that Hopper is the political lackey of corrupt and powerful businessman Jim Taylor. What most do not know is that another of Taylor's political lackeys is the state's senior senator, the well respected Joseph Paine, who has White House aspirations. Opportunistic Hopper knew that, due to a previous attempt, he could not appoint anyone that Taylor recommended, but sees Smith as someone who Paine and thus Taylor can easily manipulate, especially important now as Paine, Taylor and Foley when he was alive had been working behind the political scenes to push through a dam project, all for their own personal gain, buried in a deficiency bill. When Smith arrives in Washington, he is seen as a naive lightweight and a country bumpkin by almost everyone with who he comes into contact, including the Washington press corps, his fellow senators, and even his secretary Clarissa Saunders - known professionally purely as Saunders - whose years working behind the political system, including being in the know about what her previous boss Foley and Paine were and are up to about the dam project, has made her a cynic. How Paine believes he can keep Smith out of trouble is for him to introduce a bill of his own into the house about an issue passionate to him. What Paine is initially unaware about is that what Smith proposes in his bill would place the dam project in jeopardy. Taylor and Paine have to decide how much hardball they will play to make Smith comply or in turn ruin him, while Smith will show if he has what it takes to play with the big boys on the senate floor. Smith may have some unexpected help from someone who has let Washington get the better of her. -Huggo.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Mr. Smith Goes to Washington</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A naive youth leader is appointed to fill a vacancy in the U.S. Senate. His idealistic plans promptly collide with corruption at home and subterfuge from his hero in Washington, but he tries to forge ahead despite attacks on his character. Naive and idealistic Jefferson Smith, leader of the Boy Rangers, is appointed on a lark by the spineless governor of his state. He is reunited with the state's senior senator--presidential hopeful and childhood hero, Senator Joseph Paine. In Washington, however, Smith discovers many of the shortcomings of the political process as his earnest goal of a national boys' camp leads to a conflict with the state political boss, Jim Taylor. Taylor first tries to corrupt Smith and then later attempts to destroy Sm...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">ith through a scandal. James Yu <jamestyu@ccwf.cc.utexas.edu> Upon the death of Senator Samuel Foley, Governor Hubert Hopper, after careful deliberation upon listening to the recommendations of his closest confidantes, appoints young Jefferson Smith to fill the vacancy, despite or because of Smith's lack of political experience and thus lack of political know-how. Jeff is the model of patriotism: he recites Lincoln, and is head of the Boy Rangers. Most in the know know that Hopper is the political lackey of corrupt and powerful businessman Jim Taylor. What most do not know is that another of Taylor's political lackeys is the state's senior senator, the well respected Joseph Paine, who has White House aspirations. Opportunistic Hopper knew that, due to a previous attempt, he could not appoint anyone that Taylor recommended, but sees Smith as someone who Paine and thus Taylor can easily manipulate, especially important now as Paine, Taylor and Foley when he was alive had been working behind the political scenes to push through a dam project, all for their own personal gain, buried in a deficiency bill. When Smith arrives in Washington, he is seen as a naive lightweight and a country bumpkin by almost everyone with who he comes into contact, including the Washington press corps, his fellow senators, and even his secretary Clarissa Saunders - known professionally purely as Saunders - whose years working behind the political system, including being in the know about what her previous boss Foley and Paine were and are up to about the dam project, has made her a cynic. How Paine believes he can keep Smith out of trouble is for him to introduce a bill of his own into the house about an issue passionate to him. What Paine is initially unaware about is that what Smith proposes in his bill would place the dam project in jeopardy. Taylor and Paine have to decide how much hardball they will play to make Smith comply or in turn ruin him, while Smith will show if he has what it takes to play with the big boys on the senate floor. Smith may have some unexpected help from someone who has let Washington get the better of her. Huggo Jeffrey Smith is a man who believes children are the future and deserve immediate funding for an outdoor camping experience. When Jeff, the idealistic Washington outsider, is appointed to be the new United States Senate, his plans now stand the chance at being fully realized. However, Jeff is appointed with the belief by others that his naïve and gullible nature will be easy to manipulate to get what they want. He soon realizes, after getting blind-sided by high-ranking officials, that he will need to - literally - stand by himself in an inspired fight against corruption and greed. Kyle Perez Through a series of fortunate, and unfortunate, events, an unsophisticated local hero, Jefferson Smith, is appointed a US Senator. The people pulling the strings in his party and State figure that he will be compliant and malleable and basically stay out of the way of their plans, some of which aren't entirely ethical, or legal. However, a well-intentioned deed sets off a dramatic chain of events, a series of events that will see him at odds with his colleagues, with the shadowy, bullying power brokers and with the entire Senate. grantss</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZTYwYjYxYzgtMDE1Ni00NzU4LWJlMTEtODQ5YmJmMGJhZjI5L2ltYWdlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Mr. Smith Goes to Washington"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Jeffrey Smith is a man who believes children are the future and deserve immediate funding for an outdoor camping experience. When Jeff, the idealistic Washington outsider, is appointed to be the new United States Senate, his plans now stand the chance at being fully realized. However, Jeff is appointed with the belief by others that his naïve and gullible nature will be easy to manipulate to get what they want. He soon realizes, after getting blind-sided by high-ranking officials, that he will need to - literally - stand by himself in an inspired fight against corruption and greed. -Kyle Perez.  </span>
-    <span class="additional-information" > Through a series of fortunate, and unfortunate, events, an unsophisticated local hero, Jefferson Smith, is appointed a US Senator. The people pulling the strings in his party and State figure that he will be compliant and malleable and basically stay out of the way of their plans, some of which aren't entirely ethical, or legal. However, a well-intentioned deed sets off a dramatic chain of events, a series of events that will see him at odds with his colleagues, with the shadowy, bullying power brokers and with the entire Senate. -grantss.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZTYwYjYxYzgtMDE1Ni00NzU4LWJlMTEtODQ5YmJmMGJhZjI5L2ltYWdlXkEyXkFqcGdeQXVyMDI2NDg0NQ@@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Mr. Smith Goes to Washington"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">38.8892725</span>, <span class="lon">-77.0501525</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Union Station, Washington, District of Columbia, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">38.897446</span>, <span class="lon">-77.005234</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">545 7th Street Southeast, Washington, District of Columbia 20003, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">38.881515</span>, <span class="lon">-76.996415</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Washington, District of Columbia, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">38.895</span>, <span class="lon">-77.0366</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">38.8892725</span>, <span class="lon">-77.0501525</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Union Station, Washington, District of Columbia, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">38.897844</span>, <span class="lon">-77.005082</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">545 7th Street Southeast, Washington, District of Columbia 20003, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">38.881515</span>, <span class="lon">-76.996415</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Washington, District of Columbia, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">38.895037</span>, <span class="lon">-77.036543</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[38.881515, -76.996415], [38.8892725, -77.0501525], [38.895, -77.0366]], "data": [{"lat": 38.8892725, "lon": -77.0501525, "name": "Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States"}, {"lat": 38.897446, "lon": -77.005234, "name": "Union Station, Washington, District of Columbia, United States"}, {"lat": 38.881515, "lon": -76.996415, "name": "545 7th Street Southeast, Washington, District of Columbia 20003, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 38.895, "lon": -77.0366, "name": "Washington, District of Columbia, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[38.881515, -76.996415], [38.8892725, -77.0501525], [38.895037, -77.036543]], "data": [{"lat": 38.8892725, "lon": -77.0501525, "name": "Lincoln Memorial, 2 Lincoln Memorial Circle NW, Washington, District of Columbia 20037, United States"}, {"lat": 38.897844, "lon": -77.005082, "name": "Union Station, Washington, District of Columbia, United States"}, {"lat": 38.881515, "lon": -76.996415, "name": "545 7th Street Southeast, Washington, District of Columbia 20003, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 38.895037, "lon": -77.036543, "name": "Washington, District of Columbia, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -251,5 +206,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

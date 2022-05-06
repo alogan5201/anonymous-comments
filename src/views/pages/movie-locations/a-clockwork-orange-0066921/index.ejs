@@ -1,404 +1,312 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">A Clockwork Orange</h3>
-          <p class="card-text mb-0">
-
-
-  <span > In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned.  </span>
-                          <span > Protagonist Alex DeLarge is an "ultraviolent" youth in futuristic Britain. As with all luck, his eventually runs out and he's arrested and convicted of murder. While in prison, Alex learns of an experimental program in which convicts are programmed to detest violence. If he goes through the program, his sentence will be reduced and he will be back on the streets sooner than expected. But Alex's ordeals are far from over once he hits the streets of Britain.. -Nikki Carlyle.  </span>
-                          <span > In a near-futuristic society, late teen Alex DeLarge is the leader of a gang of thugs - his "droogs" - who commit acts of ultra-violence, often with sexual components, without any regard for their victims, and purely because it strikes their collective fancies. These acts are largely fueled by drug use. In addition, Alex is a lover of music, especially that of Ludwig van Beethoven, which, when he listens to it during these acts, intensifies his pleasure, and in turn inspires him to commit further such acts. He does not tolerate any challenge to his leadership by his droogs. Although the authorities in general know of Alex's delinquency, they have so far been unable to catch him in the act of his crimes, until one night after a sexual assault of an older woman. Alex, and Alex alone is charged, convicted and incarcerated. But Alex sees what he believes is an easy way out when the government looks for subjects to participate in a new rehabilitation therapy, the end result being release from prison after the two week therapy. The therapy ends up having consequences that Alex did not envision. The questions become how Alex will function, and how others will act toward him in his changed state. -Huggo.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">A Clockwork Orange</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned. Protagonist Alex DeLarge is an  ultraviolent  youth in futuristic Britain. As with all luck, his eventually runs out and he's arrested and convicted of murder. While in prison, Alex learns of an experimental program in which convicts are programmed to detest violence. If he goes through the program, his sentence will be reduced and he will be back on the streets sooner than expected. But Alex's ordeals are far from over once he hits the streets of Britain.. Nikki Carlyle In a near-futuristic society, late teen Alex DeLarge is the leader of a gang of thugs - his  droogs  - who commit acts of ultra-violence, ofte...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">n with sexual components, without any regard for their victims, and purely because it strikes their collective fancies. These acts are largely fueled by drug use. In addition, Alex is a lover of music, especially that of Ludwig van Beethoven, which, when he listens to it during these acts, intensifies his pleasure, and in turn inspires him to commit further such acts. He does not tolerate any challenge to his leadership by his droogs. Although the authorities in general know of Alex's delinquency, they have so far been unable to catch him in the act of his crimes, until one night after a sexual assault of an older woman. Alex, and Alex alone is charged, convicted and incarcerated. But Alex sees what he believes is an easy way out when the government looks for subjects to participate in a new rehabilitation therapy, the end result being release from prison after the two week therapy. The therapy ends up having consequences that Alex did not envision. The questions become how Alex will function, and how others will act toward him in his changed state. Huggo In the future, the violent and psychopath delinquent Alex, leader of a gang of ultra-violent criminal teenagers who kill, steal and rape, falls into the hands of the police. Arrested, he receives the option to participate in a program developed by the government that can reduce his time in jail. Alex turns guinea pig for experiments intended to curb the destructive impulses of men and solve the society's crime problems, but ends up becoming powerless to deal with the violence that surrounds him. MadMovieManiac Sentenced to fourteen years in prison after an unrestrained life of sex, violence, and murder in the mean streets of futuristic Britain, the Ludwig van Beethoven-lover and leader of an anarchic quartet of thugs, Alex DeLarge, is about to get a dose of his own medicine. As a result, after two long years in jail, the once-swaggering juvenile delinquent gets the chance to earn his freedom, by taking part in the government's experimental de-conditioning program that promises to flush one's harmful anti-social tendencies out of his mind. However, sometimes, the cure is worse than the disease. Will the new and improved Alex fit in the world he had a hand in creating? Nick Riganas In a futuristic Britain, a gang of teenagers go on the rampage every night, beating and raping helpless victims. After one of the boys quells an uprising in the gang, they knock him out and leave him for the police to find. He agrees to try  aversion therapy  to shorten his jail sentence. When he is eventually released, he hates violence, but the rest of his gang members are still after him. Colin Tinto <cst@imdb.com></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="A Clockwork Orange"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In the future, the violent and psychopath delinquent Alex, leader of a gang of ultra-violent criminal teenagers who kill, steal and rape, falls into the hands of the police. Arrested, he receives the option to participate in a program developed by the government that can reduce his time in jail. Alex turns guinea pig for experiments intended to curb the destructive impulses of men and solve the society's crime problems, but ends up becoming powerless to deal with the violence that surrounds him. -MadMovieManiac.  </span>
-    <span class="additional-information" > Sentenced to fourteen years in prison after an unrestrained life of sex, violence, and murder in the mean streets of futuristic Britain, the Ludwig van Beethoven-lover and leader of an anarchic quartet of thugs, Alex DeLarge, is about to get a dose of his own medicine. As a result, after two long years in jail, the once-swaggering juvenile delinquent gets the chance to earn his freedom, by taking part in the government's experimental de-conditioning program that promises to flush one's harmful anti-social tendencies out of his mind. However, sometimes, the cure is worse than the disease. Will the new and improved Alex fit in the world he had a hand in creating? -Nick Riganas.  </span>
-    <span class="additional-information" > In a futuristic Britain, a gang of teenagers go on the rampage every night, beating and raping helpless victims. After one of the boys quells an uprising in the gang, they knock him out and leave him for the police to find. He agrees to try "aversion therapy" to shorten his jail sentence. When he is eventually released, he hates violence, but the rest of his gang members are still after him. -Colin Tinto .  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMTY3MjM1Mzc4N15BMl5BanBnXkFtZTgwODM0NzAxMDE@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="A Clockwork Orange"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.499354</span>, <span class="lon">0.123837</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.5</span>, <span class="lon">-0.1667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bricket Wood, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.7067</span>, <span class="lon">-0.3686</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wandsworth Bridge Roundabout, York Rd, London, England SW18 1GR, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.462149</span>, <span class="lon">-0.185587</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.6403</span>, <span class="lon">-0.2969</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shenley, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.692</span>, <span class="lon">-0.282</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Blenheim Mews, Shenley, Radlett, WD7 9LR, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.695373</span>, <span class="lon">-0.291266</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">the Warren, Radlett, WD7 7DJ, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.691362</span>, <span class="lon">-0.314172</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Kingston upon Thames, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.412</span>, <span class="lon">-0.3</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Chelsea Embankment, Chelsea Embankment, London, England SW3 4LE, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.4841445</span>, <span class="lon">-0.16051700000000002</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">The White Horse, Shenley Rd, Radlett, England WD7 9EL, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.6881535</span>, <span class="lon">-0.2779165</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Thamesmead, SE28 8DD, Greenwich, London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.5033</span>, <span class="lon">0.1103</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.8333</span>, <span class="lon">-0.25</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Princess Alexandra Hospital, Hamstel Rd, Harlow, England CM20 1QX, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.771059</span>, <span class="lon">0.086307</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shipton-under-Wychwood, Oxfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.86</span>, <span class="lon">-1.596</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.499354</span>, <span class="lon">0.123837</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wansdworth, SW11 2UB, Wandsworth, London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.462909</span>, <span class="lon">-0.182074</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.5483805</span>, <span class="lon">-0.5348885</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Chelsea, SW3 5UE, Kensington and Chelsea, London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.4875167</span>, <span class="lon">-0.1687007</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Barnet Lane, Elstree, Borehamwood, WD6 3HF, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.643334</span>, <span class="lon">-0.296915</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Aylesbury, Buckinghamshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.83333</span>, <span class="lon">-0.83333</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">West Norwood Library, Norwood High St., London, England SE27 0HY, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.432785</span>, <span class="lon">-0.1039435</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">London, Greater London, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.507321899999994</span>, <span class="lon">-0.12764739999999997</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.515618</span>, <span class="lon">-0.091998</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.5</span>, <span class="lon">-0.1667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bricket Wood, Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.7067</span>, <span class="lon">-0.3686</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wandsworth Bridge Roundabout, York Rd, London, England SW18 1GR, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.462149</span>, <span class="lon">-0.185587</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree, Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6403</span>, <span class="lon">-0.2969</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shenley, Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.692</span>, <span class="lon">-0.282</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Blenheim Mews, Shenley, Radlett, WD7 9LL, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6953733</span>, <span class="lon">-0.2912663</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The Warren, Radlett, WD7 7DX, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6913624</span>, <span class="lon">-0.3141717</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Kingston upon Thames, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.412</span>, <span class="lon">-0.3</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Chelsea Embankment, Chelsea Embankment, London, England SW3 4LE, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.4841445</span>, <span class="lon">-0.16051700000000002</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The White Horse, Shenley Rd, Radlett, England WD7 9EL, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6881535</span>, <span class="lon">-0.2779165</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Thamesmead, SE28 8DD, Greenwich, London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.5033</span>, <span class="lon">0.1103</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.657803</span>, <span class="lon">-0.269703</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.8333</span>, <span class="lon">-0.25</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Princess Alexandra Hospital, Hamstel Rd, Harlow, England CM20 1QX, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.771059</span>, <span class="lon">0.086307</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shipton-under-Wychwood, Oxfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.86</span>, <span class="lon">-1.596</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.499354</span>, <span class="lon">0.123837</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wansdworth, SW11 2UB, Wandsworth, London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.462909</span>, <span class="lon">-0.182074</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.5483805</span>, <span class="lon">-0.5348885</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Chelsea, SW3 5UE, Kensington and Chelsea, London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.4875167</span>, <span class="lon">-0.1687007</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Barnet Lane, Elstree, Borehamwood, WD6 3HF, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.6433339</span>, <span class="lon">-0.2969152</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The Square, Aylesbury, HP18 9RP, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.7993955</span>, <span class="lon">-1.0284432</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">West Norwood Library, Norwood High St., London, England SE27 0HY, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.432785</span>, <span class="lon">-0.1039435</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.515618</span>, <span class="lon">-0.091998</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">London, Greater London, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.515618</span>, <span class="lon">-0.091998</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[51.412, -0.3], [51.432785, -0.1039435], [51.462149, -0.185587]], "data": [{"lat": 51.499354, "lon": 0.123837, "name": "Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.5, "lon": -0.1667, "name": "Greater London, England, United Kingdom"}, {"lat": 51.7067, "lon": -0.3686, "name": "Bricket Wood, Hertfordshire, England, United Kingdom"}, {"lat": 51.462149, "lon": -0.185587, "name": "Wandsworth Bridge Roundabout, York Rd, London, England SW18 1GR, United Kingdom"}, {"lat": 51.6403, "lon": -0.2969, "name": "Elstree, Hertfordshire, England, United Kingdom"}, {"lat": 51.692, "lon": -0.282, "name": "Shenley, Hertfordshire, England, United Kingdom"}, {"lat": 51.695373, "lon": -0.291266, "name": "Blenheim Mews, Shenley, Radlett, WD7 9LR, United Kingdom"}, {"lat": 51.691362, "lon": -0.314172, "name": "the Warren, Radlett, WD7 7DJ, United Kingdom"}, {"lat": 51.412, "lon": -0.3, "name": "Kingston upon Thames, Greater London, England, United Kingdom"}, {"lat": 51.4841445, "lon": -0.16051700000000002, "name": "Chelsea Embankment, Chelsea Embankment, London, England SW3 4LE, United Kingdom"}, {"lat": 51.6881535, "lon": -0.2779165, "name": "The White Horse, Shenley Rd, Radlett, England WD7 9EL, United Kingdom"}, {"lat": 51.5033, "lon": 0.1103, "name": "Thamesmead, SE28 8DD, Greenwich, London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.8333, "lon": -0.25, "name": "Hertfordshire, England, United Kingdom"}, {"lat": 51.771059, "lon": 0.086307, "name": "Princess Alexandra Hospital, Hamstel Rd, Harlow, England CM20 1QX, United Kingdom"}, {"lat": 51.86, "lon": -1.596, "name": "Shipton-under-Wychwood, Oxfordshire, England, United Kingdom"}, {"lat": 51.499354, "lon": 0.123837, "name": "Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom"}, {"lat": 51.462909, "lon": -0.182074, "name": "Wansdworth, SW11 2UB, Wandsworth, London, Greater London, England, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 51.4875167, "lon": -0.1687007, "name": "Chelsea, SW3 5UE, Kensington and Chelsea, London, Greater London, England, United Kingdom"}, {"lat": 51.643334, "lon": -0.296915, "name": "Barnet Lane, Elstree, Borehamwood, WD6 3HF, United Kingdom"}, {"lat": 51.83333, "lon": -0.83333, "name": "Aylesbury, Buckinghamshire, England, United Kingdom"}, {"lat": 51.432785, "lon": -0.1039435, "name": "West Norwood Library, Norwood High St., London, England SE27 0HY, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.507321899999994, "lon": -0.12764739999999997, "name": "London, Greater London, England, United Kingdom"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[51.412, -0.3], [51.432785, -0.1039435], [51.462149, -0.185587]], "data": [{"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.5, "lon": -0.1667, "name": "Greater London, England, United Kingdom"}, {"lat": 51.7067, "lon": -0.3686, "name": "Bricket Wood, Hertfordshire, England, United Kingdom"}, {"lat": 51.462149, "lon": -0.185587, "name": "Wandsworth Bridge Roundabout, York Rd, London, England SW18 1GR, United Kingdom"}, {"lat": 51.6403, "lon": -0.2969, "name": "Elstree, Hertfordshire, England, United Kingdom"}, {"lat": 51.692, "lon": -0.282, "name": "Shenley, Hertfordshire, England, United Kingdom"}, {"lat": 51.6953733, "lon": -0.2912663, "name": "Blenheim Mews, Shenley, Radlett, WD7 9LL, United Kingdom"}, {"lat": 51.6913624, "lon": -0.3141717, "name": "The Warren, Radlett, WD7 7DX, United Kingdom"}, {"lat": 51.412, "lon": -0.3, "name": "Kingston upon Thames, Greater London, England, United Kingdom"}, {"lat": 51.4841445, "lon": -0.16051700000000002, "name": "Chelsea Embankment, Chelsea Embankment, London, England SW3 4LE, United Kingdom"}, {"lat": 51.6881535, "lon": -0.2779165, "name": "The White Horse, Shenley Rd, Radlett, England WD7 9EL, United Kingdom"}, {"lat": 51.5033, "lon": 0.1103, "name": "Thamesmead, SE28 8DD, Greenwich, London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.657803, "lon": -0.269703, "name": "Elstree Studios, Shenley Rd, Borehamwood, England WD6 1JG, United Kingdom"}, {"lat": 51.8333, "lon": -0.25, "name": "Hertfordshire, England, United Kingdom"}, {"lat": 51.771059, "lon": 0.086307, "name": "Princess Alexandra Hospital, Hamstel Rd, Harlow, England CM20 1QX, United Kingdom"}, {"lat": 51.86, "lon": -1.596, "name": "Shipton-under-Wychwood, Oxfordshire, England, United Kingdom"}, {"lat": 51.499354, "lon": 0.123837, "name": "Southmere Lake, Binsey Walk, London, England SE2 9UX, United Kingdom"}, {"lat": 51.462909, "lon": -0.182074, "name": "Wansdworth, SW11 2UB, Wandsworth, London, Greater London, England, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 51.4875167, "lon": -0.1687007, "name": "Chelsea, SW3 5UE, Kensington and Chelsea, London, Greater London, England, United Kingdom"}, {"lat": 51.6433339, "lon": -0.2969152, "name": "Barnet Lane, Elstree, Borehamwood, WD6 3HF, United Kingdom"}, {"lat": 51.7993955, "lon": -1.0284432, "name": "The Square, Aylesbury, HP18 9RP, United Kingdom"}, {"lat": 51.432785, "lon": -0.1039435, "name": "West Norwood Library, Norwood High St., London, England SE27 0HY, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -482,5 +390,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

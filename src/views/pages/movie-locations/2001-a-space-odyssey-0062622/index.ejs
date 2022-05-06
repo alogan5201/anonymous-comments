@@ -1,264 +1,176 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">2001: A Space Odyssey</h3>
-          <p class="card-text mb-0">
-
-
-  <span > The Monoliths push humanity to reach for the stars; after their discovery in Africa generations ago, the mysterious objects lead mankind on an awesome journey to Jupiter, with the help of H.A.L. 9000: the world's greatest supercomputer.  </span>
-                          <span > "2001" is a story of evolution. Sometime in the distant past, someone or something nudged evolution by placing a monolith on Earth (presumably elsewhere throughout the universe as well). Evolution then enabled humankind to reach the moon's surface, where yet another monolith is found, one that signals the monolith placers that humankind has evolved that far. Now a race begins between computers (HAL) and human (Bowman) to reach the monolith placers. The winner will achieve the next step in evolution, whatever that may be. -Larry Cousins.  </span>
-                          <span > A black monolith has an affect on humans, the monolith's effects focusing on two specific time periods. The first period is four million years ago, at the dawn of man. After the appearance of the monolith, the ape men begin to display behavior unknown before then. The second period is the near future, in the year 2001. There are five astronauts aboard Discovery One, which is on a mission to Jupiter. At the beginning of the mission, the reason for it is unknown to the five astronauts. Three of the astronauts are in hibernation at the start of the mission to preserve the manpower over its entire course, leaving mission commander Dr. Dave Bowman and Dr. Frank Poole as the two manning the spacecraft. There is another what is often considered "sixth" astronaut on board, HAL 9000 - referred to simply as Hal - the artificial intelligent computer which controls all of the craft's functions, including the systems keeping the three hibernating astronauts alive. Hal is made all the more astronaut-like as it is given an artificial voice, Hal and the astronauts often having conversations. A 9000 series computer is considered infallible, any error one has ever made being human caused. Ultimately, Bowman and Poole believe that Hal is malfunctioning, they are unaware that Hal's behavior is due to knowledge of classified information it has about events at Clavius, a lunar outpost, eighteen months earlier. However, the issue between the astronauts and Hal becomes a fight for survival. The mission in its entirety has profound consequences for the human race. -Huggo.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">2001: A Space Odyssey</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">The Monoliths push humanity to reach for the stars; after their discovery in Africa generations ago, the mysterious objects lead mankind on an awesome journey to Jupiter, with the help of H.A.L. 9000: the world's greatest supercomputer.  2001  is a story of evolution. Sometime in the distant past, someone or something nudged evolution by placing a monolith on Earth (presumably elsewhere throughout the universe as well). Evolution then enabled humankind to reach the moon's surface, where yet another monolith is found, one that signals the monolith placers that humankind has evolved that far. Now a race begins between computers (HAL) and human (Bowman) to reach the monolith placers. The winner will achieve the next step in evolution, whatever...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information"> that may be. Larry Cousins A black monolith has an affect on humans, the monolith's effects focusing on two specific time periods. The first period is four million years ago, at the dawn of man. After the appearance of the monolith, the ape men begin to display behavior unknown before then. The second period is the near future, in the year 2001. There are five astronauts aboard Discovery One, which is on a mission to Jupiter. At the beginning of the mission, the reason for it is unknown to the five astronauts. Three of the astronauts are in hibernation at the start of the mission to preserve the manpower over its entire course, leaving mission commander Dr. Dave Bowman and Dr. Frank Poole as the two manning the spacecraft. There is another what is often considered  sixth  astronaut on board, HAL 9000 - referred to simply as Hal - the artificial intelligent computer which controls all of the craft's functions, including the systems keeping the three hibernating astronauts alive. Hal is made all the more astronaut-like as it is given an artificial voice, Hal and the astronauts often having conversations. A 9000 series computer is considered infallible, any error one has ever made being human caused. Ultimately, Bowman and Poole believe that Hal is malfunctioning, they are unaware that Hal's behavior is due to knowledge of classified information it has about events at Clavius, a lunar outpost, eighteen months earlier. However, the issue between the astronauts and Hal becomes a fight for survival. The mission in its entirety has profound consequences for the human race. Huggo This movie is concerned with intelligence as the division between animal and human, then asks a question: what is the next division? Technology is treated as irrelevant to the quest--literally serving as mere vehicles for the human crew and as a shell for the immature HAL entity. Story told as a montage of impressions, music, and impressive and careful attention to subliminal detail. A very influential film and still a class act, even after 25 years. Robin Kenny <robink@hparc0.aus.hp.com> When a large black monolith is found beneath the surface of the moon, the reaction immediately is that it was intentionally buried. When the point of origin is confirmed as Jupiter, an expedition is sent in hopes of finding the source. When Dr. David Bowman discovers faults in the expeditionary spacecraft's communications system, he discovers more than he ever wanted to know. Alexander O'Neill The monoliths have been watching us. They gave humankind the evolutionary kick in the pants it needed to survive at the Dawn of Time. In 1999, humankind discovered a second monolith on the moon. Now, in the year 2001, the S.S. Discovery and its crew, Captains Dave Bowman and Frank Poole, and their onboard computer, HAL 9000, must discover what alien force is watching Earth.... Tones <tones120c@aol.com></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="2001: A Space Odyssey"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > This movie is concerned with intelligence as the division between animal and human, then asks a question: what is the next division? Technology is treated as irrelevant to the quest--literally serving as mere vehicles for the human crew and as a shell for the immature HAL entity. Story told as a montage of impressions, music, and impressive and careful attention to subliminal detail. A very influential film and still a class act, even after 25 years. -Robin Kenny .  </span>
-    <span class="additional-information" > When a large black monolith is found beneath the surface of the moon, the reaction immediately is that it was intentionally buried. When the point of origin is confirmed as Jupiter, an expedition is sent in hopes of finding the source. When Dr. David Bowman discovers faults in the expeditionary spacecraft's communications system, he discovers more than he ever wanted to know. -Alexander O'Neill.  </span>
-    <span class="additional-information" > The monoliths have been watching us. They gave humankind the evolutionary kick in the pants it needed to survive at the Dawn of Time. In 1999, humankind discovered a second monolith on the moon. Now, in the year 2001, the S.S. Discovery and its crew, Captains Dave Bowman and Frank Poole, and their onboard computer, HAL 9000, must discover what alien force is watching Earth.... -Tones .  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="2001: A Space Odyssey"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">56.734282295</span>, <span class="lon">-4.09589210432502</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Borehamwood, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.6578</span>, <span class="lon">-0.2723</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Scotland, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">56.734282295</span>, <span class="lon">-4.09589210432502</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Erongo, Namibia </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-23.11667</span>, <span class="lon">14.86667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Monument Valley, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.9867</span>, <span class="lon">-110.1911</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Monument Valley Tribal Park Road, Monument Valley, Utah 84531, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.998843</span>, <span class="lon">-110.1564878</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Borehamwood, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.6578</span>, <span class="lon">-0.2723</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Erongo, Namibia </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-23.11667</span>, <span class="lon">14.86667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Namibia </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-21.2010102346557</span>, <span class="lon">17.2887615554773</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">10.151559</span>, <span class="lon">-85.452172</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Borehamwood, Hertfordshire, England, United Kingdom </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">51.6578</span>, <span class="lon">-0.2723</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Scotland, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">56.734282295</span>, <span class="lon">-4.09589210432502</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Erongo, Namibia</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-23.11667</span>, <span class="lon">14.86667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The Monument Valley, Page, Arizona 86040, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.917952</span>, <span class="lon">-111.462945</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Monument Valley, Utah, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.01549</span>, <span class="lon">-110.294671</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Borehamwood, Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.660486</span>, <span class="lon">-0.270651</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Erongo, Namibia</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-23.11667</span>, <span class="lon">14.86667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">10.151559</span>, <span class="lon">-85.452172</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.407444</span>, <span class="lon">-0.465177</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Borehamwood, Hertfordshire, England, United Kingdom</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">51.660486</span>, <span class="lon">-0.270651</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[51.407444, -0.465177], [51.407444, -0.465177], [51.6578, -0.2723]], "data": [{"lat": 56.734282295, "lon": -4.09589210432502, "name": "Scotland, United Kingdom"}, {"lat": 51.6578, "lon": -0.2723, "name": "Borehamwood, Hertfordshire, England, United Kingdom"}, {"lat": 56.734282295, "lon": -4.09589210432502, "name": "Scotland, United Kingdom"}, {"lat": -23.11667, "lon": 14.86667, "name": "Erongo, Namibia"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 36.9867, "lon": -110.1911, "name": "Monument Valley, Arizona, United States"}, {"lat": 36.998843, "lon": -110.1564878, "name": "Monument Valley Tribal Park Road, Monument Valley, Utah 84531, United States"}, {"lat": 51.6578, "lon": -0.2723, "name": "Borehamwood, Hertfordshire, England, United Kingdom"}, {"lat": -23.11667, "lon": 14.86667, "name": "Erongo, Namibia"}, {"lat": -21.2010102346557, "lon": 17.2887615554773, "name": "Namibia"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 10.151559, "lon": -85.452172, "name": "Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.6578, "lon": -0.2723, "name": "Borehamwood, Hertfordshire, England, United Kingdom"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[51.407444, -0.465177], [51.407444, -0.465177], [51.660486, -0.270651]], "data": [{"lat": 56.734282295, "lon": -4.09589210432502, "name": "Scotland, United Kingdom"}, {"lat": -23.11667, "lon": 14.86667, "name": "Erongo, Namibia"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 36.917952, "lon": -111.462945, "name": "The Monument Valley, Page, Arizona 86040, United States"}, {"lat": 37.01549, "lon": -110.294671, "name": "Monument Valley, Utah, United States"}, {"lat": 51.660486, "lon": -0.270651, "name": "Borehamwood, Hertfordshire, England, United Kingdom"}, {"lat": -23.11667, "lon": 14.86667, "name": "Erongo, Namibia"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 10.151559, "lon": -85.452172, "name": "Pops Nicoya, Nicoya, Guanacaste 50201, Costa Rica"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.660486, "lon": -0.270651, "name": "Borehamwood, Hertfordshire, England, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -342,5 +254,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

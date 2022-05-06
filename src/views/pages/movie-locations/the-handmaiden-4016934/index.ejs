@@ -1,162 +1,104 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">The Handmaiden</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A woman is hired as a handmaiden to a Japanese heiress, but secretly she is involved in a plot to defraud her.  </span>
-                          <span > 1930s Korea, in the period of Japanese occupation, a new girl (Sookee) is hired as a handmaiden to a Japanese heiress (Hideko) who lives a secluded life on a large countryside estate with her domineering Uncle (Kouzuki). But the maid has a secret. She is a pickpocket recruited by a swindler posing as a Japanese Count to help him seduce the Lady to elope with him, rob her of her fortune, and lock her up in a madhouse. The plan seems to proceed according to plan until Sookee and Hideko discover some unexpected emotions. -CJ Entertainment.  </span>
-                          <span > Living with her despotic uncle, Kouzuki, an intellectual and avid collector of rare erotic literature, the beautiful and fragile Japanese heiress, Lady Hideko, is destined to marry him. Confined in a sun-deprived mansion in 1930s Korea under Japanese rule, Lady Hideko is a triste bird in a gilded cage, and a seemingly easy target for Count Fujiwara, a forger and an outright con man in disguise, who hires Sook-hee, a dexterous young pickpocket, to act as the new handmaiden. Now, intent on possessing her father's inheritance, the count needs Sook-hee to talk the unaware noblewoman into marrying him instead, and when the elaborate scam finally bears fruit, he plans to send the lithe lady forever to the asylum without an ounce of remorse. However, little do they know, that their doomed scheme is no match for Lady Hideko's unparalleled beauty, with her long raven hair, and the luscious scarlet lips on her pale and velvety skin. Can mighty love stand in the way of a foolproof plan? -Nick Riganas.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The Handmaiden</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A woman is hired as a handmaiden to a Japanese heiress, but secretly she is involved in a plot to defraud her. 1930s Korea, in the period of Japanese occupation, a new girl (Sookee) is hired as a handmaiden to a Japanese heiress (Hideko) who lives a secluded life on a large countryside estate with her domineering Uncle (Kouzuki). But the maid has a secret. She is a pickpocket recruited by a swindler posing as a Japanese Count to help him seduce the Lady to elope with him, rob her of her fortune, and lock her up in a madhouse. The plan seems to proceed according to plan until Sookee and Hideko discover some unexpected emotions. CJ Entertainment Living with her despotic uncle, Kouzuki, an intellectual and avid collector of rare erotic literat...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">ure, the beautiful and fragile Japanese heiress, Lady Hideko, is destined to marry him. Confined in a sun-deprived mansion in 1930s Korea under Japanese rule, Lady Hideko is a triste bird in a gilded cage, and a seemingly easy target for Count Fujiwara, a forger and an outright con man in disguise, who hires Sook-hee, a dexterous young pickpocket, to act as the new handmaiden. Now, intent on possessing her father's inheritance, the count needs Sook-hee to talk the unaware noblewoman into marrying him instead, and when the elaborate scam finally bears fruit, he plans to send the lithe lady forever to the asylum without an ounce of remorse. However, little do they know, that their doomed scheme is no match for Lady Hideko's unparalleled beauty, with her long raven hair, and the luscious scarlet lips on her pale and velvety skin. Can mighty love stand in the way of a foolproof plan? Nick Riganas Korea, 1930s. Sook-Hee, a young Korean woman, goes to work as a handmaiden for Lady Hideko, a young Japanese woman who the heiress to a fortune. Sook-Hee's motives are rather nefarious - she, in league with the charming but unscrupulous Count Fujiwara, a con man, intend to defraud Lady Hideko of her fortune. However, Sook-Hee soon develops a fondness for Lady Hideko and this could potentially jeopardise the plan. grantss</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BNDJhYTk2MTctZmVmOS00OTViLTgxNjQtMzQxOTRiMDdmNGRjXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="The Handmaiden"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Korea, 1930s. Sook-Hee, a young Korean woman, goes to work as a handmaiden for Lady Hideko, a young Japanese woman who the heiress to a fortune. Sook-Hee's motives are rather nefarious - she, in league with the charming but unscrupulous Count Fujiwara, a con man, intend to defraud Lady Hideko of her fortune. However, Sook-Hee soon develops a fondness for Lady Hideko and this could potentially jeopardise the plan. -grantss.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BNDJhYTk2MTctZmVmOS00OTViLTgxNjQtMzQxOTRiMDdmNGRjXkEyXkFqcGdeQXVyMTMxODk2OTU@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="The Handmaiden"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Japan, Aichi名古屋市 </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.11667</span>, <span class="lon">136.93333</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Goheung-gun, Jeollanam-do, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.60944</span>, <span class="lon">127.28583</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Japan, Mie桑名市 </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.06222</span>, <span class="lon">136.68389</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pyeongchang-gun, Gangwon-do, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.36889</span>, <span class="lon">128.39028</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">동아방송예술대학, 삼죽면 동아예대길 47, Anseong-si, Gyeonggi-do 17516, South Korea </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.058642</span>, <span class="lon">127.358284</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Japan, Aichi名古屋市</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.11667</span>, <span class="lon">136.93333</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Japan, Mie桑名市</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.06222</span>, <span class="lon">136.68389</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">동아방송예술대학, 삼죽면 동아예대길 47, Anseong-si, Gyeonggi-do 17516, South Korea</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.058642</span>, <span class="lon">127.358284</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": null, "data": [{"lat": 35.11667, "lon": 136.93333, "name": "Japan, Aichi\u540d\u53e4\u5c4b\u5e02"}, {"lat": 34.60944, "lon": 127.28583, "name": "Goheung-gun, Jeollanam-do, South Korea"}, {"lat": 35.06222, "lon": 136.68389, "name": "Japan, Mie\u6851\u540d\u5e02"}, {"lat": 37.36889, "lon": 128.39028, "name": "Pyeongchang-gun, Gangwon-do, South Korea"}, {"lat": 37.058642, "lon": 127.358284, "name": "\ub3d9\uc544\ubc29\uc1a1\uc608\uc220\ub300\ud559, \uc0bc\uc8fd\uba74 \ub3d9\uc544\uc608\ub300\uae38 47, Anseong-si, Gyeonggi-do 17516, South Korea"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 35.11667, "lon": 136.93333, "name": "Japan, Aichi\u540d\u53e4\u5c4b\u5e02"}, {"lat": 35.06222, "lon": 136.68389, "name": "Japan, Mie\u6851\u540d\u5e02"}, {"lat": 37.058642, "lon": 127.358284, "name": "\ub3d9\uc544\ubc29\uc1a1\uc608\uc220\ub300\ud559, \uc0bc\uc8fd\uba74 \ub3d9\uc544\uc608\ub300\uae38 47, Anseong-si, Gyeonggi-do 17516, South Korea"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -240,5 +182,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

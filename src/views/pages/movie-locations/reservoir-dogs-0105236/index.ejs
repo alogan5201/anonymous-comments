@@ -1,234 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Reservoir Dogs</h3>
-          <p class="card-text mb-0">
-
-
-  <span > When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.  </span>
-                          <span > Six thugs, who are strangers to each other, are hired by a crime boss, Joe Cabot, to carry out a diamond robbery. Right at the outset, they are given false names with the intention that they won't get too close and will concentrate on the job instead. They are completely sure that the robbery is going to be a success. But, when the police show up right at the time and the site of the robbery, panic spreads amongst the group members, and two of them are killed in the subsequent shootout, along with a few policemen and civilians. When the remaining people assemble at the premeditated rendezvous point (a warehouse), they begin to suspect that one of them is an undercover cop. -Soumitra.  </span>
-                          <span > A gang of thieves carry out an armed robbery on a diamond warehouse. The police are after them so quickly that they suspect they have a rat in their company. This film starts right before the robbery, with flashbacks to before the robbery and to the planning of the crime. We are also introduced to the main characters in flashback mode. Plenty of fast action and plenty of blood and gore. -Colin Tinto .  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Reservoir Dogs</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant. Six thugs, who are strangers to each other, are hired by a crime boss, Joe Cabot, to carry out a diamond robbery. Right at the outset, they are given false names with the intention that they won't get too close and will concentrate on the job instead. They are completely sure that the robbery is going to be a success. But, when the police show up right at the time and the site of the robbery, panic spreads amongst the group members, and two of them are killed in the subsequent shootout, along with a few policemen and civilians. When the remaining people assemble at the premeditated rendezvous point (a warehouse),...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information"> they begin to suspect that one of them is an undercover cop. Soumitra Six men are hired to rob the local jewelry store for a recent diamond shipment, at first it goes smoothly but then the alarm gets tripped, several employees and customers die in the panic and the cops show up within moments which results in a massive bloody shootout with the six robbers, then during the escape from the botched heist, two of the robbers are killed, and the four that survived begin to suspect a rat among them. darthsitkur A gang of thieves carry out an armed robbery on a diamond warehouse. The police are after them so quickly that they suspect they have a rat in their company. This film starts right before the robbery, with flashbacks to before the robbery and to the planning of the crime. We are also introduced to the main characters in flashback mode. Plenty of fast action and plenty of blood and gore. Colin Tinto <cst@imdb.com> They were six strangers, assembled to pull off the perfect crime: Mr. White, a professional delinquent, Mr. Orange, a young newcomer; Mr. Blonde, a trigger-happy killer; Mr. Pink, a paranoid neurotic; Mr. Brown; and Mr. Blue. Hired by mob boss Joe Cabot and given fake names so no one could identify the others, they thought there was no way their heist could have failed. But after a police ambush, killing Mr. Brown and seriously injuring Mr. Orange, the thugs return to their rendezvous point (a warehouse), and realize that one of them had to have been a police informant. But who? movies_are_forever The tale of a group of thugs who are hired to rob a diamond store. But the plan starts to fall apart when the alarm is tripped and the cops show up within moments. Of the group of men, all of whom are identified by colors, only four survive with one being seriously wounded. It is suspected that there is a police informant in the group, but no one is sure who it is. Anonymous Joe Cabot, a small-time crime boss, assembles five strangers with reputations as good thieves to steal a lot of diamonds. When the police arrive at the scene before the burglars can even make their getaway, it becomes apparent that one of them is an undercover police officer. Bug <junebug2@texas.net></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZmExNmEwYWItYmQzOS00YjA5LTk2MjktZjEyZDE1Y2QxNjA1XkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Reservoir Dogs"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > They were six strangers, assembled to pull off the perfect crime: Mr. White, a professional delinquent, Mr. Orange, a young newcomer; Mr. Blonde, a trigger-happy killer; Mr. Pink, a paranoid neurotic; Mr. Brown; and Mr. Blue. Hired by mob boss Joe Cabot and given fake names so no one could identify the others, they thought there was no way their heist could have failed. But after a police ambush, killing Mr. Brown and seriously injuring Mr. Orange, the thugs return to their rendezvous point (a warehouse), and realize that one of them had to have been a police informant. But who? -movies_are_forever.  </span>
-    <span class="additional-information" > The tale of a group of thugs who are hired to rob a diamond store. But the plan starts to fall apart when the alarm is tripped and the cops show up within moments. Of the group of men, all of whom are identified by colors, only four survive with one being seriously wounded. It is suspected that there is a police informant in the group, but no one is sure who it is. -Anonymous.  </span>
-    <span class="additional-information" > Joe Cabot, a small-time crime boss, assembles five strangers with reputations as good thieves to steal a lot diamonds. When the police arrive at the scene before the burglars can even make their getaway, it becomes apparent that one of them is an undercover police officer. -Bug .  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZmExNmEwYWItYmQzOS00YjA5LTk2MjktZjEyZDE1Y2QxNjA1XkEyXkFqcGdeQXVyMTQxNzMzNDI@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Reservoir Dogs"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5860 North Figueroa Street, Los Angeles, California 90042, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.11023</span>, <span class="lon">-118.19113</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">York Boulevard and North Avenue 50, Los Angeles, California 90042, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1214755</span>, <span class="lon">-118.2069044</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">4459 Eagle Rock Boulevard, Los Angeles, California 90041, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.12551</span>, <span class="lon">-118.21999</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wilshire, Santa Monica, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0268</span>, <span class="lon">-118.5017</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Burbank, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Highland Park, Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.112</span>, <span class="lon">-118.199</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">2612 Burbank Boulevard, Burbank, California 91505, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.17798</span>, <span class="lon">-118.339505</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5530 Marmion Way, Los Angeles, California 90065, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.109751</span>, <span class="lon">-118.195653</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Plaza, San Pedro, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">33.73</span>, <span class="lon">-118.29</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Fairfax, Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.079156</span>, <span class="lon">-118.352284</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Burbank, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.181648</span>, <span class="lon">-118.325855</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Plaza, San Pedro, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">33.732466</span>, <span class="lon">-118.288909</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[33.73, -118.29], [34.0268, -118.5017], [34.0544, -118.2439]], "data": [{"lat": 34.11023, "lon": -118.19113, "name": "5860 North Figueroa Street, Los Angeles, California 90042, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.1214755, "lon": -118.2069044, "name": "York Boulevard and North Avenue 50, Los Angeles, California 90042, United States"}, {"lat": 34.12551, "lon": -118.21999, "name": "4459 Eagle Rock Boulevard, Los Angeles, California 90041, United States"}, {"lat": 34.0268, "lon": -118.5017, "name": "Wilshire, Santa Monica, California, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.112, "lon": -118.199, "name": "Highland Park, Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.17798, "lon": -118.339505, "name": "2612 Burbank Boulevard, Burbank, California 91505, United States"}, {"lat": 34.109751, "lon": -118.195653, "name": "5530 Marmion Way, Los Angeles, California 90065, United States"}, {"lat": 33.73, "lon": -118.29, "name": "Plaza, San Pedro, California, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[33.732466, -118.288909], [34.053691, -118.242766], [34.079156, -118.352284]], "data": [{"lat": 34.079156, "lon": -118.352284, "name": "Fairfax, Los Angeles, California, United States"}, {"lat": 34.181648, "lon": -118.325855, "name": "Burbank, California, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 33.732466, "lon": -118.288909, "name": "Plaza, San Pedro, California, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -312,5 +190,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

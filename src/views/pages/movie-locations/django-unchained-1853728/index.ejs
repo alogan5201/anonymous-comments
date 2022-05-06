@@ -1,263 +1,200 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
- <%- include(`${partials}/autocomplete`); -%>
-
-            <div class="row align-items-md-stretch">
-
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Django Unchained</h3>
-          <p class="card-text mb-0">
-
-
-  <span > With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation-owner in Mississippi.  </span>
-                          <span > In 1858, a bounty-hunter named King Schultz seeks out a slave named Django and buys him because he needs him to find some men he is looking for. After finding them, Django wants to find his wife, Broomhilda, who along with him were sold separately by his former owner for trying to escape. Schultz offers to help him if he chooses to stay with him and be his partner. Eventually they learn that she was sold to a plantation in Mississippi. Knowing they can't just go in and say they want her, they come up with a plan so that the owner will welcome them into his home and they can find a way. -rcs0411@yahoo.com.  </span>
-                          <span > In 1858, in Texas, the former German dentist Dr. King Schultz meets the slave Django in a lonely road while being transported by the slavers Speck Brothers. He asks if Django knows the Brittle Brothers and with the affirmative, he buys Django for him. Then Dr. Schultz tells that he is a bounty-hunter chasing John, Ellis and Roger Brittle and proposes a deal to Django: if he helps him, he would give his freedom, a horse and US$ 75.00 for him. Django accepts the deal and Dr. Schultz trains him to be his deputy. They kill the brothers in Daughtray and Django tells that he would use the money to buy the freedom of his wife Broomhilda, who is a slave that speaks German. Dr. Schultz proposes another deal to Django: if he teams-up with him during the winter, he would give one-third of the rewards and help him to rescue Broomhilda. Django accepts his new deal and they become friends. After the winter, Dr. Schultz goes to Gatlinburgh and learns that Broomhilda was sold to the ruthless Calvin Candie von Shaft, who lives in the Candyland Farm, in Mississippi. Dr. Schultz plots a scheme with Django to lure Calvin and rescue Broomhilda from him. But his cruel minion Stephen is not easily fooled. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Django Unchained</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">With the help of a German bounty-hunter, a freed slave sets out to rescue his wife from a brutal plantation-owner in Mississippi. In 1858, a bounty-hunter named King Schultz seeks out a slave named Django and buys him because he needs him to find some men he is looking for. After finding them, Django wants to find his wife, Broomhilda, who along with him were sold separately by his former owner for trying to escape. Schultz offers to help him if he chooses to stay with him and be his partner. Eventually they learn that she was sold to a plantation in Mississippi. Knowing they can't just go in and say they want her, they come up with a plan so that the owner will welcome them into his home and they can find a way. rcs0411@yahoo.com In 1858, ...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">in Texas, the former German dentist Dr. King Schultz meets the slave Django in a lonely road while being transported by the slavers Speck Brothers. He asks if Django knows the Brittle Brothers and with the affirmative, he buys Django for him. Then Dr. Schultz tells that he is a bounty-hunter chasing John, Ellis and Roger Brittle and proposes a deal to Django: if he helps him, he would give his freedom, a horse and US$ 75.00 for him. Django accepts the deal and Dr. Schultz trains him to be his deputy. They kill the brothers in Daughtray and Django tells that he would use the money to buy the freedom of his wife Broomhilda, who is a slave that speaks German. Dr. Schultz proposes another deal to Django: if he teams-up with him during the winter, he would give one-third of the rewards and help him to rescue Broomhilda. Django accepts his new deal and they become friends. After the winter, Dr. Schultz goes to Gatlinburgh and learns that Broomhilda was sold to the ruthless Calvin Candie von Shaft, who lives in the Candyland Farm, in Mississippi. Dr. Schultz plots a scheme with Django to lure Calvin and rescue Broomhilda from him. But his cruel minion Stephen is not easily fooled. Claudio Carvalho, Rio de Janeiro, Brazil In the late 1850's, former dentist turned bounty-hunter Dr. King Schultz buys the freedom of a man named Django from a slave trader duo in a quest to find and kill some men he wants dead. Afterwards, Django sets out with help from Schultz to find and rescue his wife Broomhilda who like him was sold into slavery by an anonymous owner. Their journey takes them to a plantation called Candieland, owned by a ruthless tycoon. Also, they come to some suspicions of the head slave named Stephen. Blazer346 Two years before the Civil War pits brother-against-brother, German-born bounty-hunter Dr. King Schultz (Academy Award-winner Christoph Waltz) arrives in America determined to capture the outlaw Brittle brothers dead or alive. In the midst of his search, Dr. Schultz crosses paths with Django (Academy Award-winner Jamie Foxx), a freed slave and skilled tracker who seeks to rescue his beloved wife Broomhilda (Kerry Washington) from ruthless plantation-owner Calvin Candie (Academy Award-nominee Leonardo DiCaprio). Once Django has aided Dr. Schultz in coral ling the Brittle brothers, the two team up to capture some of the most wanted men in the South. Meanwhile, Django never loses sight of his mission to free Broomhilda from the treacherous slave-trade before it is too late. Upon arriving at Candie's nefarious plantation, dubbed Candyland, Django and Dr. Schultz discover that slaves are being groomed for gladiator-like competitions by Candie's malevolent right-hand man Billy Crash (Walton Goggins), and together they skillfully work their way onto the compound for a closer look. But just as Django and his partner locate Broomhilda and plot a daring escape, Candie's house-slave Stephen (Academy Award-nominee Samuel L. Jackson) catches wind of their plan, and informs his master of the betrayal. Now, as a clandestine organization attempts to back them into a corner, Django and Dr. Schultz will have to come out with pistols blazing if they ever hope to free Broomhilda from Candyland and the clutches of its vile proprietor. ahmetkozan</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Django Unchained"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In the late 1850's, former dentist turned bounty-hunter Dr. King Schultz buys the freedom of a man named Django from a slave trader duo in a quest to find and kill some men he wants dead. Afterwards, Django sets out with help from Schultz to find and rescue his wife Broomhilda who like him was sold into slavery by an anonymous owner. Their journey takes them to a plantation called Candieland, owned by a ruthless tycoon. Also, they come to some suspicions of the head slave named Stephen. -Blazer346.  </span>
-    <span class="additional-information" > Two years before the Civil War pits brother-against-brother, German-born bounty-hunter Dr. King Schultz (Academy Award-winner Christoph Waltz) arrives in America determined to capture the outlaw Brittle brothers dead or alive. In the midst of his search, Dr. Schultz crosses paths with Django (Academy Award-winner Jamie Foxx), a freed slave and skilled tracker who seeks to rescue his beloved wife Broomhilda (Kerry Washington) from ruthless plantation-owner Calvin Candie (Academy Award-nominee Leonardo DiCaprio). Once Django has aided Dr. Schultz in coral ling the Brittle brothers, the two team up to capture some of the most wanted men in the South. Meanwhile, Django never loses sight of his mission to free Broomhilda from the treacherous slave-trade before it is too late. Upon arriving at Candie's nefarious plantation, dubbed Candyland, Django and Dr. Schultz discover that slaves are being groomed for gladiator-like competitions by Candie's malevolent right-hand man Billy Crash (Walton Goggins), and together they skillfully work their way onto the compound for a closer look. But just as Django and his partner locate Broomhilda and plot a daring escape, Candie's house-slave Stephen (Academy Award-nominee Samuel L. Jackson) catches wind of their plan, and informs his master of the betrayal. Now, as a clandestine organization attempts to back them into a corner, Django and Dr. Schultz will have to come out with pistols blazing if they ever hope to free Broomhilda from Candyland and the clutches of its vile proprietor. -ahmetkozan.  </span>
-    </div>
-
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Django Unchained"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Evergreen Plantation, Louisiana, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.2699</span>, <span class="lon">-91.1993</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Jackson Hole, Jackson, Wyoming 83001, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">43.482938</span>, <span class="lon">-110.762321</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Alabama Hills, Movie Flat Rd., Lone Pine, California 93545, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.60179</span>, <span class="lon">-118.08127</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Lone Pine, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">36.606</span>, <span class="lon">-118.0629</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">West Hills, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.2032</span>, <span class="lon">-118.6455</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Newhall, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.3847</span>, <span class="lon">-118.5309</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wallace, Louisiana, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.0433</span>, <span class="lon">-90.6673</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New Orleans, Louisiana, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">29.9499</span>, <span class="lon">-90.0701</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Second Line Stages, 800 Richard St, New Orleans, Louisiana 70130, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">29.931746</span>, <span class="lon">-90.069966</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">The INDEPENDENCE, 205 Broadway, Santa Monica, California 90401, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.013698</span>, <span class="lon">-118.495361</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Santa Clarita, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.42</span>, <span class="lon">-118.54</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Louisiana, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.93749930159</span>, <span class="lon">-92.305998069584</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Simi Valley, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.2694</span>, <span class="lon">-118.7815</span></a>
-
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Evergreen Plantation, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.269917</span>, <span class="lon">-91.199273</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Jackson Hole, Jackson, Wyoming 83001, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">43.482938</span>, <span class="lon">-110.762321</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Alabama Hills Cafe, 111 W Post St., Lone Pine, California 93545, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.604162</span>, <span class="lon">-118.063027</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Lone Pine, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">36.606044</span>, <span class="lon">-118.062865</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">West Hills, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.203233</span>, <span class="lon">-118.645476</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Newhall, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.379877</span>, <span class="lon">-118.529192</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wallace, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.043258</span>, <span class="lon">-90.667312</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New Orleans, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.949932</span>, <span class="lon">-90.070116</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Second Line Stages, 800 Richard St, New Orleans, Louisiana 70130, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.931746</span>, <span class="lon">-90.069966</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The INDEPENDENCE, 205 Broadway, Santa Monica, California 90401, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.013698</span>, <span class="lon">-118.495361</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Santa Clarita, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.445723</span>, <span class="lon">-118.523461</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.93749930159</span>, <span class="lon">-92.305998069584</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Simi Valley, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.26774</span>, <span class="lon">-118.753807</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-   <%-include(`${partials}/plugins/autocomplete`); -%>
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[29.931746, -90.069966], [29.9499, -90.0701], [30.0433, -90.6673]], "data": [{"lat": 30.2699, "lon": -91.1993, "name": "Evergreen Plantation, Louisiana, United States"}, {"lat": 43.482938, "lon": -110.762321, "name": "Jackson Hole, Jackson, Wyoming 83001, United States"}, {"lat": 36.60179, "lon": -118.08127, "name": "Alabama Hills, Movie Flat Rd., Lone Pine, California 93545, United States"}, {"lat": 36.606, "lon": -118.0629, "name": "Lone Pine, California, United States"}, {"lat": 34.2032, "lon": -118.6455, "name": "West Hills, California, United States"}, {"lat": 34.3847, "lon": -118.5309, "name": "Newhall, California, United States"}, {"lat": 30.0433, "lon": -90.6673, "name": "Wallace, Louisiana, United States"}, {"lat": 29.9499, "lon": -90.0701, "name": "New Orleans, Louisiana, United States"}, {"lat": 29.931746, "lon": -90.069966, "name": "Second Line Stages, 800 Richard St, New Orleans, Louisiana 70130, United States"}, {"lat": 34.013698, "lon": -118.495361, "name": "The INDEPENDENCE, 205 Broadway, Santa Monica, California 90401, United States"}, {"lat": 34.42, "lon": -118.54, "name": "Santa Clarita, California, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 34.2694, "lon": -118.7815, "name": "Simi Valley, California, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[29.931746, -90.069966], [29.949932, -90.070116], [30.043258, -90.667312]], "data": [{"lat": 30.269917, "lon": -91.199273, "name": "Evergreen Plantation, Louisiana, United States"}, {"lat": 43.482938, "lon": -110.762321, "name": "Jackson Hole, Jackson, Wyoming 83001, United States"}, {"lat": 36.604162, "lon": -118.063027, "name": "Alabama Hills Cafe, 111 W Post St., Lone Pine, California 93545, United States"}, {"lat": 36.606044, "lon": -118.062865, "name": "Lone Pine, California, United States"}, {"lat": 34.203233, "lon": -118.645476, "name": "West Hills, California, United States"}, {"lat": 34.379877, "lon": -118.529192, "name": "Newhall, California, United States"}, {"lat": 30.043258, "lon": -90.667312, "name": "Wallace, Louisiana, United States"}, {"lat": 29.949932, "lon": -90.070116, "name": "New Orleans, Louisiana, United States"}, {"lat": 29.931746, "lon": -90.069966, "name": "Second Line Stages, 800 Richard St, New Orleans, Louisiana 70130, United States"}, {"lat": 34.013698, "lon": -118.495361, "name": "The INDEPENDENCE, 205 Broadway, Santa Monica, California 90401, United States"}, {"lat": 34.445723, "lon": -118.523461, "name": "Santa Clarita, California, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 34.26774, "lon": -118.753807, "name": "Simi Valley, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -294,12 +231,9 @@ const found = locationData.find(element => element.name == target.innerText);
      let lat = parseFloat(first)
      let lon = parseFloat(second)
      console.log(lat,lon)
-
-
-
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  f/home/a/Desktop/new-geo-front-end/geo-front-end/src/views/pages/movie-locations/django-unchained-1853728/index.ejsine in moz, still quicker in chrome.
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -344,5 +278,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

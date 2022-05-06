@@ -2,17 +2,18 @@
 <html lang="en" dir="ltr">
   <%- include(`${partials}/page-scripts/head/bookmarks-head`, {pageTitle:
   'Bookmarks'}); -%>
-  <body class="d-flex flex-column">
-    <style>
-  body { margin:0; padding:0; }
-  #map { position:absolute!important; top:0 !important; bottom:0 !important; width:100% !important; }
-</style>
+  <body >
+
     <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
+          <style>
+  body { margin:0; padding:0; }
+  #map { position:absolute!important; top:0 !important; bottom:0 !important; width:100% !important; }
+</style>
     <![endif]-->
     <noscript>
       <h3>Please enable JavaScript in order to view this site properly.</h3>
@@ -21,31 +22,279 @@
 
     <!-- Main Content-->
 
-    <main class="flex-shrink-0 mt-2">
-      <div class="container px-4 px-lg-5 pb-5">
-     
-        <div class=" py-3 pb-md-4 mx-auto text-left">
- <div class="col-md-12">
+    <main class="mb-4 mt-5">
+      <div class="container px-4 px-lg-5 position-relative ">
+     <div
+        class="spinner-container position-absolute top-50 left-50"
+    
+      >
+        <div class="spinner-grow text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div class=" d-none" id="no-content-wrapper">
+      <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+              <div class="card h-100">
+                <!-- card header  -->
+                <div class="card-header bg-white py-4">
+                  <h4 class="mb-0">My Bookmarks </h4>
+                </div>
+                <!-- table  -->
+                <div class="table-responsive">
+                  <table class="table text-nowrap">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Latitude</th>
+                       <th>Longitude</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+                        
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Anita Parmar</h5>
+                              <p class="mb-0">anita@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle">Front End Developer</td>
+                        <td class="align-middle">3 May, 2021</td>
+                       
+                      </tr>
+                      <tr>
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+                           
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Jitu Chauhan</h5>
+                              <p class="mb-0">jituchauhan@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle">Project Director </td>
+                        <td class="align-middle">Today</td>
+                   
+                      </tr>
+                      <tr>
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+                        
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Sandeep Chauhan</h5>
+                              <p class="mb-0">sandeepchauhan@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle">Full- Stack Developer</td>
+                        <td class="align-middle">Yesterday</td>
+                      
+                      </tr>
+                      <tr>
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+
+                         
+
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Amanda Darnell</h5>
+                              <p class="mb-0">amandadarnell@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle">Digital Marketer</td>
+                        <td class="align-middle">3 May, 2021</td>
+                      
+                      </tr>
+                      <tr>
+
+                        <td class="align-middle">
+                          <div class="d-flex align-items-center">
+
+                       
+
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Patricia Murrill</h5>
+                              <p class="mb-0">patriciamurrill@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle">Account Manager</td>
+                        <td class="align-middle">3 May, 2021</td>
+                        <td class="align-middle">
+                          <div class="dropdown dropstart">
+                            <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamFive" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical icon-xxs"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownTeamFive">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else
+                                here</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle border-bottom-0">
+                          <div class="d-flex align-items-center">
+                        
+                            <div class="lh-1">
+                              <h5 class=" mb-1">Darshini Nair</h5>
+                              <p class="mb-0">darshininair@example.com</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="align-middle border-bottom-0">Front End Developer</td>
+                        <td class="align-middle border-bottom-0">3 May, 2021</td>
+                        <td class="align-middle border-bottom-0">
+                          <div class="dropdown dropstart">
+                            <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamSix" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical icon-xxs"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownTeamSix">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else
+                                here</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="row mt-3 mb-5 " >
+
+  <div class="col-lg-12">
+    <h1>My List</h1>
+   
+    <p>When you save a location you will be able to view all <strong>bookmarked locations </strong>here</p>
+  </div>
+ 
+</div>
+      
+      <div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-5">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="address-to-latlon/" class="stretched-link">
+                  <h5 class="card-title">
+                    Address to Latitude and Longitude
+                  </h5></a>
+                <p class="card-text mt-1">
+                  Find latitude and logitude of a place
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="lat-lon-to-address/" class="stretched-link">
+                  <h5 class="card-title">
+                    Latitude and Longitude to Address
+                  </h5></a>
+                <p class="card-text mt-1">
+                  Find the address from the lat and long
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="latlon-to-dms/" class="stretched-link">
+                  <h5 class="card-title">Latitude and Longitude to DMS</h5></a>
+                <p class="card-text mt-1">
+                  Convert lat long to degrees min sec.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="dms-to-latlon/" class="stretched-link">
+                  <h5 class="card-title">
+                    DMS to Latitude and Longitude
+                  </h5></a>
+                <p class="card-text mt-1">
+                  Identify travel time from two sets of longitude and latitude
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="address-distance/" class="stretched-link">
+                  <h5 class="card-title">
+                    Address Distance
+                  </h5></a>
+                <p class="card-text mt-1">
+                  Find distance between two locations
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card py-5">
+              <div class="card-body py-5">
+                <a href="lat-lon-distance/" class="stretched-link">
+                  <h5 class="card-title">
+                    Latitude and Longitude Distance
+                  </h5></a>
+                <p class="card-text mt-1">
+                  Calculate the distance between coordinates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+     <div id="bookmark-ui-wrapper" class=" row g-3 d-none">
+            <div class=" py-3 pb-md-4 mx-auto text-left col-md-12">
+
     <div class=" py-3 pb-md-4 mx-auto text-left border-bottom">
           <h3 id="site-title"class=" fw-normal">My List</h3>
          
         </div>
-  <div id="grid-wrapper" class="table-responsive"></div>
+
+        <div id="grid-wrapper" class="col-xl-12 "></div>
+        
+
  </div>
 
-
+   <div class="col-lg-12">
+                 <div class="map-container">
+                 
+                 <div id="map"></div>
+                 </div>
+                </div>
               
         </div>
-        <div
-          class="row mb-3 "
-      
-        >
-          <div id="bookmark-container" class="col-md-12  position-relative" >
-      
-              <div id="map" class="map-bookmarks"></div>
-            <div class="static-bookmark-map"></div>
-            </div>
-          </div>
+
+
+     </div>
+ 
+
+
         </div>
       </div>
       <%- include(`${partials}/modal.ejs`); -%>

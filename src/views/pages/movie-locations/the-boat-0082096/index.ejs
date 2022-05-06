@@ -1,163 +1,120 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">The Boat</h3>
-          <p class="card-text mb-0">
-
-
-  <span > The claustrophobic world of a WWII German U-boat; boredom, filth and sheer terror.  </span>
-                          <span > It is 1942 and the German submarine fleet is heavily engaged in the so-called "Battle of the Atlantic" to harass and destroy British shipping. With better escorts of the destroyer class, however, German U-boats have begun to take heavy losses. "Das Boot" is the story of the crew of one such U-Boat, with the film examining how these submariners maintained their professionalism as soldiers and attempted to accomplish impossible missions, all the while attempting to understand and obey the ideology of the government under which they served. -Anthony Hughes .  </span>
-                          <span > A look at the lives of the officers and men of the U-96, a German U-boat patrolling the north Atlantic during World War II. Led by Capt.-Lt. Heinrich Lehmann-Willenbrock, the men, for the most part, are seasoned veterans of undersea duty. For the new recruits, including military journalist Lt. Werner, it's all a bit of an eye opener. The quarters are cramped with men sharing bunks - while one is on duty, the other gets sleep - and there's barely enough room for more that two men in passageways at any one time. Their trip is also marked by lengthy periods of boredom while they search for enemy shipping to attack and periods of absolute terror when they find themselves under attack by Allied naval vessels. Throughout it all, the men band together, cynical about just what they are doing but also proud of their accomplishments. -garykmcd.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The Boat</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">The claustrophobic world of a WWII German U-boat; boredom, filth and sheer terror. It is 1942 and the German submarine fleet is heavily engaged in the so-called  Battle of the Atlantic  to harass and destroy British shipping. With better escorts of the destroyer class, however, German U-boats have begun to take heavy losses.  Das Boot  is the story of the crew of one such U-Boat, with the film examining how these submariners maintained their professionalism as soldiers and attempted to accomplish impossible missions, all the while attempting to understand and obey the ideology of the government under which they served. Anthony Hughes <husnock31@hotmail.com> A look at the lives of the officers and men of the U-96, a German U-boat patrolling ...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">the north Atlantic during World War II. Led by Capt.-Lt. Heinrich Lehmann-Willenbrock, the men, for the most part, are seasoned veterans of undersea duty. For the new recruits, including military journalist Lt. Werner, it's all a bit of an eye opener. The quarters are cramped with men sharing bunks - while one is on duty, the other gets sleep - and there's barely enough room for more that two men in passageways at any one time. Their trip is also marked by lengthy periods of boredom while they search for enemy shipping to attack and periods of absolute terror when they find themselves under attack by Allied naval vessels. Throughout it all, the men band together, cynical about just what they are doing but also proud of their accomplishments. garykmcd 1941 and the Battle of the Atlantic - German U-boats versus freighters supplying Britain - is underway. We see this struggle from the side of the crew of a German U-boat, U-96. We see the relaxation and fun in port, the boredom of patrol, the tension of stalking a convoy, and the sheer terror when they become the hunted. grantss In the autumn of 1941, the German Capt.-Lt. Henrich Lehmann-Willenbrock of the U-96 U-Boat receives the war correspondent Lt. Werner to cover the work in the submarine during their mission in the Atlantic Ocean. They sail out of the shipyard La Rochelle and along the next weeks, Werner learns the lives, loves, fear and behavior of the young crew, the veteran Captain and his officers. The skilled captain hunts British vessels to sink and dives to depths below the limit of the boat to escape from the destroyers. Near Christmas, they plan to return to La Rochelle; but out of the blue, Captain Henrich receives and order to cross the Strait of Gibraltar to go to Italy. But the captain knows how protected the area is and plans a means to lure the British Navy. Will the U-96 succeed in crossing the Strait of Gibraltar? Claudio Carvalho, Rio de Janeiro, Brazil</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BOGZhZDIzNWMtNjkxMS00MDQ1LThkMTYtZWQzYWU3MWMxMGU5XkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="The Boat"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > 1941 and the Battle of the Atlantic - German U-boats versus freighters supplying Britain - is underway. We see this struggle from the side of the crew of a German U-boat, U-96. We see the relaxation and fun in port, the boredom of patrol, the tension of stalking a convoy, and the sheer terror when they become the hunted. -grantss.  </span>
-    <span class="additional-information" > In the autumn of 1941, the German Capt.-Lt. Henrich Lehmann-Willenbrock of the U-96 U-Boat receives the war correspondent Lt. Werner to cover the work in the submarine during their mission in the Atlantic Ocean. They sail out of the shipyard La Rochelle and along the next weeks, Werner learns the lives, loves, fear and behavior of the young crew, the veteran Captain and his officers. The skilled captain hunts British vessels to sink and dives to depths below the limit of the boat to escape from the destroyers. Near Christmas, they plan to return to La Rochelle; but out of the blue, Captain Henrich receives and order to cross the Strait of Gibraltar to go to Italy. But the captain knows how protected the area is and plans a means to lure the British Navy. Will the U-96 succeed in crossing the Strait of Gibraltar? -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BOGZhZDIzNWMtNjkxMS00MDQ1LThkMTYtZWQzYWU3MWMxMGU5XkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="The Boat"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">North Sea, New York, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.9329</span>, <span class="lon">-72.4143</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">La Pallice, La Rochelle, Charente-Maritime, France </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">46.1631</span>, <span class="lon">-1.2095</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bodenseestr., 87700 Memmingen, Germany </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">47.9724932</span>, <span class="lon">10.1627992</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bavariafilmplatz 7, 82031 Grünwald, Germany </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">48.066591</span>, <span class="lon">11.549117</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">33.606847</span>, <span class="lon">-7.632845</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">North Sea, New York, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.932878</span>, <span class="lon">-72.414252</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">La Pallice, La Rochelle, Charente-Maritime, France</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">46.1631</span>, <span class="lon">-1.2095</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bodenseestr., 87700 Memmingen, Germany</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">47.9724932</span>, <span class="lon">10.1627992</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bavariafilmplatz 7, 82031 Grünwald, Germany</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">48.066591</span>, <span class="lon">11.549117</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">33.606847</span>, <span class="lon">-7.632845</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": null, "data": [{"lat": 40.9329, "lon": -72.4143, "name": "North Sea, New York, United States"}, {"lat": 46.1631, "lon": -1.2095, "name": "La Pallice, La Rochelle, Charente-Maritime, France"}, {"lat": 47.9724932, "lon": 10.1627992, "name": "Bodenseestr., 87700 Memmingen, Germany"}, {"lat": 48.066591, "lon": 11.549117, "name": "Bavariafilmplatz 7, 82031 Gr\u00fcnwald, Germany"}, {"lat": 33.606847, "lon": -7.632845, "name": "Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": null, "data": [{"lat": 40.932878, "lon": -72.414252, "name": "North Sea, New York, United States"}, {"lat": 46.1631, "lon": -1.2095, "name": "La Pallice, La Rochelle, Charente-Maritime, France"}, {"lat": 47.9724932, "lon": 10.1627992, "name": "Bodenseestr., 87700 Memmingen, Germany"}, {"lat": 48.066591, "lon": 11.549117, "name": "Bavariafilmplatz 7, 82031 Gr\u00fcnwald, Germany"}, {"lat": 33.606847, "lon": -7.632845, "name": "Atlantic Ocean, Casablanca, Casablanca-Settat 20, Morocco"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -241,5 +198,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

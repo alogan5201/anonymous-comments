@@ -1,292 +1,224 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Logan</h3>
-          <p class="card-text mb-0">
-
-
-  <span > In a future where mutants are nearly extinct, an elderly and weary Logan leads a quiet life. But when Laura, a mutant child pursued by scientists, comes to him for help, he must get her to safety.  </span>
-                          <span > In 2029 the mutant population has shrunken significantly due to genetically modified plants designed to reduce mutant powers and the X-Men have disbanded. Logan, whose power to self-heal is dwindling, has surrendered himself to alcohol and now earns a living as a chauffeur. He takes care of the ailing old Professor X whom he keeps hidden away. One day, a female stranger asks Logan to drive a girl named Laura to the Canadian border. At first he refuses, but the Professor has been waiting for a long time for her to appear. Laura possesses an extraordinary fighting prowess and is in many ways like Wolverine. She is pursued by sinister figures working for a powerful corporation; this is because they made her, with Logan's DNA. A decrepit Logan is forced to ask himself if he can or even wants to put his remaining powers to good use. It would appear that in the near-future, the times in which they were able put the world to rights with razor sharp claws and telepathic powers are now over.  </span>
-                          <span > In the not-so-distant 2029, the entire mutant race is almost obliterated, and Logan, the invincible bestial superhero once known as the Wolverine, finds himself getting old, and his incredible healing ability significantly weakened. As an incognito limo driver, Logan does his best to guard and keep out of sight a weary nonagenarian Professor Xavier; however, things will take an unexpected turn when a cryptic woman asks him to transport the young mutant girl, Laura. A better future lies past the Canadian borders for the unaccompanied teenager, but the government is unwilling to let go of its asset so easily. In the end, can the ageing Logan protect both himself and Laura? -Nick Riganas.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Logan</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">In a future where mutants are nearly extinct, an elderly and weary Logan leads a quiet life. But when Laura, a mutant child pursued by scientists, comes to him for help, he must get her to safety. In 2029 the mutant population has shrunken significantly due to genetically modified plants designed to reduce mutant powers and the X-Men have disbanded. Logan, whose power to self-heal is dwindling, has surrendered himself to alcohol and now earns a living as a chauffeur. He takes care of the ailing old Professor X whom he keeps hidden away. One day, a female stranger asks Logan to drive a girl named Laura to the Canadian border. At first he refuses, but the Professor has been waiting for a long time for her to appear. Laura possesses an extraor...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">dinary fighting prowess and is in many ways like Wolverine. She is pursued by sinister figures working for a powerful corporation; this is because they made her, with Logan's DNA. A decrepit Logan is forced to ask himself if he can or even wants to put his remaining powers to good use. It would appear that in the near-future, the times in which they were able put the world to rights with razor sharp claws and telepathic powers are now over. In the not-so-distant 2029, the entire mutant race is almost obliterated, and Logan, the invincible bestial superhero once known as the Wolverine, finds himself getting old, and his incredible healing ability significantly weakened. As an incognito limo driver, Logan does his best to guard and keep out of sight a weary nonagenarian Professor Xavier; however, things will take an unexpected turn when a cryptic woman asks him to transport the young mutant girl, Laura. A better future lies past the Canadian borders for the unaccompanied teenager, but the government is unwilling to let go of its asset so easily. In the end, can the ageing Logan protect both himself and Laura? Nick Riganas In a dystopian 2029, no mutants have been born in 25 years. Logan's healing ability has weakened and he has physically aged. The Adamantium coating on his skeleton has begun to leach into his body, poisoning him. Hiding in plain sight, Logan spends his days working as a limo driver in El Paso, Texas. In an abandoned smelting plant in northern Mexico, he and mutant tracker Caliban care for 90-year-old Charles Xavier, Logan's mentor and founder of the X-Men. Charles, a telepath, has developed a form of dementia that causes him to have seizures unless controlled with medication. It is alluded that a seizure one year prior, releasing a destructive wave of his telepathic powers, had killed seven mutants, thus leaving the three (Logan, Charles, Caliban) as the last of the X-Men.</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3NWEtMTY4OTEyMzJhZTAzXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Logan"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > In a dystopian 2029, no mutants have been born in 25 years. Logan's healing ability has weakened and he has physically aged. The Adamantium coating on his skeleton has begun to leach into his body, poisoning him. Hiding in plain sight, Logan spends his days working as a limo driver in El Paso, Texas. In an abandoned smelting plant in northern Mexico, he and mutant tracker Caliban care for 90-year-old Charles Xavier, Logan's mentor and founder of the X-Men. Charles, a telepath, has developed a form of dementia that causes him to have seizures unless controlled with medication. It is alluded that a seizure one year prior, releasing a destructive wave of his telepathic powers, had killed seven mutants, thus leaving the three (Logan, Charles, Caliban) as the last of the X-Men.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3NWEtMTY4OTEyMzJhZTAzXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Logan"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Northern Meadows, Rio Rancho, New Mexico, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.31</span>, <span class="lon">-106.71</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Placerita Canyon, Newhall, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.37</span>, <span class="lon">-118.51</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Ferriday, Louisiana, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">31.6302</span>, <span class="lon">-91.5546</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Oklahoma City, Oklahoma, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.473</span>, <span class="lon">-97.5171</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pauls Valley, Oklahoma, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.7401</span>, <span class="lon">-97.2222</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Canal Boulevard, New Orleans, Louisiana 70124, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.0037</span>, <span class="lon">-90.1086</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">1500 Poydras Street, New Orleans, Louisiana 70112, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">29.952057</span>, <span class="lon">-90.078904</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Metairie, Louisiana, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">29.99</span>, <span class="lon">-90.1505</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Rio Rancho, New Mexico, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.2334</span>, <span class="lon">-106.6645</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">125 East Oak Street, Amite, Louisiana 70422, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.72688</span>, <span class="lon">-90.507275</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New Mexico, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.32485649</span>, <span class="lon">-105.998350627305</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New Orleans, Louisiana, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">29.9499</span>, <span class="lon">-90.0701</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Louisiana, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.93749930159</span>, <span class="lon">-92.305998069584</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Oklahoma, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.9015874097</span>, <span class="lon">-97.5389608460746</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">125 East Oak Street, Amite, Louisiana 70422, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.72688</span>, <span class="lon">-90.507275</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Northern Meadows, Rio Rancho, New Mexico, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.317068</span>, <span class="lon">-106.720286</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Placerita Canyon, Newhall, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.372864</span>, <span class="lon">-118.508623</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Ferriday, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">31.630166</span>, <span class="lon">-91.554565</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Oklahoma City, Oklahoma, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.472989</span>, <span class="lon">-97.517054</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Pauls Valley, Oklahoma, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.740081</span>, <span class="lon">-97.222245</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Canal Street, New Orleans, Louisiana 70119, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.965685</span>, <span class="lon">-90.086885</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1500 Poydras Street, New Orleans, Louisiana 70112, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.952057</span>, <span class="lon">-90.078904</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Metairie, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.989993</span>, <span class="lon">-90.150543</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">37.0743595873</span>, <span class="lon">-119.699375153073</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Rio Rancho, New Mexico, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.269381</span>, <span class="lon">-106.632819</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">125 East Oak Street, Amite, Louisiana 70422, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.72688</span>, <span class="lon">-90.507275</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New Mexico, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.32485649</span>, <span class="lon">-105.998350627305</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New Orleans, Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">29.949932</span>, <span class="lon">-90.070116</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Louisiana, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.93749930159</span>, <span class="lon">-92.305998069584</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Oklahoma, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.9015874097</span>, <span class="lon">-97.5389608460746</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">125 East Oak Street, Amite, Louisiana 70422, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.72688</span>, <span class="lon">-90.507275</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[29.9499, -90.0701], [29.952057, -90.078904], [29.99, -90.1505]], "data": [{"lat": 35.31, "lon": -106.71, "name": "Northern Meadows, Rio Rancho, New Mexico, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.37, "lon": -118.51, "name": "Placerita Canyon, Newhall, California, United States"}, {"lat": 31.6302, "lon": -91.5546, "name": "Ferriday, Louisiana, United States"}, {"lat": 35.473, "lon": -97.5171, "name": "Oklahoma City, Oklahoma, United States"}, {"lat": 34.7401, "lon": -97.2222, "name": "Pauls Valley, Oklahoma, United States"}, {"lat": 30.0037, "lon": -90.1086, "name": "Canal Boulevard, New Orleans, Louisiana 70124, United States"}, {"lat": 29.952057, "lon": -90.078904, "name": "1500 Poydras Street, New Orleans, Louisiana 70112, United States"}, {"lat": 29.99, "lon": -90.1505, "name": "Metairie, Louisiana, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 35.2334, "lon": -106.6645, "name": "Rio Rancho, New Mexico, United States"}, {"lat": 30.72688, "lon": -90.507275, "name": "125 East Oak Street, Amite, Louisiana 70422, United States"}, {"lat": 34.32485649, "lon": -105.998350627305, "name": "New Mexico, United States"}, {"lat": 29.9499, "lon": -90.0701, "name": "New Orleans, Louisiana, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 35.9015874097, "lon": -97.5389608460746, "name": "Oklahoma, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 30.72688, "lon": -90.507275, "name": "125 East Oak Street, Amite, Louisiana 70422, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[29.949932, -90.070116], [29.952057, -90.078904], [29.965685, -90.086885]], "data": [{"lat": 35.317068, "lon": -106.720286, "name": "Northern Meadows, Rio Rancho, New Mexico, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.372864, "lon": -118.508623, "name": "Placerita Canyon, Newhall, California, United States"}, {"lat": 31.630166, "lon": -91.554565, "name": "Ferriday, Louisiana, United States"}, {"lat": 35.472989, "lon": -97.517054, "name": "Oklahoma City, Oklahoma, United States"}, {"lat": 34.740081, "lon": -97.222245, "name": "Pauls Valley, Oklahoma, United States"}, {"lat": 29.965685, "lon": -90.086885, "name": "Canal Street, New Orleans, Louisiana 70119, United States"}, {"lat": 29.952057, "lon": -90.078904, "name": "1500 Poydras Street, New Orleans, Louisiana 70112, United States"}, {"lat": 29.989993, "lon": -90.150543, "name": "Metairie, Louisiana, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 35.269381, "lon": -106.632819, "name": "Rio Rancho, New Mexico, United States"}, {"lat": 30.72688, "lon": -90.507275, "name": "125 East Oak Street, Amite, Louisiana 70422, United States"}, {"lat": 34.32485649, "lon": -105.998350627305, "name": "New Mexico, United States"}, {"lat": 29.949932, "lon": -90.070116, "name": "New Orleans, Louisiana, United States"}, {"lat": 30.93749930159, "lon": -92.305998069584, "name": "Louisiana, United States"}, {"lat": 35.9015874097, "lon": -97.5389608460746, "name": "Oklahoma, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 30.72688, "lon": -90.507275, "name": "125 East Oak Street, Amite, Louisiana 70422, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -370,5 +302,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

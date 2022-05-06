@@ -1,223 +1,167 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">The Lord of the Rings: The Two Towers</h3>
-          <p class="card-text mb-0">
-
-
-  <span > While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.  </span>
-                          <span > The continuing quest of Frodo and the Fellowship to destroy the One Ring. Frodo and Sam discover they are being followed by the mysterious Gollum. Aragorn, the Elf archer Legolas, and Gimli the Dwarf encounter the besieged Rohan kingdom, whose once great King Theoden has fallen under Saruman's deadly spell. -Jwelch5742.  </span>
-                          <span > The Fellowship is torn apart. Sauron's power is growing stronger. While venturing on to Mordor, Frodo and Sam come across the grotesque creature Gollum, who is forever consumed by the Ring's power. Meanwhile, Aragorn, Gandalf, Legolas and Gimli meet up with new allies in the Plains of Rohan. Together, they must work to defend the people of Rohan against Sauron's puppet Saruman as he unleashes his armies from Isengard. All the while, Sauron prepares to launch an attack on Gondor. The War for the Ring begins here. -Blazer346.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The Lord of the Rings: The Two Towers</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard. The continuing quest of Frodo and the Fellowship to destroy the One Ring. Frodo and Sam discover they are being followed by the mysterious Gollum. Aragorn, the Elf archer Legolas, and Gimli the Dwarf encounter the besieged Rohan kingdom, whose once great King Theoden has fallen under Saruman's deadly spell. Jwelch5742 The Fellowship is torn apart. Sauron's power is growing stronger. While venturing on to Mordor, Frodo and Sam come across the grotesque creature Gollum, who is forever consumed by the Ring's power. Meanwhile, Aragorn, Gandalf, Legolas and Gimli meet u...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">p with new allies in the Plains of Rohan. Together, they must work to defend the people of Rohan against Sauron's puppet Saruman as he unleashes his armies from Isengard. All the while, Sauron prepares to launch an attack on Gondor. The War for the Ring begins here. Blazer346 Sauron's forces increase. His allies grow. The Ringwraiths return in an even more frightening form. Saruman's army of Uruk-hai is ready to launch an assault against Aragorn and the people of Rohan. Yet, the Fellowship is broken and Boromir is dead. For the little hope that is left, Frodo and Sam march on into Mordor, unprotected. Several new allies join with Aragorn, Gimli, Legolas, Pippin, and Merry, and they must defend Rohan and attack Isengard. Yet, while all this is going on, Sauron's troops mass toward Gondor, for the War of the Ring is about to begin. ahmetkozan The Fellowship has been broken. Boromir is dead, Frodo Baggins and Samwise Gamgee have gone to Mordor alone to destroy the One Ring, Merry and Pippin have been captured by the Uruk-hai, and Aragorn, Legolas, and Gimli have made friends of the Rohan, a race of humans that are in the path of the upcoming war, led by its aging King, Théoden. The two towers between Mordor and Isengard, Barad-dûr and Orthanc, have united in their lust for destruction. The corrupt wizard Saruman, under the power of the Dark Lord Sauron, and his slimy assistant, Gríma Wormtongue, have created a grand Uruk-hai army bent on the destruction of Man and Middle-earth. The rebellion against Sauron is building up and will be led by Gandalf the White, who was thought to be dead after the Balrog captured him. One of the Ring's original bearers, the creature Gollum, has tracked Frodo and Sam down in search of his  precious , but is captured by the Hobbits and used as a way to lead them to Mt. Doom. The War of the Ring has now begun. Will Frodo and Sam take Gollum prisoner and continue on to Mordor on the mission to destroy The One Ring. While their former companions Aragorn, Legolas, Gimli, Merry, and Pippin make new allies in the Ents, the Riders of Rohan, and the Stewards of Gondor, and launch an assault on Isengard. All the while a growing Shadow falls upon Middle-earth as the Dark Lord's Army marches on to Gondor. The War of the Ring has begun. Paul Twomey <ptwomey@bne.catholic.edu.au></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="The Lord of the Rings: The Two Towers"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Sauron's forces increase. His allies grow. The Ringwraiths return in an even more frightening form. Saruman's army of Uruk-hai is ready to launch an assault against Aragorn and the people of Rohan. Yet, the Fellowship is broken and Boromir is dead. For the little hope that is left, Frodo and Sam march on into Mordor, unprotected. Several new allies join with Aragorn, Gimli, Legolas, Pippin, and Merry, and they must defend Rohan and attack Isengard. Yet, while all this is going on, Sauron's troops mass toward Gondor, for the War of the Ring is about to begin. -ahmetkozan.  </span>
-    <span class="additional-information" > The Fellowship has been broken. Boromir is dead, Frodo Baggins and Samwise Gamgee have gone to Mordor alone to destroy the One Ring, Merry and Pippin have been captured by the Uruk-hai, and Aragorn, Legolas, and Gimli have made friends of the Rohan, a race of humans that are in the path of the upcoming war, led by its aging King, Théoden. The two towers between Mordor and Isengard, Barad-dûr and Orthanc, have united in their lust for destruction. The corrupt wizard Saruman, under the power of the Dark Lord Sauron, and his slimy assistant, Gríma Wormtongue, have created a grand Uruk-hai army bent on the destruction of Man and Middle-earth. The rebellion against Sauron is building up and will be led by Gandalf the White, who was thought to be dead after the Balrog captured him. One of the Ring's original bearers, the creature Gollum, has tracked Frodo and Sam down in search of his "precious", but is captured by the Hobbits and used as a way to lead them to Mt. Doom. The War of the Ring has now begun. -Will.  </span>
-    <span class="additional-information" > Frodo and Sam take Gollum prisoner and continue on to Mordor on the mission to destroy The One Ring. While their former companions Aragorn, Legolas, Gimli, Merry, and Pippin make new allies in the Ents, the Riders of Rohan, and the Stewards of Gondor, and launch an assault on Isengard. All the while a growing Shadow falls upon Middle-earth as the Dark Lord's Army marches on to Gondor. The War of the Ring has begun. -Paul Twomey .  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="The Lord of the Rings: The Two Towers"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hinuera Road, Matamata, Matamata 3472, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-37.8529654</span>, <span class="lon">175.7575813</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Tasman, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-41.5</span>, <span class="lon">172.8</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Queenstown, Otago, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-45.03023</span>, <span class="lon">168.66271</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wellington, Wellington, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-41.28889</span>, <span class="lon">174.77722</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-39.236926</span>, <span class="lon">175.556076</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Camperdown Road, Miramar, Wellington 6022, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-41.3066553</span>, <span class="lon">174.8254519</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Fiordland National Park, Te Anau, Southland, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-44.495032</span>, <span class="lon">168.083297</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Te Anau, Southland, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-45.41667</span>, <span class="lon">167.71667</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Twizel, Canterbury, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-44.25</span>, <span class="lon">170.1</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Upper Hutt, Wellington, New Zealand </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">-41.13333</span>, <span class="lon">175.05</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Louth, Ireland </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">53.83333</span>, <span class="lon">-6.5</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hinuera Road, Matamata, Matamata 3472, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-37.8529654</span>, <span class="lon">175.7575813</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Tasman, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-41.5</span>, <span class="lon">172.8</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Queenstown, Otago, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-45.03023</span>, <span class="lon">168.66271</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wellington, Wellington, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-41.28889</span>, <span class="lon">174.77722</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-39.236926</span>, <span class="lon">175.556076</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Camperdown Road, Miramar, Wellington 6022, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-41.3066553</span>, <span class="lon">174.8254519</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Fiordland National Park, Te Anau, Southland, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-44.495032</span>, <span class="lon">168.083297</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Te Anau, Southland, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-45.41667</span>, <span class="lon">167.71667</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Twizel, Canterbury, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-44.25</span>, <span class="lon">170.1</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Upper Hutt, Wellington, New Zealand</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">-41.13333</span>, <span class="lon">175.05</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Louth, Ireland</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">53.83333</span>, <span class="lon">-6.5</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
+<script type="text/javascript">
 var locations =[{"bbox": [[-41.3066553, 174.8254519], [-41.28889, 174.77722], [-41.13333, 175.05]], "data": [{"lat": -37.8529654, "lon": 175.7575813, "name": "Hinuera Road, Matamata, Matamata 3472, New Zealand"}, {"lat": -41.5, "lon": 172.8, "name": "Tasman, New Zealand"}, {"lat": -45.03023, "lon": 168.66271, "name": "Queenstown, Otago, New Zealand"}, {"lat": -41.28889, "lon": 174.77722, "name": "Wellington, Wellington, New Zealand"}, {"lat": -39.236926, "lon": 175.556076, "name": "Mt Ruapehu, Owhango, Manawatu-Wanganui 3989, New Zealand"}, {"lat": -41.3066553, "lon": 174.8254519, "name": "Camperdown Road, Miramar, Wellington 6022, New Zealand"}, {"lat": -44.495032, "lon": 168.083297, "name": "Fiordland National Park, Te Anau, Southland, New Zealand"}, {"lat": -45.41667, "lon": 167.71667, "name": "Te Anau, Southland, New Zealand"}, {"lat": -44.25, "lon": 170.1, "name": "Twizel, Canterbury, New Zealand"}, {"lat": -41.13333, "lon": 175.05, "name": "Upper Hutt, Wellington, New Zealand"}, {"lat": 53.83333, "lon": -6.5, "name": "Louth, Ireland"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -302,5 +246,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

@@ -1,314 +1,240 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">Sunset Blvd.</h3>
-          <p class="card-text mb-0">
-
-
-  <span > A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return.  </span>
-                          <span > In Hollywood of the 50's, the obscure screenplay writer Joe Gillis is not able to sell his work to the studios, is full of debts and is thinking in returning to his hometown to work in an office. While trying to escape from his creditors, he has a flat tire and parks his car in a decadent mansion in Sunset Boulevard. He meets the owner and former silent-movie star Norma Desmond, who lives alone with her butler and driver Max Von Mayerling. Norma is demented and believes she will return to the cinema industry, and is protected and isolated from the world by Max, who was her director and husband in the past and still loves her. Norma proposes Joe to move to the mansion and help her in writing a screenplay for her comeback to the cinema, and the small-time writer becomes her lover and gigolo. When Joe falls in love for the young aspirant writer Betty Schaefer, Norma becomes jealous and completely insane and her madness leads to a tragic end. -Claudio Carvalho, Rio de Janeiro, Brazil.  </span>
-                          <span > Desperate for cash, screenwriter Joe Gillis has a chance meeting with a faded silent film star. Norma Desmond lives in her crumbling Sunset Boulevard mansion with only her butler to keep her company. She has become a sad demented recluse convinced that the outside world is clamoring for her dramatic return. Enticing him with the prospect of script work she puts him up in her mansion and he becomes ever more involved and entangled in her life. -B.A. Black.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Sunset Blvd.</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">A screenwriter develops a dangerous relationship with a faded film star determined to make a triumphant return. In Hollywood of the 50's, the obscure screenplay writer Joe Gillis is not able to sell his work to the studios, is full of debts and is thinking in returning to his hometown to work in an office. While trying to escape from his creditors, he has a flat tire and parks his car in a decadent mansion in Sunset Boulevard. He meets the owner and former silent-movie star Norma Desmond, who lives alone with her butler and driver Max Von Mayerling. Norma is demented and believes she will return to the cinema industry, and is protected and isolated from the world by Max, who was her director and husband in the past and still loves her. Norm...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">a proposes Joe to move to the mansion and help her in writing a screenplay for her comeback to the cinema, and the small-time writer becomes her lover and gigolo. When Joe falls in love for the young aspirant writer Betty Schaefer, Norma becomes jealous and completely insane and her madness leads to a tragic end. Claudio Carvalho, Rio de Janeiro, Brazil Desperate for cash, screenwriter Joe Gillis has a chance meeting with a faded silent film star. Norma Desmond lives in her crumbling Sunset Boulevard mansion with only her butler to keep her company. She has become a sad demented recluse convinced that the outside world is clamoring for her dramatic return. Enticing him with the prospect of script work she puts him up in her mansion and he becomes ever more involved and entangled in her life. B.A. Black Joe Gillis is a struggling hack B-movie Hollywood screenwriter who is having problems making ends meet, his car, a symbol to him of independence, which is threatened to be repossessed due to he being behind in payments. In eluding the repossessors, Joe stumbles onto the decaying Sunset Boulevard mansion of fifty year old faded silent movie star Norma Desmond, who has largely been forgotten by the movie going public. The only other person besides Norma living at the mansion is Norma's valet, Max, whose unofficial job is to prime Norma's fragile but larger than life ego. It is somewhat due to Max's lies about the public still clamoring for her that a delusional Norma is working toward her return to pictures in what is a vanity project. Even if her script was any good, the lead role should be filled by someone half Norma's age. Joe senses an opportunity to act as Norma's ghost writer, he only wanting to make a quick buck to pay off his creditors, not caring if the movie gets produced. In maneuvering to do the ghost writing work, Joe may be unprepared for what else Norma has in store for him in her need to be loved and wanted. As Joe gets seduced by the comfort that Norma's wealth can afford, it may be too late for him when he finally comes to the realization about what he really wants and how much he has to forgo in stoking Norma's ego. Huggo In this dark film-noir tale, aging silent film queen, Norma Desmond, refuses to accept that her time in the limelight has finished - she lives as a recluse with the deranged beliefs that her stardom is as strong as ever. After meeting Joe Gillis, a young, hack screenwriter, she hires him to write a screenplay starring her as an effort to set up her comeback in film. The screenwriter believes he can manipulate her, but soon learns the difficulty of such a task. Furthermore, his ambivalence about their relationship, coupled with Norma's demented unwillingness to let go, leads to some damaging consequences for both parties involved. Kyle Perez An aging silent film queen refuses to accept that her stardom has ended. She hires a young screenwriter to help set up her movie comeback. The screenwriter believes he can manipulate her, but he soon finds out he is wrong. The screenwriters ambivalence about their relationship and her unwillingness to let go leads to a situation of violence, madness, and death. Jwelch5742</span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BMTU0NTkyNzYwMF5BMl5BanBnXkFtZTgwMDU0NDk5MTI@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="Sunset Blvd."/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Joe Gillis is a struggling hack B-movie Hollywood screenwriter who is having problems making ends meet, his car, a symbol to him of independence, which is threatened to be repossessed due to he being behind in payments. In eluding the repossessors, Joe stumbles onto the decaying Sunset Boulevard mansion of fifty year old faded silent movie star Norma Desmond, who has largely been forgotten by the movie going public. The only other person besides Norma living at the mansion is Norma's valet, Max, whose unofficial job is to prime Norma's fragile but larger than life ego. It is somewhat due to Max's lies about the public still clamoring for her that a delusional Norma is working toward her return to pictures in what is a vanity project. Even if her script was any good, the lead role should be filled by someone half Norma's age. Joe senses an opportunity to act as Norma's ghost writer, he only wanting to make a quick buck to pay off his creditors, not caring if the movie gets produced. In maneuvering to do the ghost writing work, Joe may be unprepared for what else Norma has in store for him in her need to be loved and wanted. As Joe gets seduced by the comfort that Norma's wealth can afford, it may be too late for him when he finally comes to the realization about what he really wants and how much he has to forgo in stoking Norma's ego. -Huggo.  </span>
-    <span class="additional-information" > In this dark film-noir tale, aging silent film queen, Norma Desmond, refuses to accept that her time in the limelight has finished - she lives as a recluse with the deranged beliefs that her stardom is as strong as ever. After meeting Joe Gillis, a young, hack screenwriter, she hires him to write a screenplay starring her as an effort to set up her comeback in film. The screenwriter believes he can manipulate her, but soon learns the difficulty of such a task. Furthermore, his ambivalence about their relationship, coupled with Norma's demented unwillingness to let go, leads to some damaging consequences for both parties involved. -Kyle Perez.  </span>
-    <span class="additional-information" > An aging silent film queen refuses to accept that her stardom has ended. She hires a young screenwriter to help set up her movie comeback. The screenwriter believes he can manipulate her, but he soon finds out he is wrong. The screenwriters ambivalence about their relationship and her unwillingness to let go leads to a situation of violence, madness, and death. -Jwelch5742.  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BMTU0NTkyNzYwMF5BMl5BanBnXkFtZTgwMDU0NDk5MTI@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="Sunset Blvd."
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">10060 W Sunset Blvd, Los Angeles, California 90024, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.08054</span>, <span class="lon">-118.42477</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Midtown, Agoura Hills, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.15</span>, <span class="lon">-118.76</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bel Air, Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0833</span>, <span class="lon">-118.4487</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Château Alto Nido Apartments, 1851 Ivar Ave, Los Angeles, California 90028, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.10515</span>, <span class="lon">-118.328303</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">8000 West Sunset Boulevard, Los Angeles, California 90046, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.09747</span>, <span class="lon">-118.36513</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Stage 18: Paramount Studios, 5555 Melrose Ave., Los Angeles, California 90038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0851635625</span>, <span class="lon">-118.3194839375</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">West Hollywood, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.09</span>, <span class="lon">-118.3617</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">8024 West Sunset Boulevard, Los Angeles, California 90046, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.09783</span>, <span class="lon">-118.36513</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wilshire, Santa Monica, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0268</span>, <span class="lon">-118.5017</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">4730 Crystal Springs Drive, Los Angeles, California 90027, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1259</span>, <span class="lon">-118.27416</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hollywood Boulevard and West Vine Street, Los Angeles, California 90038, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1016331</span>, <span class="lon">-118.3266959</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Stone Canyon Road, Los Angeles, California 90077, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.09264</span>, <span class="lon">-118.44939</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">3927 Wilshire Boulevard, Los Angeles, California 90005, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.06187</span>, <span class="lon">-118.31247</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.095884</span>, <span class="lon">-118.370965</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Los Angeles, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.0544</span>, <span class="lon">-118.2439</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Midtown, Agoura Hills, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.15</span>, <span class="lon">-118.76</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Wilshire Blvd, Glendale, California 90048, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.14728</span>, <span class="lon">-118.2096</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">10060 W Sunset Blvd, Los Angeles, California 90024, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.08054</span>, <span class="lon">-118.42477</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Midtown, Agoura Hills, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.150875</span>, <span class="lon">-118.766198</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bel Air, Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.098883</span>, <span class="lon">-118.459881</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1851 Ivar Avenue, Los Angeles, California 90028, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.10499</span>, <span class="lon">-118.328545</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">8000 West Sunset Boulevard, Los Angeles, California 90046, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.09747</span>, <span class="lon">-118.36513</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Stage 18: Paramount Studios, 5555 Melrose Ave., Los Angeles, California 90038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.0851635625</span>, <span class="lon">-118.3194839375</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">West Hollywood, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.092301</span>, <span class="lon">-118.369289</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">W Sunset Blvd, Los Angeles, California 90046, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.11723</span>, <span class="lon">-118.37729</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wilshire, Santa Monica, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.027456</span>, <span class="lon">-118.494567</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">4730 Crystal Springs Drive, Los Angeles, California 90027, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.1259</span>, <span class="lon">-118.27416</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">5555 Melrose Avenue, Los Angeles, California 90038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hollywood Boulevard and West Vine Street, Los Angeles, California 90038, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.1016331</span>, <span class="lon">-118.3266959</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Stone Canyon Road, Los Angeles, California 90077, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.09264</span>, <span class="lon">-118.44939</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Chosun Galbee, 3330 W Olympic Blvd, Los Angeles, California 90019, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.052416</span>, <span class="lon">-118.310292</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Midtown, Agoura Hills, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.150875</span>, <span class="lon">-118.766198</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">The Standard, 8300 W Sunset Blvd, Los Angeles, California 90069, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.095892</span>, <span class="lon">-118.37094</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Los Angeles, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.053691</span>, <span class="lon">-118.242766</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Wilshire Blvd, Glendale, California 90048, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.14728</span>, <span class="lon">-118.2096</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[34.0268, -118.5017], [34.0544, -118.2439], [34.06187, -118.31247]], "data": [{"lat": 34.08054, "lon": -118.42477, "name": "10060 W Sunset Blvd, Los Angeles, California 90024, United States"}, {"lat": 34.15, "lon": -118.76, "name": "Midtown, Agoura Hills, California, United States"}, {"lat": 34.0833, "lon": -118.4487, "name": "Bel Air, Los Angeles, California, United States"}, {"lat": 34.10515, "lon": -118.328303, "name": "Ch\u00e2teau Alto Nido Apartments, 1851 Ivar Ave, Los Angeles, California 90028, United States"}, {"lat": 34.09747, "lon": -118.36513, "name": "8000 West Sunset Boulevard, Los Angeles, California 90046, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.0851635625, "lon": -118.3194839375, "name": "Stage 18: Paramount Studios, 5555 Melrose Ave., Los Angeles, California 90038, United States"}, {"lat": 34.09, "lon": -118.3617, "name": "West Hollywood, California, United States"}, {"lat": 34.09783, "lon": -118.36513, "name": "8024 West Sunset Boulevard, Los Angeles, California 90046, United States"}, {"lat": 34.0268, "lon": -118.5017, "name": "Wilshire, Santa Monica, California, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.1259, "lon": -118.27416, "name": "4730 Crystal Springs Drive, Los Angeles, California 90027, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.1016331, "lon": -118.3266959, "name": "Hollywood Boulevard and West Vine Street, Los Angeles, California 90038, United States"}, {"lat": 34.09264, "lon": -118.44939, "name": "Stone Canyon Road, Los Angeles, California 90077, United States"}, {"lat": 34.06187, "lon": -118.31247, "name": "3927 Wilshire Boulevard, Los Angeles, California 90005, United States"}, {"lat": 34.095884, "lon": -118.370965, "name": "Pool at The Standard, 8300 W Sunset Blvd, West Hollywood, California 90069, United States"}, {"lat": 34.0544, "lon": -118.2439, "name": "Los Angeles, California, United States"}, {"lat": 34.15, "lon": -118.76, "name": "Midtown, Agoura Hills, California, United States"}, {"lat": 34.14728, "lon": -118.2096, "name": "Wilshire Blvd, Glendale, California 90048, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[34.027456, -118.494567], [34.052416, -118.310292], [34.053691, -118.242766]], "data": [{"lat": 34.08054, "lon": -118.42477, "name": "10060 W Sunset Blvd, Los Angeles, California 90024, United States"}, {"lat": 34.150875, "lon": -118.766198, "name": "Midtown, Agoura Hills, California, United States"}, {"lat": 34.098883, "lon": -118.459881, "name": "Bel Air, Los Angeles, California, United States"}, {"lat": 34.10499, "lon": -118.328545, "name": "1851 Ivar Avenue, Los Angeles, California 90028, United States"}, {"lat": 34.09747, "lon": -118.36513, "name": "8000 West Sunset Boulevard, Los Angeles, California 90046, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.0851635625, "lon": -118.3194839375, "name": "Stage 18: Paramount Studios, 5555 Melrose Ave., Los Angeles, California 90038, United States"}, {"lat": 34.092301, "lon": -118.369289, "name": "West Hollywood, California, United States"}, {"lat": 34.11723, "lon": -118.37729, "name": "W Sunset Blvd, Los Angeles, California 90046, United States"}, {"lat": 34.027456, "lon": -118.494567, "name": "Wilshire, Santa Monica, California, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.1259, "lon": -118.27416, "name": "4730 Crystal Springs Drive, Los Angeles, California 90027, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}, {"lat": 34.1016331, "lon": -118.3266959, "name": "Hollywood Boulevard and West Vine Street, Los Angeles, California 90038, United States"}, {"lat": 34.09264, "lon": -118.44939, "name": "Stone Canyon Road, Los Angeles, California 90077, United States"}, {"lat": 34.052416, "lon": -118.310292, "name": "Chosun Galbee, 3330 W Olympic Blvd, Los Angeles, California 90019, United States"}, {"lat": 34.150875, "lon": -118.766198, "name": "Midtown, Agoura Hills, California, United States"}, {"lat": 34.095892, "lon": -118.37094, "name": "The Standard, 8300 W Sunset Blvd, Los Angeles, California 90069, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.14728, "lon": -118.2096, "name": "Wilshire Blvd, Glendale, California 90048, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -392,5 +318,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

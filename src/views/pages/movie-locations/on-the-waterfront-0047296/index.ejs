@@ -1,264 +1,144 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">On the Waterfront</h3>
-          <p class="card-text mb-0">
-
-
-  <span > An ex-prize fighter turned New Jersey longshoreman struggles to stand up to his corrupt union bosses, including his older brother, as he starts to connect with the grieving sister of one of the syndicate's victims.  </span>
-                          <span > Terry Malloy dreams about being a prize fighter, while tending his pigeons and running errands at the docks for Johnny Friendly, the corrupt boss of the dockers union. Terry witnesses a murder by two of Johnny's thugs, and later meets the dead man's sister and feels responsible for his death. She introduces him to Father Barry, who tries to force him to provide information for the courts that will smash the dock racketeers. -Colin Tinto .  </span>
-                          <span > A longshoreman and ex boxer named Terry Malloy witnesses a murder perpetrated by his corrupt union. When a beautiful young woman comes into the picture that just so happens to be the murdered man's sister, Terry feels obligated to stand up to his bosses as a result of his recent relations with her. -drewsoccer707.  </span>
-                          
-                <div class="collapse" id="myCollapsible">
-                    <div id = "module">
-
-
-
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">On the Waterfront</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">An ex-prize fighter turned New Jersey longshoreman struggles to stand up to his corrupt union bosses, including his older brother, as he starts to connect with the grieving sister of one of the syndicate's victims. Terry Malloy dreams about being a prize fighter, while tending his pigeons and running errands at the docks for Johnny Friendly, the corrupt boss of the dockers union. Terry witnesses a murder by two of Johnny's thugs, and later meets the dead man's sister and feels responsible for his death. She introduces him to Father Barry, who tries to force him to provide information for the courts that will smash the dock racketeers. Colin Tinto <cst@imdb.com> A longshoreman and ex boxer named Terry Malloy witnesses a murder perpetrated by...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information"> his corrupt union. When a beautiful young woman comes into the picture that just so happens to be the murdered man's sister, Terry feels obligated to stand up to his bosses as a result of his recent relations with her. drewsoccer707 Terry Malloy is an ex prize-fighter who works on the docks doing errands for corrupt union boss  Friendly Johnny . After witnessing the murder of one of the dock men, he takes a second look into the men he is working for. He feels guilty about the death of the young man after falling for his sister and meeting  Father Barry  in his campaign to take down the evil longshoremen union bosses in the courts. eljohnson3742 Dockworker Terry Malloy had been an up-and-coming boxer until powerful local mob boss Johnny Friendly persuaded him to throw a fight. When a longshoreman is murdered before he can testify about Friendly's control of the Hoboken waterfront, Terry teams up with the dead man's sister Edie and the streetwise priest Father Barry to testify himself, against the advice of Friendly's lawyer, Terry's older brother Charley. Jwelch5742 The Waterfront Crime Commission is about to hold public hearings on union crime and underworld infiltration. As workers are turned against each other, Terry Malloy inadvertently participates in the murder of fellow longshoreman Joey Doyle. Union boss Johnny Friendly orchestrates the murder along with other illegal dockside activities, aided by Terry's brother Charley. Terry begins to feel pangs of conscience. When Joey's sister Edie sees more in Terry than he sees in himself and Father Barry urges him on, Terry reassesses his past and begins to regain responsibility for his actions. Bruce Janson <bruce@cs.su.oz.au></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BY2I0MWFiZDMtNWQyYy00Njk5LTk3MDktZjZjNTNmZmVkYjkxXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="On the Waterfront"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-<span class="additional-information" > Terry Malloy is an ex prize-fighter who works on the docks doing errands for corrupt union boss "Friendly Johnny". After witnessing the murder of one of the dock men, he takes a second look into the men he is working for. He feels guilty about the death of the young man after falling for his sister and meeting "Father Barry" in his campaign to take down the evil longshoremen union bosses in the courts. -eljohnson3742.  </span>
-    <span class="additional-information" > Dockworker Terry Malloy had been an up-and-coming boxer until powerful local mob boss Johnny Friendly persuaded him to throw a fight. When a longshoreman is murdered before he can testify about Friendly's control of the Hoboken waterfront, Terry teams up with the dead man's sister Edie and the streetwise priest Father Barry to testify himself, against the advice of Friendly's lawyer, Terry's older brother Charley. -Jwelch5742.  </span>
-    <span class="additional-information" > The Waterfront Crime Commission is about to hold public hearings on union crime and underworld infiltration. As workers are turned against each other, Terry Malloy inadvertently participates in the murder of fellow longshoreman Joey Doyle. Union boss Johnny Friendly orchestrates the murder along with other illegal dockside activities, aided by Terry's brother Charley. Terry begins to feel pangs of conscience. When Joey's sister Edie sees more in Terry than he sees in himself and Father Barry urges him on, Terry reassesses his past and begins to regain responsibility for his actions. -Bruce Janson .  </span>
-    </div>
-                
-<p>
-  <a class="btn btn-link show-more-less collapsed" data-bs-toggle="collapse" href="#myCollapsible" role="button" aria-expanded="false" aria-controls="myCollapsible">
-
-  </a>
-
-</p>
-
-              
-
-                        </p>
-                      </div>
-                    </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BY2I0MWFiZDMtNWQyYy00Njk5LTk3MDktZjZjNTNmZmVkYjkxXkEyXkFqcGdeQXVyNjc1NTYyMjg@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="On the Waterfront"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hudson County, New Jersey, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.73</span>, <span class="lon">-74.08</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Our Lady of Grace R.C. Church, 400 Willow Ave, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.742221</span>, <span class="lon">-74.033818</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">129 Washington Street, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.738386</span>, <span class="lon">-74.030296</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">129 Washington Street, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.738386</span>, <span class="lon">-74.030296</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">5th Street, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.74291</span>, <span class="lon">-74.03292</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hudson County, New Jersey, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.73</span>, <span class="lon">-74.08</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Willow Ave, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.73913</span>, <span class="lon">-74.03097</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Court Street, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.74248</span>, <span class="lon">-74.02887</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hudson Street, Hoboken, New Jersey 07030, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.747515</span>, <span class="lon">-74.02688625</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New York, New York, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.7306</span>, <span class="lon">-73.9866</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.751296</span>, <span class="lon">-73.984819</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hoboken, New Jersey, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.7433</span>, <span class="lon">-74.0324</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">New Jersey, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.1502478924</span>, <span class="lon">-74.3893168105238</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Hudson County, New Jersey, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">40.73</span>, <span class="lon">-74.08</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hudson County, New Jersey, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.73</span>, <span class="lon">-74.08</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hudson County, New Jersey, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.73</span>, <span class="lon">-74.08</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Court Street, Hoboken, New Jersey 07030, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.74248</span>, <span class="lon">-74.02887</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New York, New York, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.7306</span>, <span class="lon">-73.9866</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.751296</span>, <span class="lon">-73.984819</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Hoboken, New Jersey, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.743307</span>, <span class="lon">-74.032375</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">New Jersey, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">40.1502478924</span>, <span class="lon">-74.3893168105238</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[40.1502478924, -74.3893168105238], [40.73, -74.08], [40.73, -74.08]], "data": [{"lat": 40.73, "lon": -74.08, "name": "Hudson County, New Jersey, United States"}, {"lat": 40.742221, "lon": -74.033818, "name": "Our Lady of Grace R.C. Church, 400 Willow Ave, Hoboken, New Jersey 07030, United States"}, {"lat": 40.738386, "lon": -74.030296, "name": "129 Washington Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.738386, "lon": -74.030296, "name": "129 Washington Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.74291, "lon": -74.03292, "name": "5th Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.73, "lon": -74.08, "name": "Hudson County, New Jersey, United States"}, {"lat": 40.73913, "lon": -74.03097, "name": "Willow Ave, Hoboken, New Jersey 07030, United States"}, {"lat": 40.74248, "lon": -74.02887, "name": "Court Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.747515, "lon": -74.02688625, "name": "Hudson Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.7433, "lon": -74.0324, "name": "Hoboken, New Jersey, United States"}, {"lat": 40.1502478924, "lon": -74.3893168105238, "name": "New Jersey, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 40.73, "lon": -74.08, "name": "Hudson County, New Jersey, United States"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[40.1502478924, -74.3893168105238], [40.73, -74.08], [40.73, -74.08]], "data": [{"lat": 40.73, "lon": -74.08, "name": "Hudson County, New Jersey, United States"}, {"lat": 40.73, "lon": -74.08, "name": "Hudson County, New Jersey, United States"}, {"lat": 40.74248, "lon": -74.02887, "name": "Court Street, Hoboken, New Jersey 07030, United States"}, {"lat": 40.7306, "lon": -73.9866, "name": "New York, New York, United States"}, {"lat": 40.751296, "lon": -73.984819, "name": "Marriott Vacation Club Pulse, 33 West 37th Street, New York, New York 10018, United States"}, {"lat": 40.743307, "lon": -74.032375, "name": "Hoboken, New Jersey, United States"}, {"lat": 40.1502478924, "lon": -74.3893168105238, "name": "New Jersey, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -342,5 +222,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>

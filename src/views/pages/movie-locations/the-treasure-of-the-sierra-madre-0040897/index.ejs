@@ -1,315 +1,248 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
-
-  <body class="film-location">
-    <!--[if lt IE 8]>
+    <%- include(`${partials}/movieLocationHead.ejs`, {pageTitle: 'Film Locations'}); -%>
+    <body class="film-location film-details">
+        <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-    <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-
-    <%- include(`${partials}/nav`); -%>
-
-     <main class="mb-4 mt-5">
-
-
-
-        <div class="container px-4 px-lg-5">
-
-
-            <div class="row align-items-md-stretch">
-                
-              <div class="col-md-12">
-
-                <div class="card mb-3" id="film-details">
-                  <div class="row g-0">
-                    <div class="col-md-8 px-3 py-3">
-                      <div class="card-body">
-                      <h3 class="card-title">The Treasure of the Sierra Madre</h3>
-          <p class="card-text mb-0">
-
-
-  <span > Two down-on-their-luck Americans searching for work in 1920s Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains.  </span>
-                          <span > Fred C. Dobbs and Bob Curtin, both down on their luck in Tampico, Mexico in 1925, meet up with a grizzled prospector named Howard and decide to join with him in search of gold in the wilds of central Mexico. Through enormous difficulties, they eventually succeed in finding gold, but bandits, the elements, and most especially greed threaten to turn their success into disaster. -Jim Beaver .  </span>
-                          <span > Dobbs and Curtin meet up in Mexico, and go to work for a contractor, Pat McCormick, who takes them away to remote site and tells them they will be paid when the job is finished. When they are finished, they return to town to find McCormick to get their wages. McCormick gives them a few dollars, and says he'll just go to the bank and pick up the payroll for them. Dobbs and Curtin then meet up with an old prospector, who claims the hills are still full of gold, and if they can get the cash, he'll go with them. They eventually get the cash from McCormick after a little "persuasion", and all three set off for the hills as good friends, but will they return that way ? -Colin Tinto .  </span>
-                          
-
-                        </p>
-                      </div>
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                     <%- include(`${partials}/autocomplete`); -%>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-12">
+                        <div class="card mb-3" id="film-details">
+                            <div class="row g-0">
+                                <div class="col-md-8 px-3 py-3">
+                                    <div class="card-body">
+                                        <h3 class="card-title">The Treasure of the Sierra Madre</h3>
+                                        <p class="card-text mb-0">
+                                            <span id="mainPlotContent">Two down-on-their-luck Americans searching for work in 1920s Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains. Fred C. Dobbs and Bob Curtin, both down on their luck in Tampico, Mexico in 1925, meet up with a grizzled prospector named Howard and decide to join with him in search of gold in the wilds of central Mexico. Through enormous difficulties, they eventually succeed in finding gold, but bandits, the elements, and most especially greed threaten to turn their success into disaster. Jim Beaver <jumblejim@prodigy.net> Dobbs and Curtin meet up in Mexico, and go to work for a contractor, Pat McCormick, who takes them away to remote site and tells them they will be paid when the job is finished. When ...</span>
+                                                
+                                                    <div class="collapse" id="movieLocationCollapsible">
+                                                        <div id = "module"></div>
+                                                        <span id="metaPlotContent"class="additional-information">they are finished, they return to town to find McCormick to get their wages. McCormick gives them a few dollars, and says he'll just go to the bank and pick up the payroll for them. Dobbs and Curtin then meet up with an old prospector, who claims the hills are still full of gold, and if they can get the cash, he'll go with them. They eventually get the cash from McCormick after a little  persuasion , and all three set off for the hills as good friends, but will they return that way ? Colin Tinto <cst@imdb.com></span>
+                                                    </div>
+                                                    <p>
+                                                        <a class="btn btn-link show-more-less collapsed"
+                                                               id="myCollapsibleBtn"
+                                                      
+                                                           role="button"
+                                                       >
+                                                        </a>
+                                                    </p>
+                                                
+                                            </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 justify-self-end">
+                                        <img src="https://m.media-amazon.com/images/M/MV5BOTJlZWMxYzEtMjlkMS00ODE0LThlM2ItMDI3NGQ2YjhmMzkxXkEyXkFqcGdeQXVyMDI2NDg0NQ@@.jpg"
+                                             class="img-fluid rounded-start"
+                                             alt="The Treasure of the Sierra Madre"/>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-                      <div class="col-md-4 justify-self-end">
-                      <img
-                                      src="https://m.media-amazon.com/images/M/MV5BOTJlZWMxYzEtMjlkMS00ODE0LThlM2ItMDI3NGQ2YjhmMzkxXkEyXkFqcGdeQXVyMDI2NDg0NQ@@.jpg"
-                                      class="img-fluid rounded-start"
-                                      alt="The Treasure of the Sierra Madre"
-                                    />
-                    </div>
-                     </div>
                 </div>
-              </div>
-            </div>
-          
-            <div class="col-lg-12">
-  <div class="map-container">
-                  <div id="map"></div>
-                  <div id="loader">
-                    <div class="spinner-border" role="status">
-                      <span class="sr-only d-none">Loading...</span>
+                <div class="col-lg-12">
+                    <div class="map-container">
+                        <div id="map"></div>
+                        <div id="loader">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only d-none">Loading...</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-
-            </div>
-
- <table class="table">
-          <tr class="table__header">
-
-            <th class="table__cell">Location</th>
-           <th class="table__cell">Coordiantes</th>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Tampico, Tamaulipas, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">22.25528</span>, <span class="lon">-97.86861</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Kernville, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.7547</span>, <span class="lon">-118.4254</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Mojave Desert, Essex, California 92323, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">35.0096785</span>, <span class="lon">-115.4742205</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Tucson, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.2217</span>, <span class="lon">-110.9265</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Yuma, Arizona, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.7253</span>, <span class="lon">-114.6244</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">1 Iverson Lane, Chatsworth, California 91311, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.276</span>, <span class="lon">-118.60976</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bavispe, Sonora, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.48001</span>, <span class="lon">-108.9405</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Acapulco, Acapulco De Juárez, Guerrero, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">16.86805</span>, <span class="lon">-99.894018</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Jungapeo, Jungapeo De Juárez, Michoacán 61470, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">19.463</span>, <span class="lon">-100.491621</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">San Jose Purua, Jungapeo, Michoacán 61475, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">19.48899</span>, <span class="lon">-100.492916</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Sierra Madre Del Norte, 53799 Naucalpan De Juárez, México, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">19.440108</span>, <span class="lon">-99.258288</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Desert Place, Lake Havasu City, Arizona 86404, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.51561</span>, <span class="lon">-114.29897</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Sierra Madre Occidental, Maravatío, Michoacán 61266, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">19.906391</span>, <span class="lon">-100.50913</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Sierra Madre Occidental, Heroica Nogales, Sonora, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">31.328721</span>, <span class="lon">-110.92548</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Burbank, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Burbank, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.1816</span>, <span class="lon">-118.3259</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">4000 Warner Boulevard, Burbank, California 91522, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.150955</span>, <span class="lon">-118.339232</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Bacerac, Sonora, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.35505</span>, <span class="lon">-108.94777</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Sierra De Los Ajos, 84624 Heroica Ciudad De Cananea, Sonora, Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">30.97478</span>, <span class="lon">-110.287223</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Tucson Mountain Park, Gates Pass Road, Tucson, Arizona 85735, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">32.194862</span>, <span class="lon">-111.10791</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Palmdale, California, United States </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">34.5793</span>, <span class="lon">-118.1171</span></a>
-                
-            </td>
-          </tr>
-          <tr class="table__row">
-            <td class="table__cell">
-             <a href="#">Mexico </a>
-               
-            </td>
-                <td class="table__cell">
-                <a href="#"><span class="lat">23.9504642310912</span>, <span class="lon">-102.532867448126</span></a>
-                
-            </td>
-          </tr>
-          </tr>
-
-        </table>
-          </div>
+                <table class="table">
+                    <tr class="table__header">
+                        <th class="table__cell">Location</th>
+                        <th class="table__cell">Coordiantes</th>
+                    </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Tampico, Tamaulipas, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">22.25528</span>, <span class="lon">-97.86861</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Kernville, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.757284</span>, <span class="lon">-118.425441</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Mojave Desert, Cima, California 92323, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">35.0096785</span>, <span class="lon">-115.4742205</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Tucson, Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">32.222877</span>, <span class="lon">-110.974848</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Yuma, Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">32.692659</span>, <span class="lon">-114.627616</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">1 Iverson Lane, Chatsworth, California 91311, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.276</span>, <span class="lon">-118.60976</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bavispe, Sonora, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.48001</span>, <span class="lon">-108.9405</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Acapulco, Acapulco De Juárez, Guerrero, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">16.86805</span>, <span class="lon">-99.894018</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Jungapeo, Jungapeo De Juárez, Michoacán 61470, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">19.463</span>, <span class="lon">-100.491621</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">San Jose Purua, Jungapeo, Michoacán 61475, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">19.48899</span>, <span class="lon">-100.492916</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Calle Sierra Madre Del Sur, 53790 Naucalpan De Juárez, México, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">19.4405098</span>, <span class="lon">-99.2563168</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Desert Drive, Lake Havasu City, Arizona 86404, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.51551</span>, <span class="lon">-114.29992</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Sierra Madre Occidental, Maravatío, Michoacán 61266, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">19.906391</span>, <span class="lon">-100.50913</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Calle Sierra Madre Occidental, 85023 Ciudad Obregón, Sonora, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">27.521518</span>, <span class="lon">-109.9242001</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Burbank, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.181648</span>, <span class="lon">-118.325855</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Burbank, California, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.181648</span>, <span class="lon">-118.325855</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">4000 Warner Boulevard, Burbank, California 91522, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">34.150955</span>, <span class="lon">-118.339232</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Bacerac, Sonora, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.35505</span>, <span class="lon">-108.94777</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Sierra De Los Ajos, 84624 Heroica Ciudad De Cananea, Sonora, Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">30.9747786</span>, <span class="lon">-110.2872462</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Tucson Mountains, Arizona, United States</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">32.289831</span>, <span class="lon">-111.066784</span></a>
+                            </td>
+                        </tr>
+                    <tr class="table__row">
+                            <td class="table__cell">
+                                <a href="#">Mexico</a>
+                            </td>
+                            <td class="table__cell">
+                                <a href="#"><span class="lat">23.9504642310912</span>, <span class="lon">-102.532867448126</span></a>
+                            </td>
+                        </tr>
+                    </tr>
+            </table>
         </div>
+    </div>
+</main>
+    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
 
-
-    </main>
-
-
-
-     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
-
-  <script type="text/javascript">
-
-var locations =[{"bbox": [[16.86805, -99.894018], [19.440108, -99.258288], [19.463, -100.491621]], "data": [{"lat": 22.25528, "lon": -97.86861, "name": "Tampico, Tamaulipas, Mexico"}, {"lat": 35.7547, "lon": -118.4254, "name": "Kernville, California, United States"}, {"lat": 35.0096785, "lon": -115.4742205, "name": "Mojave Desert, Essex, California 92323, United States"}, {"lat": 32.2217, "lon": -110.9265, "name": "Tucson, Arizona, United States"}, {"lat": 32.7253, "lon": -114.6244, "name": "Yuma, Arizona, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 30.48001, "lon": -108.9405, "name": "Bavispe, Sonora, Mexico"}, {"lat": 16.86805, "lon": -99.894018, "name": "Acapulco, Acapulco De Ju\u00e1rez, Guerrero, Mexico"}, {"lat": 19.463, "lon": -100.491621, "name": "Jungapeo, Jungapeo De Ju\u00e1rez, Michoac\u00e1n 61470, Mexico"}, {"lat": 19.48899, "lon": -100.492916, "name": "San Jose Purua, Jungapeo, Michoac\u00e1n 61475, Mexico"}, {"lat": 19.440108, "lon": -99.258288, "name": "Sierra Madre Del Norte, 53799 Naucalpan De Ju\u00e1rez, M\u00e9xico, Mexico"}, {"lat": 34.51561, "lon": -114.29897, "name": "Desert Place, Lake Havasu City, Arizona 86404, United States"}, {"lat": 19.906391, "lon": -100.50913, "name": "Sierra Madre Occidental, Maravat\u00edo, Michoac\u00e1n 61266, Mexico"}, {"lat": 31.328721, "lon": -110.92548, "name": "Sierra Madre Occidental, Heroica Nogales, Sonora, Mexico"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.1816, "lon": -118.3259, "name": "Burbank, California, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 30.35505, "lon": -108.94777, "name": "Bacerac, Sonora, Mexico"}, {"lat": 30.97478, "lon": -110.287223, "name": "Sierra De Los Ajos, 84624 Heroica Ciudad De Cananea, Sonora, Mexico"}, {"lat": 32.194862, "lon": -111.10791, "name": "Tucson Mountain Park, Gates Pass Road, Tucson, Arizona 85735, United States"}, {"lat": 34.5793, "lon": -118.1171, "name": "Palmdale, California, United States"}, {"lat": 23.9504642310912, "lon": -102.532867448126, "name": "Mexico"}]}];
+<script type="text/javascript">
+var locations =[{"bbox": [[16.86805, -99.894018], [19.4405098, -99.2563168], [19.463, -100.491621]], "data": [{"lat": 22.25528, "lon": -97.86861, "name": "Tampico, Tamaulipas, Mexico"}, {"lat": 35.757284, "lon": -118.425441, "name": "Kernville, California, United States"}, {"lat": 35.0096785, "lon": -115.4742205, "name": "Mojave Desert, Cima, California 92323, United States"}, {"lat": 32.222877, "lon": -110.974848, "name": "Tucson, Arizona, United States"}, {"lat": 32.692659, "lon": -114.627616, "name": "Yuma, Arizona, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 30.48001, "lon": -108.9405, "name": "Bavispe, Sonora, Mexico"}, {"lat": 16.86805, "lon": -99.894018, "name": "Acapulco, Acapulco De Ju\u00e1rez, Guerrero, Mexico"}, {"lat": 19.463, "lon": -100.491621, "name": "Jungapeo, Jungapeo De Ju\u00e1rez, Michoac\u00e1n 61470, Mexico"}, {"lat": 19.48899, "lon": -100.492916, "name": "San Jose Purua, Jungapeo, Michoac\u00e1n 61475, Mexico"}, {"lat": 19.4405098, "lon": -99.2563168, "name": "Calle Sierra Madre Del Sur, 53790 Naucalpan De Ju\u00e1rez, M\u00e9xico, Mexico"}, {"lat": 34.51551, "lon": -114.29992, "name": "Desert Drive, Lake Havasu City, Arizona 86404, United States"}, {"lat": 19.906391, "lon": -100.50913, "name": "Sierra Madre Occidental, Maravat\u00edo, Michoac\u00e1n 61266, Mexico"}, {"lat": 27.521518, "lon": -109.9242001, "name": "Calle Sierra Madre Occidental, 85023 Ciudad Obreg\u00f3n, Sonora, Mexico"}, {"lat": 34.181648, "lon": -118.325855, "name": "Burbank, California, United States"}, {"lat": 34.181648, "lon": -118.325855, "name": "Burbank, California, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 30.35505, "lon": -108.94777, "name": "Bacerac, Sonora, Mexico"}, {"lat": 30.9747786, "lon": -110.2872462, "name": "Sierra De Los Ajos, 84624 Heroica Ciudad De Cananea, Sonora, Mexico"}, {"lat": 32.289831, "lon": -111.066784, "name": "Tucson Mountains, Arizona, United States"}, {"lat": 23.9504642310912, "lon": -102.532867448126, "name": "Mexico"}]}];
 var map = L.map('map').setView([0,0], 20);
 
 const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -393,5 +326,5 @@ layer.on('load', function (event) {
 });
 layer.addTo(map);
 </script>
-  </body>
+</body>
 </html>
