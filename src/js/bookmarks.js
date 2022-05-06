@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", event => {
   if (localBookmarks) {
     init();
   } else {
-    $("#no-content-wrapper").toggleClass("d-none");
+    //$("#no-content-wrapper").toggleClass("d-none");
   }
   function init() {
     $("#bookmark-ui-wrapper").removeClass("d-none");
