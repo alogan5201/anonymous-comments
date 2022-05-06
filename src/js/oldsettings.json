@@ -1,0 +1,69 @@
+{
+  "diffEditor.wordWrap": "off",
+  "editor.wordWrap": "on",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "workbench.iconTheme": "vscode-icons",
+  "editor.fontFamily": "Dank Mono",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f",
+    "editorError.foreground": "#f0525231",
+    "editorWarning.foreground": "#ffe60033",
+    "editorInfo.foreground": "#00ff0088",
+    "vetur.validation.template": false
+  },
+  "eslint.run": "onSave",
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.hover.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+
+
+  "editor.inlayHints.enabled": false,
+  "typescript.tsserver.log": "off",
+
+  "editor.minimap.enabled": false,
+
+  "editor.showDeprecated": false,
+  "ShortcutMenuBar.commentLine": true,
+  "editor.formatOnSave": true,
+  "editor.wordWrapColumn": 200,
+  "footsteps.highlightColor": "rgb(0, 0, 0 )",
+  "workbench.preferredHighContrastLightColorTheme": "Default Dark+",
+  "workbench.preferredHighContrastColorTheme": "Default Dark+",
+  "window.autoDetectHighContrast": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+
+
+  "git.allowForcePush": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "editor.inlineSuggest.enabled": true,
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "terminal.integrated.inheritEnv": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "bracketPairColorizer.activeScopeCSS": [
+
+    "borderStyle : solid",
+    "borderWidth : 1px",
+    "borderColor : {color}; opacity: 0.5"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "html": false
+  },
+
+}
