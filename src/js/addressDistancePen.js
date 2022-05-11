@@ -1,14 +1,18 @@
 /* jshint esversion: 8 */
-import HaversineGeolocation from "haversine-geolocation";
 import "./firebase";
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
+import HaversineGeolocation from "haversine-geolocation";
 import {
   addBookmark,
   getAddress,
   getGeojson,
   getLatLon,
   popupContent,
-  toggleAltitude,
+  toggleAltitude
 } from "utils/geocoder";
+
+
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -314,13 +318,13 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   
-
-  var myModalEl = document.getElementById('bookmarkModal')
-myModalEl.addEventListener('shown.bs.modal', function (event) {
-
+        var bookmarkModal = new Modal(document.getElementById("bookmarkModal"), {
+    keyboard: false
+  });
+  var bookmarkToggle = document.getElementById( "bookmarkModal" );
+  
   $("#bookmarkForm").on("submit", function(e) {
     e.preventDefault();
-    console.log(e,"bookmarkform")
     let marker = marker1.isPopupOpen() ? marker1 : marker2;
     let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
     let input = $(this).find("input:eq(0)");
@@ -337,9 +341,4 @@ myModalEl.addEventListener('shown.bs.modal', function (event) {
       .find("input:eq(0)")
       .val("");
   } );
-
-
-
-})
-
 });

@@ -1,18 +1,11 @@
 /* jshint esversion: 8 */
-import "./firebase";
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import "utils/commentscript.js";
 import {
-  popupContent,
-  getLatLon,
-  getAddress,
-  generateUID,
-  addBookmark,
-  toggleBookmark,
-  getAltitude,
-  toggleAltitude,
+  addBookmark, generateUID, getAddress, popupContent, toggleAltitude
 } from "utils/geocoder";
+import "./firebase";
 import { getIp } from "./firebase";
-import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 
 function test(e) {
   e.preventDefault();

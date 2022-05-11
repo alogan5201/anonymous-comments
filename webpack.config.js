@@ -29,7 +29,8 @@ module.exports = (env = {}) => {
       login: [ './src/js/login.js' ],
       movies: ['./src/js/movies.js'],
       newConverter: ['./src/js/newConverter.js'],
-      bookmarks: ['./src/js/bookmarks.js']
+      bookmarks: ['./src/js/bookmarks.js'],
+      addressDistancePen: ['./src/js/addressDistancePen.js'],
     },
     output: {
       filename: isProduction ? '[name].[chunkhash].js' : '[name].js',

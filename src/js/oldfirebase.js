@@ -1,3 +1,4 @@
+import { Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import { initializeApp } from "firebase/app";
 import {
   getAuth, GoogleAuthProvider, onAuthStateChanged,
@@ -10,41 +11,10 @@ import {
 import {
   connectFunctionsEmulator, getFunctions, httpsCallable
 } from "firebase/functions";
-
-Date.prototype.toShortFormat = function () {
-  let monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
-
-  let day = this.getDate()
-
-  let monthIndex = this.getMonth()
-  let monthName = monthNames[monthIndex]
-
-  let year = this.getFullYear()
-
-  return `${monthName} ${year}`
-
-
-
-}
-function getDate(){
-  let today = new Date()
-  const prettyDate = today.toShortFormat()
-  return prettyDate
-
-}
+import {
+  comment, replyForm
+} from "utils/comments";
+import { getDate, toggleModal } from "utils/helpers";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBCU8RRxV3qaSyxOgc4ObSWmUhlfnJsYTo",
@@ -68,7 +38,7 @@ if (location.hostname === "localhost") {
 
 }
 const path = window.location.pathname;
-
+const commentRef = ref(db, `messages${path}`);
 const commentFormInputs = $("#comment-form :input");
 const googleProvider = new GoogleAuthProvider();
 
@@ -211,8 +181,113 @@ export async function createRandomUser() {
     });
 }
 
+export async function handleComment(message, name, userData, path) {
+  const addComment = httpsCallable(functions, "addComment");
+ 
+
+  addComment({
+    text: message,
+    name: name,
+    uid: userData,
+    page: path,
+  })
+    .then(function (result) {
+      // Read result of the Cloud Function.
+      let sanitizedMessage = result.data.text;
+      let sanitizedName = result.data.name;
+      const documentId = result.data.id;
+
+      if (message !== sanitizedMessage) {
+  
+
+       $('#comment-btn').prop("disabled", false);
+        $("#comment-btn").html("Submit");
+        for (let index = 0; index < commentFormInputs.length; index++) {
+          const element = commentFormInputs[index];
+          element.value = "";
+        }
+              toggleModal("fail");
+      } else if (message == sanitizedMessage) {
+        const newCommentData = {
+          id: documentId,
+          name: sanitizedName,
+          date: prettyDate,
+          message: sanitizedMessage,
+        };
+        const newComment = push(commentRef);
+        set(newComment, newCommentData);
+      
+        for (let index = 0; index < commentFormInputs.length; index++) {
+          const element = commentFormInputs[index];
+          element.value = "";
+        }
+
+        let commentComponent = comment(
+          documentId,
+          sanitizedName,
+          prettyDate,
+          sanitizedMessage,
+          "",
+          ""
+        );
+            $('#comment-btn').prop("disabled", false);
+        $("#comment-btn").html("Submit");
+        toggleModal("success");
+        $("#comment-section").append(commentComponent);
+   
+      }
+    })
+    .catch(function (error) {
+      // Getting the Error details.
+      let code = error.code;
+      let message = error.message;
+      let details = error.details;
+      console.error(
+        "There was an error when calling the Cloud Function",
+        error
+      );
+      window.alert(
+        "There was an error when calling the Cloud Function:\n\nError Code: " +
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
+      );
+     $('#comment-btn').prop("disabled", false);
+        $("#comment-btn").html("Submit");
+    });
+}
+
+if ( !window.location.pathname.includes( "login" ) )
+{
+
+  
+
+  $( "#mainNav" ).on( "click", "#sign-out", function ( e ) {
+    
+
+  e.preventDefault();
+  console.log(e)
+  signOut(auth)
+    .then(() => {
+    let myModal = new Modal(document.getElementById("modalSignOut"));
+      myModal.toggle();
+      toggleLogInNav()
+       
 
 
+    })
+    .catch( ( error ) => {} );
+   
+  }
+  
+  
+  
+  );
+
+
+}
 
 function getUser() {
 
@@ -309,9 +384,145 @@ function toggleLogInNav () {
       
        $("#user-profile").html(loginNav);
 }
+export async function sanitizeReply(message, name, userData, path) {
+  const addComment = httpsCallable(functions, "addComment");
+ 
+
+  return addComment({
+    text: message,
+    name: name,
+    uid: userData,
+    page: path,
+  })
+    .then(function (result) {
+      // Read result of the Cloud Function.
+      let sanitizedMessage = result.data.text;
+      let sanitizedName = result.data.name;
+      const documentId = result.data.id;
+      const userid = result.data.uid
+
+      if (message !== sanitizedMessage) {
+        let returnmessage = "user is swearing"
+         return returnmessage
+     
+           
+      } else if (message == sanitizedMessage) {
+        const newCommentData = {
+          id: documentId,
+          name: sanitizedName,
+          date: prettyDate,
+          message: sanitizedMessage,
+          uid: userid,
+          status: true
+        };
+       return newCommentData
+   
+      }
+      return result
+    })
+    .catch(function (error) {
+      // Getting the Error details.
+      let code = error.code;
+      let message = error.message;
+      let details = error.details;
+      console.error(
+        "There was an error when calling the Cloud Function",
+        error
+      );
+      window.alert(
+        "There was an error when calling the Cloud Function:\n\nError Code: " +
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
+      );
+   return error
+    });
+}
+export function addCommentMessage(data) {
+  const path = window.location.pathname;
+  const addComment = httpsCallable(functions, "addComment");
+    const docId = data.docId
+
+  
+
+
+  addComment({
+    text: data.cleanMessage,
+    name: data.cleanName,
+    uid: data.uid,
+    page: path,
+  })
+    .then(function (result) {
+
+      // Read result of the Cloud Function.
+      let sanitizedMessage = result.data.text;
+      let sanitizedName = result.data.name;
+
+      if (data.cleanMessage !== sanitizedMessage) {
+      
+        let message = `message ${ cleanMessage } was not clean`
+        return message
+      } else
+      {
+      
+       return get(commentRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const data = snapshot.val();
+              const map = new Map(Object.entries(data));
+
+              for (const [key, value] of map.entries()) {
+                if (value.id == docId) {
+                  const postListRef = ref(
+                    db,
+                    `messages${path}${key}/replies`
+                  );
+                    let messageContent = {
+                    name: data.sanitizedName,
+                    id: data.uid,
+                    message: data.sanitizedMessage,
+                    date: prettyDate,
+                    recipient: value.id,
+                 } 
+                  const newPostRef = push(postListRef);
+                 set(newPostRef, messageContent);
+                  return messageContent
+                }
+              }
+              
+            } 
+          })
+          .catch((error) => {
+            console.error( error );
+            return error
+          });
+
+  
+      }
+    })
+    .catch(function (error) {
+      // Getting the Error details.
+      let code = error.code;
+      let message = error.message;
+      let details = error.details;
+      console.error(
+        "There was an error when calling the Cloud Function",
+        error
+      );
+      window.alert(
+        "There was an error when calling the Cloud Function:\n\nError Code: " +
+        code +
+        "\nError Message:" +
+        message +
+        "\nError Details:" +
+        details
+      );
+    return error
+    });
+}
 
 
 
-
-
-export default {  googleSignin, createRandomUser, getIp}
+export default { addCommentMessage, googleSignin, createRandomUser, getIp, sanitizeReply }

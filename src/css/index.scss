@@ -1,25 +1,7 @@
 //
 // Styles
 //
-@charset "UTF-8";
-// Import variables
-@import "./variables";
 
-// Import Bootstrap
-
-@import "./bootstrap/bootstrap.scss";
-// Global CSS
-@import "./global";
-
-// Components
-@import "./components/buttons";
-@import "./components/forms";
-@import "./components/navbar";
-
-// Sections
-@import "./sections/footer";
-@import "./sections/masthead";
-@import "./sections/post";
 html {
   scroll-behavior: smooth;
 }
@@ -379,10 +361,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
+
 
 input[type="text"] {
   background-color: white !important;
