@@ -16,6 +16,33 @@
   </noscript>
 
   <main class="flex-shrink-0 mt-5">
+<!--  !! BOOKMARK DIALOG MODAL !! -->
+<div class="modal fade   py-5" tabindex="-1" role="dialog" id="bookmarkModal">
+<div class="modal-dialog" aria-hidden="true">
+    <div class="modal-content rounded-6 shadow">
+
+      <div class="modal-body pb-0">
+        <div class="row justify-content-end mb-2">
+          <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form id="bookmarkForm" autocomplete="off">
+    
+
+            <input type="text" class="form-control" id="bookmark-name" placeholder="Enter Bookmark name" required="">
+      <button type="submit" class="btn btn-sm btn-primary w-100 mx-0 mb-2 mt-4">Save changes</button>
+     
+   </form>
+
+      </div>
+      <div class="modal-footer flex-column border-top-0 pt-0">
+  
+        <button type="button" class="btn btn-sm btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
+      </div>
+   
+    </div>
+  </div>
+</div>
     <div class="container px-3">
       <div class="row g-3 ">
         <div class="col-md-4">
@@ -36,32 +63,7 @@
     </div>
     <!--  !! COMMENT SECTION FORM MODALS !! -->
 
-<!--  !! BOOKMARK DIALOG MODAL !! -->
-<div class="modal fade   py-5" tabindex="-1" role="dialog" id="bookmarkModal">
-  <div class="modal-dialog" aria-hidden="true">
-    <div class="modal-content rounded-6 shadow">
 
-      <div class="modal-body">
-        <div class="row justify-content-end">
-          <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <form id="bookmarkForm" autocomplete="off">
-          <div class="mb-3">
-
-            <input type="text" class="form-control" id="bookmark-name" placeholder="Enter Bookmark name" required>
-          </div>
-
-
-      </div>
-      <div class="modal-footer flex-column border-top-0">
-        <button type="submit" class="btn btn-sm btn-primary w-100 mx-0 mb-2">Save changes</button>
-        <button type="button" class="btn btn-sm btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
   </main>
   <!-- Footer-->
  <%-

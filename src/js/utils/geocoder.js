@@ -120,7 +120,7 @@ let id = input.uid ? input.uid : uid
 
   let bookmarked = input.name
     ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
-    : `<button type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-toggle="modal" data-bs-target="#bookmarkModal" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
+    : `<button id="bookmarkButton" type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
   let altitudeElm = altitude
     ? `<strong class="${origin}${destination}">${altitude}</strong>`
     : `<button class="badge bg-primary border-white  getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >

@@ -13,8 +13,7 @@ import {
 
 window.addEventListener("DOMContentLoaded", () => {
   
-  
-  
+
   var loader = document.getElementById( "loader" );
   const map = L.mapbox
     .map("map", null, { zoomControl: false })
@@ -298,12 +297,30 @@ window.addEventListener("DOMContentLoaded", () => {
       toggleAltitude(this, marker2);
     }
   });
+const myModal = new bootstrap.Modal(document.getElementById('bookmarkModal'))
 
+    const bookmarkButton = document.getElementById("bookmarkButton")
+function handleButton (t){
+ if(t.classList.contains("bookmark-btn")){
+
+myModal.toggle()
+}
+}
+
+const mapCol = document.querySelector('#mapColumn');
+mapCol.addEventListener('click', e => {
+  const { target } = e;
+  if (target.matches('button')) {
+    handleButton(target) // If target is an li, run callback
+  }
+});
 
 
   map.on("popupopen", function (e) {
+
+
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, 
     map.panTo(map.unproject(px), { animate: true });
     $(".leaflet-top.leaflet-left").css("opacity", "0");
     // TODO update
@@ -312,34 +329,73 @@ window.addEventListener("DOMContentLoaded", () => {
     // TODO update
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
-
-  
-
   var myModalEl = document.getElementById('bookmarkModal')
-myModalEl.addEventListener('shown.bs.modal', function (event) {
+const bookmarkform = document.getElementById("bookmarkForm")
 
-  $("#bookmarkForm").on("submit", function(e) {
-    e.preventDefault();
-    console.log(e,"bookmarkform")
+
+
+bookmarkform.addEventListener("submit", function(e) {
+e.preventDefault();
+
+var inputs = document.getElementById("bookmarkForm").elements;
+
+  var bookmarkToggle = document.getElementById("bookmarkModal");
+// Iterate over the form controls
+for (let i = 0; i < inputs.length; i++) {
+  if (inputs[i].nodeName === "INPUT" && inputs[i].type === "text") {
+    // Update text input
+    let input = inputs[i]
     let marker = marker1.isPopupOpen() ? marker1 : marker2;
     let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
-    let input = $(this).find("input:eq(0)");
-    console.log(e.target);
     let locationData = JSON.parse(localStorage.getItem(data));
-    locationData.name = input[ 0 ].value;
+    locationData.name = input.value;
      let p = popupContent(locationData);
     marker.setPopupContent( p );
     localStorage.setItem( data, JSON.stringify( locationData ) );
-    
+   
     addBookmark(data);
-    bookmarkModal.hide(bookmarkToggle);
-    $(this)
-      .find("input:eq(0)")
-      .val("");
-  } );
+    setTimeout(() => {
+       input.value = ""
+  myModal.hide()
+      console.log("🚀 ~ file: addressDistance.js ~ line 341 ~ setTimeout ~ bookmarkModal", bookmarkModal)
+    }, 100);
+  
 
-
-
+  }
+}
 })
 
+
+
+myModalEl.addEventListener('shown.bs.modal', function (event) {
+
+
+console.log(event.target)
+
+let x = document.getElementById("bookmark-name")
+x.focus()
+})
+
+
+  // $("#bookmarkForm").on("submit", function(e) {
+  //   e.preventDefault();
+  //   console.log(e,"bookmarkform")
+  //   let marker = marker1.isPopupOpen() ? marker1 : marker2;
+  //   let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
+  //   let input = $(this).find("input:eq(0)");
+  //   console.log(e.target);
+  //   let locationData = JSON.parse(localStorage.getItem(data));
+  //   locationData.name = input[ 0 ].value;
+  //    let p = popupContent(locationData);
+  //   marker.setPopupContent( p );
+  //   localStorage.setItem( data, JSON.stringify( locationData ) );
+    
+  //   addBookmark(data);
+  //   bookmarkModal.hide(bookmarkToggle);
+  //   $(this)
+  //     .find("input:eq(0)")
+  //     .val("");
+  // } );
+
+ 
 });
