@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Grapes of Wrath</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">An Oklahoma family driven off their farm by the poverty and hopelessness of the Dust Bowl joins the westward migration to California, suffering the misfortunes of the homeless in the Great Depression. The Joad clan, introduced to the world in John Steinbeck's iconic novel, is looking for a better life in California. After their drought-ridden farm is seized by the bank, the family -- led by just-paroled son Tom -- loads up a truck and heads West. On the road, beset by hardships, the Joads meet dozens of other families making the same trek and holding onto the same dream. Once in California, however, the Joads soon realize that the promised land isn't quite what they hoped. Jwelch5742 The story of the Joad family is told, they, poor Oklahoma...</span>
+                                            <span id="mainPlotContent"> An Oklahoma family driven off their farm by the poverty and hopelessness of the Dust Bowl joins the westward migration to California, suffering the misfortunes of the homeless in the Great Depression. The Joad clan, introduced to the world in John Steinbeck's iconic novel, is looking for a better life in California. After their drought-ridden farm is seized by the bank, the family -- led by just-paroled son Tom -- loads up a truck and heads West. On the road, beset by hardships, the Joads meet dozens of other families making the same trek and holding onto the same dream. Once in California, however, the Joads soon realize that the promised land isn't quite what they hoped. Jwelch5742 The story of the Joad family is told, they, poor Oklahoma... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information"> sharecroppers, who, like all others in their situation, are pushed off the land by the wealthy landowners, many large corporations, during the Great Depression, and, as a result, they, again like many others in their situation, making the decision for the dozen or so of the family members, with another one on the way, to migrate to what is seen as the land of opportunity, California, where jobs, specifically as fruit pickers, are purported to be plentiful. Not only because of the jalopy of a truck they could afford to buy to make the trek and their remaining limited funds which they calculate should just be enough to get them to California where they will once again start to earn money, their trip is not without incident from unforeseen circumstances. Arriving in California, they discover that the land of opportunity is not all it was advertised to be, with they and all others like them facing different challenges to survive, where, if there are jobs to be had, they are more often than not for wages on which a family cannot survive, and with security on site with guns and clubs to control labor unrest. Often, they will have to make some difficult decisions on whether to accept work in unacceptable conditions in even attempting to survive, or hold out, like some others are doing, but who are considered  agitators  who the owners will do anything to eliminate, for good if need be. While Ma Joad believes that the family unit is the most important thing that has always gotten them through the bad times, oldest son Tom Joad may have the most holistically consequential decisions as the one on parole, he just released from prison after four years of a seven year sentence for killing a man in a bar brawl. Huggo Tom Joad returns to his home after a jail sentence to find his family kicked off their farm due to foreclosure. He catches up with them on his uncle's farm and joins them the next day as they head for California and a new life - Hopefully. Colin Tinto <cst@imdb.com></span>
+                                                        <span id="metaPlotContent"class="additional-information">  sharecroppers, who, like all others in their situation, are pushed off the land by the wealthy landowners, many large corporations, during the Great Depression, and, as a result, they, again like many others in their situation, making the decision for the dozen or so of the family members, with another one on the way, to migrate to what is seen as the land of opportunity, California, where jobs, specifically as fruit pickers, are purported to be plentiful. Not only because of the jalopy of a truck they could afford to buy to make the trek and their remaining limited funds which they calculate should just be enough to get them to California where they will once again start to earn money, their trip is not without incident from unforeseen circumstances. Arriving in California, they discover that the land of opportunity is not all it was advertised to be, with they and all others like them facing different challenges to survive, where, if there are jobs to be had, they are more often than not for wages on which a family cannot survive, and with security on site with guns and clubs to control labor unrest. Often, they will have to make some difficult decisions on whether to accept work in unacceptable conditions in even attempting to survive, or hold out, like some others are doing, but who are considered  agitators  who the owners will do anything to eliminate, for good if need be. While Ma Joad believes that the family unit is the most important thing that has always gotten them through the bad times, oldest son Tom Joad may have the most holistically consequential decisions as the one on parole, he just released from prison after four years of a seven year sentence for killing a man in a bar brawl. Huggo Tom Joad returns to his home after a jail sentence to find his family kicked off their farm due to foreclosure. He catches up with them on his uncle's farm and joins them the next day as they head for California and a new life - Hopefully. Colin Tinto  </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -258,14 +254,11 @@
                                 <a href="#"><span class="lat">34.94564</span>, <span class="lon">-104.66844</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[33.645896, -117.842799], [34.04994, -118.41129], [34.04994, -118.41129]], "data": [{"lat": 34.93867, "lon": -104.682489, "name": "Santa Rosa, New Mexico, United States"}, {"lat": 34.84806, "lon": -114.614132, "name": "Needles, California, United States"}, {"lat": 34.718602, "lon": -114.483911, "name": "Topock, Arizona, United States"}, {"lat": 35.132188, "lon": -118.448974, "name": "Tehachapi, California, United States"}, {"lat": 34.863417, "lon": -116.888032, "name": "Daggett, California, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 34.954552, "lon": -107.159719, "name": "Laguna, New Mexico, United States"}, {"lat": 34.933498, "lon": -95.769793, "name": "McAlester, Oklahoma, United States"}, {"lat": 35.528351, "lon": -108.743907, "name": "Gallup, New Mexico, United States"}, {"lat": 33.645896, "lon": -117.842799, "name": "University of California, Irvine, California, United States"}, {"lat": 35.259683, "lon": -118.914267, "name": "Lamont, California, United States"}, {"lat": 34.864308, "lon": -109.801365, "name": "Petrified Forest National Park, Petrified Forest Rd., Concho, Arizona 85924, United States"}, {"lat": 35.291162, "lon": -99.640097, "name": "Sayre, Oklahoma, United States"}, {"lat": 34.170561, "lon": -118.837594, "name": "Thousand Oaks, California, United States"}, {"lat": 34.259572, "lon": -118.602325, "name": "Chatsworth, California, United States"}, {"lat": 34.04994, "lon": -118.41129, "name": "10201 West Pico Boulevard, Los Angeles, California 90064, United States"}, {"lat": 34.04994, "lon": -118.41129, "name": "10201 West Pico Boulevard, Los Angeles, California 90064, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.251081, "lon": -118.518444, "name": "San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}, {"lat": 34.2202611707, "lon": -111.422127989113, "name": "Arizona, United States"}, {"lat": 35.353913, "lon": -109.053702, "name": "Lupton, Arizona, United States"}, {"lat": 34.94564, "lon": -104.66844, "name": "Historic Route 66, Santa Rosa, New Mexico 88435, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -281,8 +274,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -305,7 +296,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -349,6 +340,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Intouchables</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver. In Paris, the aristocratic and intellectual Philippe is a quadriplegic millionaire who is interviewing candidates for the position of his carer, with his red-haired secretary Magalie. Out of the blue, Driss cuts the line of candidates and brings a document from the Social Security and asks Phillipe to sign it to prove that he is seeking a job position so he can receive his unemployment benefit. Philippe challenges Driss, offering him a trial period of one month to gain experience helping him. Then Driss can decide whether he would like to stay with him or not. Driss accepts the challenge and moves to the mansio...</span>
+                                            <span id="mainPlotContent"> After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver. In Paris, the aristocratic and intellectual Philippe is a quadriplegic millionaire who is interviewing candidates for the position of his carer, with his red-haired secretary Magalie. Out of the blue, Driss cuts the line of candidates and brings a document from the Social Security and asks Phillipe to sign it to prove that he is seeking a job position so he can receive his unemployment benefit. Philippe challenges Driss, offering him a trial period of one month to gain experience helping him. Then Driss can decide whether he would like to stay with him or not. Driss accepts the challenge and moves to the mansio... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">n, changing the boring life of Phillipe and his employees. Claudio Carvalho, Rio de Janeiro, Brazil A rich quadriplegic, living in a mansion in Paris, requires a live-in carer. A young offender turns up for an interview, but he is not really looking to get the job. However, to his surprise, he is hired. The two men then develop a close friendship. Anonymous</span>
+                                                        <span id="metaPlotContent"class="additional-information"> n, changing the boring life of Phillipe and his employees. Claudio Carvalho, Rio de Janeiro, Brazil A rich quadriplegic, living in a mansion in Paris, requires a live-in carer. A young offender turns up for an interview, but he is not really looking to get the job. However, to his surprise, he is hired. The two men then develop a close friendship. Anonymous </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -122,14 +118,11 @@
                                 <a href="#"><span class="lat">48.85658</span>, <span class="lon">2.35183</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[48.854027, 2.333164], [48.856126, 2.322049], [48.85658, 2.35183]], "data": [{"lat": 49.293437, "lon": -0.115509, "name": "Cabourg, Calvados, France"}, {"lat": 45.750438, "lon": 6.539935, "name": "Route Du Mont Bisanne, 73270 Villard-sur-Doron, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.856126, "lon": 2.322049, "name": "85 Rue De Grenelle, 75007 Paris, France"}, {"lat": 48.854027, "lon": 2.333164, "name": "Les Deux Magots, 6 place Saint-Germain-des-Pr\u00e9s, Paris, 75006, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -145,8 +138,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -169,7 +160,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -213,6 +204,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

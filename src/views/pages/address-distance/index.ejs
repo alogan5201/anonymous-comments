@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <%- include(`${partials}/head`, {pageTitle: 'Home'}); -%> <%-
+<%- include(`${partials}/head`, {pageTitle: 'Home'}); -%> <%-
   include(`${partials}/page-scripts/geocoder-css.ejs`); -%>
-  <body class="latlon-to-distance">
-    <!--[if lt IE 8]>
+
+<body class="latlon-to-distance">
+  <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
-      <p>Go back <a href="<%= PP %>/">Home</a>.</p>
     <![endif]-->
-
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-    <%- include(`${partials}/nav`); -%>
-       <main class="flex-shrink-0 mt-5" >
+  <noscript>
+    <h3>Please enable JavaScript in order to view this site properly.</h3>
+  </noscript>
+  <%- include(`${partials}/nav`); -%>
+  <main class="flex-shrink-0 mt-5">
     <div class="container px-3">
- 
       <div class="row g-3 ">
-             <div class="col-md-4">
-
-      <%- include(`${partials}/general/header`, {title: 'Address Distance Calculator', subtitle: 'Quickly get the distance between two points.'}); -%>
-
-        <%- include(`${partials}/form/inputs`,{
+        <div class="col-md-4">
+          <%- include(`${partials}/general/header`, {title: 'Address Distance Calculator', subtitle: 'Quickly get the distance between two points.'}); -%>
+          <%- include(`${partials}/form/inputs`,{
                   inputName: [
                     { name: 'Origin',  type: 'text' },
                       { name: 'Destination',  type: 'text' }
-                      
-
                   ], 
                 formid: "getDistanceForm",
                 button: {name: 'Find Distance', type: 'submit' },
                 output: [{name: 'Distance', type: 'text'}]
                 }); -%>
-
-
-             </div>
-             <%- include(`${partials}/map/map-Container.ejs`); -%>
+        </div>
+        <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
       <%- include(`${partials}/comment-section.ejs`); -%>
-
     </div>
   </main>
-
-    <!-- Footer-->
-
-    <%- include(`${partials}/footer`); -%> <%-
+  <!-- Footer-->
+  <%- include(`${partials}/footer`); -%> <%-
     include(`${partials}/page-scripts/address-distance-scripts.ejs`); -%>
-  </body>
+</body>
+
 </html>

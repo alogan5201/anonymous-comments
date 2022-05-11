@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Platoon</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Chris Taylor, a neophyte recruit in Vietnam, finds himself caught in a battle of wills between two sergeants, one good and the other evil. A shrewd examination of the brutality of war and the duality of man in conflict. Chris Taylor is a young, naive American who gives up college and volunteers for combat in Vietnam. Upon arrival, he quickly discovers that his presence is quite nonessential, and is considered insignificant to the other soldiers, as he has not fought for as long as the rest of them and felt the effects of combat. Chris has two non-commissioned officers, the ill-tempered and indestructible Staff Sergeant Robert Barnes and the more pleasant and cooperative Sergeant Elias Grodin. A line is drawn between the two NCOs and a numbe...</span>
+                                            <span id="mainPlotContent"> Chris Taylor, a neophyte recruit in Vietnam, finds himself caught in a battle of wills between two sergeants, one good and the other evil. A shrewd examination of the brutality of war and the duality of man in conflict. Chris Taylor is a young, naive American who gives up college and volunteers for combat in Vietnam. Upon arrival, he quickly discovers that his presence is quite nonessential, and is considered insignificant to the other soldiers, as he has not fought for as long as the rest of them and felt the effects of combat. Chris has two non-commissioned officers, the ill-tempered and indestructible Staff Sergeant Robert Barnes and the more pleasant and cooperative Sergeant Elias Grodin. A line is drawn between the two NCOs and a numbe... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">r of men in the platoon when an illegal killing occurs during a village raid. As the war continues, Chris himself draws towards psychological meltdown. And as he struggles for survival, he soon realizes he is fighting two battles, the conflict with the enemy and the conflict between the men within his platoon. Jeremy Thomson Chris Taylor leaves his university studies to enlist in combat duty in Vietnam in 1967. Once he's on the ground in the middle of battle, his idealism fades. Infighting in his unit between Staff Sergeant Barnes, who believes nearby villagers are harboring Viet Cong soldiers, and Sergeant Elias, who has a more sympathetic view of the locals, ends up pitting the soldiers against each other as well as against the enemy. Jwelch5742 A gritty and emotional look at the lives of a platoon of American soldiers as they patrol, fight and die in the jungles of Vietnam as seen through the perspective of a young recruit. Two veteran sergeants clash when one of them precipitates a massacre of villagers. Keith Loh <loh@sfu.ca> Chris Taylor has arrived in Vietnam in the year 1967. Initially, he is mostly isolated from the rest of his platoon given that he is new to the unit. Over time, after witnessing combat and getting wounded, Taylor becomes more integrated into his unit. At the same time, tensions emerge following a massacre conducted by members of the platoon and Taylor finds himself caught in the crossfire. Sam Freeman</span>
+                                                        <span id="metaPlotContent"class="additional-information"> r of men in the platoon when an illegal killing occurs during a village raid. As the war continues, Chris himself draws towards psychological meltdown. And as he struggles for survival, he soon realizes he is fighting two battles, the conflict with the enemy and the conflict between the men within his platoon. Jeremy Thomson Chris Taylor leaves his university studies to enlist in combat duty in Vietnam in 1967. Once he's on the ground in the middle of battle, his idealism fades. Infighting in his unit between Staff Sergeant Barnes, who believes nearby villagers are harboring Viet Cong soldiers, and Sergeant Elias, who has a more sympathetic view of the locals, ends up pitting the soldiers against each other as well as against the enemy. Jwelch5742 A gritty and emotional look at the lives of a platoon of American soldiers as they patrol, fight and die in the jungles of Vietnam as seen through the perspective of a young recruit. Two veteran sergeants clash when one of them precipitates a massacre of villagers. Keith Loh  Chris Taylor has arrived in Vietnam in the year 1967. Initially, he is mostly isolated from the rest of his platoon given that he is new to the unit. Over time, after witnessing combat and getting wounded, Taylor becomes more integrated into his unit. At the same time, tensions emerge following a massacre conducted by members of the platoon and Taylor finds himself caught in the crossfire. Sam Freeman </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -106,14 +102,11 @@
                                 <a href="#"><span class="lat">45.803309</span>, <span class="lon">-108.530808</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[14.26667, 120.86667], [14.58333, 121], [14.58678841, 120.98177916]], "data": [{"lat": 14.58678841, "lon": 120.98177916, "name": "Philippines"}, {"lat": 6.519, "lon": 126.0941, "name": "Luzon, Governor Generoso, Davao Oriental, Philippines"}, {"lat": 14.26667, "lon": 120.86667, "name": "Cavite, Philippines"}, {"lat": 14.58333, "lon": 121, "name": "Manila, Philippines"}, {"lat": 45.803309, "lon": -108.530808, "name": "Edwards Jet Center, 1691 Aviation Pl, Billings, Montana 59105, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -129,8 +122,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -153,7 +144,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -197,6 +188,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

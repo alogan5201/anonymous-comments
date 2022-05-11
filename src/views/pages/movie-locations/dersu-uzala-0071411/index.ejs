@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Dersu Uzala</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">The Russian army sends an explorer on an expedition to the snowy Siberian wilderness where he makes friends with a seasoned local hunter. A Russian army explorer who is rescued in Siberia by a rugged Asian hunter renews his friendship with the woodsman years later when he returns as the head of a larger expedition. The hunter finds that all of his nature lore is of no help when he accompanies the explorer back to civilization. Keith Loh <loh@sfu.ca> In 1902, a Russian army expedition is assigned to explore Siberia under the command of Captain Vladimir Arseniev. He befriends the Goldi (Nanai) hunter Dersu Uzala and invites him to guide the explorers through the stark forest up to Khanka Lake. Along their journey, Arseniev discovers that Ders...</span>
+                                            <span id="mainPlotContent"> The Russian army sends an explorer on an expedition to the snowy Siberian wilderness where he makes friends with a seasoned local hunter. A Russian army explorer who is rescued in Siberia by a rugged Asian hunter renews his friendship with the woodsman years later when he returns as the head of a larger expedition. The hunter finds that all of his nature lore is of no help when he accompanies the explorer back to civilization. Keith Loh  In 1902, a Russian army expedition is assigned to explore Siberia under the command of Captain Vladimir Arseniev. He befriends the Goldi (Nanai) hunter Dersu Uzala and invites him to guide the explorers through the stark forest up to Khanka Lake. Along their journey, Arseniev discovers that Dersu Uzala is a... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">u Uzala is a man with a beautiful soul, and they become close friends. When his assignment ends, Dersu Uzala says goodbye to Arseniev. In 1907, Captain Arseniev is assigned to another expedition at the Ussuri River; when he meets Dersu Uzala in the forest, the lonely hunter joins his team and guides the group. However, he is older and has problems with his vision, and Captain Arseniev invites Dersu Uzala to live with his family in Khabarovsk City. But the old man does not adapt to the urban lifestyle and decides to return to the forest. In 1910, Captain Arseniev is called to Korfovskaïa to identify the body of a man who has his calling card and might be Dersu Uzala. Claudio Carvalho, Rio de Janeiro, Brazil 1902. A group of Russian soldiers, led by Captain Vladimir Arseniev, are on assignment to survey the harsh wilderness of the Ussuri region of East Siberia. On their travels, they meet Dersu Uzala, a nomadic Goldi all alone in the world since smallpox took the lives of his wife and children, he who lives solely by hunting, both for food and what he can sell. From his knowledge of the land through which they must travel, Arseniev hires Dersu to be their guide. While Dersu's ways are seemingly simple to many of the soldiers, he and Arseniev form an emotional bond, for Arseniev because of Dersu's kindness not only toward him and the others, but his deep spirituality and wisdom about the life he leads. The story of their friendship is told, one that cannot be fully bridged due to the two very different worlds in which they generally inhabit. Huggo In 1902 a Russian army officer and his squad are tasked with exploring and mapping a remote part of Siberia. On their travels they meet a local hunter, Dersu Uzala, an old man determined to live his life in isolation. At their request he becomes their guide and over time a friendship forms between the officer and Dersu. grantss</span>
+                                                        <span id="metaPlotContent"class="additional-information">  man with a beautiful soul, and they become close friends. When his assignment ends, Dersu Uzala says goodbye to Arseniev. In 1907, Captain Arseniev is assigned to another expedition at the Ussuri River; when he meets Dersu Uzala in the forest, the lonely hunter joins his team and guides the group. However, he is older and has problems with his vision, and Captain Arseniev invites Dersu Uzala to live with his family in Khabarovsk City. But the old man does not adapt to the urban lifestyle and decides to return to the forest. In 1910, Captain Arseniev is called to Korfovskaïa to identify the body of a man who has his calling card and might be Dersu Uzala. Claudio Carvalho, Rio de Janeiro, Brazil 1902. A group of Russian soldiers, led by Captain Vladimir Arseniev, are on assignment to survey the harsh wilderness of the Ussuri region of East Siberia. On their travels, they meet Dersu Uzala, a nomadic Goldi all alone in the world since smallpox took the lives of his wife and children, he who lives solely by hunting, both for food and what he can sell. From his knowledge of the land through which they must travel, Arseniev hires Dersu to be their guide. While Dersu's ways are seemingly simple to many of the soldiers, he and Arseniev form an emotional bond, for Arseniev because of Dersu's kindness not only toward him and the others, but his deep spirituality and wisdom about the life he leads. The story of their friendship is told, one that cannot be fully bridged due to the two very different worlds in which they generally inhabit. Huggo In 1902 a Russian army officer and his squad are tasked with exploring and mapping a remote part of Siberia. On their travels they meet a local hunter, Dersu Uzala, an old man determined to live his life in isolation. At their request he becomes their guide and over time a friendship forms between the officer and Dersu. grantss </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -90,14 +86,11 @@
                                 <a href="#"><span class="lat">55.75583</span>, <span class="lon">37.61778</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 45.33333, "lon": 134.66667, "name": "Primorsky Krai, Russia"}, {"lat": 50.013131, "lon": 88.664002, "name": "Siberia, \u041a\u043e\u0448-\u0410\u0433\u0430\u0447\u0441\u043a\u043e\u0435, Altai 649780, Russia"}, {"lat": 55.75583, "lon": 37.61778, "name": "\u041c\u043e\u0441\u043a\u0432\u0430, Moscow, Russia"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -113,8 +106,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -137,7 +128,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -181,6 +172,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

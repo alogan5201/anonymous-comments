@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Green Mile</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift. Death Row guards at a penitentiary, in the 1930's, have a moral dilemma with their job when they discover one of their prisoners, a convicted murderer, has a special gift. Guy Johns Based on Stephen King's 1996 novel of the same name. Stars Tom Hanks as a death row corrections officer during the U.S. Great Depression who witnesses supernatural events that occur after an enigmatic inmate (Michael Clarke Duncan) is brought to his facility. MR_Heraclius It's just another normal day on the Green Mile for prison guard Paul Edgecomb. That is until huge John Coffey is sent there. Unlike the hulking bru...</span>
+                                            <span id="mainPlotContent"> The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift. Death Row guards at a penitentiary, in the 1930's, have a moral dilemma with their job when they discover one of their prisoners, a convicted murderer, has a special gift. Guy Johns Based on Stephen King's 1996 novel of the same name. Stars Tom Hanks as a death row corrections officer during the U.S. Great Depression who witnesses supernatural events that occur after an enigmatic inmate (Michael Clarke Duncan) is brought to his facility. MR_Heraclius It's just another normal day on the Green Mile for prison guard Paul Edgecomb. That is until huge John Coffey is sent there. Unlike the hulking bru... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">te that Coffey looks like, he is in fact kind at heart. Whilst watching over Coffey, Edgecomb learns that there is more to Coffey than can be seen. FilmFanUk</span>
+                                                        <span id="metaPlotContent"class="additional-information"> te that Coffey looks like, he is in fact kind at heart. Whilst watching over Coffey, Edgecomb learns that there is more to Coffey than can be seen. FilmFanUk </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -218,14 +214,11 @@
                                 <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[34.078145, -118.254504], [34.090713, -118.346243], [34.150955, -118.339232]], "data": [{"lat": 36.1660335, "lon": -86.828839, "name": "Tennessee State University, 3500 John A Merritt Blvd, Nashville, Tennessee 37209, United States"}, {"lat": 35.483406, "lon": -86.460272, "name": "Shelbyville, Tennessee, United States"}, {"lat": 36.135025, "lon": -81.677791, "name": "Blowing Rock, North Carolina, United States"}, {"lat": 36.195445, "lon": -81.656136, "name": "Blue Ridge Mountains, Boone, North Carolina 28607, United States"}, {"lat": 35.350394, "lon": -82.362895, "name": "Blue Ridge, Hendersonville, North Carolina, United States"}, {"lat": 36.138876, "lon": -85.813745, "name": "Caney Fork River, Lancaster, TN 38569, Lancaster, Tennessee 38569, United States"}, {"lat": 36.135025, "lon": -81.677791, "name": "Blowing Rock, North Carolina, United States"}, {"lat": 35.788399, "lon": -86.674441, "name": "College Grove, Tennessee, United States"}, {"lat": 35.615072, "lon": -87.035283, "name": "Columbia, Tennessee, United States"}, {"lat": 35.44924, "lon": -86.788889, "name": "Lewisburg, Tennessee, United States"}, {"lat": 34.078145, "lon": -118.254504, "name": "Sunset Boulevard Heights, Los Angeles, California, United States"}, {"lat": 35.5568849207, "lon": -79.3896838690365, "name": "North Carolina, United States"}, {"lat": 36.162277, "lon": -86.774298, "name": "Nashville, Tennessee, United States"}, {"lat": 35.952285, "lon": -86.669441, "name": "Nolensville, Tennessee, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 36.135025, "lon": -81.677791, "name": "Blowing Rock, North Carolina, United States"}, {"lat": 35.9885949444, "lon": -85.9823352140893, "name": "Tennessee, United States"}, {"lat": 34.090713, "lon": -118.346243, "name": "7200 Santa Monica Boulevard, West Hollywood, California 90025, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -241,8 +234,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -265,7 +256,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -309,6 +300,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

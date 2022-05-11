@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Trainspotting</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Renton, deeply immersed in the Edinburgh drug scene, tries to clean up and get out, despite the allure of the drugs and influence of friends. A wild, freeform, Rabelaisian trip through the darkest recesses of Edinburgh low-life, focusing on Mark Renton and his attempt to give up his heroin habit, and how the latter affects his relationship with family and friends: Sean Connery wannabe Sick Boy, dimbulb Spud, psycho Begbie, 14-year-old girlfriend Diane, and clean-cut athlete Tommy, who's never touched drugs but can't help being curious about them... Michael Brooke <michael@everyman.demon.co.uk> Renton is an Edinburgh lad with a heroin addiction problem. His best mates are: somewhat dimwitted but good-hearted Spud, also a heroin addict; con m...</span>
+                                            <span id="mainPlotContent"> Renton, deeply immersed in the Edinburgh drug scene, tries to clean up and get out, despite the allure of the drugs and influence of friends. A wild, freeform, Rabelaisian trip through the darkest recesses of Edinburgh low-life, focusing on Mark Renton and his attempt to give up his heroin habit, and how the latter affects his relationship with family and friends: Sean Connery wannabe Sick Boy, dimbulb Spud, psycho Begbie, 14-year-old girlfriend Diane, and clean-cut athlete Tommy, who's never touched drugs but can't help being curious about them... Michael Brooke  Renton is an Edinburgh lad with a heroin addiction problem. His best mates are: somewhat dimwitted but good-hearted Spud, also a heroin addict; con man Sick Boy, also a heroin add... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">an Sick Boy, also a heroin addict who has steadfast opinions on the most renowned British actors; and Tommy, a clean cut athlete who doesn't use. The likelihood of Renton, Spud and/or Sick Boy leading Tommy astray are higher than the other way around as problems in Tommy's life resulting in him wanting to use are more likely than any of Renton, Spud or Sick Boy having a reason to follow Tommy's clean example. Renton, Spud and Sick Boy often use with Allison, the mother of an infant, they, including baby Dawn, congregating in Swanney's drug den. They also need to steal and rob to support their habit, those activities often with the assistance of their criminal acquaintance Begbie, whose violent tendencies can be ignited on the slightest provocation. Despite Renton, Spud and Sick Boy believing there is no better feeling than being high, Renton truly does want to quit using, or so he tells himself. The struggles Renton have in trying to get clean are presented. He may feel that other priorities in his life may help him, such as the love at first sight feelings he has for Diane, who he sees across a nightclub room but who may not be all she appears at first glance. Renton probably realizes that he can never get clean in his current environment, which includes hanging around with Spud, Sick Boy, Begbie, Allison and Swanney, but getting out from their influence may not be as easy as just physically leaving. Huggo</span>
+                                                        <span id="metaPlotContent"class="additional-information"> ict who has steadfast opinions on the most renowned British actors; and Tommy, a clean cut athlete who doesn't use. The likelihood of Renton, Spud and/or Sick Boy leading Tommy astray are higher than the other way around as problems in Tommy's life resulting in him wanting to use are more likely than any of Renton, Spud or Sick Boy having a reason to follow Tommy's clean example. Renton, Spud and Sick Boy often use with Allison, the mother of an infant, they, including baby Dawn, congregating in Swanney's drug den. They also need to steal and rob to support their habit, those activities often with the assistance of their criminal acquaintance Begbie, whose violent tendencies can be ignited on the slightest provocation. Despite Renton, Spud and Sick Boy believing there is no better feeling than being high, Renton truly does want to quit using, or so he tells himself. The struggles Renton have in trying to get clean are presented. He may feel that other priorities in his life may help him, such as the love at first sight feelings he has for Diane, who he sees across a nightclub room but who may not be all she appears at first glance. Renton probably realizes that he can never get clean in his current environment, which includes hanging around with Spud, Sick Boy, Begbie, Allison and Swanney, but getting out from their influence may not be as easy as just physically leaving. Huggo </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -82,14 +78,11 @@
                                 <a href="#"><span class="lat">51.5579425</span>, <span class="lon">-0.33506</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 51.509903249999994, "lon": -0.13451125, "name": "Piccadilly Circus, Piccadilly, London, England W1J 9HP, United Kingdom"}, {"lat": 51.5579425, "lon": -0.33506, "name": "Tower Bridge Mews, Harrow, HA1 3QU, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -105,8 +98,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -129,7 +120,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -173,6 +164,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

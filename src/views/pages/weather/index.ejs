@@ -27,7 +27,7 @@
                 button: {name: 'Find', type: 'submit' },
                 output: null
                 }); -%>
-           
+
           <%- include(`${partials}/form/inputs`,{
                   inputName: [
                     { name: 'Latitude',  type: 'number' },
@@ -38,19 +38,16 @@
                 output: null
                 }); -%>
 
-                <div class="row mb-3">
-                  <div
-                    id="liveAlertPlaceholder"
-                    class="weather-alert-placeholder"
-                  >
-  
-                <div class="alerts mt-1">
-  
-  
-  
-                </div>
-                </div>
-                </div>
+          <div class="row mb-3">
+            <div id="liveAlertPlaceholder" class="weather-alert-placeholder">
+
+              <div class="alerts mt-1">
+
+
+
+              </div>
+            </div>
+          </div>
         </div>
         <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
@@ -62,4 +59,3 @@
 </body>
 
 </html>
-<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

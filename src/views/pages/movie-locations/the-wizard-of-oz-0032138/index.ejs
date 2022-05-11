@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Wizard of Oz</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Young Dorothy Gale and her dog are swept away by a tornado from their Kansas farm to the magical Land of Oz, and embark on a quest with three new friends to see the Wizard, who can return her to her home and fulfill the others' wishes. When a tornado rips through Kansas, Dorothy Gale and her dog, Toto, are whisked away in their house to the magical Land of Oz. They follow the Yellow Brick Road toward the Emerald City to meet the Wizard, and on the way they meet a Scarecrow who wants a brain, a Tin Man who wants a heart, and a Cowardly Lion who wants courage. The Wizard asks them to bring him the Wicked Witch of the West's broom to earn his help. Jwelch5742 After a tornado hurls through Kansas, Dorothy Gale and her dog, Toto, are swept away ...</span>
+                                            <span id="mainPlotContent"> Young Dorothy Gale and her dog are swept away by a tornado from their Kansas farm to the magical Land of Oz, and embark on a quest with three new friends to see the Wizard, who can return her to her home and fulfill the others' wishes. When a tornado rips through Kansas, Dorothy Gale and her dog, Toto, are whisked away in their house to the magical Land of Oz. They follow the Yellow Brick Road toward the Emerald City to meet the Wizard, and on the way they meet a Scarecrow who wants a brain, a Tin Man who wants a heart, and a Cowardly Lion who wants courage. The Wizard asks them to bring him the Wicked Witch of the West's broom to earn his help. Jwelch5742 After a tornado hurls through Kansas, Dorothy Gale and her dog, Toto, are swept away ... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">from their home to the colorful and vibrant Land of Oz. In order to find their way back home, they must embark on a journey to the Emerald City, where the Wizard of Oz resides. On the way, they become accompanied by a Scarecrow who wants a brain, a Tin Man who wants a heart, and a Cowardly Lion who wants courage. They are hopeful that the Wizard will be able to fulfill their wishes, but not far behind them is the Wicked Witch of the West, who is out for revenge on Dorothy after she accidentally killed her sister, the Wicked Witch of the East. goddangwatir</span>
+                                                        <span id="metaPlotContent"class="additional-information"> from their home to the colorful and vibrant Land of Oz. In order to find their way back home, they must embark on a journey to the Emerald City, where the Wizard of Oz resides. On the way, they become accompanied by a Scarecrow who wants a brain, a Tin Man who wants a heart, and a Cowardly Lion who wants courage. They are hopeful that the Wizard will be able to fulfill their wishes, but not far behind them is the Wicked Witch of the West, who is out for revenge on Dorothy after she accidentally killed her sister, the Wicked Witch of the East. goddangwatir </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -138,14 +134,11 @@
                                 <a href="#"><span class="lat">34.024975</span>, <span class="lon">-118.393116</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[34.017168, -118.40234], [34.017168, -118.40234], [34.017168, -118.40234]], "data": [{"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017275, "lon": -118.402347, "name": "10202 West Washington Boulevard, Culver City, California 90232, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.017168, "lon": -118.40234, "name": "Sony Pictures Studios, Culver City, California, United States"}, {"lat": 34.024975, "lon": -118.393116, "name": "10202 Washington Boulevard, Culver City, California 90016, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -161,8 +154,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -185,7 +176,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -229,6 +220,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Amores perros</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A horrific car accident connects three stories, each involving characters dealing with loss, regret, and life's harsh realities, all in the name of love. On the brink of the new Millennium in the bustling City of Mexico, one horrible car accident intertwines inextricably the lives of three perfect strangers. Octavio, a rebellious adolescent who is secretly in love with his sister-in-law, dreams of escaping his miserable life, and for this reason, he enters reluctantly the obscure world of dog fighting with his lethal dog Cofi. And then unexpectedly, Valeria, a stunning woman and famous supermodel, will cross paths with Octavio, while in the meantime, her pampered little dog Richie manages to vanish into thin air in the confined space of her...</span>
+                                            <span id="mainPlotContent"> A horrific car accident connects three stories, each involving characters dealing with loss, regret, and life's harsh realities, all in the name of love. On the brink of the new Millennium in the bustling City of Mexico, one horrible car accident intertwines inextricably the lives of three perfect strangers. Octavio, a rebellious adolescent who is secretly in love with his sister-in-law, dreams of escaping his miserable life, and for this reason, he enters reluctantly the obscure world of dog fighting with his lethal dog Cofi. And then unexpectedly, Valeria, a stunning woman and famous supermodel, will cross paths with Octavio, while in the meantime, her pampered little dog Richie manages to vanish into thin air in the confined space of her... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information"> apartment. Lastly, Chivo, an ex-guerrilla vagabond, after abandoning his little daughter, unable to make up for lost time, he channels his love to the city's strays and a mortally wounded Rottweiler. In the end, even though all the weary characters, men and beasts, wish for a bright future, in this life-changing journey in the pursuit of love, sometimes infidelity, sin and death can get in the way. Nick Riganas Three interconnected stories about the different strata of life in Mexico City all resolve with a fatal car accident. Octavio is trying to raise enough money to run away with his sister-in-law, and decides to enter his dog Cofi into the world of dogfighting. After a dogfight goes bad, Octavio flees in his car, running a red light and causing the accident. Daniel and Valeria's new-found bliss is prematurely ended when she loses her leg in the accident. El Chivo is a homeless man who cares for stray dogs and is there to witness the collision. Anonymous</span>
+                                                        <span id="metaPlotContent"class="additional-information">  apartment. Lastly, Chivo, an ex-guerrilla vagabond, after abandoning his little daughter, unable to make up for lost time, he channels his love to the city's strays and a mortally wounded Rottweiler. In the end, even though all the weary characters, men and beasts, wish for a bright future, in this life-changing journey in the pursuit of love, sometimes infidelity, sin and death can get in the way. Nick Riganas Three interconnected stories about the different strata of life in Mexico City all resolve with a fatal car accident. Octavio is trying to raise enough money to run away with his sister-in-law, and decides to enter his dog Cofi into the world of dogfighting. After a dogfight goes bad, Octavio flees in his car, running a red light and causing the accident. Daniel and Valeria's new-found bliss is prematurely ended when she loses her leg in the accident. El Chivo is a homeless man who cares for stray dogs and is there to witness the collision. Anonymous </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -98,14 +94,11 @@
                                 <a href="#"><span class="lat">23.9504642310912</span>, <span class="lon">-102.532867448126</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[19.20159, -99.56187], [19.2652589, -98.8349429], [19.41944, -99.14556]], "data": [{"lat": 19.41944, "lon": -99.14556, "name": "Mexico City, Mexico"}, {"lat": 19.20159, "lon": -99.56187, "name": "Chapultepec, M\u00e9xico, Mexico"}, {"lat": 19.2652589, "lon": -98.8349429, "name": "Calle Distrito Federal, 56644 San Mart\u00edn Cuautlalpan, M\u00e9xico, Mexico"}, {"lat": 23.9504642310912, "lon": -102.532867448126, "name": "Mexico"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -121,8 +114,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -145,7 +136,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -189,6 +180,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

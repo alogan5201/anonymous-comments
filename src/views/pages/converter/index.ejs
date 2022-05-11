@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <%- include(`${partials}/head`, {pageTitle: 'page'}); -%>
+
 <body>
   <!--[if lt IE 8]>
       <p class="browserupgrade">
@@ -27,7 +28,7 @@
                 button: {name: 'Convert', type: 'submit', id: 'getRoute' },
                 output: null
                 }); -%>
-                <hr class="mt-2">
+          <hr class="mt-2">
           <%- include(`${partials}/form/inputs`,{
                   inputName: [
                     { name: 'Latitude',type: 'number' },
@@ -37,7 +38,7 @@
                      button: {name: 'Convert', type: 'submit' },
                 output: null
                 }); -%>
-                <hr class="mt-3">
+          <hr class="mt-3">
           <form class="row g-3 mb-3" id="myDmsForm">
             <%- include(`${partials}/form/dmsInput`); -%>
             <div class="col-12 text-start">
@@ -55,5 +56,6 @@
   <%- include(`${partials}/footer`); -%> <%-
     include(`${partials}/page-scripts/converter-scripts.ejs`); -%>
 </body>
+
 </html>
 <!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

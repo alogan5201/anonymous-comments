@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Once Upon a Time in America</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan 35 years later, where he must once again confront the ghosts and regrets of his old life. With the vivid memory of his long-gone childhood friends Max, Patsy, and Cockeye etched in his mind, his ferociously loyal partners-in-crime during their rise to prominence in New York's Prohibition-era Lower East Side, the defeated, penniless, and guilt-ridden former gangster David  Noodles  Aaronson returns to Manhattan. Not knowing what to expect on his mission to shed light on his opaque past, grizzled Noodles reunites with his only living friend Fat Moe after 35 haunted years of self-exile. However, the relentless, piercing sound of culpability stands in the way o...</span>
+                                            <span id="mainPlotContent"> A former Prohibition-era Jewish gangster returns to the Lower East Side of Manhattan 35 years later, where he must once again confront the ghosts and regrets of his old life. With the vivid memory of his long-gone childhood friends Max, Patsy, and Cockeye etched in his mind, his ferociously loyal partners-in-crime during their rise to prominence in New York's Prohibition-era Lower East Side, the defeated, penniless, and guilt-ridden former gangster David  Noodles  Aaronson returns to Manhattan. Not knowing what to expect on his mission to shed light on his opaque past, grizzled Noodles reunites with his only living friend Fat Moe after 35 haunted years of self-exile. However, the relentless, piercing sound of culpability stands in the way o... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">f finding closure, as the inscrutable content of a well-worn leather suitcase further complicates matters. And now, against the backdrop of a torn conscience, the sad, bittersweet recollections of more than 50 years of love, death, and everything in-between become inextricably intertwined, leading to even more puzzling questions. But what are a man's options when he is left with nothing? Nick Riganas Epic, episodic tale of the lives of a small group of New York City Jewish gangsters spanning over 40 years. Told mostly in flashbacks and flash-forwards, the movie centers on small-time hood David 'Noodles' Aaronson and his lifelong partners in crime: Max, Cockeye, and Patsy, and their friends from growing up in the rough Jewish neighborhood of New York's Lower East Side in the 1920s to the last years of Prohibition in the early 1930s, through to the late 1960s, where an elderly Noodles returns to New York after many years in hiding to look into the past. Matthew Patay</span>
+                                                        <span id="metaPlotContent"class="additional-information"> f finding closure, as the inscrutable content of a well-worn leather suitcase further complicates matters. And now, against the backdrop of a torn conscience, the sad, bittersweet recollections of more than 50 years of love, death, and everything in-between become inextricably intertwined, leading to even more puzzling questions. But what are a man's options when he is left with nothing? Nick Riganas Epic, episodic tale of the lives of a small group of New York City Jewish gangsters spanning over 40 years. Told mostly in flashbacks and flash-forwards, the movie centers on small-time hood David 'Noodles' Aaronson and his lifelong partners in crime: Max, Cockeye, and Patsy, and their friends from growing up in the rough Jewish neighborhood of New York's Lower East Side in the 1920s to the last years of Prohibition in the early 1930s, through to the late 1960s, where an elderly Noodles returns to New York after many years in hiding to look into the past. Matthew Patay </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -298,14 +294,11 @@
                                 <a href="#"><span class="lat">40.71064</span>, <span class="lon">-73.96461</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[40.149335, -74.023211], [40.69808, -73.96056], [40.702905, -73.990117]], "data": [{"lat": 40.710444332031244, "lon": -73.98189653417968, "name": "Williamsburg Bridge, Williamsburg Bridge, New York, New York 10002, United States"}, {"lat": 41.852854, "lon": 12.575212, "name": "Cinecitt\u00e0 Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy"}, {"lat": 27.708968, "lon": -82.734976, "name": "Don Cesar, St Pete Beach, Florida, United States"}, {"lat": 40.702905, "lon": -73.990117, "name": "Dumbo, New York, New York, United States"}, {"lat": 40.735020500000005, "lon": -74.0280775, "name": "Hoboken Terminal, 1 Hudson Pl, Hoboken, New Jersey 07030, United States"}, {"lat": 40.887268750000004, "lon": -73.876942, "name": "Woodlawn Cemetery, Webster Avenue, New York, New York 10467, United States"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 40.70387, "lon": -73.98773, "name": "139 Plymouth Street, Brooklyn, New York 11201, United States"}, {"lat": 40.71019, "lon": -73.99125, "name": "Manhattan Bridge, New York, New York 10002, United States"}, {"lat": 46.255609, "lon": -72.947502, "name": "Louiseville, Quebec, Canada"}, {"lat": 40.149335, "lon": -74.023211, "name": "Ocean Avenue and Warren Avenue, Spring Lake, New Jersey 07762, United States"}, {"lat": 45.501678, "lon": -73.556648, "name": "300 Rue Le Moyne, Montr\u00e9al, Quebec H2Y 1Y2, Canada"}, {"lat": 40.703651, "lon": -73.982253, "name": "Vinegar Hill, New York, New York, United States"}, {"lat": 40.709845, "lon": -73.9653, "name": "95 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 45.502065, "lon": -73.557709, "name": "449 Rue Saint-Pierre, Montr\u00e9al, Quebec H2Y 2M8, Canada"}, {"lat": 45.460386, "lon": 12.244992, "name": "Porto Marghera, Porto Marghera, Venezia, Venice 30175, Italy"}, {"lat": 40.69808, "lon": -73.96056, "name": "350 Flushing Avenue, Brooklyn, New York 11205, United States"}, {"lat": 45.502045, "lon": -73.557128, "name": "300 Rue Saint-Sacrement, Montr\u00e9al, Quebec H2Y 1X4, Canada"}, {"lat": 40.70979, "lon": -73.96489, "name": "105 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.70948, "lon": -73.96432, "name": "126 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.7037, "lon": -73.99085, "name": "2 Main Street, Brooklyn, New York 11201, United States"}, {"lat": 45.499851, "lon": -73.577965, "name": "1228 Rue Sherbrooke Ouest, Montr\u00e9al, Quebec H3G 0R1, Canada"}, {"lat": 45.546694, "lon": -73.684816, "name": "800 Boulevard Gouin Ouest, Montr\u00e9al, Quebec H3L 3W3, Canada"}, {"lat": 45.403912500000004, "lon": 12.366517, "name": "Hotel Excelsior, Lungomare Marconi 41, Venezia, Venice 30126, Italy"}, {"lat": 40.72226, "lon": -74.00108, "name": "459 Broome Street, New York, New York 10013, United States"}, {"lat": 40.746085, "lon": -73.943055, "name": "25-10 Court Square, Queens, New York 11101, United States"}, {"lat": 41.6445514939846, "lon": 12.5466980153119, "name": "Via Pontina Vecchia, 00040 Ardea Rome, Italy"}, {"lat": 40.709755, "lon": -73.96453, "name": "113 South 8th Street, Brooklyn, New York 11249, United States"}, {"lat": 40.71064, "lon": -73.96461, "name": "102 South 6th Street, Brooklyn, New York 11249, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -321,8 +314,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -345,7 +336,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -389,6 +380,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

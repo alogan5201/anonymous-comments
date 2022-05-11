@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Once Upon a Time in the West</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad. Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down, but upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those who want to take it--at any cost. Even if it means killing a man and his kids. DrGoodBeat The sprawling railways are reaching the far west, and somewhere along its way, in a small border town, the paths of four characters will cross and clash: a young woman looking for a fresh start, an outlaw on the run for a crime he didn't commit (this time), a ruthless killer on th...</span>
+                                            <span id="mainPlotContent"> A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad. Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down, but upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those who want to take it--at any cost. Even if it means killing a man and his kids. DrGoodBeat The sprawling railways are reaching the far west, and somewhere along its way, in a small border town, the paths of four characters will cross and clash: a young woman looking for a fresh start, an outlaw on the run for a crime he didn't commit (this time), a ruthless killer on th... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">e payroll of a railroad tycoon, and a mysterious man with no name who plays a couple of sad chords on a harmonica and a few cadences on his revolver. Azeitonascomchantili Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down. Upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those want to take it--at any cost. Even if it means killing a man and his children. garykmcd A young woman leaves her old life behind for her new husband and a new future out West. When her train arrives, she finds that he and his children have been murdered. A man known only as Harmonica knows Frank did it and goes after him. Just then, another outlaw, Cheyenne, appears intent on tracking down Frank. As good pursuit of Frank gets closer to him, Cheyenne leaves none of Frank's associates alive. J. S. Golden Nestled deep in the middle of nowhere, suddenly Irishman Brett McBain's dusty settlement, the Sweetwater, becomes a pole of attraction for beautiful widows in black and notorious desperadoes alike. As Frank, the unscrupulous gun-for-hire, tries every trick in the book to fulfill the aspiration of his terminally ill boss, railroad magnate Morton, another visitor, Harmonica, the taciturn stranger with the lighting-fast right hand, enters the picture. Now, greed and ambition put everyone's already fragile allegiances to the test, as hidden personal agendas seem to rule them all. However, the past always comes back to haunt us. Can there be redemption in revenge? Nick Riganasa</span>
+                                                        <span id="metaPlotContent"class="additional-information"> e payroll of a railroad tycoon, and a mysterious man with no name who plays a couple of sad chords on a harmonica and a few cadences on his revolver. Azeitonascomchantili Jill McBain travels to the wild frontier, Utah, where she and her new husband planned to settle down. Upon arrival, she finds him and his children dead. There's a lot of land, and potential, but there are also those want to take it--at any cost. Even if it means killing a man and his children. garykmcd A young woman leaves her old life behind for her new husband and a new future out West. When her train arrives, she finds that he and his children have been murdered. A man known only as Harmonica knows Frank did it and goes after him. Just then, another outlaw, Cheyenne, appears intent on tracking down Frank. As good pursuit of Frank gets closer to him, Cheyenne leaves none of Frank's associates alive. J. S. Golden Nestled deep in the middle of nowhere, suddenly Irishman Brett McBain's dusty settlement, the Sweetwater, becomes a pole of attraction for beautiful widows in black and notorious desperadoes alike. As Frank, the unscrupulous gun-for-hire, tries every trick in the book to fulfill the aspiration of his terminally ill boss, railroad magnate Morton, another visitor, Harmonica, the taciturn stranger with the lighting-fast right hand, enters the picture. Now, greed and ambition put everyone's already fragile allegiances to the test, as hidden personal agendas seem to rule them all. However, the past always comes back to haunt us. Can there be redemption in revenge? Nick Riganasa </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -186,14 +182,11 @@
                                 <a href="#"><span class="lat">34.08363</span>, <span class="lon">-118.32191</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[36.92111, -109.085658], [36.964955, -109.364619], [36.966946, -109.63789]], "data": [{"lat": 36.917952, "lon": -111.462945, "name": "The Monument Valley, Page, Arizona 86040, United States"}, {"lat": 37.049888, "lon": -2.391377, "name": "Tabernas, Almer\u00eda, Spain"}, {"lat": 37.01549, "lon": -110.294671, "name": "Monument Valley, Utah, United States"}, {"lat": 37.2225409475203, "lon": -3.64270536340856, "name": "Calle Calahorra, 18220 Albolote, Granada, Spain"}, {"lat": 37.300691, "lon": -3.135196, "name": "Guadix, Granada, Spain"}, {"lat": 40.47621, "lon": -111.88778, "name": "Moab Way, Draper, Utah 84020, United States"}, {"lat": 36.92111, "lon": -109.085658, "name": "Teec Nos Pos, Arizona, United States"}, {"lat": 36.721846, "lon": -110.253872, "name": "Kayenta, Arizona, United States"}, {"lat": 41.852854, "lon": 12.575212, "name": "Cinecitt\u00e0 Studios, Via Tuscolana, 1055, Roma, Rome 00173, Italy"}, {"lat": 30.48001, "lon": -108.9405, "name": "Bavispe, Sonora, Mexico"}, {"lat": 36.964955, "lon": -109.364619, "name": "Red Mesa, Arizona, United States"}, {"lat": 37.049888, "lon": -2.391377, "name": "Tabernas, Almer\u00eda, Spain"}, {"lat": 37.090023, "lon": -2.379403, "name": "Desierto De Tabernas, Tabernas, Almer\u00eda 04212, Spain"}, {"lat": 36.966946, "lon": -109.63789, "name": "Mexican Water, Arizona, United States"}, {"lat": 34.08363, "lon": -118.32191, "name": "5555 Melrose Avenue, Los Angeles, California 90038, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -209,8 +202,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -233,7 +224,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -277,6 +268,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

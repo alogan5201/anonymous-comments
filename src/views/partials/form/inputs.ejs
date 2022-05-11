@@ -1,63 +1,31 @@
-
-      
-      <% if (inputName) { %> 
-      <form id="<%= formid %>" autocomplete="off">
-   
-              <div class="row-g-3">
-
-
- 
+<% if (inputName) { %>
+<form id="<%= formid %>" autocomplete="off">
+  <div class="row-g-3">
     <%  var arr=inputName,
         i = 0,
         len = arr.length; %>
-
-       <% while(i < len){ %>
-
-       <%- include(`${partials}/form/inputcol`, {inputName:{name: arr[i].name, type: arr[i].type} }); -%>
-       <% 
-        // some js in the loop
- 
+    <% while(i < len){ %>
+    <%- include(`${partials}/form/inputcol`, {inputName:{name: arr[i].name, type: arr[i].type} }); -%>
+    <% 
         i += 1; 
          %>
-       <% } %>
-
-  
- <% if (button) { %>
-    <button
-    class="btn btn-primary"
-    id="<%= button.id %>"
-    type=" <%= button.type %>"
-    >
-    <%= button.name %>
-</button>
- 
+    <% } %>
+    <% if (button) { %>
+    <button class="btn btn-primary" id="<%= button.id %>" type=" <%= button.type %>">
+      <%= button.name %>
+    </button>
+    <% } %>
+  </div>
+</form>
 <% } %>
-
-         
-
-
-</div>
-                
-
-        
-       </form>
-   <% } %>
- 
- 
-        <% if (output) { %>
-
-     <%  var inputName = output,
+<% if (output) { %>
+<%  var inputName = output,
         i = 0,
         len = output.length; %>
-
-       <% while(i < len){ %>
-
-       <%- include(`${partials}/form/inputcol`, {inputName:{name: output[i].name, type: output[i].type} }); -%>
-       <% 
-        // some js in the loop
-     
+<% while(i < len){ %>
+<%- include(`${partials}/form/inputcol`, {inputName:{name: output[i].name, type: output[i].type} }); -%>
+<% 
         i += 1; 
          %>
-       <% } %>
-
-<% } %>   
+<% } %>
+<% } %>

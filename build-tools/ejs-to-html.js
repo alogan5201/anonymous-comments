@@ -76,7 +76,7 @@ for (let i = 0; i < args.length; i += 1) {
         options: {destination: Dir.dist},
         fileTransformer: transformer
       })
-
+      console.log('Compiled EJS to HTML')
     })
     break
   }

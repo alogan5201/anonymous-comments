@@ -19,40 +19,25 @@
     <div class="container px-3">
       <div class="row g-3 ">
         <div class="col-md-4">
-
-      
-
           <%- include(`${partials}/general/header`, {title: 'DMS to Latitude Longitude', subtitle: 'Quickly convert DMS to Latitude and Longitude.'}); -%>
-            <form class="row g-3 mb-3" id="myDmsForm">
-
-
-                <%- include(`${partials}/form/dmsInput`); -%>
-
-              <div class="col-12 text-start">
-                <button
-                  class="btn btn-primary text-start"
-                  id="latlonGeocoderBtn"
-                  type="submit"
-                >
-                  Get Coordinates
-                </button>
-              </div>
-            </form>
-     
-    <%- include(`${partials}/form/inputs`,{               
+          <form class="row g-3 mb-3" id="myDmsForm">
+            <%- include(`${partials}/form/dmsInput`); -%>
+            <div class="col-12 text-start">
+              <button class="btn btn-primary text-start" id="latlonGeocoderBtn" type="submit">
+                Get Coordinates
+              </button>
+            </div>
+          </form>
+          <%- include(`${partials}/form/inputs`,{               
                 output: [{name: 'Latitude', type: 'number'},{name: 'Longitude', type: 'number'}]
                 }); -%>
-   
-
-  
-       
         </div>
         <div class="col-md-7  align-self-start">
           <h4 class="travel-time"></h4>
           <div class="map-container">
             <div id="map"></div>
             <div id="static"></div>
-                <div id="liveAlertPlaceholder">
+            <div id="liveAlertPlaceholder">
               <div class="alerts mt-1"></div>
               <div class="history"></div>
             </div>
@@ -67,4 +52,3 @@
 </body>
 
 </html>
-<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

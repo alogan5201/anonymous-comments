@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <%- include(`${partials}/homeHead`, {pageTitle: 'Movies'}); -%>
+    <body>
+        <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+<![endif]-->
+        <noscript>
+            <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <%- include(`${partials}/nav`); -%>
+        <main class="mb-4 mt-5">
+            <div class="container px-4 px-lg-5">
+                <%- include(`${partials}/autocomplete`); -%>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 text-center g-3">
+                    {% for f in filmData -%}
+                        <div class="col-sm-4 d-flex align-items-stretch">
+                            <div id="{{ f.id }}" class="card">
+                                <img src="{{ f.image }}" class="card-img-top" alt="{{ f.title }}" />
+                                <div class="card-body">
+                                    <a href="/movie-locations/{{ f.slug }}" class="stretched-link">
+                                        <p class="card-text text-center">
+                                            {{ f.title }}
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor -%}
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <nav aria-label="Movie Locations Top 250">
+                        <ul class="pagination justify-content-center">
+                            {% if pagination.first and pagination.previous %}
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="/movie-locations/{{ pagination.previous }}"
+                                       aria-label="Previous">Previous <span aria-hidden="true">&laquo;</span></a>
+                                </li>
+                            {% endif %}
+                            {% for number in pagination.range %}
+                                {% if pagination.current == number %}
+                                    <li class="active page-item">
+                                        <a class="page-link" href="/movie-locations/{{ pagination.current }}">{{ pagination.current }}</a>
+                                    </li>
+                                {% endif %}
+                                {% if pagination.current != number %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="/movie-locations/{{ number }}">{{ number }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if pagination.last and pagination.next %}
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="/movie-locations/{{ pagination.next }}"
+                                       aria-label="Next">Next<span aria-hidden="true">&raquo;</span></a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+    </body>
+</html>

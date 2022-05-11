@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Father</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A man refuses all assistance from his daughter as he ages. As he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality. Having just scared off his recent caregiver, Anthony, an ailing, octogenarian Londoner gradually succumbing to dementia, feels abandoned when concerned Anne, his daughter, tells him she's moving to Paris. Confused and upset, against the backdrop of a warped perspective and his rapid, heart-rending mental decline, Anthony is starting to lose his grip on reality, struggling to navigate the opaque landscape of present and past. Now, as faded memories and glimpses of lucidity trigger sudden mood swings, dear ones, Anthony's surroundings, and even t...</span>
+                                            <span id="mainPlotContent"> A man refuses all assistance from his daughter as he ages. As he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality. Having just scared off his recent caregiver, Anthony, an ailing, octogenarian Londoner gradually succumbing to dementia, feels abandoned when concerned Anne, his daughter, tells him she's moving to Paris. Confused and upset, against the backdrop of a warped perspective and his rapid, heart-rending mental decline, Anthony is starting to lose his grip on reality, struggling to navigate the opaque landscape of present and past. Now, as faded memories and glimpses of lucidity trigger sudden mood swings, dear ones, Anthony's surroundings, and even t... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">ime itself become distorted. Why has his younger daughter stopped visiting? Who are the strangers that burst in on Anthony? Nick Riganas</span>
+                                                        <span id="metaPlotContent"class="additional-information"> ime itself become distorted. Why has his younger daughter stopped visiting? Who are the strangers that burst in on Anthony? Nick Riganas </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -154,14 +150,11 @@
                                 <a href="#"><span class="lat">54.2379333607472</span>, <span class="lon">-2.36966957036279</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[51.4909928, -0.207486], [51.495578, -0.212367], [51.495578, -0.212367]], "data": [{"lat": 51.495578, "lon": -0.212367, "name": "23 Blythe Road, Hammersmith and Fulham, London, W14 0PG, United Kingdom"}, {"lat": 51.509453, "lon": -0.398006, "name": "West London Film Studios, Springfield Road, Hayes, England UB4 0RG, United Kingdom"}, {"lat": 51.495578, "lon": -0.212367, "name": "23 Blythe Road, Hammersmith and Fulham, London, W14 0PG, United Kingdom"}, {"lat": 51.4977484, "lon": -0.2176253, "name": "Blythe Road, Hammersmith and Fulham, London, W14 0HD, United Kingdom"}, {"lat": 51.4909928, "lon": -0.207486, "name": "West Kensington, W14 9EP, Hammersmith and Fulham, London, Greater London, England, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 51.52758, "lon": -0.1871738, "name": "Lauderdale Road, Westminster, London, W9 1LY, United Kingdom"}, {"lat": 51.5985623, "lon": -0.3191303, "name": "Elgin Avenue, Harrow, HA3 8QJ, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -177,8 +170,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -201,7 +192,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -245,6 +236,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

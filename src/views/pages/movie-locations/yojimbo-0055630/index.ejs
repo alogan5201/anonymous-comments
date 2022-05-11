@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Yojimbo</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A crafty ronin comes to a town divided by two criminal gangs and decides to play them against each other to free the town. Sanjuro, a wandering samurai enters a rural town in nineteenth century Japan. After learning from the innkeeper that the town is divided between two gangsters, he plays one side off against the other. His efforts are complicated by the arrival of the wily Unosuke, the son of one of the gangsters, who owns a revolver. Unosuke has Sanjuro beaten after he reunites an abducted woman with her husband and son, then massacres his father's opponents. During the slaughter, the samurai escapes with the help of the innkeeper; but while recuperating at a nearby temple, he learns of innkeeper's abduction by Unosuke, and returns to t...</span>
+                                            <span id="mainPlotContent"> A crafty ronin comes to a town divided by two criminal gangs and decides to play them against each other to free the town. Sanjuro, a wandering samurai enters a rural town in nineteenth century Japan. After learning from the innkeeper that the town is divided between two gangsters, he plays one side off against the other. His efforts are complicated by the arrival of the wily Unosuke, the son of one of the gangsters, who owns a revolver. Unosuke has Sanjuro beaten after he reunites an abducted woman with her husband and son, then massacres his father's opponents. During the slaughter, the samurai escapes with the help of the innkeeper; but while recuperating at a nearby temple, he learns of innkeeper's abduction by Unosuke, and returns to t... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">he town to confront him. Bernard Keane <BKeane2@email.dot.gov.au> A samurai, Sanjuro Kuwabatake, finds himself in a town run by two warlords, Ushitora and Seibei. The town is a den of inequity, not only due to the warlords and their hired thugs, but due to the hordes of gamblers that inhabit it. The samurai sets out to rid the town of all these pestilences, his plan being to play the two warlords off against each other. grantss Sanjuro Kuwabatake is a samurai without a master, drifting without any specific destination. He arrives in a small village, dominated by two lords: Seibei, who produces silk, and Ushitora, who produces sake. Both of them explore gambling, and uses fugitive gangster for the protection of their business. They are constantly fighting against each other. Sanjuro offers his service of bodyguard for both of them and waits for the best offer. Claudio Carvalho, Rio de Janeiro, Brazil</span>
+                                                        <span id="metaPlotContent"class="additional-information"> he town to confront him. Bernard Keane  A samurai, Sanjuro Kuwabatake, finds himself in a town run by two warlords, Ushitora and Seibei. The town is a den of inequity, not only due to the warlords and their hired thugs, but due to the hordes of gamblers that inhabit it. The samurai sets out to rid the town of all these pestilences, his plan being to play the two warlords off against each other. grantss Sanjuro Kuwabatake is a samurai without a master, drifting without any specific destination. He arrives in a small village, dominated by two lords: Seibei, who produces silk, and Ushitora, who produces sake. Both of them explore gambling, and uses fugitive gangster for the protection of their business. They are constantly fighting against each other. Sanjuro offers his service of bodyguard for both of them and waits for the best offer. Claudio Carvalho, Rio de Janeiro, Brazil </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -90,14 +86,11 @@
                                 <a href="#"><span class="lat">36.3864928218528</span>, <span class="lon">138.592229549504</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 35.634654999999995, "lon": 139.604309, "name": "\u6771\u5b9d\u30b9\u30bf\u30b8\u30aa (TOHO STUDIOS), \u6210\u57ce1-4-1, \u6771\u4eac\u90fd, Tokyo Prefecture 157-0066, Japan"}, {"lat": 35.6652065, "lon": 139.7263785, "name": "\u56fd\u7acb\u65b0\u7f8e\u8853\u9928 (The National Art Center, \u516d\u672c\u67287-22-2, \u6771\u4eac\u90fd, Tokyo Prefecture 106-0032, Japan"}, {"lat": 36.3864928218528, "lon": 138.592229549504, "name": "Japan"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -113,8 +106,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -137,7 +128,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -181,6 +172,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>
