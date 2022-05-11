@@ -1,136 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    
-  <%- include(`${partials}/head`, {pageTitle: 'title'}); -%>
+<%- include(`${partials}/head`, {pageTitle: 'title'}); -%>
 
-  <body >
-    <!--[if lt IE 8]>
+<body>
+  <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
         <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <noscript>
-      <h3>Please enable JavaScript in order to view this site properly.</h3>
-    </noscript>
-    <%- include(`${partials}/nav`); -%>
-    <style>
-      .legend label,
-      .legend span {
-        display:block;
-        float:left;
-        height:15px;
-        width:20%;
-        text-align:center;
-        font-size:9px;
-        color:#808080;
-        }
-        .located-animation {
-          width: 17px;
-          height: 17px;
-          border: 1px solid #fff;
-          border-radius: 50%;
-          background: #2a93ee;
-          animation: border-pulse 2s infinite;
-        }
+  <noscript>
+    <h3>Please enable JavaScript in order to view this site properly.</h3>
+  </noscript>
+  <%- include(`${partials}/nav`); -%>
+  <style>
+    .legend label,
+    .legend span {
+      display: block;
+      float: left;
+      height: 15px;
+      width: 20%;
+      text-align: center;
+      font-size: 9px;
+      color: #808080;
+    }
 
-        @keyframes border-pulse {
-          0% {
-            box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-          }
+    .located-animation {
+      width: 17px;
+      height: 17px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      background: #2a93ee;
+      animation: border-pulse 2s infinite;
+    }
 
-          70% {
-            box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-          }
-
-          100% {
-            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-          }
-        }
-
-        .locate-active {
-          fill: red;
-        }
-
-        .locate-button {
-          position: absolute;
-          top: 80px;
-          left: 10px;
-          width: 26px;
-          height: 26px;
-          z-index: 999;
-          cursor: pointer;
-          display: none;
-          padding: 5px;
-          background: #fff;
-          border: none;
-          border-radius: 4px;
-          box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
-        }
-
-        .leaflet-touch .locate-button {
-          width: 34px;
-          height: 34px;
-        }
-        #loader {
-          position:absolute; top:0; bottom:0; width:100%;
-          background:rgba(255, 255, 255, 1);
-          transition:background 1s ease-out;
-          -webkit-transition:background 1s ease-out;
+    @keyframes border-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
       }
-      #loader.done {
-        background:rgba(255, 255, 255, 0);
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
     }
+
+    .locate-active {
+      fill: red;
+    }
+
+    .locate-button {
+      position: absolute;
+      top: 80px;
+      left: 10px;
+      width: 26px;
+      height: 26px;
+      z-index: 999;
+      cursor: pointer;
+      display: none;
+      padding: 5px;
+      background: #fff;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
+    }
+
+    .leaflet-touch .locate-button {
+      width: 34px;
+      height: 34px;
+    }
+
+    #loader {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 1);
+      transition: background 1s ease-out;
+      -webkit-transition: background 1s ease-out;
+    }
+
+    #loader.done {
+      background: rgba(255, 255, 255, 0);
+    }
+
     #loader.hide {
-        display:none;
+      display: none;
     }
+
     #loader .message {
-        position:absolute;
-        left:50%;
-        top:50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
     }
-
-
-
-      </style>
-
-    <!--   !! MAIN -------------------------->
-
-    <!-- Main Content-->
-       <main class="flex-shrink-0 mt-5" >
+  </style>
+  <!--   !! MAIN -------------------------->
+  <!-- Main Content-->
+  <main class="flex-shrink-0 mt-5">
     <div class="container px-3">
- 
       <div class="row g-3 ">
-             <div class="col-md-4">
-
-      <%- include(`${partials}/general/header`, {title: 'Address to Latitude Longitude', subtitle: 'Quickly convert any address to longitude and latitude coordinates.'}); -%>
-
-        <%- include(`${partials}/form/inputs`,{
+        <div class="col-md-4">
+          <%- include(`${partials}/general/header`, {title: 'Address to Latitude Longitude', subtitle: 'Quickly convert any address to longitude and latitude coordinates.'}); -%>
+          <%- include(`${partials}/form/inputs`,{
                   inputName: [
                     { name: 'Address',  type: 'search' }
-          
-
                   ], 
                 formid: "latlonForm",
                 button: {name: 'Submit', type: 'submit' },
                 output: [{name: 'Latitude', type: 'number'},{name: 'Longitude', type: 'number'}]
                 }); -%>
-
-
-             </div>
-             <%- include(`${partials}/map/map-Container.ejs`); -%>
+        </div>
+        <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
       <%- include(`${partials}/comment-section.ejs`); -%>
-
     </div>
   </main>
+  <!-- Footer-->
+  <%- include(`${partials}/footer`); -%>
+  <%-include(`${partials}/page-scripts/address-to-lat-lon-script`); -%>
+</body>
 
-    <!-- Footer-->
-
-    <%- include(`${partials}/footer`); -%>
-    <%-include(`${partials}/page-scripts/address-to-lat-lon-script`); -%>
-
-  </body>
 </html>
-<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

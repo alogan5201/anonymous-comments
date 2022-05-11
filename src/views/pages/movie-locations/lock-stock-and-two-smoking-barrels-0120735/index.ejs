@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Lock, Stock and Two Smoking Barrels</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Eddy persuades his three pals to pool money for a vital poker game against a powerful local mobster, Hatchet Harry. Eddy loses, after which Harry gives him a week to pay back 500,000 pounds. Four Jack-the-lads find themselves heavily - seriously heavily - in debt to an East End hard man and his enforcers after a crooked card game. Overhearing their neighbours in the next flat plotting to hold up a group of out-of-their-depth drug growers, our heroes decide to stitch up the robbers in turn. In a way the confusion really starts when a pair of antique double-barrelled shotguns go missing in a completely different scam. Eddy has been known as a cardsharp since he was young. So he and his three friends Soap, Tom and Bacon all decide to chip in £...</span>
+                                            <span id="mainPlotContent"> Eddy persuades his three pals to pool money for a vital poker game against a powerful local mobster, Hatchet Harry. Eddy loses, after which Harry gives him a week to pay back 500,000 pounds. Four Jack-the-lads find themselves heavily - seriously heavily - in debt to an East End hard man and his enforcers after a crooked card game. Overhearing their neighbours in the next flat plotting to hold up a group of out-of-their-depth drug growers, our heroes decide to stitch up the robbers in turn. In a way the confusion really starts when a pair of antique double-barrelled shotguns go missing in a completely different scam. Eddy has been known as a cardsharp since he was young. So he and his three friends Soap, Tom and Bacon all decide to chip in £... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">25,000 each to allow him to play in an illegal high-roller game run by one of the local villains, Hatchet Harry. However, Eddy didn't realize the game was crooked and he ends up owing Harry £500,000 with dire threats about losing his fingers one at a time if he doesn't pay within a week! Eddy and his friends discuss various completely illegal schemes to obtain the money and eventually decide to rip-off the gang of thieves next door who themselves are planning to raid a clandestine drug growing operation which keeps all of its money in shoe boxes where they grow the cannabis plants. The scheme is simple enough but the best laid plans of mice and men always seems to go awry as does this one. As extreme chaos breaks loose the violence and associated body count spiral out of control, Eddy and his friends realize that they are out of their depth and desperately try to find a way out before they too find themselves among the casualties! Mark Smith <msmith@osi.co.uk> Four Cockney wide-boys are tricked into owing 500,000 nicker to the local gang-land boss and porn king, 'Hatchet' Harry Lonsdale. With the very real threat of finger amputation looming over them the lads come up with a plan to nick the cash from their next-door neighbours: a gang of hardcase drug-dealers... Meanwhile, 'Hatchet' ain't none too pleased when a pair of antique shotguns wot he wants are sold on by a pair of Scouse thieves, to be used in a  job ... The involvement of a conscientious debt-collector, some public school  chemists , a psychotic hash-baron, a lot of guns and knives, ensures that karma is surrealistically resolved (just!) before the end credits roll... Ian Miller <imiller@csd.abdn.ac.uk></span>
+                                                        <span id="metaPlotContent"class="additional-information"> 25,000 each to allow him to play in an illegal high-roller game run by one of the local villains, Hatchet Harry. However, Eddy didn't realize the game was crooked and he ends up owing Harry £500,000 with dire threats about losing his fingers one at a time if he doesn't pay within a week! Eddy and his friends discuss various completely illegal schemes to obtain the money and eventually decide to rip-off the gang of thieves next door who themselves are planning to raid a clandestine drug growing operation which keeps all of its money in shoe boxes where they grow the cannabis plants. The scheme is simple enough but the best laid plans of mice and men always seems to go awry as does this one. As extreme chaos breaks loose the violence and associated body count spiral out of control, Eddy and his friends realize that they are out of their depth and desperately try to find a way out before they too find themselves among the casualties! Mark Smith  Four Cockney wide-boys are tricked into owing 500,000 nicker to the local gang-land boss and porn king, 'Hatchet' Harry Lonsdale. With the very real threat of finger amputation looming over them the lads come up with a plan to nick the cash from their next-door neighbours: a gang of hardcase drug-dealers... Meanwhile, 'Hatchet' ain't none too pleased when a pair of antique shotguns wot he wants are sold on by a pair of Scouse thieves, to be used in a  job ... The involvement of a conscientious debt-collector, some public school  chemists , a psychotic hash-baron, a lot of guns and knives, ensures that karma is surrealistically resolved (just!) before the end credits roll... Ian Miller  </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -178,14 +174,11 @@
                                 <a href="#"><span class="lat">52.38145972</span>, <span class="lon">-0.676181762467007</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[51.4881, -0.0583], [51.5037966, -0.6681168], [51.5069182, -0.093779]], "data": [{"lat": 51.506978, "lon": -0.09439, "name": "19 Park Street, Southwark, London, SE1 9EG, United Kingdom"}, {"lat": 51.5037966, "lon": -0.6681168, "name": "Court Lane, Dorney, Windsor, SL4 6QP, United Kingdom"}, {"lat": 51.5230195, "lon": -0.0683018, "name": "Pedley Street, Tower Hamlets, London, E1 5FQ, United Kingdom"}, {"lat": 51.530694, "lon": -0.055141, "name": "8 Patriot Square, Tower Hamlets, London, E2 9NS, United Kingdom"}, {"lat": 51.5303456, "lon": -0.0561633, "name": "Bethnal Green, E2 9RD, Tower Hamlets, London, Greater London, England, United Kingdom"}, {"lat": 51.5476, "lon": -0.0558, "name": "Hackney, Greater London, England, United Kingdom"}, {"lat": 51.524021, "lon": -0.066058, "name": "116 Cheshire Street, Tower Hamlets, London, E2 6EH, United Kingdom"}, {"lat": 51.5274183, "lon": -0.0062274, "name": "Three Mill Lane, Newham, London, E3 3AF, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 51.4881, "lon": -0.0583, "name": "Southwark, Greater London, England, United Kingdom"}, {"lat": 51.5069182, "lon": -0.093779, "name": "Park Street, Southwark, London, SE1 9EA, United Kingdom"}, {"lat": 51.5423045, "lon": -0.1395604, "name": "Camden Town, NW1 9PJ, Camden, London, Greater London, England, United Kingdom"}, {"lat": 51.5286165, "lon": -0.0707715, "name": "Columbia Road, Tower Hamlets, London, E2 7RN, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -201,8 +194,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -225,7 +216,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -269,6 +260,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

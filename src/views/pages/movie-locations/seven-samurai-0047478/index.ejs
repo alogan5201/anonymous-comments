@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Seven Samurai</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves. A veteran samurai, who has fallen on hard times, answers a village's request for protection from bandits. He gathers 6 other samurai to help him, and they teach the townspeople how to defend themselves, and they supply the samurai with three small meals a day. The film culminates in a giant battle when 40 bandits attack the village. Colin Tinto <cst@imdb.com> In the Sixteenth Century, in Japan, a poor village is frequently looted by armed bandits losing their crop of rice. Their patriarch Grandpa advises the villagers to hire a Ronin to defend their village. Four farmers head to town to seek out their possible protectors, but they just c...</span>
+                                            <span id="mainPlotContent"> A poor village under attack by bandits recruits seven unemployed samurai to help them defend themselves. A veteran samurai, who has fallen on hard times, answers a village's request for protection from bandits. He gathers 6 other samurai to help him, and they teach the townspeople how to defend themselves, and they supply the samurai with three small meals a day. The film culminates in a giant battle when 40 bandits attack the village. Colin Tinto  In 16th century Japan, farmers in a small village face the prospect of again losing their crops to a band of roving thieves. Their solution is to go to the nearest city and see if they can hire samurai to protect them. The farmers are poor and can only offer food and lodging but they soon recruit... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">an offer three meals of rice per day and lodging for the samurai. They succeed in hiring the warming-hearted veteran Kambei Shimada that advises that they need six other samurai to protect their lands. Kambei recruits the necessary five samurai and the brave jester Kikuchiyo and move to the village. After a feared reception, Kambei plots a defense strategy and the samurai start training the farmers how to defend their lands and families for the battle that approaches. Claudio Carvalho, Rio de Janeiro, Brazil Fed up with the annual hit-and-run raids by a marauding gang of ferocious bandits, the peaceful farmers of a small sixteenth-century Japanese community summon up the courage to take matters into their own hands, dispatching the hot-headed villager, Rikichi, to bring help. When the farmer returns to the village, seven battle-scarred ronin become the defenceless hamlet's new protectors, entrusted with the challenging task of teaching the inexperienced peasants how to fight, in exchange for a handful of rice and lodging. Undoubtedly, before the imminent attack of the mounted plunderers, the odds are stacked up against the farmers and their defenders; however, both have sworn to fight like lions for their freedom. Can the Seven Samurai pull off a surprise victory? Nick Riganas A village is constantly attacked by well armed bandits. One day after an attack they seek the wisdom of an elder who tells them they cannot afford weapons, but they can find men with weapons, samurai, who will fight for them, if they find samurai who are in down on their luck and wondering where their next meal will come from. They find a very experienced samurai with a good heart who agrees to recruit their party for them. He selects five genuine samurai and one who is suspect but the seven return to the village to protect it from the forty plus bandits. John Vogel <jlvogel@comcast.net> In 16th century Japan, farmers in a small village face the prospect of again losing their crops to a band of roving thieves. Their solution is to go to the nearest city and see if they can hire samurai to protect them. The farmers are poor and can only offer food and lodging but they soon recruit Kambei Shimada who determines that they will need a total of seven samurai to properly guard the village. Slowly, he recruits other samurai for their task and once complete, move to the village. There they teach the farmers basic self defense and fortify the village itself. When the bandits attack, they are prepared but suffer many losses. garykmcd</span>
+                                                        <span id="metaPlotContent"class="additional-information">  Kambei Shimada who determines that they will need a total of seven samurai to properly guard the village. Slowly, he recruits other samurai for their task and once complete, move to the village. There they teach the farmers basic self defense and fortify the village itself. When the bandits attack, they are prepared but suffer many losses. garykmcd </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -82,14 +78,11 @@
                                 <a href="#"><span class="lat">36.3864928218528</span>, <span class="lon">138.592229549504</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 34.97667, "lon": 138.94694, "name": "Japan, Shizuoka\u4f0a\u8c46\u5e02"}, {"lat": 36.3864928218528, "lon": 138.592229549504, "name": "Japan"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -105,8 +98,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -129,7 +120,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -173,6 +164,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

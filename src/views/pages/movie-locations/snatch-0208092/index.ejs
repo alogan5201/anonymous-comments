@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Snatch</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond. Turkish and his close friend/accomplice Tommy get pulled into the world of match fixing by the notorious Brick Top. Things get complicated when the boxer they had lined up gets badly beaten by Mickey, who comes into the equation after Turkish, an unlicensed boxing promoter wants to buy a caravan off of Travellers. They then try to convince Mickey not only to fight for them, but to lose for them too. Whilst all this is going on, a huge diamond heist takes place, and a fistful of motley characters enter the story, including 'Cousin Avi', 'Boris The Blade', 'Franky Fou...</span>
+                                            <span id="mainPlotContent"> Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond. Turkish and his close friend/accomplice Tommy get pulled into the world of match fixing by the notorious Brick Top. Things get complicated when the boxer they had lined up gets badly beaten by Mickey, who comes into the equation after Turkish, an unlicensed boxing promoter wants to buy a caravan off of Travellers. They then try to convince Mickey not only to fight for them, but to lose for them too. Whilst all this is going on, a huge diamond heist takes place, and a fistful of motley characters enter the story, including 'Cousin Avi', 'Boris The Blade', 'Franky Fou... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">r Fingers' and 'Bullet Tooth Tony'. Things go from bad to worse as it all becomes about the money, the guns, and the damned dog. Filmtwob <webmaster@filmfreak.co.za> Turkish, an unlicenced boxing promoter is pulled into trouble when he becomes involved in big time criminal Brick Top, who wants him to arrange a fight and fix it. Meanwhile, a diamond theft goes down but the 84 karat stone goes missing. This leads Avi, the boss who was supposed to receive the stone, to come to England to search for it, with the help of his cousin, Doug The Head and Bullet Tooth Tony. As events twist and turn, the two situations blend into one with a chain reaction of events carrying on for each and every character. ~^Æ~§íX~^Æ~</span>
+                                                        <span id="metaPlotContent"class="additional-information"> r Fingers' and 'Bullet Tooth Tony'. Things go from bad to worse as it all becomes about the money, the guns, and the damned dog. Filmtwob  Turkish, an unlicenced boxing promoter is pulled into trouble when he becomes involved in big time criminal Brick Top, who wants him to arrange a fight and fix it. Meanwhile, a diamond theft goes down but the 84 karat stone goes missing. This leads Avi, the boss who was supposed to receive the stone, to come to England to search for it, with the help of his cousin, Doug The Head and Bullet Tooth Tony. As events twist and turn, the two situations blend into one with a chain reaction of events carrying on for each and every character. ~^Æ~§íX~^Æ~ </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -162,14 +158,11 @@
                                 <a href="#"><span class="lat">51.515618</span>, <span class="lon">-0.091998</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[51.4405037, -0.125557], [51.46463, -0.218567], [51.515618, -0.091998]], "data": [{"lat": 51.523609500000006, "lon": -0.088375, "name": "Bunhill Fields, City Rd, London, England EC1Y 2BG, United Kingdom"}, {"lat": 51.560389, "lon": -0.28085, "name": "Zero Latency, Wembley, England HA9 0JT, United Kingdom"}, {"lat": 51.46463, "lon": -0.218567, "name": "The Jolly Gardeners, 61-63 Lacy Rd, London, England SW15 1NT, United Kingdom"}, {"lat": 51.4405037, "lon": -0.125557, "name": "Streatham Hill, Lambeth, London, SW2 4SU, United Kingdom"}, {"lat": 51.5303456, "lon": -0.0561633, "name": "Bethnal Green, E2 9RD, Tower Hamlets, London, Greater London, England, United Kingdom"}, {"lat": 51.532266, "lon": -0.3252339, "name": "Perivale Middlesex, Ealing, Greenford, UB6 8ED, United Kingdom"}, {"lat": 51.5267458, "lon": -0.0620554, "name": "Bethnal Green Road, Tower Hamlets, London, E2 0AH, United Kingdom"}, {"lat": 51.749296, "lon": -0.342253, "name": "St Albans, Hertfordshire, England, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 52.38145972, "lon": -0.676181762467007, "name": "England, United Kingdom"}, {"lat": 54.2379333607472, "lon": -2.36966957036279, "name": "United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -185,8 +178,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -209,7 +200,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -253,6 +244,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

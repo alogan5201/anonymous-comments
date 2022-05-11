@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Before Sunset</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Nine years after Jesse and Celine first met, they encounter each other again on the French leg of Jesse's book tour. Early thirty-something American Jesse Wallace is in a Paris bookstore, the last stop on a tour to promote his best selling book, This Time. Although he is vague to reporters about the source material for the book, it is about his chance encounter nine years earlier on June 15-16, 1994 with a Parisienne named Celine, and the memorable and romantic day and evening they spent together in Vienna. At the end of their encounter at the Vienna train station, which is also how the book ends, they, not providing contact information to the other, vowed to meet each other again in exactly six months at that very spot. As the media scrum ...</span>
+                                            <span id="mainPlotContent"> Nine years after Jesse and Celine first met, they encounter each other again on the French leg of Jesse's book tour. Early thirty-something American Jesse Wallace is in a Paris bookstore, the last stop on a tour to promote his best selling book, This Time. Although he is vague to reporters about the source material for the book, it is about his chance encounter nine years earlier on June 15-16, 1994 with a Parisienne named Celine, and the memorable and romantic day and evening they spent together in Vienna. At the end of their encounter at the Vienna train station, which is also how the book ends, they, not providing contact information to the other, vowed to meet each other again in exactly six months at that very spot. As the media scrum ... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">at the bookstore nears its conclusion, Jesse spots Celine in the crowd, she who only found out about the book when she earlier saw his photograph promoting this public appearance. Much like their previous encounter, Jesse and Celine, who is now an environmental activist, decide to spend time together until he is supposed to catch his flight back to New York, this time only being about an hour. Beyond the issue of the six month meeting, what has happened in their lives in the intervening nine years, and their current lives, they once again talk about their philosophies of life and love, this time with the knowledge of their day together and how it shaped what has happened to them. Huggo Jesse, a writer from the US, and Celine, a Frenchwoman working for an environment protection organization, acquainted nine years ago on the train from Budapest to Vienna, meet again when Jesse arrives in Paris for a reading of his new book. As they have only a few hours until his plane leaves, they stroll through Paris, talking about their experiences, views and whether they still love each other, although Jesse is already married with a kid. Moritz Muehlenhoff <jmm@inutil.org></span>
+                                                        <span id="metaPlotContent"class="additional-information"> at the bookstore nears its conclusion, Jesse spots Celine in the crowd, she who only found out about the book when she earlier saw his photograph promoting this public appearance. Much like their previous encounter, Jesse and Celine, who is now an environmental activist, decide to spend time together until he is supposed to catch his flight back to New York, this time only being about an hour. Beyond the issue of the six month meeting, what has happened in their lives in the intervening nine years, and their current lives, they once again talk about their philosophies of life and love, this time with the knowledge of their day together and how it shaped what has happened to them. Huggo Jesse, a writer from the US, and Celine, a Frenchwoman working for an environment protection organization, acquainted nine years ago on the train from Budapest to Vienna, meet again when Jesse arrives in Paris for a reading of his new book. As they have only a few hours until his plane leaves, they stroll through Paris, talking about their experiences, views and whether they still love each other, although Jesse is already married with a kid. Moritz Muehlenhoff  </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -154,14 +150,11 @@
                                 <a href="#"><span class="lat">47.8249046208979</span>, <span class="lon">2.61878695312962</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[48.852338, 2.346985], [48.85658, 2.35183], [48.85658, 2.35183]], "data": [{"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.852338, "lon": 2.346985, "name": "Rue Saint-Julien Le Pauvre, 75005 Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 46.776923, "lon": 6.337584, "name": "Saint-Antoine, Doubs, France"}, {"lat": 48.85658, "lon": 2.35183, "name": "Paris, France"}, {"lat": 47.8249046208979, "lon": 2.61878695312962, "name": "France"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -177,8 +170,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -201,7 +192,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -245,6 +236,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

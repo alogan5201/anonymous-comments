@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Good Will Hunting</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life. A touching tale of a wayward young man who struggles to find his identity, living in a world where he can solve any problem, except the one brewing deep within himself, until one day he meets his soul mate who opens his mind and his heart. Dima & Danielle A young adult by the name of Will Hunting has always been living in the slums. He spends his nights at bars and batting cages with his best friends. However, he has an amazing talent in Mathematics. When Will is almost sent to jail, a professor at MIT decides to bail him out under the condition that he works with him for math every week and that he visits a thera...</span>
+                                            <span id="mainPlotContent"> Will Hunting, a janitor at M.I.T., has a gift for mathematics, but needs help from a psychologist to find direction in his life. A touching tale of a wayward young man who struggles to find his identity, living in a world where he can solve any problem, except the one brewing deep within himself, until one day he meets his soul mate who opens his mind and his heart. Dima & Danielle A young adult by the name of Will Hunting has always been living in the slums. He spends his nights at bars and batting cages with his best friends. However, he has an amazing talent in Mathematics. When Will is almost sent to jail, a professor at MIT decides to bail him out under the condition that he works with him for math every week and that he visits a thera... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">pist. Little does he know that the therapist, Sean, will change his life in so many ways. Eric A janitor at MIT, Will Hunting has a gift for math and chemistry that can take him light-years beyond his blue-collar roots, but he doesn't realize his potential and can't even imagine leaving his childhood Boston South End neighborhood, his construction job, or his best friend. To complicate matters, several strangers enter the equation: a brilliant math professor who discovers, even envies, Will's gifts, an empathetic shrink who identifies with Will's blue-collar roots, and a beautiful, gifted pre-med student who shows him, for the first time in his life, the possibility of love. Damien Saunders <dvs@rainbow.net.au> Will Hunting is a genius who's living a rough life in South Boston, while being employed at a prestigious college in Boston, he's discovered by a Fields Medal winning Professor who eventually tries to get Will to turn his life around with the help of Sean Maguire, as Will begins to realize that there's more to himself then he thinks there is. Ryan Harder <hotshotharder@hotmail.com> Will Hunting is a boy genius who was severely abused as a child and has been in trouble with the law ever since. When Will finally agrees to get counseling to keep himself out of jail and with his girlfriend, he meets Sean, the therapist who will change his life. Good Will Hunting tells the poignant story of Will and Sean's coming to terms with the blows life has dealt them and with the questions that lie in the future. Anuja <anujav@excite.com></span>
+                                                        <span id="metaPlotContent"class="additional-information"> pist. Little does he know that the therapist, Sean, will change his life in so many ways. Eric A janitor at MIT, Will Hunting has a gift for math and chemistry that can take him light-years beyond his blue-collar roots, but he doesn't realize his potential and can't even imagine leaving his childhood Boston South End neighborhood, his construction job, or his best friend. To complicate matters, several strangers enter the equation: a brilliant math professor who discovers, even envies, Will's gifts, an empathetic shrink who identifies with Will's blue-collar roots, and a beautiful, gifted pre-med student who shows him, for the first time in his life, the possibility of love. Damien Saunders  </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -170,14 +166,11 @@
                                 <a href="#"><span class="lat">42.377135</span>, <span class="lon">-71.066316</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[42.33382, -71.049685], [42.33411, -71.03477], [42.33727, -71.05231]], "data": [{"lat": 43.666713, "lon": -79.399975, "name": "School of Continuing Studies, 158 Saint George Street, Toronto, Ontario M5S 2E9, Canada"}, {"lat": 43.649996, "lon": -79.370882, "name": "106 Front Street East, Toronto, Ontario M5A 1E1, Canada"}, {"lat": 43.653482, "lon": -79.383935, "name": "Toronto, Ontario, Canada"}, {"lat": 42.33382, "lon": -71.049685, "name": "Dorchester Street, Boston, Massachusetts 02127, United States"}, {"lat": 42.3751, "lon": -71.105616, "name": "Cambridge, Massachusetts, United States"}, {"lat": 42.360253, "lon": -71.058291, "name": "Boston, Massachusetts, United States"}, {"lat": 42.373473, "lon": -71.118943, "name": "Harvard Square, Cambridge, Massachusetts, United States"}, {"lat": 42.3751, "lon": -71.105616, "name": "Cambridge, Massachusetts, United States"}, {"lat": 42.33411, "lon": -71.03477, "name": "East Fifth Street, South Boston, Massachusetts 02127, United States"}, {"lat": 42.373473, "lon": -71.118943, "name": "Harvard Square, Cambridge, Massachusetts, United States"}, {"lat": 42.33727, "lon": -71.05231, "name": "West Fifth Street, South Boston, Massachusetts 02127, United States"}, {"lat": 42.360253, "lon": -71.058291, "name": "Boston, Massachusetts, United States"}, {"lat": 42.377135, "lon": -71.066316, "name": "Bunker Hill, Charlestown, Massachusetts, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -193,8 +186,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -217,7 +208,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -261,6 +252,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

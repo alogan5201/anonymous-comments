@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,20 +24,7 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Treasure of the Sierra Madre</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Two down-on-their-luck Americans searching for work in 1920s Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains. Fred C. Dobbs and Bob Curtin, both down on their luck in Tampico, Mexico in 1925, meet up with a grizzled prospector named Howard and decide to join with him in search of gold in the wilds of central Mexico. Through enormous difficulties, they eventually succeed in finding gold, but bandits, the elements, and most especially greed threaten to turn their success into disaster. Jim Beaver <jumblejim@prodigy.net> Dobbs and Curtin meet up in Mexico, and go to work for a contractor, Pat McCormick, who takes them away to remote site and tells them they will be paid when the job is finished. When ...</span>
-                                                
-                                                    <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">they are finished, they return to town to find McCormick to get their wages. McCormick gives them a few dollars, and says he'll just go to the bank and pick up the payroll for them. Dobbs and Curtin then meet up with an old prospector, who claims the hills are still full of gold, and if they can get the cash, he'll go with them. They eventually get the cash from McCormick after a little  persuasion , and all three set off for the hills as good friends, but will they return that way ? Colin Tinto <cst@imdb.com></span>
-                                                    </div>
-                                                    <p>
-                                                        <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
-                                                    </p>
+                                            <span id="mainPlotContent"> Two down-on-their-luck Americans searching for work in 1920s Mexico convince an old prospector to help them mine for gold in the Sierra Madre Mountains. Fred C. Dobbs and Bob Curtin, both down on their luck in Tampico, Mexico in 1925, meet up with a grizzled prospector named Howard and decide to join with him in search of gold in the wilds of central Mexico. Through enormous difficulties, they eventually succeed in finding gold, but bandits, the elements, and most especially greed threaten to turn their success into disaster. Jim Beaver  </span>
                                                 
                                             </p>
                                     </div>
@@ -234,14 +221,11 @@
                                 <a href="#"><span class="lat">23.9504642310912</span>, <span class="lon">-102.532867448126</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[16.86805, -99.894018], [19.4405098, -99.2563168], [19.463, -100.491621]], "data": [{"lat": 22.25528, "lon": -97.86861, "name": "Tampico, Tamaulipas, Mexico"}, {"lat": 35.757284, "lon": -118.425441, "name": "Kernville, California, United States"}, {"lat": 35.0096785, "lon": -115.4742205, "name": "Mojave Desert, Cima, California 92323, United States"}, {"lat": 32.222877, "lon": -110.974848, "name": "Tucson, Arizona, United States"}, {"lat": 32.692659, "lon": -114.627616, "name": "Yuma, Arizona, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 30.48001, "lon": -108.9405, "name": "Bavispe, Sonora, Mexico"}, {"lat": 16.86805, "lon": -99.894018, "name": "Acapulco, Acapulco De Ju\u00e1rez, Guerrero, Mexico"}, {"lat": 19.463, "lon": -100.491621, "name": "Jungapeo, Jungapeo De Ju\u00e1rez, Michoac\u00e1n 61470, Mexico"}, {"lat": 19.48899, "lon": -100.492916, "name": "San Jose Purua, Jungapeo, Michoac\u00e1n 61475, Mexico"}, {"lat": 19.4405098, "lon": -99.2563168, "name": "Calle Sierra Madre Del Sur, 53790 Naucalpan De Ju\u00e1rez, M\u00e9xico, Mexico"}, {"lat": 34.51551, "lon": -114.29992, "name": "Desert Drive, Lake Havasu City, Arizona 86404, United States"}, {"lat": 19.906391, "lon": -100.50913, "name": "Sierra Madre Occidental, Maravat\u00edo, Michoac\u00e1n 61266, Mexico"}, {"lat": 27.521518, "lon": -109.9242001, "name": "Calle Sierra Madre Occidental, 85023 Ciudad Obreg\u00f3n, Sonora, Mexico"}, {"lat": 34.181648, "lon": -118.325855, "name": "Burbank, California, United States"}, {"lat": 34.181648, "lon": -118.325855, "name": "Burbank, California, United States"}, {"lat": 34.150955, "lon": -118.339232, "name": "4000 Warner Boulevard, Burbank, California 91522, United States"}, {"lat": 30.35505, "lon": -108.94777, "name": "Bacerac, Sonora, Mexico"}, {"lat": 30.9747786, "lon": -110.2872462, "name": "Sierra De Los Ajos, 84624 Heroica Ciudad De Cananea, Sonora, Mexico"}, {"lat": 32.289831, "lon": -111.066784, "name": "Tucson Mountains, Arizona, United States"}, {"lat": 23.9504642310912, "lon": -102.532867448126, "name": "Mexico"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -257,8 +241,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -281,7 +263,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -325,6 +307,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

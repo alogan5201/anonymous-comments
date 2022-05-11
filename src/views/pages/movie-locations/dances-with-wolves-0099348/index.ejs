@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,20 +24,7 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Dances with Wolves</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Lieutenant John Dunbar, assigned to a remote western Civil War outpost, befriends wolves and Native Americans, making him an intolerable aberration in the military. Lt. John Dunbar is dubbed a hero after he accidentally leads Union troops to a victory during the Civil War. He requests a position on the western frontier, but finds it deserted. He soon finds out he is not alone, but meets a wolf he dubs  Two-socks  and a curious Indian tribe. Dunbar quickly makes friends with the tribe, and discovers a white woman who was raised by the Indians. He gradually earns the respect of these native people, and sheds his white-man's ways. Greg Bole <bole@life.bio.sunysb.edu> A Civil War soldier develops a relationship with a band of Lakota Indians. At...</span>
-                                                
-                                                    <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">tracted by the simplicity of their lifestyle, he chooses to leave his former life behind to be with them. Having observed him, they give the name Dances With Wolves. Soon he is a welcomed member of the tribe and falls in love with a white woman who has been raised in the tribe. Tragedy results when Union soldiers arrive with designs on the land. Jwelch5742 Having been sent to a remote outpost in the wilderness of the Dakota territory during the American Civil War, Lieutenant John Dunbar encounters, and is eventually accepted into, the local Sioux tribe. He is known as  Dances with Wolves  to them and as time passes he becomes enamoured by the beautiful  Stands With a Fist . Not soon after, the frontier becomes the frontier no more, and as the army advances on the plains, John must make a decision that will not only affect him, but also the lives of the natives he now calls his people. Graeme Roy <gsr@cbmamiga.demon.co.uk></span>
-                                                    </div>
-                                                    <p>
-                                                        <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
-                                                    </p>
+                                            <span id="mainPlotContent"> Lieutenant John Dunbar, assigned to a remote western Civil War outpost, befriends wolves and Native Americans, making him an intolerable aberration in the military. Lt. John Dunbar is dubbed a hero after he accidentally leads Union troops to a victory during the Civil War. He requests a position on the western frontier, but finds it deserted. He soon finds out he is not alone, but meets a wolf he dubs  Two-socks  and a curious Indian tribe. Dunbar quickly makes friends with the tribe, and discovers a white woman who was raised by the Indians. He gradually earns the respect of these native people, and sheds his white-man's ways. Greg Bole  </span>
                                                 
                                             </p>
                                     </div>
@@ -106,14 +93,11 @@
                                 <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 43.78567, "lon": -101.903935, "name": "Badlands National Park, 6 Po Box, Interior, South Dakota 57750, United States"}, {"lat": 43.482938, "lon": -110.762321, "name": "Jackson Hole, Jackson, Wyoming 83001, United States"}, {"lat": 44.086933, "lon": -103.227448, "name": "Rapid City, South Dakota, United States"}, {"lat": 44.8688864124, "lon": -100.149201511155, "name": "South Dakota, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -129,8 +113,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -153,7 +135,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -197,6 +179,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

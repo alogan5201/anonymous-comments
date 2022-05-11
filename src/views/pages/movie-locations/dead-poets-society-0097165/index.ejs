@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Dead Poets Society</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression. Painfully shy Todd Anderson has been sent to the school where his popular older brother was valedictorian. His roommate, Neil Perry, although exceedingly bright and popular, is very much under the thumb of his overbearing father. The two, along with their other friends, meet Professor Keating, their new English teacher, who tells them of the Dead Poets Society, and encourages them to go against the status quo. Each does so in his own way, and is changed for life. Liz Jordan <c9310494@alinga.newcastle.edu.au> A new English teacher, John Keating, is introduced to an all-boys preparatory school that is known for its ancient tra...</span>
+                                            <span id="mainPlotContent"> Maverick teacher John Keating uses poetry to embolden his boarding school students to new heights of self-expression. Painfully shy Todd Anderson has been sent to the school where his popular older brother was valedictorian. His roommate, Neil Perry, although exceedingly bright and popular, is very much under the thumb of his overbearing father. The two, along with their other friends, meet Professor Keating, their new English teacher, who tells them of the Dead Poets Society, and encourages them to go against the status quo. Each does so in his own way, and is changed for life. Liz Jordan  A new English teacher, John Keating, is introduced to an all-boys preparatory school that is known for its ancient traditions and high standards. He use... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">ditions and high standards. He uses unorthodox methods to reach out to his students, who face enormous pressures from their parents and the school. With Keating's help, students Neil Perry, Todd Anderson and others learn to break out of their shells, pursue their dreams and seize the day. Jwelch5742</span>
+                                                        <span id="metaPlotContent"class="additional-information"> s unorthodox methods to reach out to his students, who face enormous pressures from their parents and the school. With Keating's help, students Neil Perry, Todd Anderson and others learn to break out of their shells, pursue their dreams and seize the day. Jwelch5742 </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -122,14 +118,11 @@
                                 <a href="#"><span class="lat">39.796223</span>, <span class="lon">-75.572148</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[39.449686, -75.716681], [39.449686, -75.716681], [39.44983, -75.71821]], "data": [{"lat": 39.449686, "lon": -75.716681, "name": "Middletown, Delaware, United States"}, {"lat": 39.44983, "lon": -75.71821, "name": "47 West Main Street, Middletown, Delaware 19709, United States"}, {"lat": 39.665244, "lon": -75.609931, "name": "New Castle, Delaware, United States"}, {"lat": 39.449686, "lon": -75.716681, "name": "Middletown, Delaware, United States"}, {"lat": 39.763446, "lon": -75.590759, "name": "Westover Hills, Wilmington, Delaware, United States"}, {"lat": 39.8514, "lon": -74.84986, "name": "Wolf Avenue, Medford, New Jersey 08055, United States"}, {"lat": 39.796223, "lon": -75.572148, "name": "Rockland, Delaware, United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -145,8 +138,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -169,7 +160,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -213,6 +204,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

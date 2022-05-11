@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    
+<%- include(`${partials}/movieHead`, {pageTitle: 'Film Locations'}); -%>
+ {% for f in film_details -%}
+  <body id="{{f.id}}" class="film-location">
+   {% endfor -%}
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+
+    <noscript>
+      <h3>Please enable JavaScript in order to view this site properly.</h3>
+    </noscript>
+
+    <%- include(`${partials}/nav`); -%>
+ 
+    <main class="mb-4 mt-5 "> 
+  
+   
+   
+   
+        <div class="container px-4 px-lg-5">
+          
+       
+            <div class="row align-items-md-stretch">
+                {% for f in film_details -%}
+              <div class="col-md-12">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-md-8 px-3 py-3">
+                      <div class="card-body">
+                        <h3 class="card-title">{{f.title}}</h3>
+                        <p class="card-text">
+                          {{f.plot}}
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 justify-self-end">
+                      <img
+                                      src="{{f.image}}"
+                                      class="img-fluid rounded-start"
+                                      alt="{{f.title}}"
+                                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor -%}
+         <div class="col-lg-12">
+              <div class="map-container">
+             <div  id="map" ></div>
+            </div>
+            </div>
+ <table class="table">
+          <tr class="table__header">
+            
+            <th class="table__cell">Location</th>
+           <th class="table__cell">Coordiantes</th>
+          </tr>
+          {% for l in locations -%}
+          <tr class="table__row">
+            <td class="table__cell location">
+                {{l.location}}
+            </td>   
+                <td class="table__cell lat-lon">
+                {% for c in l.coords-%}
+               <span class="lat"> {{c.lat}}</span>, <span class="lon">{{c.lon}}</span>
+                    {% endfor -%}
+            </td>   
+          </tr> 
+          {% endfor -%}
+           </tr>
+        
+        </table>
+          </div>
+        </div>
+    
+       
+    </main>
+
+
+      
+     <%- include(`${partials}/footer`); -%> <%-include(`${partials}/homeScripts`); -%>
+  </body>
+</html>

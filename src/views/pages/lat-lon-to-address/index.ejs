@@ -15,14 +15,14 @@
   </noscript>
   <%- include(`${partials}/nav`); -%>
   <!--   !! MAIN -------------------------->
-  <main class="flex-shrink-0 mt-5" >
+  <main class="flex-shrink-0 mt-5">
     <div class="container px-3">
       <div class="row g-3 ">
         <div class="col-md-4">
 
-        <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address', subtitle: 'Quickly find an Address from a set of coordinates.'}); -%>
+          <%- include(`${partials}/general/header`, {title: 'Latitude Longitude to Address', subtitle: 'Quickly find an Address from a set of coordinates.'}); -%>
 
-        <%- include(`${partials}/form/inputs`,{
+          <%- include(`${partials}/form/inputs`,{
                   inputName: [
                     { name: 'Latitude',type: 'number' },
                     { name: 'Longitude',type: 'number' },
@@ -32,8 +32,8 @@
                 output: [{name: 'Address', type: 'text'}]
                 }); -%>
 
-             </div>
-             <%- include(`${partials}/map/map-Container.ejs`); -%>
+        </div>
+        <%- include(`${partials}/map/map-Container.ejs`); -%>
       </div>
       <%- include(`${partials}/comment-section.ejs`); -%>
 

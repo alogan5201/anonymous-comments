@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Persona</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A nurse is put in charge of a mute actress and finds that their personae are melding together. A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer. Alma eventually confesses her secrets to a seemingly sympathetic Elisabeth and finds that her own personality is being submerged into Elisabeth's persona. Kathy Li Swedish actress Elisabet Vogler, while on stage during a performance of Elektra, becomes mute. The day following, she is in a near catatonic state. The doctors in charge of her case diagnose no medical reason that would cause these disabilities. A nurse named Alma i...</span>
+                                            <span id="mainPlotContent"> A nurse is put in charge of a mute actress and finds that their personae are melding together. A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer. Alma eventually confesses her secrets to a seemingly sympathetic Elisabeth and finds that her own personality is being submerged into Elisabeth's persona. Kathy Li Swedish actress Elisabet Vogler, while on stage during a performance of Elektra, becomes mute. The day following, she is in a near catatonic state. The doctors in charge of her case diagnose no medical reason that would cause these disabilities. A nurse named Alma i... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">s assigned to be Elisabet's caretaker, she who believes that there is some sort of inner strength that Elisabet possesses to choose not to speak. Since Elisabet is not allowed visits by either her husband or her son, the doctor provides her own secluded beach side summer house as a respite for Elisabet and Alma. To break the silence during the respite, Alma speaks continually to Elisabet, ultimately about personal details of her life. Elisabet responds to Alma's talking, and Alma uses these situations as her own therapy sessions. Alma admires Elisabet and wants to be like her. As the women spend more time alone together, Alma learns more about her patient. But Alma also begins a transformation, which she now knowingly tries to stop because of those things she has learned about Elisabet. Huggo A nurse at a psychiatric hospital, Alma, is given a new patient. Elisabet Vogler is a famous actress but has suddenly become apathetic, lethargic, mute and prone to fits of laughter at arbitrary, innocuous things. Alma does her best to engage Elisabet and get her to talk but the more Alma opens up to Elisabet, the more she empathises with her and becomes like her. grantss A piece of visual poetry that elevates Bergman to a new level in his career. In this film the female figures form a relationship where there is a spiritual and emotional connection recognized as one of the most important creations of this director. Between contrasting images and dream light this is a film of great psychological depth. Elisabeth Vogler seems to have everything: she is a successful actress, happily married and mother of a small child. However, one night, she is paralyzed in the middle of a presentation, after this event she spends three months in the hospital without her condition being defined. After this period she spends her days in a summer house near the Baltic Sea where the nurse, Alma, assists her in her recovery. These two women form a powerful bond in which friendship and betrayal take place to change their lives.</span>
+                                                        <span id="metaPlotContent"class="additional-information"> s assigned to be Elisabet's caretaker, she who believes that there is some sort of inner strength that Elisabet possesses to choose not to speak. Since Elisabet is not allowed visits by either her husband or her son, the doctor provides her own secluded beach side summer house as a respite for Elisabet and Alma. To break the silence during the respite, Alma speaks continually to Elisabet, ultimately about personal details of her life. Elisabet responds to Alma's talking, and Alma uses these situations as her own therapy sessions. Alma admires Elisabet and wants to be like her. As the women spend more time alone together, Alma learns more about her patient. But Alma also begins a transformation, which she now knowingly tries to stop because of those things she has learned about Elisabet. Huggo A nurse at a psychiatric hospital, Alma, is given a new patient. Elisabet Vogler is a famous actress but has suddenly become apathetic, lethargic, mute and prone to fits of laughter at arbitrary, innocuous things. Alma does her best to engage Elisabet and get her to talk but the more Alma opens up to Elisabet, the more she empathises with her and becomes like her. grantss A piece of visual poetry that elevates Bergman to a new level in his career. In this film the female figures form a relationship where there is a spiritual and emotional connection recognized as one of the most important creations of this director. Between contrasting images and dream light this is a film of great psychological depth. Elisabeth Vogler seems to have everything: she is a successful actress, happily married and mother of a small child. However, one night, she is paralyzed in the middle of a presentation, after this event she spends three months in the hospital without her condition being defined. After this period she spends her days in a summer house near the Baltic Sea where the nurse, Alma, assists her in her recovery. These two women form a powerful bond in which friendship and betrayal take place to change their lives. </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -82,14 +78,11 @@
                                 <a href="#"><span class="lat">59.367224</span>, <span class="lon">17.981759</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": null, "data": [{"lat": 57.955477, "lon": 19.232768, "name": "F\u00e5r\u00f6, Gotland, Sweden"}, {"lat": 59.367224, "lon": 17.981759, "name": "Filmstaden R\u00e5sunda, Greta garbos v\u00e4g 11,13, Solna, Stockholm 169 40, Sweden"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -105,8 +98,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -129,7 +120,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -173,6 +164,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

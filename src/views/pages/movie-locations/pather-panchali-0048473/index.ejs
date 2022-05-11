@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Pather Panchali</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Impoverished priest Harihar Ray, dreaming of a better life for himself and his family, leaves his rural Bengal village in search of work. The story of a young boy, Apu, and life in his small Indian village. His parents are quite poor - his father Harihar, a writer and poet, gave away the family's fruit orchard to settle his brother's debts. His sister Durga and an old aunt also still lives with them. His mother Sarbojaya bears the brunt of the family's situation. She scrapes by and sells her personal possessions to put food on the table and has to bear the taunts of her neighbors as Durga is always stealing fruit from their orchard. Things get worse when Harihar disappears for five months and Durga falls ill. Even after Harihar returns, the...</span>
+                                            <span id="mainPlotContent"> Impoverished priest Harihar Ray, dreaming of a better life for himself and his family, leaves his rural Bengal village in search of work. The story of a young boy, Apu, and life in his small Indian village. His parents are quite poor - his father Harihar, a writer and poet, gave away the family's fruit orchard to settle his brother's debts. His sister Durga and an old aunt also still lives with them. His mother Sarbojaya bears the brunt of the family's situation. She scrapes by and sells her personal possessions to put food on the table and has to bear the taunts of her neighbors as Durga is always stealing fruit from their orchard. Things get worse when Harihar disappears for five months and Durga falls ill. Even after Harihar returns, the... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information"> family is left with few alternatives. garykmcd With her always absent and emotionally unavailable Brahmin husband, Harihar, dreaming of recognition as a playwright and a better future, the impecunious mother-of-two, Sarbojaya, struggles to eke out an existence and put food on the table for her daughter, Durga, her son, Apu, and frail Aunt Indir. Living on the verge of poverty, at the dilapidated ancestral house in the heart of an untamed bamboo forest in 1910s rural Bengal, sometimes, it seems that poor Sarbojaya is fighting a losing battle, having to put up with Durga's shenanigans, Indir's idiosyncrasies, and the ridicule of their unsympathetic neighbours. And, as if that weren't enough, the unstoppable Indian monsoon is fast approaching, and Harihar, who is still looking for a job to support his family, is nowhere to be found. Now, defeated Sarbojaya has no other choice but wait and pray. But, is she prepared for what fate has in store for her? Nick Riganas Sometime in the early years of the century, a boy, Apu, is born to a poor Brahmin family in a village in Bengal. The father, a poet and priest, cannot earn enough to keep his family going. Apu's sister, Durga, is forever stealing guavas from the neighbour's orchards. All these add to the daily struggles of the mother's life, notwithstanding her constant bickering with old aunt who lives with the family. L.H. Wong <as9401k56@ntuvax.ntu.ac.sg></span>
+                                                        <span id="metaPlotContent"class="additional-information">  family is left with few alternatives. garykmcd With her always absent and emotionally unavailable Brahmin husband, Harihar, dreaming of recognition as a playwright and a better future, the impecunious mother-of-two, Sarbojaya, struggles to eke out an existence and put food on the table for her daughter, Durga, her son, Apu, and frail Aunt Indir. Living on the verge of poverty, at the dilapidated ancestral house in the heart of an untamed bamboo forest in 1910s rural Bengal, sometimes, it seems that poor Sarbojaya is fighting a losing battle, having to put up with Durga's shenanigans, Indir's idiosyncrasies, and the ridicule of their unsympathetic neighbours. And, as if that weren't enough, the unstoppable Indian monsoon is fast approaching, and Harihar, who is still looking for a job to support his family, is nowhere to be found. Now, defeated Sarbojaya has no other choice but wait and pray. But, is she prepared for what fate has in store for her? Nick Riganas Sometime in the early years of the century, a boy, Apu, is born to a poor Brahmin family in a village in Bengal. The father, a poet and priest, cannot earn enough to keep his family going. Apu's sister, Durga, is forever stealing guavas from the neighbour's orchards. All these add to the daily struggles of the mother's life, notwithstanding her constant bickering with old aunt who lives with the family. L.H. Wong  </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -90,14 +86,11 @@
                                 <a href="#"><span class="lat">23.199917</span>, <span class="lon">88.009229</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[22.446345, 88.370853], [22.446345, 88.370853], [23.199917, 88.009229]], "data": [{"lat": 22.446345, "lon": 88.370853, "name": "Boral, Sonarpur, South 24 Parganas, West Bengal, India"}, {"lat": 22.446345, "lon": 88.370853, "name": "Boral, Sonarpur, South 24 Parganas, West Bengal, India"}, {"lat": 23.199917, "lon": 88.009229, "name": "Palsit, Burdwan, Purba Bardhaman, West Bengal, India"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -113,8 +106,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -137,7 +128,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -181,6 +172,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

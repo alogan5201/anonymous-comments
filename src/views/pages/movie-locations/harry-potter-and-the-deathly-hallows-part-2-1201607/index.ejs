@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Harry Potter and the Deathly Hallows: Part 2</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts. Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue their quest of finding and destroying Voldemort's (Ralph Fiennes') three remaining Horcruxes, the magical items responsible for his immortality. But as the mystical Deathly Hallows are uncovered, and Voldemort finds out about their mission, the biggest battle begins, and life as they know it will never be the same again. Jordan Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue to find the rest of Voldemort's (Ralph Fiennes') Horcruxes, until Harry discovers that one is at Hogwarts...</span>
+                                            <span id="mainPlotContent"> Harry, Ron, and Hermione search for Voldemort's remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts. Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue their quest of finding and destroying Voldemort's (Ralph Fiennes') three remaining Horcruxes, the magical items responsible for his immortality. But as the mystical Deathly Hallows are uncovered, and Voldemort finds out about their mission, the biggest battle begins, and life as they know it will never be the same again. Jordan Harry (Daniel Radcliffe), Ron (Rupert Grint), and Hermione (Emma Watson) continue to find the rest of Voldemort's (Ralph Fiennes') Horcruxes, until Harry discovers that one is at Hogwarts... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">, they flee there as soon as possible, but Voldemort instantly finds out about their mission. The battle is drawn at Hogwarts as many people fight to protect Harry. Harry then realizes that people are dying constantly for his mistakes and then eventually fights Voldemort for the last time. Along the way, crucial secrets are unravelled, and the mysterious, but legendary, Deathly Hallows reappear. Harry, Ron and Hermione's search for the last few Horcruxes continues. But when Voldemort finds out about their mission, the trio find that they must return to Hogwarts. Now the battle lines are drawn between the forces of good and evil to decide the fate of the Wizarding world. But as secrets are revealed and the mysterious Deathly Hallows are uncovered, Harry discovers that he will need to make the ultimate sacrifice as he is in for the fight of his life while facing Lord Voldemort one final time. Blazer346</span>
+                                                        <span id="metaPlotContent"class="additional-information"> , they flee there as soon as possible, but Voldemort instantly finds out about their mission. The battle is drawn at Hogwarts as many people fight to protect Harry. Harry then realizes that people are dying constantly for his mistakes and then eventually fights Voldemort for the last time. Along the way, crucial secrets are unravelled, and the mysterious, but legendary, Deathly Hallows reappear. Harry, Ron and Hermione's search for the last few Horcruxes continues. But when Voldemort finds out about their mission, the trio find that they must return to Hogwarts. Now the battle lines are drawn between the forces of good and evil to decide the fate of the Wizarding world. But as secrets are revealed and the mysterious Deathly Hallows are uncovered, Harry discovers that he will need to make the ultimate sacrifice as he is in for the fight of his life while facing Lord Voldemort one final time. Blazer346 </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -130,14 +126,11 @@
                                 <a href="#"><span class="lat">51.798993874999994</span>, <span class="lon">-0.560344</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[51.28478, -0.760758], [51.38761, -0.740717], [51.407444, -0.465177]], "data": [{"lat": 51.654558, "lon": -5.05785, "name": "Freshwater West, Freshwater Water, Pembroke, Wales SA71 5AH, United Kingdom"}, {"lat": 51.407444, "lon": -0.465177, "name": "Shepperton Studios, Studios Rd, Shepperton, England TW17 0QD, United Kingdom"}, {"lat": 51.28478, "lon": -0.760758, "name": "Airship Hangar, Farnborough, England GU14 7JP, United Kingdom"}, {"lat": 51.515618, "lon": -0.091998, "name": "London, Greater London, England, United Kingdom"}, {"lat": 51.38761, "lon": -0.740717, "name": "Swinley Forest, Bracknell, England RG12 7QW, United Kingdom"}, {"lat": 51.69323, "lon": -0.4184505, "name": "Warner Bros. Studios Leavesden, Warner Dr, Watford, England WD25 7LP, United Kingdom"}, {"lat": 51.5483805, "lon": -0.5348885, "name": "Pinewood Studios, Pinewood Rd, Iver, England SL0 0NH, United Kingdom"}, {"lat": 51.798993874999994, "lon": -0.560344, "name": "Ashridge Business School, Ashridge, Berkhamsted, England HP4 1NS, United Kingdom"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -153,8 +146,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -177,7 +168,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -221,6 +212,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

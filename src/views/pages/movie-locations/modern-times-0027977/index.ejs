@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">Modern Times</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">The Tramp struggles to live in modern industrial society with the help of a young homeless woman. Chaplin's last 'silent' film, filled with sound effects, was made when everyone else was making talkies. Charlie turns against modern society, the machine age, (The use of sound in films ?) and progress. Firstly we see him frantically trying to keep up with a production line, tightening bolts. He is selected for an experiment with an automatic feeding machine, but various mishaps leads his boss to believe he has gone mad, and Charlie is sent to a mental hospital - When he gets out, he is mistaken for a communist while waving a red flag, sent to jail, foils a jailbreak, and is let out again. We follow Charlie through many more escapades before t...</span>
+                                            <span id="mainPlotContent"> The Tramp struggles to live in modern industrial society with the help of a young homeless woman. Chaplin's last 'silent' film, filled with sound effects, was made when everyone else was making talkies. Charlie turns against modern society, the machine age, (The use of sound in films ?) and progress. Firstly we see him frantically trying to keep up with a production line, tightening bolts. He is selected for an experiment with an automatic feeding machine, but various mishaps leads his boss to believe he has gone mad, and Charlie is sent to a mental hospital - When he gets out, he is mistaken for a communist while waving a red flag, sent to jail, foils a jailbreak, and is let out again. We follow Charlie through many more escapades before t... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">he film is out. Colin Tinto <cst@imdb.com> The idea of the film was apparently given to Chaplin by a young reporter, who told him about the production line system in Detroit, which was turning its workers into nervous wrecks. In the film, Charlie becomes literally trapped in the machine and, in one of his finest patches of comic invention, is battered and buffeted by an automatic feeding machine introduced by his bosses to save time and money. Cured after his breakdown, he is arrested when he picks up a red flag that has fallen off the back of a lorry, and runs down the street to return it, exactly the same time as a left-wing demonstration comes round the corner. He meets 'The Gamine' in the back of the police van, who has also been arrested for stealing bread. From then on the theme is about two nondescripts trying to get along in modern times.  Smile, though your heart is breaking ...  alfiehitchie A little tramp is finding it difficult to match his own sensibilities to the modern mechanized world. Failing as a worker on a factory assembly line, he gets into a series of adventures and misadventures, which leads to him meeting a young recently orphaned gamine who ran away rather than end up in an orphanage. They try to survive in the world together, both on the run from the law, although his previous stints behind bars were to him more comforting than life outside in the cold modern world. Beyond being wanted by the law, the question becomes whether they individually or together can find their proper place in the ever changing world which seems out to get them. Huggo The story begins on the life of a factory working who is employed on the assembly line. His job sees him screwing nuts at an ever-increasing rate as part of the assembly line as well as being subjected to new, untested inventions like an 'automatic feeding machine'. This daily monotony pushes him over the edge and, after a lengthy stay in an asylum, is arrested for being mistakenly taken as an instigator at a communist rally. What follows is the factory worker meeting the love of his life, taking on several new jobs and trying to make what proves to be a difficult living. Kyle Perez</span>
+                                                        <span id="metaPlotContent"class="additional-information"> he film is out. Colin Tinto  The idea of the film was apparently given to Chaplin by a young reporter, who told him about the production line system in Detroit, which was turning its workers into nervous wrecks. In the film, Charlie becomes literally trapped in the machine and, in one of his finest patches of comic invention, is battered and buffeted by an automatic feeding machine introduced by his bosses to save time and money. Cured after his breakdown, he is arrested when he picks up a red flag that has fallen off the back of a lorry, and runs down the street to return it, exactly the same time as a left-wing demonstration comes round the corner. He meets 'The Gamine' in the back of the police van, who has also been arrested for stealing bread. From then on the theme is about two nondescripts trying to get along in modern times.  Smile, though your heart is breaking ...  alfiehitchie A little tramp is finding it difficult to match his own sensibilities to the modern mechanized world. Failing as a worker on a factory assembly line, he gets into a series of adventures and misadventures, which leads to him meeting a young recently orphaned gamine who ran away rather than end up in an orphanage. They try to survive in the world together, both on the run from the law, although his previous stints behind bars were to him more comforting than life outside in the cold modern world. Beyond being wanted by the law, the question becomes whether they individually or together can find their proper place in the ever changing world which seems out to get them. Huggo The story begins on the life of a factory working who is employed on the assembly line. His job sees him screwing nuts at an ever-increasing rate as part of the assembly line as well as being subjected to new, untested inventions like an 'automatic feeding machine'. This daily monotony pushes him over the edge and, after a lengthy stay in an asylum, is arrested for being mistakenly taken as an instigator at a communist rally. What follows is the factory worker meeting the love of his life, taking on several new jobs and trying to make what proves to be a difficult living. Kyle Perez </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -202,14 +198,11 @@
                                 <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[33.761755, -118.283373], [33.769016, -118.191604], [33.7842845, -118.283979]], "data": [{"lat": 34.5215271, "lon": -118.2645085, "name": "Sierra Highway and Penman Road, Santa Clarita, California 91390, United States"}, {"lat": 33.7842845, "lon": -118.283979, "name": "Los Angeles Harbor College, 1111 Figueroa Pl, Wilmington, California 90744, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.445723, "lon": -118.523461, "name": "Santa Clarita, California, United States"}, {"lat": 33.761755, "lon": -118.283373, "name": "San Pedro Harbor, Wilmington, California 90744, United States"}, {"lat": 34.04724, "lon": -118.34451, "name": "1416 La Brea Avenue, Los Angeles, California 90019, United States"}, {"lat": 34.0508672, "lon": -118.2316134, "name": "Center Street and E Jackson St, Los Angeles, California 90012, United States"}, {"lat": 34.14054, "lon": -118.36683, "name": "10858 Bluffside Drive, Studio City, California 91604, United States"}, {"lat": 34.08563, "lon": -118.326612, "name": "1685 Vine Street, Los Angeles, California 90038, United States"}, {"lat": 33.87155, "lon": -118.23678, "name": "South Wilmington Avenue, Compton, California 90220, United States"}, {"lat": 34.05316, "lon": -118.23942, "name": "N San Pedro St, Los Angeles, California 90012, United States"}, {"lat": 34.05214, "lon": -118.47407, "name": "Brentwood, Los Angeles, California, United States"}, {"lat": 34.095892, "lon": -118.37094, "name": "The Standard, 8300 W Sunset Blvd, Los Angeles, California 90069, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 33.769016, "lon": -118.191604, "name": "Long Beach, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -225,8 +218,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -249,7 +240,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -293,6 +284,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

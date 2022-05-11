@@ -15,7 +15,7 @@
         <%- include(`${partials}/nav`); -%>
         <main class="mb-4 mt-5">
             <div class="container px-4 px-lg-5">
-                     <%- include(`${partials}/autocomplete`); -%>
+                <%- include(`${partials}/autocomplete`); -%>
                 <div class="row align-items-md-stretch">
                     <div class="col-md-12">
                         <div class="card mb-3" id="film-details">
@@ -24,19 +24,15 @@
                                     <div class="card-body">
                                         <h3 class="card-title">The Gold Rush</h3>
                                         <p class="card-text mb-0">
-                                            <span id="mainPlotContent">A prospector goes to the Klondike during the 1890s gold rush in hopes of making his fortune, and is smitten with a girl he sees in a dance hall. A lone prospector ventures into Alaska looking for gold. He gets mixed up with some burly characters and falls in love with the beautiful Georgia. He tries to win her heart with his singular charm. John J. Magee <magee@helix.mgh.harvard.edu> The Little Tramp goes prospecting for gold in the Klondike. Conditions are harsh, there is little in the way of comfort or food and even less it seems in the way of gold. Thanksgiving dinner for himself and Big Jim Mckay consists of a boiled boot. Once in town, he meets the beautiful Georgia at the Monte Carlo dance hall. He finds himself in competition with th...</span>
+                                            <span id="mainPlotContent"> A prospector goes to the Klondike during the 1890s gold rush in hopes of making his fortune, and is smitten with a girl he sees in a dance hall. A lone prospector ventures into Alaska looking for gold. He gets mixed up with some burly characters and falls in love with the beautiful Georgia. He tries to win her heart with his singular charm. John J. Magee  The Little Tramp goes prospecting for gold in the Klondike. Conditions are harsh, there is little in the way of comfort or food and even less it seems in the way of gold. Thanksgiving dinner for himself and Big Jim Mckay consists of a boiled boot. Once in town, he meets the beautiful Georgia at the Monte Carlo dance hall. He finds himself in competition with the ladies man who has his eyes... </span>
                                                 
                                                     <div class="collapse" id="movieLocationCollapsible">
-                                                        <div id = "module"></div>
-                                                        <span id="metaPlotContent"class="additional-information">e ladies man who has his eyes on Georgia as well. Meanwhile, Black Larsen - wanted by the police - tries to steal Big Jim McKay's claim. Big Jim tries to stop him but knocked unconscious, he loses his memory. Back in town, the little tramp tries to impress Georgia. When Big Jim arrives, he regains his memory and he and the Little Tramp set off to make their fortune. Sailing home as rich men, the Little Tramp has one more chance to unite with Georgia. garykmcd During the Gold Rush, prospectors hoping to find fortune travel to Chilkoot Pass, a high mountain of harsh and dangerous conditions. Big Jim, a gold prospector has just discovered a massive stash of gold on his patch of land. When a blizzard strikes, and A Lone Prospector gets lost in the same storm, the two must fight for the territory. As they encounter one adventure after another, The Lone Prospector is lead to and eventually meets the love of his life. Kyle Perez</span>
+                                                        <span id="metaPlotContent"class="additional-information">  on Georgia as well. Meanwhile, Black Larsen - wanted by the police - tries to steal Big Jim McKay's claim. Big Jim tries to stop him but knocked unconscious, he loses his memory. Back in town, the little tramp tries to impress Georgia. When Big Jim arrives, he regains his memory and he and the Little Tramp set off to make their fortune. Sailing home as rich men, the Little Tramp has one more chance to unite with Georgia. garykmcd During the Gold Rush, prospectors hoping to find fortune travel to Chilkoot Pass, a high mountain of harsh and dangerous conditions. Big Jim, a gold prospector has just discovered a massive stash of gold on his patch of land. When a blizzard strikes, and A Lone Prospector gets lost in the same storm, the two must fight for the territory. As they encounter one adventure after another, The Lone Prospector is lead to and eventually meets the love of his life. Kyle Perez </span>
                                                     </div>
                                                     <p>
                                                         <a class="btn btn-link show-more-less collapsed"
-                                                               id="myCollapsibleBtn"
-                                                      
-                                                           role="button"
-                                                       >
-                                                        </a>
+                                                           id="myCollapsibleBtn"
+                                                           role="button"></a>
                                                     </p>
                                                 
                                             </p>
@@ -130,14 +126,11 @@
                                 <a href="#"><span class="lat">39.3812661305678</span>, <span class="lon">-97.9222112121185</span></a>
                             </td>
                         </tr>
-                    </tr>
-            </table>
-        </div>
-    </div>
-</main>
-    <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
-
-<script type="text/javascript">
+                    </table>
+            </div>
+        </main>
+        <%- include(`${partials}/footer`); -%> <%- include(`${partials}/page-scripts/movie-location-scripts`); -%>
+        <script type="text/javascript">
 var locations =[{"bbox": [[34.053691, -118.242766], [34.251081, -118.518444], [34.259572, -118.602325]], "data": [{"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 34.276, "lon": -118.60976, "name": "1 Iverson Lane, Chatsworth, California 91311, United States"}, {"lat": 38.581061, "lon": -121.493895, "name": "Sacramento, California, United States"}, {"lat": 34.259572, "lon": -118.602325, "name": "Chatsworth, California, United States"}, {"lat": 34.053691, "lon": -118.242766, "name": "Los Angeles, California, United States"}, {"lat": 34.251081, "lon": -118.518444, "name": "San Fernando Valley Academy, 17601 Lassen St, Northridge, California 91325, United States"}, {"lat": 37.957702, "lon": -121.29078, "name": "Stockton, California, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
 var map = L.map('map').setView([0,0], 20);
 
@@ -153,8 +146,6 @@ tableCell.forEach(box => {
   box.addEventListener('click', function handleClick(event) {
     event.preventDefault()
     let target = event.target
-    //console.log($(`${target} span`).first())
-
    let boxChildren = $(this).children()
    if(boxChildren.length < 1 ){
 const found = locationData.find(element => element.name == target.innerText);
@@ -177,7 +168,7 @@ const found = locationData.find(element => element.name == target.innerText);
      console.log(lat,lon)
    map.flyTo([lat, lon])
 
-    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+    $('html,body').animate({                          
         scrollTop: $("#map").offset().top},
         'slow');
    }
@@ -221,6 +212,6 @@ layer.on('load', function (event) {
 
 });
 layer.addTo(map);
-</script>
-</body>
+        </script>
+    </body>
 </html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html> <html lang=en dir=ltr> <head> <meta charset=utf-8> <meta http-equiv=x-ua-compatible content="ie=edge"> <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> <title> GeoTools | Film Locations </title> <!-- 55 character limit --> <link rel=canonical href=example.com> <meta name=description content="Boilerplate for a Static website using EJS and SASS"> <!-- 150 character limit --> <meta property=og:url content=example.com> <meta property=og:site_name content=GeoTools> <meta property=og:locale content=en_US> <meta property=og:type content=website> <meta property=og:title content=GeoTools> <meta property=og:description content="Boilerplate for a Static website using EJS and SASS"> <meta property=og:image content=""> <!-- generate image at https://realfavicongenerator.net/social/ --> <meta name=googlebot content=noarchive> <meta name=twitter:card content=summary> <meta name=twitter:title content=GeoTools> <meta name=twitter:description content="Boilerplate for a Static website using EJS and SASS"> <meta name=twitter:image content=""> <!-- generate image at https://realfavicongenerator.net/social/ --> <meta name=twitter:image:alt content=GeoTools> <meta name=twitter:site content=example.com> <meta name=author content="Brenton Cozby. https://brentoncozby.com"> <!-- favicons --> <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png> <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png> <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png> <link rel=manifest href=/manifest.json> <link rel=mask-icon href=/safari-pinned-tab.svg color=#2b5797> <meta name=theme-color content=#ffffff> <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin=anonymous referrerpolicy=no-referrer> <link rel=stylesheet href=https://unpkg.com/leaflet@1.7.1/dist/leaflet.css> <script src=https://unpkg.com/leaflet@1.7.1/dist/leaflet.js></script> <!-- Disable tap highlight on IE --> <meta name=msapplication-tap-highlight content=no> <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script>
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"
+      type="text/javascript"
+    ></script>
+  <![endif]--> <link rel=stylesheet href=/css/index.97091c9802d9ecb80082db385ca01609.css> <link rel=preload href=/js/vendor.5fc2ca0bb7ea884fd2f5d3a199b52893.js as=script> <link rel=prefetch href=/js/vendor.5fc2ca0bb7ea884fd2f5d3a199b52893.js> <link rel=preload href=/js/app.00cd437d0c62f1d5c2d58d778c4dbb9e.js as=script> <link rel=prefetch href=/js/app.00cd437d0c62f1d5c2d58d778c4dbb9e.js> </head> <body class="film-location film-details"> <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+<![endif]--> <noscript> <h3>Please enable JavaScript in order to view this site properly.</h3> </noscript> <nav id=mainNav class="navbar navbar-expand-lg"> <div class="container px-2 py-2 border-bottom"> <div class="hstack gap-1 ms-3"> <div class="position-relative ms-2 me-2"> <div class=pin></div> <div class=pulse></div> </div> <a href=/ class="navbar-brand d-flex align-items-center"> <span class=fs-4>GeoTools</span> </a> </div> <button class="navbar-toggler text-white" type=button data-bs-toggle=collapse data-bs-target=#navbarNav aria-controls=navbarNav aria-expanded=false aria-label="Toggle navigation"> <span class=navbar-toggler-icon></span> </button> <div class="collapse navbar-collapse" id=navbarNav> <ul class="navbar-nav me-auto mb-2 mb-lg-0"> <li class="nav-item dropdown"> <a class="nav-link nav-bar-toggle dropdown-toggle" href=# id=navbarDarkDropdownMenuLink role=button data-bs-toggle=dropdown aria-expanded=false> Tools </a> <ul class=dropdown-menu aria-labelledby=navbarDarkDropdownMenuLink> <li> <a class=dropdown-item href=/ > <svg xmlns=http://www.w3.org/2000/svg class="bi me-2" width=16 height=16 viewBox="0 0 512 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36
+                    74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62
+                    3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64
+                    39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99
+                    65.51 0 90.5 24.99 24.99 65.51 24.99 90.5
+                    0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22
+                    37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25
+                    0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0
+                    13.25-10.75 24-24 24z"/> </svg> All Tools</a> </li> <hr class=dropdown-divider> <li> <a class=dropdown-item href=/address-to-latlon> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 576 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M0 117.66v346.32c0 11.32 11.43 19.06 21.94 14.86L160
+                      416V32L20.12 87.95A32.006 32.006 0 0 0 0 117.66zM192
+                      416l192 64V96L192 32v384zM554.06 33.16L416
+                      96v384l139.88-55.95A31.996 31.996 0 0 0 576
+                      394.34V48.02c0-11.32-11.43-19.06-21.94-14.86z"/> </svg> Address to Latitude & Longitude</a> </li> <li> <a class=dropdown-item href=/lat-lon-to-address> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 384 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0
+                        85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97
+                        99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464
+                        0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80
+                        35.817-80 80 35.817 80 80 80z"/> </svg> Latitude & Longitude to Address</a> </li> <li> <a href=/dms-to-latlon class=dropdown-item> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 496 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5
+                          152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5
+                          3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3
+                          41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6
+                          24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8
+                          39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8
+                          49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3
+                          64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8
+                          8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43
+                          3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6
+                          64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7
+                          152 88.5 152s74-62.7 88.5-152h-177zm159.3
+                          141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8
+                          56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5
+                          120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"/> </svg> DMS to Latitude & Longitude </a> </li> <li> <a href=/latlon-to-dms class=dropdown-item> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 512
+                          512"> <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --> <path d="M176 256C176 211.8 211.8 176 256 176C300.2 176
+                            336 211.8 336 256C336 300.2 300.2 336 256 336C211.8
+                            336 176 300.2 176 256zM256 0C273.7 0 288 14.33 288
+                            32V66.65C368.4 80.14 431.9 143.6 445.3 224H480C497.7
+                            224 512 238.3 512 256C512 273.7 497.7 288 480
+                            288H445.3C431.9 368.4 368.4 431.9 288 445.3V480C288
+                            497.7 273.7 512 256 512C238.3 512 224 497.7 224
+                            480V445.3C143.6 431.9 80.14 368.4 66.65 288H32C14.33
+                            288 0 273.7 0 256C0 238.3 14.33 224 32
+                            224H66.65C80.14 143.6 143.6 80.14 224 66.65V32C224
+                            14.33 238.3 0 256 0zM128 256C128 326.7 185.3 384 256
+                            384C326.7 384 384 326.7 384 256C384 185.3 326.7 128
+                            256 128C185.3 128 128 185.3 128 256z"/> </svg> Latitude & Longitude to DMS </a> </li> <li> <a href=/address-distance class=dropdown-item> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 288 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M112 316.94v156.69l22.02 33.02c4.75 7.12 15.22
+                              7.12 19.97 0L176 473.63V316.94c-10.39 1.92-21.06
+                              3.06-32 3.06s-21.61-1.14-32-3.06zM144 0C64.47 0 0
+                              64.47 0 144s64.47 144 144 144 144-64.47
+                              144-144S223.53 0 144 0zm0 76c-37.5 0-68 30.5-68 68
+                              0
+                              6.62-5.38 12-12 12s-12-5.38-12-12c0-50.73 41.28-92
+                              92-92 6.62 0 12 5.38 12 12s-5.38 12-12 12z"/> </svg> Address Distance </a> </li> <li> <a href=/lat-lon-distance class=dropdown-item> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M367.9 329.76c-4.62 5.3-9.78 10.1-15.9
+                                13.65v22.94c66.52 9.34 112 28.05 112 49.65 0
+                                30.93-93.12 56-208 56S48 446.93 48 416c0-21.6
+                                45.48-40.3
+                                112-49.65v-22.94c-6.12-3.55-11.28-8.35-15.9-13.65C58.87
+                                345.34 0 378.05 0 416c0 53.02 114.62 96 256
+                                96s256-42.98
+                                256-96c0-37.95-58.87-70.66-144.1-86.24zM256
+                                128c35.35 0 64-28.65 64-64S291.35 0 256 0s-64
+                                28.65-64 64 28.65 64 64 64zm-64 192v96c0 17.67
+                                14.33 32 32 32h64c17.67 0 32-14.33
+                                32-32v-96c17.67
+                                0 32-14.33
+                                32-32v-96c0-26.51-21.49-48-48-48h-11.8c-11.07
+                                5.03-23.26 8-36.2
+                                8s-25.13-2.97-36.2-8H208c-26.51
+                                0-48 21.49-48 48v96c0 17.67 14.33 32 32 32z"/> </svg> Latitude and Longitude Distance </a> </li> <hr class=dropdown-divider> <li> <a href=/converter class=dropdown-item aria-current=page> <svg class="bi me-2" width=16 height=16 xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M444.52 3.52L28.74 195.42c-47.97
+                                    22.39-31.98 92.75 19.19
+                                    92.75h175.91v175.91c0
+                                    51.17 70.36 67.17 92.75
+                                    19.19l191.9-415.78c15.99-38.39-25.59-79.97-63.97-63.97z"/> </svg> Quick Tool </a> </li> </ul> </li> <li class=nav-item> <a class=nav-link href=/pricing>Pricing</a> </li> <li class=nav-item> <a class=nav-link href=/travel>Travel</a> </li> <li class=nav-item> <a class=nav-link href=/weather>Weather</a> </li> <li class=nav-item> <a class=nav-link href=/bookmarks>Bookmarks</a> </li> <li class=nav-item> <a class=nav-link href=/movie-locations/1>Movies</a> </li> <li class=nav-item> <a class=nav-link id=login-link-text href=/login>Login</a> </li> </ul> <div class="dropdown text-end d-flex" id=user-profile> <div class=nav-item> <a class=nav-link href=/login id=login-link-icon> <svg width=15px xmlns=http://www.w3.org/2000/svg viewBox="0 0
+                                448 512"> <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --> <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0
+                                  224 0 96 57.3 96 128s57.3 128 128 128zm89.6
+                                  32h-16.7c-22.2 10.2-46.9 16-72.9
+                                  16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0
+                                  422.4V464c0 26.5 21.5 48 48 48h352c26.5 0
+                                  48-21.5
+                                  48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"/></svg></a> </div> </div> <!--
+
+      <div class="dropdown text-end d-flex" id="user-profile">
+        <div class="nav-item dropdown">
+          <a  login-link-text   
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="login-link-icon"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License)
+              <path
+                d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+              /></svg
+          ></a>
+          <ul class="dropdown-menu" aria-labelledby="login-link-icon">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a id="sign-out" class="dropdown-item" href="#">Sign out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+--> </div> </div> </nav> <!-- Modal --> <main class="mb-4 mt-5"> <div class="container px-4 px-lg-5"> <div class="row mt-3 mb-5"> <div class=col-lg-8> <h1>Movies Locations</h1> <p><strong>Movie locations</strong> with a map, and a list of their latitude and logitude coordinates</p> </div> <div class=col-lg-4> <form autocomplete=off> <div class="row mt-5 mb-5"> <div class="input-group mb-3 position-relative"> <input type=search id=searchInput class="form-control border target-address" aria-label="Sizing example input" aria-describedby=inputGroup-sizing-default style=z-index:999> <div class="position-absolute invisible" id=form2_complete style=z-index:1;top:98%></div> <div class=input-group-append> <button id=searchButton data-link="" class="btn btn-light text-info border ps-3 pe-1" role=button> <i class="fa fa-search"></i> </button> </div> </div> </div> </form> </div> </div> <div class="row align-items-md-stretch"> <div class=col-md-12> <div class="card mb-3" id=film-details> <div class="row g-0"> <div class="col-md-8 px-3 py-3"> <div class=card-body> <h3 class=card-title>Warrior</h3> <p class="card-text mb-0"> <span id=mainPlotContent> The youngest son of an alcoholic former boxer returns home, where he's trained by his father for competition in a mixed martial arts tournament - a path that puts the fighter on a collision course with his estranged, older brother. Two brothers face the fight of a lifetime - and the wreckage of their broken family - within the brutal, high-stakes world of Mixed Martial Arts (MMA) fighting in Lionsgate's action/drama, WARRIOR. A former Marine, haunted by a tragic past, Tommy Riordan returns to his hometown of Pittsburgh and enlists his father, a recovered alcoholic and his former coach, to train him for an MMA tournament awarding the biggest purse in the history of the sport. As Tommy blazes a violent path towards the title prize, his brothe... </span> </p><div class=collapse id=movieLocationCollapsible> <span id=metaPlotContent class=additional-information> r, Brendan, a former MMA fighter unable to make ends meet as a public school teacher, returns to the amateur ring to provide for his family. Even though years have passed, recriminations and past betrayals keep Brendan bitterly estranged from both Tommy and his father. But when Brendan's unlikely rise as an underdog sets him on a collision course with Tommy, the two brothers must finally confront the forces that tore them apart, all the while waging the most intense, winner-takes-all battle of their lives. MConnell Organized fighting was a part of the Conlons' lives when brothers, Tommy Conlon and Brendan Conlon, were kids, with their father, Paddy Conlon, their trainer. Tommy has been estranged from both Brendan and Paddy for fourteen years, when Tommy ran off with his mother due to the abuse exacted by alcoholic Paddy. Tommy's gripe with Brendan was not running off with them - which Tommy saw as support for Paddy - instead starting life with his now wife, Tess. To support his family, Brendan now teaches high school science and has largely left his fighting life behind him. After his mother's death, Tommy served time in the military. Tommy returns home to find a changed Paddy, one who has been clean and sober for almost three years and who has rediscovered religion, both which he feels has completely turned his life around from who he was when Tommy left fourteen years ago, although Tommy is not convinced. The lives of the Conlons may intersect when they all fall back into mixed martial arts (MMA), Tommy in trying to discover what his post-military life holds, and as Brendan finds that his teaching is insufficient to pay all the family bills, with fighting and teaching seemingly incompatible. With a $5 million winner-takes-all prize for a MMA tournament as the carrot, Tommy and Brendan and by association Paddy's interrelationships may either be strengthen or further torn apart, both figuratively and literally, if they take part in this very public and potentially violent arena. Huggo Two estranged brothers and Mixed Martial Arts fighters confront the forces that tore their family apart as they prepare to do battle in the ring in this drama from director Gavin O'Connor (Pride and Glory). Tommy Conlon (Tom Hardy) is an ex-Marine from Pittsburgh who's never quite shaken his troubled past. Upon learning that the purse in an upcoming MMA tournament is the largest in the league's history, Tommy recruits his father, Paddy (Nick Nolte), a former coach and recovering alcoholic, to whip him into shape in time for the competition. Meanwhile, as Tommy steadily ascends the ranks by defeating one powerful opponent after another, his brother, Brendan, struggles to provide for his family with his job as a public school teacher. A former MMA fighter with a devastating punch, Brendan begins to wonder if he, too, could have a shot at winning the coveted purse. In time, Brendan and Tommy both emerge as dark horse contenders in the competition, setting the two brothers on a brutal collision course. But Tommy and Brendan's biggest battle won't be fought in the ring -- it will be fought in their hearts and minds. After a long decade of estrangement with his repentant alcoholic father, the fresh-out-of-Iraq ex-Marine, Tommy Conlon, returns to his hometown of Pittsburgh, bent on getting back to the ring of Sparta: a winner-takes-all, no-holds-barred mixed martial arts tournament. As Tommy trains for the title and the $5 million purse, the underdog, Brendan--Tommy's alienated older brother, and high school science teacher who struggles to eke out a living--fights his way into the warlike tournament to save his family. Now--against the backdrop of bitter resentment, mutual animosity, and a troubled past--the two brothers will have to lock horns with each other in a brutal final battle. However, family is forever, through thick and thin. Amid pain and suffering, can Tommy and Brendan reconcile, and, maybe, find redemption? Nick Riganas </span> </div> <p> <a class="btn btn-link show-more-less collapsed" id=myCollapsibleBtn role=button></a> </p> <p></p> </div> </div> <div class="col-md-4 justify-self-end"> <img src=https://m.media-amazon.com/images/M/MV5BMTk4ODk5MTMyNV5BMl5BanBnXkFtZTcwMDMyNTg0Ng@@.jpg class="img-fluid rounded-start" alt=Warrior> </div> </div> </div> </div> </div> <div class=col-lg-12> <div class=map-container> <div id=map></div> <div id=loader> <div class=spinner-border role=status> <span class="sr-only d-none">Loading...</span> </div> </div> </div> </div> <table class=table> <tr class=table__header> <th class=table__cell>Location</th> <th class=table__cell>Coordiantes</th> </tr> <tr class=table__row> <td class=table__cell> <a href=#>Pittsburgh, Pennsylvania, United States</a> </td> <td class=table__cell> <a href=#><span class=lat>40.441694</span>, <span class=lon>-79.990086</span></a> </td> </tr> <tr class=table__row> <td class=table__cell> <a href=#>Philadelphia, Pennsylvania, United States</a> </td> <td class=table__cell> <a href=#><span class=lat>39.952724</span>, <span class=lon>-75.163526</span></a> </td> </tr> <tr class=table__row> <td class=table__cell> <a href=#>Santa Clarita, California, United States</a> </td> <td class=table__cell> <a href=#><span class=lat>34.445723</span>, <span class=lon>-118.523461</span></a> </td> </tr> <tr class=table__row> <td class=table__cell> <a href=#>California, United States</a> </td> <td class=table__cell> <a href=#><span class=lat>37.0743595873</span>, <span class=lon>-119.699375153073</span></a> </td> </tr> <tr class=table__row> <td class=table__cell> <a href=#>Pennsylvania, United States</a> </td> <td class=table__cell> <a href=#><span class=lat>41.0911397651</span>, <span class=lon>-78.2907462468837</span></a> </td> </tr> <tr class=table__row> <td class=table__cell> <a href=#>United States</a> </td> <td class=table__cell> <a href=#><span class=lat>39.3812661305678</span>, <span class=lon>-97.9222112121185</span></a> </td> </tr> </table> </div> </main> <footer class="footer mt-auto py-5 bg-light"> <div class="container px-4 px-lg-5"> <div class="row gx-4 gx-lg-5 justify-content-center"> <div class="col-md-10 col-lg-8 col-xl-7"> <ul class="list-inline text-center"> <li class=list-inline-item> <a href=#!> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-twitter fa-stack-1x fa-inverse"></i> </span> </a> </li> <li class=list-inline-item> <a href=#!> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i> </span> </a> </li> <li class=list-inline-item> <a href=#!> <span class="fa-stack fa-lg"> <i class="fas fa-circle fa-stack-2x"></i> <i class="fab fa-github fa-stack-1x fa-inverse"></i> </span> </a> </li> </ul> <div class="small text-center text-muted fst-italic"> Copyright &copy; Your Website 2022 </div> </div> </div> </div> </footer> <script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script> <script src=https://cdn.polyfill.io/v3/polyfill.min.js></script> <script src=/js/vendor.5fc2ca0bb7ea884fd2f5d3a199b52893.js></script> <script src=/js/movies.0836c8139fb0961e11c004b00ac9ee72.js></script> <script type=text/javascript> var locations =[{"bbox": null, "data": [{"lat": 40.441694, "lon": -79.990086, "name": "Pittsburgh, Pennsylvania, United States"}, {"lat": 39.952724, "lon": -75.163526, "name": "Philadelphia, Pennsylvania, United States"}, {"lat": 34.445723, "lon": -118.523461, "name": "Santa Clarita, California, United States"}, {"lat": 37.0743595873, "lon": -119.699375153073, "name": "California, United States"}, {"lat": 41.0911397651, "lon": -78.2907462468837, "name": "Pennsylvania, United States"}, {"lat": 39.3812661305678, "lon": -97.9222112121185, "name": "United States"}]}];
+var map = L.map('map').setView([0,0], 20);
+
+const layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+})
+
+
+let locationData = locations[0].data
+let tableCell = document.querySelectorAll('.table__cell a')
+
+tableCell.forEach(box => {
+  box.addEventListener('click', function handleClick(event) {
+    event.preventDefault()
+    let target = event.target
+   let boxChildren = $(this).children()
+   if(boxChildren.length < 1 ){
+const found = locationData.find(element => element.name == target.innerText);
+
+    let lat = found.lat
+    let lon = found.lon
+    let name = found.name
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                                                          //  fine in moz, still quicker in chrome.
+        scrollTop: $("#map").offset().top},
+        'slow');
+
+   } else {
+
+     let first = $(this).children().first().text()
+     let second = $(this).children().last().text()
+     let lat = parseFloat(first)
+     let lon = parseFloat(second)
+     console.log(lat,lon)
+   map.flyTo([lat, lon])
+
+    $('html,body').animate({                          
+        scrollTop: $("#map").offset().top},
+        'slow');
+   }
+
+
+});
+});
+
+
+
+const coords = []
+    for (let index = 0; index < locations[0].data.length; index++) {
+  const element = locations[0].data[index];
+ coords.push([element.lat, element.lon])
+
+  let marker = L.marker([element.lat, element.lon]);
+  marker.bindPopup(element.name);
+marker.addTo(map);
+
+}
+
+if(locations[0].bbox){
+
+const box = locations[0].bbox
+  console.log(JSON.stringify(box))
+  map.fitBounds(box)
+map.zoomOut(1);
+}
+else if (!locations[0].bbox){
+
+  console.log('no box')
+  console.log(locations[0].data[0].lat)
+  let lat = locations[0].data[0].lat
+  let lon = locations[0].data[0].lon
+map.setView([lat, lon], 20);
+}
+layer.on('load', function (event) {
+     document.getElementById('loader').classList.add('d-none')
+
+
+
+});
+layer.addTo(map); </script> </body> </html>
