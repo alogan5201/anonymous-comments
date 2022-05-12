@@ -1,7 +1,7 @@
 import { httpsCallable, getFunctions } from "firebase/functions";
 import { v4 as uuidv4 } from "uuid";
 import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
-
+import { Grid, html } from "gridjs";
 
 
 
@@ -61,7 +61,14 @@ export function altitudeLoading() {
   return data;
 }
 
+
+
 export function popupContent(input) {
+  if(input.name){
+  
+    document.getElementById("bookmarkListButton").style.opacity=1
+ 
+  }
   const uid = generateUID();
   function createElement(field, className) {
     let output = `<li class="list-group-item border-0 pt-2 px-1 border-bottom location-name ${className}"> ${field}</li>`;
@@ -155,6 +162,8 @@ Get Altitude
   </div>
 
 </div> `;
+
+
   return data;
 }
 let toast = `
@@ -232,7 +241,6 @@ function saveOriginDestination(input) {
 }
 
 export function addBookmark(entryKey) {
-  setTimeout(() => {
     let allEntries = "bookmarks";
 
     // Parse any JSON previously stored in allEntries
@@ -243,7 +251,32 @@ export function addBookmark(entryKey) {
     // Save allEntries back to local storage
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
-  }, 2000);
+    if(document.querySelector(".pagination-container")){
+      console.log("grid exists")
+     
+
+
+
+      new Grid().updateConfig({
+        columns: ['Name', 'Email', 'Phone Number'],
+        data: [
+          ['John', 'john@example.com', '(353) 01 222 3333'],
+          ['Mark', 'mark@gmail.com',   '(01) 22 888 4444']
+        ]
+      });
+         
+
+
+
+      
+    }
+    else if (!document.querySelector(".pagination-container")) {
+      console.log("grid does not exist")
+      addBookmarkTable()
+
+    }      
+
+  
  
 
 
@@ -524,6 +557,201 @@ export function closePopup (marker) {
     }
 }
 
+
+function addBookmarkTable() {
+
+  function test(row) {
+    let uid = row[0].data;
+    console.log(uid);
+
+    let local = JSON.parse(localStorage.getItem("bookmarks"));
+    const found = local.find(element => element.uid == uid);
+    console.log(found);
+    let lat = found.lat;
+    let lon = found.lon;
+    console.log(lat, lon);
+
+
+
+    const p = `  <div id = "popupContent" class="row popupContent position-relative">
+<div class="col p-0 popup-content">
+
+  <div class="card-body px-3 pt-2 pb-1">
+    <ul class="list-group border-0">
+     <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.name
+      } </li>
+      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
+      ""} </li>
+      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
+            class="lat">${found.lat} </span></li>
+      <li class="list-group-item border-0 px-1 fs-6 py-0">
+       Longitude:
+             <span class="lon">${found.lon}</span></li>
+      <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${found.dms.lat
+      } ${found.dms.lon}</li>
+      
+      <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+    
+
+</div>
+
+</div> `;
+
+    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+    map.flyTo([lat, lon])
+    const marker = L.marker([lat, lon]).addTo(map)
+
+    setTimeout(() => {
+      marker.bindPopup(popup).openPopup();
+      myBookmarkModal.hide()
+    }, 1000);
+    let destination = $("#map")
+    $('html, body').animate({
+      scrollTop: $('#map').offset().top
+    }, '300');
+
+  }
+
+
+  const removeNullUndefined = obj =>
+    Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+
+  function helloWorld() {
+    let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    let arr = [];
+    if (savedBookmarks) {
+      
+      for (let index = 0; index < savedBookmarks.length; index++) {
+        const element = savedBookmarks[index];
+        const newelm = removeNullUndefined(element);
+        arr.push(newelm);
+      }
+      console.log(arr);
+      const grid = new Grid({
+        columns: [
+          {
+            id: "uid",
+            name: "uid",
+            hidden: true
+          },
+          {
+            address: "address",
+            name: "address",
+            hidden: true
+          },
+          {
+            address: "dms",
+            name: "dms",
+            hidden: true
+          },
+          {
+            address: "altitude",
+            name: "altitude",
+            hidden: true
+          },
+          {
+            id: "name",
+            name: "Name",
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
+          },
+          {
+            id: "date",
+            name: "date",
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
+          },
+
+          {
+            id: "lat",
+            name: "Latitude",
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
+          },
+          {
+            id: "lon",
+            name: "Longitude",
+            formatter: cell => html(`<a href='#'>${cell}</a>`),
+            attributes: {
+              scope: "col"
+            }
+          }
+        ],
+        search: true,
+        data: arr,
+        pagination: {
+          enabled: true,
+          limit: 8,
+          summary: false
+        },
+        className: {
+          container: "card h-100 table-container ",
+          header: "card-header bg-white py-4",
+          td: "my-td",
+          table: "table text-nowrap",
+          thead: "thead-light",
+          pagination: "pagination-container",
+          paginationButtonCurrent: "bg-primary text-white",
+          paginationButton: "btn btn-outline-primary",
+          paginationButtonPrev: "btn btn-outline-primary",
+          paginationButtonNext: "btn btn-outline-primary"
+        }
+      }).render(document.getElementById("grid-wrapper"));
+
+      grid.on("rowClick", (...args) => test(args[1]._cells));
+      //grid.on('cellClick', (...args) => console.log('cell: ' + JSON.stringify(args), args));
+      let pagContainer = $(".pagination-container");
+      if (
+        pagContainer &&
+        $(pagContainer)
+          .children()
+          .first()
+          .hasClass("btn-group")
+      ) {
+        if ($(".table-container").hasClass("d-none")) {
+          $(".table-container").removeClass("d-none");
+        }
+      }
+      setTimeout(() => {
+        let firstSet = $('.gridjs-currentPage').html()
+        let height = $('#grid-wrapper').height();
+        console.log(height, firstSet)
+        if (firstSet == "1") {
+          grid.updateConfig({
+
+            style: {
+              container: {
+                "min-height": height
+              },
+              footer: {
+                "margin-top": "auto"
+              }
+            }
+          });
+
+        }
+
+        let pagContainer = $(".pagination-container");
+        $(pagContainer)
+          .children()
+          .first()
+          .addClass("btn-group");
+        
+      }, 500);
+
+      return grid;
+    }
+  }
+
+  helloWorld();
+
+}
 
 export default {
   getLatLon,
