@@ -369,9 +369,7 @@ input:-webkit-autofill:active {
   top: 50%;
   z-index: 999;
 }
-span.result-text {
-  text-decoration: underline;
-}
+
 .legend label,
 .legend span {
   float: left;
@@ -1467,4 +1465,9 @@ margin-left: 4px !important;
 }
 .mogal-xl{
 max-width: 650px !important;
+}
+
+.result-icon img {
+
+  filter: contrast(137%), brightness(76%)
 }

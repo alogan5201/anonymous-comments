@@ -1,6 +1,6 @@
 /* jshint esversion: 8 */
 import HaversineGeolocation from "haversine-geolocation";
-import { Grid, html } from "gridjs";
+
 import "./firebase";
 import {
   addBookmark,
@@ -9,13 +9,21 @@ import {
   getLatLon,
   popupContent,
   toggleAltitude,
-getMatrix
+getMatrix, 
+addBookmarkTable
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
+
   if(localStorage.getItem("bookmarks")){
 
     document.getElementById("bookmarkListButton").style.opacity=1
+    addBookmarkTable()
+  let bmaploc = localStorage.getItem("bookmarkMapLocation")
+  if(bmaploc && bmaploc.length > 0){
+    localStorage.setItem("bookmarkMapLocation", "")
+  }
+  
   }
   const myBookmarkModal = new bootstrap.Modal(document.getElementById('bookmarkListModal'))
 
@@ -36,7 +44,7 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
 
   async function fetchWeather(lat, lon) {
     const query = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
       { method: "GET" }
     );
     if (query.status !== 200) {
@@ -260,27 +268,17 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
     const data = await getLatLon(address);
     return data.data;
   }
-const htmlLegend =  L.control.htmllegend({
-        position: 'bottomright',
-        defaultOpacity: 0,
-        legends: [{
-            name: 'Information',
-            elements: [{
-              
-                html: document.querySelector('#myLegend').innerHTML
-            }]
-        }]
-    })
+
 /* -------------------------------------------------------------------------- */
 /*                    ! MAIN FORM !                               */
 /* -------------------------------------------------------------------------- */
 
- 
+
 $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
 let legendContainer = map.getContainer(".leaflet-html-legend")
 if(legendContainer){
-console.log(legendContainer)
+
 
 
 }
@@ -312,12 +310,14 @@ console.log(legendContainer)
     let originLatLon = result[0].features[0].geometry.coordinates;
     let originLat = originLatLon[1];
     let originLon = originLatLon[0];
-
+    let originContext = origin.context;
+    let originQuery = result[0].query
     const destination = result[1].features[0];
     let destinationLatLon = result[1].features[0].geometry.coordinates;
     let destinationLat = destinationLatLon[1];
     let destinationLon = destinationLatLon[0];
-
+      let destinationContext = destination.context;
+      let destinationQuery = result[1].query
     const points = [
       {
         latitude: originLat,
@@ -343,6 +343,8 @@ console.log(legendContainer)
       lon: originLon,
       dms: { lat: originDMS.lat, lon: originDMS.lon },
       origin: true,
+      context: originContext,
+      query: originQuery,
     };
 
     let destinationResults = {
@@ -351,6 +353,8 @@ console.log(legendContainer)
       lon: destinationLon,
       dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
       destination: true,
+      context: destinationContext,
+      query: destinationQuery,
     };
 
     const markerCoords = marker1.getLatLng();
@@ -378,31 +382,34 @@ getAllData(originResults, destinationResults, distance)
   });
 
 function formatTravelData(hours, minutes){
-let hoursText = hours > 1 ? `${hours} hours`: hours == 1 ? `${hours} hour`: ""
-let minutesText = minutes > 1  ? `${minutes} minutes` : minutes == 1 ? `${minutes} hour`: ""
+let hoursText = hours > 1 ? `${hours} hrs`: hours == 1 ? `${hours} h`: ""
+let minutesText = minutes > 1  ? `${minutes} m` : minutes == 1 ? `${minutes} m`: ""
 let result = {
 hoursText: hoursText,
 minutesText: minutesText
 }
 return result
 }
+const uppercaseWords = (str) => str.replace(/^(.)|\s+(.)/g, (c) => c.toUpperCase());
+function getCity(input){
+  for (let index = 0; index < input.context.length; index++) {
+  const element = input.context[index];
+ 
+  if(element.id.includes("place")){
+ 
+    return element.text
+  }
+    
+}
+
+ return uppercaseWords(input.query[0]) || null
+ 
+}
 async function getAllData(origin, destination, distance){
 
-    // let originResults = {
-    //   address: origin.place_name,
-    //   lat: originLat,
-    //   lon: originLon,
-    //   dms: { lat: originDMS.lat, lon: originDMS.lon },
-    //   origin: true,
-    // };
 
-    // let destinationResults = {
-    //   address: destination.place_name,
-    //   lat: destinationLat,
-    //   lon: destinationLon,
-    //   dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
-    //   destination: true,
-    // };
+    
+
       const query1 = `${origin.lon},${origin.lat}`;
     const query2 = `${destination.lon},${destination.lat}`;
 const travel = callMatrix(query1, query2)
@@ -424,54 +431,24 @@ run(promises).then((results) => {
     
 */
 let travelFormmatted = formatTravelData(results[0].hours, results[0].minutes)
-let weatherOriginField = ` <div
-        class="alert alert-light d-flex align-items-center"
-        role="alert"
-        >
-        <img
-          style="max-width: 50px"
-          src="http://openweathermap.org/img/wn/${results[1].imgIcon}@2x.png"
-          alt=""
-          srcset=""
-        />
-        ${results[1].temp}°F 
-        </div>`
+
 //document.querySelector("#originWeather .result-text").innerHTML(`${results[1].temp}°F `)
-const d = [
-    {
-        "hours": 1,
-        "minutes": 18
-    },
-    {
-        "weather": {
-            "currentWeather": "Clouds",
-            "imgIcon": "02n",
-            "temp": 70.02
-        }
-    },
-    {
-        "weather": {
-            "currentWeather": "Clear",
-            "imgIcon": "01n",
-            "temp": 64.9
-        }
-    }
-]
- console.log(map.legendControl._container)
+let originName = getCity(origin) || "Origin"
+let destinationName = getCity(destination) || "Destination"
   let html = `<div class="map-legend wax-legend">
 
   <ul class="list-group bg-light w-100 ">
     <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
-    <li id="travelTime" class="list-group-item ps-1">Travel Time: <span class="result-text">${travelFormmatted.hoursText} ${travelFormmatted.minutesText}</span></li>
-       <li id="originWeather" class="list-group-item ps-1">Destination weather: <div class="hstack gap-3">
+    <li id="travelTime" class="list-group-item ps-1">Travel time: <span class="result-text">${travelFormmatted.hoursText} ${travelFormmatted.minutesText}</span></li>
+       <li id="originWeather" class="list-group-item ps-1">${originName} weather: <div class="hstack gap-3">
         <div><span class="result-text"> ${results[1].weather.temp}°F </span></div>
-        <div><span class="result-icon"><img src="http://openweathermap.org/img/wn/${results[1].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+        <div><span class="result-icon"><img src="https://openweathermap.org/img/wn/${results[1].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
 
       </div>
     </li>
-    <li id="destinationWeather" class="list-group-item ps-1">Destination weather: <div class="hstack gap-3">
+    <li id="destinationWeather" class="list-group-item ps-1">${destinationName} weather: <div class="hstack gap-3">
         <div><span class="result-text"> ${results[2].weather.temp}°F </span></div>
-        <div><span class="result-icon"><img src="http://openweathermap.org/img/wn/${results[2].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+        <div><span class="result-icon"><img src="https://openweathermap.org/img/wn/${results[2].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
 
       </div>
     </li>
@@ -483,7 +460,7 @@ map.legendControl._container.innerHTML = html
 
 
 
-   console.log(results)
+   
 }).catch(error => console.log(error));
 }
   $("#map").on("click", "#getAltitude", function (e) {
@@ -499,7 +476,7 @@ const myModal = new bootstrap.Modal(document.getElementById('bookmarkModal'))
   
     const bookmarkButton = document.getElementById("bookmarkButton")
 
-//bookmarkListModal
+
 function handleButton (t){
  if(t.classList.contains("bookmark-btn")){
 
@@ -565,7 +542,7 @@ for (let i = 0; i < inputs.length; i++) {
 
    
       myModal.hide()
-
+      
     }, 100);
   
 
@@ -580,26 +557,99 @@ for (let i = 0; i < inputs.length; i++) {
 myModalEl.addEventListener('shown.bs.modal', function (event) {
 
 
-console.log(event.target)
+
 
 let x = document.getElementById("bookmark-name")
 x.focus()
 })
 
+let bookMarkModalElement = document.getElementById("bookmarkListModal")
 
-myModalEl.addEventListener('hidden.bs.modal', function (event) {
-setTimeout(() => {
-  let bookmarks = localStorage.getItem("bookmarks")
-  let bookmarksBtn = document.getElementById("bookmarkListButton")
-  console.log(event.target)
-console.log("MODAL HIDDEN")  
-
-
-}, 500);
+myModalEl.addEventListener('hide.bs.modal', function (event) {
+  setTimeout(() => {
+    let bookmarks = localStorage.getItem("bookmarks")
+    let bookmarksBtn = document.getElementById("bookmarkListButton")
   
+  }, 500);
+    
+    })
+localStorage.getItem("bookmarkMapLocation")
+
+bookMarkModalElement.addEventListener('hide.bs.modal', function (event) {
+
+if(localStorage.getItem("bookmarkMapLocation")){
+  let found = JSON.parse(localStorage.getItem("bookmarkMapLocation"))
+  const popupCheck1 = marker1.isPopupOpen();
+  const popupCheck2 = marker2.isPopupOpen();
+  if (popupCheck1 || popupCheck2) {
+    let marker = popupCheck1 ? marker1 : marker2;
+    marker.closePopup();
+    marker.setLatLng([0, 0])
+    
+  }
+  let html = `<div class="map-legend wax-legend">
+
+  <ul class="list-group bg-light w-100 " style="opacity:0">
+
+
+  </ul>
+</div>`
+map.legendControl._container.innerHTML = html
+
+let lat = found.lat;
+let lon = found.lon;
+var elements = document.querySelectorAll('input.form-control');
+Array.prototype.forEach.call(elements, function(el, i){
+el.value = ""
+});
+ setTimeout(() => {
+  map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+
+
+ }, 500);
 
 
 
+localStorage.setItem("bookmarkMapLocation", "")
+ setTimeout(() => {
+  const p = `  <div id = "popupContent" class="row popupContent position-relative">
+<div class="col p-0 popup-content">
+
+  <div class="card-body px-3 pt-2 pb-1">
+    <ul class="list-group border-0">
+     <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${
+       found.name
+     } </li>
+      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
+        ""} </li>
+      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
+            class="lat">${found.lat} </span></li>
+      <li class="list-group-item border-0 px-1 fs-6 py-0">
+       Longitude:
+             <span class="lon">${found.lon}</span></li>
+      <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${
+        found.dms.lat
+      } ${found.dms.lon}</li>
+      
+      <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+    
+
+</div>
+
+</div> `;
+  var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+
+  marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
+
+ }, 1000);
+let destination = $("#map")
+$( 'html, body' ).animate({
+  scrollTop: $('#map' ).offset().top
+},'300');
+
+  
+}
+  
   })
 
 
@@ -611,25 +661,12 @@ console.log("MODAL HIDDEN")
 
   }
 
-  // $("#bookmarkForm").on("submit", function(e) {
-  //   e.preventDefault();
-  //   console.log(e,"bookmarkform")
-  //   let marker = marker1.isPopupOpen() ? marker1 : marker2;
-  //   let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
-  //   let input = $(this).find("input:eq(0)");
-  //   console.log(e.target);
-  //   let locationData = JSON.parse(localStorage.getItem(data));
-  //   locationData.name = input[ 0 ].value;
-  //    let p = popupContent(locationData);
-  //   marker.setPopupContent( p );
-  //   localStorage.setItem( data, JSON.stringify( locationData ) );
-    
-  //   addBookmark(data);
-  //   bookmarkModal.hide(bookmarkToggle);
-  //   $(this)
-  //     .find("input:eq(0)")
-  //     .val("");
-  // } );
+  $("#bookmarkListModal").on('click',"a", function (e) {
+    e.preventDefault()
+
+   // myBookmarkModal.hide()
+  });
 
  
 });
+

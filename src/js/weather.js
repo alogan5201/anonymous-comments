@@ -240,7 +240,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   async function fetchWeather(lat, lon) {
     const query = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
       { method: "GET" }
     );
     if (query.status !== 200) {
@@ -287,7 +287,7 @@ window.addEventListener("DOMContentLoaded", () => {
         >
         <img
           style="max-width: 50px"
-          src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+          src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
           alt=""
           srcset=""
         />
@@ -300,7 +300,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (alertPlaceholder.childElementCount == 0) {
       postLog(` <img
     style="max-width: 50px"
-    src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+    src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
     alt=""
     srcset=""
     />
@@ -308,7 +308,7 @@ window.addEventListener("DOMContentLoaded", () => {
     } else if (alertPlaceholder.childElementCount == 1) {
       postLog(` <img
     style="max-width: 50px"
-    src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+    src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
     alt=""
     srcset=""
     />
@@ -318,7 +318,7 @@ window.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         postLog(` <img
     style="max-width: 50px"
-    src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+    src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
     alt=""
     srcset=""
     />
@@ -426,7 +426,7 @@ window.addEventListener("DOMContentLoaded", () => {
           <h5 class="card-title">${currentWeather}</h5>
           <p class="card-text">
 
-            <span>   <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span>
+            <span>   <img style="max-width: 50px" src="https://openweathermap.org/img/wn/${imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span>
 
             <span>
               ${temp}°F </span>
@@ -450,7 +450,7 @@ window.addEventListener("DOMContentLoaded", () => {
         >
         <img
           style="max-width: 50px"
-          src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+          src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
           alt=""
           srcset=""
         />
@@ -463,7 +463,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (alertPlaceholder.childElementCount == 0) {
       postLog(` <img
 style="max-width: 50px"
-src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
 alt=""
 srcset=""
 />
@@ -471,7 +471,7 @@ ${currentWeather} and ${temp}°F`);
     } else if (alertPlaceholder.childElementCount == 1) {
       postLog(` <img
 style="max-width: 50px"
-src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
 alt=""
 srcset=""
 />
@@ -481,7 +481,7 @@ ${currentWeather} and ${temp}°F`);
       setTimeout(() => {
         postLog(` <img
   style="max-width: 50px"
-  src="http://openweathermap.org/img/wn/${imgIcon}@2x.png"
+  src="https://openweathermap.org/img/wn/${imgIcon}@2x.png"
   alt=""
   srcset=""
 />

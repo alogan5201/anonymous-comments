@@ -3,8 +3,104 @@ import { v4 as uuidv4 } from "uuid";
 import { Toast, Modal } from "bootstrap/dist/js/bootstrap.esm.min.js";
 import { Grid, html } from "gridjs";
 
+let arr = []
 
 
+function saveNewLocation(row) {
+  
+ 
+  var myModalEl = document.getElementById('bookmarkListModal')
+  var modal = bootstrap.Modal.getInstance(myModalEl) 
+  let uid = row[0].data;
+  
+
+  let local = JSON.parse(localStorage.getItem("bookmarks"));
+  const found = local.find(element => element.uid == uid);
+  
+  let lat = found.lat;
+  let lon = found.lon;
+  
+  localStorage.setItem("bookmarkMapLocation", JSON.stringify(found))
+
+modal.hide()
+
+}
+const grid = new Grid({
+  columns: [
+    {
+      id: "uid",
+      name: "uid",
+      hidden: true
+    },
+    {
+      address: "address",
+      name: "address",
+      hidden: true
+    },
+    {
+      address: "dms",
+      name: "dms",
+      hidden: true
+    },
+    {
+      address: "altitude",
+      name: "altitude",
+      hidden: true
+    },
+    {
+      id: "name",
+      name: "Name",
+      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
+      attributes: {
+        scope: "col"
+      }
+    },
+    {
+      id: "date",
+      name: "date",
+      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
+      attributes: {
+        scope: "col"
+      }
+    },
+
+    {
+      id: "lat",
+      name: "Latitude",
+      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
+      attributes: {
+        scope: "col"
+      }
+    },
+    {
+      id: "lon",
+      name: "Longitude",
+      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
+      attributes: {
+        scope: "col"
+      }
+    }
+  ],
+  search: true,
+  data: arr,
+  pagination: {
+    enabled: true,
+    limit: 8,
+    summary: false
+  },
+  className: {
+    container: "card h-100 table-container ",
+    header: "card-header bg-white py-4",
+    td: "my-td",
+    table: "table text-nowrap",
+    thead: "thead-light",
+    pagination: "pagination-container",
+    paginationButtonCurrent: "bg-primary text-white",
+    paginationButton: "btn btn-outline-primary",
+    paginationButtonPrev: "btn btn-outline-primary",
+    paginationButtonNext: "btn btn-outline-primary"
+  }
+})
 Date.prototype.toShortFormat = function () {
   let monthNames = [
     "Jan",
@@ -120,7 +216,7 @@ let id = input.uid ? input.uid : uid
     ? `    <li class="list-group-item border-0 px-1 fs-6 py-0">
     <div class="hstack gap-3">
 <div class = "weather" > ${input.weather.currentWeather}</div>
-<div class=""><span> <img style="max-width: 50px" src="http://openweathermap.org/img/wn/${input.weather.imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span></div>
+<div class=""><span> <img style="max-width: 50px" src="https://openweathermap.org/img/wn/${input.weather.imgIcon}@2x.png" class="img-fluid rounded-start" alt="..."></span></div>
 <div class="temp">${input.weather.temp}°F</div>
 </div></li>`
     : "";
@@ -240,6 +336,8 @@ function saveOriginDestination(input) {
   }
 }
 
+
+
 export function addBookmark(entryKey) {
     let allEntries = "bookmarks";
 
@@ -252,27 +350,30 @@ export function addBookmark(entryKey) {
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
     if(document.querySelector(".pagination-container")){
-      console.log("grid exists")
+      
      
 
 
-
-      new Grid().updateConfig({
-        columns: ['Name', 'Email', 'Phone Number'],
+      grid.updateConfig({
+        // lets update the columns field only
         data: [
           ['John', 'john@example.com', '(353) 01 222 3333'],
           ['Mark', 'mark@gmail.com',   '(01) 22 888 4444']
         ]
       });
-         
 
+      document.getElementById("grid-wrapper").innerHTML=""
+         setTimeout(() => {
+        updateBookmarkTable()
+         }, 2000);
 
 
       
     }
     else if (!document.querySelector(".pagination-container")) {
-      console.log("grid does not exist")
+      
       addBookmarkTable()
+
 
     }      
 
@@ -558,59 +659,7 @@ export function closePopup (marker) {
 }
 
 
-function addBookmarkTable() {
-
-  function test(row) {
-    let uid = row[0].data;
-    console.log(uid);
-
-    let local = JSON.parse(localStorage.getItem("bookmarks"));
-    const found = local.find(element => element.uid == uid);
-    console.log(found);
-    let lat = found.lat;
-    let lon = found.lon;
-    console.log(lat, lon);
-
-
-
-    const p = `  <div id = "popupContent" class="row popupContent position-relative">
-<div class="col p-0 popup-content">
-
-  <div class="card-body px-3 pt-2 pb-1">
-    <ul class="list-group border-0">
-     <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.name
-      } </li>
-      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
-      ""} </li>
-      <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
-            class="lat">${found.lat} </span></li>
-      <li class="list-group-item border-0 px-1 fs-6 py-0">
-       Longitude:
-             <span class="lon">${found.lon}</span></li>
-      <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${found.dms.lat
-      } ${found.dms.lon}</li>
-      
-      <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
-    
-
-</div>
-
-</div> `;
-
-    var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
-    map.flyTo([lat, lon])
-    const marker = L.marker([lat, lon]).addTo(map)
-
-    setTimeout(() => {
-      marker.bindPopup(popup).openPopup();
-      myBookmarkModal.hide()
-    }, 1000);
-    let destination = $("#map")
-    $('html, body').animate({
-      scrollTop: $('#map').offset().top
-    }, '300');
-
-  }
+export function addBookmarkTable() {
 
 
   const removeNullUndefined = obj =>
@@ -626,86 +675,16 @@ function addBookmarkTable() {
         const newelm = removeNullUndefined(element);
         arr.push(newelm);
       }
-      console.log(arr);
-      const grid = new Grid({
-        columns: [
-          {
-            id: "uid",
-            name: "uid",
-            hidden: true
-          },
-          {
-            address: "address",
-            name: "address",
-            hidden: true
-          },
-          {
-            address: "dms",
-            name: "dms",
-            hidden: true
-          },
-          {
-            address: "altitude",
-            name: "altitude",
-            hidden: true
-          },
-          {
-            id: "name",
-            name: "Name",
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: "col"
-            }
-          },
-          {
-            id: "date",
-            name: "date",
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: "col"
-            }
-          },
+      
+      grid.updateConfig({
+        data: arr
+      })
 
-          {
-            id: "lat",
-            name: "Latitude",
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: "col"
-            }
-          },
-          {
-            id: "lon",
-            name: "Longitude",
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: "col"
-            }
-          }
-        ],
-        search: true,
-        data: arr,
-        pagination: {
-          enabled: true,
-          limit: 8,
-          summary: false
-        },
-        className: {
-          container: "card h-100 table-container ",
-          header: "card-header bg-white py-4",
-          td: "my-td",
-          table: "table text-nowrap",
-          thead: "thead-light",
-          pagination: "pagination-container",
-          paginationButtonCurrent: "bg-primary text-white",
-          paginationButton: "btn btn-outline-primary",
-          paginationButtonPrev: "btn btn-outline-primary",
-          paginationButtonNext: "btn btn-outline-primary"
-        }
-      }).render(document.getElementById("grid-wrapper"));
-
-      grid.on("rowClick", (...args) => test(args[1]._cells));
-      //grid.on('cellClick', (...args) => console.log('cell: ' + JSON.stringify(args), args));
+      grid.render(document.getElementById("grid-wrapper"));
+    
+  
+ grid.on("rowClick", (...args) => saveNewLocation(args[1]._cells));
+  
       let pagContainer = $(".pagination-container");
       if (
         pagContainer &&
@@ -721,7 +700,7 @@ function addBookmarkTable() {
       setTimeout(() => {
         let firstSet = $('.gridjs-currentPage').html()
         let height = $('#grid-wrapper').height();
-        console.log(height, firstSet)
+        
         if (firstSet == "1") {
           grid.updateConfig({
 
@@ -752,7 +731,80 @@ function addBookmarkTable() {
   helloWorld();
 
 }
+function updateBookmarkTable() {
 
+  const removeNullUndefined = obj =>
+    Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+
+  function helloWorld() {
+    let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    let arr = [];
+    if (savedBookmarks) {
+      
+      for (let index = 0; index < savedBookmarks.length; index++) {
+        const element = savedBookmarks[index];
+        const newelm = removeNullUndefined(element);
+        arr.push(newelm);
+      }
+  
+      grid.updateConfig({
+        data: arr
+      })
+setTimeout(() => {
+    grid.forceRender()
+}, 1000);
+     
+    
+  
+
+grid.on("rowClick", (...args) => saveNewLocation(args[1]._cells));
+
+      let pagContainer = $(".pagination-container");
+      if (
+        pagContainer &&
+        $(pagContainer)
+          .children()
+          .first()
+          .hasClass("btn-group")
+      ) {
+        if ($(".table-container").hasClass("d-none")) {
+          $(".table-container").removeClass("d-none");
+        }
+      }
+      setTimeout(() => {
+        let firstSet = $('.gridjs-currentPage').html()
+        let height = $('#grid-wrapper').height();
+        
+        if (firstSet == "1") {
+          grid.updateConfig({
+
+            style: {
+              container: {
+                "min-height": height
+              },
+              footer: {
+                "margin-top": "auto"
+              }
+            }
+          });
+
+        }
+
+        let pagContainer = $(".pagination-container");
+        $(pagContainer)
+          .children()
+          .first()
+          .addClass("btn-group");
+        
+      }, 500);
+
+      return grid;
+    }
+  }
+
+  helloWorld();
+
+}
 export default {
   getLatLon,
   getAddress,
@@ -765,5 +817,5 @@ export default {
   toggleBookmark,
   toggleAltitude,
   closePopup,
- 
+  addBookmarkTable
 };
