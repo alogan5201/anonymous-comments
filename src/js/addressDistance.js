@@ -153,6 +153,7 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
 
     let lon = e.latlng.lng;
     map.fitBounds([[lat, lon]], { padding: [50, 50], maxZoom: 13 });
+    marker1.setLatLng([lat, lon])
     let obj = { lat: lat, lon: lon };
     localStorage.setItem("userlocation", `${JSON.stringify(obj)}`);
 
@@ -177,7 +178,7 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
     const p = popupContent(allData);
     var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
 
-    marker1.setLatLng([lat, lon]).bindPopup(popup).openPopup();
+   marker1.bindPopup(popup).openPopup();
     locationControl.stop();
     setTimeout(() => {
       $(icon).css("background-color", "black");
@@ -318,6 +319,15 @@ if(legendContainer){
     let destinationLon = destinationLatLon[0];
       let destinationContext = destination.context;
       let destinationQuery = result[1].query
+      marker1.setLatLng([originLat, originLon]);
+      marker2.setLatLng([destinationLat, destinationLon])
+      map.fitBounds(
+        [
+          [originLat, originLon],
+          [destinationLat, destinationLon],
+        ],
+        { padding: [50, 50] }
+      );
     const points = [
       {
         latitude: originLat,
@@ -365,18 +375,12 @@ if(legendContainer){
  var popup1 = L.popup({ autoPan: true, keepInView: true }).setContent(originPopup)
     const popup2 = L.popup({ autoPan: true, keepInView: true }).setContent(destinationPopup);
 
-    marker1.setLatLng([originLat, originLon]).bindPopup(popup1);
+    marker1.bindPopup(popup1);
 
-    marker2.setLatLng([destinationLat, destinationLon]).bindPopup(popup2);
+    marker2.bindPopup(popup2);
 
 
-    map.fitBounds(
-      [
-        [originLat, originLon],
-        [destinationLat, destinationLon],
-      ],
-      { padding: [50, 50] }
-    );
+ 
     $("form :submit").first().html(submitText);
 getAllData(originResults, destinationResults, distance)
   });
