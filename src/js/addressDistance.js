@@ -1,5 +1,6 @@
 /* jshint esversion: 8 */
 import HaversineGeolocation from "haversine-geolocation";
+import { Grid, html } from "gridjs";
 import "./firebase";
 import {
   addBookmark,
@@ -8,11 +9,258 @@ import {
   getLatLon,
   popupContent,
   toggleAltitude,
+getMatrix
 } from "utils/geocoder";
 
-
 window.addEventListener("DOMContentLoaded", () => {
+  const myBookmarkModal = new bootstrap.Modal(document.getElementById('bookmarkListModal'))
+  function addBookmarkTable() {
+
+    function test(row) {
+      let uid = row[0].data;
+      console.log(uid);
+
+      let local = JSON.parse(localStorage.getItem("bookmarks"));
+      const found = local.find(element => element.uid == uid);
+      console.log(found);
+      let lat = found.lat;
+      let lon = found.lon;
+      console.log(lat, lon);
+
+
+
+      const p = `  <div id = "popupContent" class="row popupContent position-relative">
+  <div class="col p-0 popup-content">
+
+    <div class="card-body px-3 pt-2 pb-1">
+      <ul class="list-group border-0">
+       <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.name
+        } </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address ||
+        ""} </li>
+        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
+              class="lat">${found.lat} </span></li>
+        <li class="list-group-item border-0 px-1 fs-6 py-0">
+         Longitude:
+               <span class="lon">${found.lon}</span></li>
+        <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${found.dms.lat
+        } ${found.dms.lon}</li>
+        
+        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+      
+
+  </div>
+
+</div> `;
+
+      var popup = L.popup({ autoPan: true, keepInView: true }).setContent(p);
+      map.flyTo([lat, lon])
+      const marker = L.marker([lat, lon]).addTo(map)
+
+      setTimeout(() => {
+        marker.bindPopup(popup).openPopup();
+        myBookmarkModal.hide()
+      }, 1000);
+      let destination = $("#map")
+      $('html, body').animate({
+        scrollTop: $('#map').offset().top
+      }, '300');
+
+    }
+
+
+    const removeNullUndefined = obj =>
+      Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+
+    function helloWorld() {
+      let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+      let arr = [];
+      if (savedBookmarks) {
+        for (let index = 0; index < savedBookmarks.length; index++) {
+          const element = savedBookmarks[index];
+          const newelm = removeNullUndefined(element);
+          arr.push(newelm);
+        }
+        console.log(arr);
+        const grid = new Grid({
+          columns: [
+            {
+              id: "uid",
+              name: "uid",
+              hidden: true
+            },
+            {
+              address: "address",
+              name: "address",
+              hidden: true
+            },
+            {
+              address: "dms",
+              name: "dms",
+              hidden: true
+            },
+            {
+              address: "altitude",
+              name: "altitude",
+              hidden: true
+            },
+            {
+              id: "name",
+              name: "Name",
+              formatter: cell => html(`<a href='#'>${cell}</a>`),
+              attributes: {
+                scope: "col"
+              }
+            },
+            {
+              id: "date",
+              name: "date",
+              formatter: cell => html(`<a href='#'>${cell}</a>`),
+              attributes: {
+                scope: "col"
+              }
+            },
+
+            {
+              id: "lat",
+              name: "Latitude",
+              formatter: cell => html(`<a href='#'>${cell}</a>`),
+              attributes: {
+                scope: "col"
+              }
+            },
+            {
+              id: "lon",
+              name: "Longitude",
+              formatter: cell => html(`<a href='#'>${cell}</a>`),
+              attributes: {
+                scope: "col"
+              }
+            }
+          ],
+          search: true,
+          data: arr,
+          pagination: {
+            enabled: true,
+            limit: 8,
+            summary: false
+          },
+          className: {
+            container: "card h-100 table-container ",
+            header: "card-header bg-white py-4",
+            td: "my-td",
+            table: "table text-nowrap",
+            thead: "thead-light",
+            pagination: "pagination-container",
+            paginationButtonCurrent: "bg-primary text-white",
+            paginationButton: "btn btn-outline-primary",
+            paginationButtonPrev: "btn btn-outline-primary",
+            paginationButtonNext: "btn btn-outline-primary"
+          }
+        }).render(document.getElementById("grid-wrapper"));
+
+        grid.on("rowClick", (...args) => test(args[1]._cells));
+        //grid.on('cellClick', (...args) => console.log('cell: ' + JSON.stringify(args), args));
+        let pagContainer = $(".pagination-container");
+        if (
+          pagContainer &&
+          $(pagContainer)
+            .children()
+            .first()
+            .hasClass("btn-group")
+        ) {
+          if ($(".table-container").hasClass("d-none")) {
+            $(".table-container").removeClass("d-none");
+          }
+        }
+        setTimeout(() => {
+          let firstSet = $('.gridjs-currentPage').html()
+          let height = $('#grid-wrapper').height();
+          console.log(height, firstSet)
+          if (firstSet == "1") {
+            grid.updateConfig({
+
+              style: {
+                container: {
+                  "min-height": height
+                },
+                footer: {
+                  "margin-top": "auto"
+                }
+              }
+            });
+
+          }
+
+          let pagContainer = $(".pagination-container");
+          $(pagContainer)
+            .children()
+            .first()
+            .addClass("btn-group");
+          
+        }, 500);
+
+        return grid;
+      }
+    }
+
+    helloWorld();
+
+  }
+const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) => [...rp, rc])), Promise.resolve([]));
+
+  function format(time) {
+    // Hours, minutes and seconds
+    var hrs = ~~(time / 3600);
+    var mins = ~~((time % 3600) / 60);
+
+    let result = {
+      hours: hrs,
+      minutes: mins,
+    };
+    // Output like "1:01" or "4:03:59" or "123:03:59"
+    return result;
+  }
+
+  async function fetchWeather(lat, lon) {
+    const query = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid&appid=6185638fa6045f2f694129e53175d997`,
+      { method: "GET" }
+    );
+    if (query.status !== 200) {
+      const message = "error"
+      return message;
+    }
+   
+
+    const data = await query.json();
+    const imgIcon = data.weather[0].icon;
+    const currentWeather = data.weather[0].main;
+    const temp = data.main.temp;
+
   
+    const weatherdata = {
+      weather: { currentWeather: currentWeather, imgIcon: imgIcon, temp: temp },
+    };
+
+  return weatherdata
+   
+  }
+    async function callMatrix(first, second) {
+    const data = await getMatrix(first, second);
+
+    const json = data.data;
+    const durations = json.durations[0];
+    const travelTime = durations[1];
+    const result = format(travelTime); // //
+
+   return result
+  
+
+ 
+  }
+
+
 
   var loader = document.getElementById( "loader" );
   const map = L.mapbox
@@ -71,6 +319,13 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     })
     .addTo(map);
+
+
+  
+
+  
+
+
 
   map.on("locationfound", async function (e) {
     let icon = locationControl._icon;
@@ -193,9 +448,27 @@ window.addEventListener("DOMContentLoaded", () => {
     const data = await getLatLon(address);
     return data.data;
   }
+const htmlLegend =  L.control.htmllegend({
+        position: 'bottomright',
+        defaultOpacity: 0,
+        legends: [{
+            name: 'Information',
+            elements: [{
+              
+                html: document.querySelector('#myLegend').innerHTML
+            }]
+        }]
+    })
 
   $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
+let legendContainer = map.getContainer(".leaflet-html-legend")
+if(legendContainer){
+console.log(legendContainer)
+
+
+}
+
 
     const submitText = $("form :submit").first().text();
     $(
@@ -276,8 +549,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     marker2.setLatLng([destinationLat, destinationLon]).bindPopup(popup2);
 
-    $("#DistanceInput").val(`${distance} miles`);
-    $("#DistanceInput").focus();
+
     map.fitBounds(
       [
         [originLat, originLon],
@@ -286,8 +558,118 @@ window.addEventListener("DOMContentLoaded", () => {
       { padding: [50, 50] }
     );
     $("form :submit").first().html(submitText);
+getAllData(originResults, destinationResults, distance)
   });
 
+function formatTravelData(hours, minutes){
+let hoursText = hours > 1 ? `${hours} hours`: hours == 1 ? `${hours} hour`: ""
+let minutesText = minutes > 1  ? `${minutes} minutes` : minutes == 1 ? `${minutes} hour`: ""
+let result = {
+hoursText: hoursText,
+minutesText: minutesText
+}
+return result
+}
+async function getAllData(origin, destination, distance){
+
+    // let originResults = {
+    //   address: origin.place_name,
+    //   lat: originLat,
+    //   lon: originLon,
+    //   dms: { lat: originDMS.lat, lon: originDMS.lon },
+    //   origin: true,
+    // };
+
+    // let destinationResults = {
+    //   address: destination.place_name,
+    //   lat: destinationLat,
+    //   lon: destinationLon,
+    //   dms: { lat: destinationDMS.lat, lon: destinationDMS.lon },
+    //   destination: true,
+    // };
+      const query1 = `${origin.lon},${origin.lat}`;
+    const query2 = `${destination.lon},${destination.lat}`;
+const travel = callMatrix(query1, query2)
+const weatherOrigin = fetchWeather(origin.lat, origin.lon)
+const weatherDestination = fetchWeather(destination.lat, destination.lon)
+
+let promises = [travel, weatherOrigin, weatherDestination]
+run(promises).then((results) => {
+/* 
+#distance 
+  .result-text
+#travelTime 
+  .result-text
+#originWeather
+  .result-text
+#destinationWeather
+  .result-text
+  .result-icon
+    
+*/
+let travelFormmatted = formatTravelData(results[0].hours, results[0].minutes)
+let weatherOriginField = ` <div
+        class="alert alert-light d-flex align-items-center"
+        role="alert"
+        >
+        <img
+          style="max-width: 50px"
+          src="http://openweathermap.org/img/wn/${results[1].imgIcon}@2x.png"
+          alt=""
+          srcset=""
+        />
+        ${results[1].temp}°F 
+        </div>`
+//document.querySelector("#originWeather .result-text").innerHTML(`${results[1].temp}°F `)
+const d = [
+    {
+        "hours": 1,
+        "minutes": 18
+    },
+    {
+        "weather": {
+            "currentWeather": "Clouds",
+            "imgIcon": "02n",
+            "temp": 70.02
+        }
+    },
+    {
+        "weather": {
+            "currentWeather": "Clear",
+            "imgIcon": "01n",
+            "temp": 64.9
+        }
+    }
+]
+ console.log(map.legendControl._container)
+  let html = `<div class="map-legend wax-legend">
+
+  <ul class="list-group bg-light w-100 ">
+    <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
+    <li id="travelTime" class="list-group-item ps-1">Travel Time: <span class="result-text">${travelFormmatted.hoursText} ${travelFormmatted.minutesText}</span></li>
+       <li id="originWeather" class="list-group-item ps-1">Destination weather: <div class="hstack gap-3">
+        <div><span class="result-text"> ${results[1].weather.temp}°F </span></div>
+        <div><span class="result-icon"><img src="http://openweathermap.org/img/wn/${results[1].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+
+      </div>
+    </li>
+    <li id="destinationWeather" class="list-group-item ps-1">Destination weather: <div class="hstack gap-3">
+        <div><span class="result-text"> ${results[2].weather.temp}°F </span></div>
+        <div><span class="result-icon"><img src="http://openweathermap.org/img/wn/${results[2].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+
+      </div>
+    </li>
+
+  </ul>
+</div>`
+map.legendControl._container.innerHTML = html
+
+
+
+
+   console.log(results)
+}).catch(error => console.log(error));
+}
   $("#map").on("click", "#getAltitude", function (e) {
     e.preventDefault();
 
@@ -298,8 +680,10 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 const myModal = new bootstrap.Modal(document.getElementById('bookmarkModal'))
-
+  
     const bookmarkButton = document.getElementById("bookmarkButton")
+
+//bookmarkListModal
 function handleButton (t){
  if(t.classList.contains("bookmark-btn")){
 
@@ -315,6 +699,11 @@ mapCol.addEventListener('click', e => {
   }
 });
 
+  const bookmarkListButton = document.querySelector('#bookmarkListButton');
+  bookmarkListButton.addEventListener('click', e => {
+    myBookmarkModal.toggle()
+  });
+
 
   map.on("popupopen", function (e) {
 
@@ -326,14 +715,25 @@ mapCol.addEventListener('click', e => {
     // TODO update
   });
   map.on("popupclose", function (e) {
-    // TODO update
+
+
     $(".leaflet-top.leaflet-left").css("opacity", "1");
   });
   var myModalEl = document.getElementById('bookmarkModal')
 const bookmarkform = document.getElementById("bookmarkForm")
 
 
+function checkBookmark(){
+setTimeout(() => {
+  let bookmarks = localStorage.getItem("bookmarks")
+  let bookmarksBtn = document.getElementById("bookmarkListButton")
+  if (bookmarks && bookmarksBtn.classList.contains("d-none")) {
+    bookmarksBtn.classList.remove("d-none")
+    addBookmarkTable()
+  }
+}, 500);
 
+}
 bookmarkform.addEventListener("submit", function(e) {
 e.preventDefault();
 
@@ -356,7 +756,15 @@ for (let i = 0; i < inputs.length; i++) {
     addBookmark(data);
     setTimeout(() => {
        input.value = ""
+      let bookmarks = localStorage.getItem("bookmarks")
+      let bookmarksBtn = document.getElementById("bookmarkListButton")
+      if (bookmarks && bookmarksBtn.classList.contains("d-none")) {
+        bookmarksBtn.classList.remove("d-none")
+        addBookmarkTable()
+
+      }
   myModal.hide()
+
       console.log("🚀 ~ file: addressDistance.js ~ line 341 ~ setTimeout ~ bookmarkModal", bookmarkModal)
     }, 100);
   
@@ -366,6 +774,7 @@ for (let i = 0; i < inputs.length; i++) {
 })
 
 
+  map.legendControl.addLegend(document.getElementById('myLegend').innerHTML);
 
 myModalEl.addEventListener('shown.bs.modal', function (event) {
 
@@ -375,7 +784,13 @@ console.log(event.target)
 let x = document.getElementById("bookmark-name")
 x.focus()
 })
+  let bookmarks = localStorage.getItem("bookmarks")
+  let bookmarksBtn = document.getElementById("bookmarkListButton")
+  if (bookmarks && bookmarksBtn.classList.contains("d-none")) {
+    bookmarksBtn.classList.remove("d-none")
+addBookmarkTable()
 
+  }
 
   // $("#bookmarkForm").on("submit", function(e) {
   //   e.preventDefault();

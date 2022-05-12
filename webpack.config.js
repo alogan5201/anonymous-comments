@@ -22,7 +22,7 @@ module.exports = (env = {}) => {
       latlonDistance: ['./src/js/latlonDistance.js'],
       latlonToAddress: ['./src/js/latlonToAddress.js'],
       latlonToDMS: ['./src/js/latlonToDMS.js'],
-      addressDistance: ['./src/js/addressDistance.js'],
+      addressDistance: ['./src/static/leaflet-html-legend/dist/L.Control.HtmlLegend.js','./src/js/addressDistance.js'],
       DMSlatlon: ['./src/js/DMSlatlon.js'],
       travel: ['./src/js/travel.js'],
       weather: ['./src/js/weather.js'],

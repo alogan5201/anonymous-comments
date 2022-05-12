@@ -325,6 +325,18 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .addTo(map);
 
+/* 
+#distance 
+  .result-text
+#travelTime 
+  .result-text
+#originWeather
+  .result-text
+#destinationWeather
+  .result-text
+  .result-icon
+    
+*/
   map.on("locationfound", async function (e) {
     let lat = e.latitude;
     let lon = e.longitude;
@@ -394,6 +406,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const query1 = `${lonOrigin},${latOrigin}`;
     const query2 = `${lonDestination},${latDestination}`;
+
     //  destinationMarker.setLatLng(origin[1], origin[0])
     await callMatrix(query1, query2);
 
