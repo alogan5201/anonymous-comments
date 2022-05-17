@@ -11,7 +11,7 @@ module.exports.SITE_NAME = "ejs-sass-static-boilerplate";
 module.exports.DESCRIPTION =
   "Boilerplate for a Static website using EJS and SASS";
 module.exports.SITE_URL = "example.com";
-module.exports.DEVELOPER_NAME = "Brenton Cozby";
+module.exports.DEVELOPER_NAME = "Andrew Logan";
 module.exports.DEVELOPER_URL = "https://brentoncozby.com";
 module.exports.GOOGLE_ANALYTICS_ID = "";
 module.exports.CLIENT_ID =
