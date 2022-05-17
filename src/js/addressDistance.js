@@ -265,10 +265,7 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
 
   // Initial Loading of the App
 
-  async function convertAddressToCoordinates(address) {
-    const data = await getLatLon(address);
-    return data.data;
-  }
+
 
 /* -------------------------------------------------------------------------- */
 /*                    ! MAIN FORM !                               */
@@ -277,14 +274,27 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
 
 $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
-let legendContainer = map.getContainer(".leaflet-html-legend")
-if(legendContainer){
+    let html = `<div class="map-legend wax-legend">
 
-
-
-}
-
-
+    <ul class="list-group bg-light w-100 ">
+      <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
+      <li id="travelTime" class="list-group-item ps-1">Travel time: <span class="result-text">${travelFormmatted.hoursText} ${travelFormmatted.minutesText}</span></li>
+         <li id="originWeather" class="list-group-item ps-1">${originName} weather: <div class="hstack gap-3">
+          <div><span class="result-text"> ${results[1].weather.temp}°F </span></div>
+          <div><span class="result-icon"><img src="https://openweathermap.org/img/wn/${results[1].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+  
+        </div>
+      </li>
+      <li id="destinationWeather" class="list-group-item ps-1">${destinationName} weather: <div class="hstack gap-3">
+          <div><span class="result-text"> ${results[2].weather.temp}°F </span></div>
+          <div><span class="result-icon"><img src="https://openweathermap.org/img/wn/${results[2].weather.imgIcon}@2x.png" alt="twbs" width="25" height="25" class=" flex-shrink-0"></span></div>
+  
+        </div>
+      </li>
+  
+    </ul>
+  </div>`
+  //map.legendControl._container.innerHTML = html
     const submitText = $("form :submit").first().text();
     $(
       "form :submit"
@@ -297,16 +307,17 @@ if(legendContainer){
       let marker = popupCheck1 ? marker1 : marker2;
       marker.closePopup();
     }
-    const coordsOrigin = await convertAddressToCoordinates(
+
+  
+    const coordsOrigin =  getLatLon(
       e.currentTarget[0].value
     );
 
-    const coordsDestination = await convertAddressToCoordinates(
+    const coordsDestination = getLatLon(
       e.currentTarget[1].value
-    );
-
+    ); 
     const result = await Promise.all([coordsOrigin, coordsDestination]);
-
+   
     const origin = result[0].features[0];
     let originLatLon = result[0].features[0].geometry.coordinates;
     let originLat = originLatLon[1];

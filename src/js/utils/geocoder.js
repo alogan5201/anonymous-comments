@@ -390,7 +390,7 @@ export async function getLatLon(city) {
   })
     .then(function (result) {
       let data = JSON.stringify(result);
-      return result;
+      return result.data;
     })
     .catch(function (error) {
       // Getting the Error details.

@@ -1,112 +1,139 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<%- include(`${partials}/head`, {pageTitle: 'Home' }); -%>
-  <%- include(`${partials}/page-scripts/geocoder-css.ejs`); -%>
+  <%- include(`${partials}/head`, {pageTitle: 'Home' }); -%>
+    <%- include(`${partials}/page-scripts/geocoder-css.ejs`); -%>
 
-    <body class="latlon-to-distance">
-      <!--[if lt IE 8]>
+      <body class="latlon-to-distance">
+        <!--[if lt IE 8]>
 <p class="browserupgrade">
 You are using an <strong>outdated</strong> browser. Please
 <a href="http://browsehappy.com/">upgrade your browser</a> to improve
 your experience.
 </p>
 <![endif]-->
-      <noscript>
-        <h3>Please enable JavaScript in order to view this site properly.</h3>
-      </noscript>
-      <main>
-      <div class="modal fade   " tabindex="-1" role="dialog" id="bookmarkListModal">
-          <div class="modal-dialog modal-fullscreen" aria-hidden="true">
-            <div class="modal-content rounded-6 shadow">
+        <noscript>
+          <h3>Please enable JavaScript in order to view this site properly.</h3>
+        </noscript>
+        <main>
+          <div class="modal fade" tabindex="-1" role="dialog"
+            id="bookmarkListModal">
+            <div class="modal-dialog modal-fullscreen" aria-hidden="true">
+              <div class="modal-content rounded-6 shadow">
 
-              <div class="modal-body pb-0">
-                <div class="row justify-content-end mb-2">
-                  <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <div class="modal-body pb-0">
+                  <div class="row justify-content-end mb-2">
+                    <button type="button" class="btn-close ms-auto me-2 mb-2"
+                      data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div id="grid-wrapper"></div>
                 </div>
-<div id="grid-wrapper"></div>
-              </div>
-              <div class="modal-footer flex-column border-top-0 pt-0">
+                <div class="modal-footer flex-column border-top-0 pt-0">
 
-                <button type="button" class="btn btn-sm btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
-              </div>
+                  <button type="button" class="btn btn-sm btn-light w-100 mx-0"
+                    data-bs-dismiss="modal">Close</button>
+                </div>
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal fade   py-5" tabindex="-1" role="dialog" id="bookmarkModal">
-          <div class="modal-dialog" aria-hidden="true">
-            <div class="modal-content rounded-6 shadow">
+          <div class="modal fade py-5" tabindex="-1" role="dialog"
+            id="bookmarkModal">
+            <div class="modal-dialog" aria-hidden="true">
+              <div class="modal-content rounded-6 shadow">
 
-              <div class="modal-body pb-0">
-                <div class="row justify-content-end mb-2">
-                  <button type="button" class="btn-close ms-auto me-2 mb-2" data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <div class="modal-body pb-0">
+                  <div class="row justify-content-end mb-2">
+                    <button type="button" class="btn-close ms-auto me-2 mb-2"
+                      data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <form id="bookmarkForm" autocomplete="off">
+
+
+                    <input type="text" class="form-control" id="bookmark-name"
+                      placeholder="Enter Bookmark name" required="">
+                    <button type="submit" class="btn btn-sm btn-primary w-100
+                      mx-0 mb-2 mt-4">Save changes</button>
+
+                  </form>
+
+                </div>
+                <div class="modal-footer flex-column border-top-0 pt-0">
+
+                  <button type="button" class="btn btn-sm btn-light w-100 mx-0"
+                    data-bs-dismiss="modal">Close</button>
                 </div>
 
-                <form id="bookmarkForm" autocomplete="off">
-
-
-                  <input type="text" class="form-control" id="bookmark-name" placeholder="Enter Bookmark name"
-                    required="">
-                  <button type="submit" class="btn btn-sm btn-primary w-100 mx-0 mb-2 mt-4">Save changes</button>
-
-                </form>
-
               </div>
-              <div class="modal-footer flex-column border-top-0 pt-0">
-
-                <button type="button" class="btn btn-sm btn-light w-100 mx-0" data-bs-dismiss="modal">Close</button>
-              </div>
-
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <form id="getDistanceForm" autocomplete="off">
-                      <div class="input-group">
-                        <input type="text" class="form-control form-control-sm" id="OriginInput" step="any"
-                          placeholder="Origin">
-                        <input type="text" class="form-control" id="DestinationInput" step="any"
-                          aria-describedby="button-addon2" placeholder="Destination">
-                        <button class="btn btn-primary" id="button-addon2" type=" submit">
-                          Find Distance
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                 
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <form id="getDistanceForm" autocomplete="off">
+                        <div class="input-group">
+                          <input type="text" class="form-control
+                            form-control-sm" id="OriginInput" step="any"
+                            placeholder="Origin">
+                          <input type="text" class="form-control"
+                            id="DestinationInput" step="any"
+                            aria-describedby="button-addon2"
+                            placeholder="Destination">
+                          <button class="btn btn-primary" id="button-addon2"
+                            type="submit">
+                            Find Distance
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
                   </div>
                 </div>
 
               </div>
-              <div class="row g-3 ">
-                <div class="col-lg-12  align-self-start mt-0 px-4" id="mapColumn">
+              <div class="row g-3">
+                <div class="col-lg-12 align-self-start mt-0 px-4"
+                  id="mapColumn">
                   <h4 class="travel-time"></h4>
                   <div class="map-container">
-                    <!--
+           
+                    <div id='myLegend' style="opacity:1 !important">
 
+                      <ul class="list-group bg-light w-100">
+                        <li id="distance" class="list-group-item ps-1 placeholder-glow"> 
 
--->
-  <div id='myLegend' style="opacity:0.9 !important" >
-
-    <ul class="list-group bg-light w-100 invisible ">
-      <li id="distance" class="list-group-item ps-1">Distance: <span
-          class="result-text">50m</span></li>
-      <li id="travelTime" class="list-group-item ps-1">Travel Time: <span
-          class="result-text"></span></li>
-      <li id="originWeather" class="list-group-item ps-1">Origin Weather: <span
-          class="result-text"></span></li>
-      <li id="destinationWeather" class="list-group-item ps-1">Destination weather: <span
-          class="result-text"></span><span class="result-icon"></span></li>
-
-    </ul>
-  </div>
+                          <span class="placeholder col-4
+                            placeholder-xs"></span> 
+                            
+                            <span class="result-text
+                          d-none">50m</span>
+                          
+                          </li>
+                        <li id="travelTime" class="list-group-item ps-1  placeholder-glow">
+                          
+                          <span class="placeholder col-3
+                          placeholder-xs"></span>   <span class="placeholder col-6
+                          placeholder-xs"></span>   <span class="result-text d-none"></span></li>
+                        <li id="originWeather" class="list-group-item ps-1 placeholder-glow">           <span class="placeholder col-3
+                          placeholder-xs"></span>   <span class="placeholder col-7
+                          placeholder-xs"></span>  <span class="result-text d-none"></span></li>
+                   
+                          <li id="destinationWeather" class="list-group-item placeholder-glow
+                          ps-1" style="width:140px"> 
+                          <span class="placeholder col-3
+                          placeholder-xs"></span>   <span class="placeholder col-5
+                          placeholder-xs"></span>
+                          <span class="result-text">
+                            
+                          </span>
+                       
+                          <span class="result-icon"></span>
+                          </li>
+                      </ul>
+                    </div>
                     <div id="map"></div>
                     <div id="static"></div>
                   </div>
@@ -123,17 +150,18 @@ your experience.
 
               <div class="col-md-12 px-4 my-2 align-self-end text-end">
 
-            <button id="bookmarkListButton" type="button" class="btn btn-primary" style="opacity: 0;">Bookmarks</button>
+                <button id="bookmarkListButton" type="button" class="btn
+                  btn-primary" style="opacity: 0;">Bookmarks</button>
               </div>
             </div>
 
           </div>
         </div>
-       
+
       </main>
 
       <!-- Footer-->
       <%- include(`${partials}/page-scripts/address-distance-scripts.ejs`); -%>
-    </body>
+      </body>
 
-</html>
+    </html>
