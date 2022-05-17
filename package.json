@@ -1,7 +1,7 @@
 {
-  "name": "ejs-sass-static-boilerplate",
+  "name": "geotools",
   "version": "1.0.0",
-  "description": "Boilerplate for a Static website using EJS and SASS",
+  "description": "Geocoder app",
   "main": "index.js",
   "scripts": {
     "start": "browser-sync start -s 'dist' -f 'dist' --no-open --no-notify --no-ghost-mode --reload-debounce 50",
@@ -90,7 +90,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BrentonCozby/ejs-sass-static-boilerplate.git"
+    "url": "git+https://github.com/alogan5201/geo-front-end.git"
   },
   "keywords": [
     "EJS",
@@ -103,7 +103,7 @@
     "front-end"
   ],
   "bugs": {
-    "url": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate/issues"
+    "url": "https://github.com/alogan5201/geo-front-end/issues"
   },
-  "homepage": "https://github.com/BrentonCozby/ejs-sass-static-boilerplate#readme"
+  "homepage": "https://github.com/alogan5201/geo-front-end#readme"
 }
