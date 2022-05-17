@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Brenton Cozby -- Web Developer -- @BrentonCozby
+    Andrew Logan -- Web Developer -- @BrentonCozby
 
 # THANKS
 
