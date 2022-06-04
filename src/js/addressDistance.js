@@ -10,15 +10,68 @@ import {
   popupContent,
   toggleAltitude,
 getMatrix, 
-addBookmarkTable
+addRow
+
 } from "utils/geocoder";
 
 window.addEventListener("DOMContentLoaded", () => {
+  function saveNewLocation(uid) {
+  
+ 
+  var myModalEl = document.getElementById('bookmarkListModal')
+  var modal = bootstrap.Modal.getInstance(myModalEl) 
+ 
+  
+
+  let local = JSON.parse(localStorage.getItem("bookmarks"));
+  const found = local.find(element => element.uid == uid);
+  
+  let lat = found.lat;
+  let lon = found.lon;
+  
+  localStorage.setItem("bookmarkMapLocation", JSON.stringify(found))
+setTimeout(() => {
+  modal.hide()
+}, 500);
+
+
+}
+  $('table').on('click', 'a', function (e) {
+    e.preventDefault()
+    console.log(e.currentTarget)
+    let lat = $(this).attr('data-longitude');
+    let lon = $(this).attr('data-latitude');
+    let uid = $(this).attr('data-uid');
+    saveNewLocation(uid)
+  });
 
   if(localStorage.getItem("bookmarks")){
+         const removeNullUndefined = obj =>
+    Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+    let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    let arr = [];
+    let b = localStorage.getItem("bookmarks")
+      for (let index = 0; index < savedBookmarks.length; index++) {
+     
+        const element = savedBookmarks[index];
+        const newelm = removeNullUndefined(element);
+        arr.push(newelm);
+           let rowhtml = `   <tr class="${newelm.uid}">
+                      <th scope="row"></th>
+                      <td>${newelm.name}</td>
+                      <td>${newelm.latitude}</td>
+                      <td>${newelm.longitude}</td>
+                      <td>${newelm.address}</td>
+                    </tr>`
+     
+      let tableBody = document.querySelector("#tableBody")
+      let dms = `${newelm.dms.lat} ${newelm.dms.lon}`
+    addRow("bookmarkTable", newelm.name, newelm.lat, newelm.lon, newelm.address, dms, newelm.uid)
+ 
+      }
 
     document.getElementById("bookmarkListButton").style.opacity=1
-    addBookmarkTable()
+
   let bmaploc = localStorage.getItem("bookmarkMapLocation")
   if(bmaploc && bmaploc.length > 0){
     
@@ -313,14 +366,12 @@ $("#getDistanceForm").on("submit", async function (e) {
     const coordsOrigin =  getLatLon(
       e.currentTarget[1].value
     );
-    console.log("🚀 ~ coordsOrigin", e)
 
     const coordsDestination = getLatLon(
       e.currentTarget[2].value
     ); 
     
     const result = await Promise.all([coordsOrigin, coordsDestination]);
-    console.log("🚀 ~ result", result)
    
     const origin = result[0].features[0];
   
@@ -551,7 +602,6 @@ for (let i = 0; i < inputs.length; i++) {
     let input = inputs[i]
     let marker = marker1.isPopupOpen() ? marker1 : marker2;
     let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
-    console.log("🚀 ~ data", data)
     let locationData = JSON.parse(localStorage.getItem(data));
     locationData.name = input.value;
      let p = popupContent(locationData);

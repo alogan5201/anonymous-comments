@@ -25,9 +25,26 @@ your experience.
                   justify-content-end mb-2"> <button type="button" class="btn-close
                     ms-auto me-2 mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div id="grid-wrapper">
+                <div class="table-responsive">
+                  <table class="table table-dark table-hover" id="bookmarkTable">
+                    <thead>
+                      <tr>
 
+                        <th scope="col">Name</th>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">DMS</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+
+
+                    </tbody>
+                  </table>
                 </div>
+
               </div>
               <div class="modal-footer
                 flex-column border-top-0 pt-0"> <button type="button" class="btn

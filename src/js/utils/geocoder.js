@@ -6,12 +6,12 @@ import { Grid, html } from "gridjs";
 let arr = []
 
 
-function saveNewLocation(row) {
+function saveNewLocation(uid) {
   
  
   var myModalEl = document.getElementById('bookmarkListModal')
   var modal = bootstrap.Modal.getInstance(myModalEl) 
-  let uid = row[0].data;
+ 
   
 
   let local = JSON.parse(localStorage.getItem("bookmarks"));
@@ -25,82 +25,7 @@ function saveNewLocation(row) {
 modal.hide()
 
 }
-const grid = new Grid({
-  columns: [
-    {
-      id: "uid",
-      name: "uid",
-      hidden: true
-    },
-    {
-      address: "address",
-      name: "address",
-      hidden: true
-    },
-    {
-      address: "dms",
-      name: "dms",
-      hidden: true
-    },
-    {
-      address: "altitude",
-      name: "altitude",
-      hidden: true
-    },
-    {
-      id: "name",
-      name: "Name",
-      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
-      attributes: {
-        scope: "col"
-      }
-    },
-    {
-      id: "date",
-      name: "date",
-      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
-      attributes: {
-        scope: "col"
-      }
-    },
 
-    {
-      id: "lat",
-      name: "Latitude",
-      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
-      attributes: {
-        scope: "col"
-      }
-    },
-    {
-      id: "lon",
-      name: "Longitude",
-      formatter: cell => html(`<a id="table-link" href='#'>${cell}</a>`),
-      attributes: {
-        scope: "col"
-      }
-    }
-  ],
-  search: true,
-  data: arr,
-  pagination: {
-    enabled: true,
-    limit: 8,
-    summary: false
-  },
-  className: {
-    container: "card h-100 table-container ",
-    header: "card-header bg-white py-4",
-    td: "my-td",
-    table: "table text-nowrap",
-    thead: "thead-light",
-    pagination: "pagination-container",
-    paginationButtonCurrent: "bg-primary text-white",
-    paginationButton: "btn btn-outline-primary",
-    paginationButtonPrev: "btn btn-outline-primary",
-    paginationButtonNext: "btn btn-outline-primary"
-  }
-})
 Date.prototype.toShortFormat = function () {
   let monthNames = [
     "Jan",
@@ -336,7 +261,49 @@ function saveOriginDestination(input) {
   }
 }
 
+export function addRow(tableID, name, lat, lon, address, dms, uid) {
+  // Get a reference to the table
+  let tableRef = document.getElementById(tableID);
 
+  // Insert a row at the end of the table
+  let newRow = tableRef.insertRow(-1);
+
+  // Insert a cell in the row at index 0
+  let newNameCell = newRow.insertCell(0);
+  let newLatCell = newRow.insertCell(1)
+  let newLonCell = newRow.insertCell(2)
+  let newAddressCell = newRow.insertCell(3)
+  let newDMSCell = newRow.insertCell(4)
+let anchor = document.createElement('a')
+  // Append a text node to the cell
+  let newName = document.createElement('a');
+ newName.innerText= name
+
+  let newLat = document.createElement('a');
+newLat.innerText= lat
+  let newLon = document.createElement('a');
+  newLon.innerText = lon
+  let newAddress = document.createElement('a');
+  newAddress.innerText = address
+
+   let newDMS = document.createElement('a');
+   newDMS.innerText = dms
+   let allElements = [newName, newLat, newLon, newAddress, newDMS]
+   for (let index = 0; index < allElements.length; index++) {
+     const element = allElements[index];
+
+     element.setAttribute("data-latitude", lat)
+     element.setAttribute("data-longitude", lon)
+      element.setAttribute("data-uid", uid)
+     element.setAttribute("href", "#")
+element.className = "btn bg-transparent text-white text-start"
+   }
+  newNameCell.appendChild(newName);
+  newLatCell.appendChild(newLat)
+  newLonCell.appendChild(newLon)
+  newAddressCell.appendChild(newAddress)
+  newDMSCell.appendChild(newDMS)
+}
 
 export function addBookmark(entryKey) {
     let allEntries = "bookmarks";
@@ -349,33 +316,43 @@ export function addBookmark(entryKey) {
     // Save allEntries back to local storage
     existingEntries.push(entry);
     localStorage.setItem(allEntries, JSON.stringify(existingEntries));
-    if(document.querySelector(".pagination-container")){
-      
+  
+  function helloWorld() {
+     const removeNullUndefined = obj =>
+    Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+    let savedBookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+    let arr = [];
+    if (savedBookmarks) {
+        let dms = `${entry.dms.lat} ${entry.dms.lon}`
+      addRow("bookmarkTable", entry.name, entry.lat, entry.lon, entry.address, dms, entry.uid)
+      for (let index = 0; index < savedBookmarks.length; index++) {
      
+        const element = savedBookmarks[index];
+        const newelm = removeNullUndefined(element);
+        arr.push(newelm);
+           let rowhtml = `   <tr class="${newelm.uid}">
+                      <th scope="row"></th>
+                      <td>${newelm.name}</td>
+                      <td>${newelm.latitude}</td>
+                      <td>${newelm.longitude}</td>
+                      <td>${newelm.address}</td>
+                    </tr>`
+     
+      let tableBody = document.querySelector("#tableBody")
+    
+
+ 
+      }
 
 
-      grid.updateConfig({
-        // lets update the columns field only
-        data: [
-          ['John', 'john@example.com', '(353) 01 222 3333'],
-          ['Mark', 'mark@gmail.com',   '(01) 22 888 4444']
-        ]
-      });
-
-      document.getElementById("grid-wrapper").innerHTML=""
-         setTimeout(() => {
-        updateBookmarkTable()
-         }, 2000);
-
-
-      
     }
-    else if (!document.querySelector(".pagination-container")) {
-      
-      addBookmarkTable()
+    
+  }
 
+  setTimeout(() => {
+    helloWorld()
+  }, 500);
 
-    }      
 
   
  
@@ -659,7 +636,7 @@ export function closePopup (marker) {
 }
 
 
-export function addBookmarkTable() {
+function addBookmarkTable() {
 
 
   const removeNullUndefined = obj =>
@@ -817,5 +794,5 @@ export default {
   toggleBookmark,
   toggleAltitude,
   closePopup,
-  addBookmarkTable
+addRow
 };
