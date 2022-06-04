@@ -26,7 +26,7 @@
     "rmprod": "rimraf filename-map.json && rimraf dist",
     "prettier": "prettier --write 'src/**/*.{js,css,scss,json,html}'"
   },
-  "author": "Brenton Cozby",
+  "author": "Andrew Logan",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.8.4",

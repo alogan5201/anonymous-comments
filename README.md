@@ -4,7 +4,7 @@ Use EJS, SASS, and the latest JavaScript syntax to build fully-static production
 **Websites built with this boilerplate:**
 * [Myocortex.com](https://myocortex.com "Myocortex website")
 * [RallyPointWebinars.com](https://rallypointwebinars.com "Rally Point Webinars website")
-* [BrentonCozby.com](https://brentoncozby.com "Brenton Cozby's software development portfolio")
+* [BrentonCozby.com](https://andrewlogan.dev "Andrew Logan's software development portfolio")
 
 ## Globals
 **`globals.js`**: The variables in this file, such as SITE_TITLE and PP (public path), are used throughout the project. Change them in globals.js and they will be updated throughout your entire codebase where used. They are provided as global variables in your JS and EJS files.

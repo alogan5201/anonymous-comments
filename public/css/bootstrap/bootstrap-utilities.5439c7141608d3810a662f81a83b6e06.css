@@ -2,7 +2,7 @@
 * GeoTools
 * Boilerplate for a Static website using EJS and SASS
 * example.com
-* @author Brenton Cozby -- https://brentoncozby.com
+* @author Andrew Logan -- https://andrewlogan.dev
 * Copyright 2022. MIT Licensed.
 */
 

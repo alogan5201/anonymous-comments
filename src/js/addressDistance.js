@@ -509,7 +509,7 @@ let originName = getCity(origin) || "Origin"
 let destinationName = getCity(destination) || "Destination"
   let html = `<div class="map-legend wax-legend">
 
-  <ul class="list-group bg-light w-100 ">
+  <ul class="list-group bg-light w-100 legend-list">
     <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
     <li id="travelTime" class="list-group-item ps-1">Travel time: <span class="result-text">${travelFormmatted.hoursText} ${travelFormmatted.minutesText}</span></li>
        <li id="originWeather" class="list-group-item ps-1">${originName} weather: <div class="hstack gap-3">
@@ -577,12 +577,15 @@ mapCol.addEventListener('click', e => {
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, 
     map.panTo(map.unproject(px), { animate: true });
     $(".leaflet-top.leaflet-left").css("opacity", "0");
+    $('.legend-list').css("opacity", '0');
     // TODO update
   });
   map.on("popupclose", function (e) {
 
 
     $(".leaflet-top.leaflet-left").css("opacity", "1");
+
+     $('.legend-list').css("opacity", '1');
   });
   var myModalEl = document.getElementById('bookmarkModal')
 const bookmarkform = document.getElementById("bookmarkForm")
@@ -661,7 +664,7 @@ if(localStorage.getItem("bookmarkMapLocation")){
   }
   let html = `<div class="map-legend wax-legend">
 
-  <ul class="list-group bg-light w-100 " style="opacity:0">
+  <ul class="list-group bg-light w-100 legend-list" style="opacity:0">
 
 
   </ul>
