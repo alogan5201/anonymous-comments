@@ -21,6 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     addBookmarkTable()
   let bmaploc = localStorage.getItem("bookmarkMapLocation")
   if(bmaploc && bmaploc.length > 0){
+    
     localStorage.setItem("bookmarkMapLocation", "")
   }
   
@@ -274,7 +275,7 @@ const run = (promises) => promises.reduce((p, c) => p.then((rp) => c.then((rc) =
 
 $("#getDistanceForm").on("submit", async function (e) {
     e.preventDefault();
-    let html = `<div class="map-legend wax-legend">
+/*     let html = `<div class="map-legend wax-legend">
 
     <ul class="list-group bg-light w-100 ">
       <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
@@ -293,7 +294,7 @@ $("#getDistanceForm").on("submit", async function (e) {
       </li>
   
     </ul>
-  </div>`
+  </div>` */
   //map.legendControl._container.innerHTML = html
     const submitText = $("form :submit").first().text();
     $(
@@ -310,15 +311,20 @@ $("#getDistanceForm").on("submit", async function (e) {
 
   
     const coordsOrigin =  getLatLon(
-      e.currentTarget[0].value
+      e.currentTarget[1].value
     );
+    console.log("🚀 ~ coordsOrigin", e)
 
     const coordsDestination = getLatLon(
-      e.currentTarget[1].value
+      e.currentTarget[2].value
     ); 
+    
     const result = await Promise.all([coordsOrigin, coordsDestination]);
+    console.log("🚀 ~ result", result)
    
     const origin = result[0].features[0];
+  
+    
     let originLatLon = result[0].features[0].geometry.coordinates;
     let originLat = originLatLon[1];
     let originLon = originLatLon[0];
@@ -545,6 +551,7 @@ for (let i = 0; i < inputs.length; i++) {
     let input = inputs[i]
     let marker = marker1.isPopupOpen() ? marker1 : marker2;
     let data = marker1.isPopupOpen() ? "origin-data" : "destination-data"
+    console.log("🚀 ~ data", data)
     let locationData = JSON.parse(localStorage.getItem(data));
     locationData.name = input.value;
      let p = popupContent(locationData);
