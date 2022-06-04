@@ -148,10 +148,10 @@ let id = input.uid ? input.uid : uid
 
   let bookmarked = input.name
     ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
-    : `<button id="bookmarkButton" type="button" class="${origin} ${destination} badge bg-transparent border border-primary text-primary btn-sm text-right   bookmark-btn" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
+    : `<button id="bookmarkButton" type="button" class="${origin} ${destination} btn btn-outline-primary btn-sm text-right   bookmark-btn" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
   let altitudeElm = altitude
     ? `<strong class="${origin}${destination}">${altitude}</strong>`
-    : `<button class="badge bg-primary border-white  getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >
+    : `<button class="btn btn-primary btn-sm getAltitude ${origin}${destination}  getAltitude" id="getAltitude" type="button" >
 Get Altitude
 </button>`;
 
@@ -168,7 +168,7 @@ Get Altitude
                <span class="lon">${input.lon}</span></li>
         <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${input.dms.lat} ${input.dms.lon}</li>
         ${distance}
-        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
+        <li class="list-group-item border-0 px-1 pt-2 fs-6 py-0 pb-1  border-top">
           <div class="hstack">
             <div class="  altitude me-auto">
         ${altitudeElm}
