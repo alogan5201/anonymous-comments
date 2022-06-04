@@ -507,7 +507,7 @@ let travelFormmatted = formatTravelData(results[0].hours, results[0].minutes)
 //document.querySelector("#originWeather .result-text").innerHTML(`${results[1].temp}°F `)
 let originName = getCity(origin) || "Origin"
 let destinationName = getCity(destination) || "Destination"
-  let html = `<div class="map-legend wax-legend">
+  let html = `<div class="map-legend wax-legend" style="visibility:visible !important">
 
   <ul class="list-group bg-light w-100 ">
     <li id="distance" class="list-group-item ps-1">Distance: <span class="result-text">${distance} miles</span></li>
@@ -576,13 +576,14 @@ mapCol.addEventListener('click', e => {
     var px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
     px.y -= e.target._popup._container.clientHeight / 2; // find the height of the popup container, divide by 2, 
     map.panTo(map.unproject(px), { animate: true });
-    $(".leaflet-top.leaflet-left").css("opacity", "0");
+    $(".map-legend.wax-legend").css("visibility", "hidden");
     // TODO update
+//<div class="map-legend wax-legend" style="visibility:visible !important">
   });
   map.on("popupclose", function (e) {
 
 
-    $(".leaflet-top.leaflet-left").css("opacity", "1");
+    $(".map-legend.wax-legend").css("visibility", "visible");
   });
   var myModalEl = document.getElementById('bookmarkModal')
 const bookmarkform = document.getElementById("bookmarkForm")
@@ -659,7 +660,7 @@ if(localStorage.getItem("bookmarkMapLocation")){
     marker.setLatLng([0, 0])
     
   }
-  let html = `<div class="map-legend wax-legend">
+  let html = `<div class="map-legend wax-legend"style="visibility:hidden !important">
 
   <ul class="list-group bg-light w-100 " style="opacity:0">
 

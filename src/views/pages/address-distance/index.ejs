@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <%- include(`${partials}/head`, {pageTitle: 'Home' }); -%>
-  <%- include(`${partials}/page-scripts/geocoder-css.ejs`); -%>
+
 
     <body class="latlon-to-distance">
       <!--[if lt IE 8]>
@@ -429,7 +429,7 @@ your experience.
                       </div>
                     </div>
                   </div>
-                  <div id="static"></div>
+                  <div id="static" class='d-none invisible'></div>
                 </div>
                 <div class="row">
                   <div id="liveAlertPlaceholder">
