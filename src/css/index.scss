@@ -1,6 +1,14 @@
 //
 // Styles
 //
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+html, body, #map {
+    height: 100% !important;
+
+}
 .map-legends.wax-legends.leaflet-control {
   visibility: hidden;
 }
@@ -10,7 +18,10 @@ html {
 #mainNav .container-fluid {
   max-width: 1170px;
 }
-
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+    pointer-events: none;
+    opacity: 1 !important;
+}
 .hide-element {
   display: none !important;
 }
@@ -1051,7 +1062,7 @@ button.btn.btn-outline-primary.bookmark-btn:disabled {
   padding-top: 30px;
   height: 0;
   overflow: hidden;
-  height: 400px;
+
 }
 #bookmark-map {
   position: absolute;
@@ -1227,17 +1238,17 @@ main {
 .map-container {
   position: relative;
   width: 100%;
-  max-height: 400px;
-  height: 400px;
+height: 91vh !important;
 }
 
 #map {
   position: absolute;
   top: 0;
   bottom: 0;
-  height: 400px;
+
   width: 100%;
   z-index: 2;
+
 }
 
 @font-face {
@@ -1480,3 +1491,6 @@ max-width: 650px !important;
   vertical-align: middle;
 }
 
+.leaflet-right .leaflet-control {
+  margin-right: 0 !important;
+}

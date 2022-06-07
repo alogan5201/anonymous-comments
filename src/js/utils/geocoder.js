@@ -147,7 +147,7 @@ let id = input.uid ? input.uid : uid
     : "";
 
   let bookmarked = input.name
-    ? `<button type="button" class="badge bg-primary border border-primary text-white btn-sm text-right   ${origin} ${destination}" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
+    ? `<button type="button" class="${origin} ${destination} btn btn-primary btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off" disabled>Bookmark <i class="fas fa-bookmark"></i></button>`
     : `<button id="bookmarkButton" type="button" class="${origin} ${destination} btn btn-outline-primary btn-sm text-right   bookmark-btn" data-bs-uid="${uid}">Bookmark <i class="far fa-bookmark"></i></button>`;
   let altitudeElm = altitude
     ? `<strong class="${origin}${destination}">${altitude}</strong>`
@@ -296,7 +296,7 @@ newLat.innerText= lat
      element.setAttribute("data-longitude", lon)
       element.setAttribute("data-uid", uid)
      element.setAttribute("href", "#")
-element.className = "btn bg-transparent text-white text-start"
+element.className = "btn bg-transparent text-start"
    }
   newNameCell.appendChild(newName);
   newLatCell.appendChild(newLat)
