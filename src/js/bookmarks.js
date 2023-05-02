@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
   helloWorld()
 
-  L.mapbox.accessToken = 'pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA'
+  L.mapbox.accessToken = 'pk.eyJ1IjoibmluYTU2ODIiLCJhIjoiY2xoNnFvYTJwMDhzczNtcXFiZ3c4Y3BoYiJ9.QsbZzVVQmdUqEpce-hq49A'
 
   var mapboxTiles = L.tileLayer(
     'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken,

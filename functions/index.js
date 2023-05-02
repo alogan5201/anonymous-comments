@@ -38,6 +38,7 @@ async function fetchAddress(lat, lon) {
     return;
   }
   const data = await response.json();
+  
   return data;
 }
 async function fetchLatLon(city) {
@@ -94,6 +95,7 @@ exports.getMatrix = functions.https.onCall((data) => {
   const first = data.first;
   const second = data.second;
   const result = fetchMatrix(first, second);
+
   return result;
   // [END returnAddData]
 });
@@ -108,6 +110,7 @@ exports.getAddress = functions.https.onCall((data) => {
   const lat = data.lat;
   const lon = data.lon;
   const result = fetchAddress(lat, lon);
+ 
   return result;
   // [END returnAddData]
 });
@@ -190,7 +193,6 @@ exports.addNumbers = functions.https.onCall((data) => {
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
 
 exports.addComment = functions.https.onCall( ( data ) => {
-  console.log(data)
   const text = data.text;
   const name = data.name;
   const uid = data.uid;

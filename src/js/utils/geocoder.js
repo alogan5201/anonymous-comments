@@ -59,6 +59,7 @@ export function altitudeLoading() {
   <button type="button" class="btn btn-outline-primary  btn-sm text-right   bookmark-btn" data-bs-toggle="button" autocomplete="off">Bookmark <i class="far fa-bookmark"></i></button>
 </div>`;
   return data;
+  
 }
 
 export function popupContent(input) {

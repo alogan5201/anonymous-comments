@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .map("map", null, { zoomControl: false })
     .setView([38.25004425273146, -85.75576792471112], 11);
   L.mapbox.accessToken =
-    "pk.eyJ1IjoibG9nYW41MjAxIiwiYSI6ImNrcTQybTFoZzE0aDQyeXM1aGNmYnR1MnoifQ.4kRWNfEH_Yao_mmdgrgjPA";
+    "pk.eyJ1IjoibmluYTU2ODIiLCJhIjoiY2xoNnFvYTJwMDhzczNtcXFiZ3c4Y3BoYiJ9.QsbZzVVQmdUqEpce-hq49A";
 
   const layer = L.mapbox
     .styleLayer("mapbox://styles/mapbox/streets-v11")

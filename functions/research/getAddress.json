@@ -1,0 +1,321 @@
+
+{
+    "type": "FeatureCollection",
+    "query": [
+      "austin",
+      "tx"
+    ],
+    "features": [
+      {
+        "id": "place.15042796",
+        "type": "Feature",
+        "place_type": [
+          "place"
+        ],
+        "relevance": 1,
+        "properties": {
+          "wikidata": "Q16559",
+          "mapbox_id": "dXJuOm1ieHBsYzo1WWpz"
+        },
+        "text": "Austin",
+        "place_name": "Austin, Texas, United States",
+        "bbox": [
+          -98.076759,
+          30.067944,
+          -97.541602,
+          30.519669
+        ],
+        "center": [
+          -97.7437,
+          30.271129
+        ],
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -97.7437,
+            30.271129
+          ]
+        },
+        "context": [
+          {
+            "id": "district.23095020",
+            "wikidata": "Q110426",
+            "mapbox_id": "dXJuOm1ieHBsYzpBV0JtN0E",
+            "text": "Travis County"
+          },
+          {
+            "id": "region.181484",
+            "short_code": "US-TX",
+            "wikidata": "Q1439",
+            "mapbox_id": "dXJuOm1ieHBsYzpBc1Rz",
+            "text": "Texas"
+          },
+          {
+            "id": "country.8940",
+            "short_code": "us",
+            "wikidata": "Q30",
+            "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+            "text": "United States"
+          }
+        ]
+      },
+      {
+        "id": "poi.790274036606",
+        "type": "Feature",
+        "place_type": [
+          "poi"
+        ],
+        "relevance": 1,
+        "properties": {
+          "foursquare": "577ed5a3498e57468e222779",
+          "landmark": true,
+          "address": "1220 W. Louis Henna Blvd, Building A, Suite A100",
+          "category": "education, school",
+          "maki": "school"
+        },
+        "text": "South University",
+        "place_name": "South University, 1220 W. Louis Henna Blvd, Building A, Suite A100, Austin, Texas 78681, United States",
+        "matching_text": "Austin",
+        "matching_place_name": "Austin, 1220 W. Louis Henna Blvd, Building A, Suite A100, Austin, Texas 78681, United States",
+        "center": [
+          -97.689962,
+          30.479434
+        ],
+        "geometry": {
+          "coordinates": [
+            -97.689962,
+            30.479434
+          ],
+          "type": "Point"
+        },
+        "context": [
+          {
+            "id": "postcode.272764652",
+            "mapbox_id": "dXJuOm1ieHBsYzpFRUlPN0E",
+            "text": "78681"
+          },
+          {
+            "id": "place.15050988",
+            "mapbox_id": "dXJuOm1ieHBsYzo1YWpz",
+            "text": "Austin"
+          },
+          {
+            "id": "district.25110252",
+            "wikidata": "Q112686",
+            "mapbox_id": "dXJuOm1ieHBsYzpBWDhtN0E",
+            "text": "Williamson County"
+          },
+          {
+            "id": "region.181484",
+            "short_code": "US-TX",
+            "wikidata": "Q1439",
+            "mapbox_id": "dXJuOm1ieHBsYzpBc1Rz",
+            "text": "Texas"
+          },
+          {
+            "id": "country.8940",
+            "short_code": "us",
+            "wikidata": "Q30",
+            "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+            "text": "United States"
+          }
+        ]
+      },
+      {
+        "id": "poi.575525618979",
+        "type": "Feature",
+        "place_type": [
+          "poi"
+        ],
+        "relevance": 1,
+        "properties": {
+          "foursquare": "4f9ab7056d8635c489ba67e3",
+          "landmark": true,
+          "address": "7311 Decker Ln",
+          "category": "vintage, thrift, second-hand, second hand, shop"
+        },
+        "text": "Country Living Fair",
+        "place_name": "Country Living Fair, 7311 Decker Ln, Austin, Texas 78724, United States",
+        "matching_text": "Austin",
+        "matching_place_name": "Austin, 7311 Decker Ln, Austin, Texas 78724, United States",
+        "center": [
+          -97.62243,
+          30.298741
+        ],
+        "geometry": {
+          "coordinates": [
+            -97.62243,
+            30.298741
+          ],
+          "type": "Point"
+        },
+        "context": [
+          {
+            "id": "postcode.272969452",
+            "mapbox_id": "dXJuOm1ieHBsYzpFRVV1N0E",
+            "text": "78724"
+          },
+          {
+            "id": "place.15042796",
+            "wikidata": "Q16559",
+            "mapbox_id": "dXJuOm1ieHBsYzo1WWpz",
+            "text": "Austin"
+          },
+          {
+            "id": "district.23095020",
+            "wikidata": "Q110426",
+            "mapbox_id": "dXJuOm1ieHBsYzpBV0JtN0E",
+            "text": "Travis County"
+          },
+          {
+            "id": "region.181484",
+            "short_code": "US-TX",
+            "wikidata": "Q1439",
+            "mapbox_id": "dXJuOm1ieHBsYzpBc1Rz",
+            "text": "Texas"
+          },
+          {
+            "id": "country.8940",
+            "short_code": "us",
+            "wikidata": "Q30",
+            "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+            "text": "United States"
+          }
+        ]
+      },
+      {
+        "id": "poi.197568583151",
+        "type": "Feature",
+        "place_type": [
+          "poi"
+        ],
+        "relevance": 1,
+        "properties": {
+          "foursquare": "5d6818c7716af50008064557",
+          "landmark": true,
+          "address": "9901 N Capital of Texas Hwy",
+          "category": "charging station, chargepoint"
+        },
+        "text": "Tesla Supercharger - Stonelake Blvd",
+        "place_name": "Tesla Supercharger - Stonelake Blvd, 9901 N Capital of Texas Hwy, Austin, Texas 78759, United States",
+        "matching_text": "Austin",
+        "matching_place_name": "Austin, 9901 N Capital of Texas Hwy, Austin, Texas 78759, United States",
+        "center": [
+          -97.739815,
+          30.389303
+        ],
+        "geometry": {
+          "coordinates": [
+            -97.739815,
+            30.389303
+          ],
+          "type": "Point"
+        },
+        "context": [
+          {
+            "id": "neighborhood.238873836",
+            "mapbox_id": "dXJuOm1ieHBsYzpEanpzN0E",
+            "text": "Gateway"
+          },
+          {
+            "id": "postcode.273239788",
+            "mapbox_id": "dXJuOm1ieHBsYzpFRWxPN0E",
+            "text": "78759"
+          },
+          {
+            "id": "place.15042796",
+            "wikidata": "Q16559",
+            "mapbox_id": "dXJuOm1ieHBsYzo1WWpz",
+            "text": "Austin"
+          },
+          {
+            "id": "district.23095020",
+            "wikidata": "Q110426",
+            "mapbox_id": "dXJuOm1ieHBsYzpBV0JtN0E",
+            "text": "Travis County"
+          },
+          {
+            "id": "region.181484",
+            "short_code": "US-TX",
+            "wikidata": "Q1439",
+            "mapbox_id": "dXJuOm1ieHBsYzpBc1Rz",
+            "text": "Texas"
+          },
+          {
+            "id": "country.8940",
+            "short_code": "us",
+            "wikidata": "Q30",
+            "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+            "text": "United States"
+          }
+        ]
+      },
+      {
+        "id": "poi.206158508356",
+        "type": "Feature",
+        "place_type": [
+          "poi"
+        ],
+        "relevance": 1,
+        "properties": {
+          "landmark": true,
+          "address": "2919 Manchaca Rd",
+          "foursquare": "4b329907f964a520970f25e3"
+        },
+        "text": "Relson Gracie Jiu-Jitsu",
+        "place_name": "Relson Gracie Jiu-Jitsu, 2919 Manchaca Rd, Austin, Texas 78704, United States",
+        "matching_text": "Austin",
+        "matching_place_name": "Austin, 2919 Manchaca Rd, Austin, Texas 78704, United States",
+        "center": [
+          -97.781555,
+          30.241651
+        ],
+        "geometry": {
+          "coordinates": [
+            -97.781555,
+            30.241651
+          ],
+          "type": "Point"
+        },
+        "context": [
+          {
+            "id": "neighborhood.600149228",
+            "mapbox_id": "dXJuOm1ieHBsYzpJOFdNN0E",
+            "text": "South Lamar (SoLa)"
+          },
+          {
+            "id": "postcode.272821996",
+            "mapbox_id": "dXJuOm1ieHBsYzpFRUx1N0E",
+            "text": "78704"
+          },
+          {
+            "id": "place.15042796",
+            "wikidata": "Q16559",
+            "mapbox_id": "dXJuOm1ieHBsYzo1WWpz",
+            "text": "Austin"
+          },
+          {
+            "id": "district.23095020",
+            "wikidata": "Q110426",
+            "mapbox_id": "dXJuOm1ieHBsYzpBV0JtN0E",
+            "text": "Travis County"
+          },
+          {
+            "id": "region.181484",
+            "short_code": "US-TX",
+            "wikidata": "Q1439",
+            "mapbox_id": "dXJuOm1ieHBsYzpBc1Rz",
+            "text": "Texas"
+          },
+          {
+            "id": "country.8940",
+            "short_code": "us",
+            "wikidata": "Q30",
+            "mapbox_id": "dXJuOm1ieHBsYzpJdXc",
+            "text": "United States"
+          }
+        ]
+      }
+    ],
+    "attribution": "NOTICE: © 2023 Mapbox and its suppliers. All rights reserved. Use of this data is subject to the Mapbox Terms of Service (https://www.mapbox.com/about/maps/). This response and the information it contains may not be retained. POI(s) provided by Foursquare."
+  }
