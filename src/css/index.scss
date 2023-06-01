@@ -1316,3 +1316,65 @@ width: 100%;
 .modal-tour .modal-dialog {
   width: 380px;
 }
+
+/* SCROLLABLE TABLE */
+
+@mixin column-width($order, $width) {
+  td:nth-child(#{$order}),
+  th:nth-child(#{$order}) {
+    @if $width == 0 {
+      display: none;
+    } @else {
+      width: $width;
+    }
+  }
+}
+
+@mixin column-flex-clear($order) {
+  td:nth-child(#{$order}),
+  th:nth-child(#{$order}) {
+    flex: unset;
+  }
+}
+
+.table-fixed {
+  thead > tr, tbody > tr {
+    display: flex;
+    justify-content: space-around;
+    flex: 0 0 auto;
+
+    th, td {
+      flex: 1;
+    }
+  }
+
+  tbody {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.table-lock-height > tbody {
+  max-height: 32vh;
+  min-height: 32vh
+}
+
+.table-custom-width {
+  // colunm 1
+  @include column-flex-clear(1);
+  @include column-width(1, 10%);
+  
+  // colunm 2
+  @include column-flex-clear(2);
+  @include column-width(2, 15%);
+  
+  // colunm width sum need to 100%
+  // or colunm 3 need auto width
+}
+.bookmark-table-row {
+  cursor: pointer;
+}
+.bookmark-table-row:hover {
+  background-color: #f8fafd;
+}

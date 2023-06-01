@@ -6,7 +6,7 @@
  * all the paths within Dir in globals.js
  */
 
-import "./firebase"
+
 
 import "picturefill";
 import "utils/errors";

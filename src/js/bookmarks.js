@@ -1,35 +1,25 @@
-/** letiables available in all js files:
- * all the exported constants from globals.js
- */
 
-/** Directories available as aliases
- * all the paths within Dir in globals.js
- */
+async function getIp() {
+  const query = await fetch(`https://ipapi.co/json`, { method: "GET" });
+  if (query.status !== 200) {
+    alert(query.status);
+    return;
+  }
 
-import './firebase'
+  const data = await query.json();
+  let lat = data.latitude
+  let lon = data.longitude
+  let obj = { lat: lat, lon: lon }
+  localStorage.setItem("userlocation", `${JSON.stringify(obj)}`)
 
-import 'picturefill'
-import 'utils/errors'
-import {Grid, html} from 'gridjs'
-import {
-  addBookmark,
-  generateUID,
-  getAddress,
-  getLatLon,
-  popupContent,
-  toggleAltitude,
-  toggleBookmark,
-  closePopup,
-} from 'utils/geocoder'
-/*
-var dropdownElementList = [].slice.call(
-  document.querySelectorAll(".nav-bar-toggle")
-);
-var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-  return new Dropdown(dropdownToggleEl);
-});
-*/
-let url = window.location.href
+  return data;
+}
+
+
+
+// commentReply( name, id, date, message)
+// comment (id, name, date, message, likes, dislikes)
+
 Date.prototype.toShortFormat = function() {
   let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -44,149 +34,71 @@ Date.prototype.toShortFormat = function() {
 }
 
 let today = new Date()
-
 const prettyDate = today.toShortFormat()
+const siteTitle = $('#site-title').text()
 
-//const functions = getFunctions(app);
+const path = window.location.pathname
 
-window.addEventListener('DOMContentLoaded', event => {
-  console.log('index page loaded')
+$(function() {
 
-  const removeNullUndefined = obj => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null))
+  /**
+   *---------------------------------------------------------------------
+   * !! MAP SCRIPT START
+   * -------------------------------------------------------------------
+   */
 
-  function helloWorld() {
-    let savedBookmarks = JSON.parse(localStorage.getItem('bookmarks'))
-    let arr = []
-    if (savedBookmarks) {
-      for (let index = 0; index < savedBookmarks.length; index++) {
-        const element = savedBookmarks[index]
-        const newelm = removeNullUndefined(element)
-        arr.push(newelm)
-      }
-      console.log(arr)
-      const grid = new Grid({
-        columns: [
-          {
-            id: 'uid',
-            name: 'uid',
-            hidden: true,
-          },
-          {
-            address: 'address',
-            name: 'address',
-            hidden: true,
-          },
-          {
-            address: 'dms',
-            name: 'dms',
-            hidden: true,
-          },
-          {
-            address: 'altitude',
-            name: 'altitude',
-            hidden: true,
-          },
-          {
-            id: 'name',
-            name: 'Name',
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: 'col',
-            },
-          },
-          {
-            id: 'date',
-            name: 'date',
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: 'col',
-            },
-          },
+function getBookmarkItems(){
+  let bookmarks = localStorage.getItem('bookmarks') ? JSON.parse(localStorage.getItem('bookmarks')) : null
+if(bookmarks){
+  const allTableRows = []
+  for (let index = 0; index < bookmarks.length; index++) {
+    const element = bookmarks[index];
+    console.log(element)
+    let tr = `
+    <tr class="bookmark-table-row">
+    <th scope="row">${element.name}</th>
+    <td>${element.lat}</td>
+    <td>${element.lon}</td>
+  </tr>
+  `
+allTableRows.push(tr)
 
-          {
-            id: 'lat',
-            name: 'Latitude',
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: 'col',
-            },
-          },
-          {
-            id: 'lon',
-            name: 'Longitude',
-            formatter: cell => html(`<a href='#'>${cell}</a>`),
-            attributes: {
-              scope: 'col',
-            },
-          },
-        ],
-        search: true,
-        data: arr,
-        pagination: {
-          enabled: true,
-          limit: 8,
-          summary: false,
-        },
-        style: {
-          table: {
-            'white-space': 'nowrap',
-          },
-          th: {
-            'border-collapse': 'separate!important',
-            'border-spacing': '0',
-
-            border: '0 solid',
-
-            'border-bottomwidth': '1px',
-
-            ' padding': '.75rem',
-            'border-color': '#dee2e6',
-            'box-sizing': 'content-box',
-            cursor: 'pointer',
-            ' position': 'relative',
-            'padding-right': '30px',
-            'border-left': '0',
-            'padding-left': '1.25rem',
-            'border-top': '0',
-          },
-        },
-        className: {
-          td: 'my-td',
-          table: 'table table-striped my-0 dataTable no-footer',
-          thead: 'thead-light',
-          pagination: 'btn-group',
-          paginationButtonCurrent: 'btn btn-primary text-white',
-          paginationButton: 'btn btn-outline border border-primary text-primary', //btn btn-outline-primary
-          paginationButtonPrev: 'btn btn-outline-primary border border-primary text-primary',
-          paginationButtonNext: 'btn btn-outline-primary border border-primary text-primary',
-        },
-      }).render(document.getElementById('grid-wrapper'))
-
-      grid.on('rowClick', (...args) => test(args[1]._cells))
-      //grid.on('cellClick', (...args) => console.log('cell: ' + JSON.stringify(args), args));
-
-      return grid
-    }
   }
-
-  helloWorld()
-
+  return allTableRows
+}
+}
+function createTableBody(){
+  let tableBody = getBookmarkItems()
+ $(".bookmark-table").html(tableBody.join(''));
+}
+createTableBody()
   L.mapbox.accessToken = 'pk.eyJ1IjoibmluYTU2ODIiLCJhIjoiY2xoNnFvYTJwMDhzczNtcXFiZ3c4Y3BoYiJ9.QsbZzVVQmdUqEpce-hq49A'
+  const map = L.mapbox.map('map', null, {zoomControl: false}).setView([38.25004425273146, -85.75576792471112], 11)
 
-  var mapboxTiles = L.tileLayer(
-    'https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken,
-    {
-      attribution:
-        '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      tileSize: 512,
-      zoomOffset: -1,
-    }
-  )
+  L.mapbox
+    .styleLayer('mapbox://styles/mapbox/streets-v11')
+    .addTo(map) // add your tiles to the map
+    .once('load', finishedLoading)
 
-  const map = L.map('map')
-    .addLayer(mapboxTiles)
-    .setView([42.361, -74.0587], 10)
+  function finishedLoading() {
+    // first, toggle the class 'done', which makes the loading screen
+    // fade out
 
+  }
+  $(".bookmark-table").on("click",".bookmark-table-row", function (e) {
+    e.preventDefault()
+    console.log(e)
+    let lat = $(this).find('td:nth-child(2)').text()
+    let lon = $(this).find('td:nth-child(3)').text()
+    map.fitBounds([[lat, lon]], {padding: [50, 50], maxZoom: 13})
+    marker
+      .setLatLng([lat, lon])
+    console.log(lat,lon)
+  });
+  $('#mapTest').on('click', function(e) {
+    e.preventDefault()
+    
+  })
   const marker = L.marker([0, 0], {
     icon: L.mapbox.marker.icon({
       'marker-size': 'large',
@@ -194,43 +106,70 @@ window.addEventListener('DOMContentLoaded', event => {
       'marker-color': 'blue',
     }),
   }).addTo(map)
-  function test(row) {
-    let uid = row[0].data
-    console.log(uid)
+  var locationControl = L.control
+    .locate({
+      circleStyle: {opacity: 0},
+      followCircleStyle: {opacity: 0},
+      drawCircle: false,
+      follow: false,
+      setView: false,
+      remainActive: false,
+      showPopup: false,
+      locateOptions: {
+        enableHighAccuracy: true,
+        timeout: 5000,
+      },
+    })
+    .addTo(map)
 
-    let local = JSON.parse(localStorage.getItem('bookmarks'))
-    const found = local.find(element => element.uid == uid)
-    console.log(found)
-    let lat = found.lat
-    let lon = found.lon
-    console.log(lat, lon)
+  map.on('locationfound', async function(e) {
+    let lat = e.latitude
+    let lon = e.longitude
 
-    map.fitBounds([[lat, lon]], {padding: [50, 50], maxZoom: 13})
 
-    const p = `  <div id = "popupContent" class="row popupContent position-relative">
-  <div class="col p-0 popup-content">
+    setTimeout(() => {
+      map.fitBounds([[lat, lon]], {padding: [50, 50], maxZoom: 13})
+      marker
+        .setLatLng([lat, lon])
+   
+    }, 1000)
+  })
 
-    <div class="card-body px-3 pt-2 pb-1">
-      <ul class="list-group border-0">
-       <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.name} </li>
-        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2"> ${found.address || ''} </li>
-        <li class="list-group-item border-0 px-1 pb-1 fs-6 pt-2">  Latitude: <span
-              class="lat">${found.lat} </span></li>
-        <li class="list-group-item border-0 px-1 fs-6 py-0">
-         Longitude:
-               <span class="lon">${found.lon}</span></li>
-        <li class="list-group-item border-0 px-1 fs-6 pt-0 pb-1 dms"> ${found.dms.lat} ${found.dms.lon}</li>
-        
-        <li class="list-group-item border-0 px-1 pt-1 fs-6 py-0 pb-1  border-top">
-      
+  map.on('locationerror', async function(e) {
+    locationControl.stop()
+    // TODO UPDATE other pages with ip address fallback
+    let icon = locationControl._icon
+    $(icon).css('background-color', 'hsl(217deg 93% 60%)')
+    const ip = await getIp()
 
-  </div>
+    if (ip.latitude) {
+      let lat = ip.latitude
+      let lon = ip.longitude
 
-</div> `
-    var popup = L.popup({autoPan: true, keepInView: true}).setContent(p)
-    marker
-      .setLatLng([lat, lon])
-      .bindPopup(popup)
-      .openPopup()
-  }
+    
+
+      //hsl(217deg 93% 60%)
+      let icon = locationControl._icon
+      $(icon).css('background-color', 'hsl(217deg 93% 60%)')
+
+ 
+   
+      map.fitBounds([[lat, lon]], {padding: [50, 50], maxZoom: 13})
+
+
+      const data = {
+        lat: lat,
+        lon: lon,
+      }
+
+      // # TODO: ADD to all converts
+
+      marker
+        .setLatLng([lat, lon])
+      setTimeout(() => {
+        $(icon).css('background-color', 'black')
+      }, 1000)
+    }
+  })
+
 })

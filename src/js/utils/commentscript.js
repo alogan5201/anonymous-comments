@@ -1,27 +1,19 @@
 /* jshint esversion: 8 */
-import { initializeApp } from "firebase/app";
 
 import {
-  getDatabase,
-  ref,
-  set,
   get,
+  getDatabase,
+  increment,
   onValue,
   push,
-
-  increment,
-
+  ref,
+  set,
 } from "firebase/database";
 
+import dompurify from "dompurify";
 import {
   getAuth,
-
-
 } from "firebase/auth";
-import {
-  httpsCallable,
-
-} from "firebase/functions";
 import {
   comment,
   commentReply,
@@ -29,8 +21,7 @@ import {
   replyForm,
 } from "utils/comments";
 import { toggleModal } from "utils/helpers";
-import {addCommentMessage, createRandomUser, handleComment, sanitizeReply} from "../firebase"
-import dompurify from "dompurify";
+import { createRandomUser, handleComment, sanitizeReply } from "../firebase";
 
 
 const auth = getAuth();
