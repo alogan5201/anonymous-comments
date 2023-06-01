@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.9.0",
     "autoprefixer": "^7.2.6",
     "babel-loader": "^8.1.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.3",
     "clean-css": "^4.2.3",
     "ejs": "^2.7.4",
     "html-minifier": "^3.5.21",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@aghajari/jssoup": "^1.0.2",
-    "@mapbox/mapbox-sdk": "^0.13.3",
+    "@mapbox/mapbox-sdk": "^0.15.1",
     "@popperjs/core": "^2.11.5",
     "bad-words": "^3.0.4",
     "bootpag": "^1.0.7",

@@ -11,3 +11,6 @@ pk.eyJ1IjoibmluYTU2ODIiLCJhIjoiY2xoNnFvYTJwMDhzczNtcXFiZ3c4Y3BoYiJ9.QsbZzVVQmdUq
 
 https://api.mapbox.com/styles/v1/mapbox/streets-v11?access_token=pk.eyJ1IjoibmluYTU2ODIiLCJhIjoiY2xoNnFvYTJwMDhzczNtcXFiZ3c4Y3BoYiJ9.QsbZzVVQmdUqEpce-hq49A
 
+# Bookmark modal
+- modal.ejs is not the code for the modal.
+- comment-section.ejs is code for modal
