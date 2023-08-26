@@ -89,6 +89,8 @@ const path = window.location.pathname;
 
 const commentRef = ref(db, `messages${path}`);
 
+console.log("🚀 ~ path:", path)
+console.log("🚀 ~ commentRef:", commentRef)
 /**
  *---------------------------------------------------------------------
  * !! DISPLAY COMMENTS
@@ -119,6 +121,7 @@ function displayComments() {
             dislikes
           );
           $("#comment-section").append(commentsList);
+          console.log("🚀 ~ .then ~ commentsList:", commentsList)
           if (value.replies) {
             let ex = extractReplies(value.replies);
             for (let index = 0; index < ex.length; index++) {

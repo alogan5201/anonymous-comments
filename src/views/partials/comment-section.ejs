@@ -61,8 +61,8 @@
 
 
 </div>
-<div id="filterCommentSuccess" class="modal fade" tabindex="-1">
-  <div class="modal-dialog modal-confirm success modal-dialog-centered my-0 mx-auto">
+<div id="filterCommentSuccess" class="modal fade " tabindex="-1"  role="dialog" >
+  <div class="modal-dialog modal-confirm success modal-dialog-centered my-0 mx-auto" style="margin-top:3em !important">
     <div class="modal-content">
       <div class="modal-header">
         <div class="icon-box">
@@ -81,9 +81,11 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="filterCommentFail" tabindex="-1" aria-labelledby="filterCommentFailLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-confirm modal-dialog-centered failure">
+
+
+<div class="modal fade show" id="filterCommentFail" tabindex="-1" aria-labelledby="filterCommentFailLabel" 
+   tabindex="-1" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog modal-confirm modal-dialog-centered failure" style="margin-top:3em !important">
     <div class="modal-content">
       <div class="modal-header">
         <div class="icon-box">
@@ -92,7 +94,7 @@
         <h4 class="modal-title w-100">Oops!</h4>
       </div>
       <div class="modal-body">
-        <p class="text-center">
+        <p class="text-center" style="margin: 0px !important">
           The content of your message was flagged inappropriate.<br />Please
           try again.
         </p>
